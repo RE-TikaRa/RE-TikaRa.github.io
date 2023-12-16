@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>AL Project</title>
+  
+  <subtitle>人类情感研究室</subtitle>
+  <link href="http://re-tikara.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://re-tikara.github.io/"/>
+  <updated>2023-12-13T19:33:29.126Z</updated>
+  <id>http://re-tikara.github.io/</id>
+  
+  <author>
+    <name>夜雨安歌_TikaRa</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>配布申请要求</title>
+    <link href="http://re-tikara.github.io/2023/12/14/mmd/requirements/pei-bu-shen-qing-yao-qiu/"/>
+    <id>http://re-tikara.github.io/2023/12/14/mmd/requirements/pei-bu-shen-qing-yao-qiu/</id>
+    <published>2023-12-13T19:00:03.000Z</published>
+    <updated>2023-12-13T19:33:29.126Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;要求-Application&quot;&gt;&lt;a href=&quot;#要求-Application&quot; class=&quot;headerlink&quot; title=&quot;要求&amp;#x2F;Application:&quot;&gt;&lt;/a&gt;要求&amp;#x2F;Application:&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="MMD" scheme="http://re-tikara.github.io/categories/MMD/"/>
+    
+    <category term="Requirements" scheme="http://re-tikara.github.io/categories/MMD/Requirements/"/>
+    
+    
+    <category term="Rules" scheme="http://re-tikara.github.io/tags/Rules/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PJSK-MIKU 动作配布</title>
+    <link href="http://re-tikara.github.io/2023/12/14/mmd/motion-dl/pjsk-miku-dong-zuo-pei-bu/"/>
+    <id>http://re-tikara.github.io/2023/12/14/mmd/motion-dl/pjsk-miku-dong-zuo-pei-bu/</id>
+    <published>2023-12-13T18:44:30.000Z</published>
+    <updated>2023-12-16T13:48:37.171Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="MMD" scheme="http://re-tikara.github.io/categories/MMD/"/>
+    
+    <category term="Motion DL" scheme="http://re-tikara.github.io/categories/MMD/Motion-DL/"/>
+    
+    
+    <category term="Motion DL" scheme="http://re-tikara.github.io/tags/Motion-DL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>安歌的动作使用指南</title>
+    <link href="http://re-tikara.github.io/2023/12/14/mmd/mmd-jiao-cheng/pjsk-dong-zuo-lei/an-ge-de-dong-zuo-shi-yong-zhi-nan/"/>
+    <id>http://re-tikara.github.io/2023/12/14/mmd/mmd-jiao-cheng/pjsk-dong-zuo-lei/an-ge-de-dong-zuo-shi-yong-zhi-nan/</id>
+    <published>2023-12-13T17:04:05.000Z</published>
+    <updated>2023-12-13T19:30:22.595Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;安歌的动作使用指南&quot;&gt;&lt;a href=&quot;#安歌的动作使用指南&quot; class=&quot;headerlink&quot; title=&quot;安歌的动作使用指南&quot;&gt;&lt;/a&gt;安歌的动作使用指南&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="MMD" scheme="http://re-tikara.github.io/categories/MMD/"/>
+    
+    <category term="MMD 教程" scheme="http://re-tikara.github.io/categories/MMD/MMD-%E6%95%99%E7%A8%8B/"/>
+    
+    <category term="PJSK动作类" scheme="http://re-tikara.github.io/categories/MMD/MMD-%E6%95%99%E7%A8%8B/PJSK%E5%8A%A8%E4%BD%9C%E7%B1%BB/"/>
+    
+    
+    <category term="PJSK动作修改教程" scheme="http://re-tikara.github.io/tags/PJSK%E5%8A%A8%E4%BD%9C%E4%BF%AE%E6%94%B9%E6%95%99%E7%A8%8B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MMD动作规约</title>
+    <link href="http://re-tikara.github.io/2023/12/14/mmd/rules/motions-rules/mmd-dong-zuo-gui-yue/"/>
+    <id>http://re-tikara.github.io/2023/12/14/mmd/rules/motions-rules/mmd-dong-zuo-gui-yue/</id>
+    <published>2023-12-13T16:38:40.000Z</published>
+    <updated>2023-12-13T19:39:09.992Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;MMD动作规约-MMD-Motion-Rules&quot;&gt;&lt;a href=&quot;#MMD动作规约-MMD-Motion-Rules&quot; class=&quot;headerlink&quot; title=&quot;MMD动作规约&amp;#x2F;MMD Motion Rules&quot;&gt;&lt;/a&gt;MMD动作规约&amp;#x2F;MMD Motion Rules&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="MMD" scheme="http://re-tikara.github.io/categories/MMD/"/>
+    
+    <category term="Rules" scheme="http://re-tikara.github.io/categories/MMD/Rules/"/>
+    
+    <category term="Motions Rules" scheme="http://re-tikara.github.io/categories/MMD/Rules/Motions-Rules/"/>
+    
+    
+    <category term="Rules" scheme="http://re-tikara.github.io/tags/Rules/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MMD模型规约</title>
+    <link href="http://re-tikara.github.io/2023/12/14/mmd/rules/model-rules/mmd-mo-xing-gui-yue/"/>
+    <id>http://re-tikara.github.io/2023/12/14/mmd/rules/model-rules/mmd-mo-xing-gui-yue/</id>
+    <published>2023-12-13T16:19:33.000Z</published>
+    <updated>2023-12-13T19:37:50.865Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;MMD模型规约-MMD-Model-Rules&quot;&gt;&lt;a href=&quot;#MMD模型规约-MMD-Model-Rules&quot; class=&quot;headerlink&quot; title=&quot;MMD模型规约&amp;#x2F;MMD Model Rules&quot;&gt;&lt;/a&gt;MMD模型规约&amp;#x2F;MMD Model Rules&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="MMD" scheme="http://re-tikara.github.io/categories/MMD/"/>
+    
+    <category term="Rules" scheme="http://re-tikara.github.io/categories/MMD/Rules/"/>
+    
+    <category term="Model Rules" scheme="http://re-tikara.github.io/categories/MMD/Rules/Model-Rules/"/>
+    
+    
+    <category term="Rules" scheme="http://re-tikara.github.io/tags/Rules/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo建设日志01</title>
+    <link href="http://re-tikara.github.io/2023/12/11/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-01-ru-he-jiang-ani-dong-tai-guang-biao-zhuan-huan-wei-cur-jing-tai-guang-biao/"/>
+    <id>http://re-tikara.github.io/2023/12/11/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-01-ru-he-jiang-ani-dong-tai-guang-biao-zhuan-huan-wei-cur-jing-tai-guang-biao/</id>
+    <published>2023-12-11T04:46:41.000Z</published>
+    <updated>2023-12-13T17:56:16.762Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Hexo建设日志01-将-ani转换为-cur&quot;&gt;&lt;a href=&quot;#Hexo建设日志01-将-ani转换为-cur&quot; class=&quot;headerlink&quot; title=&quot;Hexo建设日志01-将.ani转换为.cur&quot;&gt;&lt;/a&gt;Hexo建设日志01-将.ani转换为.cur&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="Hexo建设日志" scheme="http://re-tikara.github.io/categories/Hexo%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="Hexo建设日志" scheme="http://re-tikara.github.io/tags/Hexo%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo备忘录001-文章加密</title>
+    <link href="http://re-tikara.github.io/2023/12/10/hexo-bei-wang-lu/hexo-bei-wang-lu-001-wen-zhang-jia-mi/"/>
+    <id>http://re-tikara.github.io/2023/12/10/hexo-bei-wang-lu/hexo-bei-wang-lu-001-wen-zhang-jia-mi/</id>
+    <published>2023-12-10T15:28:09.000Z</published>
+    <updated>2023-12-13T17:56:16.762Z</updated>
+    
+    
+    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
+    
+    
+    
+    <category term="Hexo备忘录" scheme="http://re-tikara.github.io/categories/Hexo%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+    
+    <category term="Hexo备忘录" scheme="http://re-tikara.github.io/tags/Hexo%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>About</title>
+    <link href="http://re-tikara.github.io/2023/12/09/about/about/"/>
+    <id>http://re-tikara.github.io/2023/12/09/about/about/</id>
+    <published>2023-12-09T05:21:00.000Z</published>
+    <updated>2023-12-13T17:56:16.762Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;About-关于&quot;&gt;&lt;a href=&quot;#About-关于&quot; class=&quot;headerlink&quot; title=&quot;About&amp;#x2F;关于&quot;&gt;&lt;/a&gt;About&amp;#x2F;关于&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="About" scheme="http://re-tikara.github.io/categories/About/"/>
+    
+    
+    <category term="About" scheme="http://re-tikara.github.io/tags/About/"/>
+    
+  </entry>
+  
+</feed>
