@@ -6,7 +6,7 @@
   <link href="http://re-tikara.github.io/atom.xml" rel="self"/>
   
   <link href="http://re-tikara.github.io/"/>
-  <updated>2023-12-13T19:33:29.126Z</updated>
+  <updated>2023-12-19T15:49:54.860Z</updated>
   <id>http://re-tikara.github.io/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo建设日志02</title>
+    <link href="http://re-tikara.github.io/2023/12/19/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-02-ru-he-jiang.avif-wen-jian-zhuan-hua-wei-chang-yong-tu-pian-ge-shi/"/>
+    <id>http://re-tikara.github.io/2023/12/19/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-02-ru-he-jiang.avif-wen-jian-zhuan-hua-wei-chang-yong-tu-pian-ge-shi/</id>
+    <published>2023-12-19T15:24:33.000Z</published>
+    <updated>2023-12-19T15:49:54.860Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Hexo建设日志02-如将-avif文件转化为常用图片格式&quot;&gt;&lt;a href=&quot;#Hexo建设日志02-如将-avif文件转化为常用图片格式&quot; class=&quot;headerlink&quot; title=&quot;Hexo建设日志02-如将.avif文件转化为常用图片格式&quot;&gt;&lt;/a&gt;Hexo建设日志02-如将.avif文件转化为常用图片格式&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="Hexo建设日志" scheme="http://re-tikara.github.io/categories/Hexo%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="Hexo建设日志" scheme="http://re-tikara.github.io/tags/Hexo%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
   
   <entry>
     <title>配布申请要求</title>
@@ -132,7 +151,7 @@
     <link href="http://re-tikara.github.io/2023/12/11/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-01-ru-he-jiang-ani-dong-tai-guang-biao-zhuan-huan-wei-cur-jing-tai-guang-biao/"/>
     <id>http://re-tikara.github.io/2023/12/11/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-01-ru-he-jiang-ani-dong-tai-guang-biao-zhuan-huan-wei-cur-jing-tai-guang-biao/</id>
     <published>2023-12-11T04:46:41.000Z</published>
-    <updated>2023-12-13T17:56:16.762Z</updated>
+    <updated>2023-12-19T15:28:02.855Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Hexo建设日志01-将-ani转换为-cur&quot;&gt;&lt;a href=&quot;#Hexo建设日志01-将-ani转换为-cur&quot; class=&quot;headerlink&quot; title=&quot;Hexo建设日志01-将.ani转换为.cur&quot;&gt;&lt;/a&gt;Hexo建设日志01-将.ani转换为.cur&lt;/h1&gt;</summary>
@@ -147,11 +166,11 @@
   </entry>
   
   <entry>
-    <title>Hexo备忘录001-文章加密</title>
+    <title>Hexo备忘录001-文章加密的文章头（ 密码：TikaRa ）</title>
     <link href="http://re-tikara.github.io/2023/12/10/hexo-bei-wang-lu/hexo-bei-wang-lu-001-wen-zhang-jia-mi/"/>
     <id>http://re-tikara.github.io/2023/12/10/hexo-bei-wang-lu/hexo-bei-wang-lu-001-wen-zhang-jia-mi/</id>
     <published>2023-12-10T15:28:09.000Z</published>
-    <updated>2023-12-13T17:56:16.762Z</updated>
+    <updated>2023-12-19T15:49:37.327Z</updated>
     
     
     <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>

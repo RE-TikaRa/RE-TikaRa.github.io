@@ -104,6 +104,32 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
       </tags>
   </entry>
   <entry>
+    <title>Hexo建设日志02</title>
+    <url>/2023/12/19/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-02-ru-he-jiang.avif-wen-jian-zhuan-hua-wei-chang-yong-tu-pian-ge-shi/</url>
+    <content><![CDATA[<h1 id="Hexo建设日志02-如将-avif文件转化为常用图片格式"><a href="#Hexo建设日志02-如将-avif文件转化为常用图片格式" class="headerlink" title="Hexo建设日志02-如将.avif文件转化为常用图片格式"></a>Hexo建设日志02-如将.avif文件转化为常用图片格式</h1><span id="more"></span>
+<h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a><em>前言：</em><br></h2><p>&emsp;&emsp;最近我发现从浏览器上直接捕获的图片，不管是通过下载器下载还是直接另存，都成了一种没见过的格式&ensp;<em><strong>.avif</strong></em>&ensp;。没办法打开做处理，我以为是浏览器问题，所以去搜了搜这个文件格式。<br></p>
+<hr>
+<h2 id="关于-avif文件："><a href="#关于-avif文件：" class="headerlink" title="关于.avif文件："></a><em>关于.avif文件</em>：</h2><h3 id="emsp-emsp-什么是AVIF"><a href="#emsp-emsp-什么是AVIF" class="headerlink" title="&emsp;&emsp;什么是AVIF"></a><em>&emsp;&emsp;什么是AVIF</em></h3><p>&emsp;&emsp;AVIF（ AV1 Image File Format）是一种由AOM（ Alliance for Open Media）开发的基于AV1编解码器的网络图像格式。这是一种开源免版税的图像格式。AVIF支持全分辨率的10位和12位色彩以及HDR。<br></p>
+<h3 id="emsp-emsp-AVIF的优势"><a href="#emsp-emsp-AVIF的优势" class="headerlink" title="&emsp;&emsp;AVIF的优势"></a><em>&emsp;&emsp;AVIF的优势</em><br></h3><p>&emsp;&emsp;Netflix的博客从 2020年2月就开始大力宣传AVIF标准的优点。该博客[1]详细介绍了AVIF，并提供了一些优于JPEG的技术信息。作为AOM的创始成员 ，Netflix一直是AV1编解码标准的坚定支持者。因此，毫不奇怪，他们会对使用AV1来改善其UI体验感兴趣。相比于JPEG，AVIF无论是在压缩率上还是在生态上都有着不可小觑的实力。</p>
+<pre><code>1. AV1编解码标准和AVIF格式免版税。
+2. 所有Chromium浏览器（Chrome 85或更高版本）都支持AVIF。
+3. Microsoft Windows 10从19H1开始支持AVIF。
+4. AVIF得到了Google、Amazon、Netflix、Microsoft、Intel、Apple等公司的支持。
+5. AVIF提供比JPEG更高的压缩效率。
+6. AVIF图像格式支持透明度，HDR，宽色域和其他现代功能。
+</code></pre>
+<p>&emsp;&emsp;在与其他图像格式的PK中，AVIF表现十分突出。<br><br>&emsp;&emsp;来源：<a href="https://zhuanlan.zhihu.com/p/444624167">AVIF：新一代的图像压缩格式</a></p>
+<hr>
+<h2 id="如何转换："><a href="#如何转换：" class="headerlink" title="如何转换："></a><em>如何转换：</em></h2><p>&emsp;&emsp;首先，去微软应用商店下载拓展&ensp;<em><strong>AV1 Video Extension</strong></em>&ensp;<br><img src="https://s2.loli.net/2023/12/19/aczl6ihYsJIRw8u.png" alt="image.png"><br>&emsp;&emsp;然后正常打开照片<br><img src="https://s2.loli.net/2023/12/19/jIQoOMH5lyhGBuw.png" alt="image.png"><br>&emsp;&emsp;然后点击上面<em><strong>三个点</strong></em>或者<em><strong>Ctrl+S</strong></em>另存为其他格式即可<br><img src="https://s2.loli.net/2023/12/19/GDTUkfuWz8edCvr.png" alt="image.png"></p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>PJSK-MIKU 动作配布</title>
     <url>/2023/12/14/mmd/motion-dl/pjsk-miku-dong-zuo-pei-bu/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -130,7 +156,9 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
     <title>Hexo建设日志01</title>
     <url>/2023/12/11/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-01-ru-he-jiang-ani-dong-tai-guang-biao-zhuan-huan-wei-cur-jing-tai-guang-biao/</url>
     <content><![CDATA[<h1 id="Hexo建设日志01-将-ani转换为-cur"><a href="#Hexo建设日志01-将-ani转换为-cur" class="headerlink" title="Hexo建设日志01-将.ani转换为.cur"></a>Hexo建设日志01-将.ani转换为.cur</h1><span id="more"></span>
-<p>&emsp;&emsp;欢迎各位来观看这篇教程~<br><br>&emsp;&emsp;这次我们要学习的是将.ani（动态光标）转换为.cur（静态光标）。<br><br>&emsp;&emsp;首先我们先准备好以下下东西：<br><br>&emsp;&emsp;&emsp;&emsp;1、.ani（动态光标）文件<br><br>&emsp;&emsp;&emsp;&emsp;2、CursorWorkshop（原版为英文付费软件，不过这边有汉化绿色版 <a href="https://www.bilibili.com/read/cv18455542/">Axialis CursorWorkshop汉化版</a><br></p>
+<p>&emsp;&emsp;欢迎各位来观看这篇教程~<br><br>&emsp;&emsp;这次我们要学习的是将.ani（动态光标）转换为.cur（静态光标）。<br></p>
+<hr>
+<h2 id="emsp-emsp-准备："><a href="#emsp-emsp-准备：" class="headerlink" title="&emsp;&emsp;准备："></a>&emsp;&emsp;准备：<br></h2><p>&emsp;&emsp;&emsp;&emsp;1、.ani（动态光标）文件<br><br>&emsp;&emsp;&emsp;&emsp;2、CursorWorkshop（原版为英文付费软件，不过这边有汉化绿色版 <a href="https://www.bilibili.com/read/cv18455542/">Axialis CursorWorkshop汉化版</a><br></p>
 <hr>
 <p>&emsp;&emsp;第一步：打开准备好的CursorWorkshop，将我们的.ani文件拖进去。<br><img src="https://s2.loli.net/2023/12/11/mSHxWF1lRZMhtuc.png" alt="image.png"><br>然后在下面的帧选项中随便选择一帧自己喜欢的，点一下，让他处于蓝色被选状态<br><img src="https://s2.loli.net/2023/12/11/rs7fYm18RndPIpV.png" alt="image.png"><br>右键点一下，选择&emsp;<em><strong>此帧的新静态光标</strong></em>&emsp;<br><img src="https://s2.loli.net/2023/12/11/zS1GyYDWXltognx.png" alt="image.png"><br>打开新的窗口后，按照我的配置选就好了<br><img src="https://s2.loli.net/2023/12/11/rIq7MZuoW14QXfF.png" alt="image.png"><br>接下来我们跳转来到新的一个窗口<br><img src="https://s2.loli.net/2023/12/11/YVPbu3XZBJMnFRc.png" alt="image.png"><br>选择第一个&nbsp;<em><strong>32x32&nbsp;-&nbsp;RGB&#x2F;A</strong></em>&nbsp;即可<br>最后Ctrl+S保存导出即可，也可以选择&nbsp;<em><strong>32x32&nbsp;-&nbsp;RGB&#x2F;A</strong></em>&nbsp;上边的&emsp;<em><strong>磁盘小图标</strong></em>&emsp;保存。<br>&emsp;&emsp;这样我们就做好了一个静态图标的转换~希望有用~~</p>
 ]]></content>
@@ -142,10 +170,10 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
       </tags>
   </entry>
   <entry>
-    <title>Hexo备忘录001-文章加密</title>
+    <title>Hexo备忘录001-文章加密的文章头（ 密码：TikaRa ）</title>
     <url>/2023/12/10/hexo-bei-wang-lu/hexo-bei-wang-lu-001-wen-zhang-jia-mi/</url>
     <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="7bd857906554ef3ef12dc4121a6f5f06038a1ba32d8d63279b52384289ac2a0e">7c301fb37ec7311f12c44604cd9812703bff2601dd91e5e77e3375b4189c89f6fee7c0453ee26b1e00140492c7809e8f17048bb5d395b6dd75c3cac6b05cf8beee80f8ea8854cbc2b7814aeacc31725b71a747a2f3c95f626b4bacece74267be114b90c6510e2ad88e88e1b4f6e71c4502695d27856043f0bc29fd8ec7422fe8c37a79319da59993bfbfd906dc2f8e1c1f4550282a15899e6e668dc154d2debebfe1e675f52e5ee7ca31bbdf251dba012a77cdc8906d49aecc44231d328257b949f6922ed7fed625d349b95347098e86590989ad4ef1ebfb52e5406e0efd36a304dc9de3c2644361e5f8a8f9c1bfe80b64019a1717234926bd1a1f2b0e32244051fd97c004a2030cb6a5ccc96fd784ee5709d175564a1209d871b7d10498521e67fe1045cdb4fca39563377cba764817046867534614a6c68bbde74c5abd307cff5878c690fa80298e481e2c3c694af47ce3ac0a0d35c5e72965bbb48f1c812375f2654e1e7873ec1f8aa7095e57973858093191a6272c11004b076a4450f49b36a0cabbabfa3a173e3a4ce3da37bbef4045de4ec3ecec9922bcae74a27ee7d4afbeddeab7c970c3332b4889969629e690755a9645521055f4a22ef1a44d1109637fc545e1f498ccc3be605a39dbc89bb4d5175b7a3adffef616a8614e929bc26ee2f6b576be3a5f302364af7c80f116ba85f023c7331d179213830fe8b7d95ea2f6d52768e5ee66f50a035e9f80d3791c332a50c697110848475ace4a3c7960bac5e0e1dbbbe6cca9449e9916da0fefe7962ef9ae17a6e3fc5f4863b39a60cf9cc4782c786b6a493da265de4f267943761db56b00f73efee1512851382d66b88641dc2b1368bfe5dbb4c015279cb2628723be27ec3c935376a52ecbd72f7719af473335b5673fcffe4222f3de53168d83c39b2db50ddcb389d9d234a84bcbe7</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="9a552a768467b07d45a6e2f6f99bb4748545192df56eff5f079fcb853850befa">7c301fb37ec7311f12c44604cd9812703bff2601dd91e5e77e3375b4189c89f6fee7c0453ee26b1e00140492c7809e8f17048bb5d395b6dd75c3cac6b05cf8beee80f8ea8854cbc2b7814aeacc31725b71a747a2f3c95f626b4bacece74267be114b90c6510e2ad88e88e1b4f6e71c4502695d27856043f0bc29fd8ec7422fe8c37a79319da59993bfbfd906dc2f8e1c1f4550282a15899e6e668dc154d2debebfe1e675f52e5ee7ca31bbdf251dba012a77cdc8906d49aecc44231d328257b949f6922ed7fed625d349b95347098e86590989ad4ef1ebfb52e5406e0efd36a304dc9de3c2644361e5f8a8f9c1bfe80b402cc19ad2d4cbb70fb890900c9722b80ba2dfb76c05ff9d238d0a8107984f9213175045f7fb29ba883199cce491f5c2d1ecb49a5bec537d2338cda081134fb8c2ae7947f4f0b1e4692a0f247e9c6631f275bffbd3a024e879654ecbc3ccfec61ee4487c68a52b2bc4551f5dfb65dd9f42cb2cad183ff336ee72302554f32c2615c17625723d3e7b6b568f36aa9c4c26e239baac426bbcb09b5b80bc9656d5ddc75ff6dcce5bd6bdde843fd42373c9837e57290c083def9dbac9928b278cffa44af1e66cbb4e41bc64fb004993148852cf31e427033c74a25dd9cf189bacf3215d9e3fbfb01dddc6842b007c1fe30c760ff69787239a17f4e011b30a6a3de7fa80f3366b8c4f7fb8c1082d7ebc211862bdf53b5ca81bfab6dde40e3b1c7564e1c7a8b9463e07486cb605ad81ee5b7dd553b2724fbce897c566d95d108c0a4c7537ee67a7aa1c8273c1774dd253fafed08d3a3e88fa88a1d04a917bbd2c267e39d9564fb9de8739e4d42a331f2ac48170ce3f4f5a50492ad586ace79a42996069</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
