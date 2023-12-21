@@ -104,6 +104,42 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
       </tags>
   </entry>
   <entry>
+    <title>Hexo建设日志04</title>
+    <url>/2023/12/21/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-04-guan-yu-duo-ge-yin-pin-wen-jian-de-wan-zheng-xing-xiao-yan-fang-fa/</url>
+    <content><![CDATA[<h1 id="Hexo建设日志04-关于多个音频文件的完整性校验方法"><a href="#Hexo建设日志04-关于多个音频文件的完整性校验方法" class="headerlink" title="Hexo建设日志04-关于多个音频文件的完整性校验方法"></a>Hexo建设日志04-关于多个音频文件的完整性校验方法</h1><span id="more"></span>
+<hr>
+<h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a><em><strong>前言：</strong></em></h2><p>&emsp;&emsp;最近在大量校验歌曲完整性时遇到了一点点小困难，文件错误或者文件损坏不能比较简便的检查出来。多方查询之后发现了一个较为简单的方法。</p>
+<hr>
+<h2 id="工具："><a href="#工具：" class="headerlink" title="工具："></a><em><strong>工具：</strong></em></h2><p>&emsp;&emsp;<em><strong>foobar2000</strong></em><br>&emsp;&emsp;<em><strong>需要校验的文件</strong></em></p>
+<hr>
+<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a><em><strong>步骤：</strong></em></h2><p>&emsp;&emsp;首先，在&ensp;<a href="http://www.foobar2000.org/">foobar2000</a>&ensp;官网下载原始英文版软件，或者在吾爱破解等网站下载汉化版。我使用的是这个<br>&emsp;&emsp;链接：<a href="https://pan.baidu.com/s/1dI4ZSIPnbLY7wLYiJzpLmg?pwd=r6er">https://pan.baidu.com/s/1dI4ZSIPnbLY7wLYiJzpLmg?pwd=r6er</a><br>&emsp;&emsp;提取码：r6er<br><br>&emsp;&emsp;然后打开软件。<br><img src="https://s2.loli.net/2023/12/21/3DQ5Y7JEfBAU9ZR.png" alt="image.png"><br>&emsp;&emsp;把我们要校验的文件拖进来，同时<em><strong>Ctrl+A</strong></em>一下（全选完成就是文件名字上面变成了蓝色的条条）<br><img src="https://s2.loli.net/2023/12/21/UVsD25Qf8i7wXYI.png" alt="image.png"><br>&emsp;&emsp;然后右键，选择&ensp;<em><strong>工具-检验完整性</strong></em><br><img src="https://s2.loli.net/2023/12/21/CpzSr1Nm7w3ibyq.png" alt="image.png"><br>&emsp;&emsp;然后等他走完进度条<br><img src="https://s2.loli.net/2023/12/21/d3SaRNzmnhWvb9q.png" alt="image.png"><br>&emsp;&emsp;查看结果即可，有需要的话也可以导出成txt文件看<br><img src="https://s2.loli.net/2023/12/21/Z7p2S8wqBJzAbxy.png" alt="image.png"></p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建设日志03</title>
+    <url>/2023/12/20/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-03-guan-yu-wang-yi-yun.ncm-wen-jian-de-po-jie-yu-zhuan-huan/</url>
+    <content><![CDATA[<h1 id="Hexo建设日志03-关于网易云-ncm文件的破解与转换"><a href="#Hexo建设日志03-关于网易云-ncm文件的破解与转换" class="headerlink" title="Hexo建设日志03-关于网易云.ncm文件的破解与转换"></a>Hexo建设日志03-关于网易云.ncm文件的破解与转换</h1><span id="more"></span>
+<hr>
+<h2 id="前言："><a href="#前言：" class="headerlink" title="前言："></a><em><strong>前言：</strong></em></h2><p>&emsp;&emsp;最近在做mmd的时候，网易云下载到的文件是.ncm。直接转换成MP3会导致文件错误。看了看ncm这个文件，加密方式是网易云独家加密。转换为其他格式是很麻烦的。强行用格式工厂转换会导致文件损坏（网易云你坏事干尽），找遍教程，不容易找到个看上去不错的，结果是广告。找来找去还是这个网站好</p>
+<hr>
+<h2 id="转换教程"><a href="#转换教程" class="headerlink" title="转换教程:"></a><em><strong>转换教程:</strong></em></h2><p>&emsp;&emsp;首先打开这个网站<a href="https://cwo.cc/musicc">Cwo | 影视工作者的书签-音乐解锁</a><br><img src="https://s2.loli.net/2023/12/20/5vZL3SYerfk7UQp.png" alt="image.png"><br>&emsp;&emsp;把ncm导入进去，电脑不好的同学可以打开&ensp;<em><strong>立即保存</strong></em>&ensp;，选择好文件夹，解密后就会直接存到文件夹里，很方便的。每次建议导入的文件数量小于40首，这样就不会很卡。</p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a><em><strong>后记</strong></em></h2><p>&emsp;&emsp;某些同学在解密之后有文件错误或者文件损坏的情况。但是一次解密的歌曲会很多，一首一首的测试显然不太可能，批量文件的校验可以看下一篇文章。</p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo建设日志02</title>
     <url>/2023/12/19/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-02-ru-he-jiang.avif-wen-jian-zhuan-hua-wei-chang-yong-tu-pian-ge-shi/</url>
     <content><![CDATA[<h1 id="Hexo建设日志02-如将-avif文件转化为常用图片格式"><a href="#Hexo建设日志02-如将-avif文件转化为常用图片格式" class="headerlink" title="Hexo建设日志02-如将.avif文件转化为常用图片格式"></a>Hexo建设日志02-如将.avif文件转化为常用图片格式</h1><span id="more"></span>

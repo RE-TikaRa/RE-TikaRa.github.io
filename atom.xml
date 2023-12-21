@@ -6,7 +6,7 @@
   <link href="http://re-tikara.github.io/atom.xml" rel="self"/>
   
   <link href="http://re-tikara.github.io/"/>
-  <updated>2023-12-19T15:49:54.860Z</updated>
+  <updated>2023-12-21T05:45:05.320Z</updated>
   <id>http://re-tikara.github.io/</id>
   
   <author>
@@ -17,11 +17,49 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Hexo建设日志04</title>
+    <link href="http://re-tikara.github.io/2023/12/21/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-04-guan-yu-duo-ge-yin-pin-wen-jian-de-wan-zheng-xing-xiao-yan-fang-fa/"/>
+    <id>http://re-tikara.github.io/2023/12/21/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-04-guan-yu-duo-ge-yin-pin-wen-jian-de-wan-zheng-xing-xiao-yan-fang-fa/</id>
+    <published>2023-12-20T16:24:54.000Z</published>
+    <updated>2023-12-21T05:45:05.320Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Hexo建设日志04-关于多个音频文件的完整性校验方法&quot;&gt;&lt;a href=&quot;#Hexo建设日志04-关于多个音频文件的完整性校验方法&quot; class=&quot;headerlink&quot; title=&quot;Hexo建设日志04-关于多个音频文件的完整性校验方法&quot;&gt;&lt;/a&gt;Hexo建设日志04-关于多个音频文件的完整性校验方法&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="Hexo建设日志" scheme="http://re-tikara.github.io/categories/Hexo%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="Hexo建设日志" scheme="http://re-tikara.github.io/tags/Hexo%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo建设日志03</title>
+    <link href="http://re-tikara.github.io/2023/12/20/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-03-guan-yu-wang-yi-yun.ncm-wen-jian-de-po-jie-yu-zhuan-huan/"/>
+    <id>http://re-tikara.github.io/2023/12/20/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-03-guan-yu-wang-yi-yun.ncm-wen-jian-de-po-jie-yu-zhuan-huan/</id>
+    <published>2023-12-20T05:15:53.000Z</published>
+    <updated>2023-12-20T16:59:48.258Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;Hexo建设日志03-关于网易云-ncm文件的破解与转换&quot;&gt;&lt;a href=&quot;#Hexo建设日志03-关于网易云-ncm文件的破解与转换&quot; class=&quot;headerlink&quot; title=&quot;Hexo建设日志03-关于网易云.ncm文件的破解与转换&quot;&gt;&lt;/a&gt;Hexo建设日志03-关于网易云.ncm文件的破解与转换&lt;/h1&gt;</summary>
+    
+    
+    
+    <category term="Hexo建设日志" scheme="http://re-tikara.github.io/categories/Hexo%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/"/>
+    
+    
+    <category term="Hexo建设日志" scheme="http://re-tikara.github.io/tags/Hexo%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo建设日志02</title>
     <link href="http://re-tikara.github.io/2023/12/19/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-02-ru-he-jiang.avif-wen-jian-zhuan-hua-wei-chang-yong-tu-pian-ge-shi/"/>
     <id>http://re-tikara.github.io/2023/12/19/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-02-ru-he-jiang.avif-wen-jian-zhuan-hua-wei-chang-yong-tu-pian-ge-shi/</id>
     <published>2023-12-19T15:24:33.000Z</published>
-    <updated>2023-12-19T15:49:54.860Z</updated>
+    <updated>2023-12-19T15:57:22.989Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;Hexo建设日志02-如将-avif文件转化为常用图片格式&quot;&gt;&lt;a href=&quot;#Hexo建设日志02-如将-avif文件转化为常用图片格式&quot; class=&quot;headerlink&quot; title=&quot;Hexo建设日志02-如将.avif文件转化为常用图片格式&quot;&gt;&lt;/a&gt;Hexo建设日志02-如将.avif文件转化为常用图片格式&lt;/h1&gt;</summary>
