@@ -104,6 +104,36 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
       </tags>
   </entry>
   <entry>
+    <title>技术日常01</title>
+    <url>/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/</url>
+    <content><![CDATA[<h1 id="技术日常01—APK反编译"><a href="#技术日常01—APK反编译" class="headerlink" title="技术日常01—APK反编译"></a>技术日常01—APK反编译</h1><span id="more"></span>
+<hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;本教程全部基于<em><strong>Windows10</strong></em>系统下，不同系统下可能略有差异。教程中的文件都源自于网络开源，其作者会在文章末尾标注。</p>
+<hr>
+<h2 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h2><p>&emsp;&emsp;<a href="https://apktool.org/docs/install/">APKTool</a>编译和反编译apk，可以从APK中获得基础性资源（如图片等）<br></p>
+<hr>
+<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>&emsp;&emsp;一、安装<a href="https://www.java.com/zh-CN/">Java</a>，具体步骤请详见Java官网，此处不再赘述；<br>&emsp;&emsp;二、下载<a href="https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/windows/apktool.bat">ApkTool脚本文件</a>；<br>&emsp;&emsp;&emsp;&emsp;（如果不会下载，可以复制网页中的文本，新建一个名为&ensp; <em><strong>apktool</strong></em> &ensp;的&ensp; <em><strong>txt</strong></em> &ensp;文件，将网页文本内容复制下来，保存在&ensp; <em><strong>apktool.txt</strong></em> &ensp;中，之后将后缀&ensp; <em><strong>.txt</strong></em>&ensp; 修改为&ensp; <em><strong>.bat</strong></em> &ensp;即可）<br>&emsp;&emsp;三、下载最新版本的<a href="https://bitbucket.org/iBotPeaches/apktool/downloads/">apktool.jar</a>，并且重命名为 <em><strong>apktool.jar</strong></em> <br>&emsp;&emsp;&emsp;&emsp;（例如，我下载的文件为apktool_2.9.2.jar，只需要删除_2.9.2，使文件名为apktool.jar即可）<br>&emsp;&emsp;四、将 <em><strong>apktool.bat</strong></em> 和 <em><strong>apktool.jar</strong></em> 放在 <em><strong>同一目录（文件夹）</strong></em> 下。</p>
+<hr>
+<h2 id="基本用法（为了方便展示，我把所有文件放在了一个目录下）"><a href="#基本用法（为了方便展示，我把所有文件放在了一个目录下）" class="headerlink" title="基本用法（为了方便展示，我把所有文件放在了一个目录下）"></a>基本用法（为了方便展示，我把所有文件放在了一个目录下）</h2><p>&emsp;&emsp;一、APK文件的提取<br>&emsp;&emsp;1、在APK文件目录下运行CMD（在路径那里输入cmd，敲回车即可）<br><img src="https://s2.loli.net/2024/01/08/7AmXYRbDNIrUGS4.png" alt="image.png"><br><img src="https://s2.loli.net/2024/01/08/BGtFrgCwSPbXmQD.png" alt="image.png"><br>&emsp;&emsp;2、输入命令</p>
+<pre><code>apktool.bat d [-s] -f &lt;apkPath&gt; -o &lt;folderPath&gt;
+</code></pre>
+<p>&emsp;&emsp;此处的 <em><strong>&lt; apkPath &gt;</strong></em> 是你的apk路径，比如我的为 <em><strong>“E:\apktool\pose-monitor-release.apk”</strong></em> （注意此处的引号为 <em><strong>英文</strong></em> ） <em><strong>&lt; folderPath &gt;</strong></em> 是你的导出目录， <em><strong>不填写</strong></em> 则会自动以 <em><strong>安装包名</strong></em>在 <em><strong>apk的相同目录</strong></em> 下新建文件夹并且导出， <em><strong>若不填写，请一并删去&ensp;-o&ensp;这一命令</strong></em> 。<br><img src="https://s2.loli.net/2024/01/08/QeOiJfTmVbN8oYz.png" alt="image.png"><br>&emsp;&emsp;显示这样的信息且在导出文件夹下存在 <em><strong>apktool.yml</strong></em> 文件代表导出成功，接下来就在文件夹中修改你的基础资源（如图片等）吧。<br><img src="https://s2.loli.net/2024/01/08/SAeLnvGIRZ1FUrE.png" alt="image.png"></p>
+<hr>
+<h2 id="STAFF"><a href="#STAFF" class="headerlink" title="STAFF"></a>STAFF</h2><p>&emsp;&emsp;APKTool：<a href="https://apktool.org/docs/install/">https://apktool.org/docs/install/</a><br>&emsp;&emsp;pose-monitor-release:<a href="https://github.com/linyiLYi/pose-monitor">https://github.com/linyiLYi/pose-monitor</a></p>
+<div style="position:relative; width:100%; height:0; padding-bottom:75%;">
+<iframe src="//player.bilibili.com/player.html?aid=732141008&bvid=BV1uD4y187zX&cid=879804782&p=1" 
+scrolling="no" border="0" frameborder="no"  framespacing="0"  
+style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
+</div>]]></content>
+      <categories>
+        <category>某些技术日常</category>
+        <category>APK修改系列</category>
+      </categories>
+      <tags>
+        <tag>技术日常</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo建设日志04</title>
     <url>/2023/12/21/hexo-jian-she-ri-zhi/hexo-jian-she-ri-zhi-04-guan-yu-duo-ge-yin-pin-wen-jian-de-wan-zheng-xing-xiao-yan-fang-fa/</url>
     <content><![CDATA[<h1 id="Hexo建设日志04-关于多个音频文件的完整性校验方法"><a href="#Hexo建设日志04-关于多个音频文件的完整性校验方法" class="headerlink" title="Hexo建设日志04-关于多个音频文件的完整性校验方法"></a>Hexo建设日志04-关于多个音频文件的完整性校验方法</h1><span id="more"></span>
