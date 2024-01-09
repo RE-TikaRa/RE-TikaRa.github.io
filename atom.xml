@@ -6,7 +6,7 @@
   <link href="http://re-tikara.github.io/atom.xml" rel="self"/>
   
   <link href="http://re-tikara.github.io/"/>
-  <updated>2024-01-07T16:47:06.113Z</updated>
+  <updated>2024-01-09T05:15:25.182Z</updated>
   <id>http://re-tikara.github.io/</id>
   
   <author>
@@ -17,14 +17,31 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>技术日常01</title>
+    <title>APK技术日常02</title>
+    <link href="http://re-tikara.github.io/2024/01/08/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-02-apk-yuan-ma-cha-kan/"/>
+    <id>http://re-tikara.github.io/2024/01/08/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-02-apk-yuan-ma-cha-kan/</id>
+    <published>2024-01-08T07:04:26.000Z</published>
+    <updated>2024-01-09T05:15:25.182Z</updated>
+    
+    
+    <summary type="html">&lt;h1 id=&quot;APK技术日常02-APK源码的查看&quot;&gt;&lt;a href=&quot;#APK技术日常02-APK源码的查看&quot; class=&quot;headerlink&quot; title=&quot;APK技术日常02-APK源码的查看&quot;&gt;&lt;/a&gt;APK技术日常02-APK源码的查看&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;前言：代码设计是每位工程师心血的结晶，源代码的查看仅能作为学习使用，不可以不劳而获。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="技术日常" scheme="http://re-tikara.github.io/tags/%E6%8A%80%E6%9C%AF%E6%97%A5%E5%B8%B8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>APK技术日常01</title>
     <link href="http://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/"/>
     <id>http://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/</id>
     <published>2024-01-07T14:43:22.000Z</published>
-    <updated>2024-01-07T16:47:06.113Z</updated>
+    <updated>2024-01-09T05:14:31.680Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;技术日常01—APK反编译&quot;&gt;&lt;a href=&quot;#技术日常01—APK反编译&quot; class=&quot;headerlink&quot; title=&quot;技术日常01—APK反编译&quot;&gt;&lt;/a&gt;技术日常01—APK反编译&lt;/h1&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;APK技术日常01—APK反编译&quot;&gt;&lt;a href=&quot;#APK技术日常01—APK反编译&quot; class=&quot;headerlink&quot; title=&quot;APK技术日常01—APK反编译&quot;&gt;&lt;/a&gt;APK技术日常01—APK反编译&lt;/h1&gt;</summary>
     
     
     
