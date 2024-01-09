@@ -6,7 +6,7 @@
   <link href="http://re-tikara.github.io/atom.xml" rel="self"/>
   
   <link href="http://re-tikara.github.io/"/>
-  <updated>2024-01-09T05:15:25.182Z</updated>
+  <updated>2024-01-09T05:47:21.522Z</updated>
   <id>http://re-tikara.github.io/</id>
   
   <author>
@@ -21,12 +21,16 @@
     <link href="http://re-tikara.github.io/2024/01/08/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-02-apk-yuan-ma-cha-kan/"/>
     <id>http://re-tikara.github.io/2024/01/08/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-02-apk-yuan-ma-cha-kan/</id>
     <published>2024-01-08T07:04:26.000Z</published>
-    <updated>2024-01-09T05:15:25.182Z</updated>
+    <updated>2024-01-09T05:47:21.522Z</updated>
     
     
     <summary type="html">&lt;h1 id=&quot;APK技术日常02-APK源码的查看&quot;&gt;&lt;a href=&quot;#APK技术日常02-APK源码的查看&quot; class=&quot;headerlink&quot; title=&quot;APK技术日常02-APK源码的查看&quot;&gt;&lt;/a&gt;APK技术日常02-APK源码的查看&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;前言：代码设计是每位工程师心血的结晶，源代码的查看仅能作为学习使用，不可以不劳而获。&lt;/p&gt;</summary>
     
     
+    
+    <category term="某些技术日常" scheme="http://re-tikara.github.io/categories/%E6%9F%90%E4%BA%9B%E6%8A%80%E6%9C%AF%E6%97%A5%E5%B8%B8/"/>
+    
+    <category term="APK修改系列" scheme="http://re-tikara.github.io/categories/%E6%9F%90%E4%BA%9B%E6%8A%80%E6%9C%AF%E6%97%A5%E5%B8%B8/APK%E4%BF%AE%E6%94%B9%E7%B3%BB%E5%88%97/"/>
     
     
     <category term="技术日常" scheme="http://re-tikara.github.io/tags/%E6%8A%80%E6%9C%AF%E6%97%A5%E5%B8%B8/"/>
@@ -35,13 +39,14 @@
   
   <entry>
     <title>APK技术日常01</title>
-    <link href="http://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/"/>
-    <id>http://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/</id>
+    <link href="http://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-jie-bao/"/>
+    <id>http://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-jie-bao/</id>
     <published>2024-01-07T14:43:22.000Z</published>
-    <updated>2024-01-09T05:14:31.680Z</updated>
+    <updated>2024-01-09T05:59:00.975Z</updated>
     
     
-    <summary type="html">&lt;h1 id=&quot;APK技术日常01—APK反编译&quot;&gt;&lt;a href=&quot;#APK技术日常01—APK反编译&quot; class=&quot;headerlink&quot; title=&quot;APK技术日常01—APK反编译&quot;&gt;&lt;/a&gt;APK技术日常01—APK反编译&lt;/h1&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;APK技术日常01—APK解包&quot;&gt;&lt;a href=&quot;#APK技术日常01—APK解包&quot; class=&quot;headerlink&quot; title=&quot;APK技术日常01—APK解包&quot;&gt;&lt;/a&gt;APK技术日常01—APK解包&lt;/h1&gt;&lt;hr&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;本教程全部基于 &lt;em&gt;&lt;strong&gt;Windows10&lt;/strong&gt;&lt;/em&gt; 系统下，不同系统下可能略有差异。教程中的文件都源自于网络开源，其STAFF列表会在文章末尾标注。本教程 &lt;em&gt;&lt;strong&gt;不适用于像游戏提取等用途&lt;/strong&gt;&lt;/em&gt; ，教程中教学的是处理并修改APK文件以及查看相关文件等，如有侵权，请联系我删除。&lt;/p&gt;</summary>
     
     
     

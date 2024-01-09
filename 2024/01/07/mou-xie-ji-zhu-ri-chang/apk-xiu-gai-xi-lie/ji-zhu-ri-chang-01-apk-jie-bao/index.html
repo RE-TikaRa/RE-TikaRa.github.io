@@ -56,7 +56,7 @@
     <main class="content on">
       <section class="outer">
   <article
-  id="post-某些技术日常/APK修改系列/技术日常01—APK反编译"
+  id="post-某些技术日常/APK修改系列/技术日常01—APK解包"
   class="article article-type-post"
   itemscope
   itemprop="blogPost"
@@ -75,7 +75,7 @@
     </header>
      
     <div class="article-meta">
-      <a href="/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/" class="article-date">
+      <a href="/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-jie-bao/" class="article-date">
   <time datetime="2024-01-07T14:43:22.000Z" itemprop="datePublished">2024-01-07</time>
 </a> 
   <div class="article-category">
@@ -87,7 +87,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">506</span>
+            <span class="post-count">556</span>
         </span>
     </span>
 
@@ -111,11 +111,12 @@
   
     <div class="article-entry" itemprop="articleBody">
        
-  <h1 id="APK技术日常01—APK反编译"><a href="#APK技术日常01—APK反编译" class="headerlink" title="APK技术日常01—APK反编译"></a>APK技术日常01—APK反编译</h1><span id="more"></span>
+  <h1 id="APK技术日常01—APK解包"><a href="#APK技术日常01—APK解包" class="headerlink" title="APK技术日常01—APK解包"></a>APK技术日常01—APK解包</h1><hr>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;本教程全部基于 <em><strong>Windows10</strong></em> 系统下，不同系统下可能略有差异。教程中的文件都源自于网络开源，其STAFF列表会在文章末尾标注。本教程 <em><strong>不适用于像游戏提取等用途</strong></em> ，教程中教学的是处理并修改APK文件以及查看相关文件等，如有侵权，请联系我删除。</p>
+<span id="more"></span>
+
 <hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;本教程全部基于<em><strong>Windows10</strong></em>系统下，不同系统下可能略有差异。教程中的文件都源自于网络开源，其作者会在文章末尾标注。</p>
-<hr>
-<h2 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h2><p>&emsp;&emsp;<a target="_blank" rel="noopener" href="https://apktool.org/docs/install/">APKTool</a>编译和反编译apk，可以从APK中获得基础性资源（如图片等）<br></p>
+<h2 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h2><p>&emsp;&emsp;<a target="_blank" rel="noopener" href="https://apktool.org/docs/install/">APKTool</a>：编译和反编译apk，可以从APK中获得基础性资源（如图片等）<br></p>
 <hr>
 <h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>&emsp;&emsp;一、安装<a target="_blank" rel="noopener" href="https://www.java.com/zh-CN/">Java</a>，具体步骤请详见Java官网，此处不再赘述；<br>&emsp;&emsp;二、下载<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/windows/apktool.bat">ApkTool脚本文件</a>；<br>&emsp;&emsp;&emsp;&emsp;（如果不会下载，可以复制网页中的文本，新建一个名为&ensp; <em><strong>apktool</strong></em> &ensp;的&ensp; <em><strong>txt</strong></em> &ensp;文件，将网页文本内容复制下来，保存在&ensp; <em><strong>apktool.txt</strong></em> &ensp;中，之后将后缀&ensp; <em><strong>.txt</strong></em>&ensp; 修改为&ensp; <em><strong>.bat</strong></em> &ensp;即可）<br>&emsp;&emsp;三、下载最新版本的<a target="_blank" rel="noopener" href="https://bitbucket.org/iBotPeaches/apktool/downloads/">apktool.jar</a>，并且重命名为 <em><strong>apktool.jar</strong></em> <br>&emsp;&emsp;&emsp;&emsp;（例如，我下载的文件为apktool_2.9.2.jar，只需要删除_2.9.2，使文件名为apktool.jar即可）<br>&emsp;&emsp;四、将 <em><strong>apktool.bat</strong></em> 和 <em><strong>apktool.jar</strong></em> 放在 <em><strong>同一目录（文件夹）</strong></em> 下。</p>
 <hr>
@@ -193,7 +194,7 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-jie-bao/" alt="微信分享二维码">
     </div>
 </div>
 
