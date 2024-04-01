@@ -77,13 +77,17 @@
     <div class="article-meta">
       <a href="/posts/7a433340/" class="article-date">
   <time datetime="2024-04-01T05:00:32.000Z" itemprop="datePublished">2024-04-01</time>
-</a>   
+</a> 
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/MMD/">MMD</a> / <a class="article-category-link" href="/categories/MMD/MMD-%E6%95%99%E7%A8%8B/">MMD 教程</a> / <a class="article-category-link" href="/categories/MMD/MMD-%E6%95%99%E7%A8%8B/VRM%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97/">VRM教程系列</a>
+  </div>
+  
 <div class="word_count">
     <span class="post-time">
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">1.2k</span>
+            <span class="post-count">1.3k</span>
         </span>
     </span>
 
@@ -115,7 +119,7 @@
 <hr>
 <h1 id="正常篇"><a href="#正常篇" class="headerlink" title="正常篇"></a>正常篇</h1><p>&emsp;&emsp;正如上文中所说FBX和VRM节点不同导致的，那么我们只要换节点就好了。导入VRM，然后删节点，把对应节点换过去就好。就像下图这样（为了方便我换几个意思一下就行）<br><img src="https://s2.loli.net/2024/04/01/whupi9vJKe576Cb.png" alt="image.png"><br>&emsp;&emsp;然后转换试试<br><img src="https://s2.loli.net/2024/04/01/LplYv2cG3gVIPRA.png" alt="image.png"><br>&emsp;&emsp;看起来不错，正常篇就先到这</p>
 <hr>
-<h1 id="后记（VRM系列）"><a href="#后记（VRM系列）" class="headerlink" title="后记（VRM系列）"></a>后记（VRM系列）</h1><p>&emsp;&emsp;我们在直接连完材质节点后，发现如果说是白模用shader的底色做了修改，那么在此处重连节点会有一定几率变成白模，那么可以将节点连接成这样<br><img src="https://s2.loli.net/2024/04/02/B4bvycnxtkGdLhF.png" alt="image.png"><br>&emsp;&emsp;在中间加一个<br><img src="https://s2.loli.net/2024/04/02/F2DN7SAPkQigJTn.png" alt="image.png"><br>&emsp;&emsp;然后把你在shader中的HSV什么的复制过来就成</p>
+<h1 id="后记（VRM系列）"><a href="#后记（VRM系列）" class="headerlink" title="后记（VRM系列）"></a>后记（VRM系列）</h1><p>&emsp;&emsp;我们在直接连完材质节点后，发现如果说是白模用shader的底色做了修改，那么在此处重连节点会有一定几率变成白模，那么可以将节点连接成这样<br><img src="https://s2.loli.net/2024/04/02/B4bvycnxtkGdLhF.png" alt="image.png"><br>&emsp;&emsp;在中间加一个<br><img src="https://s2.loli.net/2024/04/02/F2DN7SAPkQigJTn.png" alt="image.png"><br>&emsp;&emsp;然后把你在shader中的HSV什么的复制过来就成<br>&emsp;&emsp;（补充：在测试之后仍有一定几率是白模，所以，可以先去PS之类的直接处理好贴图再塞回来，这样会方便很多）</p>
 <hr>
 <h1 id="歪门邪道篇（未经测试，BUG有几率）"><a href="#歪门邪道篇（未经测试，BUG有几率）" class="headerlink" title="歪门邪道篇（未经测试，BUG有几率）"></a>歪门邪道篇（未经测试，BUG有几率）</h1><p>&emsp;&emsp;首先呢，我们现将自己的VRM后缀改成 <em><strong>.glb</strong></em> 然后导入。<br><img src="https://s2.loli.net/2024/04/01/oRKgC6AmNZUy3af.png" alt="image.png"><br>&emsp;&emsp;这下所有的MTOON节点就换掉了，然后，我们在这里选择解包资源，<br><img src="https://s2.loli.net/2024/04/01/VWPqOb5tUaMs4hv.png" alt="image.png"><br>&emsp;&emsp;在弹出选项里选择第二个，这样我们就能在Blender根目录下找到一个 <em><strong>textures</strong></em> 的文件夹，这个是贴图文件夹。如果找不到，推荐使用everything搜一下<br><img src="https://s2.loli.net/2024/04/01/Iehqnx1QOyBXNgM.png" alt="image.png"><br>&emsp;&emsp;接下来我们回到BL，找到脚本，，然后下载这个脚本</p>
 <pre><code>https://github.com/LadyAska/Blender
@@ -141,7 +145,7 @@
 由于基本颜色不是白色，因此执行加法合成。材料名称:NO0_001_01_Bottoms_01_CLOTH
 </code></pre>
 <p>&emsp;&emsp;突然就明白了这个东西，将原始图一改成图二后<br><img src="https://s2.loli.net/2024/04/01/x9AWKlvJRICufZT.png" alt="image.png"><br><img src="https://s2.loli.net/2024/04/01/EejkGX1SFOAhrcJ.png" alt="image.png"><br>&emsp;&emsp;原始的白模也就修复成功了</p>
-<h2 id="BUG修复02"><a href="#BUG修复02" class="headerlink" title="BUG修复02"></a>BUG修复02</h2><p>&emsp;&emsp;针对于此处的白模，还有一种处理方式就是修改贴图，因为在miu老师的Vroid2Pmx中就是做了加法合成，那么我们可以在提取好贴图之后去PS之类的重新正片叠底一下颜色</p>
+<h2 id="BUG修复02"><a href="#BUG修复02" class="headerlink" title="BUG修复02"></a>BUG修复02</h2><p>&emsp;&emsp;针对于此处的白模，还有一种处理方式就是修改贴图，因为在miu老师的Vroid2Pmx中就是做了加法合成，那么我们可以在提取好贴图之后去PS之类的重新正片叠底一下颜色，此处这个为最后处理办法，将处理好的贴图再去BL贴一下，但是会比较麻烦。</p>
  
       <!-- reward -->
       
