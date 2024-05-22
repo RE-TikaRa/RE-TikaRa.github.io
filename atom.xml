@@ -6,7 +6,7 @@
   <link href="http://re-tikara.github.io/atom.xml" rel="self"/>
   
   <link href="http://re-tikara.github.io/"/>
-  <updated>2024-04-01T16:34:30.290Z</updated>
+  <updated>2024-05-22T16:38:02.626Z</updated>
   <id>http://re-tikara.github.io/</id>
   
   <author>
@@ -17,11 +17,87 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>python实践系列04-SRT转换为普通LRC</title>
+    <link href="http://re-tikara.github.io/posts/f2007e5d/"/>
+    <id>http://re-tikara.github.io/posts/f2007e5d/</id>
+    <published>2024-05-22T15:42:05.000Z</published>
+    <updated>2024-05-22T16:38:02.626Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;听歌时遇到了这种，B站有CC字幕，WYY没歌词的情况，想把B站的扒下来传到WYY用。</p><span id="more"></span><hr><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code># 导入所需模块import tkinter as tk  # GUI库from tkinter import filedialog, messagebox  # 文件对话框和消息框import pysrt  # 用于处理SRT字幕的库# 定义SRTtoLRCConverter类class SRTtoLRCConverter:    def __init__(self, master):        # 初始化主窗口        self.master = master        self.master.title(&quot;SRT 到 LRC 转换器&quot;)        self.master.configure(bg=&quot;#E6E6FA&quot;)  # 设置主窗口背景色        # 初始化变量        self.srt_file_path = &quot;&quot;  # SRT文件路径        self.lrc_file_path = &quot;&quot;  # LRC文件路径        # 创建文本框和标签        self.srt_textbox = tk.Text(self.master, wrap=&quot;word&quot;, width=50, height=10, bg=&quot;#BEBEBE&quot;)  # 设置SRT文本框背景色        self.srt_textbox.grid(row=0, column=0, columnspan=2)        self.lrc_textbox = tk.Text(self.master, wrap=&quot;word&quot;, width=50, height=10, bg=&quot;#BEBEBE&quot;)  # 设置LRC文本框背景色        self.lrc_textbox.grid(row=1, column=0, columnspan=2)        # 创建按钮        self.open_srt_button = tk.Button(self.master, text=&quot;打开SRT文件&quot;, command=self.open_srt)  # 打开SRT文件按钮        self.open_srt_button.grid(row=2, column=0)        self.convert_button = tk.Button(self.master, text=&quot;转换&quot;, command=self.convert)  # 转换按钮        self.convert_button.grid(row=2, column=1)        self.save_lrc_button = tk.Button(self.master, text=&quot;保存LRC文件&quot;, command=self.save_lrc)  # 保存LRC文件按钮        self.save_lrc_button.grid(row=3, column=0)        self.save_lrc_entry = tk.Entry(self.master, width=50, bg=&quot;#CDC1C5&quot;)  # 设置保存路径输入框背景色        self.save_lrc_entry.grid(row=3, column=1)    # 打开SRT文件方法    def open_srt(self):        # 使用文件对话框打开SRT文件        self.srt_file_path = filedialog.askopenfilename(filetypes=[(&quot;SRT Files&quot;, &quot;*.srt&quot;)])        # 如果选择了文件，读取内容并显示在SRT文本框中        if self.srt_file_path:            with open(self.srt_file_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:                srt_content = f.read()                self.srt_textbox.insert(&quot;1.0&quot;, srt_content)    # 转换方法    def convert(self):        # 检查SRT文件是否已打开        if not self.srt_file_path:            messagebox.showerror(&quot;Error&quot;, &quot;请先打开一个SRT文件。&quot;)            return        # 读取SRT文件内容        subs = pysrt.open(self.srt_file_path)        lrc_content = &quot;&quot;        # 遍历SRT字幕，转换为LRC格式        for sub in subs:            # 将时间对象转换为字符串，并按照冒号分割            time_str = sub.start.to_time().strftime(&#39;%H:%M:%S,%f&#39;)[:-3]            hh_mm_ss_ms = time_str.split(&#39;:&#39;)            hh, mm, ss, ms = int(hh_mm_ss_ms[0]), int(hh_mm_ss_ms[1]), int(hh_mm_ss_ms[2].split(&#39;,&#39;)[0]), int(hh_mm_ss_ms[2].split(&#39;,&#39;)[1])            # 根据进制累加小时到分钟            mm += hh * 60            # 保留三位毫秒            ms = f&quot;&#123;ms:03d&#125;&quot;            # 构建LRC时间格式            lrc_time = f&quot;&#123;mm:02d&#125;:&#123;ss:02d&#125;.&#123;ms&#125;&quot;            # 添加到LRC内容            lrc_content += f&quot;[&#123;lrc_time&#125;]&#123;sub.text&#125;\n&quot;        # 清空LRC文本框并插入转换后的内容        self.lrc_textbox.delete(&quot;1.0&quot;, tk.END)        self.lrc_textbox.insert(&quot;1.0&quot;, lrc_content)    # 保存LRC文件方法    def save_lrc(self):        # 使用文件对话框保存LRC文件        if not self.lrc_file_path:            self.lrc_file_path = filedialog.asksaveasfilename(                defaultextension=&quot;.lrc&quot;,                filetypes=[(&quot;LRC Files&quot;, &quot;*.lrc&quot;)],                initialfile=&quot;output.lrc&quot;,                initialdir=&quot;.&quot;,            )        # 如果选择了保存路径，更新输入框并保存内容        if self.lrc_file_path:            self.save_lrc_entry.delete(0, tk.END)            self.save_lrc_entry.insert(0, self.lrc_file_path)            with open(self.lrc_file_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:                f.write(self.lrc_textbox.get(&quot;1.0&quot;, tk.END))# 创建Tkinter主窗口root = tk.Tk()# 实例化SRTtoLRCConverter类app = SRTtoLRCConverter(root)# 开始主循环root.mainloop()</code></pre><hr><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>这个仅支持将SRT的 <em><strong>00:00:00,000 –&gt; 00:00:01,000</strong></em> 转换为普通LRC的 <em><strong>[00:00.000]</strong></em> 这种格式，并且将SRT的小时数按60进制累加到分钟上。对于其他版本的LRC或者SRT，可能有问题。</p><hr><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>Github：<a href="https://github.com/NIGHT2000/SRT2LRC">https://github.com/NIGHT2000/SRT2LRC</a><br>QQ群：813686446</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;听歌时遇到了这种，B站有CC字幕，WYY没歌词的情况，想把B站的扒下来传到WYY用。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="python" scheme="http://re-tikara.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python实战系列03-URL的编码与解码</title>
+    <link href="http://re-tikara.github.io/posts/cbf0ad6c/"/>
+    <id>http://re-tikara.github.io/posts/cbf0ad6c/</id>
+    <published>2024-05-22T15:41:15.000Z</published>
+    <updated>2024-05-22T16:25:43.468Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;被QQ最近那个点击转发的小东西弄感兴趣了，看是MD语法，重点是URL的编码和解码，所以就写了个简单的例子。</p><span id="more"></span><hr><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import tkinter as tkfrom urllib.parse import quote, unquotedef encode_text():    input_text = entry.get()    encoded_text = quote(input_text)    result_label.config(text=encoded_text)def decode_text():    input_text = entry.get()    try:        decoded_text = unquote(input_text)        result_label.config(text=decoded_text)    except Exception as e:        result_label.config(text=&quot;请输入正确的URL编码内容&quot;)def copy_text():    root.clipboard_clear()    root.clipboard_append(result_label.cget(&quot;text&quot;))root = tk.Tk()root.title(&quot;URL编码器&quot;)root.configure(bg=&quot;#EEE0E5&quot;)entry = tk.Entry(root, width=50, bg=&quot;#FFE4C4&quot;)entry.pack(pady=10)buttons_frame = tk.Frame(root)buttons_frame.pack(side=&quot;right&quot;, padx=10)encode_button = tk.Button(buttons_frame, text=&quot;编码&quot;, command=encode_text)encode_button.pack(pady=5)decode_button = tk.Button(buttons_frame, text=&quot;解码&quot;, command=decode_text)decode_button.pack(pady=5)copy_button = tk.Button(buttons_frame, text=&quot;复制&quot;, command=copy_text)copy_button.pack(pady=5)result_label = tk.Label(root, text=&quot;&quot;, bg=&quot;#B0E0E6&quot;)result_label.pack(pady=10)root.mainloop()</code></pre><hr><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>Github：<a href="https://github.com/NIGHT2000/URL-Encoder-decoder">https://github.com/NIGHT2000/URL-Encoder-decoder</a><br>QQ群：813686446</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;被QQ最近那个点击转发的小东西弄感兴趣了，看是MD语法，重点是URL的编码和解码，所以就写了个简单的例子。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="python" scheme="http://re-tikara.github.io/tags/python/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python实战系列02-Hex转换为RGB</title>
+    <link href="http://re-tikara.github.io/posts/57dc070d/"/>
+    <id>http://re-tikara.github.io/posts/57dc070d/</id>
+    <published>2024-05-22T15:39:31.000Z</published>
+    <updated>2024-05-22T16:18:06.621Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><h2 id="emsp-emsp-是和实战系列01功能相反的存在，练手玩，不确定会不会更新。"><a href="#emsp-emsp-是和实战系列01功能相反的存在，练手玩，不确定会不会更新。" class="headerlink" title="&emsp;&emsp;是和实战系列01功能相反的存在，练手玩，不确定会不会更新。"></a>&emsp;&emsp;是和实战系列01功能相反的存在，练手玩，不确定会不会更新。<br><span id="more"></span></h2><h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import tkinter as tkimport redef hex_to_rgb(hex_color):    return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))def is_valid_input(value):    return bool(re.match(&quot;^([0-9a-fA-F]&#123;6&#125;)$&quot;, value))def convert():    hex_color = entry_hex.get()    if not is_valid_input(hex_color):        result_label.config(text=&quot;输入错误，请输入有效的16进制颜色值&quot;)        return    try:        r, g, b = hex_to_rgb(hex_color)    except ValueError:        result_label.config(text=&quot;转换错误，请输入有效的16进制颜色值&quot;)        return    result_label.config(text=&quot;对应的RGB值为：R=&#123;&#125;, G=&#123;&#125;, B=&#123;&#125;&quot;.format(r, g, b))def copy_rgb_code():    root.clipboard_clear()    root.clipboard_append(result_label.cget(&quot;text&quot;))root = tk.Tk()root.title(&quot;16进制转RGB&quot;)label_hex = tk.Label(root, text=&quot;16进制颜色值（如：FF00FF，无#）：&quot;)label_hex.grid(row=0, column=0)entry_hex = tk.Entry(root)entry_hex.grid(row=0, column=1)convert_button = tk.Button(root, text=&quot;转换&quot;, command=convert)convert_button.grid(row=1, column=0, columnspan=2)copy_button = tk.Button(root, text=&quot;复制&quot;, command=copy_rgb_code)copy_button.grid(row=2, column=0, columnspan=2)result_label = tk.Label(root, text=&quot;&quot;)result_label.grid(row=3, column=0, columnspan=2)root.mainloop()</code></pre><hr><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>Github：<a href="https://github.com/NIGHT2000/Hex2RGB">https://github.com/NIGHT2000/Hex2RGB</a><br>QQ群：813686446</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;h2 id=&quot;emsp-emsp-是和实战系列01功能相反的存在，练手玩，不确定会不会更新。&quot;&gt;&lt;a href=&quot;#emsp-emsp-是和实战系列01功能相反的存在，练手玩，不确定会不会更新。&quot; class=&quot;headerlink&quot; title=&quot;&amp;emsp;&amp;emsp;是和实战系列01功能相反的存在，练手玩，不确定会不会更新。&quot;&gt;&lt;/a&gt;&amp;emsp;&amp;emsp;是和实战系列01功能相反的存在，练手玩，不确定会不会更新。&lt;br&gt;</summary>
+    
+    
+    
+    
+    <category term="python Hex2RGB" scheme="http://re-tikara.github.io/tags/python-Hex2RGB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python实战系列01-RGB转换为Hex</title>
+    <link href="http://re-tikara.github.io/posts/46083098/"/>
+    <id>http://re-tikara.github.io/posts/46083098/</id>
+    <published>2024-05-22T15:37:40.000Z</published>
+    <updated>2024-05-22T16:13:20.376Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;&emsp;学了学python，写了个小玩意，但是写的一塌糊涂，下载见文章末尾，用到了tk库，已经编译成了exe的可执行文件，拿去玩玩吧。</p><span id="more"></span><hr><h2 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示"></a>代码展示</h2><pre><code>import tkinter as tkimport redef rgb_to_hex(r, g, b):    return &quot;#&#123;:02x&#125;&#123;:02x&#125;&#123;:02x&#125;&quot;.format(r, g, b)def is_valid_input(value):    return bool(re.match(&quot;^([0-9]|[1-9][0-9]|1[0-9]&#123;2&#125;|2[0-4][0-9]|25[0-5])$&quot;, value))def convert():    r = entry_r.get()    g = entry_g.get()    b = entry_b.get()    if not (is_valid_input(r) and is_valid_input(g) and is_valid_input(b)):        result_label.config(text=&quot;输入错误，请输入0-255之间的整数&quot;)        return    try:        r = int(r)        g = int(g)        b = int(b)    except ValueError:        result_label.config(text=&quot;转换错误，请输入有效的整数&quot;)        return    hex_color = rgb_to_hex(r, g, b)    result_label.config(text=&quot;对应的16进制颜色值为：&quot; + hex_color)def copy_hex_code():    root.clipboard_clear()    root.clipboard_append(result_label.cget(&quot;text&quot;))root = tk.Tk()root.title(&quot;RGB 2 hex&quot;)label_r = tk.Label(root, text=&quot;红色值（0-255）：&quot;)label_r.grid(row=0, column=0)entry_r = tk.Entry(root)entry_r.grid(row=0, column=1)label_g = tk.Label(root, text=&quot;绿色值（0-255）：&quot;)label_g.grid(row=1, column=0)entry_g = tk.Entry(root)entry_g.grid(row=1, column=1)label_b = tk.Label(root, text=&quot;蓝色值（0-255）：&quot;)label_b.grid(row=2, column=0)entry_b = tk.Entry(root)entry_b.grid(row=2, column=1)convert_button = tk.Button(root, text=&quot;转换&quot;, command=convert)convert_button.grid(row=3, column=0, columnspan=2)copy_button = tk.Button(root, text=&quot;复制&quot;, command=copy_hex_code)copy_button.grid(row=4, column=0, columnspan=2)result_label = tk.Label(root, text=&quot;&quot;)result_label.grid(row=5, column=0, columnspan=2)root.mainloop()</code></pre><hr><h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>Github：<a href="https://github.com/NIGHT2000/RGB2HEX">https://github.com/NIGHT2000/RGB2HEX</a><br>QQ群：813686446</p>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;&amp;emsp;&amp;emsp;学了学python，写了个小玩意，但是写的一塌糊涂，下载见文章末尾，用到了tk库，已经编译成了exe的可执行文件，拿去玩玩吧。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="python RGB2HEX" scheme="http://re-tikara.github.io/tags/python-RGB2HEX/"/>
+    
+  </entry>
+  
+  <entry>
     <title>VRM系列01-VRM转换FBX的若干事项</title>
     <link href="http://re-tikara.github.io/posts/7a433340/"/>
     <id>http://re-tikara.github.io/posts/7a433340/</id>
     <published>2024-04-01T05:00:32.000Z</published>
-    <updated>2024-04-01T16:34:30.290Z</updated>
+    <updated>2024-04-01T16:36:46.713Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>&emsp;&emsp;最近在群里潜水的时候，看到了有人问VRM如何转换成FBX。我心想，拿BL直接转不就好了，结果有人告诉我不能直接转，会丢贴图，我还不信，去试了一下，结果是真的，然后研究了一下，发现了一个转换的好方法。本方法分两种：正常版和歪门邪道版，可以都看一下然后选择自己喜欢的就行。（截止到写稿子，非常不建议使用模之屋，除非你想得到一堆没用的数据）</p><span id="more"></span><hr><h1 id="问题查看"><a href="#问题查看" class="headerlink" title="问题查看"></a>问题查看</h1><p>&emsp;&emsp;首先来看一看这个VRM直接转FBX（使用VRM插件直接导入，然后用better FBX勾选复制纹理导出）<br><img src="https://s2.loli.net/2024/04/01/qnisZvdej68QTg7.png" alt="导入.png"><br><img src="https://s2.loli.net/2024/04/01/TKfFzblNd9tOu7H.png" alt="复制纹理better.png"><br>&emsp;&emsp;显而易见的贴图没了，众所周知，FBX允许存储贴图文件，那问题出在哪里呢，不急，我们换到VRM的节点与FBX的对比看看<br><img src="https://s2.loli.net/2024/04/01/Z3crOXu7GHidK5R.png" alt="VRM节点.png"><br><img src="https://s2.loli.net/2024/04/01/VN1vUkXJSK7qBC2.png" alt="FBX节点.png"><br>&emsp;&emsp;非常恐怖的节点，但是可以看出了问题，VRM全部是由MTOON的节点进行渲染，而FBX只有原理化BSDF。那么也就是说，我只要把MTOON的全部换成FBX的就好。</p><hr><h1 id="正常篇"><a href="#正常篇" class="headerlink" title="正常篇"></a>正常篇</h1><p>&emsp;&emsp;正如上文中所说FBX和VRM节点不同导致的，那么我们只要换节点就好了。导入VRM，然后删节点，把对应节点换过去就好。就像下图这样（为了方便我换几个意思一下就行）<br><img src="https://s2.loli.net/2024/04/01/whupi9vJKe576Cb.png" alt="image.png"><br>&emsp;&emsp;然后转换试试<br><img src="https://s2.loli.net/2024/04/01/LplYv2cG3gVIPRA.png" alt="image.png"><br>&emsp;&emsp;看起来不错，正常篇就先到这</p><hr><h1 id="后记（VRM系列）"><a href="#后记（VRM系列）" class="headerlink" title="后记（VRM系列）"></a>后记（VRM系列）</h1><p>&emsp;&emsp;我们在直接连完材质节点后，发现如果说是白模用shader的底色做了修改，那么在此处重连节点会有一定几率变成白模，那么可以将节点连接成这样<br><img src="https://s2.loli.net/2024/04/02/B4bvycnxtkGdLhF.png" alt="image.png"><br>&emsp;&emsp;在中间加一个<br><img src="https://s2.loli.net/2024/04/02/F2DN7SAPkQigJTn.png" alt="image.png"><br>&emsp;&emsp;然后把你在shader中的HSV什么的复制过来就成<br>&emsp;&emsp;（补充：在测试之后仍有一定几率是白模，所以，可以先去PS之类的直接处理好贴图再塞回来，这样会方便很多）</p><hr><h1 id="歪门邪道篇（未经测试，BUG有几率）"><a href="#歪门邪道篇（未经测试，BUG有几率）" class="headerlink" title="歪门邪道篇（未经测试，BUG有几率）"></a>歪门邪道篇（未经测试，BUG有几率）</h1><p>&emsp;&emsp;首先呢，我们现将自己的VRM后缀改成 <em><strong>.glb</strong></em> 然后导入。<br><img src="https://s2.loli.net/2024/04/01/oRKgC6AmNZUy3af.png" alt="image.png"><br>&emsp;&emsp;这下所有的MTOON节点就换掉了，然后，我们在这里选择解包资源，<br><img src="https://s2.loli.net/2024/04/01/VWPqOb5tUaMs4hv.png" alt="image.png"><br>&emsp;&emsp;在弹出选项里选择第二个，这样我们就能在Blender根目录下找到一个 <em><strong>textures</strong></em> 的文件夹，这个是贴图文件夹。如果找不到，推荐使用everything搜一下<br><img src="https://s2.loli.net/2024/04/01/Iehqnx1QOyBXNgM.png" alt="image.png"><br>&emsp;&emsp;接下来我们回到BL，找到脚本，，然后下载这个脚本</p><pre><code>https://github.com/LadyAska/Blender这个脚本的用途是用于在Blender中自动化材质设置的Python脚本。它遍历所有的材质，如果材质使用了节点系统，它会进行一些操作来修改这些材质。首先，它定义了一些变量，包括mixshader（混合着色器节点）、transparent（透明BSDF节点）、light（光线路径节点）、emission（发射节点）、image（纹理图像节点）和output（输出材质节点）。然后，它检查是否存在mixshader和output节点，如果不存在，则跳过当前循环。接下来，它创建一个新的&quot;Principled BSDF&quot;节点，并移除image、light和emission节点的输出链接。然后，它将image节点的输出连接到新创建的principled节点的输入，并将principled节点的输出连接到output节点的输入。最后，它移除了unnecessary的节点，包括mixshader、transparent、light和emission节点。在最后一部分，它尝试将所有的图片文件的路径设置为&#39;C:/Blender/textures/*.png&#39;，如果出现异常，则忽略。&lt;br&gt;&amp;emsp;&amp;emsp;</code></pre><p><img src="https://s2.loli.net/2024/04/01/CGjQeq1AJtHhN64.png" alt="image.png"><br>&emsp;&emsp;点脚本，然后点打开，然后把刚才下载的PY文件塞进来<br><img src="https://s2.loli.net/2024/04/01/j2hRrPeZH4qFmJl.png" alt="image.png"><br>&emsp;&emsp;点一下那个播放按钮就可以批量转换材质了<br><img src="https://s2.loli.net/2024/04/01/ftiyQajSCkJN2sl.png" alt="image.png"><br>&emsp;&emsp;导出配置和我的一样就行，基本就木有啥问题啦~</p><hr><h1 id="后记（glb系列）"><a href="#后记（glb系列）" class="headerlink" title="后记（glb系列）"></a>后记（glb系列）</h1><h2 id="BUG修复01"><a href="#BUG修复01" class="headerlink" title="BUG修复01"></a>BUG修复01</h2><p>&emsp;&emsp;进过多次测试后，我发现，如果说是VROID的shader底色那一块做了修改，而模型贴图没改，那么打包出来的贴图也是没有shader的（也就是原始贴图之类的）。然后在glb那一块批量处理完之后我发现了一个节点<br><img src="https://s2.loli.net/2024/04/01/TkaRSZ8qfuzBrIv.png" alt="image.png"><br>&emsp;&emsp;又在用miu老师的Vroid2Pmx做转换时，看到了这么一句话<br><img src="https://s2.loli.net/2024/04/01/5bZyDokOifNdT8t.png" alt="截图.png"></p><pre><code>**WARNING**由于基本颜色不是白色，因此执行加法合成。材料名称:NO0_001_01_Bottoms_01_CLOTH</code></pre><p>&emsp;&emsp;突然就明白了这个东西，将原始图一改成图二后<br><img src="https://s2.loli.net/2024/04/01/x9AWKlvJRICufZT.png" alt="image.png"><br><img src="https://s2.loli.net/2024/04/01/EejkGX1SFOAhrcJ.png" alt="image.png"><br>&emsp;&emsp;原始的白模也就修复成功了</p><h2 id="BUG修复02"><a href="#BUG修复02" class="headerlink" title="BUG修复02"></a>BUG修复02</h2><p>&emsp;&emsp;针对于此处的白模，还有一种处理方式就是修改贴图，因为在miu老师的Vroid2Pmx中就是做了加法合成，那么我们可以在提取好贴图之后去PS之类的重新正片叠底一下颜色，此处这个为最后处理办法，将处理好的贴图再去BL贴一下，但是会比较麻烦。</p>]]></content>
     
@@ -98,10 +174,10 @@
     <published>2024-01-21T03:38:55.000Z</published>
     <updated>2024-01-28T16:13:42.965Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h1><p>&emsp;&emsp;最近被Error:Spawn failed这个报错，折磨得一塌糊涂。试了试网上的，什么删除.deploy_git文件夹，什么改_config.yml里面的deploy:repo的<a href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;">&#103;&#x69;&#x74;&#64;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#x63;&#111;&#x6d;</a>:，还有本地推送啥的，对我都没作用。试了试一个偏方。在这把方法分享一下。</p><span id="more"></span><hr><h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h1><p>&emsp;&emsp;首先，我们直接打开Git Bash，不要在任何一个文件夹下运行。打开应该是下图这个样子（ <em><strong>~</strong></em> 后面没有任何东西，或者是一个 <em><strong>&#x2F;</strong></em> 但是后面也没有东西）（我是在win菜单下运行的，没有添加到win菜单的话，你可以在你安装Git的文件夹下找到这个Git Bash）<br><img src="https://s2.loli.net/2024/01/21/2MpTKdWPS1zC8lR.png" alt="image.png"><br><img src="https://s2.loli.net/2024/01/21/wWRtYIMnuXsoejy.png" alt="image.png"><br>&emsp;&emsp;输入以下内容</p><pre><code>cd ~/.ssh# 进入以下文件夹：C:\Users\user\.ssh</code></pre><p>&emsp;&emsp;现在上面的info信息就是这样<br><img src="https://s2.loli.net/2024/01/21/2jKHUNEpcTFQy9I.png" alt="image.png"><br>&emsp;&emsp;然后呢，，接下来我们要通过常用的来创建一个控制.ssh的config，然后我习惯就是用，<a href="https://code.visualstudio.com/Download">VSCode</a>，但是呢，我习惯用的vscode的zip版本。直接使用Git启动的话我倒是不会。所以我是下图这样的创建config的。视频看上去有点卡的话，这边有百度网盘的链，可以通过百度网盘看看，或者挂梯子。<a href="https://pan.baidu.com/s/184laBs0d5H2yMEK8xfl_GQ?pwd=48wq">HexoMader05-01 百度网盘在线版</a>）</p><iframe id="spkj" src="https://www.acfun.cn/player/ac43642408" width="100%" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen"><span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start"></span> <span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start"></span> </iframe> <script type="text/javascript"> document.getElementById("spkj").style.height=document.getElementById("spkj").scrollWidth*0.76+"px"; </script><p>&emsp;&emsp;然后呢就会唤起我的vscode，打开这样的界面<br><img src="https://s2.loli.net/2024/01/21/FZjyOwUbfQKc4vo.png" alt="image.png"><br>&emsp;&emsp;在里面输入</p><pre><code>Host github.comUser gitHostname ssh.github.comPreferredAuthentications publickeyIdentityFile ~/.ssh/id_rsaPort 443Host gitlab.comHostname altssh.gitlab.comUser gitPort 443PreferredAuthentications publickeyIdentityFile ~/.ssh/id_rsa</code></pre><p>&emsp;&emsp;保存，在GIT输入以下内容</p><pre><code>ssh -T git@github.com</code></pre><p>&emsp;&emsp;如果出现以下内容，说明修改成功了，但是GitHub不提供服务。</p><pre><code>Hi 你的名字! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre><p>&emsp;&emsp;如果出现有个需要填yes还是弄的地方，填yes。我填完忘记截图了，然后来解决GitHub does not provide shell access.这个问题。解决办法就是重新生成SSH秘钥。<br>&emsp;&emsp;首先在Git输入以下信息：</p><pre><code>ssh-keygen -t rsa -C “your_email.com”</code></pre><p>&emsp;&emsp;然后，第一个按一下回车；第二个，输入y；第三个，回车；第四个，回车。<br><img src="https://s2.loli.net/2024/01/21/ZHyMiU1r4dueEGb.png" alt="image.png"><br>&emsp;&emsp;然后在 <em><strong>.ssh</strong></em> 文件夹下的找到 <em><strong>id_rsa.pub</strong></em> 打开，把里面的文本全部复制到GitHub的SSH秘钥里面，步骤就是：</p><pre><code>登录github点击 setting点击SSH and GPG keys选择 new ssh key添加公钥完成</code></pre><p>&emsp;&emsp;这样就可以正常推送了</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h1><p>&emsp;&emsp;最近被Error:Spawn failed这个报错，折磨得一塌糊涂。试了试网上的，什么删除.deploy_git文件夹，什么改_config.yml里面的deploy:repo的<a href="mailto:&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;">&#103;&#105;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#x75;&#x62;&#46;&#x63;&#x6f;&#x6d;</a>:，还有本地推送啥的，对我都没作用。试了试一个偏方。在这把方法分享一下。</p><span id="more"></span><hr><h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h1><p>&emsp;&emsp;首先，我们直接打开Git Bash，不要在任何一个文件夹下运行。打开应该是下图这个样子（ <em><strong>~</strong></em> 后面没有任何东西，或者是一个 <em><strong>&#x2F;</strong></em> 但是后面也没有东西）（我是在win菜单下运行的，没有添加到win菜单的话，你可以在你安装Git的文件夹下找到这个Git Bash）<br><img src="https://s2.loli.net/2024/01/21/2MpTKdWPS1zC8lR.png" alt="image.png"><br><img src="https://s2.loli.net/2024/01/21/wWRtYIMnuXsoejy.png" alt="image.png"><br>&emsp;&emsp;输入以下内容</p><pre><code>cd ~/.ssh# 进入以下文件夹：C:\Users\user\.ssh</code></pre><p>&emsp;&emsp;现在上面的info信息就是这样<br><img src="https://s2.loli.net/2024/01/21/2jKHUNEpcTFQy9I.png" alt="image.png"><br>&emsp;&emsp;然后呢，，接下来我们要通过常用的来创建一个控制.ssh的config，然后我习惯就是用，<a href="https://code.visualstudio.com/Download">VSCode</a>，但是呢，我习惯用的vscode的zip版本。直接使用Git启动的话我倒是不会。所以我是下图这样的创建config的。视频看上去有点卡的话，这边有百度网盘的链，可以通过百度网盘看看，或者挂梯子。<a href="https://pan.baidu.com/s/184laBs0d5H2yMEK8xfl_GQ?pwd=48wq">HexoMader05-01 百度网盘在线版</a>）</p><iframe id="spkj" src="https://www.acfun.cn/player/ac43642408" width="100%" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen"><span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start"></span> <span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start"></span> </iframe> <script type="text/javascript"> document.getElementById("spkj").style.height=document.getElementById("spkj").scrollWidth*0.76+"px"; </script><p>&emsp;&emsp;然后呢就会唤起我的vscode，打开这样的界面<br><img src="https://s2.loli.net/2024/01/21/FZjyOwUbfQKc4vo.png" alt="image.png"><br>&emsp;&emsp;在里面输入</p><pre><code>Host github.comUser gitHostname ssh.github.comPreferredAuthentications publickeyIdentityFile ~/.ssh/id_rsaPort 443Host gitlab.comHostname altssh.gitlab.comUser gitPort 443PreferredAuthentications publickeyIdentityFile ~/.ssh/id_rsa</code></pre><p>&emsp;&emsp;保存，在GIT输入以下内容</p><pre><code>ssh -T git@github.com</code></pre><p>&emsp;&emsp;如果出现以下内容，说明修改成功了，但是GitHub不提供服务。</p><pre><code>Hi 你的名字! You&#39;ve successfully authenticated, but GitHub does not provide shell access.</code></pre><p>&emsp;&emsp;如果出现有个需要填yes还是弄的地方，填yes。我填完忘记截图了，然后来解决GitHub does not provide shell access.这个问题。解决办法就是重新生成SSH秘钥。<br>&emsp;&emsp;首先在Git输入以下信息：</p><pre><code>ssh-keygen -t rsa -C “your_email.com”</code></pre><p>&emsp;&emsp;然后，第一个按一下回车；第二个，输入y；第三个，回车；第四个，回车。<br><img src="https://s2.loli.net/2024/01/21/ZHyMiU1r4dueEGb.png" alt="image.png"><br>&emsp;&emsp;然后在 <em><strong>.ssh</strong></em> 文件夹下的找到 <em><strong>id_rsa.pub</strong></em> 打开，把里面的文本全部复制到GitHub的SSH秘钥里面，步骤就是：</p><pre><code>登录github点击 setting点击SSH and GPG keys选择 new ssh key添加公钥完成</code></pre><p>&emsp;&emsp;这样就可以正常推送了</p>]]></content>
     
     
-    <summary type="html">&lt;h1 id=&quot;前言：&quot;&gt;&lt;a href=&quot;#前言：&quot; class=&quot;headerlink&quot; title=&quot;前言：&quot;&gt;&lt;/a&gt;前言：&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;最近被Error:Spawn failed这个报错，折磨得一塌糊涂。试了试网上的，什么删除.deploy_git文件夹，什么改_config.yml里面的deploy:repo的&lt;a href=&quot;mailto:&amp;#103;&amp;#x69;&amp;#x74;&amp;#64;&amp;#x67;&amp;#105;&amp;#x74;&amp;#x68;&amp;#x75;&amp;#x62;&amp;#x2e;&amp;#x63;&amp;#111;&amp;#x6d;&quot;&gt;&amp;#103;&amp;#x69;&amp;#x74;&amp;#64;&amp;#x67;&amp;#105;&amp;#x74;&amp;#x68;&amp;#x75;&amp;#x62;&amp;#x2e;&amp;#x63;&amp;#111;&amp;#x6d;&lt;/a&gt;:，还有本地推送啥的，对我都没作用。试了试一个偏方。在这把方法分享一下。&lt;/p&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;前言：&quot;&gt;&lt;a href=&quot;#前言：&quot; class=&quot;headerlink&quot; title=&quot;前言：&quot;&gt;&lt;/a&gt;前言：&lt;/h1&gt;&lt;p&gt;&amp;emsp;&amp;emsp;最近被Error:Spawn failed这个报错，折磨得一塌糊涂。试了试网上的，什么删除.deploy_git文件夹，什么改_config.yml里面的deploy:repo的&lt;a href=&quot;mailto:&amp;#103;&amp;#105;&amp;#x74;&amp;#64;&amp;#x67;&amp;#105;&amp;#116;&amp;#x68;&amp;#x75;&amp;#x62;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#x6d;&quot;&gt;&amp;#103;&amp;#105;&amp;#x74;&amp;#64;&amp;#x67;&amp;#105;&amp;#116;&amp;#x68;&amp;#x75;&amp;#x62;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#x6d;&lt;/a&gt;:，还有本地推送啥的，对我都没作用。试了试一个偏方。在这把方法分享一下。&lt;/p&gt;</summary>
     
     
     
@@ -381,48 +457,6 @@
     
     
     <category term="Hexo建设日志" scheme="http://re-tikara.github.io/tags/Hexo%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo备忘录001-文章加密的文章头（ 密码：TikaRa ）</title>
-    <link href="http://re-tikara.github.io/posts/12578/"/>
-    <id>http://re-tikara.github.io/posts/12578/</id>
-    <published>2023-12-10T15:28:09.000Z</published>
-    <updated>2024-01-24T17:34:34.321Z</updated>
-    
-    <content type="html"><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">  <script id="hbeData" type="hbeData" data-hmacdigest="c06400472abc74f55b7013b4a5c72e4e91332553811d4ddd852975d2fb9809f5">7c301fb37ec7311f12c44604cd981270a6d2cef8eb863e30ba43dd1c5610b4579d95739668576760afda8b505b0ee7a5e9f93a78cece7ec57d32d77a94b9c5c6734e65a39a15c6e0bdd822c9a82ad444e485a6996dd8386eb1cdf255ed8e59dd759e2e0e013514d929c376b96d135e2c37bfece301c361eeb1eecd6fd97feeb4d7f75fd2104d1d6f1548ea496c1d2bfb7d5b2377e745c7faea2d09e4eef449f7526e46483ea78d79eefe175df6406890e6f7a7d32c4d3c00e1cdd1a98c83a9d8b022df48239495e7c13b21a86c4cc5dd1988683ff95fb9ad5da8fbcf0abe76b963dd2f5a46118e3eda2015812a581502e9c99dcb1c75a3767ac33af6bee67a6d558bef41fde0836fed60aab6e0ab87d671bdd10560c35e427486f5aa61593672df12ba43a3bb88820328a433ba12355a37a612aa0fd13d9dcd169e105f40b4b92bd9b5b2c45b955b8f76e35366e44a160bf8c5e90d4f77311fee9be6b447dc11ee9261f615e11fd7925027d4182006e78ee2932e14e81fe793647ac709dcd207a0b51aafa5c42e4cbe5150fa199dc28930efac146debda2e5d10d96cfda5303227e3a7099254d2ee65e7ffeb4609393c3b902894598b38b5bc32337d95b57089</script>  <div class="hbe hbe-content">    <div class="hbe hbe-input hbe-input-default">      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>      </label>    </div>  </div></div><script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-    
-    
-    <summary type="html">Here&#39;s something encrypted, password is required to continue reading.</summary>
-    
-    
-    
-    <category term="Hexo备忘录" scheme="http://re-tikara.github.io/categories/Hexo%E5%A4%87%E5%BF%98%E5%BD%95/"/>
-    
-    
-    <category term="Hexo备忘录" scheme="http://re-tikara.github.io/tags/Hexo%E5%A4%87%E5%BF%98%E5%BD%95/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>About/关于</title>
-    <link href="http://re-tikara.github.io/posts/25487/"/>
-    <id>http://re-tikara.github.io/posts/25487/</id>
-    <published>2023-12-09T05:21:00.000Z</published>
-    <updated>2024-01-24T18:00:50.601Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="About-关于"><a href="#About-关于" class="headerlink" title="About&#x2F;关于"></a>About&#x2F;关于</h1><span id="more"></span><h2 id="关于这个网站"><a href="#关于这个网站" class="headerlink" title="关于这个网站"></a>关于这个网站</h2><p>&emsp;&emsp;这个网站是安歌和工作室的的网站哦~关于MMD的相关知识，配布物等等都会塞在这里，等我们慢慢建设吧~~<br></p><h2 id="关于网站主题"><a href="#关于网站主题" class="headerlink" title="关于网站主题"></a>关于网站主题</h2><p>&emsp;&emsp;网站的主题来自于shenyv的<a href="https://shen-yu.gitee.io/2019/ayer/">Ayer</a><br>&emsp;&emsp;花瓣飘落、看板喵与搞笑代码标签页，教程来源于<a href="https://xuan-ming.github.io/2021/12/11/Blog3/">Hexo博客-主题美化</a>，网站封面图的背景来自于AI，如有侵权，请联系我删除。<br>&emsp;&emsp;关于鼠标指针，是来自于B站太太Moos柚眠，我把文件从.ani文件修改成了.cur而已。（爬爬，如有侵权请联系我删除）</p><div style="position:relative; width:100%; height:0; padding-bottom:75%;"><iframe src="//player.bilibili.com/player.html?aid=816032131&bvid=BV1bG4y1x7YY&cid=846862938&p=1" scrolling="no" border="0" frameborder="no"  framespacing="0"  style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe></div>]]></content>
-    
-    
-    <summary type="html">&lt;h1 id=&quot;About-关于&quot;&gt;&lt;a href=&quot;#About-关于&quot; class=&quot;headerlink&quot; title=&quot;About&amp;#x2F;关于&quot;&gt;&lt;/a&gt;About&amp;#x2F;关于&lt;/h1&gt;</summary>
-    
-    
-    
-    <category term="About" scheme="http://re-tikara.github.io/categories/About/"/>
-    
-    
-    <category term="About" scheme="http://re-tikara.github.io/tags/About/"/>
     
   </entry>
   
