@@ -18,15 +18,15 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="&emsp;&emsp;被QQ最近那个点击转发的小东西弄感兴趣了，看是MD语法，重点是URL的编码和解码，所以就写了个简单的例子。  代码import tkinter as tk from urllib.parse import quote, unquote  def encode_text():     input_text &#x3D; entry.get()     encoded_text &#x3D; qu">
+        <meta name="description" content="&emsp;&emsp;被QQ最近那个点击转发的小东西弄感兴趣了，看是MD语法，重点是URL的编码和解码，所以就写了个简单的例子。  代码12345678910111213141516171819202122232425262728293031323334353637383940414243import tkinter as tkfrom urllib.parse import quote, un">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python实战系列03-URL的编码与解码">
 <meta property="og:url" content="http://re-tikara.github.io/posts/cbf0ad6c/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="&emsp;&emsp;被QQ最近那个点击转发的小东西弄感兴趣了，看是MD语法，重点是URL的编码和解码，所以就写了个简单的例子。  代码import tkinter as tk from urllib.parse import quote, unquote  def encode_text():     input_text &#x3D; entry.get()     encoded_text &#x3D; qu">
+<meta property="og:description" content="&emsp;&emsp;被QQ最近那个点击转发的小东西弄感兴趣了，看是MD语法，重点是URL的编码和解码，所以就写了个简单的例子。  代码12345678910111213141516171819202122232425262728293031323334353637383940414243import tkinter as tkfrom urllib.parse import quote, un">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-22T15:41:15.000Z">
-<meta property="article:modified_time" content="2024-11-20T05:23:04.012Z">
+<meta property="article:modified_time" content="2024-11-20T12:35:15.834Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -663,8 +663,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-11-20 13:23:04</span>
-            <span class="mobile">2024-11-20 13:23:04</span>
+            <span class="desktop">2024-11-20 20:35:15</span>
+            <span class="mobile">2024-11-20 20:35:15</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -712,7 +712,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>232 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>230 字</span>
         </span>
     
     
@@ -738,50 +738,7 @@
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
 			<p>&emsp;&emsp;被QQ最近那个点击转发的小东西弄感兴趣了，看是MD语法，重点是URL的编码和解码，所以就写了个简单的例子。</p>
 <hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import tkinter as tk
-from urllib.parse import quote, unquote
-
-def encode_text():
-    input_text = entry.get()
-    encoded_text = quote(input_text)
-    result_label.config(text=encoded_text)
-
-def decode_text():
-    input_text = entry.get()
-    try:
-        decoded_text = unquote(input_text)
-        result_label.config(text=decoded_text)
-    except Exception as e:
-        result_label.config(text=&quot;请输入正确的URL编码内容&quot;)
-
-def copy_text():
-    root.clipboard_clear()
-    root.clipboard_append(result_label.cget(&quot;text&quot;))
-
-root = tk.Tk()
-root.title(&quot;URL编码器&quot;)
-root.configure(bg=&quot;#EEE0E5&quot;)
-
-entry = tk.Entry(root, width=50, bg=&quot;#FFE4C4&quot;)
-entry.pack(pady=10)
-
-buttons_frame = tk.Frame(root)
-buttons_frame.pack(side=&quot;right&quot;, padx=10)
-
-encode_button = tk.Button(buttons_frame, text=&quot;编码&quot;, command=encode_text)
-encode_button.pack(pady=5)
-
-decode_button = tk.Button(buttons_frame, text=&quot;解码&quot;, command=decode_text)
-decode_button.pack(pady=5)
-
-copy_button = tk.Button(buttons_frame, text=&quot;复制&quot;, command=copy_text)
-copy_button.pack(pady=5)
-
-result_label = tk.Label(root, text=&quot;&quot;, bg=&quot;#B0E0E6&quot;)
-result_label.pack(pady=10)
-
-root.mainloop()
-</code></pre>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> quote, unquote</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">encode_text</span>():</span><br><span class="line">    input_text = entry.get()</span><br><span class="line">    encoded_text = quote(input_text)</span><br><span class="line">    result_label.config(text=encoded_text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decode_text</span>():</span><br><span class="line">    input_text = entry.get()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        decoded_text = unquote(input_text)</span><br><span class="line">        result_label.config(text=decoded_text)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        result_label.config(text=<span class="string">&quot;请输入正确的URL编码内容&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">copy_text</span>():</span><br><span class="line">    root.clipboard_clear()</span><br><span class="line">    root.clipboard_append(result_label.cget(<span class="string">&quot;text&quot;</span>))</span><br><span class="line"></span><br><span class="line">root = tk.Tk()</span><br><span class="line">root.title(<span class="string">&quot;URL编码器&quot;</span>)</span><br><span class="line">root.configure(bg=<span class="string">&quot;#EEE0E5&quot;</span>)</span><br><span class="line"></span><br><span class="line">entry = tk.Entry(root, width=<span class="number">50</span>, bg=<span class="string">&quot;#FFE4C4&quot;</span>)</span><br><span class="line">entry.pack(pady=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">buttons_frame = tk.Frame(root)</span><br><span class="line">buttons_frame.pack(side=<span class="string">&quot;right&quot;</span>, padx=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">encode_button = tk.Button(buttons_frame, text=<span class="string">&quot;编码&quot;</span>, command=encode_text)</span><br><span class="line">encode_button.pack(pady=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">decode_button = tk.Button(buttons_frame, text=<span class="string">&quot;解码&quot;</span>, command=decode_text)</span><br><span class="line">decode_button.pack(pady=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">copy_button = tk.Button(buttons_frame, text=<span class="string">&quot;复制&quot;</span>, command=copy_text)</span><br><span class="line">copy_button.pack(pady=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">result_label = tk.Label(root, text=<span class="string">&quot;&quot;</span>, bg=<span class="string">&quot;#B0E0E6&quot;</span>)</span><br><span class="line">result_label.pack(pady=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure></div>
 <hr>
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   target="_blank" rel="noopener" href="https://github.com/NIGHT2000/URL-Encoder-decoder" >https://github.com/NIGHT2000/URL-Encoder-decoder<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>QQ群：813686446</p>
 
@@ -798,7 +755,7 @@ root.mainloop()
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-11-20 13:23:04
+                    :</strong> 2024-11-20 20:35:15
             </li>
         
         <li>
@@ -933,7 +890,7 @@ root.mainloop()
                     </span>
                     
                         <span>
-                            共 28k 字
+                            共 27.9k 字
                         </span>
                     
                 </p>

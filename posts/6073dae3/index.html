@@ -26,7 +26,7 @@
 <meta property="og:description" content="关于HOYO Studio官方文档的AI翻译存档">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-06-13T08:15:58.000Z">
-<meta property="article:modified_time" content="2024-11-20T08:50:53.193Z">
+<meta property="article:modified_time" content="2024-11-20T12:35:15.836Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="解包">
 <meta name="twitter:card" content="summary">
@@ -667,8 +667,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-11-20 16:50:53</span>
-            <span class="mobile">2024-11-20 16:50:53</span>
+            <span class="desktop">2024-11-20 20:35:15</span>
+            <span class="mobile">2024-11-20 20:35:15</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -740,13 +740,12 @@
 
 
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-			<h2 id="原项目地址："><a href="#原项目地址：" class="headerlink" title="原项目地址："></a>原项目地址：</h2><pre><code>https://github.com/TomyJan/HoYoStudio/releases/tag/v0.17.00
-</code></pre>
+			<h2 id="原项目地址："><a href="#原项目地址：" class="headerlink" title="原项目地址："></a>原项目地址：</h2><div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://github.com/TomyJan/HoYoStudio/releases/tag/v0.17.00</span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;事先声明:（本文使用AI翻译）HoYoStudio是一个开源项目，旨在对米哈游（Mihoyo）的游戏文件进行分析和修改。它可以用于分析、提取和修改Mihoyo游戏中的资源，如角色模型、动画、音效和场景等。HoYoStudio支持Mihoyo的多款游戏，如《原神》（Genshin Impact）、《崩坏3》（Honkai Impact 3rd）、《崩坏：星穹铁道》（Honkai: Star Rail）和《未定事件簿》（Tears of Themis）。</p>
 <hr>
 <h2 id="HoYoStudio功能："><a href="#HoYoStudio功能：" class="headerlink" title="HoYoStudio功能："></a>HoYoStudio功能：</h2><p>&emsp;&emsp;1. 更改所选游戏：使用“选项（Option）-&gt;指定游戏（Specify Game）”。<br>&emsp;&emsp;Change selected Game by using “Option -&gt; Specify Game”.<br>&emsp;&emsp;2. 集成Radioegor146的仓库以通过“选项-&gt;指定AI版本”加载asset_index。<br>&emsp;&emsp;Integration with “Radioegor146” repo to load asset_index through “Options -&gt; Specify AI version”.<br><br>&emsp;&emsp;3. 支持导出可编辑资产（并非所有资产），支持XOR&#x2F;JSON格式的MiHoYoBinData。<br>&emsp;&emsp;Exportable Assets (not all of them) with XOR&#x2F;JSON support for “MiHoYoBinData”<br>&emsp;&emsp;4. 可选调试控制台。<br>&emsp;&emsp;Togglable debug console.<br>&emsp;&emsp;5. 容器&#x2F;文件名恢复。<br>&emsp;&emsp;Container&#x2F;filename recovery for Assets<br>&emsp;&emsp;6. 构建资产地图，即游戏文件内的资产列表。<br>&emsp;&emsp;Build AssetMap, An asset list of assets inside game files.<br>&emsp;&emsp;7. 通过命令行界面（CLI）构建CABMap&#x2F;资产地图（支持Unity类型和正则表达式过滤器）。<br>&emsp;&emsp;Build CABMap&#x2F;AssetMap through CLI (with supported <code>Unity Type</code> and <code>Regex</code> filters).<br>&emsp;&emsp;8. 通过命令行界面导出资产（支持Unity类型和正则表达式过滤器以及分组）。<br>&emsp;&emsp;Export assets through CLI (with supported <code>Unity Type</code> and <code>Regex</code> filters and grouping).</p>
 <hr>
-<h2 id="如何使用HoYoStudio："><a href="#如何使用HoYoStudio：" class="headerlink" title="如何使用HoYoStudio："></a>如何使用HoYoStudio：</h2><p>&emsp;&emsp;1. 构建CABMap（杂项-&gt;构建CABMap）。<br>&emsp;&emsp;Build CABMap (Misc. -&gt; Build CABMap).<br>&emsp;&emsp;2. 加载文件。<br>&emsp;&emsp;Load files.<br>&emsp;&emsp;命令行版本（Description）：<br>&emsp;&emsp;用法（Usage）：AssetStudioCLI &lt;输入路径&gt; &lt;输出路径&gt; [选项]<br>&emsp;&emsp;AssetStudioCLI <input_path> <output_path> [options]<br>&emsp;&emsp;参数（Arguments）：<br>&emsp;&emsp;&lt;输入路径&gt;：输入文件&#x2F;文件夹。<br>&emsp;&emsp;<input_path> Input file&#x2F;folder.<br>&emsp;&emsp;&lt;输出路径&gt;：输出文件夹。<br>&emsp;&emsp;<output_path> Output folder.<br>&emsp;&emsp;选项（Options）：<br>&emsp;&emsp;–silent：隐藏日志消息。<br>&emsp;&emsp;silent       Hide log messages.<br>&emsp;&emsp;–type ：指定Unity类类型。<br>&emsp;&emsp;type &lt;Texture2D|Sprite|etc..&gt;  <br>&emsp;&emsp;Specify unity class type(s)<br>&emsp;&emsp;–filter ：指定正则过滤器。<br>&emsp;&emsp;filter <filter>     Specify regex filter(s).<br>&emsp;&emsp;–game （必需）：指定游戏。<br>&emsp;&emsp;game &lt;BH3|GI|SR|TOT&gt; (REQUIRED)<br>&emsp;&emsp;Specify Game.<br>&emsp;&emsp;–map_op ：指定要构建的地图。[默认：无]<br>&emsp;&emsp;map_op &lt;AssetMap|Both|CABMap|None&gt;<br>&emsp;&emsp;Specify which map to build. [default: None]<br>&emsp;&emsp;–map_type ：资产地图输出类型。[默认：XML]<br>&emsp;&emsp;map_type &lt;JSON|XML&gt;<br>&emsp;&emsp;AssetMap output type. [default: XML]<br>&emsp;&emsp;–map_name ：指定资产地图文件名。<br>&emsp;&emsp;map_name <map_name><br>&emsp;&emsp;Specify AssetMap file name.<br>&emsp;&emsp;–group_assets_type ：指定导出的资产分组方式。[默认：0]<br>&emsp;&emsp;group_assets_type &lt;ByContainer|BySource|ByType|None&gt; <br>&emsp;&emsp;Specify how exported assets should be grouped. [default: 0]<br>&emsp;&emsp;–no_asset_bundle：从资产地图&#x2F;导出中排除AssetBundle。<br>&emsp;&emsp;no_asset_bundle<br>&emsp;&emsp;Exclude AssetBundle from AssetMap&#x2F;Export.<br>&emsp;&emsp;–no_index_object：从资产地图&#x2F;导出中排除IndexObject&#x2F;MiHoYoBinData。<br>&emsp;&emsp;no_index_object<br>&emsp;&emsp;Exclude IndexObject&#x2F;MiHoYoBinData from AssetMap&#x2F;Export.<br>&emsp;&emsp;–xor_key ：解密MiHoYoBinData的XOR密钥。<br>&emsp;&emsp;xor_key <xor_key><br>&emsp;&emsp;XOR key to decrypt MiHoYoBinData.<br>&emsp;&emsp;–ai_file ：指定asset_index json文件路径（以恢复GI容器）。<br>&emsp;&emsp;ai_file <ai_file><br>&emsp;&emsp;Specify asset_index json file path (to recover GI containers).<br>&emsp;&emsp;–version：显示版本信息<br>&emsp;&emsp;version<br>&emsp;&emsp;Show version information<br>&emsp;&emsp;此处有一段未翻译到<br>&emsp;&emsp;?, -h, –help<br>&emsp;&emsp;Show help and usage information</p>
+<h2 id="如何使用HoYoStudio："><a href="#如何使用HoYoStudio：" class="headerlink" title="如何使用HoYoStudio："></a>如何使用HoYoStudio：</h2><p>&emsp;&emsp;1. 构建CABMap（杂项-&gt;构建CABMap）。<br>&emsp;&emsp;Build CABMap (Misc. -&gt; Build CABMap).<br>&emsp;&emsp;2. 加载文件。<br>&emsp;&emsp;Load files.<br>&emsp;&emsp;命令行版本（Description）：<br>&emsp;&emsp;用法（Usage）：AssetStudioCLI &lt;输入路径&gt; &lt;输出路径&gt; [选项]<br>&emsp;&emsp;AssetStudioCLI <input_path> <output_path> [options]<br>&emsp;&emsp;参数（Arguments）：<br>&emsp;&emsp;&lt;输入路径&gt;：输入文件&#x2F;文件夹。<br>&emsp;&emsp;<input_path> Input file&#x2F;folder.<br>&emsp;&emsp;&lt;输出路径&gt;：输出文件夹。<br>&emsp;&emsp;<output_path> Output folder.<br>&emsp;&emsp;选项（Options）：<br>&emsp;&emsp;–silent：隐藏日志消息。<br>&emsp;&emsp;silent   Hide log messages.<br>&emsp;&emsp;–type ：指定Unity类类型。<br>&emsp;&emsp;type &lt;Texture2D|Sprite|etc..&gt;  <br>&emsp;&emsp;Specify unity class type(s)<br>&emsp;&emsp;–filter ：指定正则过滤器。<br>&emsp;&emsp;filter <filter> Specify regex filter(s).<br>&emsp;&emsp;–game （必需）：指定游戏。<br>&emsp;&emsp;game &lt;BH3|GI|SR|TOT&gt; (REQUIRED)<br>&emsp;&emsp;Specify Game.<br>&emsp;&emsp;–map_op ：指定要构建的地图。[默认：无]<br>&emsp;&emsp;map_op &lt;AssetMap|Both|CABMap|None&gt;<br>&emsp;&emsp;Specify which map to build. [default: None]<br>&emsp;&emsp;–map_type ：资产地图输出类型。[默认：XML]<br>&emsp;&emsp;map_type &lt;JSON|XML&gt;<br>&emsp;&emsp;AssetMap output type. [default: XML]<br>&emsp;&emsp;–map_name ：指定资产地图文件名。<br>&emsp;&emsp;map_name <map_name><br>&emsp;&emsp;Specify AssetMap file name.<br>&emsp;&emsp;–group_assets_type ：指定导出的资产分组方式。[默认：0]<br>&emsp;&emsp;group_assets_type &lt;ByContainer|BySource|ByType|None&gt; <br>&emsp;&emsp;Specify how exported assets should be grouped. [default: 0]<br>&emsp;&emsp;–no_asset_bundle：从资产地图&#x2F;导出中排除AssetBundle。<br>&emsp;&emsp;no_asset_bundle<br>&emsp;&emsp;Exclude AssetBundle from AssetMap&#x2F;Export.<br>&emsp;&emsp;–no_index_object：从资产地图&#x2F;导出中排除IndexObject&#x2F;MiHoYoBinData。<br>&emsp;&emsp;no_index_object<br>&emsp;&emsp;Exclude IndexObject&#x2F;MiHoYoBinData from AssetMap&#x2F;Export.<br>&emsp;&emsp;–xor_key ：解密MiHoYoBinData的XOR密钥。<br>&emsp;&emsp;xor_key <xor_key><br>&emsp;&emsp;XOR key to decrypt MiHoYoBinData.<br>&emsp;&emsp;–ai_file ：指定asset_index json文件路径（以恢复GI容器）。<br>&emsp;&emsp;ai_file <ai_file><br>&emsp;&emsp;Specify asset_index json file path (to recover GI containers).<br>&emsp;&emsp;–version：显示版本信息<br>&emsp;&emsp;version<br>&emsp;&emsp;Show version information<br>&emsp;&emsp;此处有一段未翻译到<br>&emsp;&emsp;?, -h, –help<br>&emsp;&emsp;Show help and usage information</p>
 <hr>
 <h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>&emsp;&emsp;1. 如遇到任何“MeshRenderer&#x2F;SkinnedMeshRenderer”错误，请在加载资产之前启用“禁用渲染器”选项。<br>&emsp;&emsp;in case of any “MeshRenderer&#x2F;SkinnedMeshRenderer” errors, make sure to enable “Disable Renderer” option in “Export Options” before loading assets.<br>&emsp;&emsp;2. 如需在不获取所有动画的情况下导出模型&#x2F;动画控制器，请启用“忽略控制器动画”选项。in case of need to export models&#x2F;animators without fetching all animations, make sure to enable “Ignore Controller Anim” option in “Options -&gt; Export Options” before loading assets.</p>
 <hr>
@@ -765,7 +764,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-11-20 16:50:53
+                    :</strong> 2024-11-20 20:35:15
             </li>
         
         <li>
@@ -900,7 +899,7 @@
                     </span>
                     
                         <span>
-                            共 28k 字
+                            共 27.9k 字
                         </span>
                     
                 </p>

@@ -18,15 +18,15 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="&emsp;&emsp;听歌时遇到了这种，B站有CC字幕，WYY没歌词的情况，想把B站的扒下来传到WYY用。  代码## 导入所需模块 import tkinter as tk  ## GUI库 from tkinter import filedialog, messagebox  ## 文件对话框和消息框 import pysrt  ## 用于处理SRT字幕的库  ## 定义SRTtoLRCCo">
+        <meta name="description" content="&emsp;&emsp;听歌时遇到了这种，B站有CC字幕，WYY没歌词的情况，想把B站的扒下来传到WYY用。  代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python实践系列04-SRT转换为普通LRC">
 <meta property="og:url" content="http://re-tikara.github.io/posts/f2007e5d/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="&emsp;&emsp;听歌时遇到了这种，B站有CC字幕，WYY没歌词的情况，想把B站的扒下来传到WYY用。  代码## 导入所需模块 import tkinter as tk  ## GUI库 from tkinter import filedialog, messagebox  ## 文件对话框和消息框 import pysrt  ## 用于处理SRT字幕的库  ## 定义SRTtoLRCCo">
+<meta property="og:description" content="&emsp;&emsp;听歌时遇到了这种，B站有CC字幕，WYY没歌词的情况，想把B站的扒下来传到WYY用。  代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-05-22T15:42:05.000Z">
-<meta property="article:modified_time" content="2024-11-20T05:16:46.561Z">
+<meta property="article:modified_time" content="2024-11-20T12:35:11.073Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
@@ -663,8 +663,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-11-20 13:16:46</span>
-            <span class="mobile">2024-11-20 13:16:46</span>
+            <span class="desktop">2024-11-20 20:35:11</span>
+            <span class="mobile">2024-11-20 20:35:11</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -712,7 +712,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>859 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>856 字</span>
         </span>
     
     
@@ -738,115 +738,7 @@
 		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
 			<p>&emsp;&emsp;听歌时遇到了这种，B站有CC字幕，WYY没歌词的情况，想把B站的扒下来传到WYY用。</p>
 <hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>## 导入所需模块
-import tkinter as tk  ## GUI库
-from tkinter import filedialog, messagebox  ## 文件对话框和消息框
-import pysrt  ## 用于处理SRT字幕的库
-
-## 定义SRTtoLRCConverter类
-class SRTtoLRCConverter:
-    def __init__(self, master):
-        ## 初始化主窗口
-        self.master = master
-        self.master.title(&quot;SRT 到 LRC 转换器&quot;)
-        self.master.configure(bg=&quot;#E6E6FA&quot;)  ## 设置主窗口背景色
-
-        ## 初始化变量
-        self.srt_file_path = &quot;&quot;  ## SRT文件路径
-        self.lrc_file_path = &quot;&quot;  ## LRC文件路径
-
-        ## 创建文本框和标签
-        self.srt_textbox = tk.Text(self.master, wrap=&quot;word&quot;, width=50, height=10, bg=&quot;#BEBEBE&quot;)  ## 设置SRT文本框背景色
-        self.srt_textbox.grid(row=0, column=0, columnspan=2)
-
-        self.lrc_textbox = tk.Text(self.master, wrap=&quot;word&quot;, width=50, height=10, bg=&quot;#BEBEBE&quot;)  ## 设置LRC文本框背景色
-        self.lrc_textbox.grid(row=1, column=0, columnspan=2)
-
-        ## 创建按钮
-        self.open_srt_button = tk.Button(self.master, text=&quot;打开SRT文件&quot;, command=self.open_srt)  ## 打开SRT文件按钮
-        self.open_srt_button.grid(row=2, column=0)
-
-        self.convert_button = tk.Button(self.master, text=&quot;转换&quot;, command=self.convert)  ## 转换按钮
-        self.convert_button.grid(row=2, column=1)
-
-        self.save_lrc_button = tk.Button(self.master, text=&quot;保存LRC文件&quot;, command=self.save_lrc)  ## 保存LRC文件按钮
-        self.save_lrc_button.grid(row=3, column=0)
-
-        self.save_lrc_entry = tk.Entry(self.master, width=50, bg=&quot;#CDC1C5&quot;)  ## 设置保存路径输入框背景色
-        self.save_lrc_entry.grid(row=3, column=1)
-
-    ## 打开SRT文件方法
-    def open_srt(self):
-        ## 使用文件对话框打开SRT文件
-        self.srt_file_path = filedialog.askopenfilename(filetypes=[(&quot;SRT Files&quot;, &quot;*.srt&quot;)])
-
-        ## 如果选择了文件，读取内容并显示在SRT文本框中
-        if self.srt_file_path:
-            with open(self.srt_file_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
-                srt_content = f.read()
-                self.srt_textbox.insert(&quot;1.0&quot;, srt_content)
-
-    ## 转换方法
-    def convert(self):
-        ## 检查SRT文件是否已打开
-        if not self.srt_file_path:
-            messagebox.showerror(&quot;Error&quot;, &quot;请先打开一个SRT文件。&quot;)
-            return
-
-        ## 读取SRT文件内容
-        subs = pysrt.open(self.srt_file_path)
-        lrc_content = &quot;&quot;
-
-        ## 遍历SRT字幕，转换为LRC格式
-        for sub in subs:
-            ## 将时间对象转换为字符串，并按照冒号分割
-            time_str = sub.start.to_time().strftime(&#39;%H:%M:%S,%f&#39;)[:-3]
-            hh_mm_ss_ms = time_str.split(&#39;:&#39;)
-            hh, mm, ss, ms = int(hh_mm_ss_ms[0]), int(hh_mm_ss_ms[1]), int(hh_mm_ss_ms[2].split(&#39;,&#39;)[0]), int(hh_mm_ss_ms[2].split(&#39;,&#39;)[1])
-
-            ## 根据进制累加小时到分钟
-            mm += hh * 60
-
-            ## 保留三位毫秒
-            ms = f&quot;&#123;ms:03d&#125;&quot;
-
-            ## 构建LRC时间格式
-            lrc_time = f&quot;&#123;mm:02d&#125;:&#123;ss:02d&#125;.&#123;ms&#125;&quot;
-
-            ## 添加到LRC内容
-            lrc_content += f&quot;[&#123;lrc_time&#125;]&#123;sub.text&#125;\n&quot;
-
-        ## 清空LRC文本框并插入转换后的内容
-        self.lrc_textbox.delete(&quot;1.0&quot;, tk.END)
-        self.lrc_textbox.insert(&quot;1.0&quot;, lrc_content)
-
-    ## 保存LRC文件方法
-    def save_lrc(self):
-        ## 使用文件对话框保存LRC文件
-        if not self.lrc_file_path:
-            self.lrc_file_path = filedialog.asksaveasfilename(
-                defaultextension=&quot;.lrc&quot;,
-                filetypes=[(&quot;LRC Files&quot;, &quot;*.lrc&quot;)],
-                initialfile=&quot;output.lrc&quot;,
-                initialdir=&quot;.&quot;,
-            )
-
-        ## 如果选择了保存路径，更新输入框并保存内容
-        if self.lrc_file_path:
-            self.save_lrc_entry.delete(0, tk.END)
-            self.save_lrc_entry.insert(0, self.lrc_file_path)
-            with open(self.lrc_file_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
-                f.write(self.lrc_textbox.get(&quot;1.0&quot;, tk.END))
-
-## 创建Tkinter主窗口
-root = tk.Tk()
-
-## 实例化SRTtoLRCConverter类
-app = SRTtoLRCConverter(root)
-
-## 开始主循环
-root.mainloop()
-</code></pre>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 导入所需模块</span></span><br><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk  <span class="comment">## GUI库</span></span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> filedialog, messagebox  <span class="comment">## 文件对话框和消息框</span></span><br><span class="line"><span class="keyword">import</span> pysrt  <span class="comment">## 用于处理SRT字幕的库</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 定义SRTtoLRCConverter类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SRTtoLRCConverter</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, master</span>):</span><br><span class="line">        <span class="comment">## 初始化主窗口</span></span><br><span class="line">        <span class="variable language_">self</span>.master = master</span><br><span class="line">        <span class="variable language_">self</span>.master.title(<span class="string">&quot;SRT 到 LRC 转换器&quot;</span>)</span><br><span class="line">        <span class="variable language_">self</span>.master.configure(bg=<span class="string">&quot;#E6E6FA&quot;</span>)  <span class="comment">## 设置主窗口背景色</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 初始化变量</span></span><br><span class="line">        <span class="variable language_">self</span>.srt_file_path = <span class="string">&quot;&quot;</span>  <span class="comment">## SRT文件路径</span></span><br><span class="line">        <span class="variable language_">self</span>.lrc_file_path = <span class="string">&quot;&quot;</span>  <span class="comment">## LRC文件路径</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 创建文本框和标签</span></span><br><span class="line">        <span class="variable language_">self</span>.srt_textbox = tk.Text(<span class="variable language_">self</span>.master, wrap=<span class="string">&quot;word&quot;</span>, width=<span class="number">50</span>, height=<span class="number">10</span>, bg=<span class="string">&quot;#BEBEBE&quot;</span>)  <span class="comment">## 设置SRT文本框背景色</span></span><br><span class="line">        <span class="variable language_">self</span>.srt_textbox.grid(row=<span class="number">0</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.lrc_textbox = tk.Text(<span class="variable language_">self</span>.master, wrap=<span class="string">&quot;word&quot;</span>, width=<span class="number">50</span>, height=<span class="number">10</span>, bg=<span class="string">&quot;#BEBEBE&quot;</span>)  <span class="comment">## 设置LRC文本框背景色</span></span><br><span class="line">        <span class="variable language_">self</span>.lrc_textbox.grid(row=<span class="number">1</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">## 创建按钮</span></span><br><span class="line">        <span class="variable language_">self</span>.open_srt_button = tk.Button(<span class="variable language_">self</span>.master, text=<span class="string">&quot;打开SRT文件&quot;</span>, command=<span class="variable language_">self</span>.open_srt)  <span class="comment">## 打开SRT文件按钮</span></span><br><span class="line">        <span class="variable language_">self</span>.open_srt_button.grid(row=<span class="number">2</span>, column=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.convert_button = tk.Button(<span class="variable language_">self</span>.master, text=<span class="string">&quot;转换&quot;</span>, command=<span class="variable language_">self</span>.convert)  <span class="comment">## 转换按钮</span></span><br><span class="line">        <span class="variable language_">self</span>.convert_button.grid(row=<span class="number">2</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.save_lrc_button = tk.Button(<span class="variable language_">self</span>.master, text=<span class="string">&quot;保存LRC文件&quot;</span>, command=<span class="variable language_">self</span>.save_lrc)  <span class="comment">## 保存LRC文件按钮</span></span><br><span class="line">        <span class="variable language_">self</span>.save_lrc_button.grid(row=<span class="number">3</span>, column=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.save_lrc_entry = tk.Entry(<span class="variable language_">self</span>.master, width=<span class="number">50</span>, bg=<span class="string">&quot;#CDC1C5&quot;</span>)  <span class="comment">## 设置保存路径输入框背景色</span></span><br><span class="line">        <span class="variable language_">self</span>.save_lrc_entry.grid(row=<span class="number">3</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 打开SRT文件方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">open_srt</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">## 使用文件对话框打开SRT文件</span></span><br><span class="line">        <span class="variable language_">self</span>.srt_file_path = filedialog.askopenfilename(filetypes=[(<span class="string">&quot;SRT Files&quot;</span>, <span class="string">&quot;*.srt&quot;</span>)])</span><br><span class="line"></span><br><span class="line">        <span class="comment">## 如果选择了文件，读取内容并显示在SRT文本框中</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.srt_file_path:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="variable language_">self</span>.srt_file_path, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                srt_content = f.read()</span><br><span class="line">                <span class="variable language_">self</span>.srt_textbox.insert(<span class="string">&quot;1.0&quot;</span>, srt_content)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 转换方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">## 检查SRT文件是否已打开</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.srt_file_path:</span><br><span class="line">            messagebox.showerror(<span class="string">&quot;Error&quot;</span>, <span class="string">&quot;请先打开一个SRT文件。&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 读取SRT文件内容</span></span><br><span class="line">        subs = pysrt.<span class="built_in">open</span>(<span class="variable language_">self</span>.srt_file_path)</span><br><span class="line">        lrc_content = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 遍历SRT字幕，转换为LRC格式</span></span><br><span class="line">        <span class="keyword">for</span> sub <span class="keyword">in</span> subs:</span><br><span class="line">            <span class="comment">## 将时间对象转换为字符串，并按照冒号分割</span></span><br><span class="line">            time_str = sub.start.to_time().strftime(<span class="string">&#x27;%H:%M:%S,%f&#x27;</span>)[:-<span class="number">3</span>]</span><br><span class="line">            hh_mm_ss_ms = time_str.split(<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line">            hh, mm, ss, ms = <span class="built_in">int</span>(hh_mm_ss_ms[<span class="number">0</span>]), <span class="built_in">int</span>(hh_mm_ss_ms[<span class="number">1</span>]), <span class="built_in">int</span>(hh_mm_ss_ms[<span class="number">2</span>].split(<span class="string">&#x27;,&#x27;</span>)[<span class="number">0</span>]), <span class="built_in">int</span>(hh_mm_ss_ms[<span class="number">2</span>].split(<span class="string">&#x27;,&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">            <span class="comment">## 根据进制累加小时到分钟</span></span><br><span class="line">            mm += hh * <span class="number">60</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">## 保留三位毫秒</span></span><br><span class="line">            ms = <span class="string">f&quot;<span class="subst">&#123;ms:03d&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">## 构建LRC时间格式</span></span><br><span class="line">            lrc_time = <span class="string">f&quot;<span class="subst">&#123;mm:02d&#125;</span>:<span class="subst">&#123;ss:02d&#125;</span>.<span class="subst">&#123;ms&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">## 添加到LRC内容</span></span><br><span class="line">            lrc_content += <span class="string">f&quot;[<span class="subst">&#123;lrc_time&#125;</span>]<span class="subst">&#123;sub.text&#125;</span>\n&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 清空LRC文本框并插入转换后的内容</span></span><br><span class="line">        <span class="variable language_">self</span>.lrc_textbox.delete(<span class="string">&quot;1.0&quot;</span>, tk.END)</span><br><span class="line">        <span class="variable language_">self</span>.lrc_textbox.insert(<span class="string">&quot;1.0&quot;</span>, lrc_content)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 保存LRC文件方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">save_lrc</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">## 使用文件对话框保存LRC文件</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.lrc_file_path:</span><br><span class="line">            <span class="variable language_">self</span>.lrc_file_path = filedialog.asksaveasfilename(</span><br><span class="line">                defaultextension=<span class="string">&quot;.lrc&quot;</span>,</span><br><span class="line">                filetypes=[(<span class="string">&quot;LRC Files&quot;</span>, <span class="string">&quot;*.lrc&quot;</span>)],</span><br><span class="line">                initialfile=<span class="string">&quot;output.lrc&quot;</span>,</span><br><span class="line">                initialdir=<span class="string">&quot;.&quot;</span>,</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">        <span class="comment">## 如果选择了保存路径，更新输入框并保存内容</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.lrc_file_path:</span><br><span class="line">            <span class="variable language_">self</span>.save_lrc_entry.delete(<span class="number">0</span>, tk.END)</span><br><span class="line">            <span class="variable language_">self</span>.save_lrc_entry.insert(<span class="number">0</span>, <span class="variable language_">self</span>.lrc_file_path)</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="variable language_">self</span>.lrc_file_path, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(<span class="variable language_">self</span>.lrc_textbox.get(<span class="string">&quot;1.0&quot;</span>, tk.END))</span><br><span class="line"></span><br><span class="line"><span class="comment">## 创建Tkinter主窗口</span></span><br><span class="line">root = tk.Tk()</span><br><span class="line"></span><br><span class="line"><span class="comment">## 实例化SRTtoLRCConverter类</span></span><br><span class="line">app = SRTtoLRCConverter(root)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 开始主循环</span></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure></div>
 <hr>
 <h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>这个仅支持将SRT的 <em><strong>00:00:00,000 –&gt; 00:00:01,000</strong></em> 转换为普通LRC的 <em><strong>[00:00.000]</strong></em> 这种格式，并且将SRT的小时数按60进制累加到分钟上。对于其他版本的LRC或者SRT，可能有问题。</p>
 <hr>
@@ -865,7 +757,7 @@ root.mainloop()
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-11-20 13:16:46
+                    :</strong> 2024-11-20 20:35:11
             </li>
         
         <li>
@@ -1000,7 +892,7 @@ root.mainloop()
                     </span>
                     
                         <span>
-                            共 28k 字
+                            共 27.9k 字
                         </span>
                     
                 </p>
