@@ -1,0 +1,1617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="亓翎_Re-TikaRa">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://RE-TikaRa.github.io/posts/93a98ac8/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="&emsp;&emsp;是我习惯性的PMX转为VRM方案，用到了Unity，虽然有人说Blender插件也能做，但是我不习惯用Blender，于是用了Unity。本教程基于Windows10系统，不同系统或是软件版本间差异请自行百度，同时，此教程是我个人的方案展示，请自行斟酌是否适用。 还有就是，请一定要遵守原作者的RM！！！！！  &emsp;&emsp;【附加】：截止到写稿，非常不建议使用ap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="VRM系列02-PMX的VRM转化方案">
+<meta property="og:url" content="http://re-tikara.github.io/posts/93a98ac8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&emsp;&emsp;是我习惯性的PMX转为VRM方案，用到了Unity，虽然有人说Blender插件也能做，但是我不习惯用Blender，于是用了Unity。本教程基于Windows10系统，不同系统或是软件版本间差异请自行百度，同时，此教程是我个人的方案展示，请自行斟酌是否适用。 还有就是，请一定要遵守原作者的RM！！！！！  &emsp;&emsp;【附加】：截止到写稿，非常不建议使用ap">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/Jt4RmPG1inzVso5.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/GqdHf53KJPsVMx1.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/NumwoEnAQgzlUpK.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/trY4cvApKI6f5yQ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/fKPUdhQy35qRDVg.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/zIer6cVGiWHDlUp.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/5Qo49aPDMvilswH.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/7tigUvqQr2maVj4.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/aZUwLNpcxfXAiIK.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/pzXyuG9OEBQoRfN.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/tln1WACVZS8M2f9.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/G6v5QdJy3EpgO2W.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/MWiE68v1oInP7qa.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/AGMt3Ss5qLbBzIZ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/dvIGslJPb2joaKy.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/BwzxQs6C8ePrXpg.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/nxVGXf1O3jWdpP5.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/m64pTjay7sPNLk5.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/hZROS9MboqXaHJv.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/UDemZrMx3nSBEJw.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/MX8SuTIyctxZghO.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/EjeDihCp5WqA86t.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/C2OqisXPWNUVnjZ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/QrkMuzi62cyJmwW.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/OdFIgQKa8ycfn2T.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/nCriu5zsR6g9vU4.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/Od3vcKgPsRyfakY.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/WpT8BrsJxV6IDLe.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/3o7hZIeiY9NKPxG.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/y3Qb5ZEtJuhSYCg.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/IPrYmcnfHNpkt68.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/e6oDryZBQYp18ES.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/EOnXj6VsFMRguyS.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/kz4HU8YhPZA7Dnt.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/Km1zABTqSWtkoab.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/TGnlcbf8BQ3gXoF.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/XvGe2HJUcibWO4l.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/wbnvOZMeqmdSE1j.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/IDdtrHbRv7LgWYB.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/nPK5kThbXwIH2yq.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/tT72RAr8v4ZeJMm.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/dORryQaIGixzLeg.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/Sn6coi8sdZw1x47.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/3e8VdOLIfNUukph.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/daNgETMYDwKb7LR.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/kvgCVXGbaUwNiyj.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/MHayECXigFKjeIN.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/qhv5gducpmso9Kx.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/10/bwdjZaTg56VGLkf.png">
+<meta property="article:published_time" content="2024-06-09T02:57:59.000Z">
+<meta property="article:modified_time" content="2024-11-20T05:23:04.008Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="VRM">
+<meta property="article:tag" content="PMX">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/06/10/Jt4RmPG1inzVso5.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/img/logo.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/img/logo.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            VRM系列02-PMX的VRM转化方案 | ALp_Studio
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/build/css/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/build/js/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"re-tikara.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"欢迎参与实验 ，实验体%#@$%&号"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/img/light.jpg","dark":"/img/dark.png"},"title":"ALp_Studio","subtitle":{"text":["实验数据载入中......"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":"lgq3218483753@163.com","bilibili":"https://space.bilibili.com/374412219"},"qrs":{"weixin":null,"QQ":"https://sm.ms/image/Dyja4xG7N9sktbv"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.8.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"MMD":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","bilibili":"https://space.bilibili.com/374412219","Friends":"/links/"}},"Bookmarks":{"icon":"fa-solid fa-bookmark","path":"/bookmarks/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"blur","bookmarks_column":3},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"欢迎来到ALp_Studio第四期——情感实验室。","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        欢迎参与实验 ，实验体%#@$%&amp;号
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="/img/logo.png" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                ALp_Studio
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97"
+                                        >
+                                    <i class="fa-solid fa-list fa-fw"></i>
+                                    MMD
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://space.bilibili.com/374412219">
+                                                    BILIBILI
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/links/">
+                                                    友情链接
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/bookmarks/"
+                                        >
+                                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                                    BOOKMARKS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97"
+                        >
+                            <span>
+                                MMD
+                            </span>
+                            
+                                <i class="fa-solid fa-list fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://space.bilibili.com/374412219">BILIBILI</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/links/">友情链接</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/bookmarks/"
+                        >
+                            <span>
+                                BOOKMARKS
+                            </span>
+                            
+                                <i class="fa-solid fa-bookmark fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/tags"
+                        >
+                            <span>Tags</span>
+                            <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">VRM系列02-PMX的VRM转化方案</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/img/avat.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">亓翎_Re-TikaRa</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-06-09 10:57:59</span>
+        <span class="mobile">2024-06-09 10:57:59</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-11-20 13:23:04</span>
+            <span class="mobile">2024-11-20 13:23:04</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/MMD/">MMD</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/MMD/MMD-%E6%95%99%E7%A8%8B/">MMD 教程</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/MMD/MMD-%E6%95%99%E7%A8%8B/VRM%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97/">VRM教程系列</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/VRM/">VRM</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/PMX/">PMX</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3.2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>11 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p>&emsp;&emsp;是我习惯性的PMX转为VRM方案，用到了Unity，虽然有人说Blender插件也能做，但是我不习惯用Blender，于是用了Unity。本教程基于Windows10系统，不同系统或是软件版本间差异请自行百度，同时，此教程是我个人的方案展示，请自行斟酌是否适用。 <em><strong>还有就是，请一定要遵守原作者的RM！！！！！</strong></em></p>
+<hr>
+<p>&emsp;&emsp;【附加】：截止到写稿，非常不建议使用aplaybox的在线转换，除非你自己能修，也愿意花时间去修，展示如下，图一是Blender中的渲染，可以见到miku的表情有问题，图二是VSeeFace，可以见到透明关系有问题：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/Jt4RmPG1inzVso5.png"
+                      alt="无修改转换展示01.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/GqdHf53KJPsVMx1.png"
+                      alt="无修改转换展示02.png"
+                ><br>&emsp;&emsp;综上，如果你非常有耐心，去一点一点修复，也不是不能用，但你有那功夫，还不如把教程看完<br>&emsp;&emsp;【附加2】：针对下文中没有secondary的情况，据我了解后得知是我操作顺序有误，secondary是VRM的，所以，建议的操作流程是，修改完贴图着色之后就导出一遍VRM，然后再导入，然后再在这个VRM基础之上修正物理和表情，导出的方法下文表情修正前有，可以翻翻自己看。在修改物理前如果没有导出VRM，那就不会有secondary，所以，导出VRM，再导入，这样，就会有secondary了。不建议自己添加secondary组。 <em><strong>综上，操作步骤建议是第一步——第二步——第四步——第三步——第五步——第四步。不建议自己添加secondary组！！第一遍第三步之后导入VRM，那时候就有了Secondary，就不用创建了！！！！</strong></em></p>
+<hr>
+<h2 id="Stuff"><a href="#Stuff" class="headerlink" title="Stuff"></a>Stuff</h2><p>&emsp;&emsp;Model：REM’s SEKAI Style Hatsune Miku VS - ver.1.2<br>&emsp;&ensp;&emsp;&emsp;By：REMmaple<br>&emsp;&emsp;Model：YYB Hatsune Miku_10th<br>&emsp;&ensp;&emsp;&emsp;By：REMmaple<br>&emsp;&ensp;&emsp;&emsp;Tex Editor：三雾</p>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>&emsp;&emsp;1、<a class="link"   target="_blank" rel="noopener" href="https://unity.cn/" >Unity<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：版本均可，只要与所使用的UniVRM插件所兼容即可<br>&emsp;&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;（建议同时注册好UnityID方便后续使用）<br>&emsp;&emsp;2、<a class="link"   target="_blank" rel="noopener" href="https://github.com/vrm-c/UniVRM" >UniVRM<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：最新版就好<br>&emsp;&emsp;3、<a class="link"   target="_blank" rel="noopener" href="http://stereoarts.jp/" >MMD4Mecanim<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：同样是最新版就好<br>&emsp;&emsp;4、<a class="link"   target="_blank" rel="noopener" href="https://kkhk22.seesaa.net/category/14045227-1.html" >PmxEditor<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：非必须，用来修改和检查PMX有没有错误<br><br>&emsp;&emsp;此处所有的下载链接均是官方网址，若下载困难，此处可以提供截止到写稿为止windows平台最新版本软件或是我用的版本的百度网盘的下载方式，其中UnityHub和Unity这两个东西，就相当于游戏启动器和游戏本体的关系大致，选择一个下载即可。当然，我更推荐于UnityHub，可以免去引擎安装时的BUG，并且修改和创建新项目都很方便。</p>
+<h3 id="资源包下载："><a href="#资源包下载：" class="headerlink" title="资源包下载："></a>资源包下载：</h3><p>&emsp;&emsp;<a class="link"   target="_blank" rel="noopener" href="https://pan.baidu.com/s/187sXRmK9fsmKL3Ad-U6C6A?pwd=rwa7" >点击下载<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<hr>
+<h2 id="关于准备项目的一些附加事项"><a href="#关于准备项目的一些附加事项" class="headerlink" title="关于准备项目的一些附加事项"></a>关于准备项目的一些附加事项</h2><p>&emsp;&emsp;1、关于Unity的版本：<br>&emsp;&ensp;&emsp;&emsp;版本必修与插件适配，像是UniVRM插件版本介绍页中写道 <em><strong>“The UniVRM supports Unity 2021.3 LTS or later.”</strong></em> 则是要求版本必须2021.3长期支持版及之后的版本。故在选择是切记选择合适的版本。<br>&emsp;&emsp;2、关于UniVRM的版本：<br>&emsp;&ensp;&emsp;&emsp;因为VRM现在有0.x和1.0两个版本，所以本插件也有两个版本。</p>
+<pre><code>VRM 1.0：
+VRM_Samples
+VRM 0.x：
+UniVRM_Samples
+</code></pre>
+<p>&emsp;&ensp;&emsp;&emsp;所以请根据自己需要下载（我一般是都下载，两个插件不冲突）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/NumwoEnAQgzlUpK.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="emsp-emsp-第一步：新建Unity项目以及骨骼修复"><a href="#emsp-emsp-第一步：新建Unity项目以及骨骼修复" class="headerlink" title="&emsp;&emsp;第一步：新建Unity项目以及骨骼修复"></a>&emsp;&emsp;第一步：新建Unity项目以及骨骼修复</h3><p>&emsp;&emsp;选择 <em><strong>“3D-核心模板”</strong></em> ，按图示填写后，点击 <em><strong>“创建项目”</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/trY4cvApKI6f5yQ.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;等他自己初始化项目完成，完成后会自动打开，没自动打开的话可以自己点一下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/fKPUdhQy35qRDVg.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;打开项目之后会有这个界面<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/zIer6cVGiWHDlUp.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;将我们下载的插件一个一个拖进来安装好（插件后缀是.unitypackage）<br>&emsp;&emsp;UniVRM.unitypackage这个拖进去会打开这个界面，点击全部后点击导入即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/5Qo49aPDMvilswH.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;VRM.unitypackage这个拖进去会打开这个界面，点击全部后点击导入即可（注：不管是否勾选，点一下全部点击导入就好）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/7tigUvqQr2maVj4.png"
+                      alt="Clip_2024-06-10_12-14-47.png"
+                ><br>&emsp;&emsp;MMD4Mecanim.unitypackage这个拖进去会打开这个界面，点击全部后点击导入即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/aZUwLNpcxfXAiIK.png"
+                      alt="Clip_2024-06-10_12-20-15.png"
+                ><br>&emsp;&emsp;出现这个点击“yes”即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/pzXyuG9OEBQoRfN.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后右键新建两个文件夹来放我们的模型，一个放MMD模型，另一个放导出的VRM模型<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/tln1WACVZS8M2f9.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后双击打开我们存放MMD模型的文件夹，把我们需要修改的模型包括贴图一整个文件夹塞进去，这时文件架构就变成了</p>
+<pre><code>Assets
+    ├─Mode-MMD
+    │  └─REM式プロセカ風初音ミクVS - ver.1.2
+    │      └─REM&#39;s SEKAI Style Hatsune Miku VS - ver.1.2
+    │          └─REM&#39;s SEKAI Style Hatsune Miku VS - ver.1.2
+    │              ├─albd
+    │              ├─omake
+    │              └─spt
+</code></pre>
+<p>&emsp;&emsp;熟悉REM式的MIKU这个模型的同学，就可以看出来，把这个拖进来就是把REM式MIKU这所有的文件夹直接塞在了Assets文件夹下我们刚刚创建的存放MMD模型的文件夹下。<br>&emsp;&emsp;然后找到我们的PMX模型<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/G6v5QdJy3EpgO2W.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;此时我们要用REM式プロセカ風初音ミクVS.pmx这个模型来创建VRM，所以我们点击同名的REM式プロセカ風初音ミクVS_袖無し.MMD4Mecanim.asset，就是模型后面那个蓝色的立方体图标的那个文件。（图片中选中的那个文件），在右边打开的信息窗中，首先 <em><strong>阅读模型声明</strong></em> ，然后把下面三个可选项都勾选。然后点击 <em><strong>Argee</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/MWiE68v1oInP7qa.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;在下面这个窗口中点 <em><strong>Process</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/AGMt3Ss5qLbBzIZ.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;会出现这个窗口，不用管，等一小会，他会自己关掉，然后Unity会开始走进度条，继续等一下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/dvIGslJPb2joaKy.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/BwzxQs6C8ePrXpg.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后我们的资产管理器就多了一堆东西<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/nxVGXf1O3jWdpP5.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;接下来我们把那个带一个看起来像播放键的东西塞到我们的层级里面，这样你就发现了我们屏幕中出现了一只MIKU，如下图：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/m64pTjay7sPNLk5.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后点击 <em><strong>Rig</strong></em> ，选择 <em><strong>人型</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/hZROS9MboqXaHJv.png"
+                      alt="Clip_2024-06-10_13-42-42.png"
+                ><br>&emsp;&emsp;然后点击 <em><strong>应用</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/UDemZrMx3nSBEJw.png"
+                      alt="Clip_2024-06-10_13-44-14.png"
+                ><br>&emsp;&emsp;等他走完进度条之后点 <em><strong>配置</strong></em>，然后点 <em><strong>配置 Avatar</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/MX8SuTIyctxZghO.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;在这个界面里，对关节处的骨骼做一个校正（就是，点一下小绿人身上的每一个圈圈，看看模型是否对应到，比如点小绿人的左肩，看看骨骼是否对应到MIKU的左肩，不对的点击列表修改就行，没有对应的就选最上面的None）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/EjeDihCp5WqA86t.png"
+                      alt="image.png"
+                ><br>对应完之后往下翻一下，先点击 <em><strong>Apply</strong></em> ，再点击 <em><strong>Done</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/C2OqisXPWNUVnjZ.png"
+                      alt="image.png"
+                ></p>
+<h3 id="emsp-emsp-第二步：材质修复"><a href="#emsp-emsp-第二步：材质修复" class="headerlink" title="&emsp;&emsp;第二步：材质修复"></a>&emsp;&emsp;第二步：材质修复</h3><p>&emsp;&emsp;但是看起来衣服的颜色还有肤色什么的有点小差别，unity中有点偏黄（大概<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/QrkMuzi62cyJmwW.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/OdFIgQKa8ycfn2T.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;接下来解释调整材质的时间了，先来到 <em><strong>Materials</strong></em> 文件夹下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/nCriu5zsR6g9vU4.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;首先全选材质，然后在 <em><strong>Shader</strong></em> 中选择 <em><strong>VRM</strong></em>，然后再选择 <em><strong>MTOON</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/Od3vcKgPsRyfakY.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后根据MMD中的模型细节进行调整就好，每一项参数和每一个材质都可以单独实施（说不定会碰撞到不一样的火花）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/WpT8BrsJxV6IDLe.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;基础参数讲解如下：</p>
+<pre><code>Rendering：渲染
+  Mode：模式
+    Rendering Type：渲染类型
+      Opaque：不透明
+      Cutout：剪切
+      Transparent：透明
+      TransparentWithZWrite：使用ZWrite透明
+    Cull Mode：关于透明的遮挡方式（我自己感觉
+      Back：背面剔除
+      Front：正面剔除 
+      Off：关闭
+  Color：颜色
+    Texture：纹理
+      Lit Color,Alpha：发光色彩，透明
+      Shade Color：阴影颜色
+  Lighting：光照
+    Shading Toony：TOONY 着色
+    Normal Map：法线映射
+  Emission：发光
+    MatCap：球面朝向映射
+  Rim：边缘光
+    Color：边缘光颜色
+    Lighting Mix：光照混合
+    Fresnel Power：菲涅耳功率
+    Lift：提升
+  OutLine：轮廓线
+    Width：宽度
+      mode：模式
+        None：没有一个
+        WorldCoordinates：世界坐标
+        ScreenCoordinates：屏幕坐标
+    Color：颜色
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/3o7hZIeiY9NKPxG.png"
+                      alt="image.png"
+                ></p>
+<h3 id="emsp-emsp-第三步：物理修复"><a href="#emsp-emsp-第三步：物理修复" class="headerlink" title="&emsp;&emsp;第三步：物理修复"></a>&emsp;&emsp;第三步：物理修复</h3><p>&emsp;&emsp;接下来就是调整一些细节了，比如：物理<br>&emsp;&emsp;展开层级下的 <em><strong>U_Char</strong></em> 选择 <em><strong>secondary</strong></em> ，<del>若没有，自己创建一个对象与这个同名也行</del> <em><strong>这里先导出VRM，再导入VRM！！！！</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/y3Qb5ZEtJuhSYCg.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;接下来我们先做头发之类的物理效果，选择第一个后会出现这样的东西<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/IPrYmcnfHNpkt68.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;基础参数讲解：</p>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>翻译</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>注释</td>
+<td>注释</td>
+<td>用来写名字之类的</td>
+</tr>
+<tr>
+<td>Gizmo Color</td>
+<td>修改器颜色</td>
+<td>用来看那个碰撞球的颜色</td>
+</tr>
+<tr>
+<td>Settings</td>
+<td>设置</td>
+<td>就，，设置</td>
+</tr>
+<tr>
+<td>Stiffness Force</td>
+<td>刚度力</td>
+<td>感觉像MMD的阻尼那种东西，这个值越大，越不容易被触发物理效果</td>
+</tr>
+<tr>
+<td>Gravity Power</td>
+<td>重力功率</td>
+<td>重力大小，相同质量的东西，越大掉的越快</td>
+</tr>
+<tr>
+<td>Gravity Dir</td>
+<td>重力方向</td>
+<td>就。。方向</td>
+</tr>
+<tr>
+<td>Drag Force</td>
+<td>阻力</td>
+<td>个人感觉也和阻尼差不多诶。。。</td>
+</tr>
+<tr>
+<td>中心</td>
+<td>中心</td>
+<td>不知道咋描述，自己试试</td>
+</tr>
+<tr>
+<td>Root Bones</td>
+<td>根骨骼</td>
+<td>就是想让哪些骨骼产生物理效果</td>
+</tr>
+<tr>
+<td>Collision</td>
+<td>碰撞</td>
+<td>碰撞球</td>
+</tr>
+<tr>
+<td>Hit Radius</td>
+<td>命中半径</td>
+<td>碰撞球的大小</td>
+</tr>
+<tr>
+<td>Collider Groups</td>
+<td>碰撞器组</td>
+<td>与骨骼产生交互的地方</td>
+</tr>
+<tr>
+<td>Update Type</td>
+<td>更新类型</td>
+<td>不建议动</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;小提示：对于那种父子级相联系的一串骨骼，直接把父级塞到Root Bones中就行，子级不用设置，这样一大串就做完了，如下图所示<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/e6oDryZBQYp18ES.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;其余你们自己添加，然后设置参数就好，然后按下图所示的步骤应用参数。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/EOnXj6VsFMRguyS.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;接下来设置四肢之类的碰撞体积<br>&emsp;&emsp;选中我们要添加的骨骼，我这里以腿为展示，添加组件，选择成 <em><strong>VRM Spring Bone Collider Group</strong></em> ，然后就会有下图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/kz4HU8YhPZA7Dnt.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;之后就添加碰撞球啊，调整大小和位置啊什么的，由于骨骼长度问题，而这个也只有球状的碰撞，所以难免会在一个骨骼上添加多个球，添加球的逻辑为：尽量不要重复，稍微大于材质表面一点点就好，球与球之间尽量不要有重叠部分，然后继续和上一步一样，应用参数。但是此刻那个黄色的物理和这个紫色的碰撞体积之间依旧不会发生交互，所以需要设置一下，回到需要和这个紫色球发生碰撞的组，就刚才设置了黄色球的地方，把我们的设置了紫色球的骨骼拖到Collider Groups上面即可。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/Km1zABTqSWtkoab.png"
+                      alt="image.png"
+                ></p>
+<h3 id="emsp-emsp-第四步：导出与再次导入"><a href="#emsp-emsp-第四步：导出与再次导入" class="headerlink" title="&emsp;&emsp;第四步：导出与再次导入"></a>&emsp;&emsp;第四步：导出与再次导入</h3><p>&emsp;&emsp;处理好这些就可以先导出一遍了（导出之后才可以做表情），导出先选中模型，然后点VRM0，然后如果是Apose，就点一下这个TPOSE（不管是不是Apose，其实都建议点一遍）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/TGnlcbf8BQ3gXoF.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后点Export VRM0.X，在弹出的窗口中如实填写信息，我用YYB 10th MIKU演示如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/XvGe2HJUcibWO4l.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;其余例如缩略图等按照自己喜好便可，填写完成之后点最下面export即可，然后等待一段时间，就可以看到导出的模型了。<br>&emsp;&emsp;将层级中的模型删掉。把导出的VRM继续塞到 <em><strong>Assets</strong></em> 中，然后把这个拖到层级那里。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/wbnvOZMeqmdSE1j.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;这样就导入成功了</p>
+<h3 id="emsp-emsp-第五步：修复表情"><a href="#emsp-emsp-第五步：修复表情" class="headerlink" title="&emsp;&emsp;第五步：修复表情"></a>&emsp;&emsp;第五步：修复表情</h3><p>&emsp;&emsp;然后找到名字中含有BlendShapes的文件夹，比如此刻我的就是YYB Hatsune Miku_10th_v1.02_toonchange.BlendShapes，打开之后会看到这种东西。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/IDdtrHbRv7LgWYB.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;选中BlendShape，将AEIOU这几个表情在下面对应修一下，对应表情，比如点一下“A”，然后在U_Char_2里面把あ拉倒最大，然后IUEO等等，口型必须其余看心情，流程如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/nPK5kThbXwIH2yq.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;这些做完之后就完了，就可以到出啦~ 导出方法和刚才一样，这里就不再写啦~~ 祝各位玩得愉快</p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;1、如何添加许可证：<br>&emsp;&ensp;&emsp;&emsp;首先在UnityHub上登录你的账号，如果是第一次使用，大概率会出现如下所示，如果没有下图一的图示，请参照本步骤后续几张图，打开许可证界面后从第二步开始继续操作<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/tT72RAr8v4ZeJMm.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/dORryQaIGixzLeg.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/Sn6coi8sdZw1x47.png"
+                      alt="image.png"
+                ><br>&emsp;&ensp;&emsp;&emsp;点击 <em><strong>管理许可证</strong></em> ，再打开的窗口中点击 <em><strong>添加</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/3e8VdOLIfNUukph.png"
+                      alt="image.png"
+                ><br>&emsp;&ensp;&emsp;&emsp;点击 <em><strong>获取免费的个人版许可证</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/daNgETMYDwKb7LR.png"
+                      alt="image.png"
+                ><br>&emsp;&ensp;&emsp;&emsp;点击 <em><strong>同意并取得个人版授权</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/kvgCVXGbaUwNiyj.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;2、遇到无法创建项目的情况，尝试取消勾选版本管理<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/MHayECXigFKjeIN.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;3、如果在配置骨骼时遇到如下报错，并且点击配置没有任何反应</p>
+<pre><code>Cannot configure avatar, inspector is locked
+UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&amp;)
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/qhv5gducpmso9Kx.png"
+                      alt="Clip_2024-06-10_18-59-18.png"
+                ><br>&emsp;&emsp;可以把这个锁点一下，然后就正常了<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/bwdjZaTg56VGLkf.png"
+                      alt="Clip_2024-06-10_19-04-13.png"
+                ></p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> VRM系列02-PMX的VRM转化方案</li>
+        <li><strong>作者:</strong> 亓翎_Re-TikaRa</li>
+        <li><strong>创建于
+                :</strong> 2024-06-09 10:57:59</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-11-20 13:23:04
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://re-tikara.github.io/posts/93a98ac8/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/VRM/">#VRM</a>&nbsp;
+			</li>
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/PMX/">#PMX</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/7a433340/" title="VRM系列01-VRM转换FBX的若干事项" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="VRM系列01-VRM转换FBX的若干事项" class="!max-w-none">
+  <span class="title">VRM系列01-VRM转换FBX的若干事项</span>
+</a><a class="recommended-article-item" href="/posts/e5e9716c/" title="Hexo建设日志06-个人网站的建设流程" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="Hexo建设日志06-个人网站的建设流程" class="!max-w-none">
+  <span class="title">Hexo建设日志06-个人网站的建设流程</span>
+</a><a class="recommended-article-item" href="/posts/14648/" title="MMD教程系列01-如何建造一个镂空的多边体" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="MMD教程系列01-如何建造一个镂空的多边体" class="!max-w-none">
+  <span class="title">MMD教程系列01-如何建造一个镂空的多边体</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/7a433340/" title="VRM系列01-VRM转换FBX的若干事项" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="VRM系列01-VRM转换FBX的若干事项" class="!max-w-none">
+  <span class="title">VRM系列01-VRM转换FBX的若干事项</span>
+</a><a class="recommended-article-item" href="/posts/e5e9716c/" title="Hexo建设日志06-个人网站的建设流程" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="Hexo建设日志06-个人网站的建设流程" class="!max-w-none">
+  <span class="title">Hexo建设日志06-个人网站的建设流程</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/posts/6073dae3/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">游戏数据解析日志01-HOYOStudio的使用方法</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/posts/f2007e5d/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">python实践系列04-SRT转换为普通LRC</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">VRM系列02-PMX的VRM转化方案</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Stuff"><span class="nav-text">Stuff</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-text">准备</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E5%8C%85%E4%B8%8B%E8%BD%BD%EF%BC%9A"><span class="nav-text">资源包下载：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E5%87%86%E5%A4%87%E9%A1%B9%E7%9B%AE%E7%9A%84%E4%B8%80%E4%BA%9B%E9%99%84%E5%8A%A0%E4%BA%8B%E9%A1%B9"><span class="nav-text">关于准备项目的一些附加事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%AA%A4"><span class="nav-text">操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-emsp-%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E6%96%B0%E5%BB%BAUnity%E9%A1%B9%E7%9B%AE%E4%BB%A5%E5%8F%8A%E9%AA%A8%E9%AA%BC%E4%BF%AE%E5%A4%8D"><span class="nav-text">  第一步：新建Unity项目以及骨骼修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-emsp-%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E6%9D%90%E8%B4%A8%E4%BF%AE%E5%A4%8D"><span class="nav-text">  第二步：材质修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-emsp-%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E7%89%A9%E7%90%86%E4%BF%AE%E5%A4%8D"><span class="nav-text">  第三步：物理修复</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-emsp-%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E5%AF%BC%E5%87%BA%E4%B8%8E%E5%86%8D%E6%AC%A1%E5%AF%BC%E5%85%A5"><span class="nav-text">  第四步：导出与再次导入</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#emsp-emsp-%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E4%BF%AE%E5%A4%8D%E8%A1%A8%E6%83%85"><span class="nav-text">  第五步：修复表情</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-text">后记</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">亓翎_Re-TikaRa</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 28 篇文章
+                    </span>
+                    
+                        <span>
+                            共 26.7k 字
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/build/js/libs/Swup.min.js"></script>
+
+<script src="/build/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/build/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/build/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/build/js/utils.js" type="module"></script>
+
+<script src="/build/js/main.js" type="module"></script>
+
+<script src="/build/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/build/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/build/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/build/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/build/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/tools/runtime.js"></script>
+
+    
+<script src="/build/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/build/js/libs/Typed.min.js"></script>
+
+  
+<script src="/build/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/build/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/build/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/build/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/build/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/build/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/build/js/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+</body>
+
+</html>

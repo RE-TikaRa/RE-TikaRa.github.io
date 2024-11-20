@@ -1,0 +1,1494 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="亓翎_Re-TikaRa">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://RE-TikaRa.github.io/posts/e5e9716c/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="&emsp;&emsp;做了这么几次个人网站，总结一下基本流程，把踩到的坑也写一下，以后自己迁移网站应该会方便很多。据说可以配置到cloudfare，但是目前没有试过。用我的这个流程，除了时间成本和人力成本，不需要其他的，并且不需要备案，但是网站是在GitHub上，所以加载速度真就是随缘。&emsp;&emsp; 注：本教程全部基于windows10系统，若有差异，自行搜索解决！！！ 小声：我亲友">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo建设日志06-个人网站的建设流程">
+<meta property="og:url" content="http://re-tikara.github.io/posts/e5e9716c/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&emsp;&emsp;做了这么几次个人网站，总结一下基本流程，把踩到的坑也写一下，以后自己迁移网站应该会方便很多。据说可以配置到cloudfare，但是目前没有试过。用我的这个流程，除了时间成本和人力成本，不需要其他的，并且不需要备案，但是网站是在GitHub上，所以加载速度真就是随缘。&emsp;&emsp; 注：本教程全部基于windows10系统，若有差异，自行搜索解决！！！ 小声：我亲友">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/bF146zjmfpgAOkX.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/VewItCL42Xg9rKF.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/kVnIUNhlYCS2Q8r.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/WYERh4OqKifZ3nB.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/uXbcSFnkyGwtAVT.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/8dRFDBASiysZt3O.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/nH6EMa82kvQdFTG.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/NjenXori7KPtlFp.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/7WdQ9fopL8aF4GD.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/rvUkPVNEZofBmDw.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/RXtsWbz7AQum1dB.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/C5fujMZwqzLTXm2.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/2YPL93vZTXauwke.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/WogblQ8KtUFdG5e.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/oEazbseqh2JdY6M.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/XH5ONnumvg9bsaJ.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/9FegRvr4LqiCOnm.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/7dloTtwQEC5qHKf.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/2lLnfDOUpqYeoVz.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/MVqfYQhAd4sokxD.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/ZpOAxcIM3fvz4rn.png">
+<meta property="og:image" content="https://s2.loli.net/2024/06/15/2X5aHDJuOqpw1Zg.png">
+<meta property="og:image" content="https://s2.loli.net/2024/07/06/uVRzCkl5n2NFrjs.png">
+<meta property="og:image" content="https://s2.loli.net/2024/07/06/RSXmhyLwad2lo8z.png">
+<meta property="og:image" content="https://s2.loli.net/2024/07/06/aA9pTrH46GqFRyY.png">
+<meta property="article:published_time" content="2024-06-14T16:06:00.000Z">
+<meta property="article:modified_time" content="2024-11-20T05:16:46.565Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Hexo建设日志">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/06/15/bF146zjmfpgAOkX.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/img/logo.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/img/logo.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Hexo建设日志06-个人网站的建设流程 | ALp_Studio
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/build/css/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/build/js/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"re-tikara.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"欢迎参与实验 ，实验体%#@$%&号"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/img/light.jpg","dark":"/img/dark.png"},"title":"ALp_Studio","subtitle":{"text":["实验数据载入中......"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":"lgq3218483753@163.com","bilibili":"https://space.bilibili.com/374412219"},"qrs":{"weixin":null,"QQ":"https://sm.ms/image/Dyja4xG7N9sktbv"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.8.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"MMD":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","bilibili":"https://space.bilibili.com/374412219","Friends":"/links/"}},"Bookmarks":{"icon":"fa-solid fa-bookmark","path":"/bookmarks/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"blur","bookmarks_column":3},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"欢迎来到ALp_Studio第四期——情感实验室。","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        欢迎参与实验 ，实验体%#@$%&amp;号
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="/img/logo.png" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                ALp_Studio
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97"
+                                        >
+                                    <i class="fa-solid fa-list fa-fw"></i>
+                                    MMD
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://space.bilibili.com/374412219">
+                                                    BILIBILI
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/links/">
+                                                    友情链接
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/bookmarks/"
+                                        >
+                                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                                    BOOKMARKS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97"
+                        >
+                            <span>
+                                MMD
+                            </span>
+                            
+                                <i class="fa-solid fa-list fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://space.bilibili.com/374412219">BILIBILI</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/links/">友情链接</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/bookmarks/"
+                        >
+                            <span>
+                                BOOKMARKS
+                            </span>
+                            
+                                <i class="fa-solid fa-bookmark fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/tags"
+                        >
+                            <span>Tags</span>
+                            <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">Hexo建设日志06-个人网站的建设流程</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/img/avat.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">亓翎_Re-TikaRa</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-06-15 00:06</span>
+        <span class="mobile">2024-06-15 00:06</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-11-20 13:16:46</span>
+            <span class="mobile">2024-11-20 13:16:46</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Hexo%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/">Hexo建设日志</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Hexo%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/">Hexo建设日志</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3.1k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>12 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p>&emsp;&emsp;做了这么几次个人网站，总结一下基本流程，把踩到的坑也写一下，以后自己迁移网站应该会方便很多。据说可以配置到cloudfare，但是目前没有试过。用我的这个流程，除了时间成本和人力成本，不需要其他的，并且不需要备案，但是网站是在GitHub上，所以加载速度真就是随缘。<br>&emsp;&emsp; <em><strong>注：本教程全部基于windows10系统，若有差异，自行搜索解决！！！</strong></em> <del>小声：我亲友的话倒是可以QQ滴滴我</del></p>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>&emsp;&emsp;这里是把所有的用到的网站都列了一遍，都是基本需求，但是不一定要下载，比如Hexo走的是命令，就不用下载，所以下文如果需要某个官网，点这里就能打开。要下载的我会在后面标注。<br>&emsp;&emsp;1、<a class="link"   target="_blank" rel="noopener" href="https://github.com/" >GitHub<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>账户：需要自己创建。<br>&emsp;&emsp;2、<a class="link"   target="_blank" rel="noopener" href="https://hexo.io/zh-cn/index.html" >Hexo<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>: Hexo是一个快速、简洁且高效的博客框架。可以避免自己写框架时的麻烦事<br>&emsp;&emsp;3、<a class="link"   target="_blank" rel="noopener" href="https://gitee.com/" >Gitee<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：GitHub的国内镜像，但是吧，，如果说做个人网站，这个要上传身份证什么的，还有审核期，不推荐<br>&emsp;&emsp;4、<a class="link"   target="_blank" rel="noopener" href="https://git-scm.com/" >Git<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：最重要的东西！我们之后所有的命令都要在这个上运行！要下载！类比的话，，CMD！我们之后所有的命令都要在Git上运行！注意的一点就是，这个上面不能用ctrl+C或者+V来复制粘贴，所以右键复制粘贴是明智的选择<br>&emsp;&emsp;5、<a class="link"   target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/" >Node.js<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：Hexo的运行环境，要下载！<br>&emsp;&emsp;6、<a class="link"   target="_blank" rel="noopener" href="https://code.visualstudio.com/" >VScode<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：是一个文本编辑器，超级好用，有很多很多的插件，包括写文章时候的可以实时预览之类的，当然如果你用的管别的文本编辑器，像是exeryeditor，那么就用你喜欢的就好。<br>&emsp;&emsp;7、<a class="link"   target="_blank" rel="noopener" href="https://sm.ms/" >SM图床<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：用来上传你的图片并且生成Markdown格式的链接，这样就不会在插入图片的时候占用本地或者Github的存储空间。并且这个东西没有审核，想上传啥就上传啥（意味深长），但是需要注册<br>&emsp;&emsp;8、<a class="link"   target="_blank" rel="noopener" href="https://markdown.com.cn/" >MarkDown语法教程<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：MarkDown的中文网，里面提到了MarkDown语法要咋写，这个十分简单，常用的也就那几个<br><br>&emsp;&emsp;下载不方便的话，我将提供截止到写稿为止的最新版本的百度网盘下载方式。</p>
+<hr>
+<h2 id="基础本地博客构造"><a href="#基础本地博客构造" class="headerlink" title="基础本地博客构造"></a>基础本地博客构造</h2><p>&emsp;&emsp;1、安装Git和Node.js<br>&emsp;&emsp;&ensp;&emsp;首先打开git官网，点击右边的 <em><strong>Download for Windows</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/bF146zjmfpgAOkX.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;打开如下界面后在 <em><strong>Standalone Installer</strong></em> 范围内选择自己的系统版本，比如我的是X64，就下载64位，如果不会，百度<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/VewItCL42Xg9rKF.png"
+                      alt="Clip_2024-06-15_00-55-07.png"
+                ><br>&emsp;&emsp;下载完成后，双击安装，无脑下一步即可（如果自己会，并且有特殊需求，按自己情况来定）安装完成后，鼠标右键空白处出现下图两个选项，若出现图示选项，则证明安装成功<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/kVnIUNhlYCS2Q8r.png"
+                      alt="Clip_2024-06-15_01-06-41.png"
+                ><br>&emsp;&emsp;打开Node.js官网，点击 <em><strong>Download Node.js (LTS)</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/WYERh4OqKifZ3nB.png"
+                      alt="Clip_2024-06-15_01-07-58.png"
+                ><br>&emsp;&emsp;依旧是无脑下一步即可（如果自己会，并且有特殊需求，按自己情况来定），期间这个建议选一下，但是如果自己知道这是在干什么，不选也可以<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/uXbcSFnkyGwtAVT.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后cmd输入 <em><strong>node -v</strong></em> 查看是否安装成功，若出现版本号，则证明安装成功<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/8dRFDBASiysZt3O.png"
+                      alt="Clip_2024-06-15_01-17-20.png"
+                ><br>&emsp;&emsp;2、安装Hexo：Hexo是一个快速、简洁且高效的博客框架。对中文支持比较友好<br>&emsp;&emsp;&ensp;&emsp;首先我们找到自己要新建一个网站的存放文件夹，然后在这个文件夹右键，选择 <em><strong>Git Bash Here</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/nH6EMa82kvQdFTG.png"
+                      alt="Clip_2024-06-15_01-20-37.png"
+                ><br>&emsp;&emsp;然后复制Hexo官网的第一行命令，输入到Git</p>
+<pre><code>npm install hexo-cli -g
+</code></pre>
+<p>出现下一或者下二的代码都是成功，下一是提示你npm版本有点旧，要升级而已，图二是绝对正常</p>
+<pre><code>removed 1 package,and changed 53 packages in 46s
+14 packages are looking for funding
+run&quot;npm fund`for detai1s
+npm notice
+npm notice New minor version of npm available! 10.7.0 -&gt; 10.8.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.8.1npm notice To update run: npm insta11 -g npm@1o.8.1
+npm notice
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/NjenXori7KPtlFp.png"
+                      alt="Clip_2024-06-15_01-28-57.png"
+                ><br>&emsp;&emsp;然后复制第二行命令输入Git</p>
+<pre><code>hexo init blog
+</code></pre>
+<p>&emsp;&emsp;出现如下内容则表明成功（这个过程可能极其漫长，视电脑配置和网络情况而定，尤其是连接GitHub的网速）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/7WdQ9fopL8aF4GD.png"
+                      alt="Clip_2024-06-15_01-38-10.png"
+                ><br>&emsp;&emsp;然后你会发现你的文件夹下多了个blog文件夹<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/rvUkPVNEZofBmDw.png"
+                      alt="Clip_2024-06-15_01-41-25.png"
+                ><br>&emsp;&emsp;复制第三行命令到git，其实也可以直接打开这个文件夹，再打开一遍 <em><strong>Git Bash Here</strong></em> ，效果一样，因为下面这个代码作用就是，进入blog这个文件夹</p>
+<pre><code>cd blog
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/RXtsWbz7AQum1dB.png"
+                      alt="Clip_2024-06-15_01-45-12.png"
+                ><br>&emsp;&emsp;然后运行第四行命令</p>
+<pre><code>npm install
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/C5fujMZwqzLTXm2.png"
+                      alt="Clip_2024-06-15_01-46-50.png"
+                ><br>&emsp;&emsp;这样博客的基本框架就构造完毕了，可以运行第五行命令来检验是否创建成功</p>
+<pre><code>hexo s
+是hexo server的缩写，两个效果一样
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/2YPL93vZTXauwke.png"
+                      alt="Clip_2024-06-15_01-50-02.png"
+                ><br>&emsp;&emsp;然后我们就可以将 <a class="link"   target="_blank" rel="noopener" href="http://localhost:4000/" >http://localhost:4000/<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i> 输入到浏览器，查看博客基本框架构造是否完成（切记不要用ctrl+c，当前场景中这个按键组合代表退出或者关闭当前服务），如下图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/WogblQ8KtUFdG5e.png"
+                      alt="Clip_2024-06-15_01-52-44.png"
+                ></p>
+<hr>
+<h2 id="博客美化"><a href="#博客美化" class="headerlink" title="博客美化"></a>博客美化</h2><p>&emsp;&emsp;我们来让博客更好看一点，可以自己写css和json之类的美化，也可以下载现成的主题，这边我以下载主题这一方式来美化。<br>&emsp;&emsp;在Hexo主页面下有探索主题的按钮，或者打开网址：<a class="link"   target="_blank" rel="noopener" href="https://hexo.io/themes/" >https://hexo.io/themes/<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i> 。主题这边基本就是英文，并且切换简体中文没啥用，所以还是开个翻译器比较好，还有就是，这个页面加载异常缓慢，可以顺便开个加速器。<br>&emsp;&emsp;选一个自己合乎心意的的主题模板，我选择 <em><strong><a class="link"   target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid" >Fluid<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></strong></em> 这一主题演示（因为我喜欢这种有大头图的）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/oEazbseqh2JdY6M.png"
+                      alt="Clip_2024-06-15_02-03-24.png"
+                ><br>&emsp;&emsp;首先打开他的GitHub项目页，往下翻翻，找到 <em><strong>快速开始</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/XH5ONnumvg9bsaJ.png"
+                      alt="Clip_2024-06-15_02-05-13.png"
+                ><br>&emsp;&emsp;接下来我以习惯性的方式进行演示（方式二，因为npm不咋会用的话容易出奇奇怪怪的BUG）<br>&emsp;&emsp;下载最新release版本，解压到 themes 目录，并将解压出的文件夹重命名为 fluid。这样你的blog文件夹下的theme文件夹下一个就会有一个fluid文件夹了，然后这个文件夹里面就是我们解压出来的各种文件，如下图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/9FegRvr4LqiCOnm.png"
+                      alt="Clip_2024-06-15_02-11-08.png"
+                ><br>&emsp;&emsp;然后我们回到blog文件夹下，找到 <em><strong>_config.yml</strong></em> 文件，打开它，找到 <em><strong>theme</strong></em> 这个字段，将值改为 fluid，如下图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/7dloTtwQEC5qHKf.png"
+                      alt="Clip_2024-06-15_02-13-27.png"
+                ><br>&emsp;&emsp;再找到 <em><strong>language</strong></em> ，将值定义为 <em><strong>zh-CN</strong></em> ，如下图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/2lLnfDOUpqYeoVz.png"
+                      alt="Clip_2024-06-15_02-15-14.png"
+                ><br>&emsp;&emsp;这样我们就完成了博客主题的更改，之后的博客名修改等等，参照下表即可（所有修改都是blog文件夹下的_config.yml文件，不要改主题下的_config.yml文件）</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>网站标题</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>网站副标题</td>
+</tr>
+<tr>
+<td>description</td>
+<td>网站描述</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>网站的关键词。支持多个关键词。</td>
+</tr>
+<tr>
+<td>author</td>
+<td>您的名字</td>
+</tr>
+<tr>
+<td>language</td>
+<td>网站使用的语言。对于简体中文用户来说，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 zh-Hans和 zh-CN。</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>网站时区。Hexo 默认使用您电脑的时区。请参考 时区列表 进行设置，如 America&#x2F;New_York, Japan, 和 UTC 。一般的，对于中国大陆地区可以使用 Asia&#x2F;Shanghai。</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;还有就是，如果用某个主题，那么建议多看看这个主题的配置文档，如我本次使用的<a class="link"   target="_blank" rel="noopener" href="https://hexo.fluid-dev.com/docs/guide/" >Fluid配置文档<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>，里面作者会要求你该咋用不该咋用。</p>
+<hr>
+<h2 id="编写文章和创建页面"><a href="#编写文章和创建页面" class="headerlink" title="编写文章和创建页面"></a>编写文章和创建页面</h2><p>&emsp;&emsp;在 <em><strong>blog文件夹</strong></em> 下运行 <em><strong>Git Bash Here</strong></em> ，输入下面的指令，你就可以在 <em><strong>source</strong></em>文件夹下的 <em><strong>POST</strong></em>文件夹里面看到你所创建的文章了。</p>
+<pre><code>hexo new post &quot;文章名&quot;
+</code></pre>
+<p>&emsp;&emsp;此处举例</p>
+<pre><code>hexo new post Hexo建设日志06-个人网站的建设流程
+</code></pre>
+<p>&emsp;&emsp;得到返回</p>
+<pre><code>INFO  Validating config
+INFO  Created: H:\测试\blog\source\_posts\Hexo建设日志06-个人网站的建设流程.md
+</code></pre>
+<p>&emsp;&emsp;就表明创建成功，Hexo文章支持MarkDown语法，所以我们打开后要根据MarkDown语法来写文章，关于MarkDown语法的教程可以在上文准备处有提及。<br>&emsp;&emsp;在 <em><strong>blog文件夹</strong></em> 下运行 <em><strong>Git Bash Here</strong></em> ，输入下面的指令，你就可以在 <em><strong>source</strong></em>文件夹下看到你所创建的页面的同名文件夹了。（如果是英文页面，建议全小写）</p>
+<pre><code>hexo new page “页面名”
+</code></pre>
+<p>&emsp;&emsp;此处以创建一个about页面为例</p>
+<pre><code>hexo new page about
+</code></pre>
+<p>创建成功后，编辑博客目录下 &#x2F;source&#x2F;about&#x2F;index.md，添加 layout 属性。<br>修改后的文件示例如下：</p>
+<pre><code>---
+title: about
+layout: about
+---
+
+随便写一点什么吧~
+</code></pre>
+<p>这样就成功创建了一个关于页，运行网站就能在最上面就能看到了。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/MVqfYQhAd4sokxD.png"
+                      alt="Clip_2024-06-15_02-49-02.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/ZpOAxcIM3fvz4rn.png"
+                      alt="Clip_2024-06-15_02-51-04.png"
+                ><br>&emsp;&emsp;创建页面时，Hexo 会自动创建一个文件夹，里面有一个 index.md 文件，这个文件就是页面的内容。<br>&emsp;&emsp;下面是一些Hexo在Git中的代码：</p>
+<pre><code>基础：hexo 某一条命令
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>clean</td>
+<td>删除生成的文件</td>
+</tr>
+<tr>
+<td>deploy</td>
+<td>部署网站</td>
+</tr>
+<tr>
+<td>generate</td>
+<td>生成静态网站</td>
+</tr>
+<tr>
+<td>help</td>
+<td>帮助</td>
+</tr>
+<tr>
+<td>new</td>
+<td>+post+名称是生成文章<br>+page+名称是生成某个页面<br>+名称默认是生成文章</td>
+</tr>
+<tr>
+<td>server</td>
+<td>开始本地服务器</td>
+</tr>
+<tr>
+<td>version</td>
+<td>版本</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="将网站上传至GitHub并且创建GitHub-Pages"><a href="#将网站上传至GitHub并且创建GitHub-Pages" class="headerlink" title="将网站上传至GitHub并且创建GitHub Pages"></a>将网站上传至GitHub并且创建GitHub Pages</h2><p>&emsp;&emsp;首先，你需要注册一个GitHub账号，用户名慎重一点，因为这个会成为你的网址。在GitHub上创建一个仓库，名字叫 <em><strong>用户名.github.io</strong></em> ，比如我的就是 <em><strong>re-tikara.github.io</strong></em> 。<del>（等我换个号来演示一下）</del><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/2X5aHDJuOqpw1Zg.png"
+                      alt="Clip_2024-06-15_13-00-55.png"
+                ><br>&emsp;&emsp;然后在随便任何一个文件夹里面运行 <em><strong>Git Bush</strong></em> ，输入以下命令</p>
+<pre><code>ssh-keygen -t rsa -C &quot;你的github注册邮件地址&quot;
+</code></pre>
+<p>&emsp;&emsp;然后点四下回车，出现类似如下则表示成功</p>
+<pre><code>Generating public/private rsa key pair.
+Enter file in which to save the key (默认路径):
+Created directory &#39;默认路径&#39;.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in 默认路径
+Your public key has been saved in 默认路径
+The key fingerprint is:
+SHA256: XXXXXX
+The key&#39;s randomart image is:
++---[RSA 3072]----+
+|         . .   .+|
+|         .= o  oX|
+|         +=+.+.=X|
+|       .oo.=+.o=+|
+|        S o o+ oo|
+|         o .  oE+|
+|            . .B.|
+|           . .o+*|
+|            ..+o*|
++----[SHA256]-----+
+</code></pre>
+<p>&emsp;&emsp;然后文本编辑器打开如下路径</p>
+<pre><code>C:\Users\用户名\.ssh\id_rsa.pub
+</code></pre>
+<p>&emsp;&emsp;这个里面就是你的SSH密码，切记不要外露，全部复制之后，回到GitHub的设置界面<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/06/uVRzCkl5n2NFrjs.png"
+                      alt="20240706134521.png"
+                ><br>&emsp;&emsp;点 <em><strong>NEW SSH Key</strong></em>，打开如下界面，把该填的填进去<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/06/RSXmhyLwad2lo8z.png"
+                      alt="20240706134950.png"
+                ><br>&emsp;&emsp;然后运行以下代码测试一下是否成功</p>
+<pre><code>ssh -T git@github.com
+</code></pre>
+<p>&emsp;&emsp;回车，点“yes”，出现如下</p>
+<pre><code>The authenticity of host &#39;github.com (20.205.243.166)&#39; can&#39;t be established.
+XXXXX key fingerprint is SHA256:XXXXXXXXXXXXXXXXXXXXX
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added &#39;github.com&#39; (XXXXX) to the list of known hosts.
+Hi re-alpworld! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre>
+<p>&emsp;&emsp;这边基本的GitHub本地设置就好了，以后就可以本地直接推送到github，然后更改博客根目录下的 <em><strong>_config.yml</strong></em>，把下面的项目按照类似的改一下</p>
+<pre><code>## URL
+## Set your site url here. For example, if you use GitHub Page, set url as &#39;https://username.github.io/project&#39;
+url: http://re-alpworld.github.io（这一项要改）
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+trailing_index: true ## Set to false to remove trailing &#39;index.html&#39; from permalinks
+trailing_html: true ## Set to false to remove trailing &#39;.html&#39; from permalinks
+## Deployment
+----------------------------------------------------------------------------------
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+type: git
+repo: git@github.com:name/name.github.io
+branch: main
+message: blog file
+（这一块建议直接复制替换，然后把地址改一下）
+</code></pre>
+<p>&emsp;&emsp;接下来开启github的个人page<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/06/aA9pTrH46GqFRyY.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;最后把本地文件推送上去即可，在根目录地下运行<em><strong>Git Bush</strong></em> ，输入以下命令</p>
+<pre><code>hexo d
+</code></pre>
+<p>&emsp;&emsp;这样就完成了在线推送，输入 <em><strong>用户名.github.io</strong></em> 就可以看到了</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> Hexo建设日志06-个人网站的建设流程</li>
+        <li><strong>作者:</strong> 亓翎_Re-TikaRa</li>
+        <li><strong>创建于
+                :</strong> 2024-06-15 00:06:00</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-11-20 13:16:46
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://re-tikara.github.io/posts/e5e9716c/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/Hexo%E5%BB%BA%E8%AE%BE%E6%97%A5%E5%BF%97/">#Hexo建设日志</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/39589/" title="Hexo建设日志05-对于Error Spawn failed报错的修复（歪门邪道）" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="Hexo建设日志05-对于Error Spawn failed报错的修复（歪门邪道）" class="!max-w-none">
+  <span class="title">Hexo建设日志05-对于Error Spawn failed报错的修复（歪门邪道）</span>
+</a><a class="recommended-article-item" href="/posts/93a98ac8/" title="VRM系列02-PMX的VRM转化方案" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="VRM系列02-PMX的VRM转化方案" class="!max-w-none">
+  <span class="title">VRM系列02-PMX的VRM转化方案</span>
+</a><a class="recommended-article-item" href="/posts/23140/" title="Hexo建设日志04-关于多个音频文件的完整性校验方法" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="Hexo建设日志04-关于多个音频文件的完整性校验方法" class="!max-w-none">
+  <span class="title">Hexo建设日志04-关于多个音频文件的完整性校验方法</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/39589/" title="Hexo建设日志05-对于Error Spawn failed报错的修复（歪门邪道）" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="Hexo建设日志05-对于Error Spawn failed报错的修复（歪门邪道）" class="!max-w-none">
+  <span class="title">Hexo建设日志05-对于Error Spawn failed报错的修复（歪门邪道）</span>
+</a><a class="recommended-article-item" href="/posts/93a98ac8/" title="VRM系列02-PMX的VRM转化方案" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="VRM系列02-PMX的VRM转化方案" class="!max-w-none">
+  <span class="title">VRM系列02-PMX的VRM转化方案</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/posts/597bd277/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">GitHub01-二重身份验证方法</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/posts/6073dae3/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">游戏数据解析日志01-HOYOStudio的使用方法</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">Hexo建设日志06-个人网站的建设流程</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%86%E5%A4%87"><span class="nav-text">准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%9C%AC%E5%9C%B0%E5%8D%9A%E5%AE%A2%E6%9E%84%E9%80%A0"><span class="nav-text">基础本地博客构造</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E7%BE%8E%E5%8C%96"><span class="nav-text">博客美化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E5%86%99%E6%96%87%E7%AB%A0%E5%92%8C%E5%88%9B%E5%BB%BA%E9%A1%B5%E9%9D%A2"><span class="nav-text">编写文章和创建页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%86%E7%BD%91%E7%AB%99%E4%B8%8A%E4%BC%A0%E8%87%B3GitHub%E5%B9%B6%E4%B8%94%E5%88%9B%E5%BB%BAGitHub-Pages"><span class="nav-text">将网站上传至GitHub并且创建GitHub Pages</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">亓翎_Re-TikaRa</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 28 篇文章
+                    </span>
+                    
+                        <span>
+                            共 26.7k 字
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/build/js/libs/Swup.min.js"></script>
+
+<script src="/build/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/build/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/build/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/build/js/utils.js" type="module"></script>
+
+<script src="/build/js/main.js" type="module"></script>
+
+<script src="/build/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/build/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/build/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/build/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/build/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/tools/runtime.js"></script>
+
+    
+<script src="/build/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/build/js/libs/Typed.min.js"></script>
+
+  
+<script src="/build/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/build/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/build/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/build/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/build/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/build/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/build/js/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+</body>
+
+</html>

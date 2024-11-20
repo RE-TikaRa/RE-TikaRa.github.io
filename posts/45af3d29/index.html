@@ -1,0 +1,1267 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="亓翎_Re-TikaRa">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://RE-TikaRa.github.io/posts/45af3d29/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="&emsp;&emsp;我觉得这个系列很有必要。。。。。。现在真的，，手机太普及了么？还是啥。。。先做个MMD扫盲系列吧，这个系列里面不会介绍MMD的发展历程等，只会讲MMD是什么，如何用等技术类问题。 本系列教程全部基于Windows系统的931汉化追加MME版本进行演示 。注意：软件没有最好，只有最适合自己的！！  2024年7月14日更新！！&emsp;&emsp;我做了一个MMD的安装包！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MMD扫盲系列01——认识MMD">
+<meta property="og:url" content="http://re-tikara.github.io/posts/45af3d29/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&emsp;&emsp;我觉得这个系列很有必要。。。。。。现在真的，，手机太普及了么？还是啥。。。先做个MMD扫盲系列吧，这个系列里面不会介绍MMD的发展历程等，只会讲MMD是什么，如何用等技术类问题。 本系列教程全部基于Windows系统的931汉化追加MME版本进行演示 。注意：软件没有最好，只有最适合自己的！！  2024年7月14日更新！！&emsp;&emsp;我做了一个MMD的安装包！">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/07/10/xLb6wB3a7izVWch.png">
+<meta property="og:image" content="https://s2.loli.net/2024/07/10/ExeWOfKzriugw9Y.png">
+<meta property="og:image" content="https://s2.loli.net/2024/07/10/3jV1QtXrd8Un7S2.png">
+<meta property="og:image" content="https://s2.loli.net/2024/07/10/y7JrMDesfc6Zu1q.png">
+<meta property="og:image" content="https://s2.loli.net/2024/07/10/2wOJ9Mo1Ag4TvFh.png">
+<meta property="article:published_time" content="2024-07-10T07:31:31.000Z">
+<meta property="article:modified_time" content="2024-11-20T05:16:46.562Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="MMD扫盲系列">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/07/10/xLb6wB3a7izVWch.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/img/logo.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/img/logo.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            MMD扫盲系列01——认识MMD | ALp_Studio
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/build/css/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/build/js/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"re-tikara.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"欢迎参与实验 ，实验体%#@$%&号"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/img/light.jpg","dark":"/img/dark.png"},"title":"ALp_Studio","subtitle":{"text":["实验数据载入中......"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":"lgq3218483753@163.com","bilibili":"https://space.bilibili.com/374412219"},"qrs":{"weixin":null,"QQ":"https://sm.ms/image/Dyja4xG7N9sktbv"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.8.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"MMD":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","bilibili":"https://space.bilibili.com/374412219","Friends":"/links/"}},"Bookmarks":{"icon":"fa-solid fa-bookmark","path":"/bookmarks/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"blur","bookmarks_column":3},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"欢迎来到ALp_Studio第四期——情感实验室。","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        欢迎参与实验 ，实验体%#@$%&amp;号
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="/img/logo.png" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                ALp_Studio
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97"
+                                        >
+                                    <i class="fa-solid fa-list fa-fw"></i>
+                                    MMD
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://space.bilibili.com/374412219">
+                                                    BILIBILI
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/links/">
+                                                    友情链接
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/bookmarks/"
+                                        >
+                                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                                    BOOKMARKS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97"
+                        >
+                            <span>
+                                MMD
+                            </span>
+                            
+                                <i class="fa-solid fa-list fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://space.bilibili.com/374412219">BILIBILI</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/links/">友情链接</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/bookmarks/"
+                        >
+                            <span>
+                                BOOKMARKS
+                            </span>
+                            
+                                <i class="fa-solid fa-bookmark fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/tags"
+                        >
+                            <span>Tags</span>
+                            <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">MMD扫盲系列01——认识MMD</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/img/avat.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">亓翎_Re-TikaRa</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-07-10 15:31:31</span>
+        <span class="mobile">2024-07-10 15:31:31</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-11-20 13:16:46</span>
+            <span class="mobile">2024-11-20 13:16:46</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97/">MMD扫盲系列</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97/">MMD扫盲系列</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.7k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>9 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p>&emsp;&emsp;我觉得这个系列很有必要。。。。。。现在真的，，手机太普及了么？还是啥。。。先做个MMD扫盲系列吧，这个系列里面不会介绍MMD的发展历程等，只会讲MMD是什么，如何用等技术类问题。 <em><strong>本系列教程全部基于Windows系统的931汉化追加MME版本进行演示</strong></em> 。注意：软件没有最好，只有最适合自己的！！</p>
+<hr>
+<h2 id="2024年7月14日更新！！"><a href="#2024年7月14日更新！！" class="headerlink" title="2024年7月14日更新！！"></a>2024年7月14日更新！！</h2><p>&emsp;&emsp;我做了一个MMD的安装包！！！！！！，下载链接：<br>&emsp;&emsp;<a class="link"   target="_blank" rel="noopener" href="https://wwb.lanzouw.com/b00taqonti" >https://wwb.lanzouw.com/b00taqonti<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>&emsp;&emsp;密码:5k22<br>&emsp;&emsp;新人专享系列！！！！这样你就不用纠结了！！！芜湖！！！不用解压缩啥的！！</p>
+<hr>
+<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>&emsp;&emsp;MMD全称MikuMikuDance，是由日本人樋口优所创建的一个免费的动画软件。本体为日文版软件，由Emil开始繁体汉化，Kinsama修改并发布。当前传播最广的版本有Ver.932，Ver.931，Ver.10th，Ver.926（我知道的，并且是我用过的），还有以上版本+Bridge的版本。</p>
+<hr>
+<h2 id="认识文件"><a href="#认识文件" class="headerlink" title="认识文件"></a>认识文件</h2><p>&emsp;&emsp;现阶段MMD传播基本是靠人手相传。所以基本都是处在 <em><strong>压缩包</strong></em> 这一文件类型内。所以我们需要一个解压缩软件，比如<a class="link"   target="_blank" rel="noopener" href="https://www.bandisoft.com/bandizip/" >Bandzip<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>、<a class="link"   target="_blank" rel="noopener" href="https://7-zip.org/" >7-zip<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>等。非常建议选一个可以切换压缩语言代码的，因为后期如果下载素材，说不定会遇到乱码。我用的版本压缩包内容展示如下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/xLb6wB3a7izVWch.png"
+                      alt="PixPin_2024-07-10_16-59-05.png"
+                ></p>
+<hr>
+<h2 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h2><p>&emsp;&emsp;将文件解压缩之后，得到如下所示的文件夹<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/ExeWOfKzriugw9Y.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后右键 <em><strong>MikuMikudance.exe</strong></em> ，选择 <em><strong>发送到——桌面快捷方式</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/3jV1QtXrd8Un7S2.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;这样你的桌面就有MMD了，在启动MMD前，请务必将MMD根目录下的 <em><strong>！！如果出现报错无法启动请安装这个文件夹里的全部文件</strong></em> 这个文件夹内的所有程序全部安装一遍。这样做可以防止日后出错。如果安装后启动时依旧出现报错，请自行搜索 <em><strong>微软常用运行库</strong></em></p>
+<hr>
+<h2 id="认识界面"><a href="#认识界面" class="headerlink" title="认识界面"></a>认识界面</h2><p>&emsp;&emsp;MMD主界面如下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/y7JrMDesfc6Zu1q.png"
+                      alt="PixPin_2024-07-10_16-15-20.png"
+                ><br>&emsp;&emsp;介绍如下，点大图看<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/2wOJ9Mo1Ag4TvFh.png"
+                      alt="PixPin_2024-07-10_16-15-20.png"
+                ></p>
+<hr>
+<h2 id="认识文件类型"><a href="#认识文件类型" class="headerlink" title="认识文件类型"></a>认识文件类型</h2><p>&emsp;&emsp;MMD支持的文件类型不算多，介绍如下：</p>
+<h3 id="PMX-PMD："><a href="#PMX-PMD：" class="headerlink" title="PMX&#x2F;PMD："></a>PMX&#x2F;PMD：</h3><p>&emsp;&emsp;MMD唯二支持的可操控有骨骼的模型文件，区别如下：PMX（Polygon Model eXtended）和PMD（Polygon Model Data）主要在 <strong>格式版本、数据结构复杂性和兼容性</strong> 等方面有所区别。<br>&emsp;&emsp;具体分析如下：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>PMX</th>
+<th>PMD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>格式版本</td>
+<td>PMX是PMD的继承者，通常被认为是更加先进和改进的版本。</td>
+<td>PMD是较早的模型格式，相对于PMX来说，可能不那么流行或支持较新的功能。</td>
+</tr>
+<tr>
+<td>数据结构复杂性</td>
+<td>PMX具有更复杂的数据结构，支持更多的建模元素和细节，如额外的vec4数量、顶点索引大小等，允许存储更丰富的模型信息。</td>
+<td>PMD的数据结构较为简单，没有像PMX那样支持扩展的数据类型和结构。</td>
+</tr>
+<tr>
+<td>兼容性</td>
+<td>PMX由于其结构上的优势，通常拥有更好的兼容性，可以更方便地与各种3D软件进行交互。</td>
+<td>PMD兼容性相对较差，可能在一些新版的软件或工具中不被完全支持。</td>
+</tr>
+<tr>
+<td>使用范围</td>
+<td>PMX由于没有模型定点限制，逐渐成为主流格式，被更多地使用和推荐。</td>
+<td>PMD尽管仍然被支持，但使用频率可能不如PMX高。</td>
+</tr>
+<tr>
+<td>支持工具</td>
+<td>PMX可以使用如PmxEditor这样的专业工具进行编辑和研究，这些工具能够更好地展示文件结构。</td>
+<td>MD虽然也能用类似的工具编辑，但可能不支持所有高级功能。</td>
+</tr>
+<tr>
+<td>可扩展性</td>
+<td>PMX设计时考虑了更多的可扩展性，为未来的扩展和功能的加入留下了空间。</td>
+<td>PMD相对来说，扩展性不如PMX。</td>
+</tr>
+<tr>
+<td>用户社区偏好</td>
+<td>用户社区中，PMX似乎更受欢迎，可能是因为它更符合现代模型制作的需求。</td>
+<td>PMD虽然仍有一席之地，但在新兴的用户中可能不如PMX流行。</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;针对上述分析，可以考虑以下几点建议：<br>&emsp;&emsp;如果您需要与其他3D软件兼容或寻找更多的社区支持，推荐使用PMX格式。<br>&emsp;&emsp;当您处理旧模型或需要与老版本MMD软件兼容时，可能需要使用PMD格式。<br>&emsp;&emsp;综上所述，PMX作为更新的模型文件格式，提供了更多的功能和更好的兼容性，逐渐成为MMD用户的首选格式。而PMD作为早期的格式，虽然仍具有一定的用户基础，但相比之下可能略显过时。无论选择哪种格式，确保您使用适合的工具和插件来优化您的工作流程，并保持对新工具和社区资源的持续关注。</p>
+<h3 id="VMD"><a href="#VMD" class="headerlink" title="VMD"></a>VMD</h3><p>&emsp;&emsp;VMD是一种动作数据文件格式，主要用于记录3D模型的动作、形态变化、相机移动和光照变化等动画信息。<br>&emsp;&emsp;VMD文件包含了一种二进制流数据，具有较为复杂的内部结构。它有两个版本，分别以”Vocaloid Motion Data file”和”Vocaloid Motion Data 0002”标识。文件的前30个字节用于描述版本信息，随后是模型名称，之后依次是骨骼关键帧、变形关键帧、相机关键帧以及灯光关键帧的记录。<br>&emsp;&emsp;与此同时，镜头VMD文件只能给镜头用，动作VMD文件只能给人物或者场景用。因为在MMD中，因为存在index类型，所以也不怕重名，是一一对应的关系，但是与此同时的是MMD模型只要名字有一丝不同，比如多了一个空格之类的，就会无法识别。</p>
+<h3 id="VPD"><a href="#VPD" class="headerlink" title="VPD"></a>VPD</h3><p>&emsp;&emsp;VPD是一种姿势数据文件格式，在文件数据中仅有一帧的骨骼变换姿态，与VMD不同的是，VMD是一段，而VPD是一帧，即一张画面，一般适用于做静画之类的</p>
+<h3 id="WAV"><a href="#WAV" class="headerlink" title="WAV"></a>WAV</h3><p>&emsp;&emsp;MMD仅仅支持这一种音乐类型格式，不支持MP3或者其他格式。WAV文件介绍如下：<br>&emsp;&emsp;WAV文件是一种标准的数字音频文件格式，主要用于保存无损的音频数据，以保证声音质量的最佳还原。<br>&emsp;&emsp;WAV文件采用RIFF（Resource Interchange File Format）文件格式结构，通常用来保存PCM（Pulse Code Modulation）格式的原始音频数据，因此被称为无损音频。它是由微软公司和IBM联合设计的，最早于1991年8月在Windows 3.1操作系统上出现，文件扩展名为WAV。该格式得到了Windows、Macintosh、Linux等多种操作系统的支持。WAV文件具有以下特点：<br>&emsp;&emsp; <strong>高音质</strong> ：<br>&emsp;&emsp;WAV文件保存的是原始的音频数据，几乎没有进行数据压缩，因此能够最大程度地保留音频的真实质量。其音质与CD相差无几，常用于专业的音频处理和高质量音乐播放。<br>&emsp;&emsp; <strong>支持多种采样率</strong> ：<br>&emsp;&emsp;WAV文件支持多种采样率和采样位数，例如44.1kHz、22.05kHz等，以及16位或8位的采样精度。这使得它能适应不同的音频录制需求，从一般的音乐播放到专业音频制作均可胜任。<br>&emsp;&emsp; <strong>支持不同声道</strong> ：<br>&emsp;&emsp;WAV格式支持单声道和立体声录音。立体声文件使用两个声道，分别记录左右声道信息，使得音频具有空间感和立体感，适合复杂的声音场景。<br>&emsp;&emsp; <strong>文件体积较大</strong> ：<br>&emsp;&emsp;由于WAV文件保存的是未压缩的音频数据，因此文件体积相对较大，每分钟的音乐大约需要10MB左右的存储空间。这也限制了其在长时间音频记录和网络传输中的应用。<br>&emsp;&emsp;此外，WAV文件还广泛应用于音效素材的保存和分享。许多网站提供大量免费的WAV音效资源，如爱给网等，这些资源可以用于影视、游戏、动画等多个领域，极大地丰富了多媒体制作的内容。<br>&emsp;&emsp;综上所述，WAV文件以其高质量的无损音频保存方式，在音频处理、音乐播放和多媒体制作中发挥着重要作用。尽管文件体积较大，但其在保证音质方面的优势使其成为众多专业人士和爱好者的首选格式。</p>
+<h3 id="X文件与FX文件"><a href="#X文件与FX文件" class="headerlink" title="X文件与FX文件"></a>X文件与FX文件</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>X</th>
+<th>FX</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定义</td>
+<td>X文件通常在MMD中作为附件载入使用，它不涉及复杂的图形渲染操作，更多的是作为补充或扩展MMD功能的一种轻量级文件。</td>
+<td>FX文件是一种使用高阶着色器语言（HLSL）标准创建的文本文件，它定义了一个DirectX 9（DX9）明暗器，专门用于处理材质的光照和渲染效果。</td>
+</tr>
+<tr>
+<td>功能用途</td>
+<td>X文件在MMD中主要用于增强场景的互动性和视觉效果，富动画的表现力。</td>
+<td>FX文件在MMD中用于实现高质量和复杂计算的材质效果，如高级光影效果、曲面细分等。它通过HLSL在GPU上执行快速的数学计算，实现更加逼真和动态的渲染效果。</td>
+</tr>
+<tr>
+<td>使用范围</td>
+<td>在PmxEditor创建一个X文件，并将材质定义为screen.bmp，在MMD中开启屏幕捕捉则可实现投影效果</td>
+<td>在MMD中加载MME功能后，则可以给X文件定义FX来实现各种更加炫酷的效果</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;综上所述，X文件和FX文件在MMD中各司其职，前者提供了一种简易的方式来实现一些视觉特效，而后者则负责处理更高端和复杂的材质渲染任务。了解它们之间的区别和各自的优势，可以帮助用户更加合理地利用这些资源来制作出质量更高、视觉效果更佳的MMD作品。</p>
+<h3 id="PMM"><a href="#PMM" class="headerlink" title="PMM"></a>PMM</h3><p>&emsp;&emsp;PMM文件是MMD的工程文件。特殊的是，pmm是存储的是绝对路径，一旦你的素材更改位置，PMM便会因为无法识别而导致MMD闪退或者无法打开工程文件，需要重新定义。</p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;MMD新手请多去B站等看看有关教程，遇事不决善用搜索引擎，无法解决后再提问。</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> MMD扫盲系列01——认识MMD</li>
+        <li><strong>作者:</strong> 亓翎_Re-TikaRa</li>
+        <li><strong>创建于
+                :</strong> 2024-07-10 15:31:31</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-11-20 13:16:46
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://re-tikara.github.io/posts/45af3d29/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97/">#MMD扫盲系列</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/93a98ac8/" title="VRM系列02-PMX的VRM转化方案" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="VRM系列02-PMX的VRM转化方案" class="!max-w-none">
+  <span class="title">VRM系列02-PMX的VRM转化方案</span>
+</a><a class="recommended-article-item" href="/posts/6e81bfe7/" title="MME教程系列01—AutoLuminous4的超详细使用教程" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="MME教程系列01—AutoLuminous4的超详细使用教程" class="!max-w-none">
+  <span class="title">MME教程系列01—AutoLuminous4的超详细使用教程</span>
+</a><a class="recommended-article-item" href="/posts/14648/" title="MMD教程系列01-如何建造一个镂空的多边体" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="MMD教程系列01-如何建造一个镂空的多边体" class="!max-w-none">
+  <span class="title">MMD教程系列01-如何建造一个镂空的多边体</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/93a98ac8/" title="VRM系列02-PMX的VRM转化方案" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="VRM系列02-PMX的VRM转化方案" class="!max-w-none">
+  <span class="title">VRM系列02-PMX的VRM转化方案</span>
+</a><a class="recommended-article-item" href="/posts/6e81bfe7/" title="MME教程系列01—AutoLuminous4的超详细使用教程" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="MME教程系列01—AutoLuminous4的超详细使用教程" class="!max-w-none">
+  <span class="title">MME教程系列01—AutoLuminous4的超详细使用教程</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/posts/7639a586/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">MMD扫盲系列02——MMD基本骨骼介绍</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/posts/597bd277/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">GitHub01-二重身份验证方法</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">MMD扫盲系列01——认识MMD</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2024%E5%B9%B47%E6%9C%8814%E6%97%A5%E6%9B%B4%E6%96%B0%EF%BC%81%EF%BC%81"><span class="nav-text">2024年7月14日更新！！</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="nav-text">基本介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A4%E8%AF%86%E6%96%87%E4%BB%B6"><span class="nav-text">认识文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E8%BD%AF%E4%BB%B6"><span class="nav-text">使用软件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A4%E8%AF%86%E7%95%8C%E9%9D%A2"><span class="nav-text">认识界面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%A4%E8%AF%86%E6%96%87%E4%BB%B6%E7%B1%BB%E5%9E%8B"><span class="nav-text">认识文件类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PMX-PMD%EF%BC%9A"><span class="nav-text">PMX&#x2F;PMD：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VMD"><span class="nav-text">VMD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VPD"><span class="nav-text">VPD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#WAV"><span class="nav-text">WAV</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#X%E6%96%87%E4%BB%B6%E4%B8%8EFX%E6%96%87%E4%BB%B6"><span class="nav-text">X文件与FX文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PMM"><span class="nav-text">PMM</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-text">后记</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">亓翎_Re-TikaRa</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 28 篇文章
+                    </span>
+                    
+                        <span>
+                            共 26.7k 字
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/build/js/libs/Swup.min.js"></script>
+
+<script src="/build/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/build/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/build/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/build/js/utils.js" type="module"></script>
+
+<script src="/build/js/main.js" type="module"></script>
+
+<script src="/build/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/build/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/build/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/build/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/build/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/tools/runtime.js"></script>
+
+    
+<script src="/build/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/build/js/libs/Typed.min.js"></script>
+
+  
+<script src="/build/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/build/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/build/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/build/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/build/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/build/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/build/js/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+</body>
+
+</html>

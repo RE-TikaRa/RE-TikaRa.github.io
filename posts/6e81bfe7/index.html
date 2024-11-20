@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="亓翎_Re-TikaRa">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://RE-TikaRa.github.io/posts/6e81bfe7/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="&emsp;&emsp;我又来了，这次是AutoLuminous4的超详细用法！比B站那个还详细（确信）在这里写写，然后我就不发到B站了，大致看看吧。然后就是，其实在这里写到的所有效果，在そぼろ的ReadMe文件中都有写到。  STUFFMODEL&emsp;&emsp;◆Sour式初音ミクVer.1.02◆&emsp;&emsp;製作者&#x2F;Modeller：Sour暄 POSE&amp;emsp">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MME教程系列01—AutoLuminous4的超详细使用教程">
+<meta property="og:url" content="http://re-tikara.github.io/posts/6e81bfe7/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&emsp;&emsp;我又来了，这次是AutoLuminous4的超详细用法！比B站那个还详细（确信）在这里写写，然后我就不发到B站了，大致看看吧。然后就是，其实在这里写到的所有效果，在そぼろ的ReadMe文件中都有写到。  STUFFMODEL&emsp;&emsp;◆Sour式初音ミクVer.1.02◆&emsp;&emsp;製作者&#x2F;Modeller：Sour暄 POSE&amp;emsp">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/01/31/oeK6ntRiUdC9SrF.png">
+<meta property="og:image" content="https://s2.loli.net/2024/01/31/sJm2BZ8cgwzVMAo.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/MxLSvQDW9pdCzKw.jpg">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/dmqjgWPnCvNVUbY.jpg">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/gJcvdMmSoIpl16L.jpg">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/vd1OKrLckwVYheZ.jpg">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/vswaVkr4ELWzJN9.jpg">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/oBECcgNZifldxSI.jpg">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/Z8mOLzsX4hHoeRD.jpg">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/RcEXBp1sQeHTlDv.gif">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/fIb3WEJZF6H2jwc.gif">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/mN3bFJIK81BdDAt.gif">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/lvxq9ZHbB4pP3Xt.gif">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/IuUTd9ygOqWj2Em.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/Prc3JW7nFYXMiZT.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/I1kmuBwxqFGMsvR.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/IbQHmZVpE8hSwzn.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/OVjYgh7pZ4iluJk.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/17AIfUpokqycwiB.gif">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/spPrqSJlynKfamN.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/P59Ei7L1jskWa6B.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/X5s7tpQauMHNfom.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/S2XHUNDFlKhuBLP.gif">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/EfzTvauKMVblo2Y.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/zpkr4AJ3Ms2HmZc.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/ZtDI5oY9CvjcOqU.png">
+<meta property="og:image" content="https://s2.loli.net/2024/02/03/Tl2Bua6UCc4hSJn.png">
+<meta property="article:published_time" content="2024-01-30T15:44:18.000Z">
+<meta property="article:modified_time" content="2024-11-20T05:16:46.565Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="MME">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/01/31/oeK6ntRiUdC9SrF.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/img/logo.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/img/logo.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            MME教程系列01—AutoLuminous4的超详细使用教程 | ALp_Studio
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/build/css/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/build/js/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"re-tikara.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"欢迎参与实验 ，实验体%#@$%&号"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/img/light.jpg","dark":"/img/dark.png"},"title":"ALp_Studio","subtitle":{"text":["实验数据载入中......"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":"lgq3218483753@163.com","bilibili":"https://space.bilibili.com/374412219"},"qrs":{"weixin":null,"QQ":"https://sm.ms/image/Dyja4xG7N9sktbv"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.8.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"MMD":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","bilibili":"https://space.bilibili.com/374412219","Friends":"/links/"}},"Bookmarks":{"icon":"fa-solid fa-bookmark","path":"/bookmarks/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"blur","bookmarks_column":3},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"欢迎来到ALp_Studio第四期——情感实验室。","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        欢迎参与实验 ，实验体%#@$%&amp;号
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="/img/logo.png" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                ALp_Studio
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97"
+                                        >
+                                    <i class="fa-solid fa-list fa-fw"></i>
+                                    MMD
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://space.bilibili.com/374412219">
+                                                    BILIBILI
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/links/">
+                                                    友情链接
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/bookmarks/"
+                                        >
+                                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                                    BOOKMARKS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97"
+                        >
+                            <span>
+                                MMD
+                            </span>
+                            
+                                <i class="fa-solid fa-list fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://space.bilibili.com/374412219">BILIBILI</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/links/">友情链接</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/bookmarks/"
+                        >
+                            <span>
+                                BOOKMARKS
+                            </span>
+                            
+                                <i class="fa-solid fa-bookmark fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/tags"
+                        >
+                            <span>Tags</span>
+                            <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">MME教程系列01—AutoLuminous4的超详细使用教程</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/img/avat.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">亓翎_Re-TikaRa</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-01-30 23:44:18</span>
+        <span class="mobile">2024-01-30 23:44:18</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-11-20 13:16:46</span>
+            <span class="mobile">2024-11-20 13:16:46</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/MMD/">MMD</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/MMD/MMD-%E6%95%99%E7%A8%8B/">MMD 教程</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/MMD/MMD-%E6%95%99%E7%A8%8B/MME%E6%95%99%E7%A8%8B%E7%B3%BB%E5%88%97/">MME教程系列</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/MME/">MME</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>4.9k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>19 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p>&emsp;&emsp;我又来了，这次是AutoLuminous4的超详细用法！比B站那个还详细（确信）在这里写写，然后我就不发到B站了，大致看看吧。然后就是，其实在这里写到的所有效果，在そぼろ的ReadMe文件中都有写到。</p>
+<hr>
+<h2 id="STUFF"><a href="#STUFF" class="headerlink" title="STUFF"></a>STUFF</h2><h3 id="MODEL"><a href="#MODEL" class="headerlink" title="MODEL"></a>MODEL</h3><p>&emsp;&emsp;◆Sour式初音ミクVer.1.02◆<br>&emsp;&emsp;製作者&#x2F;Modeller：Sour暄</p>
+<h3 id="POSE"><a href="#POSE" class="headerlink" title="POSE"></a>POSE</h3><p>&emsp;&emsp;Ponx-迫奈熏</p>
+<h3 id="MME"><a href="#MME" class="headerlink" title="MME"></a>MME</h3><h3 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h3><p>&emsp;&emsp;&emsp;&emsp;発光エフェクト<br>&emsp;&emsp;&ensp;AutoLuminous Ver.4.2<br>&emsp;&emsp;&emsp;&emsp;&ensp;製作：そぼろ</p>
+<h3 id="APPEND"><a href="#APPEND" class="headerlink" title="APPEND"></a>APPEND</h3><p>&emsp;&emsp;splitview_v01<br>&emsp;&emsp;製作者：データP<br>&emsp;&emsp;Diffusion<br>&emsp;&emsp;製作者：そぼろ</p>
+<h3 id="TOOL"><a href="#TOOL" class="headerlink" title="TOOL"></a>TOOL</h3><p>&emsp;&emsp;1、VSCode<br>&emsp;&emsp;2、MikuMikuDance<br>&emsp;&emsp;3、PmxEditor</p>
+<hr>
+<h2 id="某些缩写："><a href="#某些缩写：" class="headerlink" title="某些缩写："></a>某些缩写：</h2><pre><code>AutoLuminous4=AL、AL4（4为大版本，即Ver.4.x，本教程为Ver.4.2）
+ReadMe=RM
+MikuMikuDance=MMD
+PmxEditor=PE
+</code></pre>
+<hr>
+<h2 id="MME介绍"><a href="#MME介绍" class="headerlink" title="MME介绍"></a>MME介绍</h2><p>&emsp;&emsp;AL是由そぼろ为MMD所制作的一款基础性的插件，可以为符合AL标准要求的模型提供发光的效果。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/31/oeK6ntRiUdC9SrF.png"
+                      alt="加入对比.png"
+                ><br>&emsp;&emsp;AL目前已经更新到第四代，即AutoLuminous_ver4.2.本教程基于本AL版本下所编写，若有不同，请自行参照ReadMe文件或是下载最新版。</p>
+<h3 id="下载指路："><a href="#下载指路：" class="headerlink" title="下载指路："></a>下载指路：</h3><p>&emsp;&emsp;<a class="link"   target="_blank" rel="noopener" href="https://onedrive.live.com/?authkey=Arbitrary&id=EF581C37A4524EDA!107&cid=EF581C37A4524EDA" >そぼろ的配布站点<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<hr>
+<h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><p>&emsp;&emsp;AL的开放度极高，一般情况下都可以做到随载随用，所以本章节教程尽量不涉及模型的修改，代码层面的修改等，尽量在MMD主体以及MME插件下做简单讲解。</p>
+<h3 id="文件介绍"><a href="#文件介绍" class="headerlink" title="文件介绍"></a>文件介绍</h3><p>&emsp;&emsp;当我们下载好AL，并且全部解压之后，可以获得如下文件（如果是乱码建议换个可以改编码的压缩器）</p>
+<pre><code>AutoLuminous4
+│  AL_Object.fxsub
+│  AutoLuminous.fx
+│  AutoLuminous.png
+│  AutoLuminous.x
+│  AutoLuminous.xml
+│  AutoLuminousBasic.fx
+│  AutoLuminousBasic.x
+│  Readme.txt
+│  Readme上級編.txt
+│  
+├─Options
+│       AL_BlackMask.fxsub
+│       AL_Test.x
+│       AL_Texture.fxsub
+│       AutoLuminousSetter.zip
+│       full_saturate.fx
+│       LightSampling.fx
+│       LightSampling.x
+│       ToneCurve.x
+│       白背景.x
+│       追加UV一括設定スクリプト.cx
+│       黒背景.x
+│      
+└─Samples
+        Sample1.x
+        Sample2.pmd
+        Sample3.pmx
+        Sample4.pmx
+        Sample5.pmx
+        Sample6.pmx
+        Sample6.png
+</code></pre>
+<p>&emsp;&emsp;其中AutoLuminous.x与AutoLuminousBasic.x是我们重点使用的文件，而AutoLuminousBasic.x是AutoLuminous.x的阉割版，前者没有后者那样的开放度，如：前者x，y，z参数等没有办法调整，发光只能发出白光等。故下文所有教程都是建立于AutoLuminous.x这一版本上。</p>
+<h3 id="MMD内附件控制参数介绍"><a href="#MMD内附件控制参数介绍" class="headerlink" title="MMD内附件控制参数介绍"></a>MMD内附件控制参数介绍</h3><p>◆&ensp;Si参数讲解<br>&emsp;&emsp;Si是指发光强度，对比如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/31/sJm2BZ8cgwzVMAo.png"
+                      alt="SI对比.png"
+                ><br>◆&ensp;Tr参数讲解<br>&emsp;&emsp;此处借用原作者的话</p>
+<pre><code>原文：
+    ・Tr: ぼかし強度
+
+    発光部分のぼかしの強さを指定します。
+    大きくすることはできません。
+    これは、もともとのぼかし強度がかなり大きく設定されているためです。
+    それでも大きくしたい場合はエフェクトの直接編集が必要です
+译文：
+    Tr：模糊强度。
+    
+    指定发光区域的模糊强度。
+    不能增加。
+    这是因为原始模糊强度设置得相当高。
+    如果还想增加，则需要直接编辑效果。
+</code></pre>
+<p>&emsp;&emsp;对比如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/MxLSvQDW9pdCzKw.jpg"
+                      alt="tr对比.jpg"
+                ><br>◆&ensp;X参数讲解<br>&emsp;&emsp;X为炫光的光芒数，请注意，光芒数是以2倍关系存在的，比如你输入x&#x3D;1，则会有2条光芒，以此类推，并且，当你光芒数增加时，亮度也会提升，同时对于电脑的渲染压力也会增大。对比如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/dmqjgWPnCvNVUbY.jpg"
+                      alt="X对比.jpg"
+                ><br>◆&ensp;Y参数讲解<br>&emsp;&emsp;Y参数掌控原始亮度，调节范围在-100到100之间。对比如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/gJcvdMmSoIpl16L.jpg"
+                      alt="Y对比.jpg"
+                ><br>◆&ensp;Z参数讲解<br>&emsp;&emsp;Z参数实际上就是更加精细的Si参数，此处借用作者的话：  </p>
+<pre><code>原文：
+    ・Z: 発光強度
+
+    値の指定方法が違うだけで、効果はSiと同じです。
+    適正範囲は -100～500 程度です。
+    -100でSi=0と、100でSi=2と同じ効果があります。
+    ダミーボーンから発光強度を操作したい場合を想定しています。
+译文：
+    Z：发光强度。
+
+    效果与 Si 相同，只是指定值的方法不同。
+    合适的范围是 -100 至 500。
+    效果与 Si=0 时的 -100 和 Si=2 时的 100 相同。
+    假设您想操作假骨的发光强度。
+</code></pre>
+<p>◆&ensp;Rx参数讲解<br>&emsp;&emsp;Rx是光芒的角度，只有当x≠0时（即光芒启用时），此数据才可以生效，对比如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/vd1OKrLckwVYheZ.jpg"
+                      alt="Rx对比.jpg"
+                ><br>◆&ensp;Ry参数讲解<br>&emsp;&emsp;Ry是改变光芒的长度，作者建议的范围在-100~100，太长会出现条纹，对比如下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/vswaVkr4ELWzJN9.jpg"
+                      alt="0.jpg"
+                ><br>&emsp;&emsp;<del>(我好像没咋看出0和100的区别，可能是透明通道的锅，MMD里面挺明显)</del> <br>下面是Ry&#x3D;400，就有很明显的条纹了，但是我加了个Diffusion，会稍微好一点，短范围内可以试试？（第一个图没有加Diffusion，第二个图加了）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/oBECcgNZifldxSI.jpg"
+                      alt="400.jpg"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/Z8mOLzsX4hHoeRD.jpg"
+                      alt="400+Diffusion.jpg"
+                ><br>◆&ensp;Rz参数讲解<br>&emsp;&emsp;这个参数就是用来kirakira的闪（呼唰呼唰~~~~~）， 输入的值是以秒为单位的闪烁周期。正数表示正弦波闪烁，负数表示方波闪烁。0代表不闪烁，绝对值越小闪的越快<br> <del>（这个就不配图了吧，MarkDown配GIF有点麻烦的说）</del><br> <del>（嘴上说着，还是配了）</del><br>&emsp;&emsp;这个是Ry&#x3D;1的<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/RcEXBp1sQeHTlDv.gif"
+                      alt="1.gif"
+                ><br>&emsp;&emsp;这个是Ry&#x3D;0.1的<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/fIb3WEJZF6H2jwc.gif"
+                      alt="0.1.gif"
+                ><br>&emsp;&emsp;这个是Ry&#x3D;-1的<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/mN3bFJIK81BdDAt.gif"
+                      alt="-1.gif"
+                ><br>&emsp;&emsp;这个是Ry&#x3D;-0.1的<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/lvxq9ZHbB4pP3Xt.gif"
+                      alt="-0.1.gif"
+                ><br>&emsp;&emsp;<del>(不知道0.1和-0.1能不能看出来差别，应该可以。。)</del><br>&emsp;&emsp;可以将坐标轴系改成附件来修改更加随意的效果，X,Y,Z对应的移动，Rx，Ry，Rz对应的是转动。更改控制类型的方法：在图示红框内连续点击，会有三个参数：</p>
+<pre><code>1、LOCAL：轴坐标系，会根据你骨骼的预定轴向为坐标系
+2、GLOBAL：世界坐标系，轴向严格按照上下Y，左右X，前后Z的方向
+3、ACCESSORY：附件控制状态，此时拖拽X，Y，Z或者Rx，Ry，Rz将会改变附件编辑框内的数据
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/IuUTd9ygOqWj2Em.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h3 id="MME特效分配栏参数讲解"><a href="#MME特效分配栏参数讲解" class="headerlink" title="MME特效分配栏参数讲解"></a>MME特效分配栏参数讲解</h3><p>&emsp;&emsp;当我们加入AL之后，在MME窗口会出现下面这一栏<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/Prc3JW7nFYXMiZT.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;这一栏便是AL的特效分配栏，其中White.pmx是我们模型的文件名。而后面那一大串路径，是我们的特效文件。之前听过这样一个比喻：.x文件，.fx文件，.fxsub文件，三者的关系就像胶囊一样。x文件是胶囊外面那层皮，fx文件是里面的药，fxsub文件是模型的特异性受体。一般情况下，x文件不是真正起作用的，起作用的是fx文件，二者一般要搭配使用。而单独有效的x文件，比如B站MMD十周年教程里的screen.x，这种就类似于药片，x文件自己有效。对于模型的fxsub文件，相当于特异性受体，有了，可以对模型进行调控，没有，有时候也可以用fx直接强力打击。（不知道能不能看懂）<br>&emsp;&emsp;此时，AL_Object.fxsub调控我们模型，该发光的发光，不该发光的不要发光。当我们去除掉这一个分配，就会和下图一样，整个模型都亮起来了：<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/I1kmuBwxqFGMsvR.png"
+                      alt="正常分配.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/IbQHmZVpE8hSwzn.png"
+                      alt="解除分配.png"
+                ><br>&emsp;&emsp;如果我们把前面的勾选去掉，就会发不了光：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/OVjYgh7pZ4iluJk.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;其余的相关挂载分配见下表（我常用的）：</p>
+<pre><code>AL_Object.fxsub：正常
+AL_BlackMask.fxsub：取消发光，和取消勾选一个结果
+AL_Texture.fxsub：局部纹理高强度发光，详见下文
+</code></pre>
+<h3 id="故障排除"><a href="#故障排除" class="headerlink" title="故障排除"></a>故障排除</h3><p>&emsp;&emsp;此处借用作者的方法：</p>
+<pre><code>出现错误，无法运行。
+    →检查 MME 是否为 0.27 或更高版本。
+    →再次尝试下载。
+    →不幸的是，您的 grabo 很可能与之不兼容。
+
+错误未出现，但无法正常工作。
+    →请检查是否只使用样本和 AutoLuminous 就能正常工作。
+    →检查 AutoLuminous.x 的位置、大小等是否为异常值。
+    → 再次尝试下载。
+    →不幸的是，很有可能抓取器不兼容。
+    →如果您怀疑存在错误，请在 Twitter 等网站上报告。
+
+材质变形无法反映。
+    →由于 MME 规范的原因，变形后的颜色无法正常获取。
+    自 3.5 版起，镜面反射强度和 Alpha 会被反映。
+    在 MMM 中，可以使用材质变形。
+
+太重，无法正常工作。
+    →尝试编辑效果并将 HALF_DRAW 设置为 1。
+    图像质量会下降，但会更轻。
+    编辑效果并将 HDR_RENDER 设置为 0。
+    功能会受到限制，但图像会变得更亮。
+    尝试减少采样次数。
+    尝试 AutoLuminousBasic。
+    考虑替换 ObjectLuminous 或 KeyLuminous。
+    更换 PC 或抓取器。
+
+不想发光的部分会自行发光。
+    如果添加的球体发光，请将模型添加到选项文件夹中
+    将选项文件夹中的 full_saturate.fx 应用于模型。
+    在 &quot;MME 分配 &quot;选项卡中选择 AL_EmitterRT、
+    将 &quot;AL_BlackMask.fx &quot;分配给不想发光的模型。
+    编辑效果并将 HDR_RENDER 设置为 0。
+    将 &quot;KEYCOLOR_NUM &quot;设为 0 以关闭关键色彩发射功能。
+
+如何编辑配件？
+    用记事本打开 X 文件，直接调整数值。
+    用记事本打开 X 文件，直接调整数值...
+    自述文件的高级部分添加了关于在 PMDE 中编辑附件的内容。
+</code></pre>
+<h3 id="恭喜你-基础篇到此完结"><a href="#恭喜你-基础篇到此完结" class="headerlink" title="恭喜你~ 基础篇到此完结~"></a>恭喜你~ 基础篇到此完结~</h3><hr>
+<h2 id="高级篇"><a href="#高级篇" class="headerlink" title="高级篇"></a>高级篇</h2><p>&emsp;&emsp;欢迎来到AL的进阶教程！在此篇中，默认你已经会了PE的所有基础教程，并且，熟练掌握各种可以正确修改fx的软件（例如，VSCode，EveryEditor等等），就让我们开始愉快的AL的进阶之旅吧。注：本教程内AL的所有参数均为初始参数，不做任何修改，修改的仅仅是模型。</p>
+<h3 id="扒扒示例内容的底裤"><a href="#扒扒示例内容的底裤" class="headerlink" title="扒扒示例内容的底裤"></a>扒扒示例内容的底裤</h3><p>&emsp;&emsp;首先让我们看看そぼろ様为我们准备了写什么好玩的例子</p>
+<pre><code>Samples：
+        Sample1.x
+        Sample2.pmd
+        Sample3.pmx
+        Sample4.pmx
+        Sample5.pmx
+        Sample6.pmx
+        Sample6.png
+样品 1.
+    一个涂有四种不同颜色的球。
+    球的蓝色和粉色部分被设置为发光。
+
+样本 2
+    PMD 版本的样本。
+    绿色和黄色被指定为发光颜色。
+    您可以尝试使用变形来控制面部表情。
+
+样本 3
+    PMX 版本的样本。 这是一个灰色立方体。
+    可以测试 2.0 版的新功能，如顶点发射。
+
+样本 4.
+    PMX 版本的样本。 多板多边形。
+    您可以测试顶点发射中的色调变形和 3.0 以来的其他新功能。
+    您还可以通过材质变形测试发射强度的变化。
+
+样本 5.
+    这是 PMX 版本的样本。 小球呈螺旋状排列。
+    您可以使用 AutoLuminouSetter 测试复杂的顶点发射。
+
+样本 6.
+    这是自 4.0 版起新增的发射序列控制示例。
+    同名的 PNG 文件是一个球形样本。
+    您还可以尝试 4.0 中的其他变形。
+</code></pre>
+<h3 id="附加UV参数讲解"><a href="#附加UV参数讲解" class="headerlink" title="附加UV参数讲解"></a>附加UV参数讲解</h3><pre><code>附加 UV1。
+　X：0.2，Y：0.7
+　　表示这是 AutoLuminous 的附加 UV 数据的识别码。
+　　该值为固定值。
+
+　Z：闪烁周期
+　　以秒为单位指定闪烁周期。
+    负值会导致方波闪烁。
+
+　W：标志
+    指定标志。 从以下项目中添加所需的项目。
+    曲面的所有顶点的该值必须相等。
+
+　    　-数字 1：纹理模式。
+　    　　0：标准（纹理乘法）
+　　　1：无纹理乘法。
+　　　2：高强度提取，如果为 UV2 指定了（1,1,1,1,1），则相当于 AL_Texture。
+　　10 位数字：色彩模式。
+　　　00：标准（RGB 规格）
+　　　10 : 将 UV2 的 XYZ 从 RGB 改为 HSV。
+附加 UV2
+　X：红色，Y：绿色，Z：蓝色
+　　指定发射颜色。
+
+　W：发光强度
+　　指定发光强度。 标准值为 1。
+
+
+附加 UV3
+　X：纹理颜色减法。
+　　该值从纹理颜色中减去，如果小于 0 则四舍五入为 0。
+
+　Y：闪烁阶段
+　　以秒为单位指定闪烁阶段。
+
+　Z：弹出式
+　　按指定值将发光部分向正常方向推出。
+　　此功能可用于隐藏发光对象。
+</code></pre>
+<h3 id="扒扒示例3的底裤（可以看到顶点发光以及闪烁的顶点发光）"><a href="#扒扒示例3的底裤（可以看到顶点发光以及闪烁的顶点发光）" class="headerlink" title="扒扒示例3的底裤（可以看到顶点发光以及闪烁的顶点发光）"></a>扒扒示例3的底裤（可以看到顶点发光以及闪烁的顶点发光）</h3><p>&emsp;&emsp;3的特殊之处在于，明明是是一个灰色的块块，四个顶点颜色不一样，还有一个角在闪，神奇的呢。（本节是一个大块，根据标题可以看到，本节是顶点发光有关<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/17AIfUpokqycwiB.gif"
+                      alt="示例3.gif"
+                ><br>&emsp;&emsp;打开PE看看参数，映入眼帘的就是 <em><strong>追加UV:3</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/spPrqSJlynKfamN.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;再结合そぼろ様的论述：PMX 版本的样本。 这是一个灰色立方体。可以测试 2.0 版的新功能，如顶点发射。<br>&emsp;&emsp; <del>顶点发射是虾米？？？？我怎么不知道？？？？我在RM怎么没有找到！！小事啦~ 现在我们可就不能光停留在RM的初级版本，我们应该升升级，看看 <em><strong>Readme上級編.txt</strong></em> 这个RM啦。</del><br>&emsp;&emsp;そぼろ様曾云：PMXのみ、追加UVを用いて頂点ごとの発光制御を行うことができます。材質指定より柔軟に設定できますが、改造やデータ管理は煩雑になります。<br>&emsp;&emsp;意思就是:只有 PMX 允许使用附加 UV 对每个顶点进行发射控制。这样的设置比材料规格更为灵活，但修改和数据管理更为复杂。<br>&emsp;&emsp;由此我们可以得出，只要在PE里面对模型设置好有关的数值，那么我们也可以这样玩~~这样我们就来PE实操一下吧。<br>&emsp;&emsp;首先，根据そぼろ様在RM中写到：</p>
+<pre><code>附加 UV1。
+　X：0.2，Y：0.7
+　　表示这是 AutoLuminous 的附加 UV 数据的识别码。
+　　该值为固定值。
+</code></pre>
+<p>&emsp;&emsp;那么也就是说，当某顶点追加UV1的数值中X：0.2，Y：0.7就说明这个是与AL有关的顶点。那么我们来看看，示例3中有哪些是带有AL的“身份证”的呢。导出一份顶点CSV，可以看到<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/P59Ei7L1jskWa6B.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;4、5、6、7、11、14、23这几个顶点的追加UV1_x,追加UV1_y，都是0.2和0.7的身份代码。那就说明这几个顶点和AL有关，现来看看那个会闪红光的角角吧。分别是11、14、23都是那个角上的三个面的顶点，他们的追加UV1_z,追加UV1_w都是2和0，这两个数据代表的是闪烁和标志，相关解释看上面。<br>&emsp;&emsp;然后，看看追加UV2的参数吧。哇！神奇诶！他们的追加UV2_x,追加UV2_y,追加UV2_z,追加UV2_w的数值，都是0.8,0.03,0.02,1，前面三个是用来调节颜色的，后面一个是发光的倍率，默认要填1，把颜色参数输入到材质那里看看。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/X5s7tpQauMHNfom.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;红不红！！！过年就得喜庆点。这样看上去和发的光颜色一样呢（笑<br>&emsp;&emsp;再来看看追加UV3：0,0,0,0,0,好多0啊，为什么呢？因为UV3我们根本没用到啊~其实这个样子你到MMD里面已经成功了，可以发红光闪烁，其余颜色的话，在材质那里调节好颜色之后，把参数复制到UV2的XYZ里面就好，不想闪烁，就把附加UV1里面的Z填成0就好<br>&emsp;&emsp;但是，他只能发出来一种颜色啊，我们当然不满足于此，我们还要随心所欲 <del>mercy</del> 的修改颜色！！！！！！！<br>&emsp;&emsp;接下来，欢迎来到Sample4的世界！</p>
+<h3 id="扒扒示例4的底裤（可以看到色相修改，表情的使用）"><a href="#扒扒示例4的底裤（可以看到色相修改，表情的使用）" class="headerlink" title="扒扒示例4的底裤（可以看到色相修改，表情的使用）"></a>扒扒示例4的底裤（可以看到色相修改，表情的使用）</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/S2XHUNDFlKhuBLP.gif"
+                      alt="示例4.gif"
+                ><br>&emsp;&emsp;好欢快，开趴！！！！（懒了，写不动了咋办，碎碎念）</p>
+<h3 id="色相改变"><a href="#色相改变" class="headerlink" title="色相改变"></a>色相改变</h3><p>&emsp;&emsp;首先拆拆这个色相改变，继续用PE打开这个模型，顺手导出一份CSV。好嘛，开屏一张，追加UV:3<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/EfzTvauKMVblo2Y.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;看看追加，然后通过模型窗，找到我们可以改色相的顶点，老熟人4，5，6，7号<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/zpkr4AJ3Ms2HmZc.png"
+                      alt="image.png"
+                ></p>
+<pre><code>Vertex,4,-2,7,0.1,0,0,-1,1,0,0,0.2,0.7,0,10,1,1,1,0.5,0,0,0.2,0,0,0,0,0,0,&quot;センター&quot;,1,&quot;&quot;,0,&quot;&quot;,0,&quot;&quot;,0,0,0,0,0,0,0,0,0,0
+Vertex,5,2,7,0.1,0,0,-1,1,1,0,0.2,0.7,0,10,1,1,1,0.5,0,0,0.2,0,0,0,0,0,0,&quot;センター&quot;,1,&quot;&quot;,0,&quot;&quot;,0,&quot;&quot;,0,0,0,0,0,0,0,0,0,0
+Vertex,6,-2,3,0.1,0,0,-1,1,0,1,0.2,0.7,0,10,1,1,1,0.5,0,0,0.2,0,0,0,0,0,0,&quot;センター&quot;,1,&quot;&quot;,0,&quot;&quot;,0,&quot;&quot;,0,0,0,0,0,0,0,0,0,0
+Vertex,7,2,3,0.1,0,0,-1,1,1,1,0.2,0.7,0,10,1,1,1,0.5,0,0,0.2,0,0,0,0,0,0,&quot;センター&quot;,1,&quot;&quot;,0,&quot;&quot;,0,&quot;&quot;,0,0,0,0,0,0,0,0,0,0
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>追加UV1_x</th>
+<th>追加UV1_y</th>
+<th>追加UV1_z</th>
+<th>追加UV1_w</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0.2</td>
+<td>0.7</td>
+<td>0</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;其中追加UV1的0.2，0.7没什么说的，但是，10呢？往上翻翻，10代表HSV，这个SHV是我们改变色相的关键。<br>&emsp;&emsp;继续来看追加UV2</p>
+<table>
+<thead>
+<tr>
+<th>追加UV2_x</th>
+<th>追加UV2_y</th>
+<th>追加UV2_z</th>
+<th>追加UV2_w</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0.5</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;这个xyz好理解，但是为什么追加w是0.5？不是说标准值是1么？宝宝~ 是1没错，但是，咋也不能被规矩限死啊，看看1的下场。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/ZtDI5oY9CvjcOqU.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;好大的！！所以0.5就刚刚合适，懂了吧~<br>&emsp;&emsp;然后看看追加UV3</p>
+<table>
+<thead>
+<tr>
+<th>追加UV3_x</th>
+<th>追加UV3_y</th>
+<th>追加UV3_z</th>
+<th>追加UV3_w</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0.2</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;弹出是什么呢？其实就是法线方向的偏移量，来张图看看吧~<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/Tl2Bua6UCc4hSJn.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;眼睛好的小伙伴可以看出来，我把一个顶点改成1后，发光的部位就向前走了1个单位，就是这样。<br>&emsp;&emsp;接下来，就是制作表情~，制作UV表情的步骤建议自己搜搜，我懒了，其实更简单的办法就是，PE打开你要修改的模型，打开示例4，然后在示例4的色相表情上右键，复制，然后在你的要修改的模型那里粘贴，这是最简单的，然后把里面的顶点改成你修改过的就成。然后按照示例4的表情参数抄过去就成。</p>
+<h3 id="表情系列"><a href="#表情系列" class="headerlink" title="表情系列"></a>表情系列</h3><p>&emsp;&emsp;有两种方式，控制材质和控制顶点。其实这个在MMD内重点是名称匹配即可，对于顶点和材质都一样，所以，你做顶点表情，把要改的放进去与做材质表情，把要改的材质放过去，大差不差，只是控制的范围罢了，具体可以看看示例文件以及SOUR的模型。<br>&emsp;&emsp;关于表情，只要名字是以下的，并且在对应控制栏里面填对数据，就可以（比如材质的话，你要在表情控制的材质里面，把反射度开到100以上）(嫌自己一个一个做麻烦的话，可去找找Emil大佬的汉化版插件，当然，你用日语我不反对)</p>
+<pre><code>・LightUp
+・LightOff
+・LightBlink
+・LightBS
+・LightUpE
+・LightDuty
+・LightMin
+・LClockUp
+・LClockDown
+
+通过 &quot;LightUp &quot;和 &quot;LightOff &quot;可以调节灯光强度。
+LightUp &quot;可将光亮度提高三倍。
+如果使用 &quot;LightOff&quot;，灯光会在最大亮度时完全熄灭。
+  
+使用虚拟表达式 &quot;LightBlink &quot;和 &quot;LightBS&quot;、
+LightBlink &quot;和 &quot;LightBS &quot;虚拟表达式可用于控制个别型号的灯光闪烁。
+LightBlink &quot;发出正弦波闪烁，&quot;LightBS &quot;发出方波闪烁。
+最大间隔为 10 秒。
+
+使用 &quot;LightUpE &quot;时，亮度以指数形式增加。
+最大增幅为 400 倍。
+
+通过 &quot;LightDuty &quot;可以改变闪烁的开/关比例。
+LightMin &quot;可以设置闪烁时的最小亮度。
+
+&quot;LClockUp &quot;可加快闪烁周期，并通过下述顶点光功能控制光序、
+LClockUp &quot;通过下述顶点光功能加快闪烁和光序列控制的周期时间。
+最大速度可提高六倍。
+&quot;LClockDown &quot;则相反地减慢闪烁周期。 最大速度为 1/6x。
+</code></pre>
+<hr>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>&emsp;&emsp;就这样吧，有意思的就这样。</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> MME教程系列01—AutoLuminous4的超详细使用教程</li>
+        <li><strong>作者:</strong> 亓翎_Re-TikaRa</li>
+        <li><strong>创建于
+                :</strong> 2024-01-30 23:44:18</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-11-20 13:16:46
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://re-tikara.github.io/posts/6e81bfe7/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/MME/">#MME</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/14648/" title="MMD教程系列01-如何建造一个镂空的多边体" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="MMD教程系列01-如何建造一个镂空的多边体" class="!max-w-none">
+  <span class="title">MMD教程系列01-如何建造一个镂空的多边体</span>
+</a><a class="recommended-article-item" href="/posts/93a98ac8/" title="VRM系列02-PMX的VRM转化方案" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="VRM系列02-PMX的VRM转化方案" class="!max-w-none">
+  <span class="title">VRM系列02-PMX的VRM转化方案</span>
+</a><a class="recommended-article-item" href="/posts/45af3d29/" title="MMD扫盲系列01——认识MMD" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="MMD扫盲系列01——认识MMD" class="!max-w-none">
+  <span class="title">MMD扫盲系列01——认识MMD</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/14648/" title="MMD教程系列01-如何建造一个镂空的多边体" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="MMD教程系列01-如何建造一个镂空的多边体" class="!max-w-none">
+  <span class="title">MMD教程系列01-如何建造一个镂空的多边体</span>
+</a><a class="recommended-article-item" href="/posts/93a98ac8/" title="VRM系列02-PMX的VRM转化方案" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="VRM系列02-PMX的VRM转化方案" class="!max-w-none">
+  <span class="title">VRM系列02-PMX的VRM转化方案</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/posts/7a433340/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">VRM系列01-VRM转换FBX的若干事项</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/posts/14648/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">MMD教程系列01-如何建造一个镂空的多边体</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">MME教程系列01—AutoLuminous4的超详细使用教程</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#STUFF"><span class="nav-text">STUFF</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MODEL"><span class="nav-text">MODEL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POSE"><span class="nav-text">POSE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MME"><span class="nav-text">MME</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Main"><span class="nav-text">Main</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#APPEND"><span class="nav-text">APPEND</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TOOL"><span class="nav-text">TOOL</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%90%E4%BA%9B%E7%BC%A9%E5%86%99%EF%BC%9A"><span class="nav-text">某些缩写：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MME%E4%BB%8B%E7%BB%8D"><span class="nav-text">MME介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E6%8C%87%E8%B7%AF%EF%BC%9A"><span class="nav-text">下载指路：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E7%AF%87"><span class="nav-text">基础篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%BB%8B%E7%BB%8D"><span class="nav-text">文件介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MMD%E5%86%85%E9%99%84%E4%BB%B6%E6%8E%A7%E5%88%B6%E5%8F%82%E6%95%B0%E4%BB%8B%E7%BB%8D"><span class="nav-text">MMD内附件控制参数介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#MME%E7%89%B9%E6%95%88%E5%88%86%E9%85%8D%E6%A0%8F%E5%8F%82%E6%95%B0%E8%AE%B2%E8%A7%A3"><span class="nav-text">MME特效分配栏参数讲解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%85%E9%9A%9C%E6%8E%92%E9%99%A4"><span class="nav-text">故障排除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%81%AD%E5%96%9C%E4%BD%A0-%E5%9F%BA%E7%A1%80%E7%AF%87%E5%88%B0%E6%AD%A4%E5%AE%8C%E7%BB%93"><span class="nav-text">恭喜你~ 基础篇到此完结~</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E7%AF%87"><span class="nav-text">高级篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%92%E6%89%92%E7%A4%BA%E4%BE%8B%E5%86%85%E5%AE%B9%E7%9A%84%E5%BA%95%E8%A3%A4"><span class="nav-text">扒扒示例内容的底裤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%84%E5%8A%A0UV%E5%8F%82%E6%95%B0%E8%AE%B2%E8%A7%A3"><span class="nav-text">附加UV参数讲解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%92%E6%89%92%E7%A4%BA%E4%BE%8B3%E7%9A%84%E5%BA%95%E8%A3%A4%EF%BC%88%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E9%A1%B6%E7%82%B9%E5%8F%91%E5%85%89%E4%BB%A5%E5%8F%8A%E9%97%AA%E7%83%81%E7%9A%84%E9%A1%B6%E7%82%B9%E5%8F%91%E5%85%89%EF%BC%89"><span class="nav-text">扒扒示例3的底裤（可以看到顶点发光以及闪烁的顶点发光）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%92%E6%89%92%E7%A4%BA%E4%BE%8B4%E7%9A%84%E5%BA%95%E8%A3%A4%EF%BC%88%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E8%89%B2%E7%9B%B8%E4%BF%AE%E6%94%B9%EF%BC%8C%E8%A1%A8%E6%83%85%E7%9A%84%E4%BD%BF%E7%94%A8%EF%BC%89"><span class="nav-text">扒扒示例4的底裤（可以看到色相修改，表情的使用）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%89%B2%E7%9B%B8%E6%94%B9%E5%8F%98"><span class="nav-text">色相改变</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%83%85%E7%B3%BB%E5%88%97"><span class="nav-text">表情系列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-text">后记</span></a></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">亓翎_Re-TikaRa</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 28 篇文章
+                    </span>
+                    
+                        <span>
+                            共 26.7k 字
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/build/js/libs/Swup.min.js"></script>
+
+<script src="/build/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/build/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/build/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/build/js/utils.js" type="module"></script>
+
+<script src="/build/js/main.js" type="module"></script>
+
+<script src="/build/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/build/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/build/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/build/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/build/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/tools/runtime.js"></script>
+
+    
+<script src="/build/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/build/js/libs/Typed.min.js"></script>
+
+  
+<script src="/build/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/build/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/build/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/build/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/build/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/build/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/build/js/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+</body>
+
+</html>

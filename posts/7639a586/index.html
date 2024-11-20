@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="亓翎_Re-TikaRa">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://RE-TikaRa.github.io/posts/7639a586/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="&emsp;&emsp;扫盲系列能开到第二期，在座各位都有责任，这期来讲讲骨骼。（全部是我的理解），同时这一期不咋讲参数之类的，写不动，下一期写。  基本介绍&emsp;&emsp;这里拿一个全套骨骼来讲，一个人物模型要想能用，基本包括标准骨和次标准骨。    骨骼名1 骨骼名2 骨骼名3 骨骼名4 骨骼名5    操作中心 左腕 左薬指２ 右手捩2 右人指２   全ての親 左腕捩 左薬指３ 右手">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MMD扫盲系列02——MMD基本骨骼介绍">
+<meta property="og:url" content="http://re-tikara.github.io/posts/7639a586/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="&emsp;&emsp;扫盲系列能开到第二期，在座各位都有责任，这期来讲讲骨骼。（全部是我的理解），同时这一期不咋讲参数之类的，写不动，下一期写。  基本介绍&emsp;&emsp;这里拿一个全套骨骼来讲，一个人物模型要想能用，基本包括标准骨和次标准骨。    骨骼名1 骨骼名2 骨骼名3 骨骼名4 骨骼名5    操作中心 左腕 左薬指２ 右手捩2 右人指２   全ての親 左腕捩 左薬指３ 右手">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/07/24/9thozZbvLNEgq57.png">
+<meta property="og:image" content="https://s2.loli.net/2024/07/25/WlwQNzRJYx5aVod.png">
+<meta property="article:published_time" content="2024-07-23T14:53:37.000Z">
+<meta property="article:modified_time" content="2024-11-20T05:16:46.562Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="MMD扫盲系列">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/07/24/9thozZbvLNEgq57.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/img/logo.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/img/logo.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            MMD扫盲系列02——MMD基本骨骼介绍 | ALp_Studio
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/build/css/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/build/js/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"re-tikara.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"欢迎参与实验 ，实验体%#@$%&号"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/img/light.jpg","dark":"/img/dark.png"},"title":"ALp_Studio","subtitle":{"text":["实验数据载入中......"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":"lgq3218483753@163.com","bilibili":"https://space.bilibili.com/374412219"},"qrs":{"weixin":null,"QQ":"https://sm.ms/image/Dyja4xG7N9sktbv"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.8.0","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"MMD":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","bilibili":"https://space.bilibili.com/374412219","Friends":"/links/"}},"Bookmarks":{"icon":"fa-solid fa-bookmark","path":"/bookmarks/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"blur","bookmarks_column":3},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"欢迎来到ALp_Studio第四期——情感实验室。","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        欢迎参与实验 ，实验体%#@$%&amp;号
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="/img/logo.png" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                ALp_Studio
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97"
+                                        >
+                                    <i class="fa-solid fa-list fa-fw"></i>
+                                    MMD
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://space.bilibili.com/374412219">
+                                                    BILIBILI
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/links/">
+                                                    友情链接
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/bookmarks/"
+                                        >
+                                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                                    BOOKMARKS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97"
+                        >
+                            <span>
+                                MMD
+                            </span>
+                            
+                                <i class="fa-solid fa-list fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://space.bilibili.com/374412219">BILIBILI</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/links/">友情链接</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/bookmarks/"
+                        >
+                            <span>
+                                BOOKMARKS
+                            </span>
+                            
+                                <i class="fa-solid fa-bookmark fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/tags"
+                        >
+                            <span>Tags</span>
+                            <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">16</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">20</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			<div class="w-full flex items-center pt-6 justify-start">
+				<h1 class="article-title-regular text-second-text-color tracking-tight text-4xl md:text-6xl font-semibold px-2 sm:px-6 md:px-8 py-3">MMD扫盲系列02——MMD基本骨骼介绍</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/img/avat.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">亓翎_Re-TikaRa</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-07-23 22:53:37</span>
+        <span class="mobile">2024-07-23 22:53:37</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-11-20 13:16:46</span>
+            <span class="mobile">2024-11-20 13:16:46</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97/">MMD扫盲系列</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97/">MMD扫盲系列</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>2.2k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>8 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<p>&emsp;&emsp;扫盲系列能开到第二期，在座各位都有责任，这期来讲讲骨骼。（全部是我的理解），同时这一期不咋讲参数之类的，写不动，下一期写。</p>
+<hr>
+<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>&emsp;&emsp;这里拿一个全套骨骼来讲，一个人物模型要想能用，基本包括标准骨和次标准骨。</p>
+<table>
+<thead>
+<tr>
+<th align="center">骨骼名1</th>
+<th align="center">骨骼名2</th>
+<th align="center">骨骼名3</th>
+<th align="center">骨骼名4</th>
+<th align="center">骨骼名5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作中心</td>
+<td align="center">左腕</td>
+<td align="center">左薬指２</td>
+<td align="center">右手捩2</td>
+<td align="center">右人指２</td>
+</tr>
+<tr>
+<td align="center">全ての親</td>
+<td align="center">左腕捩</td>
+<td align="center">左薬指３</td>
+<td align="center">右手捩3</td>
+<td align="center">右人指３</td>
+</tr>
+<tr>
+<td align="center">センター</td>
+<td align="center">左腕捩1</td>
+<td align="center">左薬指先</td>
+<td align="center">右手首</td>
+<td align="center">右人指先</td>
+</tr>
+<tr>
+<td align="center">グルーブ</td>
+<td align="center">左腕捩2</td>
+<td align="center">左中指１</td>
+<td align="center">右ダミー</td>
+<td align="center">腰キャンセル左</td>
+</tr>
+<tr>
+<td align="center">腰</td>
+<td align="center">左腕捩3</td>
+<td align="center">左中指２</td>
+<td align="center">右手先</td>
+<td align="center">左足</td>
+</tr>
+<tr>
+<td align="center">左足IK親</td>
+<td align="center">左ひじ</td>
+<td align="center">左中指３</td>
+<td align="center">右親指０</td>
+<td align="center">左ひざ</td>
+</tr>
+<tr>
+<td align="center">左足ＩＫ</td>
+<td align="center">左手捩</td>
+<td align="center">左中指先</td>
+<td align="center">右親指１</td>
+<td align="center">左足首</td>
+</tr>
+<tr>
+<td align="center">左つま先ＩＫ</td>
+<td align="center">左手捩1</td>
+<td align="center">左人指１</td>
+<td align="center">右親指２</td>
+<td align="center">左つま先</td>
+</tr>
+<tr>
+<td align="center">右足IK親</td>
+<td align="center">左手捩2</td>
+<td align="center">左人指２</td>
+<td align="center">右親指先</td>
+<td align="center">腰キャンセル右</td>
+</tr>
+<tr>
+<td align="center">右足ＩＫ</td>
+<td align="center">左手捩3</td>
+<td align="center">左人指３</td>
+<td align="center">右小指１</td>
+<td align="center">右足</td>
+</tr>
+<tr>
+<td align="center">右つま先ＩＫ</td>
+<td align="center">左手首</td>
+<td align="center">左人指先</td>
+<td align="center">右小指２</td>
+<td align="center">右ひざ</td>
+</tr>
+<tr>
+<td align="center">上半身</td>
+<td align="center">左ダミー</td>
+<td align="center">右肩P</td>
+<td align="center">右小指３</td>
+<td align="center">右足首</td>
+</tr>
+<tr>
+<td align="center">上半身2</td>
+<td align="center">左手先</td>
+<td align="center">右肩</td>
+<td align="center">右小指先</td>
+<td align="center">右つま先</td>
+</tr>
+<tr>
+<td align="center">下半身</td>
+<td align="center">左親指０</td>
+<td align="center">右肩C</td>
+<td align="center">右薬指１</td>
+<td align="center">左足D</td>
+</tr>
+<tr>
+<td align="center">首</td>
+<td align="center">左親指１</td>
+<td align="center">右腕</td>
+<td align="center">右薬指２</td>
+<td align="center">左ひざD</td>
+</tr>
+<tr>
+<td align="center">頭</td>
+<td align="center">左親指２</td>
+<td align="center">右腕捩</td>
+<td align="center">右薬指３</td>
+<td align="center">左足首D</td>
+</tr>
+<tr>
+<td align="center">両目</td>
+<td align="center">左親指先</td>
+<td align="center">右腕捩1</td>
+<td align="center">右薬指先</td>
+<td align="center">左足先EX</td>
+</tr>
+<tr>
+<td align="center">左目</td>
+<td align="center">左小指１</td>
+<td align="center">右腕捩2</td>
+<td align="center">右中指１</td>
+<td align="center">右足D</td>
+</tr>
+<tr>
+<td align="center">右目</td>
+<td align="center">左小指２</td>
+<td align="center">右腕捩3</td>
+<td align="center">右中指２</td>
+<td align="center">右ひざD</td>
+</tr>
+<tr>
+<td align="center">左肩P</td>
+<td align="center">左小指３</td>
+<td align="center">右ひじ</td>
+<td align="center">右中指３</td>
+<td align="center">右足首D</td>
+</tr>
+<tr>
+<td align="center">左肩</td>
+<td align="center">左小指先</td>
+<td align="center">右手捩</td>
+<td align="center">右中指先</td>
+<td align="center">右足先EX</td>
+</tr>
+<tr>
+<td align="center">左肩C</td>
+<td align="center">左薬指１</td>
+<td align="center">右手捩1</td>
+<td align="center">右人指１</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;其中，下图这些是次标准骨。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/24/9thozZbvLNEgq57.png"
+                      alt="image.png"
+                ></p>
+<p>&emsp;&emsp;其中模型的父子级关系（或称亲子关系）是尤为重要的，亲骨可以掌管子骨，比如上半身骨可以掌管整个上半身，而首作为上半身的子骨，可以对整个脖子和头做控制，诸如此类的。下面这张图之间的关系就是骨骼间的亲子关系。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/25/WlwQNzRJYx5aVod.png"
+                      alt="drawio _2_.png"
+                ></p>
+<hr>
+<h2 id="详细介绍"><a href="#详细介绍" class="headerlink" title="详细介绍"></a>详细介绍</h2><p>&emsp;&emsp;我会分大类讲，左右都有的骨骼我会直接合起来讲。</p>
+<h3 id="操作中心"><a href="#操作中心" class="headerlink" title="操作中心"></a>操作中心</h3><p>&emsp;&emsp;这个骨骼在很多模型中都有，但是没什么用，不参与模型的移动旋转等操作。</p>
+<h3 id="全ての親"><a href="#全ての親" class="headerlink" title="全ての親"></a>全ての親</h3><p>&emsp;&emsp;这个骨骼是所有骨骼的父骨骼，所有骨骼都继承自它，他可以使整个模型移动，旋转。但是需要注意的是，全ての親和操作中心基本都处在X，Y,Z都是0，即（0,0,0）的位置，两个骨骼重合，有的萌新点到了操作中心就会误以为是全ての親，四处询问为什么移动不了。所以一定得看自己是点到了哪个骨骼。</p>
+<h3 id="センター与グルーブ"><a href="#センター与グルーブ" class="headerlink" title="センター与グルーブ"></a>センター与グルーブ</h3><p>&emsp;&emsp;一般并称为重心骨，控制模型重心移动。在不同的动作中位置要求不一样，不过普遍是在两腿之间，低于左右足D，高于左右右ひざ。两者的亲子关系一般是センター为グルーブ亲骨</p>
+<h3 id="腰"><a href="#腰" class="headerlink" title="腰"></a>腰</h3><p>&emsp;&emsp;这个骨骼是一个特殊的存在，一般来讲不分配权重，模型腰部的权重一般会分配在下半身和上半身上，但是上下半身的亲骨一般都在这个骨骼上。</p>
+<h3 id="上半身-上半身2"><a href="#上半身-上半身2" class="headerlink" title="上半身&#x2F;上半身2"></a>上半身&#x2F;上半身2</h3><p>&emsp;&emsp;负责掌控上半身的旋转，位置上是上半身骨与下半身相重合，否则会有过度扭曲的情况，除非权重刷的很好。然后上半身2乃至上半身3456，都是对于上半身的进一步细分。</p>
+<h3 id="首"><a href="#首" class="headerlink" title="首"></a>首</h3><p>&emsp;&emsp;掌管脖子和头的旋转</p>
+<h3 id="頭"><a href="#頭" class="headerlink" title="頭"></a>頭</h3><p>&emsp;&emsp;掌管整个头部</p>
+<h3 id="両目"><a href="#両目" class="headerlink" title="両目"></a>両目</h3><p>&emsp;&emsp;同时掌管左右眼的旋转等</p>
+<h3 id="左-右目"><a href="#左-右目" class="headerlink" title="左&#x2F;右目"></a>左&#x2F;右目</h3><p>&emsp;&emsp;单独掌控左右眼珠子</p>
+<h3 id="左-右肩"><a href="#左-右肩" class="headerlink" title="左&#x2F;右肩"></a>左&#x2F;右肩</h3><p>&emsp;&emsp;就是，，肩膀</p>
+<h3 id="右-左肩P"><a href="#右-左肩P" class="headerlink" title="右&#x2F;左肩P"></a>右&#x2F;左肩P</h3><p>&emsp;&emsp;抖肩之类用，可以只动肩膀而手臂保持不变，需要肩c的配合</p>
+<h3 id="右-左肩C"><a href="#右-左肩C" class="headerlink" title="右&#x2F;左肩C"></a>右&#x2F;左肩C</h3><p>&emsp;&emsp;抖肩之类用，付与亲为肩p，但是付与率是-1，用来协助在使用肩p耸肩后，手臂骨仍然保持原有的角度。</p>
+<h3 id="左-右腕"><a href="#左-右腕" class="headerlink" title="左&#x2F;右腕"></a>左&#x2F;右腕</h3><p>&emsp;&emsp;左右胳膊，大臂</p>
+<h3 id="左-右腕捩"><a href="#左-右腕捩" class="headerlink" title="左&#x2F;右腕捩"></a>左&#x2F;右腕捩</h3><p>&emsp;&emsp;这个骨骼控制手大臂绕臂旋转，需要设置local轴（一般插件生成的自己就带local轴了）。若遇到转向错误，可尝试手动调整子骨指向，并在view窗口中为骨骼手动分配local轴。另一种方法是将捩骨上的权重逐渐转移至相应的骨骼，随后删除捩骨，并使用插件重新添加。完成后，务必将权重类型转为SDEF以避免过度扭曲。若骨骼带有序号1&#x2F;2&#x2F;3，则表示其为捩骨的方向分解，比如指向XYZ分解。</p>
+<h3 id="左-右ひじ"><a href="#左-右ひじ" class="headerlink" title="左&#x2F;右ひじ"></a>左&#x2F;右ひじ</h3><p>&emsp;&emsp;控制小臂的</p>
+<h3 id="左-右手捩"><a href="#左-右手捩" class="headerlink" title="左&#x2F;右手捩"></a>左&#x2F;右手捩</h3><p>&emsp;&emsp;是小臂的，具体效果与左&#x2F;右腕捩大致相同</p>
+<h3 id="左-右手首"><a href="#左-右手首" class="headerlink" title="左&#x2F;右手首"></a>左&#x2F;右手首</h3><p>&emsp;&emsp;控制手掌的骨骼</p>
+<h3 id="左-右ダミー"><a href="#左-右ダミー" class="headerlink" title="左&#x2F;右ダミー"></a>左&#x2F;右ダミー</h3><p>&emsp;&emsp;左右手持骨，一般会把扇子，手杖之类的东西绑在这个骨骼上</p>
+<h3 id="左-右親指"><a href="#左-右親指" class="headerlink" title="左&#x2F;右親指"></a>左&#x2F;右親指</h3><p>&emsp;&emsp;大拇指，至于后面的0123都是指关节，数字越大，离手掌越远</p>
+<h3 id="左-右小指"><a href="#左-右小指" class="headerlink" title="左&#x2F;右小指"></a>左&#x2F;右小指</h3><p>&emsp;&emsp;小拇指，至于后面的0123都是指关节，数字越大，离手掌越远</p>
+<h3 id="左-右薬指"><a href="#左-右薬指" class="headerlink" title="左&#x2F;右薬指"></a>左&#x2F;右薬指</h3><p>&emsp;&emsp;无名指，至于后面的0123都是指关节，数字越大，离手掌越远</p>
+<h3 id="左-右中指"><a href="#左-右中指" class="headerlink" title="左&#x2F;右中指"></a>左&#x2F;右中指</h3><p>&emsp;&emsp;中指，至于后面的0123都是指关节，数字越大，离手掌越远</p>
+<h3 id="左-右人指"><a href="#左-右人指" class="headerlink" title="左&#x2F;右人指"></a>左&#x2F;右人指</h3><p>&emsp;&emsp;食指，至于后面的0123都是指关节，数字越大，离手掌越远</p>
+<h3 id="下半身"><a href="#下半身" class="headerlink" title="下半身"></a>下半身</h3><p>&emsp;&emsp;控制整个下半身的骨骼，位置上是上半身骨与下半身相重合，否则会有过度扭曲的情况，除非权重刷的很好。</p>
+<h3 id="腰キャンセル左-右"><a href="#腰キャンセル左-右" class="headerlink" title="腰キャンセル左&#x2F;右"></a>腰キャンセル左&#x2F;右</h3><p>&emsp;&emsp;用于保持脚部位置不变的时候调整膝盖膝盖朝向用</p>
+<h3 id="左-右足"><a href="#左-右足" class="headerlink" title="左&#x2F;右足"></a>左&#x2F;右足</h3><p>&emsp;&emsp;大腿的骨骼</p>
+<h3 id="左-右ひざ"><a href="#左-右ひざ" class="headerlink" title="左&#x2F;右ひざ"></a>左&#x2F;右ひざ</h3><p>&emsp;&emsp;膝盖，小腿</p>
+<h3 id="左-右足首"><a href="#左-右足首" class="headerlink" title="左&#x2F;右足首"></a>左&#x2F;右足首</h3><p>&emsp;&emsp;脚掌</p>
+<h3 id="左-右つま先"><a href="#左-右つま先" class="headerlink" title="左&#x2F;右つま先"></a>左&#x2F;右つま先</h3><p>&emsp;&emsp;脚尖</p>
+<h3 id="左-右足D"><a href="#左-右足D" class="headerlink" title="左&#x2F;右足D"></a>左&#x2F;右足D</h3><p>&emsp;&emsp;和左&#x2F;右足大差不差，用于脱离足ik限制进行踹脚使用的骨，变形层级大于足和足IK</p>
+<h3 id="左-右ひざD"><a href="#左-右ひざD" class="headerlink" title="左&#x2F;右ひざD"></a>左&#x2F;右ひざD</h3><p>&emsp;&emsp;和左&#x2F;右ひざD大差不差，用于脱离足ik限制进行踹脚使用的骨，变形层级大于足和足IK</p>
+<h3 id="左-右足首D"><a href="#左-右足首D" class="headerlink" title="左&#x2F;右足首D"></a>左&#x2F;右足首D</h3><p>&emsp;&emsp;和左&#x2F;右足首大差不差，用于脱离足ik限制进行踹脚使用的骨，变形层级大于足和足IK</p>
+<h3 id="左-右足先EX"><a href="#左-右足先EX" class="headerlink" title="左&#x2F;右足先EX"></a>左&#x2F;右足先EX</h3><p>&emsp;&emsp;对于前脚掌，x轴应精确对齐至脚掌所指向的骨骼（即骨骼看起来位于足首骨与脚尖骨连接的直线上）。使用次标准骨骼进行追加时，若存在ex骨，则不会追加d骨。因此，通常这个EX骨是通过插件自动追加，而非手动创建。然而，追加后的前脚掌权重可能出现问题，建议重新调整权重以确保准确性。</p>
+<h3 id="右-左足IK"><a href="#右-左足IK" class="headerlink" title="右&#x2F;左足ＩＫ"></a>右&#x2F;左足ＩＫ</h3><p>&emsp;&emsp;影响腿部的骨骼结构包括足和ひざ，其位置定位于足首。在没有使用插件追加骨骼前，其亲骨骼是-1，而追加之后，则变为足IK親骨骼。其变形层级为1，这个层级比腿部的其他骨骼的变形层级要大。相关位置定位在足首骨上，其中target是足首骨，Loop是40，单位角114.5916。在整个IK链中，包含了足骨和膝骨。为了确保骨骼的运动趋势符合人体自然运动，IK骨需要指向本身骨骼的正后方，并需要给足骨加上角度限制，即-180和-0.5。</p>
+<h3 id="右-左つま先IK"><a href="#右-左つま先IK" class="headerlink" title="右&#x2F;左つま先ＩＫ"></a>右&#x2F;左つま先ＩＫ</h3><p>&emsp;&emsp;影响脚掌的骨骼，包含足首，位置在脚尖，亲骨是足IK，变形层级为1（比腿部的骨骼变形层级大）。（亲骨是足IK，位置在脚尖骨上，target是脚尖，loop3，单位角229.1831，IK链中包含足首骨，IK骨需要指向本身骨骼的正下方） </p>
+<h3 id="关于IK"><a href="#关于IK" class="headerlink" title="关于IK"></a>关于IK</h3><p>&emsp;&emsp;IK骨的loop 单位角 角度限制参数不固定，可以自己根据模型本身进行修改</p>
+<h3 id="右-左足IK親"><a href="#右-左足IK親" class="headerlink" title="右&#x2F;左足IK親"></a>右&#x2F;左足IK親</h3><p>&emsp;&emsp;一般在左&#x2F;右足首骨下面，一个单纯的移动骨骼，亲骨是全亲骨，作为足IK的亲骨骼</p>
+<h3 id="先"><a href="#先" class="headerlink" title="~先"></a>~先</h3><p>&emsp;&emsp;一般作为指向骨用，比如我的A骨骼为了方便，就可以设置一个A先作为定位指向。</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> MMD扫盲系列02——MMD基本骨骼介绍</li>
+        <li><strong>作者:</strong> 亓翎_Re-TikaRa</li>
+        <li><strong>创建于
+                :</strong> 2024-07-23 22:53:37</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-11-20 13:16:46
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://re-tikara.github.io/posts/7639a586/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97/">#MMD扫盲系列</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/40366/" title="安歌的动作使用指南" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="安歌的动作使用指南" class="!max-w-none">
+  <span class="title">安歌的动作使用指南</span>
+</a><a class="recommended-article-item" href="/posts/93a98ac8/" title="VRM系列02-PMX的VRM转化方案" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="VRM系列02-PMX的VRM转化方案" class="!max-w-none">
+  <span class="title">VRM系列02-PMX的VRM转化方案</span>
+</a><a class="recommended-article-item" href="/posts/6e81bfe7/" title="MME教程系列01—AutoLuminous4的超详细使用教程" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="MME教程系列01—AutoLuminous4的超详细使用教程" class="!max-w-none">
+  <span class="title">MME教程系列01—AutoLuminous4的超详细使用教程</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/40366/" title="安歌的动作使用指南" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="安歌的动作使用指南" class="!max-w-none">
+  <span class="title">安歌的动作使用指南</span>
+</a><a class="recommended-article-item" href="/posts/93a98ac8/" title="VRM系列02-PMX的VRM转化方案" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="VRM系列02-PMX的VRM转化方案" class="!max-w-none">
+  <span class="title">VRM系列02-PMX的VRM转化方案</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/posts/2699655f/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">PJSK-アイディスマイル 动作配布</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/posts/45af3d29/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">MMD扫盲系列01——认识MMD</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">MMD扫盲系列02——MMD基本骨骼介绍</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E4%BB%8B%E7%BB%8D"><span class="nav-text">基本介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D"><span class="nav-text">详细介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9C%E4%B8%AD%E5%BF%83"><span class="nav-text">操作中心</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E3%81%A6%E3%81%AE%E8%A6%AA"><span class="nav-text">全ての親</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%E4%B8%8E%E3%82%B0%E3%83%AB%E3%83%BC%E3%83%96"><span class="nav-text">センター与グルーブ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%85%B0"><span class="nav-text">腰</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E5%8D%8A%E8%BA%AB-%E4%B8%8A%E5%8D%8A%E8%BA%AB2"><span class="nav-text">上半身&#x2F;上半身2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A6%96"><span class="nav-text">首</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A0%AD"><span class="nav-text">頭</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%A1%E7%9B%AE"><span class="nav-text">両目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E7%9B%AE"><span class="nav-text">左&#x2F;右目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E8%82%A9"><span class="nav-text">左&#x2F;右肩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%B3-%E5%B7%A6%E8%82%A9P"><span class="nav-text">右&#x2F;左肩P</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%B3-%E5%B7%A6%E8%82%A9C"><span class="nav-text">右&#x2F;左肩C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E8%85%95"><span class="nav-text">左&#x2F;右腕</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E8%85%95%E6%8D%A9"><span class="nav-text">左&#x2F;右腕捩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E3%81%B2%E3%81%98"><span class="nav-text">左&#x2F;右ひじ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E6%89%8B%E6%8D%A9"><span class="nav-text">左&#x2F;右手捩</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E6%89%8B%E9%A6%96"><span class="nav-text">左&#x2F;右手首</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E3%83%80%E3%83%9F%E3%83%BC"><span class="nav-text">左&#x2F;右ダミー</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E8%A6%AA%E6%8C%87"><span class="nav-text">左&#x2F;右親指</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E5%B0%8F%E6%8C%87"><span class="nav-text">左&#x2F;右小指</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E8%96%AC%E6%8C%87"><span class="nav-text">左&#x2F;右薬指</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E4%B8%AD%E6%8C%87"><span class="nav-text">左&#x2F;右中指</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E4%BA%BA%E6%8C%87"><span class="nav-text">左&#x2F;右人指</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E5%8D%8A%E8%BA%AB"><span class="nav-text">下半身</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%85%B0%E3%82%AD%E3%83%A3%E3%83%B3%E3%82%BB%E3%83%AB%E5%B7%A6-%E5%8F%B3"><span class="nav-text">腰キャンセル左&#x2F;右</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E8%B6%B3"><span class="nav-text">左&#x2F;右足</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E3%81%B2%E3%81%96"><span class="nav-text">左&#x2F;右ひざ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E8%B6%B3%E9%A6%96"><span class="nav-text">左&#x2F;右足首</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E3%81%A4%E3%81%BE%E5%85%88"><span class="nav-text">左&#x2F;右つま先</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E8%B6%B3D"><span class="nav-text">左&#x2F;右足D</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E3%81%B2%E3%81%96D"><span class="nav-text">左&#x2F;右ひざD</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E8%B6%B3%E9%A6%96D"><span class="nav-text">左&#x2F;右足首D</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A6-%E5%8F%B3%E8%B6%B3%E5%85%88EX"><span class="nav-text">左&#x2F;右足先EX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%B3-%E5%B7%A6%E8%B6%B3IK"><span class="nav-text">右&#x2F;左足ＩＫ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%B3-%E5%B7%A6%E3%81%A4%E3%81%BE%E5%85%88IK"><span class="nav-text">右&#x2F;左つま先ＩＫ</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8EIK"><span class="nav-text">关于IK</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%B3-%E5%B7%A6%E8%B6%B3IK%E8%A6%AA"><span class="nav-text">右&#x2F;左足IK親</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%88"><span class="nav-text">~先</span></a></li></ol></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">亓翎_Re-TikaRa</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 28 篇文章
+                    </span>
+                    
+                        <span>
+                            共 26.7k 字
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.0</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/build/js/libs/Swup.min.js"></script>
+
+<script src="/build/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/build/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/build/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/build/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/build/js/utils.js" type="module"></script>
+
+<script src="/build/js/main.js" type="module"></script>
+
+<script src="/build/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/build/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/build/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/build/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/build/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/build/js/tools/runtime.js"></script>
+
+    
+<script src="/build/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/build/js/libs/Typed.min.js"></script>
+
+  
+<script src="/build/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+
+
+    
+<script src="/build/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/build/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/build/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/build/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/build/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/build/js/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+</body>
+
+</html>

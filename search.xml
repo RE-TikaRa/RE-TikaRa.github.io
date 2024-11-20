@@ -1,0 +1,2758 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>About/关于</title>
+    <url>/posts/25487/</url>
+    <content><![CDATA[<h2 id="关于这个网站"><a href="#关于这个网站" class="headerlink" title="关于这个网站"></a>关于这个网站</h2><p>&emsp;&emsp;这个网站是安歌和工作室的的网站哦~关于MMD的相关知识，配布物等等都会塞在这里，等我们慢慢建设吧~~<br>&emsp;&emsp;网站封面图的背景来自于AI，如有侵权，请联系我删除。<br>&emsp;&emsp;关于鼠标指针，是来自于B站太太Moos柚眠，我把文件从.ani文件修改成了.cur而已。（爬爬，如有侵权请联系我删除）</p>
+<div style="position:relative; width:100%; height:0; padding-bottom:75%;">
+<iframe src="//player.bilibili.com/player.html?aid=816032131&bvid=BV1bG4y1x7YY&cid=846862938&p=1" 
+scrolling="no" border="0" frameborder="no"  framespacing="0"  
+style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
+</div>]]></content>
+      <categories>
+        <category>About</category>
+      </categories>
+      <tags>
+        <tag>About</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建设日志01-将.ani转换为.cur</title>
+    <url>/posts/54966/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;欢迎各位来观看这篇教程~<br>&emsp;&emsp;这次我们要学习的是将.ani（动态光标）转换为.cur（静态光标）。<br></strong></em></p>
+<hr>
+<h2 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：<br></h2><p>&emsp;&emsp;&emsp;&emsp;1、.ani（动态光标）文件<br><br>&emsp;&emsp;&emsp;&emsp;2、CursorWorkshop（原版为英文付费软件，不过这边有汉化绿色版 <a class="link"   href="https://www.bilibili.com/read/cv18455542/" >Axialis CursorWorkshop汉化版<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br></p>
+<hr>
+<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><p>&emsp;&emsp;第一步：打开准备好的CursorWorkshop，将我们的.ani文件拖进去。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/11/mSHxWF1lRZMhtuc.png"
+                      alt="image.png"
+                ><br>然后在下面的帧选项中随便选择一帧自己喜欢的，点一下，让他处于蓝色被选状态<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/11/rs7fYm18RndPIpV.png"
+                      alt="image.png"
+                ><br>右键点一下，选择&emsp;<em><strong>此帧的新静态光标</strong></em>&emsp;<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/11/zS1GyYDWXltognx.png"
+                      alt="image.png"
+                ><br>打开新的窗口后，按照我的配置选就好了<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/11/rIq7MZuoW14QXfF.png"
+                      alt="image.png"
+                ><br>接下来我们跳转来到新的一个窗口<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/11/YVPbu3XZBJMnFRc.png"
+                      alt="image.png"
+                ><br>选择第一个&nbsp;<em><strong>32x32&nbsp;-&nbsp;RGB&#x2F;A</strong></em>&nbsp;即可<br>最后Ctrl+S保存导出即可，也可以选择&nbsp;<em><strong>32x32&nbsp;-&nbsp;RGB&#x2F;A</strong></em>&nbsp;上边的&emsp;<em><strong>磁盘小图标</strong></em>&emsp;保存。<br>&emsp;&emsp;这样我们就做好了一个静态图标的转换~希望有用~~</p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建设日志02-如将.avif文件转化为常用图片格式</title>
+    <url>/posts/22756/</url>
+    <content><![CDATA[<p>&emsp;&emsp; <em><strong>最近我发现从浏览器上直接捕获的图片，不管是通过下载器下载还是直接另存，都成了一种没见过的格式&ensp;.avif&ensp;。没办法打开做处理，我以为是浏览器问题，所以去搜了搜这个文件格式。</strong></em><br> </p>
+<hr>
+<h2 id="关于-avif文件："><a href="#关于-avif文件：" class="headerlink" title="关于.avif文件："></a><em>关于.avif文件</em>：</h2><h3 id="emsp-emsp-什么是AVIF"><a href="#emsp-emsp-什么是AVIF" class="headerlink" title="&emsp;&emsp;什么是AVIF"></a><em>&emsp;&emsp;什么是AVIF</em></h3><p>&emsp;&emsp;AVIF（ AV1 Image File Format）是一种由AOM（ Alliance for Open Media）开发的基于AV1编解码器的网络图像格式。这是一种开源免版税的图像格式。AVIF支持全分辨率的10位和12位色彩以及HDR。<br></p>
+<h3 id="emsp-emsp-AVIF的优势"><a href="#emsp-emsp-AVIF的优势" class="headerlink" title="&emsp;&emsp;AVIF的优势"></a><em>&emsp;&emsp;AVIF的优势</em><br></h3><p>&emsp;&emsp;Netflix的博客从 2020年2月就开始大力宣传AVIF标准的优点。该博客[1]详细介绍了AVIF，并提供了一些优于JPEG的技术信息。作为AOM的创始成员 ，Netflix一直是AV1编解码标准的坚定支持者。因此，毫不奇怪，他们会对使用AV1来改善其UI体验感兴趣。相比于JPEG，AVIF无论是在压缩率上还是在生态上都有着不可小觑的实力。</p>
+<pre><code>1. AV1编解码标准和AVIF格式免版税。
+2. 所有Chromium浏览器（Chrome 85或更高版本）都支持AVIF。
+3. Microsoft Windows 10从19H1开始支持AVIF。
+4. AVIF得到了Google、Amazon、Netflix、Microsoft、Intel、Apple等公司的支持。
+5. AVIF提供比JPEG更高的压缩效率。
+6. AVIF图像格式支持透明度，HDR，宽色域和其他现代功能。
+</code></pre>
+<p>&emsp;&emsp;在与其他图像格式的PK中，AVIF表现十分突出。<br><br>&emsp;&emsp;来源：<a class="link"   href="https://zhuanlan.zhihu.com/p/444624167" >AVIF：新一代的图像压缩格式<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<hr>
+<h2 id="如何转换："><a href="#如何转换：" class="headerlink" title="如何转换："></a><em>如何转换：</em></h2><p>&emsp;&emsp;首先，去微软应用商店下载拓展&ensp;<em><strong>AV1 Video Extension</strong></em>&ensp;<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/19/aczl6ihYsJIRw8u.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后正常打开照片<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/19/jIQoOMH5lyhGBuw.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后点击上面<em><strong>三个点</strong></em>或者<em><strong>Ctrl+S</strong></em>另存为其他格式即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/19/GDTUkfuWz8edCvr.png"
+                      alt="image.png"
+                ></p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建设日志03-关于网易云.ncm文件的破解与转换</title>
+    <url>/posts/38949/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;最近在做mmd的时候，网易云下载到的文件是.ncm。直接转换成MP3会导致文件错误。看了看ncm这个文件，加密方式是网易云独家加密。转换为其他格式是很麻烦的。强行用格式工厂转换会导致文件损坏（网易云你坏事干尽），找遍教程，不容易找到个看上去不错的，结果是广告。</strong></em></p>
+<hr>
+<h2 id="转换教程"><a href="#转换教程" class="headerlink" title="转换教程:"></a><em><strong>转换教程:</strong></em></h2><p>&emsp;&emsp;首先打开这个网站<a class="link"   href="https://cwo.cc/musicc" >Cwo | 影视工作者的书签-音乐解锁<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/20/5vZL3SYerfk7UQp.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;把ncm导入进去，电脑不好的同学可以打开&ensp;<em><strong>立即保存</strong></em>&ensp;，选择好文件夹，解密后就会直接存到文件夹里，很方便的。每次建议导入的文件数量小于40首，这样就不会很卡。</p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a><em><strong>后记</strong></em></h2><p>&emsp;&emsp;某些同学在解密之后有文件错误或者文件损坏的情况。但是一次解密的歌曲会很多，一首一首的测试显然不太可能，批量文件的校验可以看下一篇文章。</p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建设日志04-关于多个音频文件的完整性校验方法</title>
+    <url>/posts/23140/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;最近在大量校验歌曲完整性时遇到了一点点小困难，文件错误或者文件损坏不能比较简便的检查出来。多方查询之后发现了一个较为简单的方法。</strong></em></p>
+<hr>
+<h2 id="工具："><a href="#工具：" class="headerlink" title="工具："></a><em><strong>工具：</strong></em></h2><p>&emsp;&emsp;<em><strong>foobar2000</strong></em><br>&emsp;&emsp;<em><strong>需要校验的文件</strong></em></p>
+<hr>
+<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a><em><strong>步骤：</strong></em></h2><p>&emsp;&emsp;首先，在&ensp;<a class="link"   href="http://www.foobar2000.org/" >foobar2000<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>&ensp;官网下载原始英文版软件，或者在吾爱破解等网站下载汉化版。我使用的是这个<br>&emsp;&emsp;链接：<a class="link"   href="https://pan.baidu.com/s/1dI4ZSIPnbLY7wLYiJzpLmg?pwd=r6er" >https://pan.baidu.com/s/1dI4ZSIPnbLY7wLYiJzpLmg?pwd=r6er<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>&emsp;&emsp;提取码：r6er<br><br>&emsp;&emsp;然后打开软件。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/21/3DQ5Y7JEfBAU9ZR.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;把我们要校验的文件拖进来，同时<em><strong>Ctrl+A</strong></em>一下（全选完成就是文件名字上面变成了蓝色的条条）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/21/UVsD25Qf8i7wXYI.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后右键，选择&ensp;<em><strong>工具-检验完整性</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/21/CpzSr1Nm7w3ibyq.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后等他走完进度条<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/21/d3SaRNzmnhWvb9q.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;查看结果即可，有需要的话也可以导出成txt文件看<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/21/Z7p2S8wqBJzAbxy.png"
+                      alt="image.png"
+                ></p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建设日志05-对于Error Spawn failed报错的修复（歪门邪道）</title>
+    <url>/posts/39589/</url>
+    <content><![CDATA[<p>&emsp;&emsp;最近被Error:Spawn failed这个报错，折磨得一塌糊涂。试了试网上的，什么删除.deploy_git文件夹，什么改_config.yml里面的deploy:repo的<a class="link"   href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#111;&#x6d;" >&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#111;&#x6d;<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>:，还有本地推送啥的，对我都没作用。试了试一个偏方。在这把方法分享一下。</p>
+<hr>
+<h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h1><p>&emsp;&emsp;首先，我们直接打开Git Bash，不要在任何一个文件夹下运行。打开应该是下图这个样子（ <em><strong>~</strong></em> 后面没有任何东西，或者是一个 <em><strong>&#x2F;</strong></em> 但是后面也没有东西）（我是在win菜单下运行的，没有添加到win菜单的话，你可以在你安装Git的文件夹下找到这个Git Bash）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/21/2MpTKdWPS1zC8lR.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/21/wWRtYIMnuXsoejy.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;输入以下内容</p>
+<pre><code>cd ~/.ssh
+# 进入以下文件夹：C:\Users\user\.ssh
+</code></pre>
+<p>&emsp;&emsp;现在上面的info信息就是这样<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/21/2jKHUNEpcTFQy9I.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后呢，，接下来我们要通过常用的来创建一个控制.ssh的config，然后我习惯就是用，<a class="link"   href="https://code.visualstudio.com/Download" >VSCode<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>，但是呢，我习惯用的vscode的zip版本。直接使用Git启动的话我倒是不会。所以我是下图这样的创建config的。视频看上去有点卡的话，这边有百度网盘的链，可以通过百度网盘看看，或者挂梯子。<a class="link"   href="https://pan.baidu.com/s/184laBs0d5H2yMEK8xfl_GQ?pwd=48wq" >HexoMader05-01 百度网盘在线版<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>）</p>
+<iframe id="spkj" src="https://www.acfun.cn/player/ac43642408" width="100%" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen"><span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start"></span> <span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start"></span> </iframe> <script type="text/javascript"> document.getElementById("spkj").style.height=document.getElementById("spkj").scrollWidth*0.76+"px"; </script>
+
+<p>&emsp;&emsp;然后呢就会唤起我的vscode，打开这样的界面<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/21/FZjyOwUbfQKc4vo.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;在里面输入</p>
+<pre><code>Host github.com
+User git
+Hostname ssh.github.com
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+Port 443
+
+Host gitlab.com
+Hostname altssh.gitlab.com
+User git
+Port 443
+PreferredAuthentications publickey
+IdentityFile ~/.ssh/id_rsa
+</code></pre>
+<p>&emsp;&emsp;保存，在GIT输入以下内容</p>
+<pre><code>ssh -T git@github.com
+</code></pre>
+<p>&emsp;&emsp;如果出现以下内容，说明修改成功了，但是GitHub不提供服务。</p>
+<pre><code>Hi 你的名字! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre>
+<p>&emsp;&emsp;如果出现有个需要填yes还是弄的地方，填yes。我填完忘记截图了，然后来解决GitHub does not provide shell access.这个问题。解决办法就是重新生成SSH秘钥。<br>&emsp;&emsp;首先在Git输入以下信息：</p>
+<pre><code>ssh-keygen -t rsa -C “your_email.com”
+</code></pre>
+<p>&emsp;&emsp;然后，第一个按一下回车；第二个，输入y；第三个，回车；第四个，回车。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/21/ZHyMiU1r4dueEGb.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后在 <em><strong>.ssh</strong></em> 文件夹下的找到 <em><strong>id_rsa.pub</strong></em> 打开，把里面的文本全部复制到GitHub的SSH秘钥里面，步骤就是：</p>
+<pre><code>登录github
+点击 setting
+点击SSH and GPG keys
+选择 new ssh key
+添加公钥
+完成
+</code></pre>
+<p>&emsp;&emsp;这样就可以正常推送了</p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建设日志06-个人网站的建设流程</title>
+    <url>/posts/e5e9716c/</url>
+    <content><![CDATA[<p>&emsp;&emsp;做了这么几次个人网站，总结一下基本流程，把踩到的坑也写一下，以后自己迁移网站应该会方便很多。据说可以配置到cloudfare，但是目前没有试过。用我的这个流程，除了时间成本和人力成本，不需要其他的，并且不需要备案，但是网站是在GitHub上，所以加载速度真就是随缘。<br>&emsp;&emsp; <em><strong>注：本教程全部基于windows10系统，若有差异，自行搜索解决！！！</strong></em> <del>小声：我亲友的话倒是可以QQ滴滴我</del></p>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>&emsp;&emsp;这里是把所有的用到的网站都列了一遍，都是基本需求，但是不一定要下载，比如Hexo走的是命令，就不用下载，所以下文如果需要某个官网，点这里就能打开。要下载的我会在后面标注。<br>&emsp;&emsp;1、<a class="link"   href="https://github.com/" >GitHub<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>账户：需要自己创建。<br>&emsp;&emsp;2、<a class="link"   href="https://hexo.io/zh-cn/index.html" >Hexo<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>: Hexo是一个快速、简洁且高效的博客框架。可以避免自己写框架时的麻烦事<br>&emsp;&emsp;3、<a class="link"   href="https://gitee.com/" >Gitee<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：GitHub的国内镜像，但是吧，，如果说做个人网站，这个要上传身份证什么的，还有审核期，不推荐<br>&emsp;&emsp;4、<a class="link"   href="https://git-scm.com/" >Git<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：最重要的东西！我们之后所有的命令都要在这个上运行！要下载！类比的话，，CMD！我们之后所有的命令都要在Git上运行！注意的一点就是，这个上面不能用ctrl+C或者+V来复制粘贴，所以右键复制粘贴是明智的选择<br>&emsp;&emsp;5、<a class="link"   href="https://nodejs.org/zh-cn/" >Node.js<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：Hexo的运行环境，要下载！<br>&emsp;&emsp;6、<a class="link"   href="https://code.visualstudio.com/" >VScode<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：是一个文本编辑器，超级好用，有很多很多的插件，包括写文章时候的可以实时预览之类的，当然如果你用的管别的文本编辑器，像是exeryeditor，那么就用你喜欢的就好。<br>&emsp;&emsp;7、<a class="link"   href="https://sm.ms/" >SM图床<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：用来上传你的图片并且生成Markdown格式的链接，这样就不会在插入图片的时候占用本地或者Github的存储空间。并且这个东西没有审核，想上传啥就上传啥（意味深长），但是需要注册<br>&emsp;&emsp;8、<a class="link"   href="https://markdown.com.cn/" >MarkDown语法教程<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：MarkDown的中文网，里面提到了MarkDown语法要咋写，这个十分简单，常用的也就那几个<br><br>&emsp;&emsp;下载不方便的话，我将提供截止到写稿为止的最新版本的百度网盘下载方式。</p>
+<hr>
+<h2 id="基础本地博客构造"><a href="#基础本地博客构造" class="headerlink" title="基础本地博客构造"></a>基础本地博客构造</h2><p>&emsp;&emsp;1、安装Git和Node.js<br>&emsp;&emsp;&ensp;&emsp;首先打开git官网，点击右边的 <em><strong>Download for Windows</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/bF146zjmfpgAOkX.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;打开如下界面后在 <em><strong>Standalone Installer</strong></em> 范围内选择自己的系统版本，比如我的是X64，就下载64位，如果不会，百度<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/VewItCL42Xg9rKF.png"
+                      alt="Clip_2024-06-15_00-55-07.png"
+                ><br>&emsp;&emsp;下载完成后，双击安装，无脑下一步即可（如果自己会，并且有特殊需求，按自己情况来定）安装完成后，鼠标右键空白处出现下图两个选项，若出现图示选项，则证明安装成功<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/kVnIUNhlYCS2Q8r.png"
+                      alt="Clip_2024-06-15_01-06-41.png"
+                ><br>&emsp;&emsp;打开Node.js官网，点击 <em><strong>Download Node.js (LTS)</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/WYERh4OqKifZ3nB.png"
+                      alt="Clip_2024-06-15_01-07-58.png"
+                ><br>&emsp;&emsp;依旧是无脑下一步即可（如果自己会，并且有特殊需求，按自己情况来定），期间这个建议选一下，但是如果自己知道这是在干什么，不选也可以<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/uXbcSFnkyGwtAVT.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后cmd输入 <em><strong>node -v</strong></em> 查看是否安装成功，若出现版本号，则证明安装成功<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/8dRFDBASiysZt3O.png"
+                      alt="Clip_2024-06-15_01-17-20.png"
+                ><br>&emsp;&emsp;2、安装Hexo：Hexo是一个快速、简洁且高效的博客框架。对中文支持比较友好<br>&emsp;&emsp;&ensp;&emsp;首先我们找到自己要新建一个网站的存放文件夹，然后在这个文件夹右键，选择 <em><strong>Git Bash Here</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/nH6EMa82kvQdFTG.png"
+                      alt="Clip_2024-06-15_01-20-37.png"
+                ><br>&emsp;&emsp;然后复制Hexo官网的第一行命令，输入到Git</p>
+<pre><code>npm install hexo-cli -g
+</code></pre>
+<p>出现下一或者下二的代码都是成功，下一是提示你npm版本有点旧，要升级而已，图二是绝对正常</p>
+<pre><code>removed 1 package,and changed 53 packages in 46s
+14 packages are looking for funding
+run&quot;npm fund`for detai1s
+npm notice
+npm notice New minor version of npm available! 10.7.0 -&gt; 10.8.1
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v10.8.1npm notice To update run: npm insta11 -g npm@1o.8.1
+npm notice
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/NjenXori7KPtlFp.png"
+                      alt="Clip_2024-06-15_01-28-57.png"
+                ><br>&emsp;&emsp;然后复制第二行命令输入Git</p>
+<pre><code>hexo init blog
+</code></pre>
+<p>&emsp;&emsp;出现如下内容则表明成功（这个过程可能极其漫长，视电脑配置和网络情况而定，尤其是连接GitHub的网速）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/7WdQ9fopL8aF4GD.png"
+                      alt="Clip_2024-06-15_01-38-10.png"
+                ><br>&emsp;&emsp;然后你会发现你的文件夹下多了个blog文件夹<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/rvUkPVNEZofBmDw.png"
+                      alt="Clip_2024-06-15_01-41-25.png"
+                ><br>&emsp;&emsp;复制第三行命令到git，其实也可以直接打开这个文件夹，再打开一遍 <em><strong>Git Bash Here</strong></em> ，效果一样，因为下面这个代码作用就是，进入blog这个文件夹</p>
+<pre><code>cd blog
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/RXtsWbz7AQum1dB.png"
+                      alt="Clip_2024-06-15_01-45-12.png"
+                ><br>&emsp;&emsp;然后运行第四行命令</p>
+<pre><code>npm install
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/C5fujMZwqzLTXm2.png"
+                      alt="Clip_2024-06-15_01-46-50.png"
+                ><br>&emsp;&emsp;这样博客的基本框架就构造完毕了，可以运行第五行命令来检验是否创建成功</p>
+<pre><code>hexo s
+是hexo server的缩写，两个效果一样
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/2YPL93vZTXauwke.png"
+                      alt="Clip_2024-06-15_01-50-02.png"
+                ><br>&emsp;&emsp;然后我们就可以将 <a class="link"   href="http://localhost:4000/" >http://localhost:4000/<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i> 输入到浏览器，查看博客基本框架构造是否完成（切记不要用ctrl+c，当前场景中这个按键组合代表退出或者关闭当前服务），如下图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/WogblQ8KtUFdG5e.png"
+                      alt="Clip_2024-06-15_01-52-44.png"
+                ></p>
+<hr>
+<h2 id="博客美化"><a href="#博客美化" class="headerlink" title="博客美化"></a>博客美化</h2><p>&emsp;&emsp;我们来让博客更好看一点，可以自己写css和json之类的美化，也可以下载现成的主题，这边我以下载主题这一方式来美化。<br>&emsp;&emsp;在Hexo主页面下有探索主题的按钮，或者打开网址：<a class="link"   href="https://hexo.io/themes/" >https://hexo.io/themes/<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i> 。主题这边基本就是英文，并且切换简体中文没啥用，所以还是开个翻译器比较好，还有就是，这个页面加载异常缓慢，可以顺便开个加速器。<br>&emsp;&emsp;选一个自己合乎心意的的主题模板，我选择 <em><strong><a class="link"   href="https://github.com/fluid-dev/hexo-theme-fluid" >Fluid<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></strong></em> 这一主题演示（因为我喜欢这种有大头图的）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/oEazbseqh2JdY6M.png"
+                      alt="Clip_2024-06-15_02-03-24.png"
+                ><br>&emsp;&emsp;首先打开他的GitHub项目页，往下翻翻，找到 <em><strong>快速开始</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/XH5ONnumvg9bsaJ.png"
+                      alt="Clip_2024-06-15_02-05-13.png"
+                ><br>&emsp;&emsp;接下来我以习惯性的方式进行演示（方式二，因为npm不咋会用的话容易出奇奇怪怪的BUG）<br>&emsp;&emsp;下载最新release版本，解压到 themes 目录，并将解压出的文件夹重命名为 fluid。这样你的blog文件夹下的theme文件夹下一个就会有一个fluid文件夹了，然后这个文件夹里面就是我们解压出来的各种文件，如下图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/9FegRvr4LqiCOnm.png"
+                      alt="Clip_2024-06-15_02-11-08.png"
+                ><br>&emsp;&emsp;然后我们回到blog文件夹下，找到 <em><strong>_config.yml</strong></em> 文件，打开它，找到 <em><strong>theme</strong></em> 这个字段，将值改为 fluid，如下图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/7dloTtwQEC5qHKf.png"
+                      alt="Clip_2024-06-15_02-13-27.png"
+                ><br>&emsp;&emsp;再找到 <em><strong>language</strong></em> ，将值定义为 <em><strong>zh-CN</strong></em> ，如下图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/2lLnfDOUpqYeoVz.png"
+                      alt="Clip_2024-06-15_02-15-14.png"
+                ><br>&emsp;&emsp;这样我们就完成了博客主题的更改，之后的博客名修改等等，参照下表即可（所有修改都是blog文件夹下的_config.yml文件，不要改主题下的_config.yml文件）</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>title</td>
+<td>网站标题</td>
+</tr>
+<tr>
+<td>subtitle</td>
+<td>网站副标题</td>
+</tr>
+<tr>
+<td>description</td>
+<td>网站描述</td>
+</tr>
+<tr>
+<td>keywords</td>
+<td>网站的关键词。支持多个关键词。</td>
+</tr>
+<tr>
+<td>author</td>
+<td>您的名字</td>
+</tr>
+<tr>
+<td>language</td>
+<td>网站使用的语言。对于简体中文用户来说，使用不同的主题可能需要设置成不同的值，请参考你的主题的文档自行设置，常见的有 zh-Hans和 zh-CN。</td>
+</tr>
+<tr>
+<td>timezone</td>
+<td>网站时区。Hexo 默认使用您电脑的时区。请参考 时区列表 进行设置，如 America&#x2F;New_York, Japan, 和 UTC 。一般的，对于中国大陆地区可以使用 Asia&#x2F;Shanghai。</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;还有就是，如果用某个主题，那么建议多看看这个主题的配置文档，如我本次使用的<a class="link"   href="https://hexo.fluid-dev.com/docs/guide/" >Fluid配置文档<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>，里面作者会要求你该咋用不该咋用。</p>
+<hr>
+<h2 id="编写文章和创建页面"><a href="#编写文章和创建页面" class="headerlink" title="编写文章和创建页面"></a>编写文章和创建页面</h2><p>&emsp;&emsp;在 <em><strong>blog文件夹</strong></em> 下运行 <em><strong>Git Bash Here</strong></em> ，输入下面的指令，你就可以在 <em><strong>source</strong></em>文件夹下的 <em><strong>POST</strong></em>文件夹里面看到你所创建的文章了。</p>
+<pre><code>hexo new post &quot;文章名&quot;
+</code></pre>
+<p>&emsp;&emsp;此处举例</p>
+<pre><code>hexo new post Hexo建设日志06-个人网站的建设流程
+</code></pre>
+<p>&emsp;&emsp;得到返回</p>
+<pre><code>INFO  Validating config
+INFO  Created: H:\测试\blog\source\_posts\Hexo建设日志06-个人网站的建设流程.md
+</code></pre>
+<p>&emsp;&emsp;就表明创建成功，Hexo文章支持MarkDown语法，所以我们打开后要根据MarkDown语法来写文章，关于MarkDown语法的教程可以在上文准备处有提及。<br>&emsp;&emsp;在 <em><strong>blog文件夹</strong></em> 下运行 <em><strong>Git Bash Here</strong></em> ，输入下面的指令，你就可以在 <em><strong>source</strong></em>文件夹下看到你所创建的页面的同名文件夹了。（如果是英文页面，建议全小写）</p>
+<pre><code>hexo new page “页面名”
+</code></pre>
+<p>&emsp;&emsp;此处以创建一个about页面为例</p>
+<pre><code>hexo new page about
+</code></pre>
+<p>创建成功后，编辑博客目录下 &#x2F;source&#x2F;about&#x2F;index.md，添加 layout 属性。<br>修改后的文件示例如下：</p>
+<pre><code>---
+title: about
+layout: about
+---
+
+随便写一点什么吧~
+</code></pre>
+<p>这样就成功创建了一个关于页，运行网站就能在最上面就能看到了。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/MVqfYQhAd4sokxD.png"
+                      alt="Clip_2024-06-15_02-49-02.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/ZpOAxcIM3fvz4rn.png"
+                      alt="Clip_2024-06-15_02-51-04.png"
+                ><br>&emsp;&emsp;创建页面时，Hexo 会自动创建一个文件夹，里面有一个 index.md 文件，这个文件就是页面的内容。<br>&emsp;&emsp;下面是一些Hexo在Git中的代码：</p>
+<pre><code>基础：hexo 某一条命令
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>clean</td>
+<td>删除生成的文件</td>
+</tr>
+<tr>
+<td>deploy</td>
+<td>部署网站</td>
+</tr>
+<tr>
+<td>generate</td>
+<td>生成静态网站</td>
+</tr>
+<tr>
+<td>help</td>
+<td>帮助</td>
+</tr>
+<tr>
+<td>new</td>
+<td>+post+名称是生成文章<br>+page+名称是生成某个页面<br>+名称默认是生成文章</td>
+</tr>
+<tr>
+<td>server</td>
+<td>开始本地服务器</td>
+</tr>
+<tr>
+<td>version</td>
+<td>版本</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="将网站上传至GitHub并且创建GitHub-Pages"><a href="#将网站上传至GitHub并且创建GitHub-Pages" class="headerlink" title="将网站上传至GitHub并且创建GitHub Pages"></a>将网站上传至GitHub并且创建GitHub Pages</h2><p>&emsp;&emsp;首先，你需要注册一个GitHub账号，用户名慎重一点，因为这个会成为你的网址。在GitHub上创建一个仓库，名字叫 <em><strong>用户名.github.io</strong></em> ，比如我的就是 <em><strong>re-tikara.github.io</strong></em> 。<del>（等我换个号来演示一下）</del><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/15/2X5aHDJuOqpw1Zg.png"
+                      alt="Clip_2024-06-15_13-00-55.png"
+                ><br>&emsp;&emsp;然后在随便任何一个文件夹里面运行 <em><strong>Git Bush</strong></em> ，输入以下命令</p>
+<pre><code>ssh-keygen -t rsa -C &quot;你的github注册邮件地址&quot;
+</code></pre>
+<p>&emsp;&emsp;然后点四下回车，出现类似如下则表示成功</p>
+<pre><code>Generating public/private rsa key pair.
+Enter file in which to save the key (默认路径):
+Created directory &#39;默认路径&#39;.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in 默认路径
+Your public key has been saved in 默认路径
+The key fingerprint is:
+SHA256: XXXXXX
+The key&#39;s randomart image is:
++---[RSA 3072]----+
+|         . .   .+|
+|         .= o  oX|
+|         +=+.+.=X|
+|       .oo.=+.o=+|
+|        S o o+ oo|
+|         o .  oE+|
+|            . .B.|
+|           . .o+*|
+|            ..+o*|
++----[SHA256]-----+
+</code></pre>
+<p>&emsp;&emsp;然后文本编辑器打开如下路径</p>
+<pre><code>C:\Users\用户名\.ssh\id_rsa.pub
+</code></pre>
+<p>&emsp;&emsp;这个里面就是你的SSH密码，切记不要外露，全部复制之后，回到GitHub的设置界面<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/06/uVRzCkl5n2NFrjs.png"
+                      alt="20240706134521.png"
+                ><br>&emsp;&emsp;点 <em><strong>NEW SSH Key</strong></em>，打开如下界面，把该填的填进去<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/06/RSXmhyLwad2lo8z.png"
+                      alt="20240706134950.png"
+                ><br>&emsp;&emsp;然后运行以下代码测试一下是否成功</p>
+<pre><code>ssh -T git@github.com
+</code></pre>
+<p>&emsp;&emsp;回车，点“yes”，出现如下</p>
+<pre><code>The authenticity of host &#39;github.com (20.205.243.166)&#39; can&#39;t be established.
+XXXXX key fingerprint is SHA256:XXXXXXXXXXXXXXXXXXXXX
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+Warning: Permanently added &#39;github.com&#39; (XXXXX) to the list of known hosts.
+Hi re-alpworld! You&#39;ve successfully authenticated, but GitHub does not provide shell access.
+</code></pre>
+<p>&emsp;&emsp;这边基本的GitHub本地设置就好了，以后就可以本地直接推送到github，然后更改博客根目录下的 <em><strong>_config.yml</strong></em>，把下面的项目按照类似的改一下</p>
+<pre><code>## URL
+## Set your site url here. For example, if you use GitHub Page, set url as &#39;https://username.github.io/project&#39;
+url: http://re-alpworld.github.io（这一项要改）
+permalink: :year/:month/:day/:title/
+permalink_defaults:
+pretty_urls:
+trailing_index: true ## Set to false to remove trailing &#39;index.html&#39; from permalinks
+trailing_html: true ## Set to false to remove trailing &#39;.html&#39; from permalinks
+## Deployment
+----------------------------------------------------------------------------------
+## Docs: https://hexo.io/docs/one-command-deployment
+deploy:
+type: git
+repo: git@github.com:name/name.github.io
+branch: main
+message: blog file
+（这一块建议直接复制替换，然后把地址改一下）
+</code></pre>
+<p>&emsp;&emsp;接下来开启github的个人page<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/06/aA9pTrH46GqFRyY.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;最后把本地文件推送上去即可，在根目录地下运行<em><strong>Git Bush</strong></em> ，输入以下命令</p>
+<pre><code>hexo d
+</code></pre>
+<p>&emsp;&emsp;这样就完成了在线推送，输入 <em><strong>用户名.github.io</strong></em> 就可以看到了</p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MMD扫盲系列02——MMD基本骨骼介绍</title>
+    <url>/posts/7639a586/</url>
+    <content><![CDATA[<p>&emsp;&emsp;扫盲系列能开到第二期，在座各位都有责任，这期来讲讲骨骼。（全部是我的理解），同时这一期不咋讲参数之类的，写不动，下一期写。</p>
+<hr>
+<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>&emsp;&emsp;这里拿一个全套骨骼来讲，一个人物模型要想能用，基本包括标准骨和次标准骨。</p>
+<table>
+<thead>
+<tr>
+<th align="center">骨骼名1</th>
+<th align="center">骨骼名2</th>
+<th align="center">骨骼名3</th>
+<th align="center">骨骼名4</th>
+<th align="center">骨骼名5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">操作中心</td>
+<td align="center">左腕</td>
+<td align="center">左薬指２</td>
+<td align="center">右手捩2</td>
+<td align="center">右人指２</td>
+</tr>
+<tr>
+<td align="center">全ての親</td>
+<td align="center">左腕捩</td>
+<td align="center">左薬指３</td>
+<td align="center">右手捩3</td>
+<td align="center">右人指３</td>
+</tr>
+<tr>
+<td align="center">センター</td>
+<td align="center">左腕捩1</td>
+<td align="center">左薬指先</td>
+<td align="center">右手首</td>
+<td align="center">右人指先</td>
+</tr>
+<tr>
+<td align="center">グルーブ</td>
+<td align="center">左腕捩2</td>
+<td align="center">左中指１</td>
+<td align="center">右ダミー</td>
+<td align="center">腰キャンセル左</td>
+</tr>
+<tr>
+<td align="center">腰</td>
+<td align="center">左腕捩3</td>
+<td align="center">左中指２</td>
+<td align="center">右手先</td>
+<td align="center">左足</td>
+</tr>
+<tr>
+<td align="center">左足IK親</td>
+<td align="center">左ひじ</td>
+<td align="center">左中指３</td>
+<td align="center">右親指０</td>
+<td align="center">左ひざ</td>
+</tr>
+<tr>
+<td align="center">左足ＩＫ</td>
+<td align="center">左手捩</td>
+<td align="center">左中指先</td>
+<td align="center">右親指１</td>
+<td align="center">左足首</td>
+</tr>
+<tr>
+<td align="center">左つま先ＩＫ</td>
+<td align="center">左手捩1</td>
+<td align="center">左人指１</td>
+<td align="center">右親指２</td>
+<td align="center">左つま先</td>
+</tr>
+<tr>
+<td align="center">右足IK親</td>
+<td align="center">左手捩2</td>
+<td align="center">左人指２</td>
+<td align="center">右親指先</td>
+<td align="center">腰キャンセル右</td>
+</tr>
+<tr>
+<td align="center">右足ＩＫ</td>
+<td align="center">左手捩3</td>
+<td align="center">左人指３</td>
+<td align="center">右小指１</td>
+<td align="center">右足</td>
+</tr>
+<tr>
+<td align="center">右つま先ＩＫ</td>
+<td align="center">左手首</td>
+<td align="center">左人指先</td>
+<td align="center">右小指２</td>
+<td align="center">右ひざ</td>
+</tr>
+<tr>
+<td align="center">上半身</td>
+<td align="center">左ダミー</td>
+<td align="center">右肩P</td>
+<td align="center">右小指３</td>
+<td align="center">右足首</td>
+</tr>
+<tr>
+<td align="center">上半身2</td>
+<td align="center">左手先</td>
+<td align="center">右肩</td>
+<td align="center">右小指先</td>
+<td align="center">右つま先</td>
+</tr>
+<tr>
+<td align="center">下半身</td>
+<td align="center">左親指０</td>
+<td align="center">右肩C</td>
+<td align="center">右薬指１</td>
+<td align="center">左足D</td>
+</tr>
+<tr>
+<td align="center">首</td>
+<td align="center">左親指１</td>
+<td align="center">右腕</td>
+<td align="center">右薬指２</td>
+<td align="center">左ひざD</td>
+</tr>
+<tr>
+<td align="center">頭</td>
+<td align="center">左親指２</td>
+<td align="center">右腕捩</td>
+<td align="center">右薬指３</td>
+<td align="center">左足首D</td>
+</tr>
+<tr>
+<td align="center">両目</td>
+<td align="center">左親指先</td>
+<td align="center">右腕捩1</td>
+<td align="center">右薬指先</td>
+<td align="center">左足先EX</td>
+</tr>
+<tr>
+<td align="center">左目</td>
+<td align="center">左小指１</td>
+<td align="center">右腕捩2</td>
+<td align="center">右中指１</td>
+<td align="center">右足D</td>
+</tr>
+<tr>
+<td align="center">右目</td>
+<td align="center">左小指２</td>
+<td align="center">右腕捩3</td>
+<td align="center">右中指２</td>
+<td align="center">右ひざD</td>
+</tr>
+<tr>
+<td align="center">左肩P</td>
+<td align="center">左小指３</td>
+<td align="center">右ひじ</td>
+<td align="center">右中指３</td>
+<td align="center">右足首D</td>
+</tr>
+<tr>
+<td align="center">左肩</td>
+<td align="center">左小指先</td>
+<td align="center">右手捩</td>
+<td align="center">右中指先</td>
+<td align="center">右足先EX</td>
+</tr>
+<tr>
+<td align="center">左肩C</td>
+<td align="center">左薬指１</td>
+<td align="center">右手捩1</td>
+<td align="center">右人指１</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;其中，下图这些是次标准骨。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/24/9thozZbvLNEgq57.png"
+                      alt="image.png"
+                ></p>
+<p>&emsp;&emsp;其中模型的父子级关系（或称亲子关系）是尤为重要的，亲骨可以掌管子骨，比如上半身骨可以掌管整个上半身，而首作为上半身的子骨，可以对整个脖子和头做控制，诸如此类的。下面这张图之间的关系就是骨骼间的亲子关系。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/25/WlwQNzRJYx5aVod.png"
+                      alt="drawio _2_.png"
+                ></p>
+<hr>
+<h2 id="详细介绍"><a href="#详细介绍" class="headerlink" title="详细介绍"></a>详细介绍</h2><p>&emsp;&emsp;我会分大类讲，左右都有的骨骼我会直接合起来讲。</p>
+<h3 id="操作中心"><a href="#操作中心" class="headerlink" title="操作中心"></a>操作中心</h3><p>&emsp;&emsp;这个骨骼在很多模型中都有，但是没什么用，不参与模型的移动旋转等操作。</p>
+<h3 id="全ての親"><a href="#全ての親" class="headerlink" title="全ての親"></a>全ての親</h3><p>&emsp;&emsp;这个骨骼是所有骨骼的父骨骼，所有骨骼都继承自它，他可以使整个模型移动，旋转。但是需要注意的是，全ての親和操作中心基本都处在X，Y,Z都是0，即（0,0,0）的位置，两个骨骼重合，有的萌新点到了操作中心就会误以为是全ての親，四处询问为什么移动不了。所以一定得看自己是点到了哪个骨骼。</p>
+<h3 id="センター与グルーブ"><a href="#センター与グルーブ" class="headerlink" title="センター与グルーブ"></a>センター与グルーブ</h3><p>&emsp;&emsp;一般并称为重心骨，控制模型重心移动。在不同的动作中位置要求不一样，不过普遍是在两腿之间，低于左右足D，高于左右右ひざ。两者的亲子关系一般是センター为グルーブ亲骨</p>
+<h3 id="腰"><a href="#腰" class="headerlink" title="腰"></a>腰</h3><p>&emsp;&emsp;这个骨骼是一个特殊的存在，一般来讲不分配权重，模型腰部的权重一般会分配在下半身和上半身上，但是上下半身的亲骨一般都在这个骨骼上。</p>
+<h3 id="上半身-上半身2"><a href="#上半身-上半身2" class="headerlink" title="上半身&#x2F;上半身2"></a>上半身&#x2F;上半身2</h3><p>&emsp;&emsp;负责掌控上半身的旋转，位置上是上半身骨与下半身相重合，否则会有过度扭曲的情况，除非权重刷的很好。然后上半身2乃至上半身3456，都是对于上半身的进一步细分。</p>
+<h3 id="首"><a href="#首" class="headerlink" title="首"></a>首</h3><p>&emsp;&emsp;掌管脖子和头的旋转</p>
+<h3 id="頭"><a href="#頭" class="headerlink" title="頭"></a>頭</h3><p>&emsp;&emsp;掌管整个头部</p>
+<h3 id="両目"><a href="#両目" class="headerlink" title="両目"></a>両目</h3><p>&emsp;&emsp;同时掌管左右眼的旋转等</p>
+<h3 id="左-右目"><a href="#左-右目" class="headerlink" title="左&#x2F;右目"></a>左&#x2F;右目</h3><p>&emsp;&emsp;单独掌控左右眼珠子</p>
+<h3 id="左-右肩"><a href="#左-右肩" class="headerlink" title="左&#x2F;右肩"></a>左&#x2F;右肩</h3><p>&emsp;&emsp;就是，，肩膀</p>
+<h3 id="右-左肩P"><a href="#右-左肩P" class="headerlink" title="右&#x2F;左肩P"></a>右&#x2F;左肩P</h3><p>&emsp;&emsp;抖肩之类用，可以只动肩膀而手臂保持不变，需要肩c的配合</p>
+<h3 id="右-左肩C"><a href="#右-左肩C" class="headerlink" title="右&#x2F;左肩C"></a>右&#x2F;左肩C</h3><p>&emsp;&emsp;抖肩之类用，付与亲为肩p，但是付与率是-1，用来协助在使用肩p耸肩后，手臂骨仍然保持原有的角度。</p>
+<h3 id="左-右腕"><a href="#左-右腕" class="headerlink" title="左&#x2F;右腕"></a>左&#x2F;右腕</h3><p>&emsp;&emsp;左右胳膊，大臂</p>
+<h3 id="左-右腕捩"><a href="#左-右腕捩" class="headerlink" title="左&#x2F;右腕捩"></a>左&#x2F;右腕捩</h3><p>&emsp;&emsp;这个骨骼控制手大臂绕臂旋转，需要设置local轴（一般插件生成的自己就带local轴了）。若遇到转向错误，可尝试手动调整子骨指向，并在view窗口中为骨骼手动分配local轴。另一种方法是将捩骨上的权重逐渐转移至相应的骨骼，随后删除捩骨，并使用插件重新添加。完成后，务必将权重类型转为SDEF以避免过度扭曲。若骨骼带有序号1&#x2F;2&#x2F;3，则表示其为捩骨的方向分解，比如指向XYZ分解。</p>
+<h3 id="左-右ひじ"><a href="#左-右ひじ" class="headerlink" title="左&#x2F;右ひじ"></a>左&#x2F;右ひじ</h3><p>&emsp;&emsp;控制小臂的</p>
+<h3 id="左-右手捩"><a href="#左-右手捩" class="headerlink" title="左&#x2F;右手捩"></a>左&#x2F;右手捩</h3><p>&emsp;&emsp;是小臂的，具体效果与左&#x2F;右腕捩大致相同</p>
+<h3 id="左-右手首"><a href="#左-右手首" class="headerlink" title="左&#x2F;右手首"></a>左&#x2F;右手首</h3><p>&emsp;&emsp;控制手掌的骨骼</p>
+<h3 id="左-右ダミー"><a href="#左-右ダミー" class="headerlink" title="左&#x2F;右ダミー"></a>左&#x2F;右ダミー</h3><p>&emsp;&emsp;左右手持骨，一般会把扇子，手杖之类的东西绑在这个骨骼上</p>
+<h3 id="左-右親指"><a href="#左-右親指" class="headerlink" title="左&#x2F;右親指"></a>左&#x2F;右親指</h3><p>&emsp;&emsp;大拇指，至于后面的0123都是指关节，数字越大，离手掌越远</p>
+<h3 id="左-右小指"><a href="#左-右小指" class="headerlink" title="左&#x2F;右小指"></a>左&#x2F;右小指</h3><p>&emsp;&emsp;小拇指，至于后面的0123都是指关节，数字越大，离手掌越远</p>
+<h3 id="左-右薬指"><a href="#左-右薬指" class="headerlink" title="左&#x2F;右薬指"></a>左&#x2F;右薬指</h3><p>&emsp;&emsp;无名指，至于后面的0123都是指关节，数字越大，离手掌越远</p>
+<h3 id="左-右中指"><a href="#左-右中指" class="headerlink" title="左&#x2F;右中指"></a>左&#x2F;右中指</h3><p>&emsp;&emsp;中指，至于后面的0123都是指关节，数字越大，离手掌越远</p>
+<h3 id="左-右人指"><a href="#左-右人指" class="headerlink" title="左&#x2F;右人指"></a>左&#x2F;右人指</h3><p>&emsp;&emsp;食指，至于后面的0123都是指关节，数字越大，离手掌越远</p>
+<h3 id="下半身"><a href="#下半身" class="headerlink" title="下半身"></a>下半身</h3><p>&emsp;&emsp;控制整个下半身的骨骼，位置上是上半身骨与下半身相重合，否则会有过度扭曲的情况，除非权重刷的很好。</p>
+<h3 id="腰キャンセル左-右"><a href="#腰キャンセル左-右" class="headerlink" title="腰キャンセル左&#x2F;右"></a>腰キャンセル左&#x2F;右</h3><p>&emsp;&emsp;用于保持脚部位置不变的时候调整膝盖膝盖朝向用</p>
+<h3 id="左-右足"><a href="#左-右足" class="headerlink" title="左&#x2F;右足"></a>左&#x2F;右足</h3><p>&emsp;&emsp;大腿的骨骼</p>
+<h3 id="左-右ひざ"><a href="#左-右ひざ" class="headerlink" title="左&#x2F;右ひざ"></a>左&#x2F;右ひざ</h3><p>&emsp;&emsp;膝盖，小腿</p>
+<h3 id="左-右足首"><a href="#左-右足首" class="headerlink" title="左&#x2F;右足首"></a>左&#x2F;右足首</h3><p>&emsp;&emsp;脚掌</p>
+<h3 id="左-右つま先"><a href="#左-右つま先" class="headerlink" title="左&#x2F;右つま先"></a>左&#x2F;右つま先</h3><p>&emsp;&emsp;脚尖</p>
+<h3 id="左-右足D"><a href="#左-右足D" class="headerlink" title="左&#x2F;右足D"></a>左&#x2F;右足D</h3><p>&emsp;&emsp;和左&#x2F;右足大差不差，用于脱离足ik限制进行踹脚使用的骨，变形层级大于足和足IK</p>
+<h3 id="左-右ひざD"><a href="#左-右ひざD" class="headerlink" title="左&#x2F;右ひざD"></a>左&#x2F;右ひざD</h3><p>&emsp;&emsp;和左&#x2F;右ひざD大差不差，用于脱离足ik限制进行踹脚使用的骨，变形层级大于足和足IK</p>
+<h3 id="左-右足首D"><a href="#左-右足首D" class="headerlink" title="左&#x2F;右足首D"></a>左&#x2F;右足首D</h3><p>&emsp;&emsp;和左&#x2F;右足首大差不差，用于脱离足ik限制进行踹脚使用的骨，变形层级大于足和足IK</p>
+<h3 id="左-右足先EX"><a href="#左-右足先EX" class="headerlink" title="左&#x2F;右足先EX"></a>左&#x2F;右足先EX</h3><p>&emsp;&emsp;对于前脚掌，x轴应精确对齐至脚掌所指向的骨骼（即骨骼看起来位于足首骨与脚尖骨连接的直线上）。使用次标准骨骼进行追加时，若存在ex骨，则不会追加d骨。因此，通常这个EX骨是通过插件自动追加，而非手动创建。然而，追加后的前脚掌权重可能出现问题，建议重新调整权重以确保准确性。</p>
+<h3 id="右-左足IK"><a href="#右-左足IK" class="headerlink" title="右&#x2F;左足ＩＫ"></a>右&#x2F;左足ＩＫ</h3><p>&emsp;&emsp;影响腿部的骨骼结构包括足和ひざ，其位置定位于足首。在没有使用插件追加骨骼前，其亲骨骼是-1，而追加之后，则变为足IK親骨骼。其变形层级为1，这个层级比腿部的其他骨骼的变形层级要大。相关位置定位在足首骨上，其中target是足首骨，Loop是40，单位角114.5916。在整个IK链中，包含了足骨和膝骨。为了确保骨骼的运动趋势符合人体自然运动，IK骨需要指向本身骨骼的正后方，并需要给足骨加上角度限制，即-180和-0.5。</p>
+<h3 id="右-左つま先IK"><a href="#右-左つま先IK" class="headerlink" title="右&#x2F;左つま先ＩＫ"></a>右&#x2F;左つま先ＩＫ</h3><p>&emsp;&emsp;影响脚掌的骨骼，包含足首，位置在脚尖，亲骨是足IK，变形层级为1（比腿部的骨骼变形层级大）。（亲骨是足IK，位置在脚尖骨上，target是脚尖，loop3，单位角229.1831，IK链中包含足首骨，IK骨需要指向本身骨骼的正下方） </p>
+<h3 id="关于IK"><a href="#关于IK" class="headerlink" title="关于IK"></a>关于IK</h3><p>&emsp;&emsp;IK骨的loop 单位角 角度限制参数不固定，可以自己根据模型本身进行修改</p>
+<h3 id="右-左足IK親"><a href="#右-左足IK親" class="headerlink" title="右&#x2F;左足IK親"></a>右&#x2F;左足IK親</h3><p>&emsp;&emsp;一般在左&#x2F;右足首骨下面，一个单纯的移动骨骼，亲骨是全亲骨，作为足IK的亲骨骼</p>
+<h3 id="先"><a href="#先" class="headerlink" title="~先"></a>~先</h3><p>&emsp;&emsp;一般作为指向骨用，比如我的A骨骼为了方便，就可以设置一个A先作为定位指向。</p>
+]]></content>
+      <categories>
+        <category>MMD扫盲系列</category>
+      </categories>
+      <tags>
+        <tag>MMD扫盲系列</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PJSK-MIKU 动作配布</title>
+    <url>/posts/10590/</url>
+    <content><![CDATA[
+<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="2b0b76ceccbc39da926574de0292bbd5778b380ea71ca2833a360a5bb4546a0a">993ad1aca5bcc930152cd8f9f9a394ec176feafdc2d14130c4018f71077dc07a9cb2cb4ceeba1bfe2fcb9b359bcf32173f2194679a145a403f3c2248229b9b93b0a3677ddb1373972ef3b43d63106b3fd39981540dae7bb127bb567230d8ab4d4a7343209138e094bc03bca877d4655ff36837031feb0d282b70a928f83d01ddb35d2940c196ab51ea8566e635dd7a0232d374d90104baecc247b7e765a0280fcb79b600d54ac1e00e195b1bfbd9599eee4045054405f3b0d045a09c775aa909c47f44a9090fe6d7d1a3a3d951ffa92d7df9ca4c397f254fd14f62d3708f0a1a35e507f70b24b6fdd706fd764da79d27d38f9952ac0d2979150ec0f9933e3d96b6c5240c7cdba7a1f2d842266378ef8a0ee29ebd07ee9460ab65a4208037188ac85d4eedfae88b3e58ceccbb855d783f6d0a29b29135ed29b36283c6827318ad4a722882ab295ff6cec932807ade1b0db89f5dcde18ff10a5a876fcbff87b77bf43ab5e3b2544a4347f464cadeceb24d9c3002577dc2128665d4b8c7ab3c760d10036f7a9565c68bf60c00df20a33a8399cafbceeadf74e2a256bcfb26bd7dccca7816d2f5e3505bed2b08703ae245ad5be190b1ba4b067693ef5cbdbc71eb6f5c7370a11b9b721e9771d63e3400ab3c33e415105ee4b3312346bc93a0e00723c62a9000a912b3e357199252c7acf3186622909190b2c97de6ec435cb4b4072f66011d3d4d6e684828c64b7507b8dc89e32aed833a8599e1ee43ef41f43685b33d2c94a69f737c96818026960423651524836cd6e465ff472332c68d30f08019ec30995d93332ccaf3b06923306d524dbfbaad1e46197c1ffa84b209ae1d6f634ee65dded5b56234b8f3df76f4d8176b0aeda038c70572bd93e494eab73e669731d750eb9c10b0dae188fe1bfbe0763768512a205a263e254877431ee8a1a1cbc6177638b91592b4a3baa36072836d6a65178775c499993eca8046b4ecb22d7261d2b7a6731cd6cc362a4549be9d57e2e50c56b72af500b3578d2393800bac062ea7a32c9df68ca18ffeaa4a9b4e8dd84ee8056bfb18ec7b408b92be1d26323235c14426cb8f6e28c0ee292af2b2f9c97af848dc152eba6c069134f99a27047428cf9707bfbbeff93e5a514488e3040dfda8d01409deeea4654ff921dc1479ba38a186a35af5c333c1a0b86c558ba069ac7e367e85031c1c5d834ff2475374cbe2fe3d0b1d5df4395223986bcd2490e0dad2cc7e4b50423166c22de3b06eabeb0571df7675b3921b6c4eb632f231d3dcca5ef8e271412b69ac195ffea24071106c53164a8f0dc03957f9b026a95f383378903478598982ebed39185b78ca588858cd0b9d70bb0877527c5c5051602c846a5db1bfad51349d446a97931d14ebe409651c3ac90828c5f361d1d8f78548ab86d5b1f2b7d86a64946dfbb17ea9485f03cfb71a457bf55a6fe86a2d186910d371f0f812f90e652177aced0a28dc850d520c52f3c1a623b6ed0c71cc075b50bd3cb8d758acaf7987b7b14b6e73470d052513c35d79986766db1b8cf22f611262e108b74c6db4c1556a7f25ecaf1a3e21ae1f79d8147f2568bac4c9b28d0fe89c27c33796c4f73f3a81062100d2d771ed4ebcb2e3f44f34791644d68cfe376a4387b1ff99f4e2057a1e373520b7b54252089d6dc6a92507ae4271a834155af84c56bb96498ccd575a119d8d258d344e908bd3743e9ed0a320cfc1b7ce8f4ffe1fb752183c7ecd179855fd14d19a9dab4b02e892c09a19a6458c46b37ae676cf0f99b755c2d3b0ed10769ea9c8ac6187589c572b749b4fb423b72b610287fd3aaf7c88f98f33c3ecf25dae8d541b681c9548546efd50a177ef3f0e9230b7176a6e8e82e5a6fd64ae8574749b08ebbec86d9c5e0f210c20196f9c31f73697a097325736e26c40bf111d2cf408ee91e04c906f9595ba265e928d0ac840064366c5488cf7cd065d8e03513c6d5ac91faf276bc6b85a808603249d918cbdbccaf9398a9c24700f6eacb7fd1ed93e5484eec93ee57263d04494469fc53c5084685b6f25a650456c95581ffa6c6f236293036480af5df4b0c8698ae33b434cd54faf38f08f1379021100cffe19216862b7d4dfadee6595d73631e8e02c49feaa82ce416f2aa71aae3dddc1067d41f52119661d55d5b1323a5553548ff2f461543e1ee255a9b9b3b1e09c22ece7e18d4f40d4cb0aa76225cc5fcf0c4090455eb2d1f29920cbd8de6f85ac8da21b568a247b6b31b8d681821a39341874e52e4ab8e9572e0f65026d42a87ba8051cd758b22f91aa71b66b93e523a19cd3865bad0be0a52f24bd04d0902bf73fd0a23ea4331d339cead49d77bf077345b5ba3a3e352f40e1e8564214d207dec5e04cd2813399e75470d8b395ce9e270b33cb6605d7d705d1cc81b1609f5ff0fd7755250e60a4c34861a70186763bbe7178f66eada30b0ef10dd3e2badb70f1decb8fb4eeda97bc95ad7d380dc1e783d9071d94d0cb2c18da8406a14dc05de8280660cffa860cddf470e3201d1b06670785607d4775bbf9bb829e006e736ff28472ed8219d40971f6e9937952a48786ec1ea5952528d25a7f92c867c85016ad3dc99a215489e7c4279b9d9da587b9e2ead6a2d27d6f2f8b30e1f72930fad14a9fa91af2357687c8642f2ba66555c7b651e3824be3e1028f3b2b3b85e59db901e42e23325099231d4b8bac326d0cffdc92d8c4b7798a2cbfe69cc2b83e005bceac18a0dbda3f734bab4cf1fd11ab2d2ad6fc92e36cb967813dee8bb1f0562e2e04a2d9b49ee02edfa6e8afcdd33510f8b4e1f7077c9d53f66ba62a2ae08d973a57f07cfc7f2ef9bdaac3b0e2de6732e762ca093f5a639a2113cf1be221dde33ea39a13154b135892b6d6d3883c07af0572f1eace00ed31fa06e3</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<link href="/css/hbe.style.css" rel="stylesheet" type="text/css"><script data-swup-reload-script type="module" src="/js/plugins/hbe.js"></script>
+<script data-swup-reload-script type="module">
+import {initHBE} from "/js/plugins/hbe.js";
+  console.log("hexo-blog-encrypt: loaded.");
+    initHBE();
+</script>
+]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>Motion DL</category>
+      </categories>
+      <tags>
+        <tag>Motion DL</tag>
+        <tag>PJSK</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MMD扫盲系列01——认识MMD</title>
+    <url>/posts/45af3d29/</url>
+    <content><![CDATA[<p>&emsp;&emsp;我觉得这个系列很有必要。。。。。。现在真的，，手机太普及了么？还是啥。。。先做个MMD扫盲系列吧，这个系列里面不会介绍MMD的发展历程等，只会讲MMD是什么，如何用等技术类问题。 <em><strong>本系列教程全部基于Windows系统的931汉化追加MME版本进行演示</strong></em> 。注意：软件没有最好，只有最适合自己的！！</p>
+<hr>
+<h2 id="2024年7月14日更新！！"><a href="#2024年7月14日更新！！" class="headerlink" title="2024年7月14日更新！！"></a>2024年7月14日更新！！</h2><p>&emsp;&emsp;我做了一个MMD的安装包！！！！！！，下载链接：<br>&emsp;&emsp;<a class="link"   href="https://wwb.lanzouw.com/b00taqonti" >https://wwb.lanzouw.com/b00taqonti<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>&emsp;&emsp;密码:5k22<br>&emsp;&emsp;新人专享系列！！！！这样你就不用纠结了！！！芜湖！！！不用解压缩啥的！！</p>
+<hr>
+<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>&emsp;&emsp;MMD全称MikuMikuDance，是由日本人樋口优所创建的一个免费的动画软件。本体为日文版软件，由Emil开始繁体汉化，Kinsama修改并发布。当前传播最广的版本有Ver.932，Ver.931，Ver.10th，Ver.926（我知道的，并且是我用过的），还有以上版本+Bridge的版本。</p>
+<hr>
+<h2 id="认识文件"><a href="#认识文件" class="headerlink" title="认识文件"></a>认识文件</h2><p>&emsp;&emsp;现阶段MMD传播基本是靠人手相传。所以基本都是处在 <em><strong>压缩包</strong></em> 这一文件类型内。所以我们需要一个解压缩软件，比如<a class="link"   href="https://www.bandisoft.com/bandizip/" >Bandzip<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>、<a class="link"   href="https://7-zip.org/" >7-zip<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>等。非常建议选一个可以切换压缩语言代码的，因为后期如果下载素材，说不定会遇到乱码。我用的版本压缩包内容展示如下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/xLb6wB3a7izVWch.png"
+                      alt="PixPin_2024-07-10_16-59-05.png"
+                ></p>
+<hr>
+<h2 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h2><p>&emsp;&emsp;将文件解压缩之后，得到如下所示的文件夹<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/ExeWOfKzriugw9Y.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后右键 <em><strong>MikuMikudance.exe</strong></em> ，选择 <em><strong>发送到——桌面快捷方式</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/3jV1QtXrd8Un7S2.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;这样你的桌面就有MMD了，在启动MMD前，请务必将MMD根目录下的 <em><strong>！！如果出现报错无法启动请安装这个文件夹里的全部文件</strong></em> 这个文件夹内的所有程序全部安装一遍。这样做可以防止日后出错。如果安装后启动时依旧出现报错，请自行搜索 <em><strong>微软常用运行库</strong></em></p>
+<hr>
+<h2 id="认识界面"><a href="#认识界面" class="headerlink" title="认识界面"></a>认识界面</h2><p>&emsp;&emsp;MMD主界面如下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/y7JrMDesfc6Zu1q.png"
+                      alt="PixPin_2024-07-10_16-15-20.png"
+                ><br>&emsp;&emsp;介绍如下，点大图看<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/2wOJ9Mo1Ag4TvFh.png"
+                      alt="PixPin_2024-07-10_16-15-20.png"
+                ></p>
+<hr>
+<h2 id="认识文件类型"><a href="#认识文件类型" class="headerlink" title="认识文件类型"></a>认识文件类型</h2><p>&emsp;&emsp;MMD支持的文件类型不算多，介绍如下：</p>
+<h3 id="PMX-PMD："><a href="#PMX-PMD：" class="headerlink" title="PMX&#x2F;PMD："></a>PMX&#x2F;PMD：</h3><p>&emsp;&emsp;MMD唯二支持的可操控有骨骼的模型文件，区别如下：PMX（Polygon Model eXtended）和PMD（Polygon Model Data）主要在 <strong>格式版本、数据结构复杂性和兼容性</strong> 等方面有所区别。<br>&emsp;&emsp;具体分析如下：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>PMX</th>
+<th>PMD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>格式版本</td>
+<td>PMX是PMD的继承者，通常被认为是更加先进和改进的版本。</td>
+<td>PMD是较早的模型格式，相对于PMX来说，可能不那么流行或支持较新的功能。</td>
+</tr>
+<tr>
+<td>数据结构复杂性</td>
+<td>PMX具有更复杂的数据结构，支持更多的建模元素和细节，如额外的vec4数量、顶点索引大小等，允许存储更丰富的模型信息。</td>
+<td>PMD的数据结构较为简单，没有像PMX那样支持扩展的数据类型和结构。</td>
+</tr>
+<tr>
+<td>兼容性</td>
+<td>PMX由于其结构上的优势，通常拥有更好的兼容性，可以更方便地与各种3D软件进行交互。</td>
+<td>PMD兼容性相对较差，可能在一些新版的软件或工具中不被完全支持。</td>
+</tr>
+<tr>
+<td>使用范围</td>
+<td>PMX由于没有模型定点限制，逐渐成为主流格式，被更多地使用和推荐。</td>
+<td>PMD尽管仍然被支持，但使用频率可能不如PMX高。</td>
+</tr>
+<tr>
+<td>支持工具</td>
+<td>PMX可以使用如PmxEditor这样的专业工具进行编辑和研究，这些工具能够更好地展示文件结构。</td>
+<td>MD虽然也能用类似的工具编辑，但可能不支持所有高级功能。</td>
+</tr>
+<tr>
+<td>可扩展性</td>
+<td>PMX设计时考虑了更多的可扩展性，为未来的扩展和功能的加入留下了空间。</td>
+<td>PMD相对来说，扩展性不如PMX。</td>
+</tr>
+<tr>
+<td>用户社区偏好</td>
+<td>用户社区中，PMX似乎更受欢迎，可能是因为它更符合现代模型制作的需求。</td>
+<td>PMD虽然仍有一席之地，但在新兴的用户中可能不如PMX流行。</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;针对上述分析，可以考虑以下几点建议：<br>&emsp;&emsp;如果您需要与其他3D软件兼容或寻找更多的社区支持，推荐使用PMX格式。<br>&emsp;&emsp;当您处理旧模型或需要与老版本MMD软件兼容时，可能需要使用PMD格式。<br>&emsp;&emsp;综上所述，PMX作为更新的模型文件格式，提供了更多的功能和更好的兼容性，逐渐成为MMD用户的首选格式。而PMD作为早期的格式，虽然仍具有一定的用户基础，但相比之下可能略显过时。无论选择哪种格式，确保您使用适合的工具和插件来优化您的工作流程，并保持对新工具和社区资源的持续关注。</p>
+<h3 id="VMD"><a href="#VMD" class="headerlink" title="VMD"></a>VMD</h3><p>&emsp;&emsp;VMD是一种动作数据文件格式，主要用于记录3D模型的动作、形态变化、相机移动和光照变化等动画信息。<br>&emsp;&emsp;VMD文件包含了一种二进制流数据，具有较为复杂的内部结构。它有两个版本，分别以”Vocaloid Motion Data file”和”Vocaloid Motion Data 0002”标识。文件的前30个字节用于描述版本信息，随后是模型名称，之后依次是骨骼关键帧、变形关键帧、相机关键帧以及灯光关键帧的记录。<br>&emsp;&emsp;与此同时，镜头VMD文件只能给镜头用，动作VMD文件只能给人物或者场景用。因为在MMD中，因为存在index类型，所以也不怕重名，是一一对应的关系，但是与此同时的是MMD模型只要名字有一丝不同，比如多了一个空格之类的，就会无法识别。</p>
+<h3 id="VPD"><a href="#VPD" class="headerlink" title="VPD"></a>VPD</h3><p>&emsp;&emsp;VPD是一种姿势数据文件格式，在文件数据中仅有一帧的骨骼变换姿态，与VMD不同的是，VMD是一段，而VPD是一帧，即一张画面，一般适用于做静画之类的</p>
+<h3 id="WAV"><a href="#WAV" class="headerlink" title="WAV"></a>WAV</h3><p>&emsp;&emsp;MMD仅仅支持这一种音乐类型格式，不支持MP3或者其他格式。WAV文件介绍如下：<br>&emsp;&emsp;WAV文件是一种标准的数字音频文件格式，主要用于保存无损的音频数据，以保证声音质量的最佳还原。<br>&emsp;&emsp;WAV文件采用RIFF（Resource Interchange File Format）文件格式结构，通常用来保存PCM（Pulse Code Modulation）格式的原始音频数据，因此被称为无损音频。它是由微软公司和IBM联合设计的，最早于1991年8月在Windows 3.1操作系统上出现，文件扩展名为WAV。该格式得到了Windows、Macintosh、Linux等多种操作系统的支持。WAV文件具有以下特点：<br>&emsp;&emsp; <strong>高音质</strong> ：<br>&emsp;&emsp;WAV文件保存的是原始的音频数据，几乎没有进行数据压缩，因此能够最大程度地保留音频的真实质量。其音质与CD相差无几，常用于专业的音频处理和高质量音乐播放。<br>&emsp;&emsp; <strong>支持多种采样率</strong> ：<br>&emsp;&emsp;WAV文件支持多种采样率和采样位数，例如44.1kHz、22.05kHz等，以及16位或8位的采样精度。这使得它能适应不同的音频录制需求，从一般的音乐播放到专业音频制作均可胜任。<br>&emsp;&emsp; <strong>支持不同声道</strong> ：<br>&emsp;&emsp;WAV格式支持单声道和立体声录音。立体声文件使用两个声道，分别记录左右声道信息，使得音频具有空间感和立体感，适合复杂的声音场景。<br>&emsp;&emsp; <strong>文件体积较大</strong> ：<br>&emsp;&emsp;由于WAV文件保存的是未压缩的音频数据，因此文件体积相对较大，每分钟的音乐大约需要10MB左右的存储空间。这也限制了其在长时间音频记录和网络传输中的应用。<br>&emsp;&emsp;此外，WAV文件还广泛应用于音效素材的保存和分享。许多网站提供大量免费的WAV音效资源，如爱给网等，这些资源可以用于影视、游戏、动画等多个领域，极大地丰富了多媒体制作的内容。<br>&emsp;&emsp;综上所述，WAV文件以其高质量的无损音频保存方式，在音频处理、音乐播放和多媒体制作中发挥着重要作用。尽管文件体积较大，但其在保证音质方面的优势使其成为众多专业人士和爱好者的首选格式。</p>
+<h3 id="X文件与FX文件"><a href="#X文件与FX文件" class="headerlink" title="X文件与FX文件"></a>X文件与FX文件</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>X</th>
+<th>FX</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定义</td>
+<td>X文件通常在MMD中作为附件载入使用，它不涉及复杂的图形渲染操作，更多的是作为补充或扩展MMD功能的一种轻量级文件。</td>
+<td>FX文件是一种使用高阶着色器语言（HLSL）标准创建的文本文件，它定义了一个DirectX 9（DX9）明暗器，专门用于处理材质的光照和渲染效果。</td>
+</tr>
+<tr>
+<td>功能用途</td>
+<td>X文件在MMD中主要用于增强场景的互动性和视觉效果，富动画的表现力。</td>
+<td>FX文件在MMD中用于实现高质量和复杂计算的材质效果，如高级光影效果、曲面细分等。它通过HLSL在GPU上执行快速的数学计算，实现更加逼真和动态的渲染效果。</td>
+</tr>
+<tr>
+<td>使用范围</td>
+<td>在PmxEditor创建一个X文件，并将材质定义为screen.bmp，在MMD中开启屏幕捕捉则可实现投影效果</td>
+<td>在MMD中加载MME功能后，则可以给X文件定义FX来实现各种更加炫酷的效果</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;综上所述，X文件和FX文件在MMD中各司其职，前者提供了一种简易的方式来实现一些视觉特效，而后者则负责处理更高端和复杂的材质渲染任务。了解它们之间的区别和各自的优势，可以帮助用户更加合理地利用这些资源来制作出质量更高、视觉效果更佳的MMD作品。</p>
+<h3 id="PMM"><a href="#PMM" class="headerlink" title="PMM"></a>PMM</h3><p>&emsp;&emsp;PMM文件是MMD的工程文件。特殊的是，pmm是存储的是绝对路径，一旦你的素材更改位置，PMM便会因为无法识别而导致MMD闪退或者无法打开工程文件，需要重新定义。</p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;MMD新手请多去B站等看看有关教程，遇事不决善用搜索引擎，无法解决后再提问。</p>
+]]></content>
+      <categories>
+        <category>MMD扫盲系列</category>
+      </categories>
+      <tags>
+        <tag>MMD扫盲系列</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>配布申请要求</title>
+    <url>/posts/63037/</url>
+    <content><![CDATA[<h2 id="通用要求-General-Requirements："><a href="#通用要求-General-Requirements：" class="headerlink" title="通用要求&#x2F;General Requirements："></a><em><strong>通用要求&#x2F;General Requirements：</strong></em></h2><p><em><strong>&emsp;&emsp;1.投稿过一个以及一个以上的mmd，blender,C4D,UE等3D动画作品（如果没有投稿过，请先与我私信）<br><br>&emsp;&emsp;2.黑名单别来<br><br>&emsp;&emsp;3.借物表完整，不全的别来<br><br>&emsp;&emsp;4.渲染要求不高<br><br>&emsp;&emsp;5.被拒绝后请自己找原因，被拒三次，拜拜！！！<br><br>&emsp;&emsp;6.二配自己心里清楚<br></strong></em></p>
+<hr>
+<h2 id="配布群要求-Distribution-Group-Requirements"><a href="#配布群要求-Distribution-Group-Requirements" class="headerlink" title="配布群要求&#x2F;Distribution Group Requirements"></a><em><strong>配布群要求&#x2F;Distribution Group Requirements</strong></em></h2><p><em><strong>&emsp;&emsp;1.群内配布物，退群后自动视为弃权，并且不能使用<br><br>&emsp;&emsp;2.被拒绝后请自己找原因，被拒三次，拜拜！！！<br><br>&emsp;&emsp;3.我没素质<br><br>&emsp;&emsp;4.入群请说明来意+UID<br><br>&emsp;&emsp;5.群聊记录严禁泄露<br><br>&emsp;&emsp;6.入群先看公告<br></strong></em></p>
+<hr>
+<h2 id="申请要求-Application-Requirements"><a href="#申请要求-Application-Requirements" class="headerlink" title="申请要求&#x2F;Application Requirements"></a><em><strong>申请要求&#x2F;Application Requirements</strong></em></h2><p>&emsp;&emsp;<em><strong>如果你是只想要我配布的动作或者模型，并不想加群。请先私信<a class="link"   href="https://space.bilibili.com/374412219" >我<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>，无论审核通过与否，我都会给你回复。如果过审，你可以在本博客下&emsp;Motion&ensp;DL&emsp;或者&emsp;Model&ensp;DL&emsp;的tag内找到该动作的加密配布页面，在页面内输入我提供给你的密码便可查看到网盘下载链接、（每个页面的密码都是不一样的，还请不要传播）</strong></em></p>
+<hr>
+<h3 id="终章"><a href="#终章" class="headerlink" title="终章"></a>终章</h3><p>&emsp;&emsp;请注意，所有的要求都是建立在 <em><strong>通用要求</strong></em> 之上的。动作申请以及配布群申请的要求都为&emsp; <em><strong>“&emsp;通用要求&emsp;+&emsp;配布群要求（申请要求）&emsp;”</strong></em> &emsp;，请严格遵守我的要求，如果涉及到没有说明的部分，默认为禁止，如有疑问，请向我私信提出，谢谢配合。</p>
+]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>Requirements</category>
+      </categories>
+      <tags>
+        <tag>Rules</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PJSK-アイディスマイル 动作配布</title>
+    <url>/posts/2699655f/</url>
+    <content><![CDATA[
+<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="7c2d2efbc21b62d7f5d74b3ba7c5bc9281d3ef762149eef5399eba973c193d52">c211e665b909cba35ed6629fb3c5963322dc2ea087bad7b690b97de46b98bbaff2dc734fb72406363481b587196574419d6747b2e49330827611ebd8660de86500ce2c64e4e5aa2353e0f3ac85a2b90fe5af0a682db6dab05c0c4436f6e8d3a997c0dd7e509063bb955d786bfd3fdc10ebcd26d2062e15f8392c5e69d1715e6fbf15a3d3098ad14491e3f5b4f3bb86357eaa1581dda5bfcd169c384c484423ecc2344e6ff0bcf85359794b8df23dd10e0da850eafafb9d6f7996213f1a9d635fce0638338a64efcc68c55488b5193519698694eace1c2af88fec3455ec9383b05f0c7a5d99a5abbe2d159ce3af1e068b305883faf2904984a05edd6effc9c401ae89b13ac4d6154a555eff7b336ce82a51e0079a70946e2d5a99eab9539aae128ac973c9b58305222bdd028aff5e61a2f6f3fd45d9ca7c830fe99e7c0e2bf61d98f216aba5f9efc6b879d85d94d8b32a86b1d528e2c17b7af7b584535b00effdf21410ae45e9dca6b447481db147e5db6ac02289050a1e7ced7462a4ae279ae69a29757b3f2e0ea6cbb03e76b44a0371b110d731854b5ef8f7b47a55f8d20c2a0c6b6f331286b81344990eaef498781f05f956107a8fdb385472d19aa38409440dcac2c273b4702c9f1e22b96cb49e5f2a57a051543600276728d82810a77ec31b5f3b157b9afebae77f861e052763ccb3e0639882eb1f0feb6ad3f0d3601784a07fb8c06da0e6c7852f9786dea1b549e5bfab754bbb271794f82ba3c75c09b9afd9bdfe821bcdd4d019c61e1b49264719f915ceac98cb592fd0d0ba772390eb62816768117b60804d7e72493393849129f58ac30bef542bb3c9490d47e05a81a7bfbb9610690c79c69a04a55b023e943505b6e787644ad332cc12ca2f4b330d9aa971b1495039cd3412a5c8580240148881d3a024fc6940433469445ac61673581722df2a2de672ec8634a3f432bfc36dbe30647d535c59fb6a8360e40dd8fc840a2000f9f7718d69cb71950460755a13f67439bcc7203d384fdd2d92ede62fb3a2c6cb1fbd3d0fdc9722f5886a1521e620d55ea69749628338cbc116a65485761c9d999f650d7d1da7a8950d525c231037de83d7aaa42433cd53684a19e0cbb3dc0b58af061ddf1e0eedc6dd9b1c2b4aa6d5c43f2454a6910341fa29be878b3d27306f456c996846e7695dac06719b742996a7519cf985416cefe0afa071ea2c8f6a9dbea15187851d5f56a494781d20069093d30181c27ca1502e546b66fce42dc261d2053bf3964df8bd8c39c24e22b0b2560d9df80a575d58bf1e6c92580d8d0ab7ae0bbf9636fd54eae6e421d6f68c50b0252b419969e5a874f3c23facf2275f4f20333a7f93409be32c09a267b78c552ca88879dcff6bce3be0f5a70f77d44166e87a66836b642d8c65fd55cfe670e0d7ba8351ee6896cca8fc2f3dbd2c6b3f01ce3e9de9240ef614dab9b82c737fa22cf2208d0c206771ac413f0cd959a46a2fd5a2ba6125557ee6d0b6d3ecbf5576f6b2fb144d43036e01d3f709e78f51dd9bd130a43015b7047cfe27549ca9052253359e891f5a15329d241aa08fcd9daca3c891a9ab92050105bd867a951ef93e1fd05a106aae15d3041955512f21754c430844d95e7f63ceffefec1a8fb60d112a794dbf84d6bae6beca74a1f36cfa4f60786496a9c8950a5323a6d1a26a1a9ebefd2c05438d4d56f84a866250cec2706cfdaab5e690c77812620b4cadf99dd57d40e62233d5afd96e36a1addcfcb4ac3733b6b8352244edb441a9914c923400390d712dafc2c0589f9bf39b8e5696f1aad8bd0d9f7f98265fb57503dde24d2d735e6b2aab4f4fbb959d92e659442b6c09309afbd7cbdc6629a3a87d88d948db694668d641ceaf6849867eddf4ccf12356316c34ef711f80367abbbbd4698077c5cee131f437a5f206f7f486c1f3a155ec2b2b105a80bb74d567cfb940d93394c1cc60ffe7dfe1c118285f41da75971d8e9c03bf9740652575fe7c1f087767bd90b3f7d86533eb0e14fe60604dc37bf538749f97543bdb3d71e6d688f5a37c8ef16df4eb1047975d57d07944a9db18d51a1d68e5b049534090f986968a16fc2e9759172c82104d0cd2184bb9b3cff2d3fcc933714cea192d7651e3aef79ed00d923c86724af50d46327d3d1f963df28a1fe299af4fdcffa3111d88193e4a351fff914107c71958925f91ee18992ffc4805b3b84963a9c96c047689e490b80f241ed6e9eef939faff31cb82acc25732c1b473c2aac4d809a03424b227d626468a0752a1ca8c6d6b3026cd1d1a2da177e70fef70b0199ab37e32898e74eaba2c56e737f91a8391615e1f8ccabfcb8b17c22112ea238ed291d00b354209449d9ff00035c50781657ac1fcf9c6d06115f7b50ae49c1e9d04079b8cc13978ec0d84817f7c54e0f2001fb24f07bb95f05487bad635960d1554639b9b472dfcf96ed49852af951e6b265053e6bf5be0c80f886751ad43759ed4502c866e177bfd58814db32b5fe99f87f082064af9de8564f446b2d849779d235f5bb36a56cf2c30f6781442bf66a2fe81d3de074d7b069ed0eef10aeff467218ba65bdc7656cda38ad825dfeaae2274d4591b422ebe70e011787e0f9e4c210a4fdf92130eb200594047a8b0d9f700585368ae91e50e45304afe5755baf9f8c826d20edd20e675f3a9923725793cdd12d0cc3c822ca2541c7056a7dbf28579a7736a21b39fa1c3</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<link href="/css/hbe.style.css" rel="stylesheet" type="text/css"><script data-swup-reload-script type="module" src="/js/plugins/hbe.js"></script>
+<script data-swup-reload-script type="module">
+import {initHBE} from "/js/plugins/hbe.js";
+  console.log("hexo-blog-encrypt: loaded.");
+    initHBE();
+</script>
+]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>Motion DL</category>
+      </categories>
+      <tags>
+        <tag>Motion DL</tag>
+        <tag>PJSK</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python实战系列01-RGB转换为Hex</title>
+    <url>/posts/46083098/</url>
+    <content><![CDATA[<p>&emsp;&emsp;学了学python，写了个小玩意，但是写的一塌糊涂，下载见文章末尾，用到了tk库，已经编译成了exe的可执行文件，拿去玩玩吧。</p>
+<hr>
+<h2 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示"></a>代码展示</h2><pre><code>import tkinter as tk
+import re
+
+def rgb_to_hex(r, g, b):
+    return &quot;#&#123;:02x&#125;&#123;:02x&#125;&#123;:02x&#125;&quot;.format(r, g, b)
+
+def is_valid_input(value):
+    return bool(re.match(&quot;^([0-9]|[1-9][0-9]|1[0-9]&#123;2&#125;|2[0-4][0-9]|25[0-5])$&quot;, value))
+
+def convert():
+    r = entry_r.get()
+    g = entry_g.get()
+    b = entry_b.get()
+
+    if not (is_valid_input(r) and is_valid_input(g) and is_valid_input(b)):
+        result_label.config(text=&quot;输入错误，请输入0-255之间的整数&quot;)
+        return
+
+    try:
+        r = int(r)
+        g = int(g)
+        b = int(b)
+    except ValueError:
+        result_label.config(text=&quot;转换错误，请输入有效的整数&quot;)
+        return
+
+    hex_color = rgb_to_hex(r, g, b)
+    result_label.config(text=&quot;对应的16进制颜色值为：&quot; + hex_color)
+
+def copy_hex_code():
+    root.clipboard_clear()
+    root.clipboard_append(result_label.cget(&quot;text&quot;))
+
+root = tk.Tk()
+root.title(&quot;RGB 2 hex&quot;)
+
+label_r = tk.Label(root, text=&quot;红色值（0-255）：&quot;)
+label_r.grid(row=0, column=0)
+entry_r = tk.Entry(root)
+entry_r.grid(row=0, column=1)
+
+label_g = tk.Label(root, text=&quot;绿色值（0-255）：&quot;)
+label_g.grid(row=1, column=0)
+entry_g = tk.Entry(root)
+entry_g.grid(row=1, column=1)
+
+label_b = tk.Label(root, text=&quot;蓝色值（0-255）：&quot;)
+label_b.grid(row=2, column=0)
+entry_b = tk.Entry(root)
+entry_b.grid(row=2, column=1)
+
+convert_button = tk.Button(root, text=&quot;转换&quot;, command=convert)
+convert_button.grid(row=3, column=0, columnspan=2)
+
+copy_button = tk.Button(root, text=&quot;复制&quot;, command=copy_hex_code)
+copy_button.grid(row=4, column=0, columnspan=2)
+
+result_label = tk.Label(root, text=&quot;&quot;)
+result_label.grid(row=5, column=0, columnspan=2)
+
+root.mainloop()
+</code></pre>
+<hr>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/RGB2HEX" >https://github.com/NIGHT2000/RGB2HEX<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>QQ群：813686446</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>实战系列</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python实战系列02-Hex转换为RGB</title>
+    <url>/posts/57dc070d/</url>
+    <content><![CDATA[<p>&emsp;&emsp;是和实战系列01功能相反的存在，练手玩，不确定会不会更新。</p>
+<hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import tkinter as tk
+import re
+
+def hex_to_rgb(hex_color):
+    return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+
+def is_valid_input(value):
+    return bool(re.match(&quot;^([0-9a-fA-F]&#123;6&#125;)$&quot;, value))
+
+def convert():
+    hex_color = entry_hex.get()
+
+    if not is_valid_input(hex_color):
+        result_label.config(text=&quot;输入错误，请输入有效的16进制颜色值&quot;)
+        return
+
+    try:
+        r, g, b = hex_to_rgb(hex_color)
+    except ValueError:
+        result_label.config(text=&quot;转换错误，请输入有效的16进制颜色值&quot;)
+        return
+
+    result_label.config(text=&quot;对应的RGB值为：R=&#123;&#125;, G=&#123;&#125;, B=&#123;&#125;&quot;.format(r, g, b))
+
+def copy_rgb_code():
+    root.clipboard_clear()
+    root.clipboard_append(result_label.cget(&quot;text&quot;))
+
+root = tk.Tk()
+root.title(&quot;16进制转RGB&quot;)
+
+label_hex = tk.Label(root, text=&quot;16进制颜色值（如：FF00FF，无#）：&quot;)
+label_hex.grid(row=0, column=0)
+entry_hex = tk.Entry(root)
+entry_hex.grid(row=0, column=1)
+
+convert_button = tk.Button(root, text=&quot;转换&quot;, command=convert)
+convert_button.grid(row=1, column=0, columnspan=2)
+
+copy_button = tk.Button(root, text=&quot;复制&quot;, command=copy_rgb_code)
+copy_button.grid(row=2, column=0, columnspan=2)
+
+result_label = tk.Label(root, text=&quot;&quot;)
+result_label.grid(row=3, column=0, columnspan=2)
+
+root.mainloop()
+</code></pre>
+<hr>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/Hex2RGB" >https://github.com/NIGHT2000/Hex2RGB<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>QQ群：813686446</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>实战系列</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python实战系列03-URL的编码与解码</title>
+    <url>/posts/cbf0ad6c/</url>
+    <content><![CDATA[<p>&emsp;&emsp;被QQ最近那个点击转发的小东西弄感兴趣了，看是MD语法，重点是URL的编码和解码，所以就写了个简单的例子。</p>
+<hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import tkinter as tk
+from urllib.parse import quote, unquote
+
+def encode_text():
+    input_text = entry.get()
+    encoded_text = quote(input_text)
+    result_label.config(text=encoded_text)
+
+def decode_text():
+    input_text = entry.get()
+    try:
+        decoded_text = unquote(input_text)
+        result_label.config(text=decoded_text)
+    except Exception as e:
+        result_label.config(text=&quot;请输入正确的URL编码内容&quot;)
+
+def copy_text():
+    root.clipboard_clear()
+    root.clipboard_append(result_label.cget(&quot;text&quot;))
+
+root = tk.Tk()
+root.title(&quot;URL编码器&quot;)
+root.configure(bg=&quot;#EEE0E5&quot;)
+
+entry = tk.Entry(root, width=50, bg=&quot;#FFE4C4&quot;)
+entry.pack(pady=10)
+
+buttons_frame = tk.Frame(root)
+buttons_frame.pack(side=&quot;right&quot;, padx=10)
+
+encode_button = tk.Button(buttons_frame, text=&quot;编码&quot;, command=encode_text)
+encode_button.pack(pady=5)
+
+decode_button = tk.Button(buttons_frame, text=&quot;解码&quot;, command=decode_text)
+decode_button.pack(pady=5)
+
+copy_button = tk.Button(buttons_frame, text=&quot;复制&quot;, command=copy_text)
+copy_button.pack(pady=5)
+
+result_label = tk.Label(root, text=&quot;&quot;, bg=&quot;#B0E0E6&quot;)
+result_label.pack(pady=10)
+
+root.mainloop()
+</code></pre>
+<hr>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/URL-Encoder-decoder" >https://github.com/NIGHT2000/URL-Encoder-decoder<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>QQ群：813686446</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>实战系列</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub01-二重身份验证方法</title>
+    <url>/posts/597bd277/</url>
+    <content><![CDATA[<p>&emsp;&emsp;写前一篇教程用GitHub的时候，出现了一个二重身份验证，历经了极其麻烦的过程之后，打给整理了一下这些，下载软件基本都要魔法，我塞到百度网盘也可。</p>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>&emsp;&emsp;1、<a class="link"   href="https://apkpure.com/cn/" >APKpure<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：用来下载Google Play<br>&emsp;&emsp;2、Google Play：用来下载Authenticator<br>&emsp;&emsp;3、Authenticator：验证二重身份，重点就是这个，这个是微软的，也比较好用，建议就是登陆微软账号，但是我没登，因为，我登录时老是出现登录异常，不登录也能用。</p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>&emsp;&emsp;<a class="link"   href="https://pan.baidu.com/s/1eHKylxujG_axNVpeoPdgxQ?pwd=qhru" >Authenticator<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<hr>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>&emsp;&emsp;1、用APKpure下载Google Play<br>&emsp;&emsp;2、用Google Play下载Authenticator<br>&emsp;&emsp;3、打开Authenticator<br>&emsp;&emsp;4、点击最下方 <em><strong>已验证ID</strong></em> <br>&emsp;&emsp;5、然后扫描GitHub的QR码即可</p>
+]]></content>
+      <categories>
+        <category>某些技术日常</category>
+        <category>GitHub系列</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python实践系列04-SRT转换为普通LRC</title>
+    <url>/posts/f2007e5d/</url>
+    <content><![CDATA[<p>&emsp;&emsp;听歌时遇到了这种，B站有CC字幕，WYY没歌词的情况，想把B站的扒下来传到WYY用。</p>
+<hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>## 导入所需模块
+import tkinter as tk  ## GUI库
+from tkinter import filedialog, messagebox  ## 文件对话框和消息框
+import pysrt  ## 用于处理SRT字幕的库
+
+## 定义SRTtoLRCConverter类
+class SRTtoLRCConverter:
+    def __init__(self, master):
+        ## 初始化主窗口
+        self.master = master
+        self.master.title(&quot;SRT 到 LRC 转换器&quot;)
+        self.master.configure(bg=&quot;#E6E6FA&quot;)  ## 设置主窗口背景色
+
+        ## 初始化变量
+        self.srt_file_path = &quot;&quot;  ## SRT文件路径
+        self.lrc_file_path = &quot;&quot;  ## LRC文件路径
+
+        ## 创建文本框和标签
+        self.srt_textbox = tk.Text(self.master, wrap=&quot;word&quot;, width=50, height=10, bg=&quot;#BEBEBE&quot;)  ## 设置SRT文本框背景色
+        self.srt_textbox.grid(row=0, column=0, columnspan=2)
+
+        self.lrc_textbox = tk.Text(self.master, wrap=&quot;word&quot;, width=50, height=10, bg=&quot;#BEBEBE&quot;)  ## 设置LRC文本框背景色
+        self.lrc_textbox.grid(row=1, column=0, columnspan=2)
+
+        ## 创建按钮
+        self.open_srt_button = tk.Button(self.master, text=&quot;打开SRT文件&quot;, command=self.open_srt)  ## 打开SRT文件按钮
+        self.open_srt_button.grid(row=2, column=0)
+
+        self.convert_button = tk.Button(self.master, text=&quot;转换&quot;, command=self.convert)  ## 转换按钮
+        self.convert_button.grid(row=2, column=1)
+
+        self.save_lrc_button = tk.Button(self.master, text=&quot;保存LRC文件&quot;, command=self.save_lrc)  ## 保存LRC文件按钮
+        self.save_lrc_button.grid(row=3, column=0)
+
+        self.save_lrc_entry = tk.Entry(self.master, width=50, bg=&quot;#CDC1C5&quot;)  ## 设置保存路径输入框背景色
+        self.save_lrc_entry.grid(row=3, column=1)
+
+    ## 打开SRT文件方法
+    def open_srt(self):
+        ## 使用文件对话框打开SRT文件
+        self.srt_file_path = filedialog.askopenfilename(filetypes=[(&quot;SRT Files&quot;, &quot;*.srt&quot;)])
+
+        ## 如果选择了文件，读取内容并显示在SRT文本框中
+        if self.srt_file_path:
+            with open(self.srt_file_path, &quot;r&quot;, encoding=&quot;utf-8&quot;) as f:
+                srt_content = f.read()
+                self.srt_textbox.insert(&quot;1.0&quot;, srt_content)
+
+    ## 转换方法
+    def convert(self):
+        ## 检查SRT文件是否已打开
+        if not self.srt_file_path:
+            messagebox.showerror(&quot;Error&quot;, &quot;请先打开一个SRT文件。&quot;)
+            return
+
+        ## 读取SRT文件内容
+        subs = pysrt.open(self.srt_file_path)
+        lrc_content = &quot;&quot;
+
+        ## 遍历SRT字幕，转换为LRC格式
+        for sub in subs:
+            ## 将时间对象转换为字符串，并按照冒号分割
+            time_str = sub.start.to_time().strftime(&#39;%H:%M:%S,%f&#39;)[:-3]
+            hh_mm_ss_ms = time_str.split(&#39;:&#39;)
+            hh, mm, ss, ms = int(hh_mm_ss_ms[0]), int(hh_mm_ss_ms[1]), int(hh_mm_ss_ms[2].split(&#39;,&#39;)[0]), int(hh_mm_ss_ms[2].split(&#39;,&#39;)[1])
+
+            ## 根据进制累加小时到分钟
+            mm += hh * 60
+
+            ## 保留三位毫秒
+            ms = f&quot;&#123;ms:03d&#125;&quot;
+
+            ## 构建LRC时间格式
+            lrc_time = f&quot;&#123;mm:02d&#125;:&#123;ss:02d&#125;.&#123;ms&#125;&quot;
+
+            ## 添加到LRC内容
+            lrc_content += f&quot;[&#123;lrc_time&#125;]&#123;sub.text&#125;\n&quot;
+
+        ## 清空LRC文本框并插入转换后的内容
+        self.lrc_textbox.delete(&quot;1.0&quot;, tk.END)
+        self.lrc_textbox.insert(&quot;1.0&quot;, lrc_content)
+
+    ## 保存LRC文件方法
+    def save_lrc(self):
+        ## 使用文件对话框保存LRC文件
+        if not self.lrc_file_path:
+            self.lrc_file_path = filedialog.asksaveasfilename(
+                defaultextension=&quot;.lrc&quot;,
+                filetypes=[(&quot;LRC Files&quot;, &quot;*.lrc&quot;)],
+                initialfile=&quot;output.lrc&quot;,
+                initialdir=&quot;.&quot;,
+            )
+
+        ## 如果选择了保存路径，更新输入框并保存内容
+        if self.lrc_file_path:
+            self.save_lrc_entry.delete(0, tk.END)
+            self.save_lrc_entry.insert(0, self.lrc_file_path)
+            with open(self.lrc_file_path, &quot;w&quot;, encoding=&quot;utf-8&quot;) as f:
+                f.write(self.lrc_textbox.get(&quot;1.0&quot;, tk.END))
+
+## 创建Tkinter主窗口
+root = tk.Tk()
+
+## 实例化SRTtoLRCConverter类
+app = SRTtoLRCConverter(root)
+
+## 开始主循环
+root.mainloop()
+</code></pre>
+<hr>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>这个仅支持将SRT的 <em><strong>00:00:00,000 –&gt; 00:00:01,000</strong></em> 转换为普通LRC的 <em><strong>[00:00.000]</strong></em> 这种格式，并且将SRT的小时数按60进制累加到分钟上。对于其他版本的LRC或者SRT，可能有问题。</p>
+<hr>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/SRT2LRC" >https://github.com/NIGHT2000/SRT2LRC<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>QQ群：813686446</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>实战系列</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>游戏数据解析日志01-HOYOStudio的使用方法</title>
+    <url>/posts/6073dae3/</url>
+    <content><![CDATA[<h2 id="原项目地址："><a href="#原项目地址：" class="headerlink" title="原项目地址："></a>原项目地址：</h2><pre><code>https://github.com/TomyJan/HoYoStudio/releases/tag/v0.17.00
+</code></pre>
+<p>&emsp;&emsp;事先声明:（本文使用AI翻译）HoYoStudio是一个开源项目，旨在对米哈游（Mihoyo）的游戏文件进行分析和修改。它可以用于分析、提取和修改Mihoyo游戏中的资源，如角色模型、动画、音效和场景等。HoYoStudio支持Mihoyo的多款游戏，如《原神》（Genshin Impact）、《崩坏3》（Honkai Impact 3rd）、《崩坏：星穹铁道》（Honkai: Star Rail）和《未定事件簿》（Tears of Themis）。</p>
+<hr>
+<h2 id="HoYoStudio功能："><a href="#HoYoStudio功能：" class="headerlink" title="HoYoStudio功能："></a>HoYoStudio功能：</h2><p>&emsp;&emsp;1. 更改所选游戏：使用“选项（Option）-&gt;指定游戏（Specify Game）”。<br>&emsp;&emsp;Change selected Game by using “Option -&gt; Specify Game”.<br>&emsp;&emsp;2. 集成Radioegor146的仓库以通过“选项-&gt;指定AI版本”加载asset_index。<br>&emsp;&emsp;Integration with “Radioegor146” repo to load asset_index through “Options -&gt; Specify AI version”.<br><br>&emsp;&emsp;3. 支持导出可编辑资产（并非所有资产），支持XOR&#x2F;JSON格式的MiHoYoBinData。<br>&emsp;&emsp;Exportable Assets (not all of them) with XOR&#x2F;JSON support for “MiHoYoBinData”<br>&emsp;&emsp;4. 可选调试控制台。<br>&emsp;&emsp;Togglable debug console.<br>&emsp;&emsp;5. 容器&#x2F;文件名恢复。<br>&emsp;&emsp;Container&#x2F;filename recovery for Assets<br>&emsp;&emsp;6. 构建资产地图，即游戏文件内的资产列表。<br>&emsp;&emsp;Build AssetMap, An asset list of assets inside game files.<br>&emsp;&emsp;7. 通过命令行界面（CLI）构建CABMap&#x2F;资产地图（支持Unity类型和正则表达式过滤器）。<br>&emsp;&emsp;Build CABMap&#x2F;AssetMap through CLI (with supported <code>Unity Type</code> and <code>Regex</code> filters).<br>&emsp;&emsp;8. 通过命令行界面导出资产（支持Unity类型和正则表达式过滤器以及分组）。<br>&emsp;&emsp;Export assets through CLI (with supported <code>Unity Type</code> and <code>Regex</code> filters and grouping).</p>
+<hr>
+<h2 id="如何使用HoYoStudio："><a href="#如何使用HoYoStudio：" class="headerlink" title="如何使用HoYoStudio："></a>如何使用HoYoStudio：</h2><p>&emsp;&emsp;1. 构建CABMap（杂项-&gt;构建CABMap）。<br>&emsp;&emsp;Build CABMap (Misc. -&gt; Build CABMap).<br>&emsp;&emsp;2. 加载文件。<br>&emsp;&emsp;Load files.<br>&emsp;&emsp;命令行版本（Description）：<br>&emsp;&emsp;用法（Usage）：AssetStudioCLI &lt;输入路径&gt; &lt;输出路径&gt; [选项]<br>&emsp;&emsp;AssetStudioCLI <input_path> <output_path> [options]<br>&emsp;&emsp;参数（Arguments）：<br>&emsp;&emsp;&lt;输入路径&gt;：输入文件&#x2F;文件夹。<br>&emsp;&emsp;<input_path> Input file&#x2F;folder.<br>&emsp;&emsp;&lt;输出路径&gt;：输出文件夹。<br>&emsp;&emsp;<output_path> Output folder.<br>&emsp;&emsp;选项（Options）：<br>&emsp;&emsp;–silent：隐藏日志消息。<br>&emsp;&emsp;silent       Hide log messages.<br>&emsp;&emsp;–type ：指定Unity类类型。<br>&emsp;&emsp;type &lt;Texture2D|Sprite|etc..&gt;  <br>&emsp;&emsp;Specify unity class type(s)<br>&emsp;&emsp;–filter ：指定正则过滤器。<br>&emsp;&emsp;filter <filter>     Specify regex filter(s).<br>&emsp;&emsp;–game （必需）：指定游戏。<br>&emsp;&emsp;game &lt;BH3|GI|SR|TOT&gt; (REQUIRED)<br>&emsp;&emsp;Specify Game.<br>&emsp;&emsp;–map_op ：指定要构建的地图。[默认：无]<br>&emsp;&emsp;map_op &lt;AssetMap|Both|CABMap|None&gt;<br>&emsp;&emsp;Specify which map to build. [default: None]<br>&emsp;&emsp;–map_type ：资产地图输出类型。[默认：XML]<br>&emsp;&emsp;map_type &lt;JSON|XML&gt;<br>&emsp;&emsp;AssetMap output type. [default: XML]<br>&emsp;&emsp;–map_name ：指定资产地图文件名。<br>&emsp;&emsp;map_name <map_name><br>&emsp;&emsp;Specify AssetMap file name.<br>&emsp;&emsp;–group_assets_type ：指定导出的资产分组方式。[默认：0]<br>&emsp;&emsp;group_assets_type &lt;ByContainer|BySource|ByType|None&gt; <br>&emsp;&emsp;Specify how exported assets should be grouped. [default: 0]<br>&emsp;&emsp;–no_asset_bundle：从资产地图&#x2F;导出中排除AssetBundle。<br>&emsp;&emsp;no_asset_bundle<br>&emsp;&emsp;Exclude AssetBundle from AssetMap&#x2F;Export.<br>&emsp;&emsp;–no_index_object：从资产地图&#x2F;导出中排除IndexObject&#x2F;MiHoYoBinData。<br>&emsp;&emsp;no_index_object<br>&emsp;&emsp;Exclude IndexObject&#x2F;MiHoYoBinData from AssetMap&#x2F;Export.<br>&emsp;&emsp;–xor_key ：解密MiHoYoBinData的XOR密钥。<br>&emsp;&emsp;xor_key <xor_key><br>&emsp;&emsp;XOR key to decrypt MiHoYoBinData.<br>&emsp;&emsp;–ai_file ：指定asset_index json文件路径（以恢复GI容器）。<br>&emsp;&emsp;ai_file <ai_file><br>&emsp;&emsp;Specify asset_index json file path (to recover GI containers).<br>&emsp;&emsp;–version：显示版本信息<br>&emsp;&emsp;version<br>&emsp;&emsp;Show version information<br>&emsp;&emsp;此处有一段未翻译到<br>&emsp;&emsp;?, -h, –help<br>&emsp;&emsp;Show help and usage information</p>
+<hr>
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>&emsp;&emsp;1. 如遇到任何“MeshRenderer&#x2F;SkinnedMeshRenderer”错误，请在加载资产之前启用“禁用渲染器”选项。<br>&emsp;&emsp;in case of any “MeshRenderer&#x2F;SkinnedMeshRenderer” errors, make sure to enable “Disable Renderer” option in “Export Options” before loading assets.<br>&emsp;&emsp;2. 如需在不获取所有动画的情况下导出模型&#x2F;动画控制器，请启用“忽略控制器动画”选项。in case of need to export models&#x2F;animators without fetching all animations, make sure to enable “Ignore Controller Anim” option in “Options -&gt; Export Options” before loading assets.</p>
+<hr>
+<h2 id="致谢："><a href="#致谢：" class="headerlink" title="致谢："></a>致谢：</h2><p>&emsp;&emsp;Perfare：原始作者。<br>&emsp;&emsp;Khang06：genshinblkstuff，用于blk&#x2F;mhy0提取。<br>&emsp;&emsp;Radioegor146：gi-asset-indexes，用于恢复&#x2F;更新的asset_index。<br>&emsp;&emsp;Ds5678：AssetRipper[discord #mihoyo频道]，提供了关于资产格式和解析的信息。<br>&emsp;&emsp;mafaca：uTinyRipper，用于YAML和AnimationClipConverter。<br>&emsp;&emsp;作者：看到丹恒就立 <a class="link"   href="https://www.bilibili.com/read/cv34301894" >https://www.bilibili.com/read/cv34301894<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+]]></content>
+      <categories>
+        <category>某些技术日常</category>
+        <category>数据提取系列</category>
+      </categories>
+      <tags>
+        <tag>解包</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>APK技术日常01—APK解包</title>
+    <url>/posts/55002/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;本教程全部基于 <em><strong>Windows10</strong></em> 系统下，不同系统下可能略有差异。教程中的文件都源自于网络开源，其STAFF列表会在文章末尾标注。本教程 <em><strong>不适用于游戏提取等用途</strong></em> ，教程中教学的是处理并修改APK文件以及查看相关文件等，如有侵权，请联系我删除。</strong></em></p>
+<hr>
+<h2 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h2><p>&emsp;&emsp;<a class="link"   href="https://apktool.org/docs/install/" >APKTool<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：编译和反编译apk，可以从APK中获得基础性资源（如图片等）<br></p>
+<hr>
+<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>&emsp;&emsp;一、安装<a class="link"   href="https://www.java.com/zh-CN/" >Java<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>，具体步骤请详见Java官网，此处不再赘述；<br>&emsp;&emsp;二、下载<a class="link"   href="https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/windows/apktool.bat" >ApkTool脚本文件<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>；<br>&emsp;&emsp;&emsp;&emsp;（如果不会下载，可以复制网页中的文本，新建一个名为&ensp; <em><strong>apktool</strong></em> &ensp;的&ensp; <em><strong>txt</strong></em> &ensp;文件，将网页文本内容复制下来，保存在&ensp; <em><strong>apktool.txt</strong></em> &ensp;中，之后将后缀&ensp; <em><strong>.txt</strong></em>&ensp; 修改为&ensp; <em><strong>.bat</strong></em> &ensp;即可）<br>&emsp;&emsp;三、下载最新版本的<a class="link"   href="https://bitbucket.org/iBotPeaches/apktool/downloads/" >apktool.jar<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>，并且重命名为 <em><strong>apktool.jar</strong></em> <br>&emsp;&emsp;&emsp;&emsp;（例如，我下载的文件为apktool_2.9.2.jar，只需要删除_2.9.2，使文件名为apktool.jar即可）<br>&emsp;&emsp;四、将 <em><strong>apktool.bat</strong></em> 和 <em><strong>apktool.jar</strong></em> 放在 <em><strong>同一目录（文件夹）</strong></em> 下。</p>
+<hr>
+<h2 id="基本用法（为了方便展示，我把所有文件放在了一个目录下）"><a href="#基本用法（为了方便展示，我把所有文件放在了一个目录下）" class="headerlink" title="基本用法（为了方便展示，我把所有文件放在了一个目录下）"></a>基本用法（为了方便展示，我把所有文件放在了一个目录下）</h2><p>&emsp;&emsp;一、APK文件的提取<br>&emsp;&emsp;1、在APK文件目录下运行CMD（在路径那里输入cmd，敲回车即可）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/08/7AmXYRbDNIrUGS4.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/08/BGtFrgCwSPbXmQD.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;2、输入命令</p>
+<pre><code>apktool.bat d [-s] -f &lt;apkPath&gt; -o &lt;folderPath&gt;
+</code></pre>
+<p>&emsp;&emsp;此处的 <em><strong>&lt; apkPath &gt;</strong></em> 是你的apk路径，比如我的为 <em><strong>“E:\apktool\pose-monitor-release.apk”</strong></em> （注意此处的引号为 <em><strong>英文</strong></em> ） <em><strong>&lt; folderPath &gt;</strong></em> 是你的导出目录， <em><strong>不填写</strong></em> 则会自动以 <em><strong>安装包名</strong></em>在 <em><strong>apk的相同目录</strong></em> 下新建文件夹并且导出， <em><strong>若不填写，请一并删去&ensp;-o&ensp;这一命令</strong></em> 。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/08/QeOiJfTmVbN8oYz.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;显示这样的信息且在导出文件夹下存在 <em><strong>apktool.yml</strong></em> 文件代表导出成功，接下来就在文件夹中修改你的基础资源（如图片等）吧。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/08/SAeLnvGIRZ1FUrE.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h2 id="STAFF"><a href="#STAFF" class="headerlink" title="STAFF"></a>STAFF</h2><p>&emsp;&emsp;APKTool：<a class="link"   href="https://apktool.org/docs/install/" >https://apktool.org/docs/install/<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>&emsp;&emsp;pose-monitor-release:<a class="link"   href="https://github.com/linyiLYi/pose-monitor" >https://github.com/linyiLYi/pose-monitor<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<div style="position:relative; width:100%; height:0; padding-bottom:75%;">
+<iframe src="//player.bilibili.com/player.html?aid=732141008&bvid=BV1uD4y187zX&cid=879804782&p=1" 
+scrolling="no" border="0" frameborder="no"  framespacing="0"  
+style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
+</div>]]></content>
+      <categories>
+        <category>某些技术日常</category>
+        <category>APK修改系列</category>
+      </categories>
+      <tags>
+        <tag>APK</tag>
+        <tag>技术日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>APK技术日常02-APK源码的查看</title>
+    <url>/posts/64111/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;代码设计是每位工程师心血的结晶，源代码的查看仅能作为学习使用，不可以不劳而获。</strong></em></p>
+<hr>
+<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>&emsp;&emsp;1、<a class="link"   href="https://sourceforge.net/projects/dex2jar/files/latest/download" >dex2jar<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>&emsp;用于可运行文件classes.dex反编译为jar文件；<br>&emsp;&emsp;2、<a class="link"   href="http://java-decompiler.github.io/" >JD-GUI<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>&emsp;用于查看jar文件源码</p>
+<hr>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>&emsp;&emsp;1、将自己所要提取的apk文件后缀名改为zip（或者其他可以解压的后缀，如rar），并且解压（注：此过程不可逆，解压缩之后再压缩，会导致apk损坏，建议先备份一份，然后用副本做修改工作）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/09/GpUrjXvH8EBdMnJ.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;2、将&ensp;<em><strong>classes.des</strong></em>&ensp;文件复制到dex2jar的目录之下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/09/g7ewyZ4hQDvdGVS.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;3、在此目录下运行cmd（运行办法见<a href="https://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/">APK技术日常01</a>），在CMD中运行以下命令</p>
+<pre><code>d2j-dex2jar.bat classes.dex
+</code></pre>
+<p>&emsp;&emsp;会生成由 <em><strong>classes.dex</strong></em> 反编译得到的jar文件 <em><strong>classes-dex2jar.jar</strong></em> 。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/09/8VIBrYyfChSlNpw.png"
+                      alt="image.png"
+                ><br>4、用JD-GUI打开 <em><strong>classes-dex2jar.jar</strong></em>即可查看源码（注：源码若经过混淆，此处能查看的也是经过混淆的版本）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/09/wHEtAbVxR2OYCsP.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h2 id="STAFF"><a href="#STAFF" class="headerlink" title="STAFF"></a>STAFF</h2><p>&emsp;&emsp;1、dex2jar：<a class="link"   href="https://sourceforge.net/projects/dex2jar/files/latest/download" >https://sourceforge.net/projects/dex2jar/files/latest/download<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>&emsp;&emsp;2、JD-GUI：<a class="link"   href="http://java-decompiler.github.io/" >http://java-decompiler.github.io/<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;如果只是想更换图片等资源，在<a href="https://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/">APK技术日常01</a>那里处理完apk进入对应文件夹修改即可。修改代码比较麻烦，因为反编译出来的结果中只有smali文件，即Java虚拟机支持的汇编语言。如果确实需要修改代码，就得对照smali文件和从classes.dex反编译出来的源码了，按照smali的规范来改动即可。相当于写汇编，难度较大，感兴趣可以自己探索。</p>
+]]></content>
+      <categories>
+        <category>某些技术日常</category>
+        <category>APK修改系列</category>
+      </categories>
+      <tags>
+        <tag>APK</tag>
+        <tag>技术日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MMD教程系列01-如何建造一个镂空的多边体</title>
+    <url>/posts/14648/</url>
+    <content><![CDATA[<p>&emsp;&emsp;最近在到处水群的时候，看到了一位热衷于复刻PJSK的MV的群友<a class="link"   href="https://space.bilibili.com/104696950" >诺耶耶<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>。在做MMD的时候遇到了一些小问题，所以我去试了试，然后感觉还不错，然后写了这个做镂空多边体的教程。请注意，此处并不是真正意义上的镂空，而是伪造的，所以当你使用某些会把透明通道关闭的渲染时，会穿帮。</p>
+<hr>
+<h2 id="STUFF："><a href="#STUFF：" class="headerlink" title="STUFF："></a>STUFF：</h2><h3 id="TOOL："><a href="#TOOL：" class="headerlink" title="TOOL："></a>TOOL：</h3><p>&emsp;&emsp;1、Metasequoia4_Ver.4.8.3b<br>&emsp;&emsp;2、GIMP_Ver_2.10.34<br>&emsp;&emsp;3、MikuMikuDance_Ver_926<br>&emsp;&emsp;4、PmxEditor_0273</p>
+<h3 id="MODEL"><a href="#MODEL" class="headerlink" title="MODEL:"></a>MODEL:</h3><p>&emsp;&emsp;ぴるら式星界&emsp;&emsp;modeler: PilouLaBaka</p>
+<hr>
+<h2 id="如何建造一个镂空的多边体"><a href="#如何建造一个镂空的多边体" class="headerlink" title="如何建造一个镂空的多边体"></a>如何建造一个镂空的多边体</h2><h3 id="模型建造篇"><a href="#模型建造篇" class="headerlink" title="模型建造篇"></a>模型建造篇</h3><p>&emsp;&emsp;首先我在Metasequoia4里面建造了一个块块，然后选择一侧顶点放在一起，为什么没有合并呢，因为这样建造完他的UV还是一个方块，不是三角形，这样我画贴图就会很方便。至于为什么是Metasequoia4呢，是因为我用习惯了，包括导出UV贴图等，可以根据自己情况选择，比如PE的创建简易物体，然后用UV导出插件导出一张UV，此处记着UV图必须是带透明通道的格式。具体步骤见下：</p>
+<h3 id="视频版"><a href="#视频版" class="headerlink" title="视频版"></a>视频版</h3><iframe src="https://www.acfun.cn/player/ac43645857" width="768" height="432" frameborder="0" allowfullscreen></iframe>
+
+<h3 id="图文版"><a href="#图文版" class="headerlink" title="图文版"></a>图文版</h3><p>&emsp;&emsp;第一步：打开Metasequoia4。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/PfRNyJgxOUB6971.jpg"
+                      alt="1.jpg"
+                ><br>&emsp;&emsp;第二步：选择 <em><strong>“基本图形”</strong></em> ，在新打开的窗口中选择 <em><strong>“立方体”</strong></em> ，点击 <em><strong>生成</strong></em>。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/P6D7oYLsu4gGcQX.jpg"
+                      alt="2.jpg"
+                ><br>&emsp;&emsp;第三步：选择一侧顶点（图中绿色的顶点），选择缩放，在新打开的窗口中输入 <em><strong>0</strong></em> ，点击 <em><strong>OK</strong></em>。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/xZFLY7eE91DRpCn.jpg"
+                      alt="3.jpg"
+                ><br>&emsp;&emsp;然后就可以得到一个四棱锥。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/LgrykZiVSXFDzhJ.jpg"
+                      alt="4.jpg"
+                ><br>&emsp;&emsp;第四步：点击 <em><strong>左上角</strong></em> 那个 <em><strong>模型（字符）</strong></em> 大框框，在下拉选框中选择 <em><strong>导出UV贴图</strong></em> ，然后点击 <em><strong>展开</strong></em> ，之后大概率能够得到一个绿色的四边形和你的四棱锥，如果没有，在 <em><strong>视图窗的左上角选中展开图和物体</strong></em> ，如图中 <em><strong>第一步的文字提示下面的那个彩色框</strong></em>中所示。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/a5PSrjHRbTg76lF.jpg"
+                      alt="5.jpg"
+                ><br>&emsp;&emsp;第五步：点击 <em><strong>UV操作</strong></em> ，选择 <em><strong>输出UV线图</strong></em>。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/3oNX9TRSdnr7tQh.jpg"
+                      alt="6.jpg"
+                ><br>&emsp;&emsp;第六步：在新打开的窗口中输入UV图的长和宽，建议与贴图一致，不然之后很麻烦，然后选中文件，指定路径保存即可。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/gMHahxfku9tSPvm.jpg"
+                      alt="7.jpg"
+                ><br>&emsp;&emsp;第七步，点击 <em><strong>文件</strong></em>，选择 <em><strong>另存为</strong></em>，保存类型选择 <em><strong>.pmd</strong></em>，此时要注意你的pmd文件必须 <em><strong>与刚才导出的UV图处于同一文件夹下</strong></em>。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/yVYMTgGuiceAxEb.jpg"
+                      alt="8.jpg"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/dLc2fRKBDOCrikx.jpg"
+                      alt="9.jpg"
+                ><br>&emsp;&emsp;然后你就可以得到以下文件。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/FZDElRVxfGN6KBW.jpg"
+                      alt="10.jpg"
+                ></p>
+<h3 id="贴图处理篇"><a href="#贴图处理篇" class="headerlink" title="贴图处理篇"></a>贴图处理篇</h3><p>&emsp;&emsp;此处重点是将导出的UV贴图处理成一个框框，建议看视频版教程，图片版我不写了，用UV贴图作为基础修改是因为这样后期只需要重新指定一下材质的贴图路径就好，不需要做UV上的修改。中间记着得是透明的，所以处理后保存时文件类型必须是带透明通道的，如bmp，png等，所以这一步你用美图秀秀做出来一个框也是一样的效果。</p>
+<h3 id="视频版-1"><a href="#视频版-1" class="headerlink" title="视频版"></a>视频版</h3><iframe src="https://www.acfun.cn/player/ac43645838" width="768" height="432" frameborder="0" allowfullscreen></iframe>
+
+<h3 id="模型处理篇"><a href="#模型处理篇" class="headerlink" title="模型处理篇"></a>模型处理篇</h3><p>&emsp;&emsp;此处是将我们的模型变成镂空的。</p>
+<h3 id="视频版-2"><a href="#视频版-2" class="headerlink" title="视频版"></a>视频版</h3><iframe src="https://www.acfun.cn/player/ac43645829" width="768" height="432" frameborder="0" allowfullscreen></iframe>
+
+<h3 id="图文版-1"><a href="#图文版-1" class="headerlink" title="图文版"></a>图文版</h3><p>&emsp;&emsp;第一步：用PE打开刚才导出的PMD，会发现一片白，连坐标轴都看不见。没关系，不要介意。首先我们在PmxView窗口中选择 <em><strong>显</strong></em>，然后点击 <em><strong>背景色旁边的白色的框</strong></em>，然后在新打开的窗口选择一个自己喜欢的颜色（此处建议对比度高一点，比如深色系），点击 <em><strong>确定</strong></em>。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/HmIqOwR7DcYFMyL.jpg"
+                      alt="1.jpg"
+                ><br>&emsp;&emsp;第二步：把整个模型缩小，用插件也行，直接顶点缩放也行，反正没刚体没J点，你想怎么缩放怎么缩放，但是此时模型应该是比较大的，缩放应该在0.1倍左右才算正常，具体大小你自己看看吧，按照自己所需要的缩放就成。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/ueqhCSLBHnMroY9.jpg"
+                      alt="2.jpg"
+                ><br>&emsp;&emsp;第三步：在 <em><strong>Pmx编集</strong></em> 窗口下 <em><strong>材质</strong></em>一栏中，将我们刚从处理好的贴图赋予材质（在tex那里输入我们刚处理好的贴图的文件名即可，如下图）<br>&emsp;&emsp;此时，我们的模型就变成透明的了。但是有一个问题，只能透过一边，看不见对面的，怎么办呢，此时在描绘那里打开 <em><strong>双面描绘</strong></em> 就解决了！然后保存为pmx即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/aAsMIjkoDbpXdcq.jpg"
+                      alt="3.jpg"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/26/tFDMydbiju4AqeS.jpg"
+                      alt="4.jpg"
+                ><br>&emsp;&emsp;这样，我们就做好了一个（伪）镂空的四棱锥，其余的也是同理，只不过在处理UV那里就不太一样了，下面的视频是对复杂模型镂空化的处理。但是，注意到其实他这个透明处理的不太行，这边其实更建议用SAI2做这个透明通道，SAI2中可以直接选择明度转换到透明度，就很方便。最后如果有不正常透过关系，记着调材质顺序。</p>
+<iframe src="https://www.acfun.cn/player/ac43642417" width="768" height="432" frameborder="0" allowfullscreen></iframe>]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>MMD 教程</category>
+        <category>MMD教程系列</category>
+      </categories>
+      <tags>
+        <tag>MMD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>APK技术日常03—APK的再打包与签名</title>
+    <url>/posts/15022/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;此处的apk的再打包是指之前教程中所拆解出来的apk文件的打包，如果是自己做的文件，不确定是否适用。而签名则是相当于对apk文件的认证，不签名则无法安装。</strong></em></p>
+<hr>
+<h2 id="打包步骤"><a href="#打包步骤" class="headerlink" title="打包步骤"></a>打包步骤</h2><p>&emsp;&emsp;首先在你需要打包的文件的上一级目录下，打开CMD，运行以下命令</p>
+<pre><code>apktool b &lt;folderPath&gt; -o folder&#39;s name.apk
+</code></pre>
+<p>&emsp;&emsp;这个命令的意义在于将 <em><strong>&lt; floderpath &gt;</strong></em> 这个文件夹打包为以这个文件夹名为文件名的apk文件。<br>&emsp;&emsp;比如此时我的文件结构为：<br>&emsp;&emsp;&emsp;&emsp;&emsp;E:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─ apktool（需要打包的文件夹的上一级目录）<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─pose-monitor-release（需要打包的文件夹）<br>&emsp;&emsp;所以此时我就需要在apktool文件夹下运行cmd，运行命令：</p>
+<pre><code>apktool b pose-monitor-release -o pose-monitor-release.apk
+</code></pre>
+<p>&emsp;&emsp;这样就会把pose-monitor-release这个文件夹打包成一个名为pose-monitor-release的apk文件，当出现如下图所示的信息时即为打包成功。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/WMcSA1CfyBxoQPl.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;之后你就可以看到你打包好的apk文件了（如果在需要打包的目录的同一级目录下没有找到，那就到需要打包的文件夹下的 <em><strong>build</strong></em> 文件夹下查看。</p>
+<hr>
+<h2 id="签名APK"><a href="#签名APK" class="headerlink" title="签名APK"></a>签名APK</h2><h3 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h3><p>&emsp;&emsp;<a class="link"   href="https://mt2.cn/" >MT管理器<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>&emsp;&emsp;首先，在MT管理器中找到要处理的文件（可以用右上角三个点搜索）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/2IMwYcCarh6A35z.jpg"
+                      alt="目录.jpg"
+                ><br>&emsp;&emsp;为了确认，我点了一下，看了下详细信息<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/cwsQYWACzPfxHpm.jpg"
+                      alt="详细信息.jpg"
+                ><br>&emsp;&emsp;然后长按，选择签名<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/SjQrmH6Nylqsoue.jpg"
+                      alt="菜单.jpg"
+                ><br>&emsp;&emsp;签名秘钥可以选默认，也可以选自定义（如果你会的话），方案选择V1+V2（如果有报错，试试其他的方案）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/xtmzhCZG1BaVRd4.jpg"
+                      alt="签名选择.jpg"
+                ><br>&emsp;&emsp;此时大概率会有以下两种提示<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/hXrMAptilO5vInG.jpg"
+                      alt="报错（权限）.jpg"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/x4AQF5uOVvaw9Cz.jpg"
+                      alt="报错（权限2）.jpg"
+                ><br>第一个发送通知点允许就好，这个是为了出现第二个提示。第二个提示随便点就好，没什么影响。<br>&emsp;&emsp;等到进度条走完<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/iMkVmHRYeN2uFbr.jpg"
+                      alt="进度条.jpg"
+                ><br>&emsp;&emsp;会出现一个新的文件<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/2QGXdAOqCFN5tkv.jpg"
+                      alt="生成文件.jpg"
+                ><br>&emsp;&emsp;第一个那个不是绿色的文件就是。至此，签名完成，可以自己试着安装。</p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;签名后如果产生报错，可以换个签名方式。V1，V2，V3其实对应着不同的安卓版本，自己看就好，还有一种签名方式就是使用JAVA的keytool，但是我忘了我的秘钥，具体可以自行百度。我觉得用MT最简单~~~</p>
+]]></content>
+      <categories>
+        <category>某些技术日常</category>
+        <category>APK修改系列</category>
+      </categories>
+      <tags>
+        <tag>APK</tag>
+        <tag>技术日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安歌的动作使用指南</title>
+    <url>/posts/40366/</url>
+    <content><![CDATA[<p>&emsp;&emsp;<em><strong>欢迎各位使用动作数据<br>&emsp;&emsp;本动作源于游戏&emsp;<a class="link"   href="https://pjsekai.sega.jp/" >《世界计划 彩色舞台 feat. 初音未来》<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>，故日语用户请谨慎使用。<br>&emsp;&emsp;使用愉快！建议配合视频版食用</strong></em></p>
+<hr>
+<h2 id="STUFF"><a href="#STUFF" class="headerlink" title="STUFF"></a>STUFF</h2><p>&emsp;&emsp;<em><strong>使用到的模型：</strong></em> <br>&emsp;&emsp;<em><strong>Sour式初音ミクVer.1.02_by_Sour暄</strong></em> <br>&emsp;&emsp;<em><strong>使用到的PMXEditor版本</strong></em> <br>&emsp;&emsp;<em><strong>PmxEditor_0257</strong></em></p>
+<hr>
+<h2 id="步骤一："><a href="#步骤一：" class="headerlink" title="步骤一："></a>步骤一：</h2><p>&emsp;&emsp;首先，在PE中打开你所需要修改的模型。<br>&emsp;&emsp;此处使用Sour式初音ミクVer.1.02_by_Sour暄作为示范<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/1TSad5RqlpEysfw.png"
+                      alt="image1.png"
+                ><br>&emsp;&emsp;首先，将<em><strong>下半身</strong></em>顺序移动至<em><strong>上半身</strong></em>上方，并且将<em><strong>上半身</strong></em>亲骨改为<em><strong>下半身</strong></em><br><br><br>&emsp;&emsp;如图所示<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/gDFY9iHQ5tWC7dJ.png"
+                      alt="image2.png"
+                ><br>&emsp;&emsp;其次，将<em><strong>腰，グルーブ，センター</strong></em>三个骨骼调整至与下半身处于同一位置<br>&emsp;&emsp;如图所示<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/Z8jdHyNaCJuUkxf.png"
+                      alt="image3.png"
+                ><br></p>
+<hr>
+<h2 id="步骤二："><a href="#步骤二：" class="headerlink" title="步骤二："></a>步骤二：</h2><p>&emsp;&emsp;将模型修正为<em><strong>T—POSE</strong></em><br><br>&emsp;&emsp;打开T窗，将模型修改为<em><strong>T—POSE</strong></em>，建议调整骨骼<em><strong>肩P</strong></em>与<em><strong>肩C</strong></em>，若无，可替换为<em><strong>肩</strong></em>与<em><strong>腕</strong></em>，此处大致认为肩与胳膊处于水平状态即可，不必过分要求度数<br><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/ZH2hIoz7TbfLmle.png"
+                      alt="image4.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/OIGXqKiFUAhVpLR.png"
+                      alt="image5.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/MEaCtSTz2rceiUp.png"
+                      alt="image6.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/agw3NnFz8bRBlSy.png"
+                      alt="image7.png"
+                ><br><br>&emsp;&emsp;点击OK即可，等待进度条走完即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/DVPWl7rdSTc6Azb.png"
+                      alt="image8.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/QGVnM8beWjCdER6.png"
+                      alt="image9.png"
+                ><br><br>&emsp;&emsp;最后保存即可</p>
+<hr>
+<h2 id="视频版教程"><a href="#视频版教程" class="headerlink" title="视频版教程"></a>视频版教程<br></h2><div style="position:relative; width:100%; height:0; padding-bottom:75%;">
+<iframe src="//player.bilibili.com/player.html?aid=622141662&bvid=BV1Eb4y157F2&cid=1366083295&p=1" 
+scrolling="no" border="0" frameborder="no"  framespacing="0"  
+style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
+</div>]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>MMD 教程</category>
+        <category>PJSK动作类</category>
+      </categories>
+      <tags>
+        <tag>PJSK</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MME教程系列01—AutoLuminous4的超详细使用教程</title>
+    <url>/posts/6e81bfe7/</url>
+    <content><![CDATA[<p>&emsp;&emsp;我又来了，这次是AutoLuminous4的超详细用法！比B站那个还详细（确信）在这里写写，然后我就不发到B站了，大致看看吧。然后就是，其实在这里写到的所有效果，在そぼろ的ReadMe文件中都有写到。</p>
+<hr>
+<h2 id="STUFF"><a href="#STUFF" class="headerlink" title="STUFF"></a>STUFF</h2><h3 id="MODEL"><a href="#MODEL" class="headerlink" title="MODEL"></a>MODEL</h3><p>&emsp;&emsp;◆Sour式初音ミクVer.1.02◆<br>&emsp;&emsp;製作者&#x2F;Modeller：Sour暄</p>
+<h3 id="POSE"><a href="#POSE" class="headerlink" title="POSE"></a>POSE</h3><p>&emsp;&emsp;Ponx-迫奈熏</p>
+<h3 id="MME"><a href="#MME" class="headerlink" title="MME"></a>MME</h3><h3 id="Main"><a href="#Main" class="headerlink" title="Main"></a>Main</h3><p>&emsp;&emsp;&emsp;&emsp;発光エフェクト<br>&emsp;&emsp;&ensp;AutoLuminous Ver.4.2<br>&emsp;&emsp;&emsp;&emsp;&ensp;製作：そぼろ</p>
+<h3 id="APPEND"><a href="#APPEND" class="headerlink" title="APPEND"></a>APPEND</h3><p>&emsp;&emsp;splitview_v01<br>&emsp;&emsp;製作者：データP<br>&emsp;&emsp;Diffusion<br>&emsp;&emsp;製作者：そぼろ</p>
+<h3 id="TOOL"><a href="#TOOL" class="headerlink" title="TOOL"></a>TOOL</h3><p>&emsp;&emsp;1、VSCode<br>&emsp;&emsp;2、MikuMikuDance<br>&emsp;&emsp;3、PmxEditor</p>
+<hr>
+<h2 id="某些缩写："><a href="#某些缩写：" class="headerlink" title="某些缩写："></a>某些缩写：</h2><pre><code>AutoLuminous4=AL、AL4（4为大版本，即Ver.4.x，本教程为Ver.4.2）
+ReadMe=RM
+MikuMikuDance=MMD
+PmxEditor=PE
+</code></pre>
+<hr>
+<h2 id="MME介绍"><a href="#MME介绍" class="headerlink" title="MME介绍"></a>MME介绍</h2><p>&emsp;&emsp;AL是由そぼろ为MMD所制作的一款基础性的插件，可以为符合AL标准要求的模型提供发光的效果。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/31/oeK6ntRiUdC9SrF.png"
+                      alt="加入对比.png"
+                ><br>&emsp;&emsp;AL目前已经更新到第四代，即AutoLuminous_ver4.2.本教程基于本AL版本下所编写，若有不同，请自行参照ReadMe文件或是下载最新版。</p>
+<h3 id="下载指路："><a href="#下载指路：" class="headerlink" title="下载指路："></a>下载指路：</h3><p>&emsp;&emsp;<a class="link"   href="https://onedrive.live.com/?authkey=Arbitrary&id=EF581C37A4524EDA!107&cid=EF581C37A4524EDA" >そぼろ的配布站点<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<hr>
+<h2 id="基础篇"><a href="#基础篇" class="headerlink" title="基础篇"></a>基础篇</h2><p>&emsp;&emsp;AL的开放度极高，一般情况下都可以做到随载随用，所以本章节教程尽量不涉及模型的修改，代码层面的修改等，尽量在MMD主体以及MME插件下做简单讲解。</p>
+<h3 id="文件介绍"><a href="#文件介绍" class="headerlink" title="文件介绍"></a>文件介绍</h3><p>&emsp;&emsp;当我们下载好AL，并且全部解压之后，可以获得如下文件（如果是乱码建议换个可以改编码的压缩器）</p>
+<pre><code>AutoLuminous4
+│  AL_Object.fxsub
+│  AutoLuminous.fx
+│  AutoLuminous.png
+│  AutoLuminous.x
+│  AutoLuminous.xml
+│  AutoLuminousBasic.fx
+│  AutoLuminousBasic.x
+│  Readme.txt
+│  Readme上級編.txt
+│  
+├─Options
+│       AL_BlackMask.fxsub
+│       AL_Test.x
+│       AL_Texture.fxsub
+│       AutoLuminousSetter.zip
+│       full_saturate.fx
+│       LightSampling.fx
+│       LightSampling.x
+│       ToneCurve.x
+│       白背景.x
+│       追加UV一括設定スクリプト.cx
+│       黒背景.x
+│      
+└─Samples
+        Sample1.x
+        Sample2.pmd
+        Sample3.pmx
+        Sample4.pmx
+        Sample5.pmx
+        Sample6.pmx
+        Sample6.png
+</code></pre>
+<p>&emsp;&emsp;其中AutoLuminous.x与AutoLuminousBasic.x是我们重点使用的文件，而AutoLuminousBasic.x是AutoLuminous.x的阉割版，前者没有后者那样的开放度，如：前者x，y，z参数等没有办法调整，发光只能发出白光等。故下文所有教程都是建立于AutoLuminous.x这一版本上。</p>
+<h3 id="MMD内附件控制参数介绍"><a href="#MMD内附件控制参数介绍" class="headerlink" title="MMD内附件控制参数介绍"></a>MMD内附件控制参数介绍</h3><p>◆&ensp;Si参数讲解<br>&emsp;&emsp;Si是指发光强度，对比如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/31/sJm2BZ8cgwzVMAo.png"
+                      alt="SI对比.png"
+                ><br>◆&ensp;Tr参数讲解<br>&emsp;&emsp;此处借用原作者的话</p>
+<pre><code>原文：
+    ・Tr: ぼかし強度
+
+    発光部分のぼかしの強さを指定します。
+    大きくすることはできません。
+    これは、もともとのぼかし強度がかなり大きく設定されているためです。
+    それでも大きくしたい場合はエフェクトの直接編集が必要です
+译文：
+    Tr：模糊强度。
+    
+    指定发光区域的模糊强度。
+    不能增加。
+    这是因为原始模糊强度设置得相当高。
+    如果还想增加，则需要直接编辑效果。
+</code></pre>
+<p>&emsp;&emsp;对比如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/MxLSvQDW9pdCzKw.jpg"
+                      alt="tr对比.jpg"
+                ><br>◆&ensp;X参数讲解<br>&emsp;&emsp;X为炫光的光芒数，请注意，光芒数是以2倍关系存在的，比如你输入x&#x3D;1，则会有2条光芒，以此类推，并且，当你光芒数增加时，亮度也会提升，同时对于电脑的渲染压力也会增大。对比如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/dmqjgWPnCvNVUbY.jpg"
+                      alt="X对比.jpg"
+                ><br>◆&ensp;Y参数讲解<br>&emsp;&emsp;Y参数掌控原始亮度，调节范围在-100到100之间。对比如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/gJcvdMmSoIpl16L.jpg"
+                      alt="Y对比.jpg"
+                ><br>◆&ensp;Z参数讲解<br>&emsp;&emsp;Z参数实际上就是更加精细的Si参数，此处借用作者的话：  </p>
+<pre><code>原文：
+    ・Z: 発光強度
+
+    値の指定方法が違うだけで、効果はSiと同じです。
+    適正範囲は -100～500 程度です。
+    -100でSi=0と、100でSi=2と同じ効果があります。
+    ダミーボーンから発光強度を操作したい場合を想定しています。
+译文：
+    Z：发光强度。
+
+    效果与 Si 相同，只是指定值的方法不同。
+    合适的范围是 -100 至 500。
+    效果与 Si=0 时的 -100 和 Si=2 时的 100 相同。
+    假设您想操作假骨的发光强度。
+</code></pre>
+<p>◆&ensp;Rx参数讲解<br>&emsp;&emsp;Rx是光芒的角度，只有当x≠0时（即光芒启用时），此数据才可以生效，对比如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/vd1OKrLckwVYheZ.jpg"
+                      alt="Rx对比.jpg"
+                ><br>◆&ensp;Ry参数讲解<br>&emsp;&emsp;Ry是改变光芒的长度，作者建议的范围在-100~100，太长会出现条纹，对比如下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/vswaVkr4ELWzJN9.jpg"
+                      alt="0.jpg"
+                ><br>&emsp;&emsp;<del>(我好像没咋看出0和100的区别，可能是透明通道的锅，MMD里面挺明显)</del> <br>下面是Ry&#x3D;400，就有很明显的条纹了，但是我加了个Diffusion，会稍微好一点，短范围内可以试试？（第一个图没有加Diffusion，第二个图加了）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/oBECcgNZifldxSI.jpg"
+                      alt="400.jpg"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/Z8mOLzsX4hHoeRD.jpg"
+                      alt="400+Diffusion.jpg"
+                ><br>◆&ensp;Rz参数讲解<br>&emsp;&emsp;这个参数就是用来kirakira的闪（呼唰呼唰~~~~~）， 输入的值是以秒为单位的闪烁周期。正数表示正弦波闪烁，负数表示方波闪烁。0代表不闪烁，绝对值越小闪的越快<br> <del>（这个就不配图了吧，MarkDown配GIF有点麻烦的说）</del><br> <del>（嘴上说着，还是配了）</del><br>&emsp;&emsp;这个是Ry&#x3D;1的<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/RcEXBp1sQeHTlDv.gif"
+                      alt="1.gif"
+                ><br>&emsp;&emsp;这个是Ry&#x3D;0.1的<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/fIb3WEJZF6H2jwc.gif"
+                      alt="0.1.gif"
+                ><br>&emsp;&emsp;这个是Ry&#x3D;-1的<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/mN3bFJIK81BdDAt.gif"
+                      alt="-1.gif"
+                ><br>&emsp;&emsp;这个是Ry&#x3D;-0.1的<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/lvxq9ZHbB4pP3Xt.gif"
+                      alt="-0.1.gif"
+                ><br>&emsp;&emsp;<del>(不知道0.1和-0.1能不能看出来差别，应该可以。。)</del><br>&emsp;&emsp;可以将坐标轴系改成附件来修改更加随意的效果，X,Y,Z对应的移动，Rx，Ry，Rz对应的是转动。更改控制类型的方法：在图示红框内连续点击，会有三个参数：</p>
+<pre><code>1、LOCAL：轴坐标系，会根据你骨骼的预定轴向为坐标系
+2、GLOBAL：世界坐标系，轴向严格按照上下Y，左右X，前后Z的方向
+3、ACCESSORY：附件控制状态，此时拖拽X，Y，Z或者Rx，Ry，Rz将会改变附件编辑框内的数据
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/IuUTd9ygOqWj2Em.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h3 id="MME特效分配栏参数讲解"><a href="#MME特效分配栏参数讲解" class="headerlink" title="MME特效分配栏参数讲解"></a>MME特效分配栏参数讲解</h3><p>&emsp;&emsp;当我们加入AL之后，在MME窗口会出现下面这一栏<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/Prc3JW7nFYXMiZT.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;这一栏便是AL的特效分配栏，其中White.pmx是我们模型的文件名。而后面那一大串路径，是我们的特效文件。之前听过这样一个比喻：.x文件，.fx文件，.fxsub文件，三者的关系就像胶囊一样。x文件是胶囊外面那层皮，fx文件是里面的药，fxsub文件是模型的特异性受体。一般情况下，x文件不是真正起作用的，起作用的是fx文件，二者一般要搭配使用。而单独有效的x文件，比如B站MMD十周年教程里的screen.x，这种就类似于药片，x文件自己有效。对于模型的fxsub文件，相当于特异性受体，有了，可以对模型进行调控，没有，有时候也可以用fx直接强力打击。（不知道能不能看懂）<br>&emsp;&emsp;此时，AL_Object.fxsub调控我们模型，该发光的发光，不该发光的不要发光。当我们去除掉这一个分配，就会和下图一样，整个模型都亮起来了：<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/I1kmuBwxqFGMsvR.png"
+                      alt="正常分配.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/IbQHmZVpE8hSwzn.png"
+                      alt="解除分配.png"
+                ><br>&emsp;&emsp;如果我们把前面的勾选去掉，就会发不了光：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/OVjYgh7pZ4iluJk.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;其余的相关挂载分配见下表（我常用的）：</p>
+<pre><code>AL_Object.fxsub：正常
+AL_BlackMask.fxsub：取消发光，和取消勾选一个结果
+AL_Texture.fxsub：局部纹理高强度发光，详见下文
+</code></pre>
+<h3 id="故障排除"><a href="#故障排除" class="headerlink" title="故障排除"></a>故障排除</h3><p>&emsp;&emsp;此处借用作者的方法：</p>
+<pre><code>出现错误，无法运行。
+    →检查 MME 是否为 0.27 或更高版本。
+    →再次尝试下载。
+    →不幸的是，您的 grabo 很可能与之不兼容。
+
+错误未出现，但无法正常工作。
+    →请检查是否只使用样本和 AutoLuminous 就能正常工作。
+    →检查 AutoLuminous.x 的位置、大小等是否为异常值。
+    → 再次尝试下载。
+    →不幸的是，很有可能抓取器不兼容。
+    →如果您怀疑存在错误，请在 Twitter 等网站上报告。
+
+材质变形无法反映。
+    →由于 MME 规范的原因，变形后的颜色无法正常获取。
+    自 3.5 版起，镜面反射强度和 Alpha 会被反映。
+    在 MMM 中，可以使用材质变形。
+
+太重，无法正常工作。
+    →尝试编辑效果并将 HALF_DRAW 设置为 1。
+    图像质量会下降，但会更轻。
+    编辑效果并将 HDR_RENDER 设置为 0。
+    功能会受到限制，但图像会变得更亮。
+    尝试减少采样次数。
+    尝试 AutoLuminousBasic。
+    考虑替换 ObjectLuminous 或 KeyLuminous。
+    更换 PC 或抓取器。
+
+不想发光的部分会自行发光。
+    如果添加的球体发光，请将模型添加到选项文件夹中
+    将选项文件夹中的 full_saturate.fx 应用于模型。
+    在 &quot;MME 分配 &quot;选项卡中选择 AL_EmitterRT、
+    将 &quot;AL_BlackMask.fx &quot;分配给不想发光的模型。
+    编辑效果并将 HDR_RENDER 设置为 0。
+    将 &quot;KEYCOLOR_NUM &quot;设为 0 以关闭关键色彩发射功能。
+
+如何编辑配件？
+    用记事本打开 X 文件，直接调整数值。
+    用记事本打开 X 文件，直接调整数值...
+    自述文件的高级部分添加了关于在 PMDE 中编辑附件的内容。
+</code></pre>
+<h3 id="恭喜你-基础篇到此完结"><a href="#恭喜你-基础篇到此完结" class="headerlink" title="恭喜你~ 基础篇到此完结~"></a>恭喜你~ 基础篇到此完结~</h3><hr>
+<h2 id="高级篇"><a href="#高级篇" class="headerlink" title="高级篇"></a>高级篇</h2><p>&emsp;&emsp;欢迎来到AL的进阶教程！在此篇中，默认你已经会了PE的所有基础教程，并且，熟练掌握各种可以正确修改fx的软件（例如，VSCode，EveryEditor等等），就让我们开始愉快的AL的进阶之旅吧。注：本教程内AL的所有参数均为初始参数，不做任何修改，修改的仅仅是模型。</p>
+<h3 id="扒扒示例内容的底裤"><a href="#扒扒示例内容的底裤" class="headerlink" title="扒扒示例内容的底裤"></a>扒扒示例内容的底裤</h3><p>&emsp;&emsp;首先让我们看看そぼろ様为我们准备了写什么好玩的例子</p>
+<pre><code>Samples：
+        Sample1.x
+        Sample2.pmd
+        Sample3.pmx
+        Sample4.pmx
+        Sample5.pmx
+        Sample6.pmx
+        Sample6.png
+样品 1.
+    一个涂有四种不同颜色的球。
+    球的蓝色和粉色部分被设置为发光。
+
+样本 2
+    PMD 版本的样本。
+    绿色和黄色被指定为发光颜色。
+    您可以尝试使用变形来控制面部表情。
+
+样本 3
+    PMX 版本的样本。 这是一个灰色立方体。
+    可以测试 2.0 版的新功能，如顶点发射。
+
+样本 4.
+    PMX 版本的样本。 多板多边形。
+    您可以测试顶点发射中的色调变形和 3.0 以来的其他新功能。
+    您还可以通过材质变形测试发射强度的变化。
+
+样本 5.
+    这是 PMX 版本的样本。 小球呈螺旋状排列。
+    您可以使用 AutoLuminouSetter 测试复杂的顶点发射。
+
+样本 6.
+    这是自 4.0 版起新增的发射序列控制示例。
+    同名的 PNG 文件是一个球形样本。
+    您还可以尝试 4.0 中的其他变形。
+</code></pre>
+<h3 id="附加UV参数讲解"><a href="#附加UV参数讲解" class="headerlink" title="附加UV参数讲解"></a>附加UV参数讲解</h3><pre><code>附加 UV1。
+　X：0.2，Y：0.7
+　　表示这是 AutoLuminous 的附加 UV 数据的识别码。
+　　该值为固定值。
+
+　Z：闪烁周期
+　　以秒为单位指定闪烁周期。
+    负值会导致方波闪烁。
+
+　W：标志
+    指定标志。 从以下项目中添加所需的项目。
+    曲面的所有顶点的该值必须相等。
+
+　    　-数字 1：纹理模式。
+　    　　0：标准（纹理乘法）
+　　　1：无纹理乘法。
+　　　2：高强度提取，如果为 UV2 指定了（1,1,1,1,1），则相当于 AL_Texture。
+　　10 位数字：色彩模式。
+　　　00：标准（RGB 规格）
+　　　10 : 将 UV2 的 XYZ 从 RGB 改为 HSV。
+附加 UV2
+　X：红色，Y：绿色，Z：蓝色
+　　指定发射颜色。
+
+　W：发光强度
+　　指定发光强度。 标准值为 1。
+
+
+附加 UV3
+　X：纹理颜色减法。
+　　该值从纹理颜色中减去，如果小于 0 则四舍五入为 0。
+
+　Y：闪烁阶段
+　　以秒为单位指定闪烁阶段。
+
+　Z：弹出式
+　　按指定值将发光部分向正常方向推出。
+　　此功能可用于隐藏发光对象。
+</code></pre>
+<h3 id="扒扒示例3的底裤（可以看到顶点发光以及闪烁的顶点发光）"><a href="#扒扒示例3的底裤（可以看到顶点发光以及闪烁的顶点发光）" class="headerlink" title="扒扒示例3的底裤（可以看到顶点发光以及闪烁的顶点发光）"></a>扒扒示例3的底裤（可以看到顶点发光以及闪烁的顶点发光）</h3><p>&emsp;&emsp;3的特殊之处在于，明明是是一个灰色的块块，四个顶点颜色不一样，还有一个角在闪，神奇的呢。（本节是一个大块，根据标题可以看到，本节是顶点发光有关<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/17AIfUpokqycwiB.gif"
+                      alt="示例3.gif"
+                ><br>&emsp;&emsp;打开PE看看参数，映入眼帘的就是 <em><strong>追加UV:3</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/spPrqSJlynKfamN.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;再结合そぼろ様的论述：PMX 版本的样本。 这是一个灰色立方体。可以测试 2.0 版的新功能，如顶点发射。<br>&emsp;&emsp; <del>顶点发射是虾米？？？？我怎么不知道？？？？我在RM怎么没有找到！！小事啦~ 现在我们可就不能光停留在RM的初级版本，我们应该升升级，看看 <em><strong>Readme上級編.txt</strong></em> 这个RM啦。</del><br>&emsp;&emsp;そぼろ様曾云：PMXのみ、追加UVを用いて頂点ごとの発光制御を行うことができます。材質指定より柔軟に設定できますが、改造やデータ管理は煩雑になります。<br>&emsp;&emsp;意思就是:只有 PMX 允许使用附加 UV 对每个顶点进行发射控制。这样的设置比材料规格更为灵活，但修改和数据管理更为复杂。<br>&emsp;&emsp;由此我们可以得出，只要在PE里面对模型设置好有关的数值，那么我们也可以这样玩~~这样我们就来PE实操一下吧。<br>&emsp;&emsp;首先，根据そぼろ様在RM中写到：</p>
+<pre><code>附加 UV1。
+　X：0.2，Y：0.7
+　　表示这是 AutoLuminous 的附加 UV 数据的识别码。
+　　该值为固定值。
+</code></pre>
+<p>&emsp;&emsp;那么也就是说，当某顶点追加UV1的数值中X：0.2，Y：0.7就说明这个是与AL有关的顶点。那么我们来看看，示例3中有哪些是带有AL的“身份证”的呢。导出一份顶点CSV，可以看到<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/P59Ei7L1jskWa6B.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;4、5、6、7、11、14、23这几个顶点的追加UV1_x,追加UV1_y，都是0.2和0.7的身份代码。那就说明这几个顶点和AL有关，现来看看那个会闪红光的角角吧。分别是11、14、23都是那个角上的三个面的顶点，他们的追加UV1_z,追加UV1_w都是2和0，这两个数据代表的是闪烁和标志，相关解释看上面。<br>&emsp;&emsp;然后，看看追加UV2的参数吧。哇！神奇诶！他们的追加UV2_x,追加UV2_y,追加UV2_z,追加UV2_w的数值，都是0.8,0.03,0.02,1，前面三个是用来调节颜色的，后面一个是发光的倍率，默认要填1，把颜色参数输入到材质那里看看。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/X5s7tpQauMHNfom.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;红不红！！！过年就得喜庆点。这样看上去和发的光颜色一样呢（笑<br>&emsp;&emsp;再来看看追加UV3：0,0,0,0,0,好多0啊，为什么呢？因为UV3我们根本没用到啊~其实这个样子你到MMD里面已经成功了，可以发红光闪烁，其余颜色的话，在材质那里调节好颜色之后，把参数复制到UV2的XYZ里面就好，不想闪烁，就把附加UV1里面的Z填成0就好<br>&emsp;&emsp;但是，他只能发出来一种颜色啊，我们当然不满足于此，我们还要随心所欲 <del>mercy</del> 的修改颜色！！！！！！！<br>&emsp;&emsp;接下来，欢迎来到Sample4的世界！</p>
+<h3 id="扒扒示例4的底裤（可以看到色相修改，表情的使用）"><a href="#扒扒示例4的底裤（可以看到色相修改，表情的使用）" class="headerlink" title="扒扒示例4的底裤（可以看到色相修改，表情的使用）"></a>扒扒示例4的底裤（可以看到色相修改，表情的使用）</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/S2XHUNDFlKhuBLP.gif"
+                      alt="示例4.gif"
+                ><br>&emsp;&emsp;好欢快，开趴！！！！（懒了，写不动了咋办，碎碎念）</p>
+<h3 id="色相改变"><a href="#色相改变" class="headerlink" title="色相改变"></a>色相改变</h3><p>&emsp;&emsp;首先拆拆这个色相改变，继续用PE打开这个模型，顺手导出一份CSV。好嘛，开屏一张，追加UV:3<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/EfzTvauKMVblo2Y.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;看看追加，然后通过模型窗，找到我们可以改色相的顶点，老熟人4，5，6，7号<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/zpkr4AJ3Ms2HmZc.png"
+                      alt="image.png"
+                ></p>
+<pre><code>Vertex,4,-2,7,0.1,0,0,-1,1,0,0,0.2,0.7,0,10,1,1,1,0.5,0,0,0.2,0,0,0,0,0,0,&quot;センター&quot;,1,&quot;&quot;,0,&quot;&quot;,0,&quot;&quot;,0,0,0,0,0,0,0,0,0,0
+Vertex,5,2,7,0.1,0,0,-1,1,1,0,0.2,0.7,0,10,1,1,1,0.5,0,0,0.2,0,0,0,0,0,0,&quot;センター&quot;,1,&quot;&quot;,0,&quot;&quot;,0,&quot;&quot;,0,0,0,0,0,0,0,0,0,0
+Vertex,6,-2,3,0.1,0,0,-1,1,0,1,0.2,0.7,0,10,1,1,1,0.5,0,0,0.2,0,0,0,0,0,0,&quot;センター&quot;,1,&quot;&quot;,0,&quot;&quot;,0,&quot;&quot;,0,0,0,0,0,0,0,0,0,0
+Vertex,7,2,3,0.1,0,0,-1,1,1,1,0.2,0.7,0,10,1,1,1,0.5,0,0,0.2,0,0,0,0,0,0,&quot;センター&quot;,1,&quot;&quot;,0,&quot;&quot;,0,&quot;&quot;,0,0,0,0,0,0,0,0,0,0
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>追加UV1_x</th>
+<th>追加UV1_y</th>
+<th>追加UV1_z</th>
+<th>追加UV1_w</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0.2</td>
+<td>0.7</td>
+<td>0</td>
+<td>10</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;其中追加UV1的0.2，0.7没什么说的，但是，10呢？往上翻翻，10代表HSV，这个SHV是我们改变色相的关键。<br>&emsp;&emsp;继续来看追加UV2</p>
+<table>
+<thead>
+<tr>
+<th>追加UV2_x</th>
+<th>追加UV2_y</th>
+<th>追加UV2_z</th>
+<th>追加UV2_w</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>0.5</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;这个xyz好理解，但是为什么追加w是0.5？不是说标准值是1么？宝宝~ 是1没错，但是，咋也不能被规矩限死啊，看看1的下场。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/ZtDI5oY9CvjcOqU.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;好大的！！所以0.5就刚刚合适，懂了吧~<br>&emsp;&emsp;然后看看追加UV3</p>
+<table>
+<thead>
+<tr>
+<th>追加UV3_x</th>
+<th>追加UV3_y</th>
+<th>追加UV3_z</th>
+<th>追加UV3_w</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0</td>
+<td>0</td>
+<td>0.2</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;弹出是什么呢？其实就是法线方向的偏移量，来张图看看吧~<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/02/03/Tl2Bua6UCc4hSJn.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;眼睛好的小伙伴可以看出来，我把一个顶点改成1后，发光的部位就向前走了1个单位，就是这样。<br>&emsp;&emsp;接下来，就是制作表情~，制作UV表情的步骤建议自己搜搜，我懒了，其实更简单的办法就是，PE打开你要修改的模型，打开示例4，然后在示例4的色相表情上右键，复制，然后在你的要修改的模型那里粘贴，这是最简单的，然后把里面的顶点改成你修改过的就成。然后按照示例4的表情参数抄过去就成。</p>
+<h3 id="表情系列"><a href="#表情系列" class="headerlink" title="表情系列"></a>表情系列</h3><p>&emsp;&emsp;有两种方式，控制材质和控制顶点。其实这个在MMD内重点是名称匹配即可，对于顶点和材质都一样，所以，你做顶点表情，把要改的放进去与做材质表情，把要改的材质放过去，大差不差，只是控制的范围罢了，具体可以看看示例文件以及SOUR的模型。<br>&emsp;&emsp;关于表情，只要名字是以下的，并且在对应控制栏里面填对数据，就可以（比如材质的话，你要在表情控制的材质里面，把反射度开到100以上）(嫌自己一个一个做麻烦的话，可去找找Emil大佬的汉化版插件，当然，你用日语我不反对)</p>
+<pre><code>・LightUp
+・LightOff
+・LightBlink
+・LightBS
+・LightUpE
+・LightDuty
+・LightMin
+・LClockUp
+・LClockDown
+
+通过 &quot;LightUp &quot;和 &quot;LightOff &quot;可以调节灯光强度。
+LightUp &quot;可将光亮度提高三倍。
+如果使用 &quot;LightOff&quot;，灯光会在最大亮度时完全熄灭。
+  
+使用虚拟表达式 &quot;LightBlink &quot;和 &quot;LightBS&quot;、
+LightBlink &quot;和 &quot;LightBS &quot;虚拟表达式可用于控制个别型号的灯光闪烁。
+LightBlink &quot;发出正弦波闪烁，&quot;LightBS &quot;发出方波闪烁。
+最大间隔为 10 秒。
+
+使用 &quot;LightUpE &quot;时，亮度以指数形式增加。
+最大增幅为 400 倍。
+
+通过 &quot;LightDuty &quot;可以改变闪烁的开/关比例。
+LightMin &quot;可以设置闪烁时的最小亮度。
+
+&quot;LClockUp &quot;可加快闪烁周期，并通过下述顶点光功能控制光序、
+LClockUp &quot;通过下述顶点光功能加快闪烁和光序列控制的周期时间。
+最大速度可提高六倍。
+&quot;LClockDown &quot;则相反地减慢闪烁周期。 最大速度为 1/6x。
+</code></pre>
+<hr>
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>&emsp;&emsp;就这样吧，有意思的就这样。</p>
+]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>MMD 教程</category>
+        <category>MME教程系列</category>
+      </categories>
+      <tags>
+        <tag>MME</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VRM系列01-VRM转换FBX的若干事项</title>
+    <url>/posts/7a433340/</url>
+    <content><![CDATA[<p>&emsp;&emsp;最近在群里潜水的时候，看到了有人问VRM如何转换成FBX。我心想，拿BL直接转不就好了，结果有人告诉我不能直接转，会丢贴图，我还不信，去试了一下，结果是真的，然后研究了一下，发现了一个转换的好方法。本方法分两种：正常版和歪门邪道版，可以都看一下然后选择自己喜欢的就行。（截止到写稿，非常不建议使用aplaybox的在线转换，除非你自己能修，也愿意花时间去修）</p>
+<hr>
+<h2 id="问题查看"><a href="#问题查看" class="headerlink" title="问题查看"></a>问题查看</h2><p>&emsp;&emsp;首先来看一看这个VRM直接转FBX（使用VRM插件直接导入，然后用better FBX勾选复制纹理导出）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/qnisZvdej68QTg7.png"
+                      alt="导入.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/TKfFzblNd9tOu7H.png"
+                      alt="复制纹理better.png"
+                ><br>&emsp;&emsp;显而易见的贴图没了，众所周知，FBX允许存储贴图文件，那问题出在哪里呢，不急，我们换到VRM的节点与FBX的对比看看<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/Z3crOXu7GHidK5R.png"
+                      alt="VRM节点.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/VN1vUkXJSK7qBC2.png"
+                      alt="FBX节点.png"
+                ><br>&emsp;&emsp;非常恐怖的节点，但是可以看出了问题，VRM全部是由MTOON的节点进行渲染，而FBX只有原理化BSDF。那么也就是说，我只要把MTOON的全部换成FBX的就好。</p>
+<hr>
+<h2 id="正常篇"><a href="#正常篇" class="headerlink" title="正常篇"></a>正常篇</h2><p>&emsp;&emsp;正如上文中所说FBX和VRM节点不同导致的，那么我们只要换节点就好了。导入VRM，然后删节点，把对应节点换过去就好。就像下图这样（为了方便我换几个意思一下就行）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/whupi9vJKe576Cb.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后转换试试<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/LplYv2cG3gVIPRA.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;看起来不错，正常篇就先到这</p>
+<hr>
+<h2 id="后记（VRM系列）"><a href="#后记（VRM系列）" class="headerlink" title="后记（VRM系列）"></a>后记（VRM系列）</h2><p>&emsp;&emsp;我们在直接连完材质节点后，发现如果说是白模用shader的底色做了修改，那么在此处重连节点会有一定几率变成白模，那么可以将节点连接成这样<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/02/B4bvycnxtkGdLhF.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;在中间加一个<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/02/F2DN7SAPkQigJTn.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后把你在shader中的HSV什么的复制过来就成<br>&emsp;&emsp;（补充：在测试之后仍有一定几率是白模，所以，可以先去PS之类的直接处理好贴图再塞回来，这样会方便很多）</p>
+<hr>
+<h2 id="歪门邪道篇（未经测试，BUG有几率）"><a href="#歪门邪道篇（未经测试，BUG有几率）" class="headerlink" title="歪门邪道篇（未经测试，BUG有几率）"></a>歪门邪道篇（未经测试，BUG有几率）</h2><p>&emsp;&emsp;首先呢，我们现将自己的VRM后缀改成 <em><strong>.glb</strong></em> 然后导入。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/oRKgC6AmNZUy3af.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;这下所有的MTOON节点就换掉了，然后，我们在这里选择解包资源，<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/VWPqOb5tUaMs4hv.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;在弹出选项里选择第二个，这样我们就能在Blender根目录下找到一个 <em><strong>textures</strong></em> 的文件夹，这个是贴图文件夹。如果找不到，推荐使用everything搜一下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/Iehqnx1QOyBXNgM.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;接下来我们回到BL，找到脚本，，然后下载这个脚本</p>
+<pre><code>https://github.com/LadyAska/Blender
+
+这个脚本的用途是用于在Blender中自动化材质设置的Python脚本。它遍历所有的材质，如果材质使用了节点系统，它会进行一些操作来修改这些材质。
+
+首先，它定义了一些变量，包括mixshader（混合着色器节点）、transparent（透明BSDF节点）、light（光线路径节点）、emission（发射节点）、image（纹理图像节点）和output（输出材质节点）。
+
+然后，它检查是否存在mixshader和output节点，如果不存在，则跳过当前循环。
+
+接下来，它创建一个新的&quot;Principled BSDF&quot;节点，并移除image、light和emission节点的输出链接。
+
+然后，它将image节点的输出连接到新创建的principled节点的输入，并将principled节点的输出连接到output节点的输入。
+
+最后，它移除了unnecessary的节点，包括mixshader、transparent、light和emission节点。
+
+在最后一部分，它尝试将所有的图片文件的路径设置为&#39;C:/Blender/textures/*.png&#39;，如果出现异常，则忽略。&lt;br&gt;&amp;emsp;&amp;emsp;
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/CGjQeq1AJtHhN64.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;点脚本，然后点打开，然后把刚才下载的PY文件塞进来<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/j2hRrPeZH4qFmJl.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;点一下那个播放按钮就可以批量转换材质了<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/ftiyQajSCkJN2sl.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;导出配置和我的一样就行，基本就木有啥问题啦~</p>
+<hr>
+<h2 id="后记（glb系列）"><a href="#后记（glb系列）" class="headerlink" title="后记（glb系列）"></a>后记（glb系列）</h2><h3 id="BUG修复01"><a href="#BUG修复01" class="headerlink" title="BUG修复01"></a>BUG修复01</h3><p>&emsp;&emsp;进过多次测试后，我发现，如果说是VROID的shader底色那一块做了修改，而模型贴图没改，那么打包出来的贴图也是没有shader的（也就是原始贴图之类的）。然后在glb那一块批量处理完之后我发现了一个节点<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/TkaRSZ8qfuzBrIv.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;又在用miu老师的Vroid2Pmx做转换时，看到了这么一句话<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/5bZyDokOifNdT8t.png"
+                      alt="截图.png"
+                ></p>
+<pre><code>**WARNING**
+由于基本颜色不是白色，因此执行加法合成。材料名称:NO0_001_01_Bottoms_01_CLOTH
+</code></pre>
+<p>&emsp;&emsp;突然就明白了这个东西，将原始图一改成图二后<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/x9AWKlvJRICufZT.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/04/01/EejkGX1SFOAhrcJ.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;原始的白模也就修复成功了</p>
+<h3 id="BUG修复02"><a href="#BUG修复02" class="headerlink" title="BUG修复02"></a>BUG修复02</h3><p>&emsp;&emsp;针对于此处的白模，还有一种处理方式就是修改贴图，因为在miu老师的Vroid2Pmx中就是做了加法合成，那么我们可以在提取好贴图之后去PS之类的重新正片叠底一下颜色，此处这个为最后处理办法，将处理好的贴图再去BL贴一下，但是会比较麻烦。</p>
+]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>MMD 教程</category>
+        <category>VRM教程系列</category>
+      </categories>
+      <tags>
+        <tag>VRM</tag>
+        <tag>FBX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>VRM系列02-PMX的VRM转化方案</title>
+    <url>/posts/93a98ac8/</url>
+    <content><![CDATA[<p>&emsp;&emsp;是我习惯性的PMX转为VRM方案，用到了Unity，虽然有人说Blender插件也能做，但是我不习惯用Blender，于是用了Unity。本教程基于Windows10系统，不同系统或是软件版本间差异请自行百度，同时，此教程是我个人的方案展示，请自行斟酌是否适用。 <em><strong>还有就是，请一定要遵守原作者的RM！！！！！</strong></em></p>
+<hr>
+<p>&emsp;&emsp;【附加】：截止到写稿，非常不建议使用aplaybox的在线转换，除非你自己能修，也愿意花时间去修，展示如下，图一是Blender中的渲染，可以见到miku的表情有问题，图二是VSeeFace，可以见到透明关系有问题：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/Jt4RmPG1inzVso5.png"
+                      alt="无修改转换展示01.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/GqdHf53KJPsVMx1.png"
+                      alt="无修改转换展示02.png"
+                ><br>&emsp;&emsp;综上，如果你非常有耐心，去一点一点修复，也不是不能用，但你有那功夫，还不如把教程看完<br>&emsp;&emsp;【附加2】：针对下文中没有secondary的情况，据我了解后得知是我操作顺序有误，secondary是VRM的，所以，建议的操作流程是，修改完贴图着色之后就导出一遍VRM，然后再导入，然后再在这个VRM基础之上修正物理和表情，导出的方法下文表情修正前有，可以翻翻自己看。在修改物理前如果没有导出VRM，那就不会有secondary，所以，导出VRM，再导入，这样，就会有secondary了。不建议自己添加secondary组。 <em><strong>综上，操作步骤建议是第一步——第二步——第四步——第三步——第五步——第四步。不建议自己添加secondary组！！第一遍第三步之后导入VRM，那时候就有了Secondary，就不用创建了！！！！</strong></em></p>
+<hr>
+<h2 id="Stuff"><a href="#Stuff" class="headerlink" title="Stuff"></a>Stuff</h2><p>&emsp;&emsp;Model：REM’s SEKAI Style Hatsune Miku VS - ver.1.2<br>&emsp;&ensp;&emsp;&emsp;By：REMmaple<br>&emsp;&emsp;Model：YYB Hatsune Miku_10th<br>&emsp;&ensp;&emsp;&emsp;By：REMmaple<br>&emsp;&ensp;&emsp;&emsp;Tex Editor：三雾</p>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>&emsp;&emsp;1、<a class="link"   href="https://unity.cn/" >Unity<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：版本均可，只要与所使用的UniVRM插件所兼容即可<br>&emsp;&ensp;&emsp;&emsp;&emsp;&emsp;&emsp;（建议同时注册好UnityID方便后续使用）<br>&emsp;&emsp;2、<a class="link"   href="https://github.com/vrm-c/UniVRM" >UniVRM<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：最新版就好<br>&emsp;&emsp;3、<a class="link"   href="http://stereoarts.jp/" >MMD4Mecanim<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：同样是最新版就好<br>&emsp;&emsp;4、<a class="link"   href="https://kkhk22.seesaa.net/category/14045227-1.html" >PmxEditor<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：非必须，用来修改和检查PMX有没有错误<br><br>&emsp;&emsp;此处所有的下载链接均是官方网址，若下载困难，此处可以提供截止到写稿为止windows平台最新版本软件或是我用的版本的百度网盘的下载方式，其中UnityHub和Unity这两个东西，就相当于游戏启动器和游戏本体的关系大致，选择一个下载即可。当然，我更推荐于UnityHub，可以免去引擎安装时的BUG，并且修改和创建新项目都很方便。</p>
+<h3 id="资源包下载："><a href="#资源包下载：" class="headerlink" title="资源包下载："></a>资源包下载：</h3><p>&emsp;&emsp;<a class="link"   href="https://pan.baidu.com/s/187sXRmK9fsmKL3Ad-U6C6A?pwd=rwa7" >点击下载<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<hr>
+<h2 id="关于准备项目的一些附加事项"><a href="#关于准备项目的一些附加事项" class="headerlink" title="关于准备项目的一些附加事项"></a>关于准备项目的一些附加事项</h2><p>&emsp;&emsp;1、关于Unity的版本：<br>&emsp;&ensp;&emsp;&emsp;版本必修与插件适配，像是UniVRM插件版本介绍页中写道 <em><strong>“The UniVRM supports Unity 2021.3 LTS or later.”</strong></em> 则是要求版本必须2021.3长期支持版及之后的版本。故在选择是切记选择合适的版本。<br>&emsp;&emsp;2、关于UniVRM的版本：<br>&emsp;&ensp;&emsp;&emsp;因为VRM现在有0.x和1.0两个版本，所以本插件也有两个版本。</p>
+<pre><code>VRM 1.0：
+VRM_Samples
+VRM 0.x：
+UniVRM_Samples
+</code></pre>
+<p>&emsp;&ensp;&emsp;&emsp;所以请根据自己需要下载（我一般是都下载，两个插件不冲突）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/NumwoEnAQgzlUpK.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><h3 id="emsp-emsp-第一步：新建Unity项目以及骨骼修复"><a href="#emsp-emsp-第一步：新建Unity项目以及骨骼修复" class="headerlink" title="&emsp;&emsp;第一步：新建Unity项目以及骨骼修复"></a>&emsp;&emsp;第一步：新建Unity项目以及骨骼修复</h3><p>&emsp;&emsp;选择 <em><strong>“3D-核心模板”</strong></em> ，按图示填写后，点击 <em><strong>“创建项目”</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/trY4cvApKI6f5yQ.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;等他自己初始化项目完成，完成后会自动打开，没自动打开的话可以自己点一下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/fKPUdhQy35qRDVg.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;打开项目之后会有这个界面<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/zIer6cVGiWHDlUp.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;将我们下载的插件一个一个拖进来安装好（插件后缀是.unitypackage）<br>&emsp;&emsp;UniVRM.unitypackage这个拖进去会打开这个界面，点击全部后点击导入即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/5Qo49aPDMvilswH.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;VRM.unitypackage这个拖进去会打开这个界面，点击全部后点击导入即可（注：不管是否勾选，点一下全部点击导入就好）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/7tigUvqQr2maVj4.png"
+                      alt="Clip_2024-06-10_12-14-47.png"
+                ><br>&emsp;&emsp;MMD4Mecanim.unitypackage这个拖进去会打开这个界面，点击全部后点击导入即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/aZUwLNpcxfXAiIK.png"
+                      alt="Clip_2024-06-10_12-20-15.png"
+                ><br>&emsp;&emsp;出现这个点击“yes”即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/pzXyuG9OEBQoRfN.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后右键新建两个文件夹来放我们的模型，一个放MMD模型，另一个放导出的VRM模型<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/tln1WACVZS8M2f9.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后双击打开我们存放MMD模型的文件夹，把我们需要修改的模型包括贴图一整个文件夹塞进去，这时文件架构就变成了</p>
+<pre><code>Assets
+    ├─Mode-MMD
+    │  └─REM式プロセカ風初音ミクVS - ver.1.2
+    │      └─REM&#39;s SEKAI Style Hatsune Miku VS - ver.1.2
+    │          └─REM&#39;s SEKAI Style Hatsune Miku VS - ver.1.2
+    │              ├─albd
+    │              ├─omake
+    │              └─spt
+</code></pre>
+<p>&emsp;&emsp;熟悉REM式的MIKU这个模型的同学，就可以看出来，把这个拖进来就是把REM式MIKU这所有的文件夹直接塞在了Assets文件夹下我们刚刚创建的存放MMD模型的文件夹下。<br>&emsp;&emsp;然后找到我们的PMX模型<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/G6v5QdJy3EpgO2W.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;此时我们要用REM式プロセカ風初音ミクVS.pmx这个模型来创建VRM，所以我们点击同名的REM式プロセカ風初音ミクVS_袖無し.MMD4Mecanim.asset，就是模型后面那个蓝色的立方体图标的那个文件。（图片中选中的那个文件），在右边打开的信息窗中，首先 <em><strong>阅读模型声明</strong></em> ，然后把下面三个可选项都勾选。然后点击 <em><strong>Argee</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/MWiE68v1oInP7qa.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;在下面这个窗口中点 <em><strong>Process</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/AGMt3Ss5qLbBzIZ.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;会出现这个窗口，不用管，等一小会，他会自己关掉，然后Unity会开始走进度条，继续等一下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/dvIGslJPb2joaKy.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/BwzxQs6C8ePrXpg.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后我们的资产管理器就多了一堆东西<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/nxVGXf1O3jWdpP5.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;接下来我们把那个带一个看起来像播放键的东西塞到我们的层级里面，这样你就发现了我们屏幕中出现了一只MIKU，如下图：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/m64pTjay7sPNLk5.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后点击 <em><strong>Rig</strong></em> ，选择 <em><strong>人型</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/hZROS9MboqXaHJv.png"
+                      alt="Clip_2024-06-10_13-42-42.png"
+                ><br>&emsp;&emsp;然后点击 <em><strong>应用</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/UDemZrMx3nSBEJw.png"
+                      alt="Clip_2024-06-10_13-44-14.png"
+                ><br>&emsp;&emsp;等他走完进度条之后点 <em><strong>配置</strong></em>，然后点 <em><strong>配置 Avatar</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/MX8SuTIyctxZghO.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;在这个界面里，对关节处的骨骼做一个校正（就是，点一下小绿人身上的每一个圈圈，看看模型是否对应到，比如点小绿人的左肩，看看骨骼是否对应到MIKU的左肩，不对的点击列表修改就行，没有对应的就选最上面的None）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/EjeDihCp5WqA86t.png"
+                      alt="image.png"
+                ><br>对应完之后往下翻一下，先点击 <em><strong>Apply</strong></em> ，再点击 <em><strong>Done</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/C2OqisXPWNUVnjZ.png"
+                      alt="image.png"
+                ></p>
+<h3 id="emsp-emsp-第二步：材质修复"><a href="#emsp-emsp-第二步：材质修复" class="headerlink" title="&emsp;&emsp;第二步：材质修复"></a>&emsp;&emsp;第二步：材质修复</h3><p>&emsp;&emsp;但是看起来衣服的颜色还有肤色什么的有点小差别，unity中有点偏黄（大概<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/QrkMuzi62cyJmwW.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/OdFIgQKa8ycfn2T.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;接下来解释调整材质的时间了，先来到 <em><strong>Materials</strong></em> 文件夹下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/nCriu5zsR6g9vU4.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;首先全选材质，然后在 <em><strong>Shader</strong></em> 中选择 <em><strong>VRM</strong></em>，然后再选择 <em><strong>MTOON</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/Od3vcKgPsRyfakY.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后根据MMD中的模型细节进行调整就好，每一项参数和每一个材质都可以单独实施（说不定会碰撞到不一样的火花）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/WpT8BrsJxV6IDLe.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;基础参数讲解如下：</p>
+<pre><code>Rendering：渲染
+  Mode：模式
+    Rendering Type：渲染类型
+      Opaque：不透明
+      Cutout：剪切
+      Transparent：透明
+      TransparentWithZWrite：使用ZWrite透明
+    Cull Mode：关于透明的遮挡方式（我自己感觉
+      Back：背面剔除
+      Front：正面剔除 
+      Off：关闭
+  Color：颜色
+    Texture：纹理
+      Lit Color,Alpha：发光色彩，透明
+      Shade Color：阴影颜色
+  Lighting：光照
+    Shading Toony：TOONY 着色
+    Normal Map：法线映射
+  Emission：发光
+    MatCap：球面朝向映射
+  Rim：边缘光
+    Color：边缘光颜色
+    Lighting Mix：光照混合
+    Fresnel Power：菲涅耳功率
+    Lift：提升
+  OutLine：轮廓线
+    Width：宽度
+      mode：模式
+        None：没有一个
+        WorldCoordinates：世界坐标
+        ScreenCoordinates：屏幕坐标
+    Color：颜色
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/3o7hZIeiY9NKPxG.png"
+                      alt="image.png"
+                ></p>
+<h3 id="emsp-emsp-第三步：物理修复"><a href="#emsp-emsp-第三步：物理修复" class="headerlink" title="&emsp;&emsp;第三步：物理修复"></a>&emsp;&emsp;第三步：物理修复</h3><p>&emsp;&emsp;接下来就是调整一些细节了，比如：物理<br>&emsp;&emsp;展开层级下的 <em><strong>U_Char</strong></em> 选择 <em><strong>secondary</strong></em> ，<del>若没有，自己创建一个对象与这个同名也行</del> <em><strong>这里先导出VRM，再导入VRM！！！！</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/y3Qb5ZEtJuhSYCg.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;接下来我们先做头发之类的物理效果，选择第一个后会出现这样的东西<img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/IPrYmcnfHNpkt68.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;基础参数讲解：</p>
+<table>
+<thead>
+<tr>
+<th>原文</th>
+<th>翻译</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>注释</td>
+<td>注释</td>
+<td>用来写名字之类的</td>
+</tr>
+<tr>
+<td>Gizmo Color</td>
+<td>修改器颜色</td>
+<td>用来看那个碰撞球的颜色</td>
+</tr>
+<tr>
+<td>Settings</td>
+<td>设置</td>
+<td>就，，设置</td>
+</tr>
+<tr>
+<td>Stiffness Force</td>
+<td>刚度力</td>
+<td>感觉像MMD的阻尼那种东西，这个值越大，越不容易被触发物理效果</td>
+</tr>
+<tr>
+<td>Gravity Power</td>
+<td>重力功率</td>
+<td>重力大小，相同质量的东西，越大掉的越快</td>
+</tr>
+<tr>
+<td>Gravity Dir</td>
+<td>重力方向</td>
+<td>就。。方向</td>
+</tr>
+<tr>
+<td>Drag Force</td>
+<td>阻力</td>
+<td>个人感觉也和阻尼差不多诶。。。</td>
+</tr>
+<tr>
+<td>中心</td>
+<td>中心</td>
+<td>不知道咋描述，自己试试</td>
+</tr>
+<tr>
+<td>Root Bones</td>
+<td>根骨骼</td>
+<td>就是想让哪些骨骼产生物理效果</td>
+</tr>
+<tr>
+<td>Collision</td>
+<td>碰撞</td>
+<td>碰撞球</td>
+</tr>
+<tr>
+<td>Hit Radius</td>
+<td>命中半径</td>
+<td>碰撞球的大小</td>
+</tr>
+<tr>
+<td>Collider Groups</td>
+<td>碰撞器组</td>
+<td>与骨骼产生交互的地方</td>
+</tr>
+<tr>
+<td>Update Type</td>
+<td>更新类型</td>
+<td>不建议动</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;小提示：对于那种父子级相联系的一串骨骼，直接把父级塞到Root Bones中就行，子级不用设置，这样一大串就做完了，如下图所示<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/e6oDryZBQYp18ES.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;其余你们自己添加，然后设置参数就好，然后按下图所示的步骤应用参数。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/EOnXj6VsFMRguyS.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;接下来设置四肢之类的碰撞体积<br>&emsp;&emsp;选中我们要添加的骨骼，我这里以腿为展示，添加组件，选择成 <em><strong>VRM Spring Bone Collider Group</strong></em> ，然后就会有下图<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/kz4HU8YhPZA7Dnt.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;之后就添加碰撞球啊，调整大小和位置啊什么的，由于骨骼长度问题，而这个也只有球状的碰撞，所以难免会在一个骨骼上添加多个球，添加球的逻辑为：尽量不要重复，稍微大于材质表面一点点就好，球与球之间尽量不要有重叠部分，然后继续和上一步一样，应用参数。但是此刻那个黄色的物理和这个紫色的碰撞体积之间依旧不会发生交互，所以需要设置一下，回到需要和这个紫色球发生碰撞的组，就刚才设置了黄色球的地方，把我们的设置了紫色球的骨骼拖到Collider Groups上面即可。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/Km1zABTqSWtkoab.png"
+                      alt="image.png"
+                ></p>
+<h3 id="emsp-emsp-第四步：导出与再次导入"><a href="#emsp-emsp-第四步：导出与再次导入" class="headerlink" title="&emsp;&emsp;第四步：导出与再次导入"></a>&emsp;&emsp;第四步：导出与再次导入</h3><p>&emsp;&emsp;处理好这些就可以先导出一遍了（导出之后才可以做表情），导出先选中模型，然后点VRM0，然后如果是Apose，就点一下这个TPOSE（不管是不是Apose，其实都建议点一遍）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/TGnlcbf8BQ3gXoF.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后点Export VRM0.X，在弹出的窗口中如实填写信息，我用YYB 10th MIKU演示如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/XvGe2HJUcibWO4l.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;其余例如缩略图等按照自己喜好便可，填写完成之后点最下面export即可，然后等待一段时间，就可以看到导出的模型了。<br>&emsp;&emsp;将层级中的模型删掉。把导出的VRM继续塞到 <em><strong>Assets</strong></em> 中，然后把这个拖到层级那里。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/wbnvOZMeqmdSE1j.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;这样就导入成功了</p>
+<h3 id="emsp-emsp-第五步：修复表情"><a href="#emsp-emsp-第五步：修复表情" class="headerlink" title="&emsp;&emsp;第五步：修复表情"></a>&emsp;&emsp;第五步：修复表情</h3><p>&emsp;&emsp;然后找到名字中含有BlendShapes的文件夹，比如此刻我的就是YYB Hatsune Miku_10th_v1.02_toonchange.BlendShapes，打开之后会看到这种东西。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/IDdtrHbRv7LgWYB.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;选中BlendShape，将AEIOU这几个表情在下面对应修一下，对应表情，比如点一下“A”，然后在U_Char_2里面把あ拉倒最大，然后IUEO等等，口型必须其余看心情，流程如下：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/nPK5kThbXwIH2yq.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;这些做完之后就完了，就可以到出啦~ 导出方法和刚才一样，这里就不再写啦~~ 祝各位玩得愉快</p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;1、如何添加许可证：<br>&emsp;&ensp;&emsp;&emsp;首先在UnityHub上登录你的账号，如果是第一次使用，大概率会出现如下所示，如果没有下图一的图示，请参照本步骤后续几张图，打开许可证界面后从第二步开始继续操作<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/tT72RAr8v4ZeJMm.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/dORryQaIGixzLeg.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/Sn6coi8sdZw1x47.png"
+                      alt="image.png"
+                ><br>&emsp;&ensp;&emsp;&emsp;点击 <em><strong>管理许可证</strong></em> ，再打开的窗口中点击 <em><strong>添加</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/3e8VdOLIfNUukph.png"
+                      alt="image.png"
+                ><br>&emsp;&ensp;&emsp;&emsp;点击 <em><strong>获取免费的个人版许可证</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/daNgETMYDwKb7LR.png"
+                      alt="image.png"
+                ><br>&emsp;&ensp;&emsp;&emsp;点击 <em><strong>同意并取得个人版授权</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/kvgCVXGbaUwNiyj.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;2、遇到无法创建项目的情况，尝试取消勾选版本管理<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/MHayECXigFKjeIN.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;3、如果在配置骨骼时遇到如下报错，并且点击配置没有任何反应</p>
+<pre><code>Cannot configure avatar, inspector is locked
+UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&amp;)
+</code></pre>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/qhv5gducpmso9Kx.png"
+                      alt="Clip_2024-06-10_18-59-18.png"
+                ><br>&emsp;&emsp;可以把这个锁点一下，然后就正常了<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/06/10/bwdjZaTg56VGLkf.png"
+                      alt="Clip_2024-06-10_19-04-13.png"
+                ></p>
+]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>MMD 教程</category>
+        <category>VRM教程系列</category>
+      </categories>
+      <tags>
+        <tag>VRM</tag>
+        <tag>PMX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MMD模型规约/MMD Model Rules</title>
+    <url>/posts/49097/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;此为ALp Studio的在线版ReadMe。如果和离线版有差异，一切以在线版本为准。</strong></em></p>
+<hr>
+<p>&emsp;&emsp;原模型作者RM位于根目录下README文件夹中<br><br>&emsp;&emsp;对于在使用本模型或其使用 过程中遇到的任何直接或间接的损害和后果，作者本人夜雨安歌以及安＆泠工作室概不负责。<br></p>
+<h2 id="使用规则"><a href="#使用规则" class="headerlink" title="使用规则"></a>使用规则<br></h2><h3 id="允许："><a href="#允许：" class="headerlink" title="允许："></a>允许：<br></h3><p>&emsp;●修改颜色、spa、toon<br><br>&emsp;●修改、重制物理<br><br>&emsp;●修改、重制骨骼，权重<br><br>&emsp;●修改、重制、添加表情<br><br>&emsp;●重制UV<br><br>&emsp;●允许将格式转换为Blender等格式，但是不得在标题、tag、简介等处声称为MMD制作<br><br>&emsp;&emsp;（注：格式转换仅可用于图像或是视频制作）<br><br>&emsp;●允许在不违反禁止条例的情况下修改：脸型，五官，服装，发型，身体各部位尺寸<br><br>&emsp;●在不违反相关作者RM情况下，可以适当添加配件<br><br>&emsp;●向外传播压缩包密码<br><br><br></p>
+<h3 id="不允许："><a href="#不允许：" class="headerlink" title="不允许："></a>不允许：<br></h3><p>&emsp;✦删除原部件后加入其它部件（比如删除原上衣后换成别的上衣，但是可以修改衣服版型）<br><br>&emsp;✦拆零件、贴图、spa、toon<br><br>&emsp;✦二配或再配布未修改的模型<br><br>&emsp;✦商业化<br><br>&emsp;✦不得用来贬低原作、模型以及动作来源<br><br>&emsp;✦用于R18、性暗示、腐向、绅士向作品<br><br>&emsp;✦在VRchat或任何游戏里用<br><br>&emsp;✦违反公共秩序与善良风俗、明智、健全的判断力的使用<br><br>&emsp;✦宗教、政治等用途<br><br>&emsp;✦包括他人与他国的中伤、鄙视等的使用<br><br>&emsp;✦给原作者、其他的相关者滋扰（或者说困扰）的使用<br><br>&emsp;✦欺骗这个模型文件的制作者的行为（例：伪称自己是这个模型的作者）<br><br>&emsp;✦禁止失衡修改特定身体部位的尺寸<br><br>&emsp;✦3D打印</p>
+]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>Rules</category>
+        <category>Model Rules</category>
+      </categories>
+      <tags>
+        <tag>Rules</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MMD动作规约/MMD Motion Rules</title>
+    <url>/posts/28822/</url>
+    <content><![CDATA[<p>&emsp;&emsp;<em><strong>欢迎各位使用动作数据<br>&emsp;&emsp;本动作源于游戏&emsp;<a class="link"   href="https://pjsekai.sega.jp/" >《世界计划 彩色舞台 feat. 初音未来》<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>，故日语用户请谨慎使用。</strong></em></p>
+<hr>
+<h2 id="禁止类"><a href="#禁止类" class="headerlink" title="禁止类"></a><strong>禁止类</strong></h2><p>&emsp;1.禁止使用时，视频标题为【动作配布】<br>&emsp;2.禁止【黑名单】人员使用<br>&emsp;3.禁止关联AI使用<br>&emsp;4.禁止R18<br>&emsp;5.禁止商用</p>
+<hr>
+<h2 id="允许类"><a href="#允许类" class="headerlink" title="允许类"></a><strong>允许类</strong></h2><p>&emsp;1.允许轻度修改<br>&emsp;2.私下小范围配布时请向我说明<br></p>
+<h3 id="emsp-emsp-在使用本动作时，请严格按照每个文件夹下的说明使用"><a href="#emsp-emsp-在使用本动作时，请严格按照每个文件夹下的说明使用" class="headerlink" title="&emsp;&emsp;在使用本动作时，请严格按照每个文件夹下的说明使用"></a>&emsp;&emsp;<em><strong>在使用本动作时，请严格按照每个文件夹下的说明使用</strong></em></h3><hr>
+<h2 id="emsp-emsp-未说明的部分默认为禁止，如有疑问，请向我私信提出，使用愉快"><a href="#emsp-emsp-未说明的部分默认为禁止，如有疑问，请向我私信提出，使用愉快" class="headerlink" title="&emsp;&emsp;未说明的部分默认为禁止，如有疑问，请向我私信提出，使用愉快~~"></a>&emsp;&emsp;未说明的部分默认为禁止，如有疑问，请向我私信提出，使用愉快~~</h2>]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>Rules</category>
+        <category>Motions Rules</category>
+      </categories>
+      <tags>
+        <tag>Rules</tag>
+      </tags>
+  </entry>
+</search>
