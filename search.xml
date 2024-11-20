@@ -58,46 +58,6 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
       </tags>
   </entry>
   <entry>
-    <title>Hexo建设日志02-如将.avif文件转化为常用图片格式</title>
-    <url>/posts/22756/</url>
-    <content><![CDATA[<p>&emsp;&emsp; <em><strong>最近我发现从浏览器上直接捕获的图片，不管是通过下载器下载还是直接另存，都成了一种没见过的格式&ensp;.avif&ensp;。没办法打开做处理，我以为是浏览器问题，所以去搜了搜这个文件格式。</strong></em><br> </p>
-<hr>
-<h2 id="关于-avif文件："><a href="#关于-avif文件：" class="headerlink" title="关于.avif文件："></a><em>关于.avif文件</em>：</h2><h3 id="emsp-emsp-什么是AVIF"><a href="#emsp-emsp-什么是AVIF" class="headerlink" title="&emsp;&emsp;什么是AVIF"></a><em>&emsp;&emsp;什么是AVIF</em></h3><p>&emsp;&emsp;AVIF（ AV1 Image File Format）是一种由AOM（ Alliance for Open Media）开发的基于AV1编解码器的网络图像格式。这是一种开源免版税的图像格式。AVIF支持全分辨率的10位和12位色彩以及HDR。<br></p>
-<h3 id="emsp-emsp-AVIF的优势"><a href="#emsp-emsp-AVIF的优势" class="headerlink" title="&emsp;&emsp;AVIF的优势"></a><em>&emsp;&emsp;AVIF的优势</em><br></h3><p>&emsp;&emsp;Netflix的博客从 2020年2月就开始大力宣传AVIF标准的优点。该博客[1]详细介绍了AVIF，并提供了一些优于JPEG的技术信息。作为AOM的创始成员 ，Netflix一直是AV1编解码标准的坚定支持者。因此，毫不奇怪，他们会对使用AV1来改善其UI体验感兴趣。相比于JPEG，AVIF无论是在压缩率上还是在生态上都有着不可小觑的实力。</p>
-<pre><code>1. AV1编解码标准和AVIF格式免版税。
-2. 所有Chromium浏览器（Chrome 85或更高版本）都支持AVIF。
-3. Microsoft Windows 10从19H1开始支持AVIF。
-4. AVIF得到了Google、Amazon、Netflix、Microsoft、Intel、Apple等公司的支持。
-5. AVIF提供比JPEG更高的压缩效率。
-6. AVIF图像格式支持透明度，HDR，宽色域和其他现代功能。
-</code></pre>
-<p>&emsp;&emsp;在与其他图像格式的PK中，AVIF表现十分突出。<br><br>&emsp;&emsp;来源：<a class="link"   href="https://zhuanlan.zhihu.com/p/444624167" >AVIF：新一代的图像压缩格式<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
-<hr>
-<h2 id="如何转换："><a href="#如何转换：" class="headerlink" title="如何转换："></a><em>如何转换：</em></h2><p>&emsp;&emsp;首先，去微软应用商店下载拓展&ensp;<em><strong>AV1 Video Extension</strong></em>&ensp;<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/19/aczl6ihYsJIRw8u.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;然后正常打开照片<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/19/jIQoOMH5lyhGBuw.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;然后点击上面<em><strong>三个点</strong></em>或者<em><strong>Ctrl+S</strong></em>另存为其他格式即可<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/19/GDTUkfuWz8edCvr.png"
-                      alt="image.png"
-                ></p>
-]]></content>
-      <categories>
-        <category>Hexo建设日志</category>
-      </categories>
-      <tags>
-        <tag>Hexo建设日志</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo建设日志03-关于网易云.ncm文件的破解与转换</title>
     <url>/posts/38949/</url>
     <content><![CDATA[<p><em><strong>&emsp;&emsp;最近在做mmd的时候，网易云下载到的文件是.ncm。直接转换成MP3会导致文件错误。看了看ncm这个文件，加密方式是网易云独家加密。转换为其他格式是很麻烦的。强行用格式工厂转换会导致文件损坏（网易云你坏事干尽），找遍教程，不容易找到个看上去不错的，结果是广告。</strong></em></p>
@@ -162,7 +122,7 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
   <entry>
     <title>Hexo建设日志05-对于Error Spawn failed报错的修复（歪门邪道）</title>
     <url>/posts/39589/</url>
-    <content><![CDATA[<p>&emsp;&emsp;最近被Error:Spawn failed这个报错，折磨得一塌糊涂。试了试网上的，什么删除.deploy_git文件夹，什么改_config.yml里面的deploy:repo的<a class="link"   href="mailto:&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#111;&#x6d;" >&#x67;&#105;&#x74;&#64;&#x67;&#105;&#116;&#104;&#117;&#98;&#x2e;&#x63;&#111;&#x6d;<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>:，还有本地推送啥的，对我都没作用。试了试一个偏方。在这把方法分享一下。</p>
+    <content><![CDATA[<p>&emsp;&emsp;最近被Error:Spawn failed这个报错，折磨得一塌糊涂。试了试网上的，什么删除.deploy_git文件夹，什么改_config.yml里面的deploy:repo的<a class="link"   href="mailto:&#103;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;" >&#103;&#x69;&#x74;&#64;&#x67;&#105;&#116;&#x68;&#x75;&#98;&#46;&#x63;&#x6f;&#x6d;<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>:，还有本地推送啥的，对我都没作用。试了试一个偏方。在这把方法分享一下。</p>
 <hr>
 <h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h1><p>&emsp;&emsp;首先，我们直接打开Git Bash，不要在任何一个文件夹下运行。打开应该是下图这个样子（ <em><strong>~</strong></em> 后面没有任何东西，或者是一个 <em><strong>&#x2F;</strong></em> 但是后面也没有东西）（我是在win菜单下运行的，没有添加到win菜单的话，你可以在你安装Git的文件夹下找到这个Git Bash）<br><img  
                      lazyload
@@ -229,6 +189,46 @@ IdentityFile ~/.ssh/id_rsa
 完成
 </code></pre>
 <p>&emsp;&emsp;这样就可以正常推送了</p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建设日志02-如将.avif文件转化为常用图片格式</title>
+    <url>/posts/22756/</url>
+    <content><![CDATA[<p>&emsp;&emsp; <em><strong>最近我发现从浏览器上直接捕获的图片，不管是通过下载器下载还是直接另存，都成了一种没见过的格式&ensp;.avif&ensp;。没办法打开做处理，我以为是浏览器问题，所以去搜了搜这个文件格式。</strong></em><br> </p>
+<hr>
+<h2 id="关于-avif文件："><a href="#关于-avif文件：" class="headerlink" title="关于.avif文件："></a><em>关于.avif文件</em>：</h2><h3 id="emsp-emsp-什么是AVIF"><a href="#emsp-emsp-什么是AVIF" class="headerlink" title="&emsp;&emsp;什么是AVIF"></a><em>&emsp;&emsp;什么是AVIF</em></h3><p>&emsp;&emsp;AVIF（ AV1 Image File Format）是一种由AOM（ Alliance for Open Media）开发的基于AV1编解码器的网络图像格式。这是一种开源免版税的图像格式。AVIF支持全分辨率的10位和12位色彩以及HDR。<br></p>
+<h3 id="emsp-emsp-AVIF的优势"><a href="#emsp-emsp-AVIF的优势" class="headerlink" title="&emsp;&emsp;AVIF的优势"></a><em>&emsp;&emsp;AVIF的优势</em><br></h3><p>&emsp;&emsp;Netflix的博客从 2020年2月就开始大力宣传AVIF标准的优点。该博客[1]详细介绍了AVIF，并提供了一些优于JPEG的技术信息。作为AOM的创始成员 ，Netflix一直是AV1编解码标准的坚定支持者。因此，毫不奇怪，他们会对使用AV1来改善其UI体验感兴趣。相比于JPEG，AVIF无论是在压缩率上还是在生态上都有着不可小觑的实力。</p>
+<pre><code>1. AV1编解码标准和AVIF格式免版税。
+2. 所有Chromium浏览器（Chrome 85或更高版本）都支持AVIF。
+3. Microsoft Windows 10从19H1开始支持AVIF。
+4. AVIF得到了Google、Amazon、Netflix、Microsoft、Intel、Apple等公司的支持。
+5. AVIF提供比JPEG更高的压缩效率。
+6. AVIF图像格式支持透明度，HDR，宽色域和其他现代功能。
+</code></pre>
+<p>&emsp;&emsp;在与其他图像格式的PK中，AVIF表现十分突出。<br><br>&emsp;&emsp;来源：<a class="link"   href="https://zhuanlan.zhihu.com/p/444624167" >AVIF：新一代的图像压缩格式<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<hr>
+<h2 id="如何转换："><a href="#如何转换：" class="headerlink" title="如何转换："></a><em>如何转换：</em></h2><p>&emsp;&emsp;首先，去微软应用商店下载拓展&ensp;<em><strong>AV1 Video Extension</strong></em>&ensp;<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/19/aczl6ihYsJIRw8u.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后正常打开照片<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/19/jIQoOMH5lyhGBuw.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后点击上面<em><strong>三个点</strong></em>或者<em><strong>Ctrl+S</strong></em>另存为其他格式即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/19/GDTUkfuWz8edCvr.png"
+                      alt="image.png"
+                ></p>
 ]]></content>
       <categories>
         <category>Hexo建设日志</category>
@@ -571,6 +571,132 @@ message: blog file
       </tags>
   </entry>
   <entry>
+    <title>MMD扫盲系列01——认识MMD</title>
+    <url>/posts/45af3d29/</url>
+    <content><![CDATA[<p>&emsp;&emsp;我觉得这个系列很有必要。。。。。。现在真的，，手机太普及了么？还是啥。。。先做个MMD扫盲系列吧，这个系列里面不会介绍MMD的发展历程等，只会讲MMD是什么，如何用等技术类问题。 <em><strong>本系列教程全部基于Windows系统的931汉化追加MME版本进行演示</strong></em> 。注意：软件没有最好，只有最适合自己的！！</p>
+<hr>
+<h2 id="2024年7月14日更新！！"><a href="#2024年7月14日更新！！" class="headerlink" title="2024年7月14日更新！！"></a>2024年7月14日更新！！</h2><p>&emsp;&emsp;我做了一个MMD的安装包！！！！！！，下载链接：<br>&emsp;&emsp;<a class="link"   href="https://wwb.lanzouw.com/b00taqonti" >https://wwb.lanzouw.com/b00taqonti<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>&emsp;&emsp;密码:5k22<br>&emsp;&emsp;新人专享系列！！！！这样你就不用纠结了！！！芜湖！！！不用解压缩啥的！！</p>
+<hr>
+<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>&emsp;&emsp;MMD全称MikuMikuDance，是由日本人樋口优所创建的一个免费的动画软件。本体为日文版软件，由Emil开始繁体汉化，Kinsama修改并发布。当前传播最广的版本有Ver.932，Ver.931，Ver.10th，Ver.926（我知道的，并且是我用过的），还有以上版本+Bridge的版本。</p>
+<hr>
+<h2 id="认识文件"><a href="#认识文件" class="headerlink" title="认识文件"></a>认识文件</h2><p>&emsp;&emsp;现阶段MMD传播基本是靠人手相传。所以基本都是处在 <em><strong>压缩包</strong></em> 这一文件类型内。所以我们需要一个解压缩软件，比如<a class="link"   href="https://www.bandisoft.com/bandizip/" >Bandzip<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>、<a class="link"   href="https://7-zip.org/" >7-zip<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>等。非常建议选一个可以切换压缩语言代码的，因为后期如果下载素材，说不定会遇到乱码。我用的版本压缩包内容展示如下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/xLb6wB3a7izVWch.png"
+                      alt="PixPin_2024-07-10_16-59-05.png"
+                ></p>
+<hr>
+<h2 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h2><p>&emsp;&emsp;将文件解压缩之后，得到如下所示的文件夹<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/ExeWOfKzriugw9Y.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后右键 <em><strong>MikuMikudance.exe</strong></em> ，选择 <em><strong>发送到——桌面快捷方式</strong></em><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/3jV1QtXrd8Un7S2.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;这样你的桌面就有MMD了，在启动MMD前，请务必将MMD根目录下的 <em><strong>！！如果出现报错无法启动请安装这个文件夹里的全部文件</strong></em> 这个文件夹内的所有程序全部安装一遍。这样做可以防止日后出错。如果安装后启动时依旧出现报错，请自行搜索 <em><strong>微软常用运行库</strong></em></p>
+<hr>
+<h2 id="认识界面"><a href="#认识界面" class="headerlink" title="认识界面"></a>认识界面</h2><p>&emsp;&emsp;MMD主界面如下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/y7JrMDesfc6Zu1q.png"
+                      alt="PixPin_2024-07-10_16-15-20.png"
+                ><br>&emsp;&emsp;介绍如下，点大图看<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/07/10/2wOJ9Mo1Ag4TvFh.png"
+                      alt="PixPin_2024-07-10_16-15-20.png"
+                ></p>
+<hr>
+<h2 id="认识文件类型"><a href="#认识文件类型" class="headerlink" title="认识文件类型"></a>认识文件类型</h2><p>&emsp;&emsp;MMD支持的文件类型不算多，介绍如下：</p>
+<h3 id="PMX-PMD："><a href="#PMX-PMD：" class="headerlink" title="PMX&#x2F;PMD："></a>PMX&#x2F;PMD：</h3><p>&emsp;&emsp;MMD唯二支持的可操控有骨骼的模型文件，区别如下：PMX（Polygon Model eXtended）和PMD（Polygon Model Data）主要在 <strong>格式版本、数据结构复杂性和兼容性</strong> 等方面有所区别。<br>&emsp;&emsp;具体分析如下：</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>PMX</th>
+<th>PMD</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>格式版本</td>
+<td>PMX是PMD的继承者，通常被认为是更加先进和改进的版本。</td>
+<td>PMD是较早的模型格式，相对于PMX来说，可能不那么流行或支持较新的功能。</td>
+</tr>
+<tr>
+<td>数据结构复杂性</td>
+<td>PMX具有更复杂的数据结构，支持更多的建模元素和细节，如额外的vec4数量、顶点索引大小等，允许存储更丰富的模型信息。</td>
+<td>PMD的数据结构较为简单，没有像PMX那样支持扩展的数据类型和结构。</td>
+</tr>
+<tr>
+<td>兼容性</td>
+<td>PMX由于其结构上的优势，通常拥有更好的兼容性，可以更方便地与各种3D软件进行交互。</td>
+<td>PMD兼容性相对较差，可能在一些新版的软件或工具中不被完全支持。</td>
+</tr>
+<tr>
+<td>使用范围</td>
+<td>PMX由于没有模型定点限制，逐渐成为主流格式，被更多地使用和推荐。</td>
+<td>PMD尽管仍然被支持，但使用频率可能不如PMX高。</td>
+</tr>
+<tr>
+<td>支持工具</td>
+<td>PMX可以使用如PmxEditor这样的专业工具进行编辑和研究，这些工具能够更好地展示文件结构。</td>
+<td>MD虽然也能用类似的工具编辑，但可能不支持所有高级功能。</td>
+</tr>
+<tr>
+<td>可扩展性</td>
+<td>PMX设计时考虑了更多的可扩展性，为未来的扩展和功能的加入留下了空间。</td>
+<td>PMD相对来说，扩展性不如PMX。</td>
+</tr>
+<tr>
+<td>用户社区偏好</td>
+<td>用户社区中，PMX似乎更受欢迎，可能是因为它更符合现代模型制作的需求。</td>
+<td>PMD虽然仍有一席之地，但在新兴的用户中可能不如PMX流行。</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;针对上述分析，可以考虑以下几点建议：<br>&emsp;&emsp;如果您需要与其他3D软件兼容或寻找更多的社区支持，推荐使用PMX格式。<br>&emsp;&emsp;当您处理旧模型或需要与老版本MMD软件兼容时，可能需要使用PMD格式。<br>&emsp;&emsp;综上所述，PMX作为更新的模型文件格式，提供了更多的功能和更好的兼容性，逐渐成为MMD用户的首选格式。而PMD作为早期的格式，虽然仍具有一定的用户基础，但相比之下可能略显过时。无论选择哪种格式，确保您使用适合的工具和插件来优化您的工作流程，并保持对新工具和社区资源的持续关注。</p>
+<h3 id="VMD"><a href="#VMD" class="headerlink" title="VMD"></a>VMD</h3><p>&emsp;&emsp;VMD是一种动作数据文件格式，主要用于记录3D模型的动作、形态变化、相机移动和光照变化等动画信息。<br>&emsp;&emsp;VMD文件包含了一种二进制流数据，具有较为复杂的内部结构。它有两个版本，分别以”Vocaloid Motion Data file”和”Vocaloid Motion Data 0002”标识。文件的前30个字节用于描述版本信息，随后是模型名称，之后依次是骨骼关键帧、变形关键帧、相机关键帧以及灯光关键帧的记录。<br>&emsp;&emsp;与此同时，镜头VMD文件只能给镜头用，动作VMD文件只能给人物或者场景用。因为在MMD中，因为存在index类型，所以也不怕重名，是一一对应的关系，但是与此同时的是MMD模型只要名字有一丝不同，比如多了一个空格之类的，就会无法识别。</p>
+<h3 id="VPD"><a href="#VPD" class="headerlink" title="VPD"></a>VPD</h3><p>&emsp;&emsp;VPD是一种姿势数据文件格式，在文件数据中仅有一帧的骨骼变换姿态，与VMD不同的是，VMD是一段，而VPD是一帧，即一张画面，一般适用于做静画之类的</p>
+<h3 id="WAV"><a href="#WAV" class="headerlink" title="WAV"></a>WAV</h3><p>&emsp;&emsp;MMD仅仅支持这一种音乐类型格式，不支持MP3或者其他格式。WAV文件介绍如下：<br>&emsp;&emsp;WAV文件是一种标准的数字音频文件格式，主要用于保存无损的音频数据，以保证声音质量的最佳还原。<br>&emsp;&emsp;WAV文件采用RIFF（Resource Interchange File Format）文件格式结构，通常用来保存PCM（Pulse Code Modulation）格式的原始音频数据，因此被称为无损音频。它是由微软公司和IBM联合设计的，最早于1991年8月在Windows 3.1操作系统上出现，文件扩展名为WAV。该格式得到了Windows、Macintosh、Linux等多种操作系统的支持。WAV文件具有以下特点：<br>&emsp;&emsp; <strong>高音质</strong> ：<br>&emsp;&emsp;WAV文件保存的是原始的音频数据，几乎没有进行数据压缩，因此能够最大程度地保留音频的真实质量。其音质与CD相差无几，常用于专业的音频处理和高质量音乐播放。<br>&emsp;&emsp; <strong>支持多种采样率</strong> ：<br>&emsp;&emsp;WAV文件支持多种采样率和采样位数，例如44.1kHz、22.05kHz等，以及16位或8位的采样精度。这使得它能适应不同的音频录制需求，从一般的音乐播放到专业音频制作均可胜任。<br>&emsp;&emsp; <strong>支持不同声道</strong> ：<br>&emsp;&emsp;WAV格式支持单声道和立体声录音。立体声文件使用两个声道，分别记录左右声道信息，使得音频具有空间感和立体感，适合复杂的声音场景。<br>&emsp;&emsp; <strong>文件体积较大</strong> ：<br>&emsp;&emsp;由于WAV文件保存的是未压缩的音频数据，因此文件体积相对较大，每分钟的音乐大约需要10MB左右的存储空间。这也限制了其在长时间音频记录和网络传输中的应用。<br>&emsp;&emsp;此外，WAV文件还广泛应用于音效素材的保存和分享。许多网站提供大量免费的WAV音效资源，如爱给网等，这些资源可以用于影视、游戏、动画等多个领域，极大地丰富了多媒体制作的内容。<br>&emsp;&emsp;综上所述，WAV文件以其高质量的无损音频保存方式，在音频处理、音乐播放和多媒体制作中发挥着重要作用。尽管文件体积较大，但其在保证音质方面的优势使其成为众多专业人士和爱好者的首选格式。</p>
+<h3 id="X文件与FX文件"><a href="#X文件与FX文件" class="headerlink" title="X文件与FX文件"></a>X文件与FX文件</h3><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>X</th>
+<th>FX</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定义</td>
+<td>X文件通常在MMD中作为附件载入使用，它不涉及复杂的图形渲染操作，更多的是作为补充或扩展MMD功能的一种轻量级文件。</td>
+<td>FX文件是一种使用高阶着色器语言（HLSL）标准创建的文本文件，它定义了一个DirectX 9（DX9）明暗器，专门用于处理材质的光照和渲染效果。</td>
+</tr>
+<tr>
+<td>功能用途</td>
+<td>X文件在MMD中主要用于增强场景的互动性和视觉效果，富动画的表现力。</td>
+<td>FX文件在MMD中用于实现高质量和复杂计算的材质效果，如高级光影效果、曲面细分等。它通过HLSL在GPU上执行快速的数学计算，实现更加逼真和动态的渲染效果。</td>
+</tr>
+<tr>
+<td>使用范围</td>
+<td>在PmxEditor创建一个X文件，并将材质定义为screen.bmp，在MMD中开启屏幕捕捉则可实现投影效果</td>
+<td>在MMD中加载MME功能后，则可以给X文件定义FX来实现各种更加炫酷的效果</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;综上所述，X文件和FX文件在MMD中各司其职，前者提供了一种简易的方式来实现一些视觉特效，而后者则负责处理更高端和复杂的材质渲染任务。了解它们之间的区别和各自的优势，可以帮助用户更加合理地利用这些资源来制作出质量更高、视觉效果更佳的MMD作品。</p>
+<h3 id="PMM"><a href="#PMM" class="headerlink" title="PMM"></a>PMM</h3><p>&emsp;&emsp;PMM文件是MMD的工程文件。特殊的是，pmm是存储的是绝对路径，一旦你的素材更改位置，PMM便会因为无法识别而导致MMD闪退或者无法打开工程文件，需要重新定义。</p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;MMD新手请多去B站等看看有关教程，遇事不决善用搜索引擎，无法解决后再提问。</p>
+]]></content>
+      <categories>
+        <category>MMD扫盲系列</category>
+      </categories>
+      <tags>
+        <tag>MMD扫盲系列</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MMD扫盲系列02——MMD基本骨骼介绍</title>
     <url>/posts/7639a586/</url>
     <content><![CDATA[<p>&emsp;&emsp;扫盲系列能开到第二期，在座各位都有责任，这期来讲讲骨骼。（全部是我的理解），同时这一期不咋讲参数之类的，写不动，下一期写。</p>
@@ -835,151 +961,6 @@ import {initHBE} from "/js/plugins/hbe.js";
       </tags>
   </entry>
   <entry>
-    <title>MMD扫盲系列01——认识MMD</title>
-    <url>/posts/45af3d29/</url>
-    <content><![CDATA[<p>&emsp;&emsp;我觉得这个系列很有必要。。。。。。现在真的，，手机太普及了么？还是啥。。。先做个MMD扫盲系列吧，这个系列里面不会介绍MMD的发展历程等，只会讲MMD是什么，如何用等技术类问题。 <em><strong>本系列教程全部基于Windows系统的931汉化追加MME版本进行演示</strong></em> 。注意：软件没有最好，只有最适合自己的！！</p>
-<hr>
-<h2 id="2024年7月14日更新！！"><a href="#2024年7月14日更新！！" class="headerlink" title="2024年7月14日更新！！"></a>2024年7月14日更新！！</h2><p>&emsp;&emsp;我做了一个MMD的安装包！！！！！！，下载链接：<br>&emsp;&emsp;<a class="link"   href="https://wwb.lanzouw.com/b00taqonti" >https://wwb.lanzouw.com/b00taqonti<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>&emsp;&emsp;密码:5k22<br>&emsp;&emsp;新人专享系列！！！！这样你就不用纠结了！！！芜湖！！！不用解压缩啥的！！</p>
-<hr>
-<h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>&emsp;&emsp;MMD全称MikuMikuDance，是由日本人樋口优所创建的一个免费的动画软件。本体为日文版软件，由Emil开始繁体汉化，Kinsama修改并发布。当前传播最广的版本有Ver.932，Ver.931，Ver.10th，Ver.926（我知道的，并且是我用过的），还有以上版本+Bridge的版本。</p>
-<hr>
-<h2 id="认识文件"><a href="#认识文件" class="headerlink" title="认识文件"></a>认识文件</h2><p>&emsp;&emsp;现阶段MMD传播基本是靠人手相传。所以基本都是处在 <em><strong>压缩包</strong></em> 这一文件类型内。所以我们需要一个解压缩软件，比如<a class="link"   href="https://www.bandisoft.com/bandizip/" >Bandzip<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>、<a class="link"   href="https://7-zip.org/" >7-zip<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>等。非常建议选一个可以切换压缩语言代码的，因为后期如果下载素材，说不定会遇到乱码。我用的版本压缩包内容展示如下<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/07/10/xLb6wB3a7izVWch.png"
-                      alt="PixPin_2024-07-10_16-59-05.png"
-                ></p>
-<hr>
-<h2 id="使用软件"><a href="#使用软件" class="headerlink" title="使用软件"></a>使用软件</h2><p>&emsp;&emsp;将文件解压缩之后，得到如下所示的文件夹<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/07/10/ExeWOfKzriugw9Y.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;然后右键 <em><strong>MikuMikudance.exe</strong></em> ，选择 <em><strong>发送到——桌面快捷方式</strong></em><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/07/10/3jV1QtXrd8Un7S2.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;这样你的桌面就有MMD了，在启动MMD前，请务必将MMD根目录下的 <em><strong>！！如果出现报错无法启动请安装这个文件夹里的全部文件</strong></em> 这个文件夹内的所有程序全部安装一遍。这样做可以防止日后出错。如果安装后启动时依旧出现报错，请自行搜索 <em><strong>微软常用运行库</strong></em></p>
-<hr>
-<h2 id="认识界面"><a href="#认识界面" class="headerlink" title="认识界面"></a>认识界面</h2><p>&emsp;&emsp;MMD主界面如下<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/07/10/y7JrMDesfc6Zu1q.png"
-                      alt="PixPin_2024-07-10_16-15-20.png"
-                ><br>&emsp;&emsp;介绍如下，点大图看<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/07/10/2wOJ9Mo1Ag4TvFh.png"
-                      alt="PixPin_2024-07-10_16-15-20.png"
-                ></p>
-<hr>
-<h2 id="认识文件类型"><a href="#认识文件类型" class="headerlink" title="认识文件类型"></a>认识文件类型</h2><p>&emsp;&emsp;MMD支持的文件类型不算多，介绍如下：</p>
-<h3 id="PMX-PMD："><a href="#PMX-PMD：" class="headerlink" title="PMX&#x2F;PMD："></a>PMX&#x2F;PMD：</h3><p>&emsp;&emsp;MMD唯二支持的可操控有骨骼的模型文件，区别如下：PMX（Polygon Model eXtended）和PMD（Polygon Model Data）主要在 <strong>格式版本、数据结构复杂性和兼容性</strong> 等方面有所区别。<br>&emsp;&emsp;具体分析如下：</p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>PMX</th>
-<th>PMD</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>格式版本</td>
-<td>PMX是PMD的继承者，通常被认为是更加先进和改进的版本。</td>
-<td>PMD是较早的模型格式，相对于PMX来说，可能不那么流行或支持较新的功能。</td>
-</tr>
-<tr>
-<td>数据结构复杂性</td>
-<td>PMX具有更复杂的数据结构，支持更多的建模元素和细节，如额外的vec4数量、顶点索引大小等，允许存储更丰富的模型信息。</td>
-<td>PMD的数据结构较为简单，没有像PMX那样支持扩展的数据类型和结构。</td>
-</tr>
-<tr>
-<td>兼容性</td>
-<td>PMX由于其结构上的优势，通常拥有更好的兼容性，可以更方便地与各种3D软件进行交互。</td>
-<td>PMD兼容性相对较差，可能在一些新版的软件或工具中不被完全支持。</td>
-</tr>
-<tr>
-<td>使用范围</td>
-<td>PMX由于没有模型定点限制，逐渐成为主流格式，被更多地使用和推荐。</td>
-<td>PMD尽管仍然被支持，但使用频率可能不如PMX高。</td>
-</tr>
-<tr>
-<td>支持工具</td>
-<td>PMX可以使用如PmxEditor这样的专业工具进行编辑和研究，这些工具能够更好地展示文件结构。</td>
-<td>MD虽然也能用类似的工具编辑，但可能不支持所有高级功能。</td>
-</tr>
-<tr>
-<td>可扩展性</td>
-<td>PMX设计时考虑了更多的可扩展性，为未来的扩展和功能的加入留下了空间。</td>
-<td>PMD相对来说，扩展性不如PMX。</td>
-</tr>
-<tr>
-<td>用户社区偏好</td>
-<td>用户社区中，PMX似乎更受欢迎，可能是因为它更符合现代模型制作的需求。</td>
-<td>PMD虽然仍有一席之地，但在新兴的用户中可能不如PMX流行。</td>
-</tr>
-</tbody></table>
-<p>&emsp;&emsp;针对上述分析，可以考虑以下几点建议：<br>&emsp;&emsp;如果您需要与其他3D软件兼容或寻找更多的社区支持，推荐使用PMX格式。<br>&emsp;&emsp;当您处理旧模型或需要与老版本MMD软件兼容时，可能需要使用PMD格式。<br>&emsp;&emsp;综上所述，PMX作为更新的模型文件格式，提供了更多的功能和更好的兼容性，逐渐成为MMD用户的首选格式。而PMD作为早期的格式，虽然仍具有一定的用户基础，但相比之下可能略显过时。无论选择哪种格式，确保您使用适合的工具和插件来优化您的工作流程，并保持对新工具和社区资源的持续关注。</p>
-<h3 id="VMD"><a href="#VMD" class="headerlink" title="VMD"></a>VMD</h3><p>&emsp;&emsp;VMD是一种动作数据文件格式，主要用于记录3D模型的动作、形态变化、相机移动和光照变化等动画信息。<br>&emsp;&emsp;VMD文件包含了一种二进制流数据，具有较为复杂的内部结构。它有两个版本，分别以”Vocaloid Motion Data file”和”Vocaloid Motion Data 0002”标识。文件的前30个字节用于描述版本信息，随后是模型名称，之后依次是骨骼关键帧、变形关键帧、相机关键帧以及灯光关键帧的记录。<br>&emsp;&emsp;与此同时，镜头VMD文件只能给镜头用，动作VMD文件只能给人物或者场景用。因为在MMD中，因为存在index类型，所以也不怕重名，是一一对应的关系，但是与此同时的是MMD模型只要名字有一丝不同，比如多了一个空格之类的，就会无法识别。</p>
-<h3 id="VPD"><a href="#VPD" class="headerlink" title="VPD"></a>VPD</h3><p>&emsp;&emsp;VPD是一种姿势数据文件格式，在文件数据中仅有一帧的骨骼变换姿态，与VMD不同的是，VMD是一段，而VPD是一帧，即一张画面，一般适用于做静画之类的</p>
-<h3 id="WAV"><a href="#WAV" class="headerlink" title="WAV"></a>WAV</h3><p>&emsp;&emsp;MMD仅仅支持这一种音乐类型格式，不支持MP3或者其他格式。WAV文件介绍如下：<br>&emsp;&emsp;WAV文件是一种标准的数字音频文件格式，主要用于保存无损的音频数据，以保证声音质量的最佳还原。<br>&emsp;&emsp;WAV文件采用RIFF（Resource Interchange File Format）文件格式结构，通常用来保存PCM（Pulse Code Modulation）格式的原始音频数据，因此被称为无损音频。它是由微软公司和IBM联合设计的，最早于1991年8月在Windows 3.1操作系统上出现，文件扩展名为WAV。该格式得到了Windows、Macintosh、Linux等多种操作系统的支持。WAV文件具有以下特点：<br>&emsp;&emsp; <strong>高音质</strong> ：<br>&emsp;&emsp;WAV文件保存的是原始的音频数据，几乎没有进行数据压缩，因此能够最大程度地保留音频的真实质量。其音质与CD相差无几，常用于专业的音频处理和高质量音乐播放。<br>&emsp;&emsp; <strong>支持多种采样率</strong> ：<br>&emsp;&emsp;WAV文件支持多种采样率和采样位数，例如44.1kHz、22.05kHz等，以及16位或8位的采样精度。这使得它能适应不同的音频录制需求，从一般的音乐播放到专业音频制作均可胜任。<br>&emsp;&emsp; <strong>支持不同声道</strong> ：<br>&emsp;&emsp;WAV格式支持单声道和立体声录音。立体声文件使用两个声道，分别记录左右声道信息，使得音频具有空间感和立体感，适合复杂的声音场景。<br>&emsp;&emsp; <strong>文件体积较大</strong> ：<br>&emsp;&emsp;由于WAV文件保存的是未压缩的音频数据，因此文件体积相对较大，每分钟的音乐大约需要10MB左右的存储空间。这也限制了其在长时间音频记录和网络传输中的应用。<br>&emsp;&emsp;此外，WAV文件还广泛应用于音效素材的保存和分享。许多网站提供大量免费的WAV音效资源，如爱给网等，这些资源可以用于影视、游戏、动画等多个领域，极大地丰富了多媒体制作的内容。<br>&emsp;&emsp;综上所述，WAV文件以其高质量的无损音频保存方式，在音频处理、音乐播放和多媒体制作中发挥着重要作用。尽管文件体积较大，但其在保证音质方面的优势使其成为众多专业人士和爱好者的首选格式。</p>
-<h3 id="X文件与FX文件"><a href="#X文件与FX文件" class="headerlink" title="X文件与FX文件"></a>X文件与FX文件</h3><table>
-<thead>
-<tr>
-<th>类型</th>
-<th>X</th>
-<th>FX</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>定义</td>
-<td>X文件通常在MMD中作为附件载入使用，它不涉及复杂的图形渲染操作，更多的是作为补充或扩展MMD功能的一种轻量级文件。</td>
-<td>FX文件是一种使用高阶着色器语言（HLSL）标准创建的文本文件，它定义了一个DirectX 9（DX9）明暗器，专门用于处理材质的光照和渲染效果。</td>
-</tr>
-<tr>
-<td>功能用途</td>
-<td>X文件在MMD中主要用于增强场景的互动性和视觉效果，富动画的表现力。</td>
-<td>FX文件在MMD中用于实现高质量和复杂计算的材质效果，如高级光影效果、曲面细分等。它通过HLSL在GPU上执行快速的数学计算，实现更加逼真和动态的渲染效果。</td>
-</tr>
-<tr>
-<td>使用范围</td>
-<td>在PmxEditor创建一个X文件，并将材质定义为screen.bmp，在MMD中开启屏幕捕捉则可实现投影效果</td>
-<td>在MMD中加载MME功能后，则可以给X文件定义FX来实现各种更加炫酷的效果</td>
-</tr>
-</tbody></table>
-<p>&emsp;&emsp;综上所述，X文件和FX文件在MMD中各司其职，前者提供了一种简易的方式来实现一些视觉特效，而后者则负责处理更高端和复杂的材质渲染任务。了解它们之间的区别和各自的优势，可以帮助用户更加合理地利用这些资源来制作出质量更高、视觉效果更佳的MMD作品。</p>
-<h3 id="PMM"><a href="#PMM" class="headerlink" title="PMM"></a>PMM</h3><p>&emsp;&emsp;PMM文件是MMD的工程文件。特殊的是，pmm是存储的是绝对路径，一旦你的素材更改位置，PMM便会因为无法识别而导致MMD闪退或者无法打开工程文件，需要重新定义。</p>
-<hr>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;MMD新手请多去B站等看看有关教程，遇事不决善用搜索引擎，无法解决后再提问。</p>
-]]></content>
-      <categories>
-        <category>MMD扫盲系列</category>
-      </categories>
-      <tags>
-        <tag>MMD扫盲系列</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>配布申请要求</title>
-    <url>/posts/63037/</url>
-    <content><![CDATA[<h2 id="通用要求-General-Requirements："><a href="#通用要求-General-Requirements：" class="headerlink" title="通用要求&#x2F;General Requirements："></a><em><strong>通用要求&#x2F;General Requirements：</strong></em></h2><p><em><strong>&emsp;&emsp;1.投稿过一个以及一个以上的mmd，blender,C4D,UE等3D动画作品（如果没有投稿过，请先与我私信）<br><br>&emsp;&emsp;2.黑名单别来<br><br>&emsp;&emsp;3.借物表完整，不全的别来<br><br>&emsp;&emsp;4.渲染要求不高<br><br>&emsp;&emsp;5.被拒绝后请自己找原因，被拒三次，拜拜！！！<br><br>&emsp;&emsp;6.二配自己心里清楚<br></strong></em></p>
-<hr>
-<h2 id="配布群要求-Distribution-Group-Requirements"><a href="#配布群要求-Distribution-Group-Requirements" class="headerlink" title="配布群要求&#x2F;Distribution Group Requirements"></a><em><strong>配布群要求&#x2F;Distribution Group Requirements</strong></em></h2><p><em><strong>&emsp;&emsp;1.群内配布物，退群后自动视为弃权，并且不能使用<br><br>&emsp;&emsp;2.被拒绝后请自己找原因，被拒三次，拜拜！！！<br><br>&emsp;&emsp;3.我没素质<br><br>&emsp;&emsp;4.入群请说明来意+UID<br><br>&emsp;&emsp;5.群聊记录严禁泄露<br><br>&emsp;&emsp;6.入群先看公告<br></strong></em></p>
-<hr>
-<h2 id="申请要求-Application-Requirements"><a href="#申请要求-Application-Requirements" class="headerlink" title="申请要求&#x2F;Application Requirements"></a><em><strong>申请要求&#x2F;Application Requirements</strong></em></h2><p>&emsp;&emsp;<em><strong>如果你是只想要我配布的动作或者模型，并不想加群。请先私信<a class="link"   href="https://space.bilibili.com/374412219" >我<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>，无论审核通过与否，我都会给你回复。如果过审，你可以在本博客下&emsp;Motion&ensp;DL&emsp;或者&emsp;Model&ensp;DL&emsp;的tag内找到该动作的加密配布页面，在页面内输入我提供给你的密码便可查看到网盘下载链接、（每个页面的密码都是不一样的，还请不要传播）</strong></em></p>
-<hr>
-<h3 id="终章"><a href="#终章" class="headerlink" title="终章"></a>终章</h3><p>&emsp;&emsp;请注意，所有的要求都是建立在 <em><strong>通用要求</strong></em> 之上的。动作申请以及配布群申请的要求都为&emsp; <em><strong>“&emsp;通用要求&emsp;+&emsp;配布群要求（申请要求）&emsp;”</strong></em> &emsp;，请严格遵守我的要求，如果涉及到没有说明的部分，默认为禁止，如有疑问，请向我私信提出，谢谢配合。</p>
-]]></content>
-      <categories>
-        <category>MMD</category>
-        <category>Requirements</category>
-      </categories>
-      <tags>
-        <tag>Rules</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>PJSK-アイディスマイル 动作配布</title>
     <url>/posts/2699655f/</url>
     <content><![CDATA[
@@ -1086,147 +1067,6 @@ root.mainloop()
       </categories>
       <tags>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python实战系列02-Hex转换为RGB</title>
-    <url>/posts/57dc070d/</url>
-    <content><![CDATA[<p>&emsp;&emsp;是和实战系列01功能相反的存在，练手玩，不确定会不会更新。</p>
-<hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import tkinter as tk
-import re
-
-def hex_to_rgb(hex_color):
-    return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
-
-def is_valid_input(value):
-    return bool(re.match(&quot;^([0-9a-fA-F]&#123;6&#125;)$&quot;, value))
-
-def convert():
-    hex_color = entry_hex.get()
-
-    if not is_valid_input(hex_color):
-        result_label.config(text=&quot;输入错误，请输入有效的16进制颜色值&quot;)
-        return
-
-    try:
-        r, g, b = hex_to_rgb(hex_color)
-    except ValueError:
-        result_label.config(text=&quot;转换错误，请输入有效的16进制颜色值&quot;)
-        return
-
-    result_label.config(text=&quot;对应的RGB值为：R=&#123;&#125;, G=&#123;&#125;, B=&#123;&#125;&quot;.format(r, g, b))
-
-def copy_rgb_code():
-    root.clipboard_clear()
-    root.clipboard_append(result_label.cget(&quot;text&quot;))
-
-root = tk.Tk()
-root.title(&quot;16进制转RGB&quot;)
-
-label_hex = tk.Label(root, text=&quot;16进制颜色值（如：FF00FF，无#）：&quot;)
-label_hex.grid(row=0, column=0)
-entry_hex = tk.Entry(root)
-entry_hex.grid(row=0, column=1)
-
-convert_button = tk.Button(root, text=&quot;转换&quot;, command=convert)
-convert_button.grid(row=1, column=0, columnspan=2)
-
-copy_button = tk.Button(root, text=&quot;复制&quot;, command=copy_rgb_code)
-copy_button.grid(row=2, column=0, columnspan=2)
-
-result_label = tk.Label(root, text=&quot;&quot;)
-result_label.grid(row=3, column=0, columnspan=2)
-
-root.mainloop()
-</code></pre>
-<hr>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/Hex2RGB" >https://github.com/NIGHT2000/Hex2RGB<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>QQ群：813686446</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>实战系列</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python实战系列03-URL的编码与解码</title>
-    <url>/posts/cbf0ad6c/</url>
-    <content><![CDATA[<p>&emsp;&emsp;被QQ最近那个点击转发的小东西弄感兴趣了，看是MD语法，重点是URL的编码和解码，所以就写了个简单的例子。</p>
-<hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import tkinter as tk
-from urllib.parse import quote, unquote
-
-def encode_text():
-    input_text = entry.get()
-    encoded_text = quote(input_text)
-    result_label.config(text=encoded_text)
-
-def decode_text():
-    input_text = entry.get()
-    try:
-        decoded_text = unquote(input_text)
-        result_label.config(text=decoded_text)
-    except Exception as e:
-        result_label.config(text=&quot;请输入正确的URL编码内容&quot;)
-
-def copy_text():
-    root.clipboard_clear()
-    root.clipboard_append(result_label.cget(&quot;text&quot;))
-
-root = tk.Tk()
-root.title(&quot;URL编码器&quot;)
-root.configure(bg=&quot;#EEE0E5&quot;)
-
-entry = tk.Entry(root, width=50, bg=&quot;#FFE4C4&quot;)
-entry.pack(pady=10)
-
-buttons_frame = tk.Frame(root)
-buttons_frame.pack(side=&quot;right&quot;, padx=10)
-
-encode_button = tk.Button(buttons_frame, text=&quot;编码&quot;, command=encode_text)
-encode_button.pack(pady=5)
-
-decode_button = tk.Button(buttons_frame, text=&quot;解码&quot;, command=decode_text)
-decode_button.pack(pady=5)
-
-copy_button = tk.Button(buttons_frame, text=&quot;复制&quot;, command=copy_text)
-copy_button.pack(pady=5)
-
-result_label = tk.Label(root, text=&quot;&quot;, bg=&quot;#B0E0E6&quot;)
-result_label.pack(pady=10)
-
-root.mainloop()
-</code></pre>
-<hr>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/URL-Encoder-decoder" >https://github.com/NIGHT2000/URL-Encoder-decoder<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>QQ群：813686446</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>实战系列</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>GitHub01-二重身份验证方法</title>
-    <url>/posts/597bd277/</url>
-    <content><![CDATA[<p>&emsp;&emsp;写前一篇教程用GitHub的时候，出现了一个二重身份验证，历经了极其麻烦的过程之后，打给整理了一下这些，下载软件基本都要魔法，我塞到百度网盘也可。</p>
-<hr>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>&emsp;&emsp;1、<a class="link"   href="https://apkpure.com/cn/" >APKpure<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：用来下载Google Play<br>&emsp;&emsp;2、Google Play：用来下载Authenticator<br>&emsp;&emsp;3、Authenticator：验证二重身份，重点就是这个，这个是微软的，也比较好用，建议就是登陆微软账号，但是我没登，因为，我登录时老是出现登录异常，不登录也能用。</p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>&emsp;&emsp;<a class="link"   href="https://pan.baidu.com/s/1eHKylxujG_axNVpeoPdgxQ?pwd=qhru" >Authenticator<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
-<hr>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>&emsp;&emsp;1、用APKpure下载Google Play<br>&emsp;&emsp;2、用Google Play下载Authenticator<br>&emsp;&emsp;3、打开Authenticator<br>&emsp;&emsp;4、点击最下方 <em><strong>已验证ID</strong></em> <br>&emsp;&emsp;5、然后扫描GitHub的QR码即可</p>
-]]></content>
-      <categories>
-        <category>某些技术日常</category>
-        <category>GitHub系列</category>
-      </categories>
-      <tags>
-        <tag>GitHub</tag>
       </tags>
   </entry>
   <entry>
@@ -1357,6 +1197,87 @@ root.mainloop()
       </tags>
   </entry>
   <entry>
+    <title>python实战系列02-Hex转换为RGB</title>
+    <url>/posts/57dc070d/</url>
+    <content><![CDATA[<p>&emsp;&emsp;是和实战系列01功能相反的存在，练手玩，不确定会不会更新。</p>
+<hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import tkinter as tk
+import re
+
+def hex_to_rgb(hex_color):
+    return tuple(int(hex_color[i:i+2], 16) for i in (0, 2, 4))
+
+def is_valid_input(value):
+    return bool(re.match(&quot;^([0-9a-fA-F]&#123;6&#125;)$&quot;, value))
+
+def convert():
+    hex_color = entry_hex.get()
+
+    if not is_valid_input(hex_color):
+        result_label.config(text=&quot;输入错误，请输入有效的16进制颜色值&quot;)
+        return
+
+    try:
+        r, g, b = hex_to_rgb(hex_color)
+    except ValueError:
+        result_label.config(text=&quot;转换错误，请输入有效的16进制颜色值&quot;)
+        return
+
+    result_label.config(text=&quot;对应的RGB值为：R=&#123;&#125;, G=&#123;&#125;, B=&#123;&#125;&quot;.format(r, g, b))
+
+def copy_rgb_code():
+    root.clipboard_clear()
+    root.clipboard_append(result_label.cget(&quot;text&quot;))
+
+root = tk.Tk()
+root.title(&quot;16进制转RGB&quot;)
+
+label_hex = tk.Label(root, text=&quot;16进制颜色值（如：FF00FF，无#）：&quot;)
+label_hex.grid(row=0, column=0)
+entry_hex = tk.Entry(root)
+entry_hex.grid(row=0, column=1)
+
+convert_button = tk.Button(root, text=&quot;转换&quot;, command=convert)
+convert_button.grid(row=1, column=0, columnspan=2)
+
+copy_button = tk.Button(root, text=&quot;复制&quot;, command=copy_rgb_code)
+copy_button.grid(row=2, column=0, columnspan=2)
+
+result_label = tk.Label(root, text=&quot;&quot;)
+result_label.grid(row=3, column=0, columnspan=2)
+
+root.mainloop()
+</code></pre>
+<hr>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/Hex2RGB" >https://github.com/NIGHT2000/Hex2RGB<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>QQ群：813686446</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>实战系列</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub01-二重身份验证方法</title>
+    <url>/posts/597bd277/</url>
+    <content><![CDATA[<p>&emsp;&emsp;写前一篇教程用GitHub的时候，出现了一个二重身份验证，历经了极其麻烦的过程之后，打给整理了一下这些，下载软件基本都要魔法，我塞到百度网盘也可。</p>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>&emsp;&emsp;1、<a class="link"   href="https://apkpure.com/cn/" >APKpure<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>：用来下载Google Play<br>&emsp;&emsp;2、Google Play：用来下载Authenticator<br>&emsp;&emsp;3、Authenticator：验证二重身份，重点就是这个，这个是微软的，也比较好用，建议就是登陆微软账号，但是我没登，因为，我登录时老是出现登录异常，不登录也能用。</p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>&emsp;&emsp;<a class="link"   href="https://pan.baidu.com/s/1eHKylxujG_axNVpeoPdgxQ?pwd=qhru" >Authenticator<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<hr>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>&emsp;&emsp;1、用APKpure下载Google Play<br>&emsp;&emsp;2、用Google Play下载Authenticator<br>&emsp;&emsp;3、打开Authenticator<br>&emsp;&emsp;4、点击最下方 <em><strong>已验证ID</strong></em> <br>&emsp;&emsp;5、然后扫描GitHub的QR码即可</p>
+]]></content>
+      <categories>
+        <category>某些技术日常</category>
+        <category>GitHub系列</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>游戏数据解析日志01-HOYOStudio的使用方法</title>
     <url>/posts/6073dae3/</url>
     <content><![CDATA[<h2 id="原项目地址："><a href="#原项目地址：" class="headerlink" title="原项目地址："></a>原项目地址：</h2><pre><code>https://github.com/TomyJan/HoYoStudio/releases/tag/v0.17.00
@@ -1377,6 +1298,130 @@ root.mainloop()
       </categories>
       <tags>
         <tag>解包</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python实战系列03-URL的编码与解码</title>
+    <url>/posts/cbf0ad6c/</url>
+    <content><![CDATA[<p>&emsp;&emsp;被QQ最近那个点击转发的小东西弄感兴趣了，看是MD语法，重点是URL的编码和解码，所以就写了个简单的例子。</p>
+<hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><pre><code>import tkinter as tk
+from urllib.parse import quote, unquote
+
+def encode_text():
+    input_text = entry.get()
+    encoded_text = quote(input_text)
+    result_label.config(text=encoded_text)
+
+def decode_text():
+    input_text = entry.get()
+    try:
+        decoded_text = unquote(input_text)
+        result_label.config(text=decoded_text)
+    except Exception as e:
+        result_label.config(text=&quot;请输入正确的URL编码内容&quot;)
+
+def copy_text():
+    root.clipboard_clear()
+    root.clipboard_append(result_label.cget(&quot;text&quot;))
+
+root = tk.Tk()
+root.title(&quot;URL编码器&quot;)
+root.configure(bg=&quot;#EEE0E5&quot;)
+
+entry = tk.Entry(root, width=50, bg=&quot;#FFE4C4&quot;)
+entry.pack(pady=10)
+
+buttons_frame = tk.Frame(root)
+buttons_frame.pack(side=&quot;right&quot;, padx=10)
+
+encode_button = tk.Button(buttons_frame, text=&quot;编码&quot;, command=encode_text)
+encode_button.pack(pady=5)
+
+decode_button = tk.Button(buttons_frame, text=&quot;解码&quot;, command=decode_text)
+decode_button.pack(pady=5)
+
+copy_button = tk.Button(buttons_frame, text=&quot;复制&quot;, command=copy_text)
+copy_button.pack(pady=5)
+
+result_label = tk.Label(root, text=&quot;&quot;, bg=&quot;#B0E0E6&quot;)
+result_label.pack(pady=10)
+
+root.mainloop()
+</code></pre>
+<hr>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/URL-Encoder-decoder" >https://github.com/NIGHT2000/URL-Encoder-decoder<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>QQ群：813686446</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>实战系列</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>APK技术日常02-APK源码的查看</title>
+    <url>/posts/64111/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;代码设计是每位工程师心血的结晶，源代码的查看仅能作为学习使用，不可以不劳而获。</strong></em></p>
+<hr>
+<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>&emsp;&emsp;1、<a class="link"   href="https://sourceforge.net/projects/dex2jar/files/latest/download" >dex2jar<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>&emsp;用于可运行文件classes.dex反编译为jar文件；<br>&emsp;&emsp;2、<a class="link"   href="http://java-decompiler.github.io/" >JD-GUI<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>&emsp;用于查看jar文件源码</p>
+<hr>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>&emsp;&emsp;1、将自己所要提取的apk文件后缀名改为zip（或者其他可以解压的后缀，如rar），并且解压（注：此过程不可逆，解压缩之后再压缩，会导致apk损坏，建议先备份一份，然后用副本做修改工作）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/09/GpUrjXvH8EBdMnJ.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;2、将&ensp;<em><strong>classes.des</strong></em>&ensp;文件复制到dex2jar的目录之下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/09/g7ewyZ4hQDvdGVS.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;3、在此目录下运行cmd（运行办法见<a href="https://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/">APK技术日常01</a>），在CMD中运行以下命令</p>
+<pre><code>d2j-dex2jar.bat classes.dex
+</code></pre>
+<p>&emsp;&emsp;会生成由 <em><strong>classes.dex</strong></em> 反编译得到的jar文件 <em><strong>classes-dex2jar.jar</strong></em> 。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/09/8VIBrYyfChSlNpw.png"
+                      alt="image.png"
+                ><br>4、用JD-GUI打开 <em><strong>classes-dex2jar.jar</strong></em>即可查看源码（注：源码若经过混淆，此处能查看的也是经过混淆的版本）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/09/wHEtAbVxR2OYCsP.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h2 id="STAFF"><a href="#STAFF" class="headerlink" title="STAFF"></a>STAFF</h2><p>&emsp;&emsp;1、dex2jar：<a class="link"   href="https://sourceforge.net/projects/dex2jar/files/latest/download" >https://sourceforge.net/projects/dex2jar/files/latest/download<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>&emsp;&emsp;2、JD-GUI：<a class="link"   href="http://java-decompiler.github.io/" >http://java-decompiler.github.io/<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;如果只是想更换图片等资源，在<a href="https://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/">APK技术日常01</a>那里处理完apk进入对应文件夹修改即可。修改代码比较麻烦，因为反编译出来的结果中只有smali文件，即Java虚拟机支持的汇编语言。如果确实需要修改代码，就得对照smali文件和从classes.dex反编译出来的源码了，按照smali的规范来改动即可。相当于写汇编，难度较大，感兴趣可以自己探索。</p>
+]]></content>
+      <categories>
+        <category>某些技术日常</category>
+        <category>APK修改系列</category>
+      </categories>
+      <tags>
+        <tag>APK</tag>
+        <tag>技术日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>配布申请要求</title>
+    <url>/posts/63037/</url>
+    <content><![CDATA[<h2 id="通用要求-General-Requirements："><a href="#通用要求-General-Requirements：" class="headerlink" title="通用要求&#x2F;General Requirements："></a><em><strong>通用要求&#x2F;General Requirements：</strong></em></h2><p><em><strong>&emsp;&emsp;1.投稿过一个以及一个以上的mmd，blender,C4D,UE等3D动画作品（如果没有投稿过，请先与我私信）<br><br>&emsp;&emsp;2.黑名单别来<br><br>&emsp;&emsp;3.借物表完整，不全的别来<br><br>&emsp;&emsp;4.渲染要求不高<br><br>&emsp;&emsp;5.被拒绝后请自己找原因，被拒三次，拜拜！！！<br><br>&emsp;&emsp;6.二配自己心里清楚<br></strong></em></p>
+<hr>
+<h2 id="配布群要求-Distribution-Group-Requirements"><a href="#配布群要求-Distribution-Group-Requirements" class="headerlink" title="配布群要求&#x2F;Distribution Group Requirements"></a><em><strong>配布群要求&#x2F;Distribution Group Requirements</strong></em></h2><p><em><strong>&emsp;&emsp;1.群内配布物，退群后自动视为弃权，并且不能使用<br><br>&emsp;&emsp;2.被拒绝后请自己找原因，被拒三次，拜拜！！！<br><br>&emsp;&emsp;3.我没素质<br><br>&emsp;&emsp;4.入群请说明来意+UID<br><br>&emsp;&emsp;5.群聊记录严禁泄露<br><br>&emsp;&emsp;6.入群先看公告<br></strong></em></p>
+<hr>
+<h2 id="申请要求-Application-Requirements"><a href="#申请要求-Application-Requirements" class="headerlink" title="申请要求&#x2F;Application Requirements"></a><em><strong>申请要求&#x2F;Application Requirements</strong></em></h2><p>&emsp;&emsp;<em><strong>如果你是只想要我配布的动作或者模型，并不想加群。请先私信<a class="link"   href="https://space.bilibili.com/374412219" >我<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>，无论审核通过与否，我都会给你回复。如果过审，你可以在本博客下&emsp;Motion&ensp;DL&emsp;或者&emsp;Model&ensp;DL&emsp;的tag内找到该动作的加密配布页面，在页面内输入我提供给你的密码便可查看到网盘下载链接、（每个页面的密码都是不一样的，还请不要传播）</strong></em></p>
+<hr>
+<h3 id="终章"><a href="#终章" class="headerlink" title="终章"></a>终章</h3><p>&emsp;&emsp;请注意，所有的要求都是建立在 <em><strong>通用要求</strong></em> 之上的。动作申请以及配布群申请的要求都为&emsp; <em><strong>“&emsp;通用要求&emsp;+&emsp;配布群要求（申请要求）&emsp;”</strong></em> &emsp;，请严格遵守我的要求，如果涉及到没有说明的部分，默认为禁止，如有疑问，请向我私信提出，谢谢配合。</p>
+]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>Requirements</category>
+      </categories>
+      <tags>
+        <tag>Rules</tag>
       </tags>
   </entry>
   <entry>
@@ -1429,40 +1474,67 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
       </tags>
   </entry>
   <entry>
-    <title>APK技术日常02-APK源码的查看</title>
-    <url>/posts/64111/</url>
-    <content><![CDATA[<p><em><strong>&emsp;&emsp;代码设计是每位工程师心血的结晶，源代码的查看仅能作为学习使用，不可以不劳而获。</strong></em></p>
+    <title>APK技术日常03—APK的再打包与签名</title>
+    <url>/posts/15022/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;此处的apk的再打包是指之前教程中所拆解出来的apk文件的打包，如果是自己做的文件，不确定是否适用。而签名则是相当于对apk文件的认证，不签名则无法安装。</strong></em></p>
 <hr>
-<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>&emsp;&emsp;1、<a class="link"   href="https://sourceforge.net/projects/dex2jar/files/latest/download" >dex2jar<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>&emsp;用于可运行文件classes.dex反编译为jar文件；<br>&emsp;&emsp;2、<a class="link"   href="http://java-decompiler.github.io/" >JD-GUI<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>&emsp;用于查看jar文件源码</p>
-<hr>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>&emsp;&emsp;1、将自己所要提取的apk文件后缀名改为zip（或者其他可以解压的后缀，如rar），并且解压（注：此过程不可逆，解压缩之后再压缩，会导致apk损坏，建议先备份一份，然后用副本做修改工作）<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/09/GpUrjXvH8EBdMnJ.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;2、将&ensp;<em><strong>classes.des</strong></em>&ensp;文件复制到dex2jar的目录之下<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/09/g7ewyZ4hQDvdGVS.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;3、在此目录下运行cmd（运行办法见<a href="https://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/">APK技术日常01</a>），在CMD中运行以下命令</p>
-<pre><code>d2j-dex2jar.bat classes.dex
+<h2 id="打包步骤"><a href="#打包步骤" class="headerlink" title="打包步骤"></a>打包步骤</h2><p>&emsp;&emsp;首先在你需要打包的文件的上一级目录下，打开CMD，运行以下命令</p>
+<pre><code>apktool b &lt;folderPath&gt; -o folder&#39;s name.apk
 </code></pre>
-<p>&emsp;&emsp;会生成由 <em><strong>classes.dex</strong></em> 反编译得到的jar文件 <em><strong>classes-dex2jar.jar</strong></em> 。<br><img  
+<p>&emsp;&emsp;这个命令的意义在于将 <em><strong>&lt; floderpath &gt;</strong></em> 这个文件夹打包为以这个文件夹名为文件名的apk文件。<br>&emsp;&emsp;比如此时我的文件结构为：<br>&emsp;&emsp;&emsp;&emsp;&emsp;E:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─ apktool（需要打包的文件夹的上一级目录）<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─pose-monitor-release（需要打包的文件夹）<br>&emsp;&emsp;所以此时我就需要在apktool文件夹下运行cmd，运行命令：</p>
+<pre><code>apktool b pose-monitor-release -o pose-monitor-release.apk
+</code></pre>
+<p>&emsp;&emsp;这样就会把pose-monitor-release这个文件夹打包成一个名为pose-monitor-release的apk文件，当出现如下图所示的信息时即为打包成功。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/09/8VIBrYyfChSlNpw.png"
+                     data-src="https://s2.loli.net/2024/01/11/WMcSA1CfyBxoQPl.png"
                       alt="image.png"
-                ><br>4、用JD-GUI打开 <em><strong>classes-dex2jar.jar</strong></em>即可查看源码（注：源码若经过混淆，此处能查看的也是经过混淆的版本）<br><img  
+                ><br>&emsp;&emsp;之后你就可以看到你打包好的apk文件了（如果在需要打包的目录的同一级目录下没有找到，那就到需要打包的文件夹下的 <em><strong>build</strong></em> 文件夹下查看。</p>
+<hr>
+<h2 id="签名APK"><a href="#签名APK" class="headerlink" title="签名APK"></a>签名APK</h2><h3 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h3><p>&emsp;&emsp;<a class="link"   href="https://mt2.cn/" >MT管理器<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>&emsp;&emsp;首先，在MT管理器中找到要处理的文件（可以用右上角三个点搜索）<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/09/wHEtAbVxR2OYCsP.png"
-                      alt="image.png"
-                ></p>
+                     data-src="https://s2.loli.net/2024/01/11/2IMwYcCarh6A35z.jpg"
+                      alt="目录.jpg"
+                ><br>&emsp;&emsp;为了确认，我点了一下，看了下详细信息<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/cwsQYWACzPfxHpm.jpg"
+                      alt="详细信息.jpg"
+                ><br>&emsp;&emsp;然后长按，选择签名<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/SjQrmH6Nylqsoue.jpg"
+                      alt="菜单.jpg"
+                ><br>&emsp;&emsp;签名秘钥可以选默认，也可以选自定义（如果你会的话），方案选择V1+V2（如果有报错，试试其他的方案）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/xtmzhCZG1BaVRd4.jpg"
+                      alt="签名选择.jpg"
+                ><br>&emsp;&emsp;此时大概率会有以下两种提示<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/hXrMAptilO5vInG.jpg"
+                      alt="报错（权限）.jpg"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/x4AQF5uOVvaw9Cz.jpg"
+                      alt="报错（权限2）.jpg"
+                ><br>第一个发送通知点允许就好，这个是为了出现第二个提示。第二个提示随便点就好，没什么影响。<br>&emsp;&emsp;等到进度条走完<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/iMkVmHRYeN2uFbr.jpg"
+                      alt="进度条.jpg"
+                ><br>&emsp;&emsp;会出现一个新的文件<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/2QGXdAOqCFN5tkv.jpg"
+                      alt="生成文件.jpg"
+                ><br>&emsp;&emsp;第一个那个不是绿色的文件就是。至此，签名完成，可以自己试着安装。</p>
 <hr>
-<h2 id="STAFF"><a href="#STAFF" class="headerlink" title="STAFF"></a>STAFF</h2><p>&emsp;&emsp;1、dex2jar：<a class="link"   href="https://sourceforge.net/projects/dex2jar/files/latest/download" >https://sourceforge.net/projects/dex2jar/files/latest/download<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i><br>&emsp;&emsp;2、JD-GUI：<a class="link"   href="http://java-decompiler.github.io/" >http://java-decompiler.github.io/<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
-<hr>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;如果只是想更换图片等资源，在<a href="https://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/">APK技术日常01</a>那里处理完apk进入对应文件夹修改即可。修改代码比较麻烦，因为反编译出来的结果中只有smali文件，即Java虚拟机支持的汇编语言。如果确实需要修改代码，就得对照smali文件和从classes.dex反编译出来的源码了，按照smali的规范来改动即可。相当于写汇编，难度较大，感兴趣可以自己探索。</p>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;签名后如果产生报错，可以换个签名方式。V1，V2，V3其实对应着不同的安卓版本，自己看就好，还有一种签名方式就是使用JAVA的keytool，但是我忘了我的秘钥，具体可以自行百度。我觉得用MT最简单~~~</p>
 ]]></content>
       <categories>
         <category>某些技术日常</category>
@@ -1573,75 +1645,40 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
       </tags>
   </entry>
   <entry>
-    <title>APK技术日常03—APK的再打包与签名</title>
-    <url>/posts/15022/</url>
-    <content><![CDATA[<p><em><strong>&emsp;&emsp;此处的apk的再打包是指之前教程中所拆解出来的apk文件的打包，如果是自己做的文件，不确定是否适用。而签名则是相当于对apk文件的认证，不签名则无法安装。</strong></em></p>
+    <title>MMD动作规约/MMD Motion Rules</title>
+    <url>/posts/28822/</url>
+    <content><![CDATA[<p>&emsp;&emsp;<em><strong>欢迎各位使用动作数据<br>&emsp;&emsp;本动作源于游戏&emsp;<a class="link"   href="https://pjsekai.sega.jp/" >《世界计划 彩色舞台 feat. 初音未来》<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>，故日语用户请谨慎使用。</strong></em></p>
 <hr>
-<h2 id="打包步骤"><a href="#打包步骤" class="headerlink" title="打包步骤"></a>打包步骤</h2><p>&emsp;&emsp;首先在你需要打包的文件的上一级目录下，打开CMD，运行以下命令</p>
-<pre><code>apktool b &lt;folderPath&gt; -o folder&#39;s name.apk
-</code></pre>
-<p>&emsp;&emsp;这个命令的意义在于将 <em><strong>&lt; floderpath &gt;</strong></em> 这个文件夹打包为以这个文件夹名为文件名的apk文件。<br>&emsp;&emsp;比如此时我的文件结构为：<br>&emsp;&emsp;&emsp;&emsp;&emsp;E:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─ apktool（需要打包的文件夹的上一级目录）<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─pose-monitor-release（需要打包的文件夹）<br>&emsp;&emsp;所以此时我就需要在apktool文件夹下运行cmd，运行命令：</p>
-<pre><code>apktool b pose-monitor-release -o pose-monitor-release.apk
-</code></pre>
-<p>&emsp;&emsp;这样就会把pose-monitor-release这个文件夹打包成一个名为pose-monitor-release的apk文件，当出现如下图所示的信息时即为打包成功。<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/WMcSA1CfyBxoQPl.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;之后你就可以看到你打包好的apk文件了（如果在需要打包的目录的同一级目录下没有找到，那就到需要打包的文件夹下的 <em><strong>build</strong></em> 文件夹下查看。</p>
+<h2 id="禁止类"><a href="#禁止类" class="headerlink" title="禁止类"></a><strong>禁止类</strong></h2><p>&emsp;1.禁止使用时，视频标题为【动作配布】<br>&emsp;2.禁止【黑名单】人员使用<br>&emsp;3.禁止关联AI使用<br>&emsp;4.禁止R18<br>&emsp;5.禁止商用</p>
 <hr>
-<h2 id="签名APK"><a href="#签名APK" class="headerlink" title="签名APK"></a>签名APK</h2><h3 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h3><p>&emsp;&emsp;<a class="link"   href="https://mt2.cn/" >MT管理器<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i></p>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>&emsp;&emsp;首先，在MT管理器中找到要处理的文件（可以用右上角三个点搜索）<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/2IMwYcCarh6A35z.jpg"
-                      alt="目录.jpg"
-                ><br>&emsp;&emsp;为了确认，我点了一下，看了下详细信息<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/cwsQYWACzPfxHpm.jpg"
-                      alt="详细信息.jpg"
-                ><br>&emsp;&emsp;然后长按，选择签名<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/SjQrmH6Nylqsoue.jpg"
-                      alt="菜单.jpg"
-                ><br>&emsp;&emsp;签名秘钥可以选默认，也可以选自定义（如果你会的话），方案选择V1+V2（如果有报错，试试其他的方案）<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/xtmzhCZG1BaVRd4.jpg"
-                      alt="签名选择.jpg"
-                ><br>&emsp;&emsp;此时大概率会有以下两种提示<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/hXrMAptilO5vInG.jpg"
-                      alt="报错（权限）.jpg"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/x4AQF5uOVvaw9Cz.jpg"
-                      alt="报错（权限2）.jpg"
-                ><br>第一个发送通知点允许就好，这个是为了出现第二个提示。第二个提示随便点就好，没什么影响。<br>&emsp;&emsp;等到进度条走完<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/iMkVmHRYeN2uFbr.jpg"
-                      alt="进度条.jpg"
-                ><br>&emsp;&emsp;会出现一个新的文件<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/2QGXdAOqCFN5tkv.jpg"
-                      alt="生成文件.jpg"
-                ><br>&emsp;&emsp;第一个那个不是绿色的文件就是。至此，签名完成，可以自己试着安装。</p>
-<hr>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;签名后如果产生报错，可以换个签名方式。V1，V2，V3其实对应着不同的安卓版本，自己看就好，还有一种签名方式就是使用JAVA的keytool，但是我忘了我的秘钥，具体可以自行百度。我觉得用MT最简单~~~</p>
-]]></content>
+<h2 id="允许类"><a href="#允许类" class="headerlink" title="允许类"></a><strong>允许类</strong></h2><p>&emsp;1.允许轻度修改<br>&emsp;2.私下小范围配布时请向我说明<br></p>
+<h3 id="emsp-emsp-在使用本动作时，请严格按照每个文件夹下的说明使用"><a href="#emsp-emsp-在使用本动作时，请严格按照每个文件夹下的说明使用" class="headerlink" title="&emsp;&emsp;在使用本动作时，请严格按照每个文件夹下的说明使用"></a>&emsp;&emsp;<em><strong>在使用本动作时，请严格按照每个文件夹下的说明使用</strong></em></h3><hr>
+<h2 id="emsp-emsp-未说明的部分默认为禁止，如有疑问，请向我私信提出，使用愉快"><a href="#emsp-emsp-未说明的部分默认为禁止，如有疑问，请向我私信提出，使用愉快" class="headerlink" title="&emsp;&emsp;未说明的部分默认为禁止，如有疑问，请向我私信提出，使用愉快~~"></a>&emsp;&emsp;未说明的部分默认为禁止，如有疑问，请向我私信提出，使用愉快~~</h2>]]></content>
       <categories>
-        <category>某些技术日常</category>
-        <category>APK修改系列</category>
+        <category>MMD</category>
+        <category>Rules</category>
+        <category>Motions Rules</category>
       </categories>
       <tags>
-        <tag>APK</tag>
-        <tag>技术日常</tag>
+        <tag>Rules</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MMD模型规约/MMD Model Rules</title>
+    <url>/posts/49097/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;此为ALp Studio的在线版ReadMe。如果和离线版有差异，一切以在线版本为准。</strong></em></p>
+<hr>
+<p>&emsp;&emsp;原模型作者RM位于根目录下README文件夹中<br><br>&emsp;&emsp;对于在使用本模型或其使用 过程中遇到的任何直接或间接的损害和后果，作者本人夜雨安歌以及安＆泠工作室概不负责。<br></p>
+<h2 id="使用规则"><a href="#使用规则" class="headerlink" title="使用规则"></a>使用规则<br></h2><h3 id="允许："><a href="#允许：" class="headerlink" title="允许："></a>允许：<br></h3><p>&emsp;●修改颜色、spa、toon<br><br>&emsp;●修改、重制物理<br><br>&emsp;●修改、重制骨骼，权重<br><br>&emsp;●修改、重制、添加表情<br><br>&emsp;●重制UV<br><br>&emsp;●允许将格式转换为Blender等格式，但是不得在标题、tag、简介等处声称为MMD制作<br><br>&emsp;&emsp;（注：格式转换仅可用于图像或是视频制作）<br><br>&emsp;●允许在不违反禁止条例的情况下修改：脸型，五官，服装，发型，身体各部位尺寸<br><br>&emsp;●在不违反相关作者RM情况下，可以适当添加配件<br><br>&emsp;●向外传播压缩包密码<br><br><br></p>
+<h3 id="不允许："><a href="#不允许：" class="headerlink" title="不允许："></a>不允许：<br></h3><p>&emsp;✦删除原部件后加入其它部件（比如删除原上衣后换成别的上衣，但是可以修改衣服版型）<br><br>&emsp;✦拆零件、贴图、spa、toon<br><br>&emsp;✦二配或再配布未修改的模型<br><br>&emsp;✦商业化<br><br>&emsp;✦不得用来贬低原作、模型以及动作来源<br><br>&emsp;✦用于R18、性暗示、腐向、绅士向作品<br><br>&emsp;✦在VRchat或任何游戏里用<br><br>&emsp;✦违反公共秩序与善良风俗、明智、健全的判断力的使用<br><br>&emsp;✦宗教、政治等用途<br><br>&emsp;✦包括他人与他国的中伤、鄙视等的使用<br><br>&emsp;✦给原作者、其他的相关者滋扰（或者说困扰）的使用<br><br>&emsp;✦欺骗这个模型文件的制作者的行为（例：伪称自己是这个模型的作者）<br><br>&emsp;✦禁止失衡修改特定身体部位的尺寸<br><br>&emsp;✦3D打印</p>
+]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>Rules</category>
+        <category>Model Rules</category>
+      </categories>
+      <tags>
+        <tag>Rules</tag>
       </tags>
   </entry>
   <entry>
@@ -2716,43 +2753,6 @@ UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&amp;)
       <tags>
         <tag>VRM</tag>
         <tag>PMX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MMD模型规约/MMD Model Rules</title>
-    <url>/posts/49097/</url>
-    <content><![CDATA[<p><em><strong>&emsp;&emsp;此为ALp Studio的在线版ReadMe。如果和离线版有差异，一切以在线版本为准。</strong></em></p>
-<hr>
-<p>&emsp;&emsp;原模型作者RM位于根目录下README文件夹中<br><br>&emsp;&emsp;对于在使用本模型或其使用 过程中遇到的任何直接或间接的损害和后果，作者本人夜雨安歌以及安＆泠工作室概不负责。<br></p>
-<h2 id="使用规则"><a href="#使用规则" class="headerlink" title="使用规则"></a>使用规则<br></h2><h3 id="允许："><a href="#允许：" class="headerlink" title="允许："></a>允许：<br></h3><p>&emsp;●修改颜色、spa、toon<br><br>&emsp;●修改、重制物理<br><br>&emsp;●修改、重制骨骼，权重<br><br>&emsp;●修改、重制、添加表情<br><br>&emsp;●重制UV<br><br>&emsp;●允许将格式转换为Blender等格式，但是不得在标题、tag、简介等处声称为MMD制作<br><br>&emsp;&emsp;（注：格式转换仅可用于图像或是视频制作）<br><br>&emsp;●允许在不违反禁止条例的情况下修改：脸型，五官，服装，发型，身体各部位尺寸<br><br>&emsp;●在不违反相关作者RM情况下，可以适当添加配件<br><br>&emsp;●向外传播压缩包密码<br><br><br></p>
-<h3 id="不允许："><a href="#不允许：" class="headerlink" title="不允许："></a>不允许：<br></h3><p>&emsp;✦删除原部件后加入其它部件（比如删除原上衣后换成别的上衣，但是可以修改衣服版型）<br><br>&emsp;✦拆零件、贴图、spa、toon<br><br>&emsp;✦二配或再配布未修改的模型<br><br>&emsp;✦商业化<br><br>&emsp;✦不得用来贬低原作、模型以及动作来源<br><br>&emsp;✦用于R18、性暗示、腐向、绅士向作品<br><br>&emsp;✦在VRchat或任何游戏里用<br><br>&emsp;✦违反公共秩序与善良风俗、明智、健全的判断力的使用<br><br>&emsp;✦宗教、政治等用途<br><br>&emsp;✦包括他人与他国的中伤、鄙视等的使用<br><br>&emsp;✦给原作者、其他的相关者滋扰（或者说困扰）的使用<br><br>&emsp;✦欺骗这个模型文件的制作者的行为（例：伪称自己是这个模型的作者）<br><br>&emsp;✦禁止失衡修改特定身体部位的尺寸<br><br>&emsp;✦3D打印</p>
-]]></content>
-      <categories>
-        <category>MMD</category>
-        <category>Rules</category>
-        <category>Model Rules</category>
-      </categories>
-      <tags>
-        <tag>Rules</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MMD动作规约/MMD Motion Rules</title>
-    <url>/posts/28822/</url>
-    <content><![CDATA[<p>&emsp;&emsp;<em><strong>欢迎各位使用动作数据<br>&emsp;&emsp;本动作源于游戏&emsp;<a class="link"   href="https://pjsekai.sega.jp/" >《世界计划 彩色舞台 feat. 初音未来》<i class="fa-sharp fa-regular fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em]"></i>，故日语用户请谨慎使用。</strong></em></p>
-<hr>
-<h2 id="禁止类"><a href="#禁止类" class="headerlink" title="禁止类"></a><strong>禁止类</strong></h2><p>&emsp;1.禁止使用时，视频标题为【动作配布】<br>&emsp;2.禁止【黑名单】人员使用<br>&emsp;3.禁止关联AI使用<br>&emsp;4.禁止R18<br>&emsp;5.禁止商用</p>
-<hr>
-<h2 id="允许类"><a href="#允许类" class="headerlink" title="允许类"></a><strong>允许类</strong></h2><p>&emsp;1.允许轻度修改<br>&emsp;2.私下小范围配布时请向我说明<br></p>
-<h3 id="emsp-emsp-在使用本动作时，请严格按照每个文件夹下的说明使用"><a href="#emsp-emsp-在使用本动作时，请严格按照每个文件夹下的说明使用" class="headerlink" title="&emsp;&emsp;在使用本动作时，请严格按照每个文件夹下的说明使用"></a>&emsp;&emsp;<em><strong>在使用本动作时，请严格按照每个文件夹下的说明使用</strong></em></h3><hr>
-<h2 id="emsp-emsp-未说明的部分默认为禁止，如有疑问，请向我私信提出，使用愉快"><a href="#emsp-emsp-未说明的部分默认为禁止，如有疑问，请向我私信提出，使用愉快" class="headerlink" title="&emsp;&emsp;未说明的部分默认为禁止，如有疑问，请向我私信提出，使用愉快~~"></a>&emsp;&emsp;未说明的部分默认为禁止，如有疑问，请向我私信提出，使用愉快~~</h2>]]></content>
-      <categories>
-        <category>MMD</category>
-        <category>Rules</category>
-        <category>Motions Rules</category>
-      </categories>
-      <tags>
-        <tag>Rules</tag>
       </tags>
   </entry>
 </search>
