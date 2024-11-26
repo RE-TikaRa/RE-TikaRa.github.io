@@ -25,11 +25,13 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="本篇将介绍数字类型、运算符和表达式">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://s2.loli.net/2024/11/26/RmLQ6lAJKaGsBCn.png">
 <meta property="article:published_time" content="2024-11-25T07:20:58.000Z">
-<meta property="article:modified_time" content="2024-11-25T23:27:30.231Z">
+<meta property="article:modified_time" content="2024-11-26T15:29:15.698Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2024/11/26/RmLQ6lAJKaGsBCn.png">
     
     
     <!--- Icon Part-->
@@ -673,12 +675,38 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-11-26 07:27:30</span>
-            <span class="mobile">2024-11-26 07:27:30</span>
+            <span class="desktop">2024-11-26 23:29:15</span>
+            <span class="mobile">2024-11-26 23:29:15</span>
             <span class="hover-info">更新</span>
         </span>
     
 
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Python/">Python</a>&nbsp;
+                        </li>
+                    
+                    
+                
+                    
+                        
+                            <li>></li>
+                        
+                        <li>
+                            <a href="/categories/Python/%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%97/">学习日志</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
     
     
         <span class="article-tags article-meta-item">
@@ -696,12 +724,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>169 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3.3k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>13 分钟</span>
         </span>
     
     
@@ -726,7 +754,7 @@
 			function updateExpirationDate() {
 				try {
 					const expiredDate = new Date("Sun May 25 2025 15:20:58 GMT+0800 (中国标准时间)");
-					const updatedDate = new Date("Tue Nov 26 2024 07:27:30 GMT+0800");
+					const updatedDate = new Date("Tue Nov 26 2024 23:29:15 GMT+0800");
 					const now = new Date();
 					const expirationValue = document.getElementById("expiration-date");
 					const expirationContainer = document.getElementById("expiration-container");
@@ -758,8 +786,327 @@
 <li>不带进制标志：表示十进制整数</li>
 </ul>
 </li>
-<li>浮点型</li>
+<li>浮点型<br>&emsp;&emsp;浮点数（float）数据由整数部分与小数部分组成，浮点型数据也可以用科学技术法表示（2.5e2&#x3D;2.5×10<sup>2</sup>&#x3D;250）。当按照科学计数法表示时，一个浮点数的小数点的位置是可以变的，比如，1.23×10<sup>9</sup>和12.3×10<sup>8</sup>是等价的。浮点数可以采用数学写法，如：1.23、3.14、-55.369等。但是对于很大或者很小的浮点数，就必须使用科学计数法来表示，把10用e代替，如：1.23e-5、3.14e5等。</li>
+<li>布尔型<br>&emsp;&emsp;布尔型是一种表示逻辑值的简单类型，它的值只能是“真”或“假”这两个中的其中一个。布尔型是所有逻辑关系运算的返回类型，经常用excel的同学应该很熟悉，他就是IF函数判断条件的返回值。在Python中，布尔型的取值只有<code>“True”</code>和<code>“False”</code>两个，注意大小写。</li>
+<li>复数型<br>&emsp;&emsp;在Python中，复数型即complex型，由实数部分和虚数部分构成，可以用a+bj或者complex(a,b)来表示，复数的实部a和虚部b都是浮点型。</li>
 </ul>
+<p>&emsp;&emsp;我们可以用<code>type()</code>函数来判断一个变量的类型，例如我现在有text1~4四个变量，分别存储了字符串、整数、浮点数和布尔值，我们可以用type()函数来判断它们的类型，如下：</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">text1 = <span class="string">&quot;hello world&quot;</span></span><br><span class="line">text2 = <span class="number">30</span></span><br><span class="line">text3 = <span class="number">3.14</span></span><br><span class="line">text4 = <span class="literal">True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(text1),<span class="built_in">type</span>(text2),<span class="built_in">type</span>(text3),<span class="built_in">type</span>(text4))</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;上面那段代码就会输出如下结果</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;str&#x27;</span>&gt; &lt;<span class="keyword">class</span> <span class="string">&#x27;int&#x27;</span>&gt; &lt;<span class="keyword">class</span> <span class="string">&#x27;float&#x27;</span>&gt; &lt;<span class="keyword">class</span> <span class="string">&#x27;bool&#x27;</span>&gt;</span><br></pre></td></tr></table></figure></div>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/11/26/RmLQ6lAJKaGsBCn.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h2 id="类型转换函数"><a href="#类型转换函数" class="headerlink" title="类型转换函数"></a>类型转换函数</h2><p>&emsp;&emsp;python中，我们时常要将某个类型的值转换为另一个类型，通过下表中的函数，我们就可以将一个类型转换成另一个类型。</p>
+<table>
+<thead>
+<tr>
+<th align="center">函数</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">int(x[,base])</td>
+<td align="center">将x转换为整数类型（并不是四舍五入，而是直接取整）</td>
+</tr>
+<tr>
+<td align="center">float(xx)</td>
+<td align="center">将x转换为浮点数类型</td>
+</tr>
+<tr>
+<td align="center">str()</td>
+<td align="center">将一个数值类型转换为字符串类型</td>
+</tr>
+<tr>
+<td align="center">cpmplex(real[,imag])</td>
+<td align="center">创建一个复数</td>
+</tr>
+<tr>
+<td align="center">repr(x)</td>
+<td align="center">将对象转换为表达式字符串</td>
+</tr>
+<tr>
+<td align="center">eval(str)</td>
+<td align="center">计算在字符串中有效的Python表达式，并且返回一个对象</td>
+</tr>
+<tr>
+<td align="center">tuple(s)</td>
+<td align="center">将序列s转换为元组</td>
+</tr>
+<tr>
+<td align="center">list(s)</td>
+<td align="center">将序列s转换为一个列表</td>
+</tr>
+<tr>
+<td align="center">set(s)</td>
+<td align="center">转换为可变集合</td>
+</tr>
+<tr>
+<td align="center">dict(s)</td>
+<td align="center">创建一个字典。必须是序列(key,value)元组</td>
+</tr>
+<tr>
+<td align="center">forzenset(s)</td>
+<td align="center">转换为一个不可变集合</td>
+</tr>
+<tr>
+<td align="center">chr(x)</td>
+<td align="center">将一个整数转换为一个字符</td>
+</tr>
+<tr>
+<td align="center">unichr(x)</td>
+<td align="center">将一个整数转换为一个Unicode字符，在Python3中已弃用</td>
+</tr>
+<tr>
+<td align="center">ord(x)</td>
+<td align="center">将一个字符转换为一个整数值</td>
+</tr>
+<tr>
+<td align="center">hex(x)</td>
+<td align="center">将一个整数转换为十六进制字符串</td>
+</tr>
+<tr>
+<td align="center">oct(x)</td>
+<td align="center">将一个整数转换为八进制字符串</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;分别距离如下</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># int(x[,base]) - 将x转换为整数类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="string">&#x27;123&#x27;</span>))  <span class="comment"># 输出: 123</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="string">&#x27;101&#x27;</span>, base=<span class="number">2</span>))  <span class="comment"># 输出: 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># float(x) - 将x转换为浮点数类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">float</span>(<span class="string">&#x27;3.14&#x27;</span>))  <span class="comment"># 输出: 3.14</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># str() - 将一个数值类型转换为字符串类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>(<span class="number">123</span>))  <span class="comment"># 输出: &#x27;123&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># complex(real[,imag]) - 创建一个复数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">complex</span>(<span class="number">3</span>, <span class="number">4</span>))  <span class="comment"># 输出: (3+4j)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># repr(x) - 将对象转换为表达式字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">repr</span>(<span class="number">123</span>))  <span class="comment"># 输出: &#x27;123&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># eval(str) - 计算在字符串中有效的Python表达式，并且返回一个对象</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">eval</span>(<span class="string">&#x27;2 + 3 * 4&#x27;</span>))  <span class="comment"># 输出: 14</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># tuple(s) - 将序列s转换为元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">tuple</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))  <span class="comment"># 输出: (1, 2, 3)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># list(s) - 将序列s转换为一个列表</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="string">&#x27;abc&#x27;</span>))  <span class="comment"># 输出: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set(s) - 转换为可变集合</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]))  <span class="comment"># 输出: &#123;1, 2, 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># dict(s) - 创建一个字典。必须是序列(key,value)元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">dict</span>([(<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>)]))  <span class="comment"># 输出: &#123;&#x27;a&#x27;: 1, &#x27;b&#x27;: 2&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># frozenset(s) - 转换为一个不可变集合</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">frozenset</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]))  <span class="comment"># 输出: frozenset(&#123;1, 2, 3&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># chr(x) - 将一个整数转换为一个字符</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="number">65</span>))  <span class="comment"># 输出: &#x27;A&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ord(x) - 将一个字符转换为一个整数值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(<span class="string">&#x27;A&#x27;</span>))  <span class="comment"># 输出: 65</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># hex(x) - 将一个整数转换为十六进制字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(<span class="number">255</span>))  <span class="comment"># 输出: &#x27;0xff&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># oct(x) - 将一个整数转换为八进制字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">oct</span>(<span class="number">8</span>))  <span class="comment"># 输出: &#x27;0o10&#x27;</span></span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h2 id="运算符和表达式"><a href="#运算符和表达式" class="headerlink" title="运算符和表达式"></a>运算符和表达式</h2><p>&emsp;&emsp;在Python中，有了变量，字符串等，还必须使用某种方式将变量和字符串的关系表示出来，只有这样才能用程序解决现实中的问题，此时运算符和表达式便应运而生。运算符和表达式的作用是为变量建立一种组合联系，实现对变量的处理。</p>
+<h3 id="算术运算符"><a href="#算术运算符" class="headerlink" title="算术运算符"></a>算术运算符</h3><p>&emsp;&emsp;算术运算符用于对数值变量进行运算，如加减乘除等，运算符的优先级和结合律与数学一致。具体符号见下表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">+</td>
+<td align="center">两对象相加</td>
+</tr>
+<tr>
+<td align="center">-</td>
+<td align="center">两对象相减，得到负数或表示用一个减一个</td>
+</tr>
+<tr>
+<td align="center">*</td>
+<td align="center">两数相乘或者返回一个被重复若干次的字符串</td>
+</tr>
+<tr>
+<td align="center">&#x2F;</td>
+<td align="center">两数相除</td>
+</tr>
+<tr>
+<td align="center">%</td>
+<td align="center">取模运算符，也就是取除法的余数</td>
+</tr>
+<tr>
+<td align="center">**</td>
+<td align="center">幂运算符，实现a的b次方</td>
+</tr>
+<tr>
+<td align="center">&#x2F;&#x2F;</td>
+<td align="center">取整除，返回商的整数部分，不包含余数</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;若a&#x3D;3065，b&#x3D;20，则上面的表中举例如下：</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">3065</span></span><br><span class="line">b = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># + 加法</span></span><br><span class="line"><span class="built_in">print</span>(a + b)  <span class="comment"># 输出: 3085</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 减法</span></span><br><span class="line"><span class="built_in">print</span>(a - b)  <span class="comment"># 输出: 3045</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># * 乘法</span></span><br><span class="line"><span class="built_in">print</span>(a * b)  <span class="comment"># 输出: 61300</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># / 除法</span></span><br><span class="line"><span class="built_in">print</span>(a / b)  <span class="comment"># 输出: 153.25</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># % 取模（取余数）</span></span><br><span class="line"><span class="built_in">print</span>(a % b)  <span class="comment"># 输出: 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ** 幂运算</span></span><br><span class="line"><span class="built_in">print</span>(a ** b)  <span class="comment"># 输出: 3065 的 20 次方, 结果非常大</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># // 整除</span></span><br><span class="line"><span class="built_in">print</span>(a // b)  <span class="comment"># 输出: 153</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><p>&emsp;&emsp;比较运算符用于比较两个数值变量的关系，返回一个布尔值，即True或False。常用于比较大小关系等。其具体符号见下表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&#x3D;&#x3D;</td>
+<td align="center">判断两个对象是否相等</td>
+</tr>
+<tr>
+<td align="center">!&#x3D;</td>
+<td align="center">判断两个对象是否不相等</td>
+</tr>
+<tr>
+<td align="center">&gt;</td>
+<td align="center">判断一个对象是否大于另一个对象</td>
+</tr>
+<tr>
+<td align="center">&gt;&#x3D;</td>
+<td align="center">判断一个对象是否大于等于另一个对象</td>
+</tr>
+<tr>
+<td align="center">&lt;</td>
+<td align="center">判断一个对象是否小于另一个对象</td>
+</tr>
+<tr>
+<td align="center">&lt;&#x3D;</td>
+<td align="center">判断一个对象是否小于等于另一个对象</td>
+</tr>
+<tr>
+<td align="center">&emsp;&emsp;例如，现在有两个数值变量a和b，a&#x3D;5，b&#x3D;10，则比较运算符举例如下：</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">5</span></span><br><span class="line">b = <span class="number">10</span></span><br><span class="line"><span class="comment"># == 判断两个对象是否相等</span></span><br><span class="line"><span class="built_in">print</span>(a == b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(a == <span class="number">5</span>)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="comment"># != 判断两个对象是否不相等</span></span><br><span class="line"><span class="built_in">print</span>(a != b)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="built_in">print</span>(a != <span class="number">5</span>)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="comment"># &gt; 判断一个对象是否大于另一个对象</span></span><br><span class="line"><span class="built_in">print</span>(a &gt; b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(b &gt; a)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="comment"># &gt;= 判断一个对象是否大于等于另一个对象</span></span><br><span class="line"><span class="built_in">print</span>(a &gt;= b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(b &gt;= a)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="comment"># &lt; 判断一个对象是否小于另一个对象</span></span><br><span class="line"><span class="built_in">print</span>(a &lt; b)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="built_in">print</span>(b &lt; a)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="comment"># &lt;= 判断一个对象是否小于等于另一个对象</span></span><br><span class="line"><span class="built_in">print</span>(a &lt;= b)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="built_in">print</span>(b &lt;= a)  <span class="comment"># 输出: False</span></span><br></pre></td></tr></table></figure></div>
+
+<p>&emsp;&emsp;需要注意的是，有时会返回0或者1，而不是True和False，其中0表示False，1表示True。</p>
+<h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p>&emsp;&emsp;赋值运算符的含义是给某变量或表达式设置一个值，例如a&#x3D;3065，表示将值3065赋给变量a。这样一见到a就知道他是3065， <del>（像是数学中的换元？）</del> 。Python为我们提供了7中复合赋值运算符，就是在原始赋值运算符之上加了算数运算符，详见下表：</p>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&#x3D;</td>
+<td align="center">赋值运算符</td>
+</tr>
+<tr>
+<td align="center">+&#x3D;</td>
+<td align="center">加法赋值运算符</td>
+</tr>
+<tr>
+<td align="center">-&#x3D;</td>
+<td align="center">减法赋值运算符</td>
+</tr>
+<tr>
+<td align="center">*&#x3D;</td>
+<td align="center">乘法赋值运算符</td>
+</tr>
+<tr>
+<td align="center">&#x2F;&#x3D;</td>
+<td align="center">除法赋值运算符</td>
+</tr>
+<tr>
+<td align="center">%&#x3D;</td>
+<td align="center">取模赋值运算符</td>
+</tr>
+<tr>
+<td align="center">**&#x3D;</td>
+<td align="center">幂赋值运算符</td>
+</tr>
+<tr>
+<td align="center">&#x2F;&#x2F;&#x3D;</td>
+<td align="center">取整除赋值运算符</td>
+</tr>
+<tr>
+<td align="center">&emsp;&emsp;例如，现在有两个数值变量a和b，a&#x3D;100，b&#x3D;10，则赋值运算符举例如下：</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始值</span></span><br><span class="line">a = <span class="number">3065</span></span><br><span class="line">b = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加法赋值</span></span><br><span class="line">a += b  <span class="comment"># a 现在是 3115 (3065 + 50)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;加法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">加法赋值后 a 的值: <span class="number">3115</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 减法赋值</span></span><br><span class="line">a -= b  <span class="comment"># a 现在回到 3065 (3115 - 50)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;减法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">减法赋值后 a 的值: <span class="number">3065</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 乘法赋值</span></span><br><span class="line">a *= b  <span class="comment"># a 变成 153250 (3065 * 50)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;乘法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">乘法赋值后 a 的值: <span class="number">153250</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 浮点除法赋值</span></span><br><span class="line">a /= b  <span class="comment"># a 回到 3065.0 (153250 / 50)，注意这里结果是浮点数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;除法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">除法赋值后 a 的值: <span class="number">3065.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 取模赋值</span></span><br><span class="line">a %= b  <span class="comment"># a 变成 15 (3065 % 50)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;取模赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">取模赋值后 a 的值: <span class="number">15.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 幂赋值</span></span><br><span class="line">a **= b  <span class="comment"># a 变成 15 的 50 次方</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;幂赋值后 a 的值: <span class="subst">&#123;a:<span class="number">.2</span>e&#125;</span>&quot;</span>)  <span class="comment"># 使用科学记数法显示以避免非常大的数字</span></span><br><span class="line">幂赋值后 a 的值: <span class="number">6.38e+58</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 整数除法赋值</span></span><br><span class="line">a //= b  <span class="comment"># a 变成 15 的 50 次方除以 50 后向下取整的结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;整数除法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">整数除法赋值后 a 的值: <span class="number">1.2752430004280992e+57</span></span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;此处每一个举例的a都是复用上一个举例的结果，而不是最开始的3065。</p>
+<h3 id="位运算符和位表达式"><a href="#位运算符和位表达式" class="headerlink" title="位运算符和位表达式"></a>位运算符和位表达式</h3><p>&emsp;&emsp;在Python中，使用位运算符可以操作二进制数据，位运算可以直接操作整数类型的位，也就是说，按位运算是把数字看作二进制数来计算。具体如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">&amp;</td>
+<td align="center">按位与运算符，如果两个相应位都为1，则该位结果为1</td>
+</tr>
+<tr>
+<td align="center">|</td>
+<td align="center">按位或运算符，只要两个二进制位有一个为1，结果位就是1</td>
+</tr>
+<tr>
+<td align="center">^</td>
+<td align="center">按位异或运算符，如果两个二进制位相异或时，结果为1</td>
+</tr>
+<tr>
+<td align="center">~</td>
+<td align="center">按位取反运算符，对数据的每个二进制位取反，即0变1，1变0</td>
+</tr>
+<tr>
+<td align="center">&lt;&lt;</td>
+<td align="center">左移动运算符，运算数的各二进制位全部左移若干位，由&lt;&lt;右边的数指定移动位数，高位丢弃，低位补0</td>
+</tr>
+<tr>
+<td align="center">&gt;&gt;</td>
+<td align="center">右移动运算符，把&gt;&gt;左边的运算数的各二进制位全部右移若干位，由&gt;&gt;右边的数指定移动的位数</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;假设变量a&#x3D;3065，则a的二进制数是：101111111001，变量b&#x3D;50，则b的二进制数是：110010，为了进行位运算，我们首先需要确保两个数有相同的位数。b 比 a 少几位，所以我们在 b 的前面补零，使其与 a 有相同的位数，即 b 变为 000000110010。</p>
+<ol>
+<li><p><strong>按位与(&amp;)</strong>:</p>
+<ul>
+<li>运算: <code>a &amp; b</code> 即 <code>101111111001 &amp; 000000110010</code></li>
+<li>结果: <code>000000110000</code> （十进制 48）</li>
+</ul>
+</li>
+<li><p><strong>按位或(|)</strong>:</p>
+<ul>
+<li>运算: <code>a | b</code> 即 <code>101111111001 | 000000110010</code></li>
+<li>结果: <code>101111111011</code> （十进制 3071）</li>
+</ul>
+</li>
+<li><p><strong>按位异或(^)</strong>:</p>
+<ul>
+<li>运算: <code>a ^ b</code> 即 <code>101111111001 ^ 000000110010</code></li>
+<li>结果: <code>101111001011</code> （十进制 3023）</li>
+</ul>
+</li>
+<li><p><strong>按位取反(~)</strong>:</p>
+<ul>
+<li>对于 a: <code>~a</code> 即 <code>~101111111001</code><ul>
+<li>在大多数计算机系统中，整数是以补码形式存储的，因此对于一个正整数执行按位取反后，通常会得到一个负数。这里直接取反得到的是 <code>010000000110</code>，但实际结果会依赖于具体的机器和数据类型大小。</li>
+</ul>
+</li>
+<li>对于 b: <code>~b</code> 即 <code>~000000110010</code><ul>
+<li>同样地，直接取反得到 <code>111111001101</code>，但考虑补码表示，这实际上代表了一个负数。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>左移(&lt;&lt;)</strong>:</p>
+<ul>
+<li>假设我们将 a 左移 2 位: <code>a &lt;&lt; 2</code> 即 <code>101111111001 &lt;&lt; 2</code></li>
+<li>结果: <code>111111100100</code> （十进制 12260）</li>
+</ul>
+</li>
+<li><p><strong>右移(&gt;&gt;)</strong>:</p>
+<ul>
+<li>假设我们将 a 右移 2 位: <code>a &gt;&gt; 2</code> 即 <code>101111111001 &gt;&gt; 2</code></li>
+<li>结果: <code>001011111110</code> （十进制 766）</li>
+</ul>
+</li>
+</ol>
+<h3 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h3><p>&emsp;&emsp;在Python中，逻辑运算就是将变量用逻辑关系连接起来，并对其进行求值的一个过程。在Python中，逻辑运算符包括：and、or、not。其具体如下：</p>
+<table>
+<thead>
+<tr>
+<th align="center">运算符</th>
+<th align="center">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">and</td>
+<td align="center">逻辑与运算符，如果两个表达式都为真，则返回True，否则返回False</td>
+</tr>
+<tr>
+<td align="center">or</td>
+<td align="center">逻辑或运算符，如果两个表达式有一个为真，则返回True，否则返回False</td>
+</tr>
+<tr>
+<td align="center">not</td>
+<td align="center">逻辑非运算符，返回表达式的反值，即如果表达式为真，则返回False，否则返回True</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="literal">True</span></span><br><span class="line">b = <span class="literal">False</span></span><br><span class="line"><span class="comment"># and 运算符</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">and</span> b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">and</span> a)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="comment"># or 运算符</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">or</span> b)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="built_in">print</span>(b <span class="keyword">or</span> b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="comment"># not 运算符</span></span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">not</span> a)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">not</span> <span class="literal">False</span>)  <span class="comment"># 输出: True</span></span><br></pre></td></tr></table></figure></div>
 
 		</div>
 
@@ -774,7 +1121,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-11-26 07:27:30
+                    :</strong> 2024-11-26 23:29:15
             </li>
         
         <li>
@@ -812,27 +1159,27 @@
     <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
      <i aria-hidden="true"></i><span>推荐阅读</span>
     </div>
-    <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/475bd321/" title="python学习日志03-基础语法学习02" rel="bookmark">
-  <img src="/img/py学习日志02.png" alt="python学习日志03-基础语法学习02" class="!max-w-none">
-  <span class="title">python学习日志03-基础语法学习02</span>
-</a><a class="recommended-article-item" href="/posts/7c98966b/" title="Python学习日志02-基础语法学习01" rel="bookmark">
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/7c98966b/" title="Python学习日志02-基础语法学习01" rel="bookmark">
   <img src="/img/py学习日志02.png" alt="Python学习日志02-基础语法学习01" class="!max-w-none">
   <span class="title">Python学习日志02-基础语法学习01</span>
-</a><a class="recommended-article-item" href="/posts/e679f931/" title="Python学习日志01-安装与基础环境搭建" rel="bookmark">
-  <img src="/img/py学习日志01.png" alt="Python学习日志01-安装与基础环境搭建" class="!max-w-none">
-  <span class="title">Python学习日志01-安装与基础环境搭建</span>
+</a><a class="recommended-article-item" href="/posts/475bd321/" title="python学习日志03-基础语法学习02" rel="bookmark">
+  <img src="/img/py学习日志02.png" alt="python学习日志03-基础语法学习02" class="!max-w-none">
+  <span class="title">python学习日志03-基础语法学习02</span>
+</a><a class="recommended-article-item" href="/posts/46083098/" title="python实战系列01-RGB转换为Hex" rel="bookmark">
+  <img src="/images/wallhaven-wqery6-light.webp" alt="python实战系列01-RGB转换为Hex" class="!max-w-none">
+  <span class="title">python实战系列01-RGB转换为Hex</span>
 </a></div>
    </div>
    <div class="recommended-mobile">
    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
      <i aria-hidden="true"></i><span>推荐阅读</span>
    </div>
-   <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/475bd321/" title="python学习日志03-基础语法学习02" rel="bookmark">
-  <img src="/img/py学习日志02.png" alt="python学习日志03-基础语法学习02" class="!max-w-none">
-  <span class="title">python学习日志03-基础语法学习02</span>
-</a><a class="recommended-article-item" href="/posts/7c98966b/" title="Python学习日志02-基础语法学习01" rel="bookmark">
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/7c98966b/" title="Python学习日志02-基础语法学习01" rel="bookmark">
   <img src="/img/py学习日志02.png" alt="Python学习日志02-基础语法学习01" class="!max-w-none">
   <span class="title">Python学习日志02-基础语法学习01</span>
+</a><a class="recommended-article-item" href="/posts/475bd321/" title="python学习日志03-基础语法学习02" rel="bookmark">
+  <img src="/img/py学习日志02.png" alt="python学习日志03-基础语法学习02" class="!max-w-none">
+  <span class="title">python学习日志03-基础语法学习02</span>
 </a></div>
    </div>
   </div>
@@ -842,9 +1189,9 @@
 			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
-				<a class="next" rel="next" href="/posts/7c98966b/">
+				<a class="next" rel="next" href="/posts/475bd321/">
 					<span class="title flex justify-center items-center">
-						<span class="post-nav-title-item">Python学习日志02-基础语法学习01</span>
+						<span class="post-nav-title-item">python学习日志03-基础语法学习02</span>
 						<span class="post-nav-item">下一篇</span>
 					</span>
 					<span class="right arrow-icon flex justify-center items-center">
@@ -866,7 +1213,7 @@
 	<div class="post-toc">
 		<div class="toc-title">目录</div>
 		<div class="page-title">Python学习日志04-基础语法学习03</div>
-		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B"><span class="nav-text">数字类型</span></a></li></ol>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B"><span class="nav-text">数字类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B%E8%BD%AC%E6%8D%A2%E5%87%BD%E6%95%B0"><span class="nav-text">类型转换函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">运算符和表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%97%E6%9C%AF%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">算术运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AF%94%E8%BE%83%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">比较运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">赋值运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6%E5%92%8C%E4%BD%8D%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-text">位运算符和位表达式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-text">逻辑运算符</span></a></li></ol></li></ol>
 
 	</div>
 </div>
@@ -897,7 +1244,7 @@
                     </span>
                     
                         <span>
-                            共 32.1k 字
+                            共 35.3k 字
                         </span>
                     
                 </p>
