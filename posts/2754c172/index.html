@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://s2.loli.net/2024/11/28/tqR4CKfBvgpbOZD.png">
 <meta property="article:published_time" content="2024-11-28T13:23:05.000Z">
-<meta property="article:modified_time" content="2024-11-28T15:10:19.352Z">
+<meta property="article:modified_time" content="2024-11-29T00:21:05.279Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary">
@@ -675,8 +675,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-11-28 23:10:19</span>
-            <span class="mobile">2024-11-28 23:10:19</span>
+            <span class="desktop">2024-11-29 08:21:05</span>
+            <span class="mobile">2024-11-29 08:21:05</span>
             <span class="hover-info">更新</span>
         </span>
     
@@ -724,12 +724,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.2k 字</span>
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>1.3k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fa-regular fa-clock"></i>&nbsp;<span>4 分钟</span>
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>5 分钟</span>
         </span>
     
     
@@ -754,7 +754,7 @@
 			function updateExpirationDate() {
 				try {
 					const expiredDate = new Date("Wed May 28 2025 21:23:05 GMT+0800 (中国标准时间)");
-					const updatedDate = new Date("Thu Nov 28 2024 23:10:19 GMT+0800");
+					const updatedDate = new Date("Fri Nov 29 2024 08:21:05 GMT+0800");
 					const now = new Date();
 					const expirationValue = document.getElementById("expiration-date");
 					const expirationContainer = document.getElementById("expiration-container");
@@ -791,14 +791,7 @@
 <h3 id="if…else语句"><a href="#if…else语句" class="headerlink" title="if…else语句"></a>if…else语句</h3><p>&emsp;&emsp;在上面的语句中，我们并不能对不符合条件的内容进行处理，所以Python引入了另一种条件语句，即if…else语句。if…else语句的语法基本格式如下：</p>
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 判断条件:</span><br><span class="line">    执行语句<span class="number">1</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    执行语句<span class="number">2</span></span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;根据if…else语句的字面意思，在上述语法中，如果满足判断条件，则执行执行语句1，否则执行执行语句2。具体执行流程如下：</p>
-<pre class="mermaid">flowchart TD
-    A["条件"] -- 成立 --> B("指令1")
-    A -- 不成立 --> n1["指令2"]
-    B --> n2["Untitled Node"]
-    n1 --> n2
-
-    n1@{ shape: rect}
-    n2@{ shape: sm-circ}</pre>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    A[&quot;条件&quot;] -- 成立 --&gt; B(&quot;指令1&quot;)</span><br><span class="line">    A -- 不成立 --&gt; n1[&quot;指令2&quot;]</span><br><span class="line">    B --&gt; n2[&quot;Untitled Node&quot;]</span><br><span class="line">    n1 --&gt; n2</span><br><span class="line"></span><br><span class="line">    n1@&#123; shape: rect&#125;</span><br><span class="line">    n2@&#123; shape: sm-circ&#125;</span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;继续复用上面的例子，我们希望当序列号小于3065时，输出“密码是：-x+3065”，否则输出“密码是：x+9063”。则代码块的修改如下</p>
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提示用户输入Studio ID</span></span><br><span class="line">x = <span class="built_in">input</span>(<span class="string">&quot;请输入ALp_Studio ID：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换为整数</span></span><br><span class="line">x = <span class="built_in">int</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否序列号小于3065，如果小于3065，则取负数，然后将其与3065相加</span></span><br><span class="line"><span class="keyword">if</span> x &lt; <span class="number">3065</span>:</span><br><span class="line">    x = -x+<span class="number">3065</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果用户输入的大于等于3065，则输出x+9063</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    x = x+<span class="number">9063</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;密码是：&quot;</span>, x)</span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;同样的。print也可以单独分开写。</p>
@@ -806,27 +799,7 @@
 <h3 id="嵌套if语句"><a href="#嵌套if语句" class="headerlink" title="嵌套if语句"></a>嵌套if语句</h3><p>&emsp;&emsp;在Python中，在if语句中继续使用if语句的用法成为嵌套if语句。在写法上，嵌套与不嵌套的在形式上只是缩进不同，然后否则写法不同，下面是嵌套if语句的基本格式：</p>
 <div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 判断条件<span class="number">1</span>:</span><br><span class="line">    <span class="keyword">if</span> 判断条件<span class="number">2</span>:</span><br><span class="line">        执行语句<span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> 判断条件<span class="number">3</span>:</span><br><span class="line">        执行语句<span class="number">2</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    执行语句<span class="number">3</span></span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;在Python中，嵌套的用法十分强大，可以实现多个嵌套，但是把，我十分不建议嵌套多层，一方面Python毕竟不像C或者C++，执行高效；另一方面，嵌套代码会导致阅读性变差，写的多了不知道自己在写啥。嵌套语句的逻辑关系如下：</p>
-<pre class="mermaid">flowchart TD
-    n1["Untitled Node"] --> n2["判断条件1"]
-    n2 -- Ture --> n4["判断条件1"]
-    n2 -- False --> n5["判断条件2"]
-    n4 -- Ture --> n6["结果1"]
-    n4 -- False --> n7["结果2"]
-    n5 -- Ture --> n8["结果3"]
-    n5 -- False --> n9["结果4"]
-    n6 --> n10["Untitled Node"]
-    n7 --> n10
-    n8 --> n10
-    n9 --> n10
-
-    n1@{ shape: sm-circ}
-    n2@{ shape: diam}
-    n4@{ shape: diam}
-    n5@{ shape: diam}
-    n7@{ shape: rect}
-    n8@{ shape: rect}
-    n9@{ shape: rect}
-    n10@{ shape: sm-circ}</pre>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">flowchart TD</span><br><span class="line">    n1[&quot;Untitled Node&quot;] --&gt; n2[&quot;判断条件1&quot;]</span><br><span class="line">    n2 -- Ture --&gt; n4[&quot;判断条件1&quot;]</span><br><span class="line">    n2 -- False --&gt; n5[&quot;判断条件2&quot;]</span><br><span class="line">    n4 -- Ture --&gt; n6[&quot;结果1&quot;]</span><br><span class="line">    n4 -- False --&gt; n7[&quot;结果2&quot;]</span><br><span class="line">    n5 -- Ture --&gt; n8[&quot;结果3&quot;]</span><br><span class="line">    n5 -- False --&gt; n9[&quot;结果4&quot;]</span><br><span class="line">    n6 --&gt; n10[&quot;Untitled Node&quot;]</span><br><span class="line">    n7 --&gt; n10</span><br><span class="line">    n8 --&gt; n10</span><br><span class="line">    n9 --&gt; n10</span><br><span class="line"></span><br><span class="line">    n1@&#123; shape: sm-circ&#125;</span><br><span class="line">    n2@&#123; shape: diam&#125;</span><br><span class="line">    n4@&#123; shape: diam&#125;</span><br><span class="line">    n5@&#123; shape: diam&#125;</span><br><span class="line">    n7@&#123; shape: rect&#125;</span><br><span class="line">    n8@&#123; shape: rect&#125;</span><br><span class="line">    n9@&#123; shape: rect&#125;</span><br><span class="line">    n10@&#123; shape: sm-circ&#125;</span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;这边就不举例了，因为只是嵌套了而已。</p>
 
 		</div>
@@ -842,7 +815,7 @@
         
             <li>
                 <strong>更新于
-                    :</strong> 2024-11-28 23:10:19
+                    :</strong> 2024-11-29 08:21:05
             </li>
         
         <li>
