@@ -18,6 +18,9 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
+    
+    
+        
         <meta name="description" content="本日志将介绍条件语法">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python学习日志06-基础语法学习05">
@@ -65,7 +68,7 @@
 
     
         
-<link rel="stylesheet" href="/build/css/tailwind.css">
+<link rel="stylesheet" href="/css/build/tailwind.css">
 
     
 
@@ -83,13 +86,13 @@
     
     
         
-<script src="/build/js/libs/anime.min.js"></script>
+<script src="/js/build/libs/anime.min.js"></script>
 
     
 
     <script id="hexo-configurations">
     window.config = {"hostname":"re-tikara.github.io","root":"/","language":"zh-CN","path":"search.xml"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"欢迎参与实验 ，实验体%#@$%&号"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/img/light.jpg","dark":"/img/dark.png"},"title":"ALp_Studio","subtitle":{"text":["实验数据载入中......"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":"lgq3218483753@163.com","bilibili":"https://space.bilibili.com/374412219"},"qrs":{"weixin":null,"QQ":"https://sm.ms/image/Dyja4xG7N9sktbv"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.8.1","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"MMD扫盲系列":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","bilibili":"https://space.bilibili.com/374412219","Friends":"/links/"}},"音乐解锁":{"icon":"fa-solid fa-unlock","path":"/unlockedmusic/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"blur","bookmarks_column":3},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"欢迎来到ALp_Studio第四期——情感实验室。","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"MMD扫盲系列":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"音乐解锁":{"icon":"fa-solid fa-unlock","path":"/unlockedmusic/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"欢迎参与实验 ，实验体%#@$%&号"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/img/light.jpg","dark":"/img/dark.png"},"title":"ALp_Studio","subtitle":{"text":["实验数据载入中......"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":"lgq3218483753@163.com","bilibili":"https://space.bilibili.com/374412219"},"qrs":{"weixin":null,"QQ":"https://sm.ms/image/Dyja4xG7N9sktbv"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.8.2","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"MMD扫盲系列":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","bilibili":"https://space.bilibili.com/374412219","Friends":"/links/"}},"音乐解锁":{"icon":"fa-solid fa-unlock","path":"/unlockedmusic/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"blur","bookmarks_column":3},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"欢迎来到ALp_Studio第四期——情感实验室。","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"MMD扫盲系列":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"音乐解锁":{"icon":"fa-solid fa-unlock","path":"/unlockedmusic/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
     window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
     window.data = {"masonry":false};
   </script>
@@ -612,7 +615,7 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">17</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
@@ -620,7 +623,7 @@
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">33</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">34</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -784,12 +787,12 @@
                      data-src="https://s2.loli.net/2024/11/28/tqR4CKfBvgpbOZD.png"
                       alt="1.png"
                 ><br>&emsp;&emsp;在Python中，最简单的if语句的语法格式如下：</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 判断条件</span><br><span class="line">    执行语句</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 判断条件</span><br><span class="line">    执行语句</span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;上述语法格式的含义是当“判断条件”成立时（非零）执行后面的语句，可以是多行，以缩进来区分同一范围。当条件为假时，跳过其后缩进的语句，其中的条件可以是任意类型表达式。</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提示用户输入Studio ID</span></span><br><span class="line">x = <span class="built_in">input</span>(<span class="string">&quot;请输入ALp_Studio ID：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换为整数</span></span><br><span class="line">x = <span class="built_in">int</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否序列号小于3065，如果小于3065，则取负数，然后将其与3065相加，否则不变</span></span><br><span class="line"><span class="keyword">if</span> x &lt; <span class="number">3065</span>:</span><br><span class="line">    x = -x+<span class="number">3065</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;密码是：&quot;</span>, x)</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提示用户输入Studio ID</span></span><br><span class="line">x = <span class="built_in">input</span>(<span class="string">&quot;请输入ALp_Studio ID：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换为整数</span></span><br><span class="line">x = <span class="built_in">int</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否序列号小于3065，如果小于3065，则取负数，然后将其与3065相加，否则不变</span></span><br><span class="line"><span class="keyword">if</span> x &lt; <span class="number">3065</span>:</span><br><span class="line">    x = -x+<span class="number">3065</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;密码是：&quot;</span>, x)</span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;上述代码块实现了一个用于输出用户密码的一个程序。当用户输入序列号之后，将序列号与3065进行比较，如果小于3065，则取负数，然后将其与3065相加，否则不变。假如用户输入5000，则输入5000；假如用户输入3000，则输入2065.</p>
 <h3 id="if…else语句"><a href="#if…else语句" class="headerlink" title="if…else语句"></a>if…else语句</h3><p>&emsp;&emsp;在上面的语句中，我们并不能对不符合条件的内容进行处理，所以Python引入了另一种条件语句，即if…else语句。if…else语句的语法基本格式如下：</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 判断条件:</span><br><span class="line">    执行语句<span class="number">1</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    执行语句<span class="number">2</span></span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 判断条件:</span><br><span class="line">    执行语句<span class="number">1</span></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    执行语句<span class="number">2</span></span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;根据if…else语句的字面意思，在上述语法中，如果满足判断条件，则执行执行语句1，否则执行执行语句2。具体执行流程如下：</p>
 <pre class="mermaid">flowchart TD
     A["条件"] -- 成立 --> B("指令1")
@@ -801,13 +804,13 @@
     n2@{ shape: sm-circ}</pre>
 
 <p>&emsp;&emsp;继续复用上面的例子，我们希望当序列号小于3065时，输出“密码是：-x+3065”，否则输出“密码是：x+9063”。则代码块的修改如下</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提示用户输入Studio ID</span></span><br><span class="line">x = <span class="built_in">input</span>(<span class="string">&quot;请输入ALp_Studio ID：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换为整数</span></span><br><span class="line">x = <span class="built_in">int</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否序列号小于3065，如果小于3065，则取负数，然后将其与3065相加</span></span><br><span class="line"><span class="keyword">if</span> x &lt; <span class="number">3065</span>:</span><br><span class="line">    x = -x+<span class="number">3065</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果用户输入的大于等于3065，则输出x+9063</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    x = x+<span class="number">9063</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;密码是：&quot;</span>, x)</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提示用户输入Studio ID</span></span><br><span class="line">x = <span class="built_in">input</span>(<span class="string">&quot;请输入ALp_Studio ID：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换为整数</span></span><br><span class="line">x = <span class="built_in">int</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否序列号小于3065，如果小于3065，则取负数，然后将其与3065相加</span></span><br><span class="line"><span class="keyword">if</span> x &lt; <span class="number">3065</span>:</span><br><span class="line">    x = -x+<span class="number">3065</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果用户输入的大于等于3065，则输出x+9063</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    x = x+<span class="number">9063</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;密码是：&quot;</span>, x)</span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;同样的。print也可以单独分开写。</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提示用户输入Studio ID</span></span><br><span class="line">x = <span class="built_in">input</span>(<span class="string">&quot;请输入ALp_Studio ID：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换为整数</span></span><br><span class="line">x = <span class="built_in">int</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否序列号小于3065，如果小于3065，则取负数，然后将其与3065相加</span></span><br><span class="line"><span class="keyword">if</span> x &lt; <span class="number">3065</span>:</span><br><span class="line">    x = -x+<span class="number">3065</span></span><br><span class="line">    <span class="comment"># 输出结果</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;您好，实验体&quot;</span>,x,<span class="string">&quot;，您的密码是：&quot;</span>, x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果用户输入的大于等于3065，则输出x+9063</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    x = x+<span class="number">9063</span></span><br><span class="line">        <span class="comment"># 输出结果</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;您好，二期实验体&quot;</span>,x,<span class="string">&quot;，您的密码是：&quot;</span>, x)</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提示用户输入Studio ID</span></span><br><span class="line">x = <span class="built_in">input</span>(<span class="string">&quot;请输入ALp_Studio ID：&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 转换为整数</span></span><br><span class="line">x = <span class="built_in">int</span>(x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 判断是否序列号小于3065，如果小于3065，则取负数，然后将其与3065相加</span></span><br><span class="line"><span class="keyword">if</span> x &lt; <span class="number">3065</span>:</span><br><span class="line">    x = -x+<span class="number">3065</span></span><br><span class="line">    <span class="comment"># 输出结果</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;您好，实验体&quot;</span>,x,<span class="string">&quot;，您的密码是：&quot;</span>, x)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果用户输入的大于等于3065，则输出x+9063</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    x = x+<span class="number">9063</span></span><br><span class="line">        <span class="comment"># 输出结果</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;您好，二期实验体&quot;</span>,x,<span class="string">&quot;，您的密码是：&quot;</span>, x)</span><br></pre></td></tr></table></figure></div>
 <h3 id="嵌套if语句"><a href="#嵌套if语句" class="headerlink" title="嵌套if语句"></a>嵌套if语句</h3><p>&emsp;&emsp;在Python中，在if语句中继续使用if语句的用法成为嵌套if语句。在写法上，嵌套与不嵌套的在形式上只是缩进不同，然后否则写法不同，下面是嵌套if语句的基本格式：</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 判断条件<span class="number">1</span>:</span><br><span class="line">    <span class="keyword">if</span> 判断条件<span class="number">2</span>:</span><br><span class="line">        执行语句<span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> 判断条件<span class="number">3</span>:</span><br><span class="line">        执行语句<span class="number">2</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    执行语句<span class="number">3</span></span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> 判断条件<span class="number">1</span>:</span><br><span class="line">    <span class="keyword">if</span> 判断条件<span class="number">2</span>:</span><br><span class="line">        执行语句<span class="number">1</span></span><br><span class="line">    <span class="keyword">elif</span> 判断条件<span class="number">3</span>:</span><br><span class="line">        执行语句<span class="number">2</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    执行语句<span class="number">3</span></span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;在Python中，嵌套的用法十分强大，可以实现多个嵌套，但是把，我十分不建议嵌套多层，一方面Python毕竟不像C或者C++，执行高效；另一方面，嵌套代码会导致阅读性变差，写的多了不知道自己在写啥。嵌套语句的逻辑关系如下：</p>
-<div class="highlight-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">&quot;mermaid&quot;</span>&gt;</span></span>flowchart TD</span><br><span class="line"><span class="code">    n1[&quot;Untitled Node&quot;] --&gt; n2[&quot;判断条件1&quot;]</span></span><br><span class="line"><span class="code">    n2 -- Ture --&gt; n4[&quot;判断条件1&quot;]</span></span><br><span class="line"><span class="code">    n2 -- False --&gt; n5[&quot;判断条件2&quot;]</span></span><br><span class="line"><span class="code">    n4 -- Ture --&gt; n6[&quot;结果1&quot;]</span></span><br><span class="line"><span class="code">    n4 -- False --&gt; n7[&quot;结果2&quot;]</span></span><br><span class="line"><span class="code">    n5 -- Ture --&gt; n8[&quot;结果3&quot;]</span></span><br><span class="line"><span class="code">    n5 -- False --&gt; n9[&quot;结果4&quot;]</span></span><br><span class="line"><span class="code">    n6 --&gt; n10[&quot;Untitled Node&quot;]</span></span><br><span class="line"><span class="code">    n7 --&gt; n10</span></span><br><span class="line"><span class="code">    n8 --&gt; n10</span></span><br><span class="line"><span class="code">    n9 --&gt; n10</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    n1@&#123; shape: sm-circ&#125;</span></span><br><span class="line"><span class="code">    n2@&#123; shape: diam&#125;</span></span><br><span class="line"><span class="code">    n4@&#123; shape: diam&#125;</span></span><br><span class="line"><span class="code">    n5@&#123; shape: diam&#125;</span></span><br><span class="line"><span class="code">    n7@&#123; shape: rect&#125;</span></span><br><span class="line"><span class="code">    n8@&#123; shape: rect&#125;</span></span><br><span class="line"><span class="code">    n9@&#123; shape: rect&#125;</span></span><br><span class="line"><span class="code">    n10@&#123; shape: sm-circ&#125;&lt;/pre&gt;</span></span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Markdown"><figure class="iseeu highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">pre</span> <span class="attr">class</span>=<span class="string">&quot;mermaid&quot;</span>&gt;</span></span>flowchart TD</span><br><span class="line"><span class="code">    n1[&quot;Untitled Node&quot;] --&gt; n2[&quot;判断条件1&quot;]</span></span><br><span class="line"><span class="code">    n2 -- Ture --&gt; n4[&quot;判断条件1&quot;]</span></span><br><span class="line"><span class="code">    n2 -- False --&gt; n5[&quot;判断条件2&quot;]</span></span><br><span class="line"><span class="code">    n4 -- Ture --&gt; n6[&quot;结果1&quot;]</span></span><br><span class="line"><span class="code">    n4 -- False --&gt; n7[&quot;结果2&quot;]</span></span><br><span class="line"><span class="code">    n5 -- Ture --&gt; n8[&quot;结果3&quot;]</span></span><br><span class="line"><span class="code">    n5 -- False --&gt; n9[&quot;结果4&quot;]</span></span><br><span class="line"><span class="code">    n6 --&gt; n10[&quot;Untitled Node&quot;]</span></span><br><span class="line"><span class="code">    n7 --&gt; n10</span></span><br><span class="line"><span class="code">    n8 --&gt; n10</span></span><br><span class="line"><span class="code">    n9 --&gt; n10</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    n1@&#123; shape: sm-circ&#125;</span></span><br><span class="line"><span class="code">    n2@&#123; shape: diam&#125;</span></span><br><span class="line"><span class="code">    n4@&#123; shape: diam&#125;</span></span><br><span class="line"><span class="code">    n5@&#123; shape: diam&#125;</span></span><br><span class="line"><span class="code">    n7@&#123; shape: rect&#125;</span></span><br><span class="line"><span class="code">    n8@&#123; shape: rect&#125;</span></span><br><span class="line"><span class="code">    n9@&#123; shape: rect&#125;</span></span><br><span class="line"><span class="code">    n10@&#123; shape: sm-circ&#125;&lt;/pre&gt;</span></span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;这边就不举例了，因为只是嵌套了而已。</p>
 
 		</div>
@@ -889,6 +892,18 @@
 		
 		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
 			
+			<div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="prev" rel="prev" href="/posts/808936c5/">
+					<span class="left arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-left"></i>
+					</span>
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">AI学习系列02期-AI-singer制作</span>
+						<span class="post-nav-item">上一篇</span>
+					</span>
+				</a>
+			</div>
+			
 			
 			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
 				<a class="next" rel="next" href="/posts/692b5ca4/">
@@ -942,11 +957,11 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 33 篇文章
+                        共撰写了 34 篇文章
                     </span>
                     
                         <span>
-                            共 38.9k 字
+                            共 39.1k 字
                         </span>
                     
                 </p>
@@ -971,7 +986,7 @@
         
         <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
             <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
-            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.1</a></span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
         </div>
         
         
@@ -1097,17 +1112,17 @@
 
 
 
-<script src="/build/js/libs/Swup.min.js"></script>
+<script src="/js/build/libs/Swup.min.js"></script>
 
-<script src="/build/js/libs/SwupSlideTheme.min.js"></script>
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
 
-<script src="/build/js/libs/SwupScriptsPlugin.min.js"></script>
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
 
-<script src="/build/js/libs/SwupProgressPlugin.min.js"></script>
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
 
-<script src="/build/js/libs/SwupScrollPlugin.min.js"></script>
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
 
-<script src="/build/js/libs/SwupPreloadPlugin.min.js"></script>
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
 
 <script>
     const swup = new Swup({
@@ -1132,45 +1147,45 @@
 
 
 	
-<script src="/build/js/tools/imageViewer.js" type="module"></script>
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
 
-<script src="/build/js/utils.js" type="module"></script>
+<script src="/js/build/utils.js" type="module"></script>
 
-<script src="/build/js/main.js" type="module"></script>
+<script src="/js/build/main.js" type="module"></script>
 
-<script src="/build/js/layouts/navbarShrink.js" type="module"></script>
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
 
-<script src="/build/js/tools/scrollTopBottom.js" type="module"></script>
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
 
-<script src="/build/js/tools/lightDarkSwitch.js" type="module"></script>
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
 
-<script src="/build/js/layouts/categoryList.js" type="module"></script>
-
-
-
-    
-<script src="/build/js/tools/localSearch.js" type="module"></script>
-
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
 
 
 
     
-<script src="/build/js/tools/codeBlock.js" type="module"></script>
+<script src="/js/build/tools/localSearch.js" type="module"></script>
 
 
 
 
     
-<script src="/build/js/layouts/lazyload.js" type="module"></script>
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
 
 
 
 
     
-<script src="/build/js/tools/runtime.js"></script>
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
 
     
-<script src="/build/js/libs/odometer.min.js"></script>
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
 
     
 <link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
@@ -1179,49 +1194,49 @@
 
 
   
-<script src="/build/js/libs/Typed.min.js"></script>
+<script src="/js/build/libs/Typed.min.js"></script>
 
   
-<script src="/build/js/plugins/typed.js" type="module"></script>
+<script src="/js/build/plugins/typed.js" type="module"></script>
 
 
 
 
     
-<script src="/build/js/libs/mermaid.min.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"></script>
     
-<script src="/build/js/plugins/mermaid.js"></script>
-
-
-
-
-
-
-
-
-
     
-<script src="/build/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
-
-<script src="/build/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
-
-<script src="/build/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+<script src="/js/build/plugins/mermaid.js"></script>
 
 
 
 
-<script src="/build/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
-
-
-<script src="/build/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
 
 
 
 
 
     
-<script src="/build/js/layouts/bookmarkNav.js" type="module"></script>
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/js/build/layouts/bookmarkNav.js" type="module"></script>
 
 
 	

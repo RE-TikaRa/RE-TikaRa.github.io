@@ -18,6 +18,9 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
+    
+    
+        
         <meta name="description" content="本篇将介绍数字类型、运算符和表达式">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python学习日志04-基础语法学习03">
@@ -65,7 +68,7 @@
 
     
         
-<link rel="stylesheet" href="/build/css/tailwind.css">
+<link rel="stylesheet" href="/css/build/tailwind.css">
 
     
 
@@ -83,13 +86,13 @@
     
     
         
-<script src="/build/js/libs/anime.min.js"></script>
+<script src="/js/build/libs/anime.min.js"></script>
 
     
 
     <script id="hexo-configurations">
     window.config = {"hostname":"re-tikara.github.io","root":"/","language":"zh-CN","path":"search.xml"};
-    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"欢迎参与实验 ，实验体%#@$%&号"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/img/light.jpg","dark":"/img/dark.png"},"title":"ALp_Studio","subtitle":{"text":["实验数据载入中......"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":"lgq3218483753@163.com","bilibili":"https://space.bilibili.com/374412219"},"qrs":{"weixin":null,"QQ":"https://sm.ms/image/Dyja4xG7N9sktbv"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.8.1","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"MMD扫盲系列":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","bilibili":"https://space.bilibili.com/374412219","Friends":"/links/"}},"音乐解锁":{"icon":"fa-solid fa-unlock","path":"/unlockedmusic/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"blur","bookmarks_column":3},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"欢迎来到ALp_Studio第四期——情感实验室。","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"MMD扫盲系列":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"音乐解锁":{"icon":"fa-solid fa-unlock","path":"/unlockedmusic/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"欢迎参与实验 ，实验体%#@$%&号"},"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/img/light.jpg","dark":"/img/dark.png"},"title":"ALp_Studio","subtitle":{"text":["实验数据载入中......"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":"lgq3218483753@163.com","bilibili":"https://space.bilibili.com/374412219"},"qrs":{"weixin":null,"QQ":"https://sm.ms/image/Dyja4xG7N9sktbv"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":true,"version":"9.3.0"}},"version":"2.8.2","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"MMD扫盲系列":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","bilibili":"https://space.bilibili.com/374412219","Friends":"/links/"}},"音乐解锁":{"icon":"fa-solid fa-unlock","path":"/unlockedmusic/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"blur","bookmarks_column":3},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"欢迎来到ALp_Studio第四期——情感实验室。","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"MMD扫盲系列":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"音乐解锁":{"icon":"fa-solid fa-unlock","path":"/unlockedmusic/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
     window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
     window.data = {"masonry":false};
   </script>
@@ -612,7 +615,7 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">17</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
         <div class="label text-third-text-color text-sm">标签</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
@@ -620,7 +623,7 @@
         <div class="label text-third-text-color text-sm">分类</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">33</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">34</div>
         <div class="label text-third-text-color text-sm">文章</div>
     </a>
 </div>
@@ -791,9 +794,9 @@
 <li>复数型<br>&emsp;&emsp;在Python中，复数型即complex型，由实数部分和虚数部分构成，可以用a+bj或者complex(a,b)来表示，复数的实部a和虚部b都是浮点型。</li>
 </ul>
 <p>&emsp;&emsp;我们可以用<code>type()</code>函数来判断一个变量的类型，例如我现在有text1~4四个变量，分别存储了字符串、整数、浮点数和布尔值，我们可以用type()函数来判断它们的类型，如下：</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">text1 = <span class="string">&quot;hello world&quot;</span></span><br><span class="line">text2 = <span class="number">30</span></span><br><span class="line">text3 = <span class="number">3.14</span></span><br><span class="line">text4 = <span class="literal">True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(text1),<span class="built_in">type</span>(text2),<span class="built_in">type</span>(text3),<span class="built_in">type</span>(text4))</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">text1 = <span class="string">&quot;hello world&quot;</span></span><br><span class="line">text2 = <span class="number">30</span></span><br><span class="line">text3 = <span class="number">3.14</span></span><br><span class="line">text4 = <span class="literal">True</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(text1),<span class="built_in">type</span>(text2),<span class="built_in">type</span>(text3),<span class="built_in">type</span>(text4))</span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;上面那段代码就会输出如下结果</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;str&#x27;</span>&gt; &lt;<span class="keyword">class</span> <span class="string">&#x27;int&#x27;</span>&gt; &lt;<span class="keyword">class</span> <span class="string">&#x27;float&#x27;</span>&gt; &lt;<span class="keyword">class</span> <span class="string">&#x27;bool&#x27;</span>&gt;</span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;str&#x27;</span>&gt; &lt;<span class="keyword">class</span> <span class="string">&#x27;int&#x27;</span>&gt; &lt;<span class="keyword">class</span> <span class="string">&#x27;float&#x27;</span>&gt; &lt;<span class="keyword">class</span> <span class="string">&#x27;bool&#x27;</span>&gt;</span><br></pre></td></tr></table></figure></div>
 <p><img  
                      lazyload
                      src="/images/loading.svg"
@@ -875,7 +878,7 @@
 </tr>
 </tbody></table>
 <p>&emsp;&emsp;分别举例如下</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># int(x[,base]) - 将x转换为整数类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="string">&#x27;123&#x27;</span>))  <span class="comment"># 输出: 123</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="string">&#x27;101&#x27;</span>, base=<span class="number">2</span>))  <span class="comment"># 输出: 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># float(x) - 将x转换为浮点数类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">float</span>(<span class="string">&#x27;3.14&#x27;</span>))  <span class="comment"># 输出: 3.14</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># str() - 将一个数值类型转换为字符串类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>(<span class="number">123</span>))  <span class="comment"># 输出: &#x27;123&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># complex(real[,imag]) - 创建一个复数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">complex</span>(<span class="number">3</span>, <span class="number">4</span>))  <span class="comment"># 输出: (3+4j)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># repr(x) - 将对象转换为表达式字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">repr</span>(<span class="number">123</span>))  <span class="comment"># 输出: &#x27;123&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># eval(str) - 计算在字符串中有效的Python表达式，并且返回一个对象</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">eval</span>(<span class="string">&#x27;2 + 3 * 4&#x27;</span>))  <span class="comment"># 输出: 14</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># tuple(s) - 将序列s转换为元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">tuple</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))  <span class="comment"># 输出: (1, 2, 3)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># list(s) - 将序列s转换为一个列表</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="string">&#x27;abc&#x27;</span>))  <span class="comment"># 输出: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set(s) - 转换为可变集合</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]))  <span class="comment"># 输出: &#123;1, 2, 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># dict(s) - 创建一个字典。必须是序列(key,value)元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">dict</span>([(<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>)]))  <span class="comment"># 输出: &#123;&#x27;a&#x27;: 1, &#x27;b&#x27;: 2&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># frozenset(s) - 转换为一个不可变集合</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">frozenset</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]))  <span class="comment"># 输出: frozenset(&#123;1, 2, 3&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># chr(x) - 将一个整数转换为一个字符</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="number">65</span>))  <span class="comment"># 输出: &#x27;A&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ord(x) - 将一个字符转换为一个整数值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(<span class="string">&#x27;A&#x27;</span>))  <span class="comment"># 输出: 65</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># hex(x) - 将一个整数转换为十六进制字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(<span class="number">255</span>))  <span class="comment"># 输出: &#x27;0xff&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># oct(x) - 将一个整数转换为八进制字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">oct</span>(<span class="number">8</span>))  <span class="comment"># 输出: &#x27;0o10&#x27;</span></span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># int(x[,base]) - 将x转换为整数类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="string">&#x27;123&#x27;</span>))  <span class="comment"># 输出: 123</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">int</span>(<span class="string">&#x27;101&#x27;</span>, base=<span class="number">2</span>))  <span class="comment"># 输出: 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># float(x) - 将x转换为浮点数类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">float</span>(<span class="string">&#x27;3.14&#x27;</span>))  <span class="comment"># 输出: 3.14</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># str() - 将一个数值类型转换为字符串类型</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">str</span>(<span class="number">123</span>))  <span class="comment"># 输出: &#x27;123&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># complex(real[,imag]) - 创建一个复数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">complex</span>(<span class="number">3</span>, <span class="number">4</span>))  <span class="comment"># 输出: (3+4j)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># repr(x) - 将对象转换为表达式字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">repr</span>(<span class="number">123</span>))  <span class="comment"># 输出: &#x27;123&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># eval(str) - 计算在字符串中有效的Python表达式，并且返回一个对象</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">eval</span>(<span class="string">&#x27;2 + 3 * 4&#x27;</span>))  <span class="comment"># 输出: 14</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># tuple(s) - 将序列s转换为元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">tuple</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]))  <span class="comment"># 输出: (1, 2, 3)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># list(s) - 将序列s转换为一个列表</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">list</span>(<span class="string">&#x27;abc&#x27;</span>))  <span class="comment"># 输出: [&#x27;a&#x27;, &#x27;b&#x27;, &#x27;c&#x27;]</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># set(s) - 转换为可变集合</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">set</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]))  <span class="comment"># 输出: &#123;1, 2, 3&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># dict(s) - 创建一个字典。必须是序列(key,value)元组</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">dict</span>([(<span class="string">&#x27;a&#x27;</span>, <span class="number">1</span>), (<span class="string">&#x27;b&#x27;</span>, <span class="number">2</span>)]))  <span class="comment"># 输出: &#123;&#x27;a&#x27;: 1, &#x27;b&#x27;: 2&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># frozenset(s) - 转换为一个不可变集合</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">frozenset</span>([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">1</span>]))  <span class="comment"># 输出: frozenset(&#123;1, 2, 3&#125;)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># chr(x) - 将一个整数转换为一个字符</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">chr</span>(<span class="number">65</span>))  <span class="comment"># 输出: &#x27;A&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ord(x) - 将一个字符转换为一个整数值</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">ord</span>(<span class="string">&#x27;A&#x27;</span>))  <span class="comment"># 输出: 65</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># hex(x) - 将一个整数转换为十六进制字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">hex</span>(<span class="number">255</span>))  <span class="comment"># 输出: &#x27;0xff&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># oct(x) - 将一个整数转换为八进制字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">oct</span>(<span class="number">8</span>))  <span class="comment"># 输出: &#x27;0o10&#x27;</span></span><br></pre></td></tr></table></figure></div>
 
 <hr>
 <h2 id="运算符和表达式"><a href="#运算符和表达式" class="headerlink" title="运算符和表达式"></a>运算符和表达式</h2><p>&emsp;&emsp;在Python中，有了变量，字符串等，还必须使用某种方式将变量和字符串的关系表示出来，只有这样才能用程序解决现实中的问题，此时运算符和表达式便应运而生。运算符和表达式的作用是为变量建立一种组合联系，实现对变量的处理。</p>
@@ -917,7 +920,7 @@
 </tr>
 </tbody></table>
 <p>&emsp;&emsp;若a&#x3D;3065，b&#x3D;20，则上面的表中举例如下：</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">3065</span></span><br><span class="line">b = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># + 加法</span></span><br><span class="line"><span class="built_in">print</span>(a + b)  <span class="comment"># 输出: 3085</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 减法</span></span><br><span class="line"><span class="built_in">print</span>(a - b)  <span class="comment"># 输出: 3045</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># * 乘法</span></span><br><span class="line"><span class="built_in">print</span>(a * b)  <span class="comment"># 输出: 61300</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># / 除法</span></span><br><span class="line"><span class="built_in">print</span>(a / b)  <span class="comment"># 输出: 153.25</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># % 取模（取余数）</span></span><br><span class="line"><span class="built_in">print</span>(a % b)  <span class="comment"># 输出: 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ** 幂运算</span></span><br><span class="line"><span class="built_in">print</span>(a ** b)  <span class="comment"># 输出: 3065 的 20 次方, 结果非常大</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># // 整除</span></span><br><span class="line"><span class="built_in">print</span>(a // b)  <span class="comment"># 输出: 153</span></span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">3065</span></span><br><span class="line">b = <span class="number">20</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># + 加法</span></span><br><span class="line"><span class="built_in">print</span>(a + b)  <span class="comment"># 输出: 3085</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># - 减法</span></span><br><span class="line"><span class="built_in">print</span>(a - b)  <span class="comment"># 输出: 3045</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># * 乘法</span></span><br><span class="line"><span class="built_in">print</span>(a * b)  <span class="comment"># 输出: 61300</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># / 除法</span></span><br><span class="line"><span class="built_in">print</span>(a / b)  <span class="comment"># 输出: 153.25</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># % 取模（取余数）</span></span><br><span class="line"><span class="built_in">print</span>(a % b)  <span class="comment"># 输出: 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ** 幂运算</span></span><br><span class="line"><span class="built_in">print</span>(a ** b)  <span class="comment"># 输出: 3065 的 20 次方, 结果非常大</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># // 整除</span></span><br><span class="line"><span class="built_in">print</span>(a // b)  <span class="comment"># 输出: 153</span></span><br></pre></td></tr></table></figure></div>
 
 <h3 id="比较运算符"><a href="#比较运算符" class="headerlink" title="比较运算符"></a>比较运算符</h3><p>&emsp;&emsp;比较运算符用于比较两个数值变量的关系，返回一个布尔值，即True或False。常用于比较大小关系等。其具体符号见下表：</p>
 <table>
@@ -956,7 +959,7 @@
 <td align="center"></td>
 </tr>
 </tbody></table>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">5</span></span><br><span class="line">b = <span class="number">10</span></span><br><span class="line"><span class="comment"># == 判断两个对象是否相等</span></span><br><span class="line"><span class="built_in">print</span>(a == b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(a == <span class="number">5</span>)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="comment"># != 判断两个对象是否不相等</span></span><br><span class="line"><span class="built_in">print</span>(a != b)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="built_in">print</span>(a != <span class="number">5</span>)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="comment"># &gt; 判断一个对象是否大于另一个对象</span></span><br><span class="line"><span class="built_in">print</span>(a &gt; b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(b &gt; a)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="comment"># &gt;= 判断一个对象是否大于等于另一个对象</span></span><br><span class="line"><span class="built_in">print</span>(a &gt;= b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(b &gt;= a)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="comment"># &lt; 判断一个对象是否小于另一个对象</span></span><br><span class="line"><span class="built_in">print</span>(a &lt; b)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="built_in">print</span>(b &lt; a)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="comment"># &lt;= 判断一个对象是否小于等于另一个对象</span></span><br><span class="line"><span class="built_in">print</span>(a &lt;= b)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="built_in">print</span>(b &lt;= a)  <span class="comment"># 输出: False</span></span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">5</span></span><br><span class="line">b = <span class="number">10</span></span><br><span class="line"><span class="comment"># == 判断两个对象是否相等</span></span><br><span class="line"><span class="built_in">print</span>(a == b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(a == <span class="number">5</span>)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="comment"># != 判断两个对象是否不相等</span></span><br><span class="line"><span class="built_in">print</span>(a != b)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="built_in">print</span>(a != <span class="number">5</span>)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="comment"># &gt; 判断一个对象是否大于另一个对象</span></span><br><span class="line"><span class="built_in">print</span>(a &gt; b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(b &gt; a)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="comment"># &gt;= 判断一个对象是否大于等于另一个对象</span></span><br><span class="line"><span class="built_in">print</span>(a &gt;= b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(b &gt;= a)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="comment"># &lt; 判断一个对象是否小于另一个对象</span></span><br><span class="line"><span class="built_in">print</span>(a &lt; b)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="built_in">print</span>(b &lt; a)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="comment"># &lt;= 判断一个对象是否小于等于另一个对象</span></span><br><span class="line"><span class="built_in">print</span>(a &lt;= b)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="built_in">print</span>(b &lt;= a)  <span class="comment"># 输出: False</span></span><br></pre></td></tr></table></figure></div>
 
 <p>&emsp;&emsp;需要注意的是，有时会返回0或者1，而不是True和False，其中0表示False，1表示True。</p>
 <h3 id="赋值运算符"><a href="#赋值运算符" class="headerlink" title="赋值运算符"></a>赋值运算符</h3><p>&emsp;&emsp;赋值运算符的含义是给某变量或表达式设置一个值，例如a&#x3D;3065，表示将值3065赋给变量a。这样一见到a就知道他是3065， <del>（像是数学中的换元？）</del> 。Python为我们提供了7中复合赋值运算符，就是在原始赋值运算符之上加了算数运算符，详见下表：</p>
@@ -1004,7 +1007,7 @@
 <td align="center"></td>
 </tr>
 </tbody></table>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始值</span></span><br><span class="line">a = <span class="number">3065</span></span><br><span class="line">b = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加法赋值</span></span><br><span class="line">a += b  <span class="comment"># a 现在是 3115 (3065 + 50)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;加法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">加法赋值后 a 的值: <span class="number">3115</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 减法赋值</span></span><br><span class="line">a -= b  <span class="comment"># a 现在回到 3065 (3115 - 50)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;减法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">减法赋值后 a 的值: <span class="number">3065</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 乘法赋值</span></span><br><span class="line">a *= b  <span class="comment"># a 变成 153250 (3065 * 50)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;乘法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">乘法赋值后 a 的值: <span class="number">153250</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 浮点除法赋值</span></span><br><span class="line">a /= b  <span class="comment"># a 回到 3065.0 (153250 / 50)，注意这里结果是浮点数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;除法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">除法赋值后 a 的值: <span class="number">3065.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 取模赋值</span></span><br><span class="line">a %= b  <span class="comment"># a 变成 15 (3065 % 50)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;取模赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">取模赋值后 a 的值: <span class="number">15.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 幂赋值</span></span><br><span class="line">a **= b  <span class="comment"># a 变成 15 的 50 次方</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;幂赋值后 a 的值: <span class="subst">&#123;a:<span class="number">.2</span>e&#125;</span>&quot;</span>)  <span class="comment"># 使用科学记数法显示以避免非常大的数字</span></span><br><span class="line">幂赋值后 a 的值: <span class="number">6.38e+58</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 整数除法赋值</span></span><br><span class="line">a //= b  <span class="comment"># a 变成 15 的 50 次方除以 50 后向下取整的结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;整数除法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">整数除法赋值后 a 的值: <span class="number">1.2752430004280992e+57</span></span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 初始值</span></span><br><span class="line">a = <span class="number">3065</span></span><br><span class="line">b = <span class="number">50</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 加法赋值</span></span><br><span class="line">a += b  <span class="comment"># a 现在是 3115 (3065 + 50)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;加法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">加法赋值后 a 的值: <span class="number">3115</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 减法赋值</span></span><br><span class="line">a -= b  <span class="comment"># a 现在回到 3065 (3115 - 50)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;减法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">减法赋值后 a 的值: <span class="number">3065</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 乘法赋值</span></span><br><span class="line">a *= b  <span class="comment"># a 变成 153250 (3065 * 50)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;乘法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">乘法赋值后 a 的值: <span class="number">153250</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 浮点除法赋值</span></span><br><span class="line">a /= b  <span class="comment"># a 回到 3065.0 (153250 / 50)，注意这里结果是浮点数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;除法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">除法赋值后 a 的值: <span class="number">3065.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 取模赋值</span></span><br><span class="line">a %= b  <span class="comment"># a 变成 15 (3065 % 50)</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;取模赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">取模赋值后 a 的值: <span class="number">15.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 幂赋值</span></span><br><span class="line">a **= b  <span class="comment"># a 变成 15 的 50 次方</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;幂赋值后 a 的值: <span class="subst">&#123;a:<span class="number">.2</span>e&#125;</span>&quot;</span>)  <span class="comment"># 使用科学记数法显示以避免非常大的数字</span></span><br><span class="line">幂赋值后 a 的值: <span class="number">6.38e+58</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 整数除法赋值</span></span><br><span class="line">a //= b  <span class="comment"># a 变成 15 的 50 次方除以 50 后向下取整的结果</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&quot;整数除法赋值后 a 的值: <span class="subst">&#123;a&#125;</span>&quot;</span>)</span><br><span class="line">整数除法赋值后 a 的值: <span class="number">1.2752430004280992e+57</span></span><br></pre></td></tr></table></figure></div>
 <p>&emsp;&emsp;此处每一个举例的a都是复用上一个举例的结果，而不是最开始的3065。</p>
 <h3 id="位运算符和位表达式"><a href="#位运算符和位表达式" class="headerlink" title="位运算符和位表达式"></a>位运算符和位表达式</h3><p>&emsp;&emsp;在Python中，使用位运算符可以操作二进制数据，位运算可以直接操作整数类型的位，也就是说，按位运算是把数字看作二进制数来计算。具体如下：</p>
 <table>
@@ -1106,7 +1109,7 @@
 </tr>
 </tbody></table>
 <p>&emsp;&emsp;</p>
-<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="literal">True</span></span><br><span class="line">b = <span class="literal">False</span></span><br><span class="line"><span class="comment"># and 运算符</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">and</span> b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">and</span> a)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="comment"># or 运算符</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">or</span> b)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="built_in">print</span>(b <span class="keyword">or</span> b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="comment"># not 运算符</span></span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">not</span> a)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">not</span> <span class="literal">False</span>)  <span class="comment"># 输出: True</span></span><br></pre></td></tr></table></figure></div>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="literal">True</span></span><br><span class="line">b = <span class="literal">False</span></span><br><span class="line"><span class="comment"># and 运算符</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">and</span> b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">and</span> a)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="comment"># or 运算符</span></span><br><span class="line"><span class="built_in">print</span>(a <span class="keyword">or</span> b)  <span class="comment"># 输出: True</span></span><br><span class="line"><span class="built_in">print</span>(b <span class="keyword">or</span> b)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="comment"># not 运算符</span></span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">not</span> a)  <span class="comment"># 输出: False</span></span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">not</span> <span class="literal">False</span>)  <span class="comment"># 输出: True</span></span><br></pre></td></tr></table></figure></div>
 
 <hr>
 <h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;Python中运算符具有优先级，从高到低依次是：算术运算符&gt;比较运算符&gt;位运算符和位表达式&gt;逻辑运算符&gt;赋值运算符。若有同级运算符，则从左向右依次计算。在实际使用中，要注意优先级的问题，避免出现错误。 </p>
@@ -1255,11 +1258,11 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        共撰写了 33 篇文章
+                        共撰写了 34 篇文章
                     </span>
                     
                         <span>
-                            共 38.9k 字
+                            共 39.1k 字
                         </span>
                     
                 </p>
@@ -1284,7 +1287,7 @@
         
         <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
             <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
-            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.1</a></span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
         </div>
         
         
@@ -1410,17 +1413,17 @@
 
 
 
-<script src="/build/js/libs/Swup.min.js"></script>
+<script src="/js/build/libs/Swup.min.js"></script>
 
-<script src="/build/js/libs/SwupSlideTheme.min.js"></script>
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
 
-<script src="/build/js/libs/SwupScriptsPlugin.min.js"></script>
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
 
-<script src="/build/js/libs/SwupProgressPlugin.min.js"></script>
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
 
-<script src="/build/js/libs/SwupScrollPlugin.min.js"></script>
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
 
-<script src="/build/js/libs/SwupPreloadPlugin.min.js"></script>
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
 
 <script>
     const swup = new Swup({
@@ -1445,45 +1448,45 @@
 
 
 	
-<script src="/build/js/tools/imageViewer.js" type="module"></script>
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
 
-<script src="/build/js/utils.js" type="module"></script>
+<script src="/js/build/utils.js" type="module"></script>
 
-<script src="/build/js/main.js" type="module"></script>
+<script src="/js/build/main.js" type="module"></script>
 
-<script src="/build/js/layouts/navbarShrink.js" type="module"></script>
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
 
-<script src="/build/js/tools/scrollTopBottom.js" type="module"></script>
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
 
-<script src="/build/js/tools/lightDarkSwitch.js" type="module"></script>
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
 
-<script src="/build/js/layouts/categoryList.js" type="module"></script>
-
-
-
-    
-<script src="/build/js/tools/localSearch.js" type="module"></script>
-
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
 
 
 
     
-<script src="/build/js/tools/codeBlock.js" type="module"></script>
+<script src="/js/build/tools/localSearch.js" type="module"></script>
 
 
 
 
     
-<script src="/build/js/layouts/lazyload.js" type="module"></script>
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
 
 
 
 
     
-<script src="/build/js/tools/runtime.js"></script>
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
 
     
-<script src="/build/js/libs/odometer.min.js"></script>
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
 
     
 <link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
@@ -1492,49 +1495,49 @@
 
 
   
-<script src="/build/js/libs/Typed.min.js"></script>
+<script src="/js/build/libs/Typed.min.js"></script>
 
   
-<script src="/build/js/plugins/typed.js" type="module"></script>
+<script src="/js/build/plugins/typed.js" type="module"></script>
 
 
 
 
     
-<script src="/build/js/libs/mermaid.min.js"></script>
-
+        <script src="https://cdn.jsdelivr.net/npm/mermaid@9.3.0/dist/mermaid.min.js"></script>
     
-<script src="/build/js/plugins/mermaid.js"></script>
-
-
-
-
-
-
-
-
-
     
-<script src="/build/js/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
-
-<script src="/build/js/layouts/toc.js" type="module" data-swup-reload-script=""></script>
-
-<script src="/build/js/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+<script src="/js/build/plugins/mermaid.js"></script>
 
 
 
 
-<script src="/build/js/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
-
-
-<script src="/build/js/layouts/essays.js" type="module" data-swup-reload-script=""></script>
 
 
 
 
 
     
-<script src="/build/js/layouts/bookmarkNav.js" type="module"></script>
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/js/build/layouts/bookmarkNav.js" type="module"></script>
 
 
 	
