@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="亓翎_Re-TikaRa">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://RE-TikaRa.github.io/posts/a975f408/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+    
+    
+        
+        <meta name="description" content="ALp_Studio - 第04期 情感计划 实验室">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python学习日志07-基础语法学习06">
+<meta property="og:url" content="http://re-tikara.github.io/posts/a975f408/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ALp_Studio - 第04期 情感计划 实验室">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://re-tikara.github.io/img/cover.png">
+<meta property="article:published_time" content="2024-12-02T09:14:22.000Z">
+<meta property="article:modified_time" content="2024-12-03T03:41:12.530Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://re-tikara.github.io/img/cover.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/img/logo.png" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/logo.png">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/img/logo.png">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Python学习日志07-基础语法学习06 | ALp_Studio
+        
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+        
+            
+    
+            
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/css/build/tailwind.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/GeistMono/geist-mono.css">
+
+    
+<link rel="stylesheet" href="/fonts/Geist/geist.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+    
+    
+        
+<script src="/js/build/libs/anime.min.js"></script>
+
+    
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"re-tikara.github.io","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"delete_mask":false,"title_alignment":"left","headings_top_spacing":{"h1":"3.2rem","h2":"2.4rem","h3":"1.9rem","h4":"1.6rem","h5":"1.4rem","h6":"1.3rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","highlight_theme":{"light":"github","dark":"github-dark"},"font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"pangu_js":false,"recommendation":{"enable":true,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null},"title":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":true},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":{"enable":true,"custom_message":"欢迎参与实验 ，实验体%#@$%&号"},"open_graph":{"enable":true,"image":"/img/cover.png","description":"ALp_Studio - 第04期 情感计划 实验室"},"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/img/light.jpg","dark":"/img/dark.png"},"title":"ALp_Studio","subtitle":{"text":["实验数据载入中......"],"hitokoto":{"enable":true,"show_author":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":"lgq3218483753@163.com","bilibili":"https://space.bilibili.com/374412219"},"qrs":{"weixin":null,"QQ":"https://sm.ms/image/Dyja4xG7N9sktbv"}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":true,"version":"11.4.1"}},"version":"2.8.2","navbar":{"auto_hide":true,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"MMD扫盲系列":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/about","bilibili":"https://space.bilibili.com/374412219","Friends":"/links/"}},"音乐解锁":{"icon":"fa-solid fa-unlock","path":"/unlockedmusic/"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":3,"tags_style":"blur","bookmarks_column":3},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":"欢迎来到ALp_Studio第四期——情感实验室。","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories/","icon":"fa-regular fa-folder"},"MMD扫盲系列":{"path":"/categories/MMD扫盲系列","icon":"fa-solid fa-list"},"音乐解锁":{"icon":"fa-solid fa-unlock","path":"/unlockedmusic/"}}},"article_date_format":"auto","excerpt_length":200,"categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+
+<body>
+	<div class="progress-bar-container">
+	
+	<span class="scroll-progress-bar"></span>
+	
+
+	
+	<span class="pjax-progress-bar"></span>
+	<!--        <span class="swup-progress-icon">-->
+	<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+	<!--        </span>-->
+	
+</div>
+
+<style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    <h2 class="ml13">
+        欢迎参与实验 ，实验体%#@$%&amp;号
+    </h2>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+        var animation = anime.timeline({ loop: true })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [20, 0],
+                translateZ: 0,
+                opacity: [0, 1],
+                filter: ['blur(5px)', 'blur(0px)'],
+                easing: "easeOutExpo",
+                duration: 1200,
+                delay: (el, i) => 300 + 20 * i,
+            })
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [0, -20],
+                opacity: [1, 0],
+                filter: ['blur(0px)', 'blur(5px)'],
+                easing: "easeInExpo",
+                duration: 1000,
+                delay: (el, i) => 15 * i,
+                complete: function() {
+                    hidePreloader();
+                }
+            }, '-=700');
+
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            setTimeout(hidePreloader, 5000); // Call hidePreloader after 5000 milliseconds if not already called by animation
+        });
+
+        function hidePreloader() {
+            var preloader = document.querySelector('.preloader');
+            preloader.style.opacity = '0';
+            setTimeout(function () {
+                preloader.style.display = 'none';
+            }, 200);
+        }
+    </script>
+</div>
+
+<main class="page-container" id="swup">
+
+	
+
+	<div class="main-content-container flex flex-col justify-between min-h-dvh">
+		<div class="main-content-header">
+			<header class="navbar-container px-6 md:px-12">
+    <div class="navbar-content transition-navbar ">
+        <div class="left">
+            
+                <a class="logo-image h-8 w-8 sm:w-10 sm:h-10 mr-3" href="/">
+                    <img src="/img/logo.png" class="w-full h-full rounded-sm">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                ALp_Studio
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    首页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    归档
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97"
+                                        >
+                                    <i class="fa-solid fa-list fa-fw"></i>
+                                    MMD扫盲系列
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories/"
+                                        >
+                                    <i class="fa-regular fa-folder fa-fw"></i>
+                                    分类
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    关于
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/about">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://space.bilibili.com/374412219">
+                                                    BILIBILI
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/links/">
+                                                    友情链接
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/unlockedmusic/"
+                                        >
+                                    <i class="fa-solid fa-unlock fa-fw"></i>
+                                    音乐解锁
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-dvh w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                首页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                归档
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/MMD%E6%89%AB%E7%9B%B2%E7%B3%BB%E5%88%97"
+                        >
+                            <span>
+                                MMD扫盲系列
+                            </span>
+                            
+                                <i class="fa-solid fa-list fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories/"
+                        >
+                            <span>
+                                分类
+                            </span>
+                            
+                                <i class="fa-regular fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                关于
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/about">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://space.bilibili.com/374412219">BILIBILI</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/links/">友情链接</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/unlockedmusic/"
+                        >
+                            <span>
+                                音乐解锁
+                            </span>
+                            
+                                <i class="fa-solid fa-unlock fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/tags"
+                        >
+                            <span>Tags</span>
+                            <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                        </a>
+                    </li>
+                
+                    
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">17</div>
+        <div class="label text-third-text-color text-sm">标签</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
+        <div class="label text-third-text-color text-sm">分类</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">34</div>
+        <div class="label text-third-text-color text-sm">文章</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+		</div>
+
+		<div class="main-content-body transition-fade-up">
+			
+
+			<div class="main-content">
+				<div class="post-page-container flex relative justify-between box-border w-full h-full">
+	<div class="article-content-container">
+
+		<div class="article-title relative w-full">
+			
+			
+			
+			<img src="/img/py%E5%AD%A6%E4%B9%A0%E6%97%A5%E5%BF%9702.png" alt="Python学习日志07-基础语法学习06" class="w-full h-60 sm:h-72 md:h-80 object-cover sm:rounded-t-large dark:brightness-75" />
+			
+			<div class="w-full flex items-center absolute bottom-0 justify-start">
+				<h1 class="article-title-cover text-center mx-6 my-6 text-second-text-color bg-background-color-transparent px-4 py-3 text-3xl sm:text-4xl md:text-5xl font-semibold backdrop-blur-lg rounded-xl border border-border-color ">Python学习日志07-基础语法学习06</h1>
+			</div>
+			
+		</div>
+
+		
+		<div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+			<div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+				<img src="/img/avat.jpg">
+			</div>
+			<div class="info flex flex-col justify-between">
+				<div class="author flex items-center">
+					<span class="name text-default-text-color text-lg font-semibold">亓翎_Re-TikaRa</span>
+					
+					<span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv4</span>
+					
+				</div>
+				<div class="meta-info">
+					<div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-12-02 17:14:22</span>
+        <span class="mobile">2024-12-02 17:14:22</span>
+        <span class="hover-info">创建</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-12-03 11:41:12</span>
+            <span class="mobile">2024-12-03 11:41:12</span>
+            <span class="hover-info">更新</span>
+        </span>
+    
+
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/python/">python</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fa-regular fa-typewriter"></i>&nbsp;<span>3.1k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fa-regular fa-clock"></i>&nbsp;<span>12 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+				</div>
+			</div>
+		</div>
+		
+
+		
+		<div class="article-expire mt-4 mx-2 sm:mx-6 md:mx-8 note p-4 rounded-lg red icon hidden" id="expiration-container">
+			<i class="expire-icon fa-solid fa-timer mr-0.5 text-red-600 dark:text-red-400"></i>
+			<span class="expire-label text-red-600 dark:text-red-400 " id="expiration-date">这篇文章最后更新于 some 天前，内容可能已经过时。</span>
+		</div>
+
+		<script data-swup-reload-script>
+			function updateExpirationDate() {
+				try {
+					const expiredDate = new Date("Mon Jun 02 2025 17:14:22 GMT+0800 (中国标准时间)");
+					const updatedDate = new Date("Tue Dec 03 2024 11:41:12 GMT+0800");
+					const now = new Date();
+					const expirationValue = document.getElementById("expiration-date");
+					const expirationContainer = document.getElementById("expiration-container");
+					let daysAgo = Math.floor((now - updatedDate) / (1000 * 60 * 60 * 24));
+					if (expiredDate < now) {
+						expirationContainer.classList.remove("hidden");
+						// console.log(daysAgo)
+						expirationValue.innerHTML = expirationValue.innerHTML.replace("some", daysAgo);
+					}
+				} catch (e) {}
+			}
+			document.addEventListener("DOMContentLoaded", function() {
+				updateExpirationDate();
+			});
+			try {
+				swup.hooks.on("page:view", updateExpirationDate)
+			} catch (e) {}
+		</script>
+		
+
+
+		<div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+			<h2 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h2><h2 id="emsp-emsp-在Python中，for循环语句是一种十分重要的程序结构。其特点是，在给定条件成立时，反复执行某段代码，直到条件不成立为止。给定的条件称为循环条件，反复执行的程序段称为循环体。-emsp-emsp-for循环的基本结构如下：-emsp-emsp-for循环的逻辑关系如下-config-layout-dagre-look-handDrawn-theme-default"><a href="#emsp-emsp-在Python中，for循环语句是一种十分重要的程序结构。其特点是，在给定条件成立时，反复执行某段代码，直到条件不成立为止。给定的条件称为循环条件，反复执行的程序段称为循环体。-emsp-emsp-for循环的基本结构如下：-emsp-emsp-for循环的逻辑关系如下-config-layout-dagre-look-handDrawn-theme-default" class="headerlink" title="&emsp;&emsp;在Python中，for循环语句是一种十分重要的程序结构。其特点是，在给定条件成立时，反复执行某段代码，直到条件不成立为止。给定的条件称为循环条件，反复执行的程序段称为循环体。&emsp;&emsp;for循环的基本结构如下：&emsp;&emsp;for循环的逻辑关系如下---config:  layout: dagre  look: handDrawn  theme: default"></a>&emsp;&emsp;在Python中，for循环语句是一种十分重要的程序结构。其特点是，在给定条件成立时，反复执行某段代码，直到条件不成立为止。给定的条件称为循环条件，反复执行的程序段称为循环体。<br>&emsp;&emsp;for循环的基本结构如下：<br><div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> iterating_var <span class="keyword">in</span> sequence:</span><br><span class="line">    statements</span><br></pre></td></tr></table></figure></div><br>&emsp;&emsp;for循环的逻辑关系如下<br><pre class="mermaid">---<br>config:<br>  layout: dagre<br>  look: handDrawn<br>  theme: default</h2><p>stateDiagram<br>  direction TB<br>  [<em>] --> s1<br>  s1 --> s2<br>  s2 --> s3<br>  s3 --> s4<br>  s4 --> s1:返回到输入开始下一轮<br>  s3 --> s5<br>  s5 --> s6<br>  s6 --> [</em>]<br>  s1:输入<br>  s2:算法<br>  s3:判断是否符合范围<br>  s4:符合<br>  s5:不符合<br>  s6:结束循环，输出最终结果</pre><br>&emsp;&emsp;比如我们以简单的一个倒计时来说，此时的要求有以下几点：</p>
+<ul>
+<li>允许用户输入一个数字，表示倒计时的时长；比如输入300，则表示倒计时300秒。</li>
+<li>倒计时的时长以秒为单位，每秒输出一次倒计时的剩余时间。</li>
+<li>当倒计时结束后，输出“倒计时结束”，并且发出铃声。</li>
+</ul>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time  <span class="comment"># 导入时间模块，用于控制程序暂停</span></span><br><span class="line"><span class="keyword">import</span> winsound  <span class="comment"># 导入 winsound 模块，用于播放声音</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">countdown</span>(<span class="params">t</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot;</span></span><br><span class="line"><span class="string">    def countdown(t):是 Python 中定义一个函数的方式。具体来说：</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">        - def 是定义函数的关键字。</span></span><br><span class="line"><span class="string">        - countdown 是函数的名称，表示这个函数的作用或功能。</span></span><br><span class="line"><span class="string">        - (t) 括号内的 `t` 是函数的参数，表示调用此函数时需要传入一个值，通常这个值会被用作函数内部操作的数据。</span></span><br><span class="line"><span class="string">    这行代码定义了一个名为 `countdown` 的函数，该函数接受一个参数 `t`。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    countdown：倒计时函数。</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">    t (int): 倒计时的总秒数。</span></span><br><span class="line"><span class="string">    </span></span><br><span class="line"><span class="string">    此函数会从给定的总秒数开始倒数，每秒更新一次控制台输出，直到倒计时结束。</span></span><br><span class="line"><span class="string">    结束时，它会在控制台打印消息并播放提示音。</span></span><br><span class="line"><span class="string">    &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">for</span> remaining <span class="keyword">in</span> <span class="built_in">range</span>(t, <span class="number">0</span>, -<span class="number">1</span>):  <span class="comment"># 使用 for 循环从 t 到 1 进行倒计时</span></span><br><span class="line">        <span class="comment"># 计算剩余时间的分钟数和秒数</span></span><br><span class="line">        mins, secs = <span class="built_in">divmod</span>(remaining, <span class="number">60</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 将剩余时间格式化为 MM:SS 的形式</span></span><br><span class="line">        timer = <span class="string">&#x27;&#123;:02d&#125;:&#123;:02d&#125;&#x27;</span>.<span class="built_in">format</span>(mins, secs)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 在控制台上打印当前时间，使用 &#x27;\r&#x27; 来在同一行上更新输出</span></span><br><span class="line">        <span class="comment"># &#x27;\r&#x27; 是回车符，它会将光标移回到行首，这样每次打印都会覆盖前一次的输出</span></span><br><span class="line">        <span class="built_in">print</span>(timer, end=<span class="string">&quot;\r&quot;</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># 暂停程序执行 1 秒钟，模拟每秒的倒计时</span></span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 当循环结束后，倒计时已经完成</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;倒计时结束&#x27;</span>)  <span class="comment"># 在控制台上打印倒计时结束的消息</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 播放提示音，频率为 1000 Hz，持续时间为 1000 毫秒（1 秒）</span></span><br><span class="line">    winsound.Beep(<span class="number">1000</span>, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 检查当前模块是否是主程序入口</span></span><br><span class="line">    <span class="comment"># 这是为了确保当这个脚本被直接运行时，下面的代码才会被执行</span></span><br><span class="line">    <span class="comment"># 如果这个脚本被其他脚本导入，下面的代码不会被执行</span></span><br><span class="line">    t = <span class="built_in">int</span>(<span class="built_in">input</span>(<span class="string">&quot;请输入倒计时时长（秒）：&quot;</span>))  <span class="comment"># 提示用户输入倒计时时长，并将输入的字符串转换为整数</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 调用 countdown 函数，开始倒计时</span></span><br><span class="line">    countdown(t)</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;简单的运行效果如下，当结束时，就会发出“哔~~”的声音。下面的这个是gif，没有声音，想要试试的同学可以复制上面的代码，然后运行一下。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/12/02/b3NxcRyhZaqMTlv.gif"
+                      alt="recording.gif"
+                ><br>&emsp;&emsp;其中最重要的便是countdown函数，然后利用for循环定义一个变量remaining，从你输入的数字开始，每秒减一，一直到0，然后发出声音，然后关闭程序。详细的每部分说明如下：</p>
+<ol>
+<li><p><strong>导入模块</strong>：</p>
+<ul>
+<li><code>import time</code>: 导入 <code>time</code> 模块，用于控制程序暂停。</li>
+<li><code>import winsound</code>: 导入 <code>winsound</code> 模块，用于播放声音。</li>
+</ul>
+</li>
+<li><p><strong>定义 <code>countdown</code> 函数</strong>：</p>
+<ul>
+<li><code>def countdown(t)</code>: 定义一个名为 <code>countdown</code> 的函数，接受一个参数 <code>t</code>，表示倒计时的总秒数。</li>
+<li><code>for remaining in range(t, 0, -1)</code>: 使用 <code>for</code> 循环从 <code>t</code> 到 <code>1</code> 进行倒计时。<code>range(t, 0, -1)</code> 生成一个从 <code>t</code> 到 <code>1</code> 的递减序列。</li>
+<li><code>mins, secs = divmod(remaining, 60)</code>: 使用 <code>divmod</code> 函数计算剩余时间的分钟数和秒数。<code>divmod(a, b)</code> 返回一个元组 <code>(a // b, a % b)</code>，即商和余数。</li>
+<li><code>timer = &#39;&#123;:02d&#125;:&#123;:02d&#125;&#39;.format(mins, secs)</code>: 使用字符串格式化方法将剩余时间格式化为 <code>MM:SS</code> 的形式。<code>&#39;&#123;:02d&#125;&#39;</code> 表示至少两位数字，不足两位时前面补零。</li>
+<li><code>print(timer, end=&quot;\r&quot;)</code>: 在控制台上打印当前时间，使用 <code>\r</code> 回车符将光标移回到行首，这样每次打印都会覆盖前一次的输出。</li>
+<li><code>time.sleep(1)</code>: 暂停程序执行 1 秒钟，模拟每秒的倒计时。</li>
+</ul>
+</li>
+<li><p><strong>倒计时结束</strong>：</p>
+<ul>
+<li><code>print(&#39;倒计时结束&#39;)</code>: 当循环结束后，倒计时已经完成，在控制台上打印倒计时结束的消息。</li>
+<li><code>winsound.Beep(1000, 1000)</code>: 播放提示音，频率为 1000 Hz，持续时间为 1000 毫秒（1 秒）。</li>
+</ul>
+</li>
+<li><p><strong>主程序入口</strong>：</p>
+<ul>
+<li><code>if __name__ == &quot;__main__&quot;</code>: 检查当前模块是否是主程序入口。如果是，则执行下面的代码。</li>
+<li><code>t = int(input(&quot;请输入倒计时时长（秒）：&quot;))</code>: 提示用户输入倒计时时长，并将输入的字符串转换为整数。</li>
+<li><code>countdown(t)</code>: 调用 <code>countdown</code> 函数，开始倒计时。</li>
+</ul>
+</li>
+</ol>
+<p>&emsp;&emsp;此时的这个程序逻辑如下：</p>
+<h3 id="流程图详细说明"><a href="#流程图详细说明" class="headerlink" title="流程图详细说明"></a>流程图详细说明</h3><pre class="mermaid">---
+config:
+  layout: dagre
+  look: handDrawn
+  theme: default
+---
+stateDiagram
+  direction TB
+  [*] --> s7
+  s7 --> s8
+  s8 --> s9
+  s8 --> s10
+  s9 --> s1
+  s1 --> s11
+  s11 --> s12
+  s12 --> s13
+  s13 --> s14
+  s14 --> s15
+  s15 --> s16
+  s16 --> s17
+  s16 --> s18
+  s18 --> s20
+  s17 --> s19
+  s20 --> s22
+  s19 --> s21
+  s21 --> s23
+  s23 --> s24
+  s24 --> s25
+  s26 --> s27
+  s24 --> s26
+  s7:导入音频和倒计时模块
+  s8:检查当前程序是否为主程序入口
+  s9:是，开始运行
+  s10:否，退出
+  s1:提示用户输入倒计时时长
+  s11:读取用户输入并转换成整数类型
+  s12:调用countdown函数
+  s13:进入函数
+  s14:初始化t为用户输入的值
+  s15:初始化 t 为用户输入的值
+  s16:for 循环开始 (从 t 到 1)
+  s17:计算分钟数和秒数
+  s18:t 已经为 0
+  s20:打印“倒计时结束”
+  s19:格式化时间为MM：SS
+  s22:播放提示音
+  s21:打印时间到控制台
+  s23:暂停程序执行 1 秒钟
+  s24:减少 t 的值 (t = t - 1)
+  s25:返回 for 循环顶部
+  s26:跳出循环
+  s27:结束</pre>
+<ol>
+<li><p><strong>开始</strong>：</p>
+<ul>
+<li>程序启动。</li>
+</ul>
+</li>
+<li><p><strong>导入模块</strong>：</p>
+<ul>
+<li>导入 <code>time</code> 和 <code>winsound</code> 模块，用于控制程序暂停和播放声音。</li>
+</ul>
+</li>
+<li><p><strong>检查主程序入口</strong>：</p>
+<ul>
+<li>使用 <code>if __name__ == &quot;__main__&quot;:</code> 检查当前模块是否是主程序入口。</li>
+<li>如果是，继续执行；否则，程序结束。</li>
+</ul>
+</li>
+<li><p><strong>提示用户输入倒计时时长</strong>：</p>
+<ul>
+<li>提示用户输入倒计时时长，并将输入的字符串转换为整数类型。</li>
+</ul>
+</li>
+<li><p><strong>调用 <code>countdown</code> 函数</strong>：</p>
+<ul>
+<li>调用 <code>countdown</code> 函数，传入用户指定的秒数。</li>
+</ul>
+</li>
+<li><p><strong>进入 <code>countdown</code> 函数</strong>：</p>
+<ul>
+<li>初始化 <code>t</code> 为用户输入的值。</li>
+</ul>
+</li>
+<li><p><strong>for 循环</strong>：</p>
+<ul>
+<li>使用 <code>for remaining in range(t, 0, -1)</code> 从 <code>t</code> 到 <code>1</code> 进行倒计时。</li>
+<li><strong>计算分钟数和秒数</strong>：<ul>
+<li>使用 <code>divmod(remaining, 60)</code> 计算剩余时间的分钟数和秒数。</li>
+</ul>
+</li>
+<li><strong>格式化时间</strong>：<ul>
+<li>使用 <code>&#39;&#123;:02d&#125;:&#123;:02d&#125;&#39;.format(mins, secs)</code> 将剩余时间格式化为 <code>MM:SS</code> 的形式。</li>
+</ul>
+</li>
+<li><strong>打印时间到控制台</strong>：<ul>
+<li>使用 <code>print(timer, end=&quot;\r&quot;)</code> 在控制台上打印当前时间，使用 <code>\r</code> 回车符在同一行上更新输出。</li>
+</ul>
+</li>
+<li><strong>暂停程序执行 1 秒钟</strong>：<ul>
+<li>使用 <code>time.sleep(1)</code> 暂停程序执行 1 秒钟。</li>
+</ul>
+</li>
+<li><strong>减少 <code>t</code> 的值</strong>：<ul>
+<li><code>for</code> 循环自动减少 <code>remaining</code> 的值。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>倒计时结束</strong>：</p>
+<ul>
+<li>当 <code>for</code> 循环结束时，倒计时已经完成。</li>
+<li><strong>打印“倒计时结束”</strong>：<ul>
+<li>在控制台上打印“倒计时结束”。</li>
+</ul>
+</li>
+<li><strong>播放提示音</strong>：<ul>
+<li>使用 <code>winsound.Beep(1000, 1000)</code> 播放提示音，频率为 1000 Hz，持续时间为 1000 毫秒（1 秒）。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>结束</strong>：</p>
+<ul>
+<li>程序结束。</li>
+</ul>
+</li>
+</ol>
+<h2 id="for…else语句"><a href="#for…else语句" class="headerlink" title="for…else语句"></a>for…else语句</h2><p>&emsp;&emsp;与if类似的，for也有一个else语句。在for…else语句中，else中的语句会在循环执行完（即for不是通过break跳出而中断的）的情况下执行。for…else语句的格式如下：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> iterating_var <span class="keyword">in</span> sequence:</span><br><span class="line">    statements1</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    statements2</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;上述语法中各参数解释如下：</p>
+<ul>
+<li>iterating_var：表示循环变量</li>
+<li>sequence：表示遍历对象，通常是元组、字典和列表等</li>
+<li>statements1：表示for语句中的循环体，他的执行次数就是遍历对象中值的数量</li>
+<li>statements2：else语句中的statements2，只有在循环正常退出时（遍历完所有遍历对象中的值）执行</li>
+</ul>
+<p>&emsp;&emsp;举例如下：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义一个数字列表，其中包含一系列整数</span></span><br><span class="line">数字列表 = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>, <span class="number">10</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用 for...else 结构遍历数字列表中的每一个元素</span></span><br><span class="line"><span class="keyword">for</span> 数字 <span class="keyword">in</span> 数字列表:</span><br><span class="line">    <span class="comment"># 在每次迭代中，检查当前数字是否为偶数</span></span><br><span class="line">    <span class="comment"># 偶数的定义是能被2整除且余数为0的数字</span></span><br><span class="line">    <span class="keyword">if</span> 数字 % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">        <span class="comment"># 如果当前数字是偶数，则打印出找到偶数的消息，并附带偶数的具体值</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">f&quot;找到了一个偶数: <span class="subst">&#123;数字&#125;</span>&quot;</span>)</span><br><span class="line">        <span class="comment"># 使用 break 语句中断当前的 for 循环，不再继续检查后续的数字</span></span><br><span class="line">        <span class="keyword">break</span>  </span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="comment"># 这个 else 块会在 for 循环正常结束（即没有遇到 break）时执行</span></span><br><span class="line">    <span class="comment"># 如果列表中没有任何一个数字是偶数，那么会执行这里的代码块</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;在列表中没有找到偶数。&quot;</span>)</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;上诉代码的执行效果如下：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">找到了一个偶数: <span class="number">10</span></span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;我们可以在一个for语句中使用另一个for语句，即嵌套fpr循环，这种嵌套式的语法格式如下：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> iterating_var <span class="keyword">in</span> sequence1:</span><br><span class="line">   <span class="keyword">for</span> iterating_var <span class="keyword">in</span> sequence2:</span><br><span class="line">      statements</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;举例如下：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义一个二维列表，表示一个 3x3 的矩阵</span></span><br><span class="line">矩阵 = [</span><br><span class="line">    [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],  <span class="comment"># 第一行</span></span><br><span class="line">    [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>],  <span class="comment"># 第二行</span></span><br><span class="line">    [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]   <span class="comment"># 第三行</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用嵌套的 for 循环遍历二维列表中的每一个元素</span></span><br><span class="line"><span class="comment"># 外层循环遍历矩阵的每一行</span></span><br><span class="line"><span class="keyword">for</span> 行 <span class="keyword">in</span> 矩阵:</span><br><span class="line">    <span class="comment"># 内层循环遍历当前行中的每一个元素</span></span><br><span class="line">    <span class="keyword">for</span> 元素 <span class="keyword">in</span> 行:</span><br><span class="line">        <span class="comment"># 打印当前元素，并在元素后面添加一个空格，而不是默认的换行符</span></span><br><span class="line">        <span class="comment"># 这样可以在同一行打印出所有元素</span></span><br><span class="line">        <span class="built_in">print</span>(元素, end=<span class="string">&#x27; &#x27;</span>)</span><br><span class="line">    <span class="comment"># 当内层循环结束后，打印一个换行符，以便开始打印下一行的元素</span></span><br><span class="line">    <span class="built_in">print</span>()</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;上述代码的执行效果如下：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> <span class="number">2</span> <span class="number">3</span> </span><br><span class="line"><span class="number">4</span> <span class="number">5</span> <span class="number">6</span> </span><br><span class="line"><span class="number">7</span> <span class="number">8</span> <span class="number">9</span> </span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;其实，for 循环和 if 语句在某些方面有相似之处，但它们的功能和使用场景不同。for 循环可以自动遍历序列中的每个元素，而 if 语句则用于条件判断。如果要用 if 语句实现循环功能，通常需要嵌套多层代码，这会使得代码变得复杂且难以维护。相比之下，for 循环更为简洁和直观，尽管初次接触时可能会觉得有些难以理解，但通过实践和练习，你会逐渐掌握其用法。<br>&emsp;&emsp;例如，在 for…else 结构中，break 语句的作用可能一开始不太容易理解。但实际上，break 用于在满足某个条件时提前终止循环。以一个简单的例子来说明：假设我们要通过累加 1 来达到目标值 5。一旦累加的结果达到 5，我们就可以使用 break 语句停止循环。如果在累加过程中始终没有达到 5（比如只能加到 3），那么循环会在遍历完所有元素后正常结束，此时 else 块中的代码将会执行。<br>&emsp;&emsp;具体来说，for…else 的工作原理如下</p>
+<ul>
+<li>for 循环会遍历指定的序列。</li>
+<li>如果在循环体内使用了 break 语句并因此提前退出循环，则 else 块不会被执行。</li>
+<li>如果循环自然结束（即没有遇到 break 语句），则 else 块中的代码会被执行。</li>
+</ul>
+<p><br>&emsp;&emsp;这样，for…else 结构提供了一种方便的方式来处理循环结束后的情况，无论是在找到特定条件时提前终止还是在遍历完所有元素后执行一些额外的操作。</p>
+
+		</div>
+
+		
+		<div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+			<div class="article-copyright-info-container">
+    <ul>
+        <li><strong>标题:</strong> Python学习日志07-基础语法学习06</li>
+        <li><strong>作者:</strong> 亓翎_Re-TikaRa</li>
+        <li><strong>创建于
+                :</strong> 2024-12-02 17:14:22</li>
+        
+            <li>
+                <strong>更新于
+                    :</strong> 2024-12-03 11:41:12
+            </li>
+        
+        <li>
+            <strong>链接:</strong> https://re-tikara.github.io/posts/a975f408/
+        </li>
+        <li>
+            <strong>
+                版权声明:
+            </strong>
+            
+
+            
+                本文章采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a> 进行许可。
+            
+        </li>
+    </ul>
+</div>
+
+		</div>
+		
+
+		
+		<ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+			
+			<li class="tag-item mx-0.5">
+				<a href="/tags/python/">#python</a>&nbsp;
+			</li>
+			
+		</ul>
+		
+
+		
+  <div class="recommended-article px-2 sm:px-6 md:px-8">
+   <div class="recommended-desktop">
+    <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+    </div>
+    <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/2754c172/" title="Python学习日志06-基础语法学习05" rel="bookmark">
+  <img src="/img/py学习日志02.png" alt="Python学习日志06-基础语法学习05" class="!max-w-none">
+  <span class="title">Python学习日志06-基础语法学习05</span>
+</a><a class="recommended-article-item" href="/posts/7c98966b/" title="Python学习日志02-基础语法学习01" rel="bookmark">
+  <img src="/img/py学习日志02.png" alt="Python学习日志02-基础语法学习01" class="!max-w-none">
+  <span class="title">Python学习日志02-基础语法学习01</span>
+</a><a class="recommended-article-item" href="/posts/475bd321/" title="python学习日志03-基础语法学习02" rel="bookmark">
+  <img src="/img/py学习日志02.png" alt="python学习日志03-基础语法学习02" class="!max-w-none">
+  <span class="title">python学习日志03-基础语法学习02</span>
+</a></div>
+   </div>
+   <div class="recommended-mobile">
+   <div class="recommended-article-header text-xl md:text-3xl font-bold mt-10">
+     <i aria-hidden="true"></i><span>推荐阅读</span>
+   </div>
+   <div class="recommended-article-group"><a class="recommended-article-item" href="/posts/2754c172/" title="Python学习日志06-基础语法学习05" rel="bookmark">
+  <img src="/img/py学习日志02.png" alt="Python学习日志06-基础语法学习05" class="!max-w-none">
+  <span class="title">Python学习日志06-基础语法学习05</span>
+</a><a class="recommended-article-item" href="/posts/7c98966b/" title="Python学习日志02-基础语法学习01" rel="bookmark">
+  <img src="/img/py学习日志02.png" alt="Python学习日志02-基础语法学习01" class="!max-w-none">
+  <span class="title">Python学习日志02-基础语法学习01</span>
+</a></div>
+   </div>
+  </div>
+
+		
+		<div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+			
+			
+			<div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+				<a class="next" rel="next" href="/posts/2754c172/">
+					<span class="title flex justify-center items-center">
+						<span class="post-nav-title-item">Python学习日志06-基础语法学习05</span>
+						<span class="post-nav-item">下一篇</span>
+					</span>
+					<span class="right arrow-icon flex justify-center items-center">
+						<i class="fa-solid fa-chevron-right"></i>
+					</span>
+				</a>
+			</div>
+			
+		</div>
+		
+
+
+		
+	</div>
+
+	
+	<div class="toc-content-container">
+		<div class="post-toc-wrap">
+	<div class="post-toc">
+		<div class="toc-title">目录</div>
+		<div class="page-title">Python学习日志07-基础语法学习06</div>
+		<ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#for%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="nav-text">for循环语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#emsp-emsp-%E5%9C%A8Python%E4%B8%AD%EF%BC%8Cfor%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5%E6%98%AF%E4%B8%80%E7%A7%8D%E5%8D%81%E5%88%86%E9%87%8D%E8%A6%81%E7%9A%84%E7%A8%8B%E5%BA%8F%E7%BB%93%E6%9E%84%E3%80%82%E5%85%B6%E7%89%B9%E7%82%B9%E6%98%AF%EF%BC%8C%E5%9C%A8%E7%BB%99%E5%AE%9A%E6%9D%A1%E4%BB%B6%E6%88%90%E7%AB%8B%E6%97%B6%EF%BC%8C%E5%8F%8D%E5%A4%8D%E6%89%A7%E8%A1%8C%E6%9F%90%E6%AE%B5%E4%BB%A3%E7%A0%81%EF%BC%8C%E7%9B%B4%E5%88%B0%E6%9D%A1%E4%BB%B6%E4%B8%8D%E6%88%90%E7%AB%8B%E4%B8%BA%E6%AD%A2%E3%80%82%E7%BB%99%E5%AE%9A%E7%9A%84%E6%9D%A1%E4%BB%B6%E7%A7%B0%E4%B8%BA%E5%BE%AA%E7%8E%AF%E6%9D%A1%E4%BB%B6%EF%BC%8C%E5%8F%8D%E5%A4%8D%E6%89%A7%E8%A1%8C%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%AE%B5%E7%A7%B0%E4%B8%BA%E5%BE%AA%E7%8E%AF%E4%BD%93%E3%80%82-emsp-emsp-for%E5%BE%AA%E7%8E%AF%E7%9A%84%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E5%A6%82%E4%B8%8B%EF%BC%9A-emsp-emsp-for%E5%BE%AA%E7%8E%AF%E7%9A%84%E9%80%BB%E8%BE%91%E5%85%B3%E7%B3%BB%E5%A6%82%E4%B8%8B-config-layout-dagre-look-handDrawn-theme-default"><span class="nav-text">  在Python中，for循环语句是一种十分重要的程序结构。其特点是，在给定条件成立时，反复执行某段代码，直到条件不成立为止。给定的条件称为循环条件，反复执行的程序段称为循环体。  for循环的基本结构如下：12for iterating_var in sequence:    statements  for循环的逻辑关系如下---config:  layout: dagre  look: handDrawn  theme: default</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE%E8%AF%A6%E7%BB%86%E8%AF%B4%E6%98%8E"><span class="nav-text">流程图详细说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#for%E2%80%A6else%E8%AF%AD%E5%8F%A5"><span class="nav-text">for…else语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-text">后记</span></a></li></ol>
+
+	</div>
+</div>
+	</div>
+	
+</div>
+			</div>
+
+			
+		</div>
+
+		<div class="main-content-footer">
+			<footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">亓翎_Re-TikaRa</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        共撰写了 34 篇文章
+                    </span>
+                    
+                        <span>
+                            共 42k 字
+                        </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.8.2</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+            
+                
+        
+                
+        
+        
+    </div>  
+</footer>
+		</div>
+	</div>
+
+	
+	<div class="post-tools">
+		<div class="post-tools-container">
+	<ul class="article-tools-list">
+		<!-- TOC aside toggle -->
+		
+		<li class="right-bottom-tools page-aside-toggle">
+			<i class="fa-regular fa-outdent"></i>
+		</li>
+		
+
+		<!-- go comment -->
+		
+	</ul>
+</div>
+	</div>
+	
+
+	<div class="right-side-tools-container">
+		<div class="side-tools-container">
+	<ul class="hidden-tools-list">
+		<li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-plus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+			<i class="fa-regular fa-magnifying-glass-minus"></i>
+		</li>
+
+		<li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+			<i class="fa-regular fa-moon"></i>
+		</li>
+
+		<!-- rss -->
+		
+
+		
+
+		<li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+			<i class="fa-regular fa-arrow-down"></i>
+		</li>
+	</ul>
+
+	<ul class="visible-tools-list">
+		<li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+			<i class="fa-regular fa-cog fa-spin"></i>
+		</li>
+		
+		<li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+			<i class="arrow-up fas fa-arrow-up"></i>
+			<span class="percent"></span>
+		</li>
+		
+		
+	</ul>
+</div>
+	</div>
+
+	<div class="image-viewer-container">
+	<img src="">
+</div>
+
+	
+	<div class="search-pop-overlay">
+	<div class="popup search-popup">
+		<div class="search-header">
+			<span class="search-input-field-pre">
+				<i class="fa-solid fa-keyboard"></i>
+			</span>
+			<div class="search-input-container">
+				<input autocomplete="off" autocorrect="off" autocapitalize="off" placeholder="站内搜索您需要的内容..." spellcheck="false" type="search" class="search-input">
+			</div>
+			<span class="popup-btn-close">
+				<i class="fa-solid fa-times"></i>
+			</span>
+		</div>
+		<div id="search-result">
+			<div id="no-result">
+				<i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+			</div>
+		</div>
+	</div>
+</div>
+	
+
+</main>
+
+
+
+<script src="/js/build/libs/Swup.min.js"></script>
+
+<script src="/js/build/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/build/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/build/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+	
+<script src="/js/build/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/build/utils.js" type="module"></script>
+
+<script src="/js/build/main.js" type="module"></script>
+
+<script src="/js/build/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/build/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/build/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/build/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/build/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/build/tools/runtime.js"></script>
+
+    
+<script src="/js/build/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/build/libs/Typed.min.js"></script>
+
+  
+<script src="/js/build/plugins/typed.js" type="module"></script>
+
+
+
+
+    
+        
+<script src="/js/build/libs/mermaid.min.js"></script>
+
+    
+    
+<script src="/js/build/plugins/mermaid.js"></script>
+
+
+
+
+
+
+
+
+
+    
+<script src="/js/build/tools/tocToggle.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/layouts/toc.js" type="module" data-swup-reload-script=""></script>
+
+<script src="/js/build/plugins/tabs.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+<script src="/js/build/libs/moment-with-locales.min.js" data-swup-reload-script=""></script>
+
+
+<script src="/js/build/layouts/essays.js" type="module" data-swup-reload-script=""></script>
+
+
+
+
+
+    
+<script src="/js/build/layouts/bookmarkNav.js" type="module"></script>
+
+
+	
+</body>
+
+</html>
