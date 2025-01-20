@@ -1,6 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>APK技术日常01—APK解包</title>
+    <url>/posts/55002/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;本教程全部基于 <em><strong>Windows10</strong></em> 系统下，不同系统下可能略有差异。教程中的文件都源自于网络开源，其STAFF列表会在文章末尾标注。本教程 <em><strong>不适用于游戏提取等用途</strong></em> ，教程中教学的是处理并修改APK文件以及查看相关文件等，如有侵权，请联系我删除。</strong></em></p>
+<hr>
+<h2 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h2><p>&emsp;&emsp;<a class="link"   href="https://apktool.org/docs/install/" >APKTool<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>：编译和反编译apk，可以从APK中获得基础性资源（如图片等）<br></p>
+<hr>
+<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>&emsp;&emsp;一、安装<a class="link"   href="https://www.java.com/zh-CN/" >Java<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>，具体步骤请详见Java官网，此处不再赘述；<br>&emsp;&emsp;二、下载<a class="link"   href="https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/windows/apktool.bat" >ApkTool脚本文件<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>；<br>&emsp;&emsp;&emsp;&emsp;（如果不会下载，可以复制网页中的文本，新建一个名为&ensp; <em><strong>apktool</strong></em> &ensp;的&ensp; <em><strong>txt</strong></em> &ensp;文件，将网页文本内容复制下来，保存在&ensp; <em><strong>apktool.txt</strong></em> &ensp;中，之后将后缀&ensp; <em><strong>.txt</strong></em>&ensp; 修改为&ensp; <em><strong>.bat</strong></em> &ensp;即可）<br>&emsp;&emsp;三、下载最新版本的<a class="link"   href="https://bitbucket.org/iBotPeaches/apktool/downloads/" >apktool.jar<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>，并且重命名为 <em><strong>apktool.jar</strong></em> <br>&emsp;&emsp;&emsp;&emsp;（例如，我下载的文件为apktool_2.9.2.jar，只需要删除_2.9.2，使文件名为apktool.jar即可）<br>&emsp;&emsp;四、将 <em><strong>apktool.bat</strong></em> 和 <em><strong>apktool.jar</strong></em> 放在 <em><strong>同一目录（文件夹）</strong></em> 下。</p>
+<hr>
+<h2 id="基本用法（为了方便展示，我把所有文件放在了一个目录下）"><a href="#基本用法（为了方便展示，我把所有文件放在了一个目录下）" class="headerlink" title="基本用法（为了方便展示，我把所有文件放在了一个目录下）"></a>基本用法（为了方便展示，我把所有文件放在了一个目录下）</h2><p>&emsp;&emsp;一、APK文件的提取<br>&emsp;&emsp;1、在APK文件目录下运行CMD（在路径那里输入cmd，敲回车即可）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/08/7AmXYRbDNIrUGS4.png"
+                      alt="image.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/08/BGtFrgCwSPbXmQD.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;2、输入命令</p>
+<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">apktool.bat d [-s] -f &lt;apkPath&gt; -o &lt;folderPath&gt;</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;此处的 <em><strong>&lt; apkPath &gt;</strong></em> 是你的apk路径，比如我的为 <em><strong>“E:\apktool\pose-monitor-release.apk”</strong></em> （注意此处的引号为 <em><strong>英文</strong></em> ） <em><strong>&lt; folderPath &gt;</strong></em> 是你的导出目录， <em><strong>不填写</strong></em> 则会自动以 <em><strong>安装包名</strong></em>在 <em><strong>apk的相同目录</strong></em> 下新建文件夹并且导出， <em><strong>若不填写，请一并删去&ensp;-o&ensp;这一命令</strong></em> 。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/08/QeOiJfTmVbN8oYz.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;显示这样的信息且在导出文件夹下存在 <em><strong>apktool.yml</strong></em> 文件代表导出成功，接下来就在文件夹中修改你的基础资源（如图片等）吧。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/08/SAeLnvGIRZ1FUrE.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h2 id="STAFF"><a href="#STAFF" class="headerlink" title="STAFF"></a>STAFF</h2><p>&emsp;&emsp;APKTool：<a class="link"   href="https://apktool.org/docs/install/" >https://apktool.org/docs/install/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>&emsp;&emsp;pose-monitor-release:<a class="link"   href="https://github.com/linyiLYi/pose-monitor" >https://github.com/linyiLYi/pose-monitor<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<div style="position:relative; width:100%; height:0; padding-bottom:75%;">
+<iframe src="//player.bilibili.com/player.html?aid=732141008&bvid=BV1uD4y187zX&cid=879804782&p=1" 
+scrolling="no" border="0" frameborder="no"  framespacing="0"  
+style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
+</div>]]></content>
+      <categories>
+        <category>APK修改系列</category>
+      </categories>
+      <tags>
+        <tag>APK</tag>
+        <tag>技术日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>APK技术日常02-APK源码的查看</title>
+    <url>/posts/64111/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;代码设计是每位工程师心血的结晶，源代码的查看仅能作为学习使用，不可以不劳而获。</strong></em></p>
+<hr>
+<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>&emsp;&emsp;1、<a class="link"   href="https://sourceforge.net/projects/dex2jar/files/latest/download" >dex2jar<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>&emsp;用于可运行文件classes.dex反编译为jar文件；<br>&emsp;&emsp;2、<a class="link"   href="http://java-decompiler.github.io/" >JD-GUI<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>&emsp;用于查看jar文件源码</p>
+<hr>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>&emsp;&emsp;1、将自己所要提取的apk文件后缀名改为zip（或者其他可以解压的后缀，如rar），并且解压（注：此过程不可逆，解压缩之后再压缩，会导致apk损坏，建议先备份一份，然后用副本做修改工作）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/09/GpUrjXvH8EBdMnJ.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;2、将&ensp;<em><strong>classes.des</strong></em>&ensp;文件复制到dex2jar的目录之下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/09/g7ewyZ4hQDvdGVS.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;3、在此目录下运行cmd（运行办法见<a href="https://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/">APK技术日常01</a>），在CMD中运行以下命令</p>
+<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">d2j-dex2jar.bat classes.dex</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;会生成由 <em><strong>classes.dex</strong></em> 反编译得到的jar文件 <em><strong>classes-dex2jar.jar</strong></em> 。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/09/8VIBrYyfChSlNpw.png"
+                      alt="image.png"
+                ><br>4、用JD-GUI打开 <em><strong>classes-dex2jar.jar</strong></em>即可查看源码（注：源码若经过混淆，此处能查看的也是经过混淆的版本）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/09/wHEtAbVxR2OYCsP.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h2 id="STAFF"><a href="#STAFF" class="headerlink" title="STAFF"></a>STAFF</h2><p>&emsp;&emsp;1、dex2jar：<a class="link"   href="https://sourceforge.net/projects/dex2jar/files/latest/download" >https://sourceforge.net/projects/dex2jar/files/latest/download<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>&emsp;&emsp;2、JD-GUI：<a class="link"   href="http://java-decompiler.github.io/" >http://java-decompiler.github.io/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;如果只是想更换图片等资源，在<a href="https://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/">APK技术日常01</a>那里处理完apk进入对应文件夹修改即可。修改代码比较麻烦，因为反编译出来的结果中只有smali文件，即Java虚拟机支持的汇编语言。如果确实需要修改代码，就得对照smali文件和从classes.dex反编译出来的源码了，按照smali的规范来改动即可。相当于写汇编，难度较大，感兴趣可以自己探索。</p>
+]]></content>
+      <categories>
+        <category>APK修改系列</category>
+      </categories>
+      <tags>
+        <tag>APK</tag>
+        <tag>技术日常</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>APK技术日常03—APK的再打包与签名</title>
+    <url>/posts/15022/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;此处的apk的再打包是指之前教程中所拆解出来的apk文件的打包，如果是自己做的文件，不确定是否适用。而签名则是相当于对apk文件的认证，不签名则无法安装。</strong></em></p>
+<hr>
+<h2 id="打包步骤"><a href="#打包步骤" class="headerlink" title="打包步骤"></a>打包步骤</h2><p>&emsp;&emsp;首先在你需要打包的文件的上一级目录下，打开CMD，运行以下命令</p>
+<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">apktool b &lt;folderPath&gt; -o folder&#x27;s name.apk</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;这个命令的意义在于将 <em><strong>&lt; floderpath &gt;</strong></em> 这个文件夹打包为以这个文件夹名为文件名的apk文件。<br>&emsp;&emsp;比如此时我的文件结构为：<br>&emsp;&emsp;&emsp;&emsp;&emsp;E:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─ apktool（需要打包的文件夹的上一级目录）<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─pose-monitor-release（需要打包的文件夹）<br>&emsp;&emsp;所以此时我就需要在apktool文件夹下运行cmd，运行命令：</p>
+<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">apktool b pose-monitor-release -o pose-monitor-release.apk</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;这样就会把pose-monitor-release这个文件夹打包成一个名为pose-monitor-release的apk文件，当出现如下图所示的信息时即为打包成功。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/WMcSA1CfyBxoQPl.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;之后你就可以看到你打包好的apk文件了（如果在需要打包的目录的同一级目录下没有找到，那就到需要打包的文件夹下的 <em><strong>build</strong></em> 文件夹下查看。</p>
+<hr>
+<h2 id="签名APK"><a href="#签名APK" class="headerlink" title="签名APK"></a>签名APK</h2><h3 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h3><p>&emsp;&emsp;<a class="link"   href="https://mt2.cn/" >MT管理器<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>&emsp;&emsp;首先，在MT管理器中找到要处理的文件（可以用右上角三个点搜索）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/2IMwYcCarh6A35z.jpg"
+                      alt="目录.jpg"
+                ><br>&emsp;&emsp;为了确认，我点了一下，看了下详细信息<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/cwsQYWACzPfxHpm.jpg"
+                      alt="详细信息.jpg"
+                ><br>&emsp;&emsp;然后长按，选择签名<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/SjQrmH6Nylqsoue.jpg"
+                      alt="菜单.jpg"
+                ><br>&emsp;&emsp;签名秘钥可以选默认，也可以选自定义（如果你会的话），方案选择V1+V2（如果有报错，试试其他的方案）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/xtmzhCZG1BaVRd4.jpg"
+                      alt="签名选择.jpg"
+                ><br>&emsp;&emsp;此时大概率会有以下两种提示<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/hXrMAptilO5vInG.jpg"
+                      alt="报错（权限）.jpg"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/x4AQF5uOVvaw9Cz.jpg"
+                      alt="报错（权限2）.jpg"
+                ><br>第一个发送通知点允许就好，这个是为了出现第二个提示。第二个提示随便点就好，没什么影响。<br>&emsp;&emsp;等到进度条走完<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/iMkVmHRYeN2uFbr.jpg"
+                      alt="进度条.jpg"
+                ><br>&emsp;&emsp;会出现一个新的文件<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/11/2QGXdAOqCFN5tkv.jpg"
+                      alt="生成文件.jpg"
+                ><br>&emsp;&emsp;第一个那个不是绿色的文件就是。至此，签名完成，可以自己试着安装。</p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;签名后如果产生报错，可以换个签名方式。V1，V2，V3其实对应着不同的安卓版本，自己看就好，还有一种签名方式就是使用JAVA的keytool，但是我忘了我的秘钥，具体可以自行百度。我觉得用MT最简单~~~</p>
+]]></content>
+      <categories>
+        <category>APK修改系列</category>
+      </categories>
+      <tags>
+        <tag>APK</tag>
+        <tag>技术日常</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>AI学习系列01期-本地化AI搭建</title>
     <url>/posts/e3382b70/</url>
     <content><![CDATA[<h2 id="基础本地化AI构建教程"><a href="#基础本地化AI构建教程" class="headerlink" title="基础本地化AI构建教程"></a>基础本地化AI构建教程</h2><h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>&emsp;&emsp;本教程基于通义千问的qwen2.5，不用Docker，但是相对而言是有一个比较麻烦的过程，且本教程不适合关机（狗头）。为什么不用Docker，是因为我没学。根本不会用，还有就是，windows吧，能不Docker，就别Docker。我宁可再去装一个linux，也不要Docker</p>
@@ -237,97 +396,217 @@
       </tags>
   </entry>
   <entry>
-    <title>APK技术日常01—APK解包</title>
-    <url>/posts/55002/</url>
-    <content><![CDATA[<p><em><strong>&emsp;&emsp;本教程全部基于 <em><strong>Windows10</strong></em> 系统下，不同系统下可能略有差异。教程中的文件都源自于网络开源，其STAFF列表会在文章末尾标注。本教程 <em><strong>不适用于游戏提取等用途</strong></em> ，教程中教学的是处理并修改APK文件以及查看相关文件等，如有侵权，请联系我删除。</strong></em></p>
+    <title>Hexo建设日志01-将.ani转换为.cur</title>
+    <url>/posts/54966/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;欢迎各位来观看这篇教程~<br>&emsp;&emsp;这次我们要学习的是将.ani（动态光标）转换为.cur（静态光标）。<br></strong></em></p>
 <hr>
-<h2 id="所需工具"><a href="#所需工具" class="headerlink" title="所需工具"></a>所需工具</h2><p>&emsp;&emsp;<a class="link"   href="https://apktool.org/docs/install/" >APKTool<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>：编译和反编译apk，可以从APK中获得基础性资源（如图片等）<br></p>
+<h2 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：<br></h2><p>&emsp;&emsp;&emsp;&emsp;1、.ani（动态光标）文件<br><br>&emsp;&emsp;&emsp;&emsp;2、CursorWorkshop（原版为英文付费软件，不过这边有汉化绿色版 <a class="link"   href="https://www.bilibili.com/read/cv18455542/" >Axialis CursorWorkshop汉化版<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br></p>
 <hr>
-<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>&emsp;&emsp;一、安装<a class="link"   href="https://www.java.com/zh-CN/" >Java<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>，具体步骤请详见Java官网，此处不再赘述；<br>&emsp;&emsp;二、下载<a class="link"   href="https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/windows/apktool.bat" >ApkTool脚本文件<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>；<br>&emsp;&emsp;&emsp;&emsp;（如果不会下载，可以复制网页中的文本，新建一个名为&ensp; <em><strong>apktool</strong></em> &ensp;的&ensp; <em><strong>txt</strong></em> &ensp;文件，将网页文本内容复制下来，保存在&ensp; <em><strong>apktool.txt</strong></em> &ensp;中，之后将后缀&ensp; <em><strong>.txt</strong></em>&ensp; 修改为&ensp; <em><strong>.bat</strong></em> &ensp;即可）<br>&emsp;&emsp;三、下载最新版本的<a class="link"   href="https://bitbucket.org/iBotPeaches/apktool/downloads/" >apktool.jar<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>，并且重命名为 <em><strong>apktool.jar</strong></em> <br>&emsp;&emsp;&emsp;&emsp;（例如，我下载的文件为apktool_2.9.2.jar，只需要删除_2.9.2，使文件名为apktool.jar即可）<br>&emsp;&emsp;四、将 <em><strong>apktool.bat</strong></em> 和 <em><strong>apktool.jar</strong></em> 放在 <em><strong>同一目录（文件夹）</strong></em> 下。</p>
-<hr>
-<h2 id="基本用法（为了方便展示，我把所有文件放在了一个目录下）"><a href="#基本用法（为了方便展示，我把所有文件放在了一个目录下）" class="headerlink" title="基本用法（为了方便展示，我把所有文件放在了一个目录下）"></a>基本用法（为了方便展示，我把所有文件放在了一个目录下）</h2><p>&emsp;&emsp;一、APK文件的提取<br>&emsp;&emsp;1、在APK文件目录下运行CMD（在路径那里输入cmd，敲回车即可）<br><img  
+<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><p>&emsp;&emsp;第一步：打开准备好的CursorWorkshop，将我们的.ani文件拖进去。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/08/7AmXYRbDNIrUGS4.png"
+                     data-src="https://s2.loli.net/2023/12/11/mSHxWF1lRZMhtuc.png"
+                      alt="image.png"
+                ><br>然后在下面的帧选项中随便选择一帧自己喜欢的，点一下，让他处于蓝色被选状态<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/11/rs7fYm18RndPIpV.png"
+                      alt="image.png"
+                ><br>右键点一下，选择&emsp;<em><strong>此帧的新静态光标</strong></em>&emsp;<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/11/zS1GyYDWXltognx.png"
+                      alt="image.png"
+                ><br>打开新的窗口后，按照我的配置选就好了<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/11/rIq7MZuoW14QXfF.png"
+                      alt="image.png"
+                ><br>接下来我们跳转来到新的一个窗口<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/11/YVPbu3XZBJMnFRc.png"
+                      alt="image.png"
+                ><br>选择第一个&nbsp;<em><strong>32x32&nbsp;-&nbsp;RGB&#x2F;A</strong></em>&nbsp;即可<br>最后Ctrl+S保存导出即可，也可以选择&nbsp;<em><strong>32x32&nbsp;-&nbsp;RGB&#x2F;A</strong></em>&nbsp;上边的&emsp;<em><strong>磁盘小图标</strong></em>&emsp;保存。<br>&emsp;&emsp;这样我们就做好了一个静态图标的转换~希望有用~~</p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建设日志02-如将.avif文件转化为常用图片格式</title>
+    <url>/posts/22756/</url>
+    <content><![CDATA[<p>&emsp;&emsp; <em><strong>最近我发现从浏览器上直接捕获的图片，不管是通过下载器下载还是直接另存，都成了一种没见过的格式&ensp;.avif&ensp;。没办法打开做处理，我以为是浏览器问题，所以去搜了搜这个文件格式。</strong></em><br> </p>
+<hr>
+<h2 id="关于-avif文件："><a href="#关于-avif文件：" class="headerlink" title="关于.avif文件："></a><em>关于.avif文件</em>：</h2><h3 id="emsp-emsp-什么是AVIF"><a href="#emsp-emsp-什么是AVIF" class="headerlink" title="&emsp;&emsp;什么是AVIF"></a><em>&emsp;&emsp;什么是AVIF</em></h3><p>&emsp;&emsp;AVIF（ AV1 Image File Format）是一种由AOM（ Alliance for Open Media）开发的基于AV1编解码器的网络图像格式。这是一种开源免版税的图像格式。AVIF支持全分辨率的10位和12位色彩以及HDR。<br></p>
+<h3 id="emsp-emsp-AVIF的优势"><a href="#emsp-emsp-AVIF的优势" class="headerlink" title="&emsp;&emsp;AVIF的优势"></a><em>&emsp;&emsp;AVIF的优势</em><br></h3><p>&emsp;&emsp;Netflix的博客从 2020年2月就开始大力宣传AVIF标准的优点。该博客[1]详细介绍了AVIF，并提供了一些优于JPEG的技术信息。作为AOM的创始成员 ，Netflix一直是AV1编解码标准的坚定支持者。因此，毫不奇怪，他们会对使用AV1来改善其UI体验感兴趣。相比于JPEG，AVIF无论是在压缩率上还是在生态上都有着不可小觑的实力。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. AV1编解码标准和AVIF格式免版税。</span><br><span class="line">2. 所有Chromium浏览器（Chrome 85或更高版本）都支持AVIF。</span><br><span class="line">3. Microsoft Windows 10从19H1开始支持AVIF。</span><br><span class="line">4. AVIF得到了Google、Amazon、Netflix、Microsoft、Intel、Apple等公司的支持。</span><br><span class="line">5. AVIF提供比JPEG更高的压缩效率。</span><br><span class="line">6. AVIF图像格式支持透明度，HDR，宽色域和其他现代功能。</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;在与其他图像格式的PK中，AVIF表现十分突出。<br><br>&emsp;&emsp;来源：<a class="link"   href="https://zhuanlan.zhihu.com/p/444624167" >AVIF：新一代的图像压缩格式<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<hr>
+<h2 id="如何转换："><a href="#如何转换：" class="headerlink" title="如何转换："></a><em>如何转换：</em></h2><p>&emsp;&emsp;首先，去微软应用商店下载拓展&ensp;<em><strong>AV1 Video Extension</strong></em>&ensp;<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/19/aczl6ihYsJIRw8u.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后正常打开照片<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/19/jIQoOMH5lyhGBuw.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后点击上面<em><strong>三个点</strong></em>或者<em><strong>Ctrl+S</strong></em>另存为其他格式即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/19/GDTUkfuWz8edCvr.png"
+                      alt="image.png"
+                ></p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GitHub01-二重身份验证方法</title>
+    <url>/posts/597bd277/</url>
+    <content><![CDATA[<p>&emsp;&emsp;写前一篇教程用GitHub的时候，出现了一个二重身份验证，历经了极其麻烦的过程之后，打给整理了一下这些，下载软件基本都要魔法，我塞到百度网盘也可。</p>
+<hr>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>&emsp;&emsp;1、<a class="link"   href="https://apkpure.com/cn/" >APKpure<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>：用来下载Google Play<br>&emsp;&emsp;2、Google Play：用来下载Authenticator<br>&emsp;&emsp;3、Authenticator：验证二重身份，重点就是这个，这个是微软的，也比较好用，建议就是登陆微软账号，但是我没登，因为，我登录时老是出现登录异常，不登录也能用。</p>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>&emsp;&emsp;<a class="link"   href="https://pan.baidu.com/s/1eHKylxujG_axNVpeoPdgxQ?pwd=qhru" >Authenticator<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
+<hr>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>&emsp;&emsp;1、用APKpure下载Google Play<br>&emsp;&emsp;2、用Google Play下载Authenticator<br>&emsp;&emsp;3、打开Authenticator<br>&emsp;&emsp;4、点击最下方 <em><strong>已验证ID</strong></em> <br>&emsp;&emsp;5、然后扫描GitHub的QR码即可</p>
+]]></content>
+      <categories>
+        <category>GitHub系列</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo建设日志05-对于Error Spawn failed报错的修复（歪门邪道）</title>
+    <url>/posts/39589/</url>
+    <content><![CDATA[<p>&emsp;&emsp;最近被Error:Spawn failed这个报错，折磨得一塌糊涂。试了试网上的，什么删除.deploy_git文件夹，什么改_config.yml里面的deploy:repo的<a class="link"   href="mailto:&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;" >&#x67;&#105;&#116;&#x40;&#103;&#105;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>:，还有本地推送啥的，对我都没作用。试了试一个偏方。在这把方法分享一下。</p>
+<hr>
+<h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h1><p>&emsp;&emsp;首先，我们直接打开Git Bash，不要在任何一个文件夹下运行。打开应该是下图这个样子（ <em><strong>~</strong></em> 后面没有任何东西，或者是一个 <em><strong>&#x2F;</strong></em> 但是后面也没有东西）（我是在win菜单下运行的，没有添加到win菜单的话，你可以在你安装Git的文件夹下找到这个Git Bash）<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/21/2MpTKdWPS1zC8lR.png"
                       alt="image.png"
                 ><br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/08/BGtFrgCwSPbXmQD.png"
+                     data-src="https://s2.loli.net/2024/01/21/wWRtYIMnuXsoejy.png"
                       alt="image.png"
-                ><br>&emsp;&emsp;2、输入命令</p>
-<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">apktool.bat d [-s] -f &lt;apkPath&gt; -o &lt;folderPath&gt;</span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;此处的 <em><strong>&lt; apkPath &gt;</strong></em> 是你的apk路径，比如我的为 <em><strong>“E:\apktool\pose-monitor-release.apk”</strong></em> （注意此处的引号为 <em><strong>英文</strong></em> ） <em><strong>&lt; folderPath &gt;</strong></em> 是你的导出目录， <em><strong>不填写</strong></em> 则会自动以 <em><strong>安装包名</strong></em>在 <em><strong>apk的相同目录</strong></em> 下新建文件夹并且导出， <em><strong>若不填写，请一并删去&ensp;-o&ensp;这一命令</strong></em> 。<br><img  
+                ><br>&emsp;&emsp;输入以下内容</p>
+<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line"># 进入以下文件夹：C:\Users\user\.ssh</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;现在上面的info信息就是这样<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/08/QeOiJfTmVbN8oYz.png"
+                     data-src="https://s2.loli.net/2024/01/21/2jKHUNEpcTFQy9I.png"
                       alt="image.png"
-                ><br>&emsp;&emsp;显示这样的信息且在导出文件夹下存在 <em><strong>apktool.yml</strong></em> 文件代表导出成功，接下来就在文件夹中修改你的基础资源（如图片等）吧。<br><img  
+                ><br>&emsp;&emsp;然后呢，，接下来我们要通过常用的来创建一个控制.ssh的config，然后我习惯就是用，<a class="link"   href="https://code.visualstudio.com/Download" >VSCode<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>，但是呢，我习惯用的vscode的zip版本。直接使用Git启动的话我倒是不会。所以我是下图这样的创建config的。视频看上去有点卡的话，这边有百度网盘的链，可以通过百度网盘看看，或者挂梯子。<a class="link"   href="https://pan.baidu.com/s/184laBs0d5H2yMEK8xfl_GQ?pwd=48wq" >HexoMader05-01 百度网盘在线版<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>）</p>
+<iframe id="spkj" src="https://www.acfun.cn/player/ac43642408" width="100%" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen"><span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start"></span> <span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start"></span> </iframe> <script type="text/javascript"> document.getElementById("spkj").style.height=document.getElementById("spkj").scrollWidth*0.76+"px"; </script>
+
+<p>&emsp;&emsp;然后呢就会唤起我的vscode，打开这样的界面<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/08/SAeLnvGIRZ1FUrE.png"
+                     data-src="https://s2.loli.net/2024/01/21/FZjyOwUbfQKc4vo.png"
                       alt="image.png"
-                ></p>
+                ><br>&emsp;&emsp;在里面输入</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User git</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Port 443</span><br><span class="line"></span><br><span class="line">Host gitlab.com</span><br><span class="line">Hostname altssh.gitlab.com</span><br><span class="line">User git</span><br><span class="line">Port 443</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;保存，在GIT输入以下内容</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;如果出现以下内容，说明修改成功了，但是GitHub不提供服务。</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><figcaption><span>bash</span></figcaption><table><tr><td class="code"><pre><span class="line">Hi 你的名字! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;如果出现有个需要填yes还是弄的地方，填yes。我填完忘记截图了，然后来解决GitHub does not provide shell access.这个问题。解决办法就是重新生成SSH秘钥。<br>&emsp;&emsp;首先在Git输入以下信息：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><figcaption><span>bash</span></figcaption><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C “your_email.com”</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;然后，第一个按一下回车；第二个，输入y；第三个，回车；第四个，回车。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/01/21/ZHyMiU1r4dueEGb.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;然后在 <em><strong>.ssh</strong></em> 文件夹下的找到 <em><strong>id_rsa.pub</strong></em> 打开，把里面的文本全部复制到GitHub的SSH秘钥里面，步骤就是：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">登录github</span><br><span class="line">点击 setting</span><br><span class="line">点击SSH and GPG keys</span><br><span class="line">选择 new ssh key</span><br><span class="line">添加公钥</span><br><span class="line">完成</span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;这样就可以正常推送了</p>
 <hr>
-<h2 id="STAFF"><a href="#STAFF" class="headerlink" title="STAFF"></a>STAFF</h2><p>&emsp;&emsp;APKTool：<a class="link"   href="https://apktool.org/docs/install/" >https://apktool.org/docs/install/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>&emsp;&emsp;pose-monitor-release:<a class="link"   href="https://github.com/linyiLYi/pose-monitor" >https://github.com/linyiLYi/pose-monitor<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<div style="position:relative; width:100%; height:0; padding-bottom:75%;">
-<iframe src="//player.bilibili.com/player.html?aid=732141008&bvid=BV1uD4y187zX&cid=879804782&p=1" 
-scrolling="no" border="0" frameborder="no"  framespacing="0"  
-style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
-</div>]]></content>
+<h2 id="2024年11月20日补充："><a href="#2024年11月20日补充：" class="headerlink" title="2024年11月20日补充："></a>2024年11月20日补充：</h2><p>&emsp;&emsp;可以利用该命令来解决：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><figcaption><span>Bash</span></figcaption><table><tr><td class="code"><pre><span class="line">git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br></pre></td></tr></table></figure></div>]]></content>
       <categories>
-        <category>APK修改系列</category>
+        <category>Hexo建设日志</category>
       </categories>
       <tags>
-        <tag>APK</tag>
-        <tag>技术日常</tag>
+        <tag>Hexo建设日志</tag>
       </tags>
   </entry>
   <entry>
-    <title>APK技术日常02-APK源码的查看</title>
-    <url>/posts/64111/</url>
-    <content><![CDATA[<p><em><strong>&emsp;&emsp;代码设计是每位工程师心血的结晶，源代码的查看仅能作为学习使用，不可以不劳而获。</strong></em></p>
+    <title>Hexo建设日志04-关于多个音频文件的完整性校验方法</title>
+    <url>/posts/23140/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;最近在大量校验歌曲完整性时遇到了一点点小困难，文件错误或者文件损坏不能比较简便的检查出来。多方查询之后发现了一个较为简单的方法。</strong></em></p>
 <hr>
-<h2 id="准备阶段"><a href="#准备阶段" class="headerlink" title="准备阶段"></a>准备阶段</h2><p>&emsp;&emsp;1、<a class="link"   href="https://sourceforge.net/projects/dex2jar/files/latest/download" >dex2jar<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>&emsp;用于可运行文件classes.dex反编译为jar文件；<br>&emsp;&emsp;2、<a class="link"   href="http://java-decompiler.github.io/" >JD-GUI<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>&emsp;用于查看jar文件源码</p>
+<h2 id="工具："><a href="#工具：" class="headerlink" title="工具："></a><em><strong>工具：</strong></em></h2><p>&emsp;&emsp;<em><strong>foobar2000</strong></em><br>&emsp;&emsp;<em><strong>需要校验的文件</strong></em></p>
 <hr>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><p>&emsp;&emsp;1、将自己所要提取的apk文件后缀名改为zip（或者其他可以解压的后缀，如rar），并且解压（注：此过程不可逆，解压缩之后再压缩，会导致apk损坏，建议先备份一份，然后用副本做修改工作）<br><img  
+<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a><em><strong>步骤：</strong></em></h2><p>&emsp;&emsp;首先，在&ensp;<a class="link"   href="http://www.foobar2000.org/" >foobar2000<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>&ensp;官网下载原始英文版软件，或者在吾爱破解等网站下载汉化版。我使用的是这个<br>&emsp;&emsp;链接：<a class="link"   href="https://pan.baidu.com/s/1dI4ZSIPnbLY7wLYiJzpLmg?pwd=r6er" >https://pan.baidu.com/s/1dI4ZSIPnbLY7wLYiJzpLmg?pwd=r6er<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>&emsp;&emsp;提取码：r6er<br><br>&emsp;&emsp;然后打开软件。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/09/GpUrjXvH8EBdMnJ.png"
+                     data-src="https://s2.loli.net/2023/12/21/3DQ5Y7JEfBAU9ZR.png"
                       alt="image.png"
-                ><br>&emsp;&emsp;2、将&ensp;<em><strong>classes.des</strong></em>&ensp;文件复制到dex2jar的目录之下<br><img  
+                ><br>&emsp;&emsp;把我们要校验的文件拖进来，同时<em><strong>Ctrl+A</strong></em>一下（全选完成就是文件名字上面变成了蓝色的条条）<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/09/g7ewyZ4hQDvdGVS.png"
+                     data-src="https://s2.loli.net/2023/12/21/UVsD25Qf8i7wXYI.png"
                       alt="image.png"
-                ><br>&emsp;&emsp;3、在此目录下运行cmd（运行办法见<a href="https://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/">APK技术日常01</a>），在CMD中运行以下命令</p>
-<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">d2j-dex2jar.bat classes.dex</span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;会生成由 <em><strong>classes.dex</strong></em> 反编译得到的jar文件 <em><strong>classes-dex2jar.jar</strong></em> 。<br><img  
+                ><br>&emsp;&emsp;然后右键，选择&ensp;<em><strong>工具-检验完整性</strong></em><br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/09/8VIBrYyfChSlNpw.png"
+                     data-src="https://s2.loli.net/2023/12/21/CpzSr1Nm7w3ibyq.png"
                       alt="image.png"
-                ><br>4、用JD-GUI打开 <em><strong>classes-dex2jar.jar</strong></em>即可查看源码（注：源码若经过混淆，此处能查看的也是经过混淆的版本）<br><img  
+                ><br>&emsp;&emsp;然后等他走完进度条<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/09/wHEtAbVxR2OYCsP.png"
+                     data-src="https://s2.loli.net/2023/12/21/d3SaRNzmnhWvb9q.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;查看结果即可，有需要的话也可以导出成txt文件看<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/21/Z7p2S8wqBJzAbxy.png"
                       alt="image.png"
                 ></p>
-<hr>
-<h2 id="STAFF"><a href="#STAFF" class="headerlink" title="STAFF"></a>STAFF</h2><p>&emsp;&emsp;1、dex2jar：<a class="link"   href="https://sourceforge.net/projects/dex2jar/files/latest/download" >https://sourceforge.net/projects/dex2jar/files/latest/download<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>&emsp;&emsp;2、JD-GUI：<a class="link"   href="http://java-decompiler.github.io/" >http://java-decompiler.github.io/<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<hr>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;如果只是想更换图片等资源，在<a href="https://re-tikara.github.io/2024/01/07/mou-xie-ji-zhu-ri-chang/apk-xiu-gai-xi-lie/ji-zhu-ri-chang-01-apk-fan-bian-yi/">APK技术日常01</a>那里处理完apk进入对应文件夹修改即可。修改代码比较麻烦，因为反编译出来的结果中只有smali文件，即Java虚拟机支持的汇编语言。如果确实需要修改代码，就得对照smali文件和从classes.dex反编译出来的源码了，按照smali的规范来改动即可。相当于写汇编，难度较大，感兴趣可以自己探索。</p>
 ]]></content>
       <categories>
-        <category>APK修改系列</category>
+        <category>Hexo建设日志</category>
       </categories>
       <tags>
-        <tag>APK</tag>
-        <tag>技术日常</tag>
+        <tag>Hexo建设日志</tag>
       </tags>
   </entry>
   <entry>
-    <title>鸿蒙学习日志01——HelloWorld</title>
+    <title>Hexo建设日志03-关于网易云.ncm文件的破解与转换</title>
+    <url>/posts/38949/</url>
+    <content><![CDATA[<p><em><strong>&emsp;&emsp;最近在做mmd的时候，网易云下载到的文件是.ncm。直接转换成MP3会导致文件错误。看了看ncm这个文件，加密方式是网易云独家加密。转换为其他格式是很麻烦的。强行用格式工厂转换会导致文件损坏（网易云你坏事干尽），找遍教程，不容易找到个看上去不错的，结果是广告。</strong></em></p>
+<hr>
+<h2 id="转换教程"><a href="#转换教程" class="headerlink" title="转换教程:"></a><em><strong>转换教程:</strong></em></h2><p>&emsp;&emsp;首先打开这个网站<a class="link"   href="https://cwo.cc/musicc" >Cwo | 影视工作者的书签-音乐解锁<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/20/5vZL3SYerfk7UQp.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;把ncm导入进去，电脑不好的同学可以打开&ensp;<em><strong>立即保存</strong></em>&ensp;，选择好文件夹，解密后就会直接存到文件夹里，很方便的。每次建议导入的文件数量小于40首，这样就不会很卡。</p>
+<hr>
+<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a><em><strong>后记</strong></em></h2><p>&emsp;&emsp;某些同学在解密之后有文件错误或者文件损坏的情况。但是一次解密的歌曲会很多，一首一首的测试显然不太可能，批量文件的校验可以看下一篇文章。</p>
+]]></content>
+      <categories>
+        <category>Hexo建设日志</category>
+      </categories>
+      <tags>
+        <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>鸿蒙开发学习日志01——初识</title>
     <url>/posts/248035e8/</url>
     <content><![CDATA[<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>&emsp;&emsp;也是一个新的篇章啊，欢迎来到AL_Studio的鸿蒙NEXT开发课堂。</p>
 <h3 id="鸿蒙NEXT介绍"><a href="#鸿蒙NEXT介绍" class="headerlink" title="鸿蒙NEXT介绍"></a>鸿蒙NEXT介绍</h3><p>&emsp;&emsp;鸿蒙Next代表着华为鸿蒙操作系统的下一代演进，预计将带来更强的分布式技术以实现更流畅的跨设备协同、性能上的优化以提高系统效率和响应速度、以及进一步的安全性和隐私保护增强。此外，它还将致力于扩展其应用生态，吸引更多的开发者参与，并可能引入更多的人工智能特性来提供个性化的用户体验。随着物联网的发展，鸿蒙Next旨在为用户提供一个更加智能、安全且互联的操作环境。</p>
@@ -420,268 +699,6 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
       </categories>
       <tags>
         <tag>HarmonyOS-Next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>APK技术日常03—APK的再打包与签名</title>
-    <url>/posts/15022/</url>
-    <content><![CDATA[<p><em><strong>&emsp;&emsp;此处的apk的再打包是指之前教程中所拆解出来的apk文件的打包，如果是自己做的文件，不确定是否适用。而签名则是相当于对apk文件的认证，不签名则无法安装。</strong></em></p>
-<hr>
-<h2 id="打包步骤"><a href="#打包步骤" class="headerlink" title="打包步骤"></a>打包步骤</h2><p>&emsp;&emsp;首先在你需要打包的文件的上一级目录下，打开CMD，运行以下命令</p>
-<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">apktool b &lt;folderPath&gt; -o folder&#x27;s name.apk</span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;这个命令的意义在于将 <em><strong>&lt; floderpath &gt;</strong></em> 这个文件夹打包为以这个文件夹名为文件名的apk文件。<br>&emsp;&emsp;比如此时我的文件结构为：<br>&emsp;&emsp;&emsp;&emsp;&emsp;E:<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─ apktool（需要打包的文件夹的上一级目录）<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;└─pose-monitor-release（需要打包的文件夹）<br>&emsp;&emsp;所以此时我就需要在apktool文件夹下运行cmd，运行命令：</p>
-<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line">apktool b pose-monitor-release -o pose-monitor-release.apk</span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;这样就会把pose-monitor-release这个文件夹打包成一个名为pose-monitor-release的apk文件，当出现如下图所示的信息时即为打包成功。<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/WMcSA1CfyBxoQPl.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;之后你就可以看到你打包好的apk文件了（如果在需要打包的目录的同一级目录下没有找到，那就到需要打包的文件夹下的 <em><strong>build</strong></em> 文件夹下查看。</p>
-<hr>
-<h2 id="签名APK"><a href="#签名APK" class="headerlink" title="签名APK"></a>签名APK</h2><h3 id="工具准备"><a href="#工具准备" class="headerlink" title="工具准备"></a>工具准备</h3><p>&emsp;&emsp;<a class="link"   href="https://mt2.cn/" >MT管理器<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>&emsp;&emsp;首先，在MT管理器中找到要处理的文件（可以用右上角三个点搜索）<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/2IMwYcCarh6A35z.jpg"
-                      alt="目录.jpg"
-                ><br>&emsp;&emsp;为了确认，我点了一下，看了下详细信息<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/cwsQYWACzPfxHpm.jpg"
-                      alt="详细信息.jpg"
-                ><br>&emsp;&emsp;然后长按，选择签名<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/SjQrmH6Nylqsoue.jpg"
-                      alt="菜单.jpg"
-                ><br>&emsp;&emsp;签名秘钥可以选默认，也可以选自定义（如果你会的话），方案选择V1+V2（如果有报错，试试其他的方案）<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/xtmzhCZG1BaVRd4.jpg"
-                      alt="签名选择.jpg"
-                ><br>&emsp;&emsp;此时大概率会有以下两种提示<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/hXrMAptilO5vInG.jpg"
-                      alt="报错（权限）.jpg"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/x4AQF5uOVvaw9Cz.jpg"
-                      alt="报错（权限2）.jpg"
-                ><br>第一个发送通知点允许就好，这个是为了出现第二个提示。第二个提示随便点就好，没什么影响。<br>&emsp;&emsp;等到进度条走完<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/iMkVmHRYeN2uFbr.jpg"
-                      alt="进度条.jpg"
-                ><br>&emsp;&emsp;会出现一个新的文件<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/11/2QGXdAOqCFN5tkv.jpg"
-                      alt="生成文件.jpg"
-                ><br>&emsp;&emsp;第一个那个不是绿色的文件就是。至此，签名完成，可以自己试着安装。</p>
-<hr>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>&emsp;&emsp;签名后如果产生报错，可以换个签名方式。V1，V2，V3其实对应着不同的安卓版本，自己看就好，还有一种签名方式就是使用JAVA的keytool，但是我忘了我的秘钥，具体可以自行百度。我觉得用MT最简单~~~</p>
-]]></content>
-      <categories>
-        <category>APK修改系列</category>
-      </categories>
-      <tags>
-        <tag>APK</tag>
-        <tag>技术日常</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo建设日志01-将.ani转换为.cur</title>
-    <url>/posts/54966/</url>
-    <content><![CDATA[<p><em><strong>&emsp;&emsp;欢迎各位来观看这篇教程~<br>&emsp;&emsp;这次我们要学习的是将.ani（动态光标）转换为.cur（静态光标）。<br></strong></em></p>
-<hr>
-<h2 id="准备："><a href="#准备：" class="headerlink" title="准备："></a>准备：<br></h2><p>&emsp;&emsp;&emsp;&emsp;1、.ani（动态光标）文件<br><br>&emsp;&emsp;&emsp;&emsp;2、CursorWorkshop（原版为英文付费软件，不过这边有汉化绿色版 <a class="link"   href="https://www.bilibili.com/read/cv18455542/" >Axialis CursorWorkshop汉化版<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br></p>
-<hr>
-<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h2><p>&emsp;&emsp;第一步：打开准备好的CursorWorkshop，将我们的.ani文件拖进去。<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/11/mSHxWF1lRZMhtuc.png"
-                      alt="image.png"
-                ><br>然后在下面的帧选项中随便选择一帧自己喜欢的，点一下，让他处于蓝色被选状态<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/11/rs7fYm18RndPIpV.png"
-                      alt="image.png"
-                ><br>右键点一下，选择&emsp;<em><strong>此帧的新静态光标</strong></em>&emsp;<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/11/zS1GyYDWXltognx.png"
-                      alt="image.png"
-                ><br>打开新的窗口后，按照我的配置选就好了<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/11/rIq7MZuoW14QXfF.png"
-                      alt="image.png"
-                ><br>接下来我们跳转来到新的一个窗口<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/11/YVPbu3XZBJMnFRc.png"
-                      alt="image.png"
-                ><br>选择第一个&nbsp;<em><strong>32x32&nbsp;-&nbsp;RGB&#x2F;A</strong></em>&nbsp;即可<br>最后Ctrl+S保存导出即可，也可以选择&nbsp;<em><strong>32x32&nbsp;-&nbsp;RGB&#x2F;A</strong></em>&nbsp;上边的&emsp;<em><strong>磁盘小图标</strong></em>&emsp;保存。<br>&emsp;&emsp;这样我们就做好了一个静态图标的转换~希望有用~~</p>
-]]></content>
-      <categories>
-        <category>Hexo建设日志</category>
-      </categories>
-      <tags>
-        <tag>Hexo建设日志</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo建设日志03-关于网易云.ncm文件的破解与转换</title>
-    <url>/posts/38949/</url>
-    <content><![CDATA[<p><em><strong>&emsp;&emsp;最近在做mmd的时候，网易云下载到的文件是.ncm。直接转换成MP3会导致文件错误。看了看ncm这个文件，加密方式是网易云独家加密。转换为其他格式是很麻烦的。强行用格式工厂转换会导致文件损坏（网易云你坏事干尽），找遍教程，不容易找到个看上去不错的，结果是广告。</strong></em></p>
-<hr>
-<h2 id="转换教程"><a href="#转换教程" class="headerlink" title="转换教程:"></a><em><strong>转换教程:</strong></em></h2><p>&emsp;&emsp;首先打开这个网站<a class="link"   href="https://cwo.cc/musicc" >Cwo | 影视工作者的书签-音乐解锁<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/20/5vZL3SYerfk7UQp.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;把ncm导入进去，电脑不好的同学可以打开&ensp;<em><strong>立即保存</strong></em>&ensp;，选择好文件夹，解密后就会直接存到文件夹里，很方便的。每次建议导入的文件数量小于40首，这样就不会很卡。</p>
-<hr>
-<h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a><em><strong>后记</strong></em></h2><p>&emsp;&emsp;某些同学在解密之后有文件错误或者文件损坏的情况。但是一次解密的歌曲会很多，一首一首的测试显然不太可能，批量文件的校验可以看下一篇文章。</p>
-]]></content>
-      <categories>
-        <category>Hexo建设日志</category>
-      </categories>
-      <tags>
-        <tag>Hexo建设日志</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo建设日志02-如将.avif文件转化为常用图片格式</title>
-    <url>/posts/22756/</url>
-    <content><![CDATA[<p>&emsp;&emsp; <em><strong>最近我发现从浏览器上直接捕获的图片，不管是通过下载器下载还是直接另存，都成了一种没见过的格式&ensp;.avif&ensp;。没办法打开做处理，我以为是浏览器问题，所以去搜了搜这个文件格式。</strong></em><br> </p>
-<hr>
-<h2 id="关于-avif文件："><a href="#关于-avif文件：" class="headerlink" title="关于.avif文件："></a><em>关于.avif文件</em>：</h2><h3 id="emsp-emsp-什么是AVIF"><a href="#emsp-emsp-什么是AVIF" class="headerlink" title="&emsp;&emsp;什么是AVIF"></a><em>&emsp;&emsp;什么是AVIF</em></h3><p>&emsp;&emsp;AVIF（ AV1 Image File Format）是一种由AOM（ Alliance for Open Media）开发的基于AV1编解码器的网络图像格式。这是一种开源免版税的图像格式。AVIF支持全分辨率的10位和12位色彩以及HDR。<br></p>
-<h3 id="emsp-emsp-AVIF的优势"><a href="#emsp-emsp-AVIF的优势" class="headerlink" title="&emsp;&emsp;AVIF的优势"></a><em>&emsp;&emsp;AVIF的优势</em><br></h3><p>&emsp;&emsp;Netflix的博客从 2020年2月就开始大力宣传AVIF标准的优点。该博客[1]详细介绍了AVIF，并提供了一些优于JPEG的技术信息。作为AOM的创始成员 ，Netflix一直是AV1编解码标准的坚定支持者。因此，毫不奇怪，他们会对使用AV1来改善其UI体验感兴趣。相比于JPEG，AVIF无论是在压缩率上还是在生态上都有着不可小觑的实力。</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">1. AV1编解码标准和AVIF格式免版税。</span><br><span class="line">2. 所有Chromium浏览器（Chrome 85或更高版本）都支持AVIF。</span><br><span class="line">3. Microsoft Windows 10从19H1开始支持AVIF。</span><br><span class="line">4. AVIF得到了Google、Amazon、Netflix、Microsoft、Intel、Apple等公司的支持。</span><br><span class="line">5. AVIF提供比JPEG更高的压缩效率。</span><br><span class="line">6. AVIF图像格式支持透明度，HDR，宽色域和其他现代功能。</span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;在与其他图像格式的PK中，AVIF表现十分突出。<br><br>&emsp;&emsp;来源：<a class="link"   href="https://zhuanlan.zhihu.com/p/444624167" >AVIF：新一代的图像压缩格式<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<hr>
-<h2 id="如何转换："><a href="#如何转换：" class="headerlink" title="如何转换："></a><em>如何转换：</em></h2><p>&emsp;&emsp;首先，去微软应用商店下载拓展&ensp;<em><strong>AV1 Video Extension</strong></em>&ensp;<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/19/aczl6ihYsJIRw8u.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;然后正常打开照片<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/19/jIQoOMH5lyhGBuw.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;然后点击上面<em><strong>三个点</strong></em>或者<em><strong>Ctrl+S</strong></em>另存为其他格式即可<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/19/GDTUkfuWz8edCvr.png"
-                      alt="image.png"
-                ></p>
-]]></content>
-      <categories>
-        <category>Hexo建设日志</category>
-      </categories>
-      <tags>
-        <tag>Hexo建设日志</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo建设日志04-关于多个音频文件的完整性校验方法</title>
-    <url>/posts/23140/</url>
-    <content><![CDATA[<p><em><strong>&emsp;&emsp;最近在大量校验歌曲完整性时遇到了一点点小困难，文件错误或者文件损坏不能比较简便的检查出来。多方查询之后发现了一个较为简单的方法。</strong></em></p>
-<hr>
-<h2 id="工具："><a href="#工具：" class="headerlink" title="工具："></a><em><strong>工具：</strong></em></h2><p>&emsp;&emsp;<em><strong>foobar2000</strong></em><br>&emsp;&emsp;<em><strong>需要校验的文件</strong></em></p>
-<hr>
-<h2 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a><em><strong>步骤：</strong></em></h2><p>&emsp;&emsp;首先，在&ensp;<a class="link"   href="http://www.foobar2000.org/" >foobar2000<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>&ensp;官网下载原始英文版软件，或者在吾爱破解等网站下载汉化版。我使用的是这个<br>&emsp;&emsp;链接：<a class="link"   href="https://pan.baidu.com/s/1dI4ZSIPnbLY7wLYiJzpLmg?pwd=r6er" >https://pan.baidu.com/s/1dI4ZSIPnbLY7wLYiJzpLmg?pwd=r6er<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>&emsp;&emsp;提取码：r6er<br><br>&emsp;&emsp;然后打开软件。<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/21/3DQ5Y7JEfBAU9ZR.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;把我们要校验的文件拖进来，同时<em><strong>Ctrl+A</strong></em>一下（全选完成就是文件名字上面变成了蓝色的条条）<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/21/UVsD25Qf8i7wXYI.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;然后右键，选择&ensp;<em><strong>工具-检验完整性</strong></em><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/21/CpzSr1Nm7w3ibyq.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;然后等他走完进度条<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/21/d3SaRNzmnhWvb9q.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;查看结果即可，有需要的话也可以导出成txt文件看<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/21/Z7p2S8wqBJzAbxy.png"
-                      alt="image.png"
-                ></p>
-]]></content>
-      <categories>
-        <category>Hexo建设日志</category>
-      </categories>
-      <tags>
-        <tag>Hexo建设日志</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo建设日志05-对于Error Spawn failed报错的修复（歪门邪道）</title>
-    <url>/posts/39589/</url>
-    <content><![CDATA[<p>&emsp;&emsp;最近被Error:Spawn failed这个报错，折磨得一塌糊涂。试了试网上的，什么删除.deploy_git文件夹，什么改_config.yml里面的deploy:repo的<a class="link"   href="mailto:&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;" >&#x67;&#105;&#x74;&#x40;&#x67;&#105;&#x74;&#x68;&#x75;&#x62;&#x2e;&#99;&#111;&#x6d;<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>:，还有本地推送啥的，对我都没作用。试了试一个偏方。在这把方法分享一下。</p>
-<hr>
-<h1 id="步骤："><a href="#步骤：" class="headerlink" title="步骤："></a>步骤：</h1><p>&emsp;&emsp;首先，我们直接打开Git Bash，不要在任何一个文件夹下运行。打开应该是下图这个样子（ <em><strong>~</strong></em> 后面没有任何东西，或者是一个 <em><strong>&#x2F;</strong></em> 但是后面也没有东西）（我是在win菜单下运行的，没有添加到win菜单的话，你可以在你安装Git的文件夹下找到这个Git Bash）<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/21/2MpTKdWPS1zC8lR.png"
-                      alt="image.png"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/21/wWRtYIMnuXsoejy.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;输入以下内容</p>
-<div class="code-container" data-rel="Cmd"><figure class="iseeu highlight cmd"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/.ssh</span><br><span class="line"># 进入以下文件夹：C:\Users\user\.ssh</span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;现在上面的info信息就是这样<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/21/2jKHUNEpcTFQy9I.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;然后呢，，接下来我们要通过常用的来创建一个控制.ssh的config，然后我习惯就是用，<a class="link"   href="https://code.visualstudio.com/Download" >VSCode<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>，但是呢，我习惯用的vscode的zip版本。直接使用Git启动的话我倒是不会。所以我是下图这样的创建config的。视频看上去有点卡的话，这边有百度网盘的链，可以通过百度网盘看看，或者挂梯子。<a class="link"   href="https://pan.baidu.com/s/184laBs0d5H2yMEK8xfl_GQ?pwd=48wq" >HexoMader05-01 百度网盘在线版<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>）</p>
-<iframe id="spkj" src="https://www.acfun.cn/player/ac43642408" width="100%" frameborder="no" scrolling="no" allowfullscreen="allowfullscreen"><span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start"></span> <span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start"></span> </iframe> <script type="text/javascript"> document.getElementById("spkj").style.height=document.getElementById("spkj").scrollWidth*0.76+"px"; </script>
-
-<p>&emsp;&emsp;然后呢就会唤起我的vscode，打开这样的界面<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/21/FZjyOwUbfQKc4vo.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;在里面输入</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">Host github.com</span><br><span class="line">User git</span><br><span class="line">Hostname ssh.github.com</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br><span class="line">Port 443</span><br><span class="line"></span><br><span class="line">Host gitlab.com</span><br><span class="line">Hostname altssh.gitlab.com</span><br><span class="line">User git</span><br><span class="line">Port 443</span><br><span class="line">PreferredAuthentications publickey</span><br><span class="line">IdentityFile ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;保存，在GIT输入以下内容</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">ssh -T git@github.com</span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;如果出现以下内容，说明修改成功了，但是GitHub不提供服务。</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><figcaption><span>bash</span></figcaption><table><tr><td class="code"><pre><span class="line">Hi 你的名字! You&#x27;ve successfully authenticated, but GitHub does not provide shell access.</span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;如果出现有个需要填yes还是弄的地方，填yes。我填完忘记截图了，然后来解决GitHub does not provide shell access.这个问题。解决办法就是重新生成SSH秘钥。<br>&emsp;&emsp;首先在Git输入以下信息：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><figcaption><span>bash</span></figcaption><table><tr><td class="code"><pre><span class="line">ssh-keygen -t rsa -C “your_email.com”</span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;然后，第一个按一下回车；第二个，输入y；第三个，回车；第四个，回车。<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/01/21/ZHyMiU1r4dueEGb.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;然后在 <em><strong>.ssh</strong></em> 文件夹下的找到 <em><strong>id_rsa.pub</strong></em> 打开，把里面的文本全部复制到GitHub的SSH秘钥里面，步骤就是：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">登录github</span><br><span class="line">点击 setting</span><br><span class="line">点击SSH and GPG keys</span><br><span class="line">选择 new ssh key</span><br><span class="line">添加公钥</span><br><span class="line">完成</span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;这样就可以正常推送了</p>
-<hr>
-<h2 id="2024年11月20日补充："><a href="#2024年11月20日补充：" class="headerlink" title="2024年11月20日补充："></a>2024年11月20日补充：</h2><p>&emsp;&emsp;可以利用该命令来解决：</p>
-<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><figcaption><span>Bash</span></figcaption><table><tr><td class="code"><pre><span class="line">git config --global user.email &quot;you@example.com&quot;</span><br><span class="line">git config --global user.name &quot;Your Name&quot;</span><br></pre></td></tr></table></figure></div>]]></content>
-      <categories>
-        <category>Hexo建设日志</category>
-      </categories>
-      <tags>
-        <tag>Hexo建设日志</tag>
       </tags>
   </entry>
   <entry>
@@ -941,6 +958,120 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
       </categories>
       <tags>
         <tag>Hexo建设日志</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>鸿蒙开发学习日志02——HelloWorld</title>
+    <url>/posts/c78fab16/</url>
+    <content><![CDATA[<h2 id="创建一个新项目"><a href="#创建一个新项目" class="headerlink" title="创建一个新项目"></a>创建一个新项目</h2><p>&emsp;&emsp;使用DevEco Studio创建一个空项目，了解ArkUI模板代码和预览器的使用方法。</p>
+<h3 id="第一步-检测环境"><a href="#第一步-检测环境" class="headerlink" title="第一步 检测环境"></a>第一步 检测环境</h3><p>&emsp;&emsp;打开我们的DevEco Studio，点击左边的<code>诊断</code><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/19/jutPbxYSU8yNezp.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;正常结果如下:<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/19/91CuM5rZQi4O3bg.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;如果遇到任何错误，请依据错误提示信息采取相应的解决措施。若需要下载Git，请前往官方网站获取最新版本的安装包。对于安装GIT的操作，您可以参考隔壁的<a class="link"   href="https://tikara.us.kg/posts/e5e9716c/" >网站搭建教程<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>来指导您的安装过程。如果问题是由于网络连接导致的，请确保您的网络设置正确无误，并尝试重新连接网络。</p>
+<h3 id="第二步-创建项目"><a href="#第二步-创建项目" class="headerlink" title="第二步 创建项目"></a>第二步 创建项目</h3><p>&emsp;&emsp;创建一个新项目，我们可以在DevEco Studio的欢迎页进行创建<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/20/nyuoE3dISvR7Q92.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;打开如果不是欢迎页而是我们在第一篇里面创建的项目，我们可以按照下图来重新创建新的项目<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/20/vCWmUzuQRH7FAGk.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;同样的，我们也可以选择退出项目，回到欢迎页后选择新建项目。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/20/CnH1EzofYZAq3ry.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;之后我们进入这个页面，选择<code>Application</code>，<code>Empty Ability</code>，这是一个专门写HelloWorld的模板。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/20/yEAUnHiOIZ9jwlJ.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;点击<code>Next</code>后，进入下一个页面，根据下面的参数讲解调整合适之后点击<code>Finish</code>。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/20/Ps48TmYWQdVrEAf.png"
+                      alt="image.png"
+                ></p>
+<p>&emsp;&emsp;各参数含义如下</p>
+<ol>
+<li><code>Project Name</code>：项目名称，默认为<code>MyApplication</code>，可以修改为任意名称。此处我将其改为<code>HelloWorld</code>。</li>
+<li><code>Bundle name</code>：包名，即安装包名，熟悉安卓开发的同学应该大体知道这种东西，比如世界计划的包名就是com.sega.pjsekai；再比如QQ的包名就是com.tencent.mobileqq。这边默认是<code>com.example.myapplication</code>，改项目名称为<code>HelloWorld</code>之后，包名会自动更新称<code>com.example.helloworld</code>。两者要一致，如果不一致请手动更新。这个东西是鸿蒙开发者个人中心那边上架应用用的，我们这个不上架，所以参数之类的不展开介绍。</li>
+<li><code>Save location</code>：保存位置，默认为<code>C:\Users\Administrator\Documents\MyApplication</code>，可以修改为任意位置。后面的<code>MyApplication</code>是项目名，在创建时会跟随项目名自动更改。</li>
+<li><code>Compatible SDK</code>：在编译构建时，DevEco Studio会根据指定的Compatible SDK版本进行编译打包。建议是选择最新版。</li>
+<li><code>Module name</code>：模块名称，本期不做介绍，保持默认即可。</li>
+<li><code>Device type</code>：设备类型，其中Phone（手机）、Tablet（平板）、2in1（二合一类型设备）和Car（车机）。这边做一个HelloWorld的话，保持默认即可。</li>
+</ol>
+<p>&emsp;&emsp;创建完成之后，工具会自动生成示例代码和相关资源。等待工程创建完成，创建后界面如下图所示。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/20/tcKhCTvXywMNqdA.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;其中在Project导航栏中选中 entry -&gt; src -&gt; main -&gt; ets -&gt; pages -&gt; Index.ets，即可看到初始创建项目的模板代码。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/20/gEQhiWv2nVN6o5t.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;官方对于代码的解释如下：</p>
+<blockquote>
+<p>&emsp;&emsp;@Component装饰器装饰了struct关键字声明的数据结构Index。Index被@Component装饰后具备组件化的能力，通过实现build方法描述UI。<br>&emsp;&emsp;@Entry装饰的@Component将作为UI页面的入口。在单个UI页面中，最多可以使用@Entry装饰一个自定义组件。<br>&emsp;&emsp;界面由RelativeContainer相对布局容器作为根容器RelativeContainer支持容器内部的子元素设置相对位置关系，适用于界面复杂场景的情况，对多个子组件进行对齐和排列。<br>&emsp;&emsp;通过Text组件展示一段文本。文本信息由@State装饰器装饰的状态变量message驱动。<br>&emsp;&emsp;Text组件定义了组件标识id为HelloWorld，用于唯一指定组件。定义字体大小fontSize取值为50；定义文本的字体粗细fontWeight取值为Bold，即字体较粗。<br>&emsp;&emsp;alignRules属性用于指定设置在相对容器中子组件的对齐规则，仅当父容器为RelativeContainer时生效，在这里定义Text组件横向居中和纵向居中。</p>
+</blockquote>
+<p>&emsp;&emsp;这段话挺绕是吧，我也觉得，但是官方就是这么写的，所以说，我们直接从代码中下手会好很多，下面是加了注释的代码展示：</p>
+<div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">// index.ets定义一个名为Index的组件，作为应用的主入口</span><br><span class="line">@Entry</span><br><span class="line">@Component</span><br><span class="line">struct Index &#123;</span><br><span class="line">  // 初始化一个状态变量message，用于显示欢迎文本</span><br><span class="line">  @State message: string = &#x27;Hello World&#x27;;</span><br><span class="line"></span><br><span class="line">  // 构建组件的主体内容</span><br><span class="line">  build() &#123;</span><br><span class="line">    // 使用RelativeContainer来布局页面中的元素</span><br><span class="line">    RelativeContainer() &#123;</span><br><span class="line">      // 显示一个文本元素，内容为message状态变量的值</span><br><span class="line">      Text(this.message)</span><br><span class="line">        // 为文本元素设置一个标识符，便于后续可能的引用或操作</span><br><span class="line">        .id(&#x27;HelloWorld&#x27;)</span><br><span class="line">        // 设置文本的字体大小，引用资源文件中的定义</span><br><span class="line">        .fontSize($r(&#x27;app.float.page_text_font_size&#x27;))</span><br><span class="line">        // 设置文本的字体加粗</span><br><span class="line">        .fontWeight(FontWeight.Bold)</span><br><span class="line">        // 设置文本的对齐方式，使其在容器中心居中显示</span><br><span class="line">        .alignRules(&#123;</span><br><span class="line">          center: &#123; anchor: &#x27;__container__&#x27;, align: VerticalAlign.Center &#125;,</span><br><span class="line">          middle: &#123; anchor: &#x27;__container__&#x27;, align: HorizontalAlign.Center &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">        // 设置文本点击事件的处理函数，修改message状态变量的值</span><br><span class="line">        .onClick(() =&gt; &#123;</span><br><span class="line">          this.message = &#x27;Welcome&#x27;;</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    // 设置RelativeContainer的高度和宽度，使其充满整个父容器</span><br><span class="line">    .height(&#x27;100%&#x27;)</span><br><span class="line">    .width(&#x27;100%&#x27;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></div>
+
+<p>&emsp;&emsp;看完加了注释的代码之后，是不是能感觉出来些什么，这时我们再来看上面那些话。</p>
+<blockquote>
+<p>&emsp;&emsp;@Component装饰器装饰了struct关键字声明的数据结构Index。Index被@Component装饰后具备组件化的能力，通过实现build方法描述UI。</p>
+</blockquote>
+<p>&emsp;&emsp;这句话也就是说，你用@Component装饰器将struct关键字声明的数据结构Index这一整块，打了个包，变成了一个整体的结构，可以通过这一个包来描述UI。<del>（偏个人理解化，不确定对不对，我也是边学边写）</del></p>
+<blockquote>
+<p>&emsp;&emsp;@Entry装饰的@Component将作为UI页面的入口。在单个UI页面中，最多可以使用@Entry装饰一个自定义组件。</p>
+</blockquote>
+<p>&emsp;&emsp;这句话是说@Entry是这个UI的入口。同时说明，在单个UI页面中，@Entry能且只能装饰一个自定义组件。也就是上面的@Component</p>
+<blockquote>
+<p>&emsp;&emsp;界面由RelativeContainer相对布局容器作为根容器，RelativeContainer支持容器内部的子元素设置相对位置关系，适用于界面复杂场景的情况，对多个子组件进行对齐和排列。</p>
+</blockquote>
+<p>&emsp;&emsp;这句话是说，我们创建的UI界面，是以RelativeContainer作为基底，就像是收纳盒最外面的那一层，然后我们可以在里面防止其他的东西，但是这些东西只能在RelativeContainer排布，不能超出RelativeContainer，就像是PPT的页面一样，你的PPT大小是固定的，里面可以摆文本框，可以摆图片等等，但是不能超出这个固定的大小。<br>&emsp;&emsp;接下来的话就好理解了。</p>
+<blockquote>
+<p>&emsp;&emsp;通过Text组件展示一段文本文本信息由@State装饰器装饰的状态变量message驱动。Text组件定义了组件标识id为HelloWorld，用于唯一指定组件。定义字体大小fontSize取值为50；定义文本的字体粗细fontWeight取值为Bold，即字体较粗。</p>
+</blockquote>
+<p>&emsp;&emsp;这段话对应的代码是7~10行（不算注释）具体可以在代码注释中好好摸索一下<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/20/XcBafs1PIQhgvid.png"
+                      alt="image.png"
+                ></p>
+<blockquote>
+<p>&emsp;&emsp;alignRules属性用于指定设置在相对容器中子组件的对齐规则，仅当父容器为RelativeContainer时生效，在这里定义Text组件横向居中和纵向居中。</p>
+</blockquote>
+<p>&emsp;&emsp;这段话是说明了Text这一块组件的对齐方式，也就是在RelativeContainer中，这个组件是横向居中，并且是纵向居中。<br>&emsp;&emsp;这一段比较难理解，建议对照代码注释多看看。<br>&emsp;&emsp;接下来我们修改应用名称，修改entry&#x2F;src&#x2F;main&#x2F;resources&#x2F;base&#x2F;element&#x2F;string.json文件，将EntryAbility_label的value修改为“HMOS世界入门版”。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/20/PDOB17pk9wNMmYe.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;最后我们修改APP的图标。我们在entry&#x2F;src&#x2F;main&#x2F;resources&#x2F;base&#x2F;media文件夹中，将其中原本的background.png和foreground.png文件替换为自己所准备好的图片即可。<br>&emsp;&emsp;至此，我们的项目基础设计就到此结束，接下来我们来创建一下应用的界面吧。</p>
+<h3 id="第三步-页面结构拆分分析"><a href="#第三步-页面结构拆分分析" class="headerlink" title="第三步 页面结构拆分分析"></a>第三步 页面结构拆分分析</h3><p>&emsp;&emsp;在本篇中，我们尝试制作一种最简单的界面展示效果，如下图所示<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/20/492LTQ7mFPDbusk.png"
+                      alt="02.png"
+                ><br>&emsp;&emsp;在上图中，我们将页面内的结构抽象三大部分。其中从上到下，第1部分为轮播图部分，第2部分为赋能套件部分，第3部分为入门教程部分。<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2025/01/20/xXrtjyKAD4RJMnl.png"
+                      alt="1.png"
+                ></p>
+]]></content>
+      <tags>
+        <tag>HarmonyOS_Next</tag>
       </tags>
   </entry>
   <entry>
@@ -1303,23 +1434,6 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
       </tags>
   </entry>
   <entry>
-    <title>GitHub01-二重身份验证方法</title>
-    <url>/posts/597bd277/</url>
-    <content><![CDATA[<p>&emsp;&emsp;写前一篇教程用GitHub的时候，出现了一个二重身份验证，历经了极其麻烦的过程之后，打给整理了一下这些，下载软件基本都要魔法，我塞到百度网盘也可。</p>
-<hr>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>&emsp;&emsp;1、<a class="link"   href="https://apkpure.com/cn/" >APKpure<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>：用来下载Google Play<br>&emsp;&emsp;2、Google Play：用来下载Authenticator<br>&emsp;&emsp;3、Authenticator：验证二重身份，重点就是这个，这个是微软的，也比较好用，建议就是登陆微软账号，但是我没登，因为，我登录时老是出现登录异常，不登录也能用。</p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>&emsp;&emsp;<a class="link"   href="https://pan.baidu.com/s/1eHKylxujG_axNVpeoPdgxQ?pwd=qhru" >Authenticator<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a></p>
-<hr>
-<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>&emsp;&emsp;1、用APKpure下载Google Play<br>&emsp;&emsp;2、用Google Play下载Authenticator<br>&emsp;&emsp;3、打开Authenticator<br>&emsp;&emsp;4、点击最下方 <em><strong>已验证ID</strong></em> <br>&emsp;&emsp;5、然后扫描GitHub的QR码即可</p>
-]]></content>
-      <categories>
-        <category>GitHub系列</category>
-      </categories>
-      <tags>
-        <tag>GitHub</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>游戏数据解析日志01-HOYOStudio的使用方法</title>
     <url>/posts/6073dae3/</url>
     <content><![CDATA[<h2 id="原项目地址："><a href="#原项目地址：" class="headerlink" title="原项目地址："></a>原项目地址：</h2><div class="code-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="code"><pre><span class="line">https://github.com/TomyJan/HoYoStudio/releases/tag/v0.17.00</span><br></pre></td></tr></table></figure></div>
@@ -1341,42 +1455,11 @@ style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
       </tags>
   </entry>
   <entry>
-    <title>PJSK-アイディスマイル 动作配布</title>
-    <url>/posts/2699655f/</url>
+    <title>PJSK-MIKU 动作配布</title>
+    <url>/posts/10590/</url>
     <content><![CDATA[
 <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="fefc5183a0091ed6cb262737ee8ccccbb286f88dac3c801ce3703deb7563d910">c211e665b909cba35ed6629fb3c5963322dc2ea087bad7b690b97de46b98bbaff2dc734fb72406363481b587196574419d6747b2e49330827611ebd8660de86500ce2c64e4e5aa2353e0f3ac85a2b90fe5af0a682db6dab05c0c4436f6e8d3a997c0dd7e509063bb955d786bfd3fdc10ebcd26d2062e15f8392c5e69d1715e6fbf15a3d3098ad14491e3f5b4f3bb86357eaa1581dda5bfcd169c384c484423ecc2344e6ff0bcf85359794b8df23dd10e0da850eafafb9d6f7996213f1a9d635fce0638338a64efcc68c55488b5193519698694eace1c2af88fec3455ec9383b05f0c7a5d99a5abbe2d159ce3af1e068b305883faf2904984a05edd6effc9c401ae89b13ac4d6154a555eff7b336ce82a51e0079a70946e2d5a99eab9539aae128ac973c9b58305222bdd028aff5e61a2f6f3fd45d9ca7c830fe99e7c0e2bf61d98f216aba5f9efc6b879d85d94d8b32a86b1d528e2c17b7af7b584535b00effdf21410ae45e9dca6b447481db147e5db6ac02289050a1e7ced7462a4ae279ae69a29757b3f2e0ea6cbb03e76b44a0371b110d731854b5ef8f7b47a55f8d20c2a0c6b6f331286b81344990eaef498781f05f956107a8fdb385472d19aa38409440dcac2c273b4702c9f1e22b96cb49e5f2a57a051543600276728d82810a77ec31b5f3b157b9afebae77f861e052763ccb3e0639882eb1f0feb6ad3f0d3601784a07fb8c06da0e6c7852f9786dea1b549e5bfab754bbb271794f82ba3c75c09b9afd9bdfe821bcdd4d019c61e1b49264719f915ceac98cb592fd0d0ba772390eb62816768117b60804d7e72493393849129f58ac30bef542bb3c9490d47e05a81a7bfbb9610690c79c69a04a55b023e943505b6e787644ad332cc12ca2f4b330d9aa971b1495039cd3412a5c8580240148881d3a024fc6940433469445ac61673581722df2a2de672ec8634a3f432bfc36dbe30647d535c59fb6a8360e40dd8fc840a2000f9f7718d69cb71950460755a13f67439bcc7203d384fdd2d92ede62fdba2b226256ca92f01f3bb19f3afa144c5996a91e9feafe77d310cc6ee91280be8a35edaf6469dd8fb59dda24acf959f9e6dede7ed6210ef6128f1cf566d11e305fa773c7703d5969b3fac72b46632dcbd3d61783cb3efd37469e9d0ee4e533c499a162b7a7125f5ee0486f828efbdee4f487cc746d51623b17acbc52561520ebdddc2f2a6913e058fc5678067d1c8cf825932d04b189ea588b8ccfd7bac452ba74a5a0085c1a1e22592d5ce7a4c68ea33f2591bb74896f02ce084e7d61595bc9d56a2baa8451694a8f71c28521c80800f9a8bb905ec2f08cd9dfef02df6312372c07fe9f4eee65830bad222d70ddfa1d9eb5055448d73e2d3861d29aa6d1b3ba393e26a1080df45b8b642094d9dbfbeaeaaaee04a4cb32e951d34e1f3e5c6931705b1cf203bada5e83194b1e97476421bd2e8aa671aacd262a0e869f5ce06c8df80c460e1c66e71b51b12cefc6e194776986361b980b83bdf9d9348f77895314c013cb6ba935e8e238cd14e25923b7bc0f66dac5a467919b4eb753eeccb84f620e24f44a846d90342b9b36817c3db29d4acd2843b8434d4577221754e86264c63c9c1130d268c64fc79dd9fe6ea26822ce376d0cb7acba873db197ec9731b2d0c15b910dc5c1a9a3d061e5497b7b2484259d4bbb9233f384571a6fd4030cb02890e967391692062900ee5ca7bf183a8be6ceb1ab4345b2459198e31d471795e0590ae6c1f0ea7df20fb3880af241ae00fc23c6bda91420ed802f2bd46c98f89beb6d2e0ffa037652d55e7bb9b719234fa5e4060fd35e43a73ebd4e11c2ae445199cfe62c1b14da86be65337a7259f3b2ca7bf8922f5dc61300b33d50eec93e7a1277f38a3e5035b20b60bd64a02f95f0784cb28c1b0464921ab2f1621301073e95a9f52a6cd38fc4281e9e1e1123121bc16d87fc4d3c85bb756341472cabcb46b3e38b0e373a81ba0a769e77dee97b4e3b2f11c314fe34f43514133962084f54bc1a7d8f3ba05536bd762e7077f0b81398a83e81347340b075d59998e53cee905fe6f77daa117cf23da1adc0585c47d02b58165434dda16bb761ed345c924ee53540148ce8f9ae59682240aec983528f764739f52a7e6fdc6e46dbf862fb767c277496a7ab95a189d0c18b7a40ce44b9ce0051f1f9dca809abff8c407bab198bb4503266d545968ecf07f52c3d787d5a958231507e66f1afeb4dcf202741ad22e3eb75154ee1ae8cf01bb0d3684f9be119b6057c90c383b0264ff88ef340020931a1c0a2454de1e95af20d8342cbebc33c90c28127f0287a9c7797024ed6110c77799bc2fca13e7651731eb63d7aacff8fd159ac2d656fa20cdd552d00df0092b320409cf39ef362b646f29d773c62517a606eecb523947413f26c26974956f5349fc71d48c2a12d40b67eb8692699e321912c51a81d52b2ba15fffb00f26d626e44f75d35afc72a4bc0d410eec76f5b37aac29ca8a9b574ab86db78e95229729068e221759a175ff3ea5104fc78d02bbef7f377ff07a37d171bde87b1d0a814c970d8a73438a5ed88bda7907de78e84f0085674f2e22a75cd322c248f656cc873e2d8461e365ace6756e7088672f8dd9732e07a2c1ae7d7a5ebc13bdd7c9d15f3328dc0bdf299b984f82ec6df7409458b027411d0c63a870a8eeb09f5bcd8dffc7acd07bdbc628ebc0c494a22ae27fe7e50f8d7543e424c8b1b1c616596714</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<link href="/css/hbe.style.css" rel="stylesheet" type="text/css"><script data-swup-reload-script type="module" src="/js/plugins/hbe.js"></script>
-<script data-swup-reload-script type="module">
-import {initHBE} from "/js/plugins/hbe.js";
-  console.log("hexo-blog-encrypt: loaded.");
-    initHBE();
-</script>
-]]></content>
-      <categories>
-        <category>MMD</category>
-        <category>Motion DL</category>
-      </categories>
-      <tags>
-        <tag>Motion DL</tag>
-        <tag>PJSK</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PJSK-東京テディベア 动作配布</title>
-    <url>/posts/39898289/</url>
-    <content><![CDATA[
-<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="7a37f7fcfba19b8c078036de4a08798ad6898a53a3315eb4ed64cafeabd2e9a5">e7883f0c1f3e00c753c6cd3e7f0fcf5d0b44db06cd6e15054e06f4fd44ef6e6b3776e66efbf43f844f1e4c83753407e38dedecad02bb70df73576a0256cc470b5f05c765ba153f70dc59cd62e64289b182dcd6bfaf721d597a74b1115953fd1f00c3ef18e49a28b87f377519960272ce34fe63a559df475e46b5f0c5dc64ecb02279f17bf3496b9705639aa689bbc270904660a96872af92fb728bae67a6232377d3134e9b49e9f38ed53bc52b66ec8bca9c9da13525e293b6f5d4cae7216c09a8554a6014f8d53f3fb48385294c275fb365d4e8879ec37a4568ee7c039613a218290cd07521b148334e39ccd1428cbbaa0cccfece160ec010852e67fc602b456df7d6dad9ad97191def4439d042a4e472749c4176a4316be0b256a9a3ef082393b396f32f829cbf1ec192b185eb5a05e0503828ee62e4cded2cbfaf203c910790ae4ae5a9900f450a6ac06ef4d4a31eae5db205cda24fd3aa51c04c0cdc6c9f2a918c23f39b34c9f5a2aa84ff463d6543637de2be72a9ce6c411102832b875fd8d27c5a16e7fcc17af5f0e56fe51830e4af51660ab1c698cb1830afee5be02c157cfa2fde0397138c4bb437c0aec67bbc1759aa0141102a3a76c9e6c2aacc4d41754152a0f617a64682a7e60293fab370b8fb313df707bf49716b7279c9601045b87519117c3f34266f903e81842ca97c5437b94706cb722889f6e7d47904c146916f04de9d4ece184feb354002b4d51805ffc3da047856bf84298015c2e84f1a7cd26511316f18358de4d8a770b6eec602b3827102b355af4833f4774431bd1f77fca15203e1bbcbb04c719dfd13d2ed1cfe7ba317ff1d2e2ee93f1c0a64f19daef170b4b0cf84d67271333f8e010bbb41107305c466c43294d064f6ee48a52f4533ea37b50850c5ee356a0365316daec1bcfb2c0db1f5fa68b70e43f12cf34b333c2ff7f8defc9bc5fe0bad40aee47680e5ef7acb99d4bc4239135bd14389c969ac50558a9c36acc768c00514f70ecf9c0200934b74e9280e8bfa4512a05688880676f947f65ba7eca13b2606cf8b66139e1659e64f21f088fede9c6976829fdaaf4cca2b3d8825dcf7f0488441e9f497ffd3e8c124c510c57a6fd669f5d7eebd04bd7ef6fc2a9b572e5a8f6bf5377b736ab2aa89b756538f3d92623b45a2697b278d935be3dcd6cab55e0363bac108b7bf43f7ddcef2d3a803eff788d9109de19c3bc99410e777c9302f0be5b9b11f3e43a99b9ca82f207372a50fe13362dc96701845cdf290fd76c85c46ade8f75ac60a6a0790541893d894f76a8196290105b8d5577197aae24db3445f2e81ddb92d560623e38c3eb1a9465ada055237c03c4d16614948d6495227faa8211aae80f7df4bad0c723debef57fee5be76d2053b5f0e6c2bd0368fe2e0555f97b92e1560e6e6f8b2cae672c2f91e1fd2294f9d4abe9ddc1118b78134fe0719cc111a4846f56c7502164a3a9690455d3f5127183100990c967ec1a368d0010b2ec3b4fb5b079de39087ea0f1280f68d325edc524a68973a9bd8bc73a72a9a9f128d3ac07935896d23e7499a3c0971261fc20ef7f5fe05a4ccf57ac8f175fcb8ee66cf7825c1ae737bc5af987fc289ba156c6f01b9281a6e5052bbf095c81b333275244b2891f0bf437afa8d5da6dbe58eefc29d9ca782b730711697a16543effb509a6454cb9f562daa5a46961bc7f1133237aa7118b923ef940290ae421411b9faf53552a13898d9d0b50ce922d8e707d5a973f730a43949af8bca85898a54dea63af450736a7fad62af78f8436a1a65d947c2a31fffb682a2a5fff1ae73ba629e04bc5f45584f0a6cf4b0a95f098ce65b7cb95067e9fa23212b80647a33e8e21ac84884870f2fd16bbf3dc4c347db667c466223c2a388b62fda82540d67652d452f06622df020522553f880c4dd99a264b43e4934555a479ccdd55cc6e18a36931ce2bb6801728a352e2f445900776b9e14f677aeb47eb82e1d3696ddc68cc48620</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="3481a1289775daa0bcc71713a3a9889a7a2f6ad3c416c59c73e9c17f4484adc7">993ad1aca5bcc930152cd8f9f9a394ec176feafdc2d14130c4018f71077dc07a9cb2cb4ceeba1bfe2fcb9b359bcf32173f2194679a145a403f3c2248229b9b93b0a3677ddb1373972ef3b43d63106b3fd39981540dae7bb127bb567230d8ab4d4a7343209138e094bc03bca877d4655ff36837031feb0d282b70a928f83d01ddb35d2940c196ab51ea8566e635dd7a0232d374d90104baecc247b7e765a0280fcb79b600d54ac1e00e195b1bfbd9599eee4045054405f3b0d045a09c775aa909c47f44a9090fe6d7d1a3a3d951ffa92d7df9ca4c397f254fd14f62d3708f0a1a35e507f70b24b6fdd706fd764da79d27d38f9952ac0d2979150ec0f9933e3d96b6c5240c7cdba7a1f2d842266378ef8a0ee29ebd07ee9460ab65a4208037188ac85d4eedfae88b3e58ceccbb855d783f6d0a29b29135ed29b36283c6827318ad4a722882ab295ff6cec932807ade1b0db89f5dcde18ff10a5a876fcbff87b77bf43ab5e3b2544a4347f464cadeceb24d9c3002577dc2128665d4b8c7ab3c760d10036f7a9565c68bf60c00df20a33a8399cafbceeadf74e2a256bcfb26bd7dccca7816d2f5e3505bed2b08703ae245ad5be190b1ba4b067693ef5cbdbc71eb6f5c7370a11b9b721e9771d63e3400ab3c33e415105ee4b3312346bc93a0e00723c62a9000a912b3e357199252c7acf3186622909190b2c97de6ec435cb4b4072f66011d3d4d6e684828c64b7507b8dc89e32aed833a8599e1ee43ef41f43685b33d2c94a69f737c96818026960423651524836cd6e465ff472332c68d30f08019ec30995d93332ccaf3b06923306d524dbfbaad1e46197c1ffa84b209ae1d6f634ee65dded5b56234b8f3df76f4d8176bc36136acc7404d3cb66a010e8aa69cc435b01211900328db7a19cd8af118a96e290736ae79bb0a7d6dd7e6b22622efb503522762082f787d9358bf6f1f14745599d34ff2ad228403ed8e504e6257b119652a1bf337d8c748ba0e5854a4ddb5aabc3ed8ebf4c9ff4625f9d42ba166f823f8d1e3ee335cf75a06c95c3043eae62a5146d8f012929f7b5e3c55c72a4ac3e42eddef332d78becbaa04a18a51ee332ad5fb5d128b85cf2a79fc74684a8f1662224f75cb6e11ecb457582e11b528b40a5984ef2c4c7b036c863df1aa744ae6b0a28cf5d6675d9734ff6b2664fecd11847a999c7af3a0feadf04655cca7853de8cfcb972f15022ba8488a33e6cca4f2abdca9a77501f1426ad01a32559761e0f2982ac7e378e1baafc177eebdb2c461360d1c2572c37f70dc37076e8f05e075adbe60139f1249a468ba98cbe8db19dec0afd9cf122c918250009aa6ed6b69677ff7f1676d985763874295c7d612840aa9a39375faeed5a350d58dcf8f1c6fac1cb8a021e80afa8869f60a93f9e3c6728c779e4a3070c36114d6756fae7b50f16f00f439c6684ec2fb7ef4b41c3be11f25a6a7a35d7390d06e97f51746e57c55a95a693d0669ec9a3dbedf00ab9365164ca5fcfe9a5db20f9df83019944056712833c10f36a7c3500940c8fbb8b07e01f0dcbbec29158b755ed96abc88cb8eb5cc44b3ada788b45d7c9afb3e4842451ded5cf44e9e55f8117d0fdbeab9d3687124a96723a1d527d78d0cdfda45e3a5b35a342a3dd5504f0c8a38f6e881169333586694b287f365313100ce335272e73086fbb439f7cbf15e2ec8a02563e05e96e66bf1e64354648a2e8f636c689dcee39945cf09d52d3cf29542d346f18df5e678e3da93eddf3bfb7815046dc7db7df60e16388e51421bca0e0cb7354bd31b277a3d1aa44f0b1c5062b0233a4ec730b498b9c0588f7086cca82e0c7a9c1ba7e966eb1265a69d351a57f3429c9ed5873eae07c44fb942ee3e6298404c3a5c237465d843afd534455b16879b7feb47ff2d70504d8bec86dcd76643d7d270ed122ad508945e594672ce83272a6d30619fae2f6231e0c3414760a0c1f7f3944e9b11a023f6186086944206d84ded4e5ebfae70aeb63c4cc3524b82c30d9f51e5260ca435adb05d09373712d8e7f53e26e6d544d04d14a569dedbfbb2f59273b0cbfe052207c1f94173900d1786012effe18540431998fb84ba29ea8c07255be9ed0d3caffe7213979fc31ce7d9945a73e8e719356de2b0cd78c6f3cf56e8e478a9bfab247c5aa1c52c5ae6fd9f4826156706625878b5916e5f2a0ee2cd17c6146aa202c8d455feea9d7b50a1cd4745ff4ed37940872f4d0be5594c2cc48b5bee7c2db86edf5bdd8eec1a6b935f72335eeb5c52e37ae6657912379539c36369a113f0e1001cedf107ae83e9c8f47eb8e552577de2082ecb9921e6ebff1930847618959b50952069b0ccedc06d4e3f53408c52caf0f58585ca3aade409bcedac744059c1dd1cc44693369ed11f67ab496abbf6eb113f8ff922397568e8716ae09854137b2f083aa4ae3a508ac267f8e06e68d73343e7a5a5fc629a64d99ab04cd5b3a18e7ebf6d3945a268b9c93b8444dbde2dd7d6cb7697a56262c46f0abcec9ecb314135403d6d32da521f49b01815625d71ef216a228acdff9077a46c1ebae05e97e2e1785b1c1ef670f44686a3f1f5351b356739896b49208bd8b1c1c5160e64230721e3c145c49a038f74a0338686171206fc12e8a753ab6388c592ef0bc3ba61d31cd0b7c51153ff5d378ac06e53d74778506488731e3b16b48f593635afdccf0d46a913ead0d82d70167df9e8861f1be632196856831ea3ab2fa63b9f56f78fcad04cce211c62211e670c3bcf75ee0e280648a3744e19f76b69dad38d28c1010a3f3644d619192ac6a8b7fa7da57fbbb594a23cd5e0b8acfe9eb315aebb749eb6d570e5267367291fd14bb77f5e5ad6615d48bb2842b1fe92d67a05609b81523feb71297af4d7bb747eb1224a7265b3e83c0713cc294b98f3abaa2e929a1f4591</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1422,45 +1505,11 @@ import {initHBE} from "/js/plugins/hbe.js";
       </tags>
   </entry>
   <entry>
-    <title>python实战系列03-URL的编码与解码</title>
-    <url>/posts/cbf0ad6c/</url>
-    <content><![CDATA[<p>&emsp;&emsp;被QQ最近那个点击转发的小东西弄感兴趣了，看是MD语法，重点是URL的编码和解码，所以就写了个简单的例子。</p>
-<hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> quote, unquote</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">encode_text</span>():</span><br><span class="line">    input_text = entry.get()</span><br><span class="line">    encoded_text = quote(input_text)</span><br><span class="line">    result_label.config(text=encoded_text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decode_text</span>():</span><br><span class="line">    input_text = entry.get()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        decoded_text = unquote(input_text)</span><br><span class="line">        result_label.config(text=decoded_text)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        result_label.config(text=<span class="string">&quot;请输入正确的URL编码内容&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">copy_text</span>():</span><br><span class="line">    root.clipboard_clear()</span><br><span class="line">    root.clipboard_append(result_label.cget(<span class="string">&quot;text&quot;</span>))</span><br><span class="line"></span><br><span class="line">root = tk.Tk()</span><br><span class="line">root.title(<span class="string">&quot;URL编码器&quot;</span>)</span><br><span class="line">root.configure(bg=<span class="string">&quot;#EEE0E5&quot;</span>)</span><br><span class="line"></span><br><span class="line">entry = tk.Entry(root, width=<span class="number">50</span>, bg=<span class="string">&quot;#FFE4C4&quot;</span>)</span><br><span class="line">entry.pack(pady=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">buttons_frame = tk.Frame(root)</span><br><span class="line">buttons_frame.pack(side=<span class="string">&quot;right&quot;</span>, padx=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">encode_button = tk.Button(buttons_frame, text=<span class="string">&quot;编码&quot;</span>, command=encode_text)</span><br><span class="line">encode_button.pack(pady=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">decode_button = tk.Button(buttons_frame, text=<span class="string">&quot;解码&quot;</span>, command=decode_text)</span><br><span class="line">decode_button.pack(pady=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">copy_button = tk.Button(buttons_frame, text=<span class="string">&quot;复制&quot;</span>, command=copy_text)</span><br><span class="line">copy_button.pack(pady=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">result_label = tk.Label(root, text=<span class="string">&quot;&quot;</span>, bg=<span class="string">&quot;#B0E0E6&quot;</span>)</span><br><span class="line">result_label.pack(pady=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure></div>
-<hr>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/URL-Encoder-decoder" >https://github.com/NIGHT2000/URL-Encoder-decoder<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>QQ群：813686446</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>实战系列</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python实战系列01-RGB转换为Hex</title>
-    <url>/posts/46083098/</url>
-    <content><![CDATA[<p>&emsp;&emsp;学了学python，写了个小玩意，但是写的一塌糊涂，下载见文章末尾，用到了tk库，已经编译成了exe的可执行文件，拿去玩玩吧。</p>
-<hr>
-<h2 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示"></a>代码展示</h2><div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rgb_to_hex</span>(<span class="params">r, g, b</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;#&#123;:02x&#125;&#123;:02x&#125;&#123;:02x&#125;&quot;</span>.<span class="built_in">format</span>(r, g, b)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_valid_input</span>(<span class="params">value</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">bool</span>(re.<span class="keyword">match</span>(<span class="string">&quot;^([0-9]|[1-9][0-9]|1[0-9]&#123;2&#125;|2[0-4][0-9]|25[0-5])$&quot;</span>, value))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>():</span><br><span class="line">    r = entry_r.get()</span><br><span class="line">    g = entry_g.get()</span><br><span class="line">    b = entry_b.get()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> (is_valid_input(r) <span class="keyword">and</span> is_valid_input(g) <span class="keyword">and</span> is_valid_input(b)):</span><br><span class="line">        result_label.config(text=<span class="string">&quot;输入错误，请输入0-255之间的整数&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = <span class="built_in">int</span>(r)</span><br><span class="line">        g = <span class="built_in">int</span>(g)</span><br><span class="line">        b = <span class="built_in">int</span>(b)</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        result_label.config(text=<span class="string">&quot;转换错误，请输入有效的整数&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    hex_color = rgb_to_hex(r, g, b)</span><br><span class="line">    result_label.config(text=<span class="string">&quot;对应的16进制颜色值为：&quot;</span> + hex_color)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">copy_hex_code</span>():</span><br><span class="line">    root.clipboard_clear()</span><br><span class="line">    root.clipboard_append(result_label.cget(<span class="string">&quot;text&quot;</span>))</span><br><span class="line"></span><br><span class="line">root = tk.Tk()</span><br><span class="line">root.title(<span class="string">&quot;RGB 2 hex&quot;</span>)</span><br><span class="line"></span><br><span class="line">label_r = tk.Label(root, text=<span class="string">&quot;红色值（0-255）：&quot;</span>)</span><br><span class="line">label_r.grid(row=<span class="number">0</span>, column=<span class="number">0</span>)</span><br><span class="line">entry_r = tk.Entry(root)</span><br><span class="line">entry_r.grid(row=<span class="number">0</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">label_g = tk.Label(root, text=<span class="string">&quot;绿色值（0-255）：&quot;</span>)</span><br><span class="line">label_g.grid(row=<span class="number">1</span>, column=<span class="number">0</span>)</span><br><span class="line">entry_g = tk.Entry(root)</span><br><span class="line">entry_g.grid(row=<span class="number">1</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">label_b = tk.Label(root, text=<span class="string">&quot;蓝色值（0-255）：&quot;</span>)</span><br><span class="line">label_b.grid(row=<span class="number">2</span>, column=<span class="number">0</span>)</span><br><span class="line">entry_b = tk.Entry(root)</span><br><span class="line">entry_b.grid(row=<span class="number">2</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">convert_button = tk.Button(root, text=<span class="string">&quot;转换&quot;</span>, command=convert)</span><br><span class="line">convert_button.grid(row=<span class="number">3</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">copy_button = tk.Button(root, text=<span class="string">&quot;复制&quot;</span>, command=copy_hex_code)</span><br><span class="line">copy_button.grid(row=<span class="number">4</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">result_label = tk.Label(root, text=<span class="string">&quot;&quot;</span>)</span><br><span class="line">result_label.grid(row=<span class="number">5</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure></div>
-<hr>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/RGB2HEX" >https://github.com/NIGHT2000/RGB2HEX<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>QQ群：813686446</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>实战系列</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>PJSK-MIKU 动作配布</title>
-    <url>/posts/10590/</url>
+    <title>PJSK-アイディスマイル 动作配布</title>
+    <url>/posts/2699655f/</url>
     <content><![CDATA[
 <div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="3481a1289775daa0bcc71713a3a9889a7a2f6ad3c416c59c73e9c17f4484adc7">993ad1aca5bcc930152cd8f9f9a394ec176feafdc2d14130c4018f71077dc07a9cb2cb4ceeba1bfe2fcb9b359bcf32173f2194679a145a403f3c2248229b9b93b0a3677ddb1373972ef3b43d63106b3fd39981540dae7bb127bb567230d8ab4d4a7343209138e094bc03bca877d4655ff36837031feb0d282b70a928f83d01ddb35d2940c196ab51ea8566e635dd7a0232d374d90104baecc247b7e765a0280fcb79b600d54ac1e00e195b1bfbd9599eee4045054405f3b0d045a09c775aa909c47f44a9090fe6d7d1a3a3d951ffa92d7df9ca4c397f254fd14f62d3708f0a1a35e507f70b24b6fdd706fd764da79d27d38f9952ac0d2979150ec0f9933e3d96b6c5240c7cdba7a1f2d842266378ef8a0ee29ebd07ee9460ab65a4208037188ac85d4eedfae88b3e58ceccbb855d783f6d0a29b29135ed29b36283c6827318ad4a722882ab295ff6cec932807ade1b0db89f5dcde18ff10a5a876fcbff87b77bf43ab5e3b2544a4347f464cadeceb24d9c3002577dc2128665d4b8c7ab3c760d10036f7a9565c68bf60c00df20a33a8399cafbceeadf74e2a256bcfb26bd7dccca7816d2f5e3505bed2b08703ae245ad5be190b1ba4b067693ef5cbdbc71eb6f5c7370a11b9b721e9771d63e3400ab3c33e415105ee4b3312346bc93a0e00723c62a9000a912b3e357199252c7acf3186622909190b2c97de6ec435cb4b4072f66011d3d4d6e684828c64b7507b8dc89e32aed833a8599e1ee43ef41f43685b33d2c94a69f737c96818026960423651524836cd6e465ff472332c68d30f08019ec30995d93332ccaf3b06923306d524dbfbaad1e46197c1ffa84b209ae1d6f634ee65dded5b56234b8f3df76f4d8176bc36136acc7404d3cb66a010e8aa69cc435b01211900328db7a19cd8af118a96e290736ae79bb0a7d6dd7e6b22622efb503522762082f787d9358bf6f1f14745599d34ff2ad228403ed8e504e6257b119652a1bf337d8c748ba0e5854a4ddb5aabc3ed8ebf4c9ff4625f9d42ba166f823f8d1e3ee335cf75a06c95c3043eae62a5146d8f012929f7b5e3c55c72a4ac3e42eddef332d78becbaa04a18a51ee332ad5fb5d128b85cf2a79fc74684a8f1662224f75cb6e11ecb457582e11b528b40a5984ef2c4c7b036c863df1aa744ae6b0a28cf5d6675d9734ff6b2664fecd11847a999c7af3a0feadf04655cca7853de8cfcb972f15022ba8488a33e6cca4f2abdca9a77501f1426ad01a32559761e0f2982ac7e378e1baafc177eebdb2c461360d1c2572c37f70dc37076e8f05e075adbe60139f1249a468ba98cbe8db19dec0afd9cf122c918250009aa6ed6b69677ff7f1676d985763874295c7d612840aa9a39375faeed5a350d58dcf8f1c6fac1cb8a021e80afa8869f60a93f9e3c6728c779e4a3070c36114d6756fae7b50f16f00f439c6684ec2fb7ef4b41c3be11f25a6a7a35d7390d06e97f51746e57c55a95a693d0669ec9a3dbedf00ab9365164ca5fcfe9a5db20f9df83019944056712833c10f36a7c3500940c8fbb8b07e01f0dcbbec29158b755ed96abc88cb8eb5cc44b3ada788b45d7c9afb3e4842451ded5cf44e9e55f8117d0fdbeab9d3687124a96723a1d527d78d0cdfda45e3a5b35a342a3dd5504f0c8a38f6e881169333586694b287f365313100ce335272e73086fbb439f7cbf15e2ec8a02563e05e96e66bf1e64354648a2e8f636c689dcee39945cf09d52d3cf29542d346f18df5e678e3da93eddf3bfb7815046dc7db7df60e16388e51421bca0e0cb7354bd31b277a3d1aa44f0b1c5062b0233a4ec730b498b9c0588f7086cca82e0c7a9c1ba7e966eb1265a69d351a57f3429c9ed5873eae07c44fb942ee3e6298404c3a5c237465d843afd534455b16879b7feb47ff2d70504d8bec86dcd76643d7d270ed122ad508945e594672ce83272a6d30619fae2f6231e0c3414760a0c1f7f3944e9b11a023f6186086944206d84ded4e5ebfae70aeb63c4cc3524b82c30d9f51e5260ca435adb05d09373712d8e7f53e26e6d544d04d14a569dedbfbb2f59273b0cbfe052207c1f94173900d1786012effe18540431998fb84ba29ea8c07255be9ed0d3caffe7213979fc31ce7d9945a73e8e719356de2b0cd78c6f3cf56e8e478a9bfab247c5aa1c52c5ae6fd9f4826156706625878b5916e5f2a0ee2cd17c6146aa202c8d455feea9d7b50a1cd4745ff4ed37940872f4d0be5594c2cc48b5bee7c2db86edf5bdd8eec1a6b935f72335eeb5c52e37ae6657912379539c36369a113f0e1001cedf107ae83e9c8f47eb8e552577de2082ecb9921e6ebff1930847618959b50952069b0ccedc06d4e3f53408c52caf0f58585ca3aade409bcedac744059c1dd1cc44693369ed11f67ab496abbf6eb113f8ff922397568e8716ae09854137b2f083aa4ae3a508ac267f8e06e68d73343e7a5a5fc629a64d99ab04cd5b3a18e7ebf6d3945a268b9c93b8444dbde2dd7d6cb7697a56262c46f0abcec9ecb314135403d6d32da521f49b01815625d71ef216a228acdff9077a46c1ebae05e97e2e1785b1c1ef670f44686a3f1f5351b356739896b49208bd8b1c1c5160e64230721e3c145c49a038f74a0338686171206fc12e8a753ab6388c592ef0bc3ba61d31cd0b7c51153ff5d378ac06e53d74778506488731e3b16b48f593635afdccf0d46a913ead0d82d70167df9e8861f1be632196856831ea3ab2fa63b9f56f78fcad04cce211c62211e670c3bcf75ee0e280648a3744e19f76b69dad38d28c1010a3f3644d619192ac6a8b7fa7da57fbbb594a23cd5e0b8acfe9eb315aebb749eb6d570e5267367291fd14bb77f5e5ad6615d48bb2842b1fe92d67a05609b81523feb71297af4d7bb747eb1224a7265b3e83c0713cc294b98f3abaa2e929a1f4591</script>
+  <script id="hbeData" type="hbeData" data-hmacdigest="fefc5183a0091ed6cb262737ee8ccccbb286f88dac3c801ce3703deb7563d910">c211e665b909cba35ed6629fb3c5963322dc2ea087bad7b690b97de46b98bbaff2dc734fb72406363481b587196574419d6747b2e49330827611ebd8660de86500ce2c64e4e5aa2353e0f3ac85a2b90fe5af0a682db6dab05c0c4436f6e8d3a997c0dd7e509063bb955d786bfd3fdc10ebcd26d2062e15f8392c5e69d1715e6fbf15a3d3098ad14491e3f5b4f3bb86357eaa1581dda5bfcd169c384c484423ecc2344e6ff0bcf85359794b8df23dd10e0da850eafafb9d6f7996213f1a9d635fce0638338a64efcc68c55488b5193519698694eace1c2af88fec3455ec9383b05f0c7a5d99a5abbe2d159ce3af1e068b305883faf2904984a05edd6effc9c401ae89b13ac4d6154a555eff7b336ce82a51e0079a70946e2d5a99eab9539aae128ac973c9b58305222bdd028aff5e61a2f6f3fd45d9ca7c830fe99e7c0e2bf61d98f216aba5f9efc6b879d85d94d8b32a86b1d528e2c17b7af7b584535b00effdf21410ae45e9dca6b447481db147e5db6ac02289050a1e7ced7462a4ae279ae69a29757b3f2e0ea6cbb03e76b44a0371b110d731854b5ef8f7b47a55f8d20c2a0c6b6f331286b81344990eaef498781f05f956107a8fdb385472d19aa38409440dcac2c273b4702c9f1e22b96cb49e5f2a57a051543600276728d82810a77ec31b5f3b157b9afebae77f861e052763ccb3e0639882eb1f0feb6ad3f0d3601784a07fb8c06da0e6c7852f9786dea1b549e5bfab754bbb271794f82ba3c75c09b9afd9bdfe821bcdd4d019c61e1b49264719f915ceac98cb592fd0d0ba772390eb62816768117b60804d7e72493393849129f58ac30bef542bb3c9490d47e05a81a7bfbb9610690c79c69a04a55b023e943505b6e787644ad332cc12ca2f4b330d9aa971b1495039cd3412a5c8580240148881d3a024fc6940433469445ac61673581722df2a2de672ec8634a3f432bfc36dbe30647d535c59fb6a8360e40dd8fc840a2000f9f7718d69cb71950460755a13f67439bcc7203d384fdd2d92ede62fdba2b226256ca92f01f3bb19f3afa144c5996a91e9feafe77d310cc6ee91280be8a35edaf6469dd8fb59dda24acf959f9e6dede7ed6210ef6128f1cf566d11e305fa773c7703d5969b3fac72b46632dcbd3d61783cb3efd37469e9d0ee4e533c499a162b7a7125f5ee0486f828efbdee4f487cc746d51623b17acbc52561520ebdddc2f2a6913e058fc5678067d1c8cf825932d04b189ea588b8ccfd7bac452ba74a5a0085c1a1e22592d5ce7a4c68ea33f2591bb74896f02ce084e7d61595bc9d56a2baa8451694a8f71c28521c80800f9a8bb905ec2f08cd9dfef02df6312372c07fe9f4eee65830bad222d70ddfa1d9eb5055448d73e2d3861d29aa6d1b3ba393e26a1080df45b8b642094d9dbfbeaeaaaee04a4cb32e951d34e1f3e5c6931705b1cf203bada5e83194b1e97476421bd2e8aa671aacd262a0e869f5ce06c8df80c460e1c66e71b51b12cefc6e194776986361b980b83bdf9d9348f77895314c013cb6ba935e8e238cd14e25923b7bc0f66dac5a467919b4eb753eeccb84f620e24f44a846d90342b9b36817c3db29d4acd2843b8434d4577221754e86264c63c9c1130d268c64fc79dd9fe6ea26822ce376d0cb7acba873db197ec9731b2d0c15b910dc5c1a9a3d061e5497b7b2484259d4bbb9233f384571a6fd4030cb02890e967391692062900ee5ca7bf183a8be6ceb1ab4345b2459198e31d471795e0590ae6c1f0ea7df20fb3880af241ae00fc23c6bda91420ed802f2bd46c98f89beb6d2e0ffa037652d55e7bb9b719234fa5e4060fd35e43a73ebd4e11c2ae445199cfe62c1b14da86be65337a7259f3b2ca7bf8922f5dc61300b33d50eec93e7a1277f38a3e5035b20b60bd64a02f95f0784cb28c1b0464921ab2f1621301073e95a9f52a6cd38fc4281e9e1e1123121bc16d87fc4d3c85bb756341472cabcb46b3e38b0e373a81ba0a769e77dee97b4e3b2f11c314fe34f43514133962084f54bc1a7d8f3ba05536bd762e7077f0b81398a83e81347340b075d59998e53cee905fe6f77daa117cf23da1adc0585c47d02b58165434dda16bb761ed345c924ee53540148ce8f9ae59682240aec983528f764739f52a7e6fdc6e46dbf862fb767c277496a7ab95a189d0c18b7a40ce44b9ce0051f1f9dca809abff8c407bab198bb4503266d545968ecf07f52c3d787d5a958231507e66f1afeb4dcf202741ad22e3eb75154ee1ae8cf01bb0d3684f9be119b6057c90c383b0264ff88ef340020931a1c0a2454de1e95af20d8342cbebc33c90c28127f0287a9c7797024ed6110c77799bc2fca13e7651731eb63d7aacff8fd159ac2d656fa20cdd552d00df0092b320409cf39ef362b646f29d773c62517a606eecb523947413f26c26974956f5349fc71d48c2a12d40b67eb8692699e321912c51a81d52b2ba15fffb00f26d626e44f75d35afc72a4bc0d410eec76f5b37aac29ca8a9b574ab86db78e95229729068e221759a175ff3ea5104fc78d02bbef7f377ff07a37d171bde87b1d0a814c970d8a73438a5ed88bda7907de78e84f0085674f2e22a75cd322c248f656cc873e2d8461e365ace6756e7088672f8dd9732e07a2c1ae7d7a5ebc13bdd7c9d15f3328dc0bdf299b984f82ec6df7409458b027411d0c63a870a8eeb09f5bcd8dffc7acd07bdbc628ebc0c494a22ae27fe7e50f8d7543e424c8b1b1c616596714</script>
   <div class="hbe hbe-content">
     <div class="hbe hbe-input hbe-input-default">
       <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
@@ -1487,42 +1536,6 @@ import {initHBE} from "/js/plugins/hbe.js";
       </tags>
   </entry>
   <entry>
-    <title>python实战系列02-Hex转换为RGB</title>
-    <url>/posts/57dc070d/</url>
-    <content><![CDATA[<p>&emsp;&emsp;是和实战系列01功能相反的存在，练手玩，不确定会不会更新。</p>
-<hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hex_to_rgb</span>(<span class="params">hex_color</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">tuple</span>(<span class="built_in">int</span>(hex_color[i:i+<span class="number">2</span>], <span class="number">16</span>) <span class="keyword">for</span> i <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_valid_input</span>(<span class="params">value</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">bool</span>(re.<span class="keyword">match</span>(<span class="string">&quot;^([0-9a-fA-F]&#123;6&#125;)$&quot;</span>, value))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>():</span><br><span class="line">    hex_color = entry_hex.get()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> is_valid_input(hex_color):</span><br><span class="line">        result_label.config(text=<span class="string">&quot;输入错误，请输入有效的16进制颜色值&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r, g, b = hex_to_rgb(hex_color)</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        result_label.config(text=<span class="string">&quot;转换错误，请输入有效的16进制颜色值&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    result_label.config(text=<span class="string">&quot;对应的RGB值为：R=&#123;&#125;, G=&#123;&#125;, B=&#123;&#125;&quot;</span>.<span class="built_in">format</span>(r, g, b))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">copy_rgb_code</span>():</span><br><span class="line">    root.clipboard_clear()</span><br><span class="line">    root.clipboard_append(result_label.cget(<span class="string">&quot;text&quot;</span>))</span><br><span class="line"></span><br><span class="line">root = tk.Tk()</span><br><span class="line">root.title(<span class="string">&quot;16进制转RGB&quot;</span>)</span><br><span class="line"></span><br><span class="line">label_hex = tk.Label(root, text=<span class="string">&quot;16进制颜色值（如：FF00FF，无#）：&quot;</span>)</span><br><span class="line">label_hex.grid(row=<span class="number">0</span>, column=<span class="number">0</span>)</span><br><span class="line">entry_hex = tk.Entry(root)</span><br><span class="line">entry_hex.grid(row=<span class="number">0</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">convert_button = tk.Button(root, text=<span class="string">&quot;转换&quot;</span>, command=convert)</span><br><span class="line">convert_button.grid(row=<span class="number">1</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">copy_button = tk.Button(root, text=<span class="string">&quot;复制&quot;</span>, command=copy_rgb_code)</span><br><span class="line">copy_button.grid(row=<span class="number">2</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">result_label = tk.Label(root, text=<span class="string">&quot;&quot;</span>)</span><br><span class="line">result_label.grid(row=<span class="number">3</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure></div>
-<hr>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/Hex2RGB" >https://github.com/NIGHT2000/Hex2RGB<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>QQ群：813686446</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>实战系列</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>python实践系列04-SRT转换为普通LRC</title>
-    <url>/posts/f2007e5d/</url>
-    <content><![CDATA[<p>&emsp;&emsp;听歌时遇到了这种，B站有CC字幕，WYY没歌词的情况，想把B站的扒下来传到WYY用。</p>
-<hr>
-<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 导入所需模块</span></span><br><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk  <span class="comment">## GUI库</span></span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> filedialog, messagebox  <span class="comment">## 文件对话框和消息框</span></span><br><span class="line"><span class="keyword">import</span> pysrt  <span class="comment">## 用于处理SRT字幕的库</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 定义SRTtoLRCConverter类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SRTtoLRCConverter</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, master</span>):</span><br><span class="line">        <span class="comment">## 初始化主窗口</span></span><br><span class="line">        <span class="variable language_">self</span>.master = master</span><br><span class="line">        <span class="variable language_">self</span>.master.title(<span class="string">&quot;SRT 到 LRC 转换器&quot;</span>)</span><br><span class="line">        <span class="variable language_">self</span>.master.configure(bg=<span class="string">&quot;#E6E6FA&quot;</span>)  <span class="comment">## 设置主窗口背景色</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 初始化变量</span></span><br><span class="line">        <span class="variable language_">self</span>.srt_file_path = <span class="string">&quot;&quot;</span>  <span class="comment">## SRT文件路径</span></span><br><span class="line">        <span class="variable language_">self</span>.lrc_file_path = <span class="string">&quot;&quot;</span>  <span class="comment">## LRC文件路径</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 创建文本框和标签</span></span><br><span class="line">        <span class="variable language_">self</span>.srt_textbox = tk.Text(<span class="variable language_">self</span>.master, wrap=<span class="string">&quot;word&quot;</span>, width=<span class="number">50</span>, height=<span class="number">10</span>, bg=<span class="string">&quot;#BEBEBE&quot;</span>)  <span class="comment">## 设置SRT文本框背景色</span></span><br><span class="line">        <span class="variable language_">self</span>.srt_textbox.grid(row=<span class="number">0</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.lrc_textbox = tk.Text(<span class="variable language_">self</span>.master, wrap=<span class="string">&quot;word&quot;</span>, width=<span class="number">50</span>, height=<span class="number">10</span>, bg=<span class="string">&quot;#BEBEBE&quot;</span>)  <span class="comment">## 设置LRC文本框背景色</span></span><br><span class="line">        <span class="variable language_">self</span>.lrc_textbox.grid(row=<span class="number">1</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">## 创建按钮</span></span><br><span class="line">        <span class="variable language_">self</span>.open_srt_button = tk.Button(<span class="variable language_">self</span>.master, text=<span class="string">&quot;打开SRT文件&quot;</span>, command=<span class="variable language_">self</span>.open_srt)  <span class="comment">## 打开SRT文件按钮</span></span><br><span class="line">        <span class="variable language_">self</span>.open_srt_button.grid(row=<span class="number">2</span>, column=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.convert_button = tk.Button(<span class="variable language_">self</span>.master, text=<span class="string">&quot;转换&quot;</span>, command=<span class="variable language_">self</span>.convert)  <span class="comment">## 转换按钮</span></span><br><span class="line">        <span class="variable language_">self</span>.convert_button.grid(row=<span class="number">2</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.save_lrc_button = tk.Button(<span class="variable language_">self</span>.master, text=<span class="string">&quot;保存LRC文件&quot;</span>, command=<span class="variable language_">self</span>.save_lrc)  <span class="comment">## 保存LRC文件按钮</span></span><br><span class="line">        <span class="variable language_">self</span>.save_lrc_button.grid(row=<span class="number">3</span>, column=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.save_lrc_entry = tk.Entry(<span class="variable language_">self</span>.master, width=<span class="number">50</span>, bg=<span class="string">&quot;#CDC1C5&quot;</span>)  <span class="comment">## 设置保存路径输入框背景色</span></span><br><span class="line">        <span class="variable language_">self</span>.save_lrc_entry.grid(row=<span class="number">3</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 打开SRT文件方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">open_srt</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">## 使用文件对话框打开SRT文件</span></span><br><span class="line">        <span class="variable language_">self</span>.srt_file_path = filedialog.askopenfilename(filetypes=[(<span class="string">&quot;SRT Files&quot;</span>, <span class="string">&quot;*.srt&quot;</span>)])</span><br><span class="line"></span><br><span class="line">        <span class="comment">## 如果选择了文件，读取内容并显示在SRT文本框中</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.srt_file_path:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="variable language_">self</span>.srt_file_path, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                srt_content = f.read()</span><br><span class="line">                <span class="variable language_">self</span>.srt_textbox.insert(<span class="string">&quot;1.0&quot;</span>, srt_content)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 转换方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">## 检查SRT文件是否已打开</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.srt_file_path:</span><br><span class="line">            messagebox.showerror(<span class="string">&quot;Error&quot;</span>, <span class="string">&quot;请先打开一个SRT文件。&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 读取SRT文件内容</span></span><br><span class="line">        subs = pysrt.<span class="built_in">open</span>(<span class="variable language_">self</span>.srt_file_path)</span><br><span class="line">        lrc_content = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 遍历SRT字幕，转换为LRC格式</span></span><br><span class="line">        <span class="keyword">for</span> sub <span class="keyword">in</span> subs:</span><br><span class="line">            <span class="comment">## 将时间对象转换为字符串，并按照冒号分割</span></span><br><span class="line">            time_str = sub.start.to_time().strftime(<span class="string">&#x27;%H:%M:%S,%f&#x27;</span>)[:-<span class="number">3</span>]</span><br><span class="line">            hh_mm_ss_ms = time_str.split(<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line">            hh, mm, ss, ms = <span class="built_in">int</span>(hh_mm_ss_ms[<span class="number">0</span>]), <span class="built_in">int</span>(hh_mm_ss_ms[<span class="number">1</span>]), <span class="built_in">int</span>(hh_mm_ss_ms[<span class="number">2</span>].split(<span class="string">&#x27;,&#x27;</span>)[<span class="number">0</span>]), <span class="built_in">int</span>(hh_mm_ss_ms[<span class="number">2</span>].split(<span class="string">&#x27;,&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">            <span class="comment">## 根据进制累加小时到分钟</span></span><br><span class="line">            mm += hh * <span class="number">60</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">## 保留三位毫秒</span></span><br><span class="line">            ms = <span class="string">f&quot;<span class="subst">&#123;ms:03d&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">## 构建LRC时间格式</span></span><br><span class="line">            lrc_time = <span class="string">f&quot;<span class="subst">&#123;mm:02d&#125;</span>:<span class="subst">&#123;ss:02d&#125;</span>.<span class="subst">&#123;ms&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">## 添加到LRC内容</span></span><br><span class="line">            lrc_content += <span class="string">f&quot;[<span class="subst">&#123;lrc_time&#125;</span>]<span class="subst">&#123;sub.text&#125;</span>\n&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 清空LRC文本框并插入转换后的内容</span></span><br><span class="line">        <span class="variable language_">self</span>.lrc_textbox.delete(<span class="string">&quot;1.0&quot;</span>, tk.END)</span><br><span class="line">        <span class="variable language_">self</span>.lrc_textbox.insert(<span class="string">&quot;1.0&quot;</span>, lrc_content)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 保存LRC文件方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">save_lrc</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">## 使用文件对话框保存LRC文件</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.lrc_file_path:</span><br><span class="line">            <span class="variable language_">self</span>.lrc_file_path = filedialog.asksaveasfilename(</span><br><span class="line">                defaultextension=<span class="string">&quot;.lrc&quot;</span>,</span><br><span class="line">                filetypes=[(<span class="string">&quot;LRC Files&quot;</span>, <span class="string">&quot;*.lrc&quot;</span>)],</span><br><span class="line">                initialfile=<span class="string">&quot;output.lrc&quot;</span>,</span><br><span class="line">                initialdir=<span class="string">&quot;.&quot;</span>,</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">        <span class="comment">## 如果选择了保存路径，更新输入框并保存内容</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.lrc_file_path:</span><br><span class="line">            <span class="variable language_">self</span>.save_lrc_entry.delete(<span class="number">0</span>, tk.END)</span><br><span class="line">            <span class="variable language_">self</span>.save_lrc_entry.insert(<span class="number">0</span>, <span class="variable language_">self</span>.lrc_file_path)</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="variable language_">self</span>.lrc_file_path, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(<span class="variable language_">self</span>.lrc_textbox.get(<span class="string">&quot;1.0&quot;</span>, tk.END))</span><br><span class="line"></span><br><span class="line"><span class="comment">## 创建Tkinter主窗口</span></span><br><span class="line">root = tk.Tk()</span><br><span class="line"></span><br><span class="line"><span class="comment">## 实例化SRTtoLRCConverter类</span></span><br><span class="line">app = SRTtoLRCConverter(root)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 开始主循环</span></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure></div>
-<hr>
-<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>这个仅支持将SRT的 <em><strong>00:00:00,000 –&gt; 00:00:01,000</strong></em> 转换为普通LRC的 <em><strong>[00:00.000]</strong></em> 这种格式，并且将SRT的小时数按60进制累加到分钟上。对于其他版本的LRC或者SRT，可能有问题。</p>
-<hr>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/SRT2LRC" >https://github.com/NIGHT2000/SRT2LRC<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>QQ群：813686446</p>
-]]></content>
-      <categories>
-        <category>Python</category>
-        <category>实战系列</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>MMD规约/MMD Rules</title>
     <url>/posts/49097/</url>
     <content><![CDATA[<h2 id="MMD模型规约-MMD-Model-Rules"><a href="#MMD模型规约-MMD-Model-Rules" class="headerlink" title="MMD模型规约&#x2F;MMD Model Rules"></a>MMD模型规约&#x2F;MMD Model Rules</h2><p><em><strong>&emsp;&emsp;此为ALp Studio的在线版ReadMe。如果和离线版有差异，一切以在线版本为准。</strong></em></p>
@@ -1544,6 +1557,37 @@ import {initHBE} from "/js/plugins/hbe.js";
       </categories>
       <tags>
         <tag>Rules</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PJSK-東京テディベア 动作配布</title>
+    <url>/posts/39898289/</url>
+    <content><![CDATA[
+<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="7a37f7fcfba19b8c078036de4a08798ad6898a53a3315eb4ed64cafeabd2e9a5">e7883f0c1f3e00c753c6cd3e7f0fcf5d0b44db06cd6e15054e06f4fd44ef6e6b3776e66efbf43f844f1e4c83753407e38dedecad02bb70df73576a0256cc470b5f05c765ba153f70dc59cd62e64289b182dcd6bfaf721d597a74b1115953fd1f00c3ef18e49a28b87f377519960272ce34fe63a559df475e46b5f0c5dc64ecb02279f17bf3496b9705639aa689bbc270904660a96872af92fb728bae67a6232377d3134e9b49e9f38ed53bc52b66ec8bca9c9da13525e293b6f5d4cae7216c09a8554a6014f8d53f3fb48385294c275fb365d4e8879ec37a4568ee7c039613a218290cd07521b148334e39ccd1428cbbaa0cccfece160ec010852e67fc602b456df7d6dad9ad97191def4439d042a4e472749c4176a4316be0b256a9a3ef082393b396f32f829cbf1ec192b185eb5a05e0503828ee62e4cded2cbfaf203c910790ae4ae5a9900f450a6ac06ef4d4a31eae5db205cda24fd3aa51c04c0cdc6c9f2a918c23f39b34c9f5a2aa84ff463d6543637de2be72a9ce6c411102832b875fd8d27c5a16e7fcc17af5f0e56fe51830e4af51660ab1c698cb1830afee5be02c157cfa2fde0397138c4bb437c0aec67bbc1759aa0141102a3a76c9e6c2aacc4d41754152a0f617a64682a7e60293fab370b8fb313df707bf49716b7279c9601045b87519117c3f34266f903e81842ca97c5437b94706cb722889f6e7d47904c146916f04de9d4ece184feb354002b4d51805ffc3da047856bf84298015c2e84f1a7cd26511316f18358de4d8a770b6eec602b3827102b355af4833f4774431bd1f77fca15203e1bbcbb04c719dfd13d2ed1cfe7ba317ff1d2e2ee93f1c0a64f19daef170b4b0cf84d67271333f8e010bbb41107305c466c43294d064f6ee48a52f4533ea37b50850c5ee356a0365316daec1bcfb2c0db1f5fa68b70e43f12cf34b333c2ff7f8defc9bc5fe0bad40aee47680e5ef7acb99d4bc4239135bd14389c969ac50558a9c36acc768c00514f70ecf9c0200934b74e9280e8bfa4512a05688880676f947f65ba7eca13b2606cf8b66139e1659e64f21f088fede9c6976829fdaaf4cca2b3d8825dcf7f0488441e9f497ffd3e8c124c510c57a6fd669f5d7eebd04bd7ef6fc2a9b572e5a8f6bf5377b736ab2aa89b756538f3d92623b45a2697b278d935be3dcd6cab55e0363bac108b7bf43f7ddcef2d3a803eff788d9109de19c3bc99410e777c9302f0be5b9b11f3e43a99b9ca82f207372a50fe13362dc96701845cdf290fd76c85c46ade8f75ac60a6a0790541893d894f76a8196290105b8d5577197aae24db3445f2e81ddb92d560623e38c3eb1a9465ada055237c03c4d16614948d6495227faa8211aae80f7df4bad0c723debef57fee5be76d2053b5f0e6c2bd0368fe2e0555f97b92e1560e6e6f8b2cae672c2f91e1fd2294f9d4abe9ddc1118b78134fe0719cc111a4846f56c7502164a3a9690455d3f5127183100990c967ec1a368d0010b2ec3b4fb5b079de39087ea0f1280f68d325edc524a68973a9bd8bc73a72a9a9f128d3ac07935896d23e7499a3c0971261fc20ef7f5fe05a4ccf57ac8f175fcb8ee66cf7825c1ae737bc5af987fc289ba156c6f01b9281a6e5052bbf095c81b333275244b2891f0bf437afa8d5da6dbe58eefc29d9ca782b730711697a16543effb509a6454cb9f562daa5a46961bc7f1133237aa7118b923ef940290ae421411b9faf53552a13898d9d0b50ce922d8e707d5a973f730a43949af8bca85898a54dea63af450736a7fad62af78f8436a1a65d947c2a31fffb682a2a5fff1ae73ba629e04bc5f45584f0a6cf4b0a95f098ce65b7cb95067e9fa23212b80647a33e8e21ac84884870f2fd16bbf3dc4c347db667c466223c2a388b62fda82540d67652d452f06622df020522553f880c4dd99a264b43e4934555a479ccdd55cc6e18a36931ce2bb6801728a352e2f445900776b9e14f677aeb47eb82e1d3696ddc68cc48620</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<link href="/css/hbe.style.css" rel="stylesheet" type="text/css"><script data-swup-reload-script type="module" src="/js/plugins/hbe.js"></script>
+<script data-swup-reload-script type="module">
+import {initHBE} from "/js/plugins/hbe.js";
+  console.log("hexo-blog-encrypt: loaded.");
+    initHBE();
+</script>
+]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>Motion DL</category>
+      </categories>
+      <tags>
+        <tag>Motion DL</tag>
+        <tag>PJSK</tag>
       </tags>
   </entry>
   <entry>
@@ -2283,6 +2327,158 @@ import {initHBE} from "/js/plugins/hbe.js";
       </tags>
   </entry>
   <entry>
+    <title>python学习日志03-基础语法学习02</title>
+    <url>/posts/475bd321/</url>
+    <content><![CDATA[<h2 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h2><p>&emsp;&emsp;如果学习过其他编程类语言，就会知道缩进是让代码结构变清晰的重要部分，即使写在同一行内页是正确无误的。但是python不一样，不同的缩进会影响程序的正确性，python要求编写的代码最好全部使用缩进来分层（块）。一般来说，行尾的 <code>“:”</code> 表示下一行代码缩进的开始，即便没有使用括号、分号、大括号等进行语句（块）的分割，通过缩进分层，结构也非常清楚。<br>&emsp;&emsp;python语言规定，缩进只使用空白实现，必须使用四个空格来表示每级缩进。使用Tab字符和其它数目的空格虽然都可以编译通过，但是不符合规范，支持Tab字符和其他数目的空格仅仅是为了兼容旧版本python和某些有问题的编辑器。应确保使用一致的缩进空格，否则编写的程序将会显示错误。</p>
+<hr>
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>&emsp;&emsp;字符串是python中最常用的数据类型，在python中，字符串可以包含任何字符，包括数字、字母、符号等。字符串通常是由单引号 <code>“&#39;”</code> 、双引号 <code>“&quot;”</code> 、三个单引号或者三个双引号包围一串字符组成。此处所有符号类字符全部都是半角字符。单双引号本质上是相同的，但是当我的字符串中有单引号时，就会变得难以辨认，就要使用<code>转义字符串</code>，如果使用双引号，那可以直接在字符串中书写单引号。例如:</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;Tt&#x27;s my first day in python&quot;</span></span><br><span class="line"><span class="string">&#x27;Can you give me one last &quot;kiss&quot;?&#x27;</span></span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;如果是单引号中使用单引号，就要写成 <code>\&#39;</code> ，例如：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;I\&#x27;m TikaRa.&#x27;</span></span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;以上三个在Python中的运算结果如下，其中第四个没有使用转义字符：<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/11/25/wFufM24QrqCJKXi.png"
+                      alt="image.png"
+                ><br>&emsp;&emsp;在Python中，字符串可以通过序号来取出其中某个字符，类似于Excel中的Mid函数，不同的是，Python的序号是从0开始的，例如：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入&#x27;asdfghjk&#x27;[3]</span></span><br><span class="line"><span class="string">&#x27;asdfghjk&#x27;</span>[<span class="number">3</span>]</span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="string">&#x27;f&#x27;</span></span><br></pre></td></tr></table></figure></div>
+<p>&emsp;&emsp;同样的，这些也可以组合使用，整点好玩的。例如：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义变量：text1</span></span><br><span class="line">text1 = <span class="string">&#x27;Tika隶属于&#x27;</span></span><br><span class="line"><span class="comment"># 定义变量：text2</span></span><br><span class="line">text2 = <span class="string">&#x27;ALp_Studio第04期情感企划&#x27;</span></span><br><span class="line"><span class="comment"># 执行输出，并且组合</span></span><br><span class="line"><span class="built_in">print</span>(text1[<span class="number">0</span>:<span class="number">4</span>],text1[<span class="number">5</span>:<span class="number">7</span>],text2[<span class="number">0</span>:<span class="number">10</span>])</span><br></pre></td></tr></table></figure></div>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2024/11/25/Wp4P9tKMRV8IYaX.png"
+                      alt="image.png"
+                ></p>
+<hr>
+<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><p>&emsp;&emsp;我们在前面注释那一块已经提到过了转义字符，在Python中，转义字符用于表示一些特殊字符，通常以反斜杠 <code>\</code> 开头。以下是Python中常用的转义字符及其意义：</p>
+<ul>
+<li><code>\\</code>：表示一个反斜杠字符。</li>
+<li><code>\</code>（在行尾时）：表示一个续航符</li>
+<li><code>\&#39;</code>：表示单引号字符。</li>
+<li><code>\&quot;</code>：表示双引号字符。</li>
+<li><code>\a</code>：发出警告或铃声。</li>
+<li><code>\b</code>：退格（Backspace）。</li>
+<li><code>\f</code>：换页符（Formfeed）。</li>
+<li><code>\n</code>：换行符（Newline）。</li>
+<li><code>\r</code>：回车符（Carriage Return）。</li>
+<li><code>\t</code>：水平制表符（Tab）。</li>
+<li><code>\v</code>：垂直制表符。</li>
+<li><code>\000</code>：空</li>
+<li><code>\oyy</code>：八进制值，其中 <code>ooo</code> 是一个1到3位的八进制数。</li>
+<li><code>\xhh</code>：十六进制值，其中 <code>hh</code> 是一个1到2位的十六进制数。</li>
+<li><code>\other</code>：其他的字符以普通形式输出。</li>
+</ul>
+<p>&emsp;&emsp;有时候我们并不想让其生效，这时候就要用R或者r来定义原始字符串.</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义原始字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">r&#x27;\n\r\a&#x27;</span>)</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">\n\r\a</span><br></pre></td></tr></table></figure></div>
+
+<hr>
+<h2 id="字符串格式化符号"><a href="#字符串格式化符号" class="headerlink" title="字符串格式化符号"></a>字符串格式化符号</h2><p>&emsp;&emsp;Python语言支持格式化字符串的输出功能，虽然这样可能会用到非常复杂的表达式，但是在大多数情况下，，只需要将一个值插入一个字符串格式符 <code>“%”</code> 中即可，常用的字符串格式化符号如下表所示：</p>
+<table>
+<thead>
+<tr>
+<th align="center">格式符</th>
+<th align="center">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">%c</td>
+<td align="center">格式化字符及ASCII码</td>
+</tr>
+<tr>
+<td align="center">%s</td>
+<td align="center">格式化字符串</td>
+</tr>
+<tr>
+<td align="center">%d</td>
+<td align="center">格式化整数</td>
+</tr>
+<tr>
+<td align="center">%u</td>
+<td align="center">格式化无符号整型</td>
+</tr>
+<tr>
+<td align="center">%o</td>
+<td align="center">格式化无符号八进制数</td>
+</tr>
+<tr>
+<td align="center">%x</td>
+<td align="center">格式化无符号十六进制数</td>
+</tr>
+<tr>
+<td align="center">%X</td>
+<td align="center">格式化无符号十六进制数（大写）</td>
+</tr>
+<tr>
+<td align="center">%f</td>
+<td align="center">格式化浮点数字，可指定小数点后精度</td>
+</tr>
+<tr>
+<td align="center">%e</td>
+<td align="center">格式化科学计数法</td>
+</tr>
+<tr>
+<td align="center">%E</td>
+<td align="center">格式化科学计数法</td>
+</tr>
+<tr>
+<td align="center">%g</td>
+<td align="center">%f和%e的混合体</td>
+</tr>
+<tr>
+<td align="center">%G</td>
+<td align="center">%f和%E的混合体</td>
+</tr>
+<tr>
+<td align="center">%p</td>
+<td align="center">十六进制数格式化变量的地址</td>
+</tr>
+</tbody></table>
+<p>&emsp;&emsp;例如：</p>
+<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># %s是格式化字符串</span></span><br><span class="line"><span class="comment"># %d是格式化整数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;%s is %d years old.&#x27;</span> % (<span class="string">&#x27;Tika&#x27;</span>, <span class="number">18</span>))</span><br></pre></td></tr></table></figure></div>]]></content>
+      <categories>
+        <category>Python</category>
+        <category>学习日志</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python实战系列01-RGB转换为Hex</title>
+    <url>/posts/46083098/</url>
+    <content><![CDATA[<p>&emsp;&emsp;学了学python，写了个小玩意，但是写的一塌糊涂，下载见文章末尾，用到了tk库，已经编译成了exe的可执行文件，拿去玩玩吧。</p>
+<hr>
+<h2 id="代码展示"><a href="#代码展示" class="headerlink" title="代码展示"></a>代码展示</h2><div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">rgb_to_hex</span>(<span class="params">r, g, b</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;#&#123;:02x&#125;&#123;:02x&#125;&#123;:02x&#125;&quot;</span>.<span class="built_in">format</span>(r, g, b)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_valid_input</span>(<span class="params">value</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">bool</span>(re.<span class="keyword">match</span>(<span class="string">&quot;^([0-9]|[1-9][0-9]|1[0-9]&#123;2&#125;|2[0-4][0-9]|25[0-5])$&quot;</span>, value))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>():</span><br><span class="line">    r = entry_r.get()</span><br><span class="line">    g = entry_g.get()</span><br><span class="line">    b = entry_b.get()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> (is_valid_input(r) <span class="keyword">and</span> is_valid_input(g) <span class="keyword">and</span> is_valid_input(b)):</span><br><span class="line">        result_label.config(text=<span class="string">&quot;输入错误，请输入0-255之间的整数&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r = <span class="built_in">int</span>(r)</span><br><span class="line">        g = <span class="built_in">int</span>(g)</span><br><span class="line">        b = <span class="built_in">int</span>(b)</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        result_label.config(text=<span class="string">&quot;转换错误，请输入有效的整数&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    hex_color = rgb_to_hex(r, g, b)</span><br><span class="line">    result_label.config(text=<span class="string">&quot;对应的16进制颜色值为：&quot;</span> + hex_color)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">copy_hex_code</span>():</span><br><span class="line">    root.clipboard_clear()</span><br><span class="line">    root.clipboard_append(result_label.cget(<span class="string">&quot;text&quot;</span>))</span><br><span class="line"></span><br><span class="line">root = tk.Tk()</span><br><span class="line">root.title(<span class="string">&quot;RGB 2 hex&quot;</span>)</span><br><span class="line"></span><br><span class="line">label_r = tk.Label(root, text=<span class="string">&quot;红色值（0-255）：&quot;</span>)</span><br><span class="line">label_r.grid(row=<span class="number">0</span>, column=<span class="number">0</span>)</span><br><span class="line">entry_r = tk.Entry(root)</span><br><span class="line">entry_r.grid(row=<span class="number">0</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">label_g = tk.Label(root, text=<span class="string">&quot;绿色值（0-255）：&quot;</span>)</span><br><span class="line">label_g.grid(row=<span class="number">1</span>, column=<span class="number">0</span>)</span><br><span class="line">entry_g = tk.Entry(root)</span><br><span class="line">entry_g.grid(row=<span class="number">1</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">label_b = tk.Label(root, text=<span class="string">&quot;蓝色值（0-255）：&quot;</span>)</span><br><span class="line">label_b.grid(row=<span class="number">2</span>, column=<span class="number">0</span>)</span><br><span class="line">entry_b = tk.Entry(root)</span><br><span class="line">entry_b.grid(row=<span class="number">2</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">convert_button = tk.Button(root, text=<span class="string">&quot;转换&quot;</span>, command=convert)</span><br><span class="line">convert_button.grid(row=<span class="number">3</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">copy_button = tk.Button(root, text=<span class="string">&quot;复制&quot;</span>, command=copy_hex_code)</span><br><span class="line">copy_button.grid(row=<span class="number">4</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">result_label = tk.Label(root, text=<span class="string">&quot;&quot;</span>)</span><br><span class="line">result_label.grid(row=<span class="number">5</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure></div>
+<hr>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/RGB2HEX" >https://github.com/NIGHT2000/RGB2HEX<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>QQ群：813686446</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>实战系列</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python实战系列02-Hex转换为RGB</title>
+    <url>/posts/57dc070d/</url>
+    <content><![CDATA[<p>&emsp;&emsp;是和实战系列01功能相反的存在，练手玩，不确定会不会更新。</p>
+<hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hex_to_rgb</span>(<span class="params">hex_color</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">tuple</span>(<span class="built_in">int</span>(hex_color[i:i+<span class="number">2</span>], <span class="number">16</span>) <span class="keyword">for</span> i <span class="keyword">in</span> (<span class="number">0</span>, <span class="number">2</span>, <span class="number">4</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">is_valid_input</span>(<span class="params">value</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">bool</span>(re.<span class="keyword">match</span>(<span class="string">&quot;^([0-9a-fA-F]&#123;6&#125;)$&quot;</span>, value))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">convert</span>():</span><br><span class="line">    hex_color = entry_hex.get()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> is_valid_input(hex_color):</span><br><span class="line">        result_label.config(text=<span class="string">&quot;输入错误，请输入有效的16进制颜色值&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        r, g, b = hex_to_rgb(hex_color)</span><br><span class="line">    <span class="keyword">except</span> ValueError:</span><br><span class="line">        result_label.config(text=<span class="string">&quot;转换错误，请输入有效的16进制颜色值&quot;</span>)</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">    result_label.config(text=<span class="string">&quot;对应的RGB值为：R=&#123;&#125;, G=&#123;&#125;, B=&#123;&#125;&quot;</span>.<span class="built_in">format</span>(r, g, b))</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">copy_rgb_code</span>():</span><br><span class="line">    root.clipboard_clear()</span><br><span class="line">    root.clipboard_append(result_label.cget(<span class="string">&quot;text&quot;</span>))</span><br><span class="line"></span><br><span class="line">root = tk.Tk()</span><br><span class="line">root.title(<span class="string">&quot;16进制转RGB&quot;</span>)</span><br><span class="line"></span><br><span class="line">label_hex = tk.Label(root, text=<span class="string">&quot;16进制颜色值（如：FF00FF，无#）：&quot;</span>)</span><br><span class="line">label_hex.grid(row=<span class="number">0</span>, column=<span class="number">0</span>)</span><br><span class="line">entry_hex = tk.Entry(root)</span><br><span class="line">entry_hex.grid(row=<span class="number">0</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">convert_button = tk.Button(root, text=<span class="string">&quot;转换&quot;</span>, command=convert)</span><br><span class="line">convert_button.grid(row=<span class="number">1</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">copy_button = tk.Button(root, text=<span class="string">&quot;复制&quot;</span>, command=copy_rgb_code)</span><br><span class="line">copy_button.grid(row=<span class="number">2</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">result_label = tk.Label(root, text=<span class="string">&quot;&quot;</span>)</span><br><span class="line">result_label.grid(row=<span class="number">3</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure></div>
+<hr>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/Hex2RGB" >https://github.com/NIGHT2000/Hex2RGB<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>QQ群：813686446</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>实战系列</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Python学习日志07-基础语法学习06</title>
     <url>/posts/a975f408/</url>
     <content><![CDATA[<h2 id="for循环语句"><a href="#for循环语句" class="headerlink" title="for循环语句"></a>for循环语句</h2><p>&emsp;&emsp;在Python中，for循环语句是一种十分重要的程序结构。其特点是，在给定条件成立时，反复执行某段代码，直到条件不成立为止。给定的条件称为循环条件，反复执行的程序段称为循环体。<br>&emsp;&emsp;for循环的基本结构如下：</p>
@@ -2516,118 +2712,36 @@ import {initHBE} from "/js/plugins/hbe.js";
       </tags>
   </entry>
   <entry>
-    <title>python学习日志03-基础语法学习02</title>
-    <url>/posts/475bd321/</url>
-    <content><![CDATA[<h2 id="缩进"><a href="#缩进" class="headerlink" title="缩进"></a>缩进</h2><p>&emsp;&emsp;如果学习过其他编程类语言，就会知道缩进是让代码结构变清晰的重要部分，即使写在同一行内页是正确无误的。但是python不一样，不同的缩进会影响程序的正确性，python要求编写的代码最好全部使用缩进来分层（块）。一般来说，行尾的 <code>“:”</code> 表示下一行代码缩进的开始，即便没有使用括号、分号、大括号等进行语句（块）的分割，通过缩进分层，结构也非常清楚。<br>&emsp;&emsp;python语言规定，缩进只使用空白实现，必须使用四个空格来表示每级缩进。使用Tab字符和其它数目的空格虽然都可以编译通过，但是不符合规范，支持Tab字符和其他数目的空格仅仅是为了兼容旧版本python和某些有问题的编辑器。应确保使用一致的缩进空格，否则编写的程序将会显示错误。</p>
+    <title>python实践系列04-SRT转换为普通LRC</title>
+    <url>/posts/f2007e5d/</url>
+    <content><![CDATA[<p>&emsp;&emsp;听歌时遇到了这种，B站有CC字幕，WYY没歌词的情况，想把B站的扒下来传到WYY用。</p>
 <hr>
-<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>&emsp;&emsp;字符串是python中最常用的数据类型，在python中，字符串可以包含任何字符，包括数字、字母、符号等。字符串通常是由单引号 <code>“&#39;”</code> 、双引号 <code>“&quot;”</code> 、三个单引号或者三个双引号包围一串字符组成。此处所有符号类字符全部都是半角字符。单双引号本质上是相同的，但是当我的字符串中有单引号时，就会变得难以辨认，就要使用<code>转义字符串</code>，如果使用双引号，那可以直接在字符串中书写单引号。例如:</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&quot;Tt&#x27;s my first day in python&quot;</span></span><br><span class="line"><span class="string">&#x27;Can you give me one last &quot;kiss&quot;?&#x27;</span></span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;如果是单引号中使用单引号，就要写成 <code>\&#39;</code> ，例如：</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">&#x27;I\&#x27;m TikaRa.&#x27;</span></span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;以上三个在Python中的运算结果如下，其中第四个没有使用转义字符：<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/11/25/wFufM24QrqCJKXi.png"
-                      alt="image.png"
-                ><br>&emsp;&emsp;在Python中，字符串可以通过序号来取出其中某个字符，类似于Excel中的Mid函数，不同的是，Python的序号是从0开始的，例如：</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 输入&#x27;asdfghjk&#x27;[3]</span></span><br><span class="line"><span class="string">&#x27;asdfghjk&#x27;</span>[<span class="number">3</span>]</span><br><span class="line"><span class="comment"># 输出结果</span></span><br><span class="line"><span class="string">&#x27;f&#x27;</span></span><br></pre></td></tr></table></figure></div>
-<p>&emsp;&emsp;同样的，这些也可以组合使用，整点好玩的。例如：</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义变量：text1</span></span><br><span class="line">text1 = <span class="string">&#x27;Tika隶属于&#x27;</span></span><br><span class="line"><span class="comment"># 定义变量：text2</span></span><br><span class="line">text2 = <span class="string">&#x27;ALp_Studio第04期情感企划&#x27;</span></span><br><span class="line"><span class="comment"># 执行输出，并且组合</span></span><br><span class="line"><span class="built_in">print</span>(text1[<span class="number">0</span>:<span class="number">4</span>],text1[<span class="number">5</span>:<span class="number">7</span>],text2[<span class="number">0</span>:<span class="number">10</span>])</span><br></pre></td></tr></table></figure></div>
-<p><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2024/11/25/Wp4P9tKMRV8IYaX.png"
-                      alt="image.png"
-                ></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 导入所需模块</span></span><br><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk  <span class="comment">## GUI库</span></span><br><span class="line"><span class="keyword">from</span> tkinter <span class="keyword">import</span> filedialog, messagebox  <span class="comment">## 文件对话框和消息框</span></span><br><span class="line"><span class="keyword">import</span> pysrt  <span class="comment">## 用于处理SRT字幕的库</span></span><br><span class="line"></span><br><span class="line"><span class="comment">## 定义SRTtoLRCConverter类</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">SRTtoLRCConverter</span>:</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, master</span>):</span><br><span class="line">        <span class="comment">## 初始化主窗口</span></span><br><span class="line">        <span class="variable language_">self</span>.master = master</span><br><span class="line">        <span class="variable language_">self</span>.master.title(<span class="string">&quot;SRT 到 LRC 转换器&quot;</span>)</span><br><span class="line">        <span class="variable language_">self</span>.master.configure(bg=<span class="string">&quot;#E6E6FA&quot;</span>)  <span class="comment">## 设置主窗口背景色</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 初始化变量</span></span><br><span class="line">        <span class="variable language_">self</span>.srt_file_path = <span class="string">&quot;&quot;</span>  <span class="comment">## SRT文件路径</span></span><br><span class="line">        <span class="variable language_">self</span>.lrc_file_path = <span class="string">&quot;&quot;</span>  <span class="comment">## LRC文件路径</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 创建文本框和标签</span></span><br><span class="line">        <span class="variable language_">self</span>.srt_textbox = tk.Text(<span class="variable language_">self</span>.master, wrap=<span class="string">&quot;word&quot;</span>, width=<span class="number">50</span>, height=<span class="number">10</span>, bg=<span class="string">&quot;#BEBEBE&quot;</span>)  <span class="comment">## 设置SRT文本框背景色</span></span><br><span class="line">        <span class="variable language_">self</span>.srt_textbox.grid(row=<span class="number">0</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.lrc_textbox = tk.Text(<span class="variable language_">self</span>.master, wrap=<span class="string">&quot;word&quot;</span>, width=<span class="number">50</span>, height=<span class="number">10</span>, bg=<span class="string">&quot;#BEBEBE&quot;</span>)  <span class="comment">## 设置LRC文本框背景色</span></span><br><span class="line">        <span class="variable language_">self</span>.lrc_textbox.grid(row=<span class="number">1</span>, column=<span class="number">0</span>, columnspan=<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment">## 创建按钮</span></span><br><span class="line">        <span class="variable language_">self</span>.open_srt_button = tk.Button(<span class="variable language_">self</span>.master, text=<span class="string">&quot;打开SRT文件&quot;</span>, command=<span class="variable language_">self</span>.open_srt)  <span class="comment">## 打开SRT文件按钮</span></span><br><span class="line">        <span class="variable language_">self</span>.open_srt_button.grid(row=<span class="number">2</span>, column=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.convert_button = tk.Button(<span class="variable language_">self</span>.master, text=<span class="string">&quot;转换&quot;</span>, command=<span class="variable language_">self</span>.convert)  <span class="comment">## 转换按钮</span></span><br><span class="line">        <span class="variable language_">self</span>.convert_button.grid(row=<span class="number">2</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.save_lrc_button = tk.Button(<span class="variable language_">self</span>.master, text=<span class="string">&quot;保存LRC文件&quot;</span>, command=<span class="variable language_">self</span>.save_lrc)  <span class="comment">## 保存LRC文件按钮</span></span><br><span class="line">        <span class="variable language_">self</span>.save_lrc_button.grid(row=<span class="number">3</span>, column=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">        <span class="variable language_">self</span>.save_lrc_entry = tk.Entry(<span class="variable language_">self</span>.master, width=<span class="number">50</span>, bg=<span class="string">&quot;#CDC1C5&quot;</span>)  <span class="comment">## 设置保存路径输入框背景色</span></span><br><span class="line">        <span class="variable language_">self</span>.save_lrc_entry.grid(row=<span class="number">3</span>, column=<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 打开SRT文件方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">open_srt</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">## 使用文件对话框打开SRT文件</span></span><br><span class="line">        <span class="variable language_">self</span>.srt_file_path = filedialog.askopenfilename(filetypes=[(<span class="string">&quot;SRT Files&quot;</span>, <span class="string">&quot;*.srt&quot;</span>)])</span><br><span class="line"></span><br><span class="line">        <span class="comment">## 如果选择了文件，读取内容并显示在SRT文本框中</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.srt_file_path:</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="variable language_">self</span>.srt_file_path, <span class="string">&quot;r&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                srt_content = f.read()</span><br><span class="line">                <span class="variable language_">self</span>.srt_textbox.insert(<span class="string">&quot;1.0&quot;</span>, srt_content)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 转换方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">convert</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">## 检查SRT文件是否已打开</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.srt_file_path:</span><br><span class="line">            messagebox.showerror(<span class="string">&quot;Error&quot;</span>, <span class="string">&quot;请先打开一个SRT文件。&quot;</span>)</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 读取SRT文件内容</span></span><br><span class="line">        subs = pysrt.<span class="built_in">open</span>(<span class="variable language_">self</span>.srt_file_path)</span><br><span class="line">        lrc_content = <span class="string">&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 遍历SRT字幕，转换为LRC格式</span></span><br><span class="line">        <span class="keyword">for</span> sub <span class="keyword">in</span> subs:</span><br><span class="line">            <span class="comment">## 将时间对象转换为字符串，并按照冒号分割</span></span><br><span class="line">            time_str = sub.start.to_time().strftime(<span class="string">&#x27;%H:%M:%S,%f&#x27;</span>)[:-<span class="number">3</span>]</span><br><span class="line">            hh_mm_ss_ms = time_str.split(<span class="string">&#x27;:&#x27;</span>)</span><br><span class="line">            hh, mm, ss, ms = <span class="built_in">int</span>(hh_mm_ss_ms[<span class="number">0</span>]), <span class="built_in">int</span>(hh_mm_ss_ms[<span class="number">1</span>]), <span class="built_in">int</span>(hh_mm_ss_ms[<span class="number">2</span>].split(<span class="string">&#x27;,&#x27;</span>)[<span class="number">0</span>]), <span class="built_in">int</span>(hh_mm_ss_ms[<span class="number">2</span>].split(<span class="string">&#x27;,&#x27;</span>)[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">            <span class="comment">## 根据进制累加小时到分钟</span></span><br><span class="line">            mm += hh * <span class="number">60</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">## 保留三位毫秒</span></span><br><span class="line">            ms = <span class="string">f&quot;<span class="subst">&#123;ms:03d&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">## 构建LRC时间格式</span></span><br><span class="line">            lrc_time = <span class="string">f&quot;<span class="subst">&#123;mm:02d&#125;</span>:<span class="subst">&#123;ss:02d&#125;</span>.<span class="subst">&#123;ms&#125;</span>&quot;</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">## 添加到LRC内容</span></span><br><span class="line">            lrc_content += <span class="string">f&quot;[<span class="subst">&#123;lrc_time&#125;</span>]<span class="subst">&#123;sub.text&#125;</span>\n&quot;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">## 清空LRC文本框并插入转换后的内容</span></span><br><span class="line">        <span class="variable language_">self</span>.lrc_textbox.delete(<span class="string">&quot;1.0&quot;</span>, tk.END)</span><br><span class="line">        <span class="variable language_">self</span>.lrc_textbox.insert(<span class="string">&quot;1.0&quot;</span>, lrc_content)</span><br><span class="line"></span><br><span class="line">    <span class="comment">## 保存LRC文件方法</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">save_lrc</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="comment">## 使用文件对话框保存LRC文件</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> <span class="variable language_">self</span>.lrc_file_path:</span><br><span class="line">            <span class="variable language_">self</span>.lrc_file_path = filedialog.asksaveasfilename(</span><br><span class="line">                defaultextension=<span class="string">&quot;.lrc&quot;</span>,</span><br><span class="line">                filetypes=[(<span class="string">&quot;LRC Files&quot;</span>, <span class="string">&quot;*.lrc&quot;</span>)],</span><br><span class="line">                initialfile=<span class="string">&quot;output.lrc&quot;</span>,</span><br><span class="line">                initialdir=<span class="string">&quot;.&quot;</span>,</span><br><span class="line">            )</span><br><span class="line"></span><br><span class="line">        <span class="comment">## 如果选择了保存路径，更新输入框并保存内容</span></span><br><span class="line">        <span class="keyword">if</span> <span class="variable language_">self</span>.lrc_file_path:</span><br><span class="line">            <span class="variable language_">self</span>.save_lrc_entry.delete(<span class="number">0</span>, tk.END)</span><br><span class="line">            <span class="variable language_">self</span>.save_lrc_entry.insert(<span class="number">0</span>, <span class="variable language_">self</span>.lrc_file_path)</span><br><span class="line">            <span class="keyword">with</span> <span class="built_in">open</span>(<span class="variable language_">self</span>.lrc_file_path, <span class="string">&quot;w&quot;</span>, encoding=<span class="string">&quot;utf-8&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">                f.write(<span class="variable language_">self</span>.lrc_textbox.get(<span class="string">&quot;1.0&quot;</span>, tk.END))</span><br><span class="line"></span><br><span class="line"><span class="comment">## 创建Tkinter主窗口</span></span><br><span class="line">root = tk.Tk()</span><br><span class="line"></span><br><span class="line"><span class="comment">## 实例化SRTtoLRCConverter类</span></span><br><span class="line">app = SRTtoLRCConverter(root)</span><br><span class="line"></span><br><span class="line"><span class="comment">## 开始主循环</span></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure></div>
 <hr>
-<h2 id="转义字符"><a href="#转义字符" class="headerlink" title="转义字符"></a>转义字符</h2><p>&emsp;&emsp;我们在前面注释那一块已经提到过了转义字符，在Python中，转义字符用于表示一些特殊字符，通常以反斜杠 <code>\</code> 开头。以下是Python中常用的转义字符及其意义：</p>
-<ul>
-<li><code>\\</code>：表示一个反斜杠字符。</li>
-<li><code>\</code>（在行尾时）：表示一个续航符</li>
-<li><code>\&#39;</code>：表示单引号字符。</li>
-<li><code>\&quot;</code>：表示双引号字符。</li>
-<li><code>\a</code>：发出警告或铃声。</li>
-<li><code>\b</code>：退格（Backspace）。</li>
-<li><code>\f</code>：换页符（Formfeed）。</li>
-<li><code>\n</code>：换行符（Newline）。</li>
-<li><code>\r</code>：回车符（Carriage Return）。</li>
-<li><code>\t</code>：水平制表符（Tab）。</li>
-<li><code>\v</code>：垂直制表符。</li>
-<li><code>\000</code>：空</li>
-<li><code>\oyy</code>：八进制值，其中 <code>ooo</code> 是一个1到3位的八进制数。</li>
-<li><code>\xhh</code>：十六进制值，其中 <code>hh</code> 是一个1到2位的十六进制数。</li>
-<li><code>\other</code>：其他的字符以普通形式输出。</li>
-</ul>
-<p>&emsp;&emsp;有时候我们并不想让其生效，这时候就要用R或者r来定义原始字符串.</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 定义原始字符串</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">r&#x27;\n\r\a&#x27;</span>)</span><br><span class="line"><span class="comment"># 输出</span></span><br><span class="line">\n\r\a</span><br></pre></td></tr></table></figure></div>
-
+<h3 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h3><p>这个仅支持将SRT的 <em><strong>00:00:00,000 –&gt; 00:00:01,000</strong></em> 转换为普通LRC的 <em><strong>[00:00.000]</strong></em> 这种格式，并且将SRT的小时数按60进制累加到分钟上。对于其他版本的LRC或者SRT，可能有问题。</p>
 <hr>
-<h2 id="字符串格式化符号"><a href="#字符串格式化符号" class="headerlink" title="字符串格式化符号"></a>字符串格式化符号</h2><p>&emsp;&emsp;Python语言支持格式化字符串的输出功能，虽然这样可能会用到非常复杂的表达式，但是在大多数情况下，，只需要将一个值插入一个字符串格式符 <code>“%”</code> 中即可，常用的字符串格式化符号如下表所示：</p>
-<table>
-<thead>
-<tr>
-<th align="center">格式符</th>
-<th align="center">描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">%c</td>
-<td align="center">格式化字符及ASCII码</td>
-</tr>
-<tr>
-<td align="center">%s</td>
-<td align="center">格式化字符串</td>
-</tr>
-<tr>
-<td align="center">%d</td>
-<td align="center">格式化整数</td>
-</tr>
-<tr>
-<td align="center">%u</td>
-<td align="center">格式化无符号整型</td>
-</tr>
-<tr>
-<td align="center">%o</td>
-<td align="center">格式化无符号八进制数</td>
-</tr>
-<tr>
-<td align="center">%x</td>
-<td align="center">格式化无符号十六进制数</td>
-</tr>
-<tr>
-<td align="center">%X</td>
-<td align="center">格式化无符号十六进制数（大写）</td>
-</tr>
-<tr>
-<td align="center">%f</td>
-<td align="center">格式化浮点数字，可指定小数点后精度</td>
-</tr>
-<tr>
-<td align="center">%e</td>
-<td align="center">格式化科学计数法</td>
-</tr>
-<tr>
-<td align="center">%E</td>
-<td align="center">格式化科学计数法</td>
-</tr>
-<tr>
-<td align="center">%g</td>
-<td align="center">%f和%e的混合体</td>
-</tr>
-<tr>
-<td align="center">%G</td>
-<td align="center">%f和%E的混合体</td>
-</tr>
-<tr>
-<td align="center">%p</td>
-<td align="center">十六进制数格式化变量的地址</td>
-</tr>
-</tbody></table>
-<p>&emsp;&emsp;例如：</p>
-<div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># %s是格式化字符串</span></span><br><span class="line"><span class="comment"># %d是格式化整数</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&#x27;%s is %d years old.&#x27;</span> % (<span class="string">&#x27;Tika&#x27;</span>, <span class="number">18</span>))</span><br></pre></td></tr></table></figure></div>]]></content>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/SRT2LRC" >https://github.com/NIGHT2000/SRT2LRC<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>QQ群：813686446</p>
+]]></content>
       <categories>
         <category>Python</category>
-        <category>学习日志</category>
+        <category>实战系列</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>python实战系列03-URL的编码与解码</title>
+    <url>/posts/cbf0ad6c/</url>
+    <content><![CDATA[<p>&emsp;&emsp;被QQ最近那个点击转发的小东西弄感兴趣了，看是MD语法，重点是URL的编码和解码，所以就写了个简单的例子。</p>
+<hr>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><div class="code-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tkinter <span class="keyword">as</span> tk</span><br><span class="line"><span class="keyword">from</span> urllib.parse <span class="keyword">import</span> quote, unquote</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">encode_text</span>():</span><br><span class="line">    input_text = entry.get()</span><br><span class="line">    encoded_text = quote(input_text)</span><br><span class="line">    result_label.config(text=encoded_text)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">decode_text</span>():</span><br><span class="line">    input_text = entry.get()</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        decoded_text = unquote(input_text)</span><br><span class="line">        result_label.config(text=decoded_text)</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">        result_label.config(text=<span class="string">&quot;请输入正确的URL编码内容&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">copy_text</span>():</span><br><span class="line">    root.clipboard_clear()</span><br><span class="line">    root.clipboard_append(result_label.cget(<span class="string">&quot;text&quot;</span>))</span><br><span class="line"></span><br><span class="line">root = tk.Tk()</span><br><span class="line">root.title(<span class="string">&quot;URL编码器&quot;</span>)</span><br><span class="line">root.configure(bg=<span class="string">&quot;#EEE0E5&quot;</span>)</span><br><span class="line"></span><br><span class="line">entry = tk.Entry(root, width=<span class="number">50</span>, bg=<span class="string">&quot;#FFE4C4&quot;</span>)</span><br><span class="line">entry.pack(pady=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">buttons_frame = tk.Frame(root)</span><br><span class="line">buttons_frame.pack(side=<span class="string">&quot;right&quot;</span>, padx=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">encode_button = tk.Button(buttons_frame, text=<span class="string">&quot;编码&quot;</span>, command=encode_text)</span><br><span class="line">encode_button.pack(pady=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">decode_button = tk.Button(buttons_frame, text=<span class="string">&quot;解码&quot;</span>, command=decode_text)</span><br><span class="line">decode_button.pack(pady=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">copy_button = tk.Button(buttons_frame, text=<span class="string">&quot;复制&quot;</span>, command=copy_text)</span><br><span class="line">copy_button.pack(pady=<span class="number">5</span>)</span><br><span class="line"></span><br><span class="line">result_label = tk.Label(root, text=<span class="string">&quot;&quot;</span>, bg=<span class="string">&quot;#B0E0E6&quot;</span>)</span><br><span class="line">result_label.pack(pady=<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">root.mainloop()</span><br></pre></td></tr></table></figure></div>
+<hr>
+<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>Github：<a class="link"   href="https://github.com/NIGHT2000/URL-Encoder-decoder" >https://github.com/NIGHT2000/URL-Encoder-decoder<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a><br>QQ群：813686446</p>
+]]></content>
+      <categories>
+        <category>Python</category>
+        <category>实战系列</category>
       </categories>
       <tags>
         <tag>python</tag>
@@ -2867,76 +2981,6 @@ import {initHBE} from "/js/plugins/hbe.js";
       <tags>
         <tag>VRM</tag>
         <tag>FBX</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>安歌的动作使用指南</title>
-    <url>/posts/40366/</url>
-    <content><![CDATA[<p>&emsp;&emsp;<em><strong>欢迎各位使用动作数据<br>&emsp;&emsp;本动作源于游戏&emsp;<a class="link"   href="https://pjsekai.sega.jp/" >《世界计划 彩色舞台 feat. 初音未来》<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>，故日语用户请谨慎使用。<br>&emsp;&emsp;使用愉快！建议配合视频版食用</strong></em></p>
-<hr>
-<h2 id="STUFF"><a href="#STUFF" class="headerlink" title="STUFF"></a>STUFF</h2><p>&emsp;&emsp;<em><strong>使用到的模型：</strong></em> <br>&emsp;&emsp;<em><strong>Sour式初音ミクVer.1.02_by_Sour暄</strong></em> <br>&emsp;&emsp;<em><strong>使用到的PMXEditor版本</strong></em> <br>&emsp;&emsp;<em><strong>PmxEditor_0257</strong></em></p>
-<hr>
-<h2 id="步骤一："><a href="#步骤一：" class="headerlink" title="步骤一："></a>步骤一：</h2><p>&emsp;&emsp;首先，在PE中打开你所需要修改的模型。<br>&emsp;&emsp;此处使用Sour式初音ミクVer.1.02_by_Sour暄作为示范<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/14/1TSad5RqlpEysfw.png"
-                      alt="image1.png"
-                ><br>&emsp;&emsp;首先，将<em><strong>下半身</strong></em>顺序移动至<em><strong>上半身</strong></em>上方，并且将<em><strong>上半身</strong></em>亲骨改为<em><strong>下半身</strong></em><br><br><br>&emsp;&emsp;如图所示<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/14/gDFY9iHQ5tWC7dJ.png"
-                      alt="image2.png"
-                ><br>&emsp;&emsp;其次，将<em><strong>腰，グルーブ，センター</strong></em>三个骨骼调整至与下半身处于同一位置<br>&emsp;&emsp;如图所示<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/14/Z8jdHyNaCJuUkxf.png"
-                      alt="image3.png"
-                ><br></p>
-<hr>
-<h2 id="步骤二："><a href="#步骤二：" class="headerlink" title="步骤二："></a>步骤二：</h2><p>&emsp;&emsp;将模型修正为<em><strong>T—POSE</strong></em><br><br>&emsp;&emsp;打开T窗，将模型修改为<em><strong>T—POSE</strong></em>，建议调整骨骼<em><strong>肩P</strong></em>与<em><strong>肩C</strong></em>，若无，可替换为<em><strong>肩</strong></em>与<em><strong>腕</strong></em>，此处大致认为肩与胳膊处于水平状态即可，不必过分要求度数<br><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/14/ZH2hIoz7TbfLmle.png"
-                      alt="image4.png"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/14/OIGXqKiFUAhVpLR.png"
-                      alt="image5.png"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/14/MEaCtSTz2rceiUp.png"
-                      alt="image6.png"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/14/agw3NnFz8bRBlSy.png"
-                      alt="image7.png"
-                ><br><br>&emsp;&emsp;点击OK即可，等待进度条走完即可<br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/14/DVPWl7rdSTc6Azb.png"
-                      alt="image8.png"
-                ><br><img  
-                     lazyload
-                     src="/images/loading.svg"
-                     data-src="https://s2.loli.net/2023/12/14/QGVnM8beWjCdER6.png"
-                      alt="image9.png"
-                ><br><br>&emsp;&emsp;最后保存即可</p>
-<hr>
-<h2 id="视频版教程"><a href="#视频版教程" class="headerlink" title="视频版教程"></a>视频版教程<br></h2><div style="position:relative; width:100%; height:0; padding-bottom:75%;">
-<iframe src="//player.bilibili.com/player.html?aid=622141662&bvid=BV1Eb4y157F2&cid=1366083295&p=1" 
-scrolling="no" border="0" frameborder="no"  framespacing="0"  
-style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
-</div>]]></content>
-      <categories>
-        <category>MMD</category>
-        <category>MMD 教程</category>
-        <category>PJSK动作类</category>
-      </categories>
-      <tags>
-        <tag>PJSK</tag>
       </tags>
   </entry>
   <entry>
@@ -3804,6 +3848,76 @@ UnityEngine.GUIUtility:ProcessEvent (int,intptr,bool&amp;)
       <tags>
         <tag>VRM</tag>
         <tag>PMX</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>安歌的动作使用指南</title>
+    <url>/posts/40366/</url>
+    <content><![CDATA[<p>&emsp;&emsp;<em><strong>欢迎各位使用动作数据<br>&emsp;&emsp;本动作源于游戏&emsp;<a class="link"   href="https://pjsekai.sega.jp/" >《世界计划 彩色舞台 feat. 初音未来》<i class="fa-solid fa-arrow-up-right ml-[0.2em] font-light align-text-top text-[0.7em] link-icon"></i></a>，故日语用户请谨慎使用。<br>&emsp;&emsp;使用愉快！建议配合视频版食用</strong></em></p>
+<hr>
+<h2 id="STUFF"><a href="#STUFF" class="headerlink" title="STUFF"></a>STUFF</h2><p>&emsp;&emsp;<em><strong>使用到的模型：</strong></em> <br>&emsp;&emsp;<em><strong>Sour式初音ミクVer.1.02_by_Sour暄</strong></em> <br>&emsp;&emsp;<em><strong>使用到的PMXEditor版本</strong></em> <br>&emsp;&emsp;<em><strong>PmxEditor_0257</strong></em></p>
+<hr>
+<h2 id="步骤一："><a href="#步骤一：" class="headerlink" title="步骤一："></a>步骤一：</h2><p>&emsp;&emsp;首先，在PE中打开你所需要修改的模型。<br>&emsp;&emsp;此处使用Sour式初音ミクVer.1.02_by_Sour暄作为示范<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/1TSad5RqlpEysfw.png"
+                      alt="image1.png"
+                ><br>&emsp;&emsp;首先，将<em><strong>下半身</strong></em>顺序移动至<em><strong>上半身</strong></em>上方，并且将<em><strong>上半身</strong></em>亲骨改为<em><strong>下半身</strong></em><br><br><br>&emsp;&emsp;如图所示<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/gDFY9iHQ5tWC7dJ.png"
+                      alt="image2.png"
+                ><br>&emsp;&emsp;其次，将<em><strong>腰，グルーブ，センター</strong></em>三个骨骼调整至与下半身处于同一位置<br>&emsp;&emsp;如图所示<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/Z8jdHyNaCJuUkxf.png"
+                      alt="image3.png"
+                ><br></p>
+<hr>
+<h2 id="步骤二："><a href="#步骤二：" class="headerlink" title="步骤二："></a>步骤二：</h2><p>&emsp;&emsp;将模型修正为<em><strong>T—POSE</strong></em><br><br>&emsp;&emsp;打开T窗，将模型修改为<em><strong>T—POSE</strong></em>，建议调整骨骼<em><strong>肩P</strong></em>与<em><strong>肩C</strong></em>，若无，可替换为<em><strong>肩</strong></em>与<em><strong>腕</strong></em>，此处大致认为肩与胳膊处于水平状态即可，不必过分要求度数<br><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/ZH2hIoz7TbfLmle.png"
+                      alt="image4.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/OIGXqKiFUAhVpLR.png"
+                      alt="image5.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/MEaCtSTz2rceiUp.png"
+                      alt="image6.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/agw3NnFz8bRBlSy.png"
+                      alt="image7.png"
+                ><br><br>&emsp;&emsp;点击OK即可，等待进度条走完即可<br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/DVPWl7rdSTc6Azb.png"
+                      alt="image8.png"
+                ><br><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://s2.loli.net/2023/12/14/QGVnM8beWjCdER6.png"
+                      alt="image9.png"
+                ><br><br>&emsp;&emsp;最后保存即可</p>
+<hr>
+<h2 id="视频版教程"><a href="#视频版教程" class="headerlink" title="视频版教程"></a>视频版教程<br></h2><div style="position:relative; width:100%; height:0; padding-bottom:75%;">
+<iframe src="//player.bilibili.com/player.html?aid=622141662&bvid=BV1Eb4y157F2&cid=1366083295&p=1" 
+scrolling="no" border="0" frameborder="no"  framespacing="0"  
+style="position:absolute; width:100%; height:100%;  left:0; top:0"  > </iframe>
+</div>]]></content>
+      <categories>
+        <category>MMD</category>
+        <category>MMD 教程</category>
+        <category>PJSK动作类</category>
+      </categories>
+      <tags>
+        <tag>PJSK</tag>
       </tags>
   </entry>
 </search>
