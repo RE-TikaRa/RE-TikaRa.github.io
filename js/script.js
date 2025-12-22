@@ -48,9 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
         // Generate Grid
         // Headers
         const shortWeekDays = ['一', '二', '三', '四', '五', '六', '日'];
-        shortWeekDays.forEach(day => {
+        shortWeekDays.forEach((day, index) => {
             const el = document.createElement('div');
             el.className = 'calendar-day-name';
+            if (index >= 5) el.classList.add('weekend');
             el.textContent = day;
             calendarGrid.appendChild(el);
         });
@@ -74,6 +75,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const el = document.createElement('div');
             el.className = 'calendar-day';
             el.textContent = i;
+            const dayOfWeek = new Date(year, month, i).getDay();
+            if (dayOfWeek === 0 || dayOfWeek === 6) {
+                el.classList.add('weekend');
+            }
             if (i === today) {
                 el.classList.add('current');
             }

@@ -35,6 +35,13 @@
     --accent-color: #e67e22;
     --accent-rgb: 230, 126, 34;
     --highlight-bg: #fff;
+    --radius-lg: 28px;
+    --radius-md: 18px;
+    --blur-strength: 18px;
+    --ease-out: cubic-bezier(0.2, 0.9, 0.2, 1);
+    --focus-ring: 0 0 0 4px rgba(var(--accent-rgb), 0.22);
+    --glass-inset: rgba(255, 255, 255, 0.22);
+    --glass-glow: rgba(var(--accent-rgb), 0.10);
 }
 
 [data-theme="dark"] {
@@ -52,6 +59,9 @@
     --accent-color: #f39c12;
     --accent-rgb: 243, 156, 18;
     --highlight-bg: rgba(255, 255, 255, 0.1);
+    --focus-ring: 0 0 0 4px rgba(var(--accent-rgb), 0.16);
+    --glass-inset: rgba(255, 255, 255, 0.14);
+    --glass-glow: rgba(var(--accent-rgb), 0.08);
 }
 
 * {
@@ -69,10 +79,15 @@ body {
     align-items: center;
     overflow-x: hidden;
     background-color: var(--bg-color);
-    padding: 24px;
+    padding: clamp(18px, 4vw, 30px);
     color: var(--text-primary);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+::selection {
+    background: rgba(var(--accent-rgb), 0.22);
 }
 
 body::before {
@@ -135,14 +150,19 @@ body::before {
 
 /* Glassmorphism Base Class */
 .glass {
-    background: var(--glass-bg);
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
-    border-radius: 28px;
+    background-color: var(--glass-bg);
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0.10));
+    backdrop-filter: blur(var(--blur-strength));
+    -webkit-backdrop-filter: blur(var(--blur-strength));
+    border-radius: var(--radius-lg);
     border: 1px solid var(--glass-border);
     box-shadow: var(--card-shadow);
     position: relative;
     overflow: hidden;
+}
+
+[data-theme="dark"] .glass {
+    background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(0, 0, 0, 0.06));
 }
 
 .glass::before {
@@ -150,6 +170,7 @@ body::before {
     position: absolute;
     inset: 0;
     background:
+        radial-gradient(900px circle at 50% -10%, rgba(255, 255, 255, 0.14), transparent 58%),
         radial-gradient(700px circle at var(--mx, 50%) var(--my, 15%), rgba(255, 255, 255, calc(0.22 * var(--shine, 0))), transparent 55%),
         linear-gradient(180deg, rgba(255, 255, 255, 0.22), transparent 45%);
     pointer-events: none;
@@ -157,6 +178,7 @@ body::before {
 
 [data-theme="dark"] .glass::before {
     background:
+        radial-gradient(900px circle at 50% -10%, rgba(255, 255, 255, 0.08), transparent 62%),
         radial-gradient(700px circle at var(--mx, 50%) var(--my, 15%), rgba(255, 255, 255, calc(0.14 * var(--shine, 0))), transparent 58%),
         linear-gradient(180deg, rgba(255, 255, 255, 0.10), transparent 55%);
 }
@@ -166,14 +188,16 @@ body::before {
     position: absolute;
     inset: 0;
     border-radius: inherit;
-    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    box-shadow:
+        inset 0 1px 0 var(--glass-inset),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.06);
     pointer-events: none;
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: 1.2fr 1fr 1.2fr;
-    gap: 24px;
+    gap: clamp(18px, 3vw, 28px);
     padding: 0;
     max-width: 1200px;
     width: 100%;
@@ -183,7 +207,7 @@ body::before {
 .column {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: clamp(18px, 3vw, 26px);
 }
 
 .full-height {
@@ -201,7 +225,7 @@ body::before {
     --mx: 50%;
     --my: 15%;
     --shine: 0;
-    transition: transform 0.22s ease, box-shadow 0.22s ease;
+    transition: transform 0.22s var(--ease-out), box-shadow 0.22s var(--ease-out), filter 0.22s var(--ease-out), border-color 0.22s var(--ease-out);
     transform: perspective(900px) translate3d(0, var(--lift), 0) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
     transform-style: preserve-3d;
     will-change: transform;
@@ -210,13 +234,19 @@ body::before {
 .card:hover {
     --lift: -3px;
     --shine: 1;
-    box-shadow: var(--card-hover-shadow);
+    box-shadow: var(--card-hover-shadow), 0 0 0 1px rgba(255, 255, 255, 0.10) inset;
+    filter: saturate(1.06) contrast(1.02);
+}
+
+.card:active {
+    transform: perspective(900px) translate3d(0, calc(var(--lift) + 1px), 0) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
 }
 
 .link-card:focus-visible,
 #theme-toggle:focus-visible {
     outline: 2px solid var(--accent-color);
     outline-offset: 4px;
+    box-shadow: var(--focus-ring), var(--card-hover-shadow);
 }
 
 /* Profile Card */
@@ -244,10 +274,38 @@ body::before {
     border-radius: 50%;
     border: 4px solid rgba(255, 255, 255, 0.8);
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
 }
 
+.avatar-large {
+    position: relative;
+    width: 128px;
+    height: 128px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+}
+
+.avatar-large::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    border-radius: inherit;
+    background: conic-gradient(from 210deg, rgba(var(--accent-rgb), 0.0), rgba(var(--accent-rgb), 0.65), rgba(155, 102, 255, 0.55), rgba(var(--accent-rgb), 0.0));
+    filter: blur(0.2px);
+    opacity: 0.85;
+    animation: haloSpin 14s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes haloSpin {
+    to { transform: rotate(360deg); }
+}
+
+
 .profile-name {
-    font-size: 1.5rem;
+    font-size: clamp(1.35rem, 1.6vw, 1.6rem);
     font-weight: 600;
     color: var(--text-primary);
     margin: 10px 0;
@@ -266,6 +324,7 @@ body::before {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     text-align: center;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.10);
 }
 
 [data-theme="dark"] .profile-desc-box {
@@ -276,7 +335,7 @@ body::before {
 /* Link Cards (Middle Column) */
 .center-links {
     justify-content: space-between;
-    gap: 28px;
+    gap: clamp(18px, 2.8vw, 28px);
     padding: 12px 0;
     min-height: 520px;
 }
@@ -290,6 +349,11 @@ body::before {
     justify-content: flex-start;
     min-height: 110px;
     --link-accent-rgb: var(--accent-rgb);
+    --glass-border: rgba(var(--link-accent-rgb), 0.22);
+}
+
+.link-card:hover {
+    --glass-border: rgba(var(--link-accent-rgb), 0.46);
 }
 
 .link-card:active {
@@ -312,6 +376,20 @@ body::before {
     color: rgb(var(--link-accent-rgb));
     font-size: 1.6rem;
     flex-shrink: 0;
+    box-shadow: 0 16px 35px rgba(var(--link-accent-rgb), 0.12);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.22s var(--ease-out), box-shadow 0.22s var(--ease-out);
+}
+
+.icon-circle::after {
+    content: '';
+    position: absolute;
+    inset: -40%;
+    background: radial-gradient(circle at 30% 25%, rgba(255, 255, 255, 0.55), transparent 55%);
+    opacity: 0.55;
+    transform: rotate(-12deg);
+    pointer-events: none;
 }
 
 [data-theme="dark"] .icon-circle {
@@ -319,18 +397,28 @@ body::before {
 }
 
 .link-text {
-    font-size: 1.35rem;
+    font-size: clamp(1.2rem, 1.8vw, 1.45rem);
     font-weight: 600;
     color: var(--text-primary);
     letter-spacing: 0.2px;
+    transition: transform 0.22s var(--ease-out);
 }
 
 .link-chevron {
     margin-left: auto;
     opacity: 0.45;
     font-size: 1rem;
-    transition: transform 0.2s ease, opacity 0.2s ease;
+    transition: transform 0.22s var(--ease-out), opacity 0.22s var(--ease-out);
     color: var(--text-secondary);
+}
+
+.link-card:hover .icon-circle {
+    transform: translateY(-1px) scale(1.02);
+    box-shadow: 0 18px 45px rgba(var(--link-accent-rgb), 0.16);
+}
+
+.link-card:hover .link-text {
+    transform: translateY(-1px);
 }
 
 .link-card:hover .link-chevron {
@@ -346,6 +434,16 @@ body::before {
     justify-content: center;
     position: relative;
     min-height: 200px;
+    --glass-border: rgba(var(--accent-rgb), 0.18);
+}
+
+.clock-card::after {
+    content: '';
+    position: absolute;
+    inset: -60px;
+    background: radial-gradient(closest-side at 50% 25%, var(--glass-glow), transparent 70%);
+    opacity: 0.9;
+    pointer-events: none;
 }
 
 .clock-display {
@@ -359,7 +457,7 @@ body::before {
 }
 
 .clock-part {
-    font-size: 4.6rem;
+    font-size: clamp(3.2rem, 6vw, 4.8rem);
     font-weight: 800;
     line-height: 1;
     color: var(--text-primary);
@@ -368,21 +466,31 @@ body::before {
 }
 
 .clock-sep {
-    font-size: 3.6rem;
+    font-size: clamp(2.4rem, 4.5vw, 3.8rem);
     font-weight: 700;
     line-height: 1;
     opacity: 0.45;
     color: var(--text-secondary);
     font-family: "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    animation: clockPulse 1.6s ease-in-out infinite;
 }
 
 .clock-part--second {
-    font-size: 3.2rem;
+    font-size: clamp(2.2rem, 4vw, 3.3rem);
     opacity: 0.85;
+}
+
+[data-theme="dark"] .clock-sep {
+    opacity: 0.52;
 }
 
 [data-theme="dark"] .clock-part {
     text-shadow: 0 20px 55px rgba(0, 0, 0, 0.55);
+}
+
+@keyframes clockPulse {
+    0%, 100% { opacity: 0.40; }
+    50% { opacity: 0.72; }
 }
 
 .calendar-card {
@@ -391,6 +499,7 @@ body::before {
     position: relative;
     padding: 30px;
     min-height: 360px;
+    --glass-border: rgba(var(--accent-rgb), 0.14);
 }
 
 .calendar-top-row {
@@ -403,14 +512,15 @@ body::before {
 
 .calendar-title-large {
     font-size: 2.5rem;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--text-primary);
+    letter-spacing: 0.6px;
 }
 
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 5px;
+    gap: 6px;
     text-align: center;
     font-size: 0.8rem;
     margin-top: auto;
@@ -422,23 +532,35 @@ body::before {
     color: var(--accent-color);
     font-weight: bold;
     margin-bottom: 5px;
+    opacity: 0.9;
+}
+
+.calendar-day-name.weekend {
+    color: rgba(var(--accent-rgb), 0.72);
 }
 
 .calendar-day {
     padding: 6px;
     border-radius: 6px;
     color: var(--text-secondary);
+    transition: transform 0.18s var(--ease-out), background-color 0.18s var(--ease-out), color 0.18s var(--ease-out);
+}
+
+.calendar-day.weekend:not(.empty):not(.current) {
+    color: rgba(var(--accent-rgb), 0.75);
 }
 
 .calendar-day.current {
     background: var(--accent-color);
     color: #fff;
     font-weight: bold;
+    box-shadow: 0 14px 30px rgba(var(--accent-rgb), 0.26);
 }
 
 .calendar-day:hover:not(.empty) {
     background: rgba(var(--accent-rgb), 0.18);
     cursor: pointer;
+    transform: translateY(-1px);
 }
 
 /* Music Player */
@@ -553,7 +675,7 @@ body::before {
     height: 40px;
     padding: 0 14px;
     border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.28);
+    border: 1px solid rgba(255, 255, 255, 0.32);
     cursor: pointer;
     color: var(--text-primary);
     font-size: 1rem;
@@ -562,22 +684,23 @@ body::before {
     justify-content: center;
     gap: 8px;
     font-weight: bold;
-    background: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.12));
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.10) inset;
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
 }
 
 [data-theme="dark"] #theme-toggle {
-    background: rgba(255, 255, 255, 0.08);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.06));
     border-color: rgba(255, 255, 255, 0.18);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
 }
 
 #theme-toggle:hover {
     transform: translateY(-2px);
     border-color: rgba(255, 255, 255, 0.40);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
 }
 
 #theme-toggle:active {
@@ -589,15 +712,66 @@ body::before {
     .grid-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .full-height {
+        min-height: 520px;
+    }
+
+    .center-links {
+        min-height: 460px;
+    }
 }
 
 @media (max-width: 600px) {
+    body {
+        padding: 16px;
+    }
+
+    .theme-switch-wrapper {
+        top: 14px;
+        right: 14px;
+    }
+
     .grid-container {
         grid-template-columns: 1fr;
     }
 
+    .profile-card {
+        padding: 34px 18px;
+    }
+
+    .full-height {
+        min-height: 460px;
+    }
+
+    .center-links {
+        min-height: unset;
+        padding: 0;
+        gap: 14px;
+    }
+
+    .link-card {
+        min-height: 92px;
+        padding: 18px 18px;
+        gap: 16px;
+    }
+
+    .clock-card {
+        min-height: 170px;
+    }
+
     .clock-display {
         flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .calendar-card {
+        min-height: 320px;
+        padding: 24px;
+    }
+
+    .calendar-title-large {
+        font-size: 2.15rem;
     }
 }
 
