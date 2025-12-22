@@ -10,6 +10,8 @@
 </head>
 <body>
     <div class="background-gradient"></div>
+    <canvas id="raindrop-canvas" class="raindrop-canvas" aria-hidden="true"></canvas>
+    <svg id="constellation-svg" class="constellation-canvas" aria-hidden="true"></svg>
 
     <div class="theme-switch-wrapper">
         <button id="theme-toggle" type="button" aria-label="切换主题">
@@ -27,6 +29,10 @@
                         <img src="https://s2.loli.net/2025/12/22/mkWtIYraVxdnTCe.jpg" alt="Avatar">
                     </div>
                     <h2 class="profile-name">亓翎_Re-TikaRa</h2>
+                    <div class="profile-greeting" aria-label="问候语">
+                        <div class="greeting-title" id="greeting">你好</div>
+                        <div class="greeting-sub" id="today">——</div>
+                    </div>
                     <div class="profile-desc-box">
                         一个很无趣的人造生命体的自娱自乐
                     </div>
@@ -69,7 +75,10 @@
             <!-- Calendar -->
             <div class="card calendar-card glass">
                 <div class="calendar-top-row">
-                    <div class="calendar-title-large">日历</div>
+                    <div class="calendar-title">
+                        <div class="calendar-title-large">日历</div>
+                        <div class="calendar-month" id="calendar-month">——</div>
+                    </div>
                 </div>
                 <div class="calendar-grid" id="calendar-grid"></div>
             </div>
