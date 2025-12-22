@@ -1,100 +1,114 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<!-- 声明文档类型为 HTML5 -->
+<html lang="zh-CN"> <!-- 设置页面语言为简体中文 -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ALp_Studio</title>
-    <link rel="icon" type="image/x-icon" href="https://youke2.picui.cn/s1/2025/12/22/69487018d79ad.ico">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- 元数据 -->
+    <meta charset="UTF-8"> <!-- 设置字符编码为 UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，以确保在移动设备上正确渲染 -->
+    <title>ALp_Studio</title> <!-- 页面标题 -->
+    <link rel="icon" type="image/x-icon" href="https://youke2.picui.cn/s1/2025/12/22/69487018d79ad.ico"> <!-- 设置网站图标 -->
+    
+    <!-- 引入外部样式表 -->
+    <link rel="stylesheet" href="css/style.css"> <!-- 自定义样式表 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Font Awesome 图标库 -->
 </head>
 <body>
+    <!-- 欢迎屏幕 -->
     <div id="welcome-screen">
         <div id="welcome-text-container">
+            <!-- 用于显示打字效果的文本容器 -->
             <span id="welcome-text"></span><span class="cursor"></span>
         </div>
     </div>
-    <div class="background-gradient"></div>
-    <canvas id="starfield-layer1" class="starfield-canvas" data-layer-id="1"></canvas>
-    <canvas id="starfield-layer2" class="starfield-canvas" data-layer-id="2"></canvas>
-    <canvas id="starfield-layer3" class="starfield-canvas" data-layer-id="3"></canvas>
-    <canvas id="shooting-star-canvas" class="starfield-canvas"></canvas>
-    <canvas id="raindrop-canvas" class="starfield-canvas"></canvas>
 
+    <!-- 背景元素 -->
+    <div class="background-gradient"></div> <!-- 背景渐变层 -->
+    <canvas id="starfield-layer1" class="starfield-canvas" data-layer-id="1"></canvas> <!-- 星空背景层1 -->
+    <canvas id="starfield-layer2" class="starfield-canvas" data-layer-id="2"></canvas> <!-- 星空背景层2 -->
+    <canvas id="starfield-layer3" class="starfield-canvas" data-layer-id="3"></canvas> <!-- 星空背景层3 -->
+    <canvas id="shooting-star-canvas" class="starfield-canvas"></canvas> <!-- 流星动画层 -->
+    <canvas id="raindrop-canvas" class="starfield-canvas"></canvas> <!-- 雨滴动画层 -->
+
+    <!-- 主题切换按钮 -->
     <div class="theme-switch-wrapper">
         <button id="theme-toggle" type="button" aria-label="切换主题">
-            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            <i class="fa-solid fa-moon" aria-hidden="true"></i> <!-- 月亮图标，代表深色模式 -->
             <span class="theme-toggle-text">深色</span>
         </button>
     </div>
     
+    <!-- 主要内容容器，使用视差效果 -->
     <div class="parallax-container">
         <main class="grid-container">
-            <!-- Column 1: Profile -->
-        <div class="column">
-            <div class="card profile-card glass full-height">
-                <div class="profile-content-wrapper">
-                    <div class="avatar-large">
-                        <img src="https://s2.loli.net/2025/12/22/mkWtIYraVxdnTCe.jpg" alt="Avatar">
-                    </div>
-                    <h2 class="profile-name">亓翎_Re-TikaRa</h2>
-                    <div class="profile-greeting" aria-label="问候语">
-                        <div class="greeting-title" id="greeting">你好</div>
-                        <div class="greeting-sub" id="today">——</div>
-                    </div>
-                    <div class="profile-desc-box">
-                        <span class="profile-desc-text">一个很无趣的人造生命体的自娱自乐</span>
+            <!-- 第一列: 个人资料 -->
+            <div class="column">
+                <div class="card profile-card glass full-height">
+                    <div class="profile-content-wrapper">
+                        <div class="avatar-large">
+                            <img src="https://s2.loli.net/2025/12/22/mkWtIYraVxdnTCe.jpg" alt="Avatar"> <!-- 个人头像 -->
+                        </div>
+                        <h2 class="profile-name">亓翎_Re-TikaRa</h2> <!-- 用户名 -->
+                        <div class="profile-greeting" aria-label="问候语">
+                            <div class="greeting-title" id="greeting">你好</div> <!-- 问候语标题 -->
+                            <div class="greeting-sub" id="today">——</div> <!-- 日期或额外信息 -->
+                        </div>
+                        <div class="profile-desc-box">
+                            <span class="profile-desc-text">一个很无趣的人造生命体的自娱自乐</span> <!-- 个人简介 -->
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Column 2: Links -->
-        <div class="column center-links">
-            <a href="https://github.com/RE-TikaRa" target="_blank" rel="noopener noreferrer" class="card link-card glass link-github">
-                <div class="icon-circle"><i class="fab fa-github"></i></div>
-                <span class="link-text">GitHub</span>
-                <i class="fa-solid fa-chevron-right link-chevron" aria-hidden="true"></i>
-            </a>
-            <a href="https://space.bilibili.com/374412219" target="_blank" rel="noopener noreferrer" class="card link-card glass link-bilibili">
-                <div class="icon-circle"><i class="fab fa-bilibili"></i></div>
-                <span class="link-text">BiliBili</span>
-                <i class="fa-solid fa-chevron-right link-chevron" aria-hidden="true"></i>
-            </a>
-            <a href="https://www.re-tikara.fun/Blog" target="_blank" rel="noopener noreferrer" class="card link-card glass link-blog">
-                <div class="icon-circle"><i class="fas fa-book"></i></div>
-                <span class="link-text">文章库</span>
-                <i class="fa-solid fa-chevron-right link-chevron" aria-hidden="true"></i>
-            </a>
-        </div>
-
-        <!-- Column 3: Widgets -->
-        <div class="column">
-            <!-- Clock -->
-            <div class="card clock-card glass">
-                <div class="clock-display" aria-label="当前时间">
-                    <span class="clock-part" id="hour">00</span>
-                    <span class="clock-sep" aria-hidden="true">:</span>
-                    <span class="clock-part" id="minute">00</span>
-                    <span class="clock-sep" aria-hidden="true">:</span>
-                    <span class="clock-part clock-part--second" id="second">00</span>
-                </div>
+            <!-- 第二列: 链接 -->
+            <div class="column center-links">
+                <!-- GitHub 链接 -->
+                <a href="https://github.com/RE-TikaRa" target="_blank" rel="noopener noreferrer" class="card link-card glass link-github">
+                    <div class="icon-circle"><i class="fab fa-github"></i></div>
+                    <span class="link-text">GitHub</span>
+                    <i class="fa-solid fa-chevron-right link-chevron" aria-hidden="true"></i>
+                </a>
+                <!-- BiliBili 链接 -->
+                <a href="https://space.bilibili.com/374412219" target="_blank" rel="noopener noreferrer" class="card link-card glass link-bilibili">
+                    <div class="icon-circle"><i class="fab fa-bilibili"></i></div>
+                    <span class="link-text">BiliBili</span>
+                    <i class="fa-solid fa-chevron-right link-chevron" aria-hidden="true"></i>
+                </a>
+                <!-- 文章库/博客 链接 -->
+                <a href="https://www.re-tikara.fun/Blog" target="_blank" rel="noopener noreferrer" class="card link-card glass link-blog">
+                    <div class="icon-circle"><i class="fas fa-book"></i></div>
+                    <span class="link-text">文章库</span>
+                    <i class="fa-solid fa-chevron-right link-chevron" aria-hidden="true"></i>
+                </a>
             </div>
 
-            <!-- Calendar -->
-            <div class="card calendar-card glass">
-                <div class="calendar-top-row">
-                    <div class="calendar-title">
-                        <div class="calendar-title-large">日历</div>
-                        <div class="calendar-month" id="calendar-month">——</div>
+            <!-- 第三列: 小工具 -->
+            <div class="column">
+                <!-- 时钟小工具 -->
+                <div class="card clock-card glass">
+                    <div class="clock-display" aria-label="当前时间">
+                        <span class="clock-part" id="hour">00</span>
+                        <span class="clock-sep" aria-hidden="true">:</span>
+                        <span class="clock-part" id="minute">00</span>
+                        <span class="clock-sep" aria-hidden="true">:</span>
+                        <span class="clock-part clock-part--second" id="second">00</span>
                     </div>
                 </div>
-                <div class="calendar-grid" id="calendar-grid"></div>
-            </div>
-        </div>
-    </main>
-</div>
 
+                <!-- 日历小工具 -->
+                <div class="card calendar-card glass">
+                    <div class="calendar-top-row">
+                        <div class="calendar-title">
+                            <div class="calendar-title-large">日历</div>
+                            <div class="calendar-month" id="calendar-month">——</div>
+                        </div>
+                    </div>
+                    <div class="calendar-grid" id="calendar-grid"></div> <!-- 日历网格将由 JavaScript 动态生成 -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 引入 JavaScript 文件 -->
     <script src="js/script.js"></script>
 </body>
 </html>

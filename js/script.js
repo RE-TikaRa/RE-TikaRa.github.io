@@ -2,75 +2,78 @@
  *
  *  Tika's Personal Homepage - Interactive Script
  *  Version: 2.2 (Re-introducing Shooting Stars)
+ *  Tika 的个人主页 - 交互脚本
+ *  版本: 2.2 (重新引入流星效果)
  *
  */
 
 /**
- * Configuration object for various effects and settings.
+ * 用于各种效果和设置的配置对象。
+ * @const {object}
  */
 const CONFIG = {
-    // Welcome screen settings
-    WELCOME_TEXT: "正在唤醒情绪体接口…",
-    WELCOME_TYPE_SPEED: 120, // ms
-    WELCOME_FADE_DELAY: 1000, // ms
+    // 欢迎屏幕设置
+    WELCOME_TEXT: "正在唤醒情绪体接口…", // 欢迎语文本
+    WELCOME_TYPE_SPEED: 120, // 打字速度 (毫秒)
+    WELCOME_FADE_DELAY: 1000, // 打字结束后淡出延迟 (毫秒)
 
-    // Animation interpolation factors
-    LERP_FACTOR_FAST: 0.1,
-    LERP_FACTOR_NORMAL: 0.08,
+    // 动画插值因子 (用于平滑动画)
+    LERP_FACTOR_FAST: 0.1, // 快速插值
+    LERP_FACTOR_NORMAL: 0.08, // 普通插值
 
-    // Global Parallax effect
-    GLOBAL_TILT_STRENGTH: 8, // degrees
+    // 全局视差效果
+    GLOBAL_TILT_STRENGTH: 8, // 全局倾斜强度 (度)
 
-    // Parallax effect on background
-    PARALLAX_STRENGTH_X: -14,
-    PARALLAX_STRENGTH_Y: -10,
+    // 背景视差效果
+    PARALLAX_STRENGTH_X: -14, // X轴视差强度
+    PARALLAX_STRENGTH_Y: -10, // Y轴视差强度
 
-    // Card tilt effect
-    TILT_MAX_ANGLE: 3.2, // degrees
+    // 卡片倾斜效果
+    TILT_MAX_ANGLE: 3.2, // 最大倾斜角度 (度)
 
-    // Magnetic card effect
-    MAGNETIC_STRENGTH: 12, // Increased for a stronger pull
-    MAGNETIC_MAX_DIST: 150, // Increased detection range
+    // 卡片磁性吸附效果
+    MAGNETIC_STRENGTH: 12, // 磁性强度，值越大吸力越强
+    MAGNETIC_MAX_DIST: 150, // 磁性最大响应距离
 
-    // Avatar halo effect
-    HALO_PROXIMITY_MAX_DIST: 400, // pixels
+    // 头像光环效果
+    HALO_PROXIMITY_MAX_DIST: 400, // 鼠标接近头像触发光环效果的最大距离 (像素)
 
-    // Starfield background effect
-    STAR_COUNT_LAYER1: 300,
-    STAR_COUNT_LAYER2: 200,
-    STAR_COUNT_LAYER3: 100,
-    STAR_PARALLAX_FACTOR1: 0.1,
-    STAR_PARALLAX_FACTOR2: 0.3,
-    STAR_PARALLAX_FACTOR3: 0.6,
+    // 星空背景效果
+    STAR_COUNT_LAYER1: 300, // 第1层星星数量
+    STAR_COUNT_LAYER2: 200, // 第2层星星数量
+    STAR_COUNT_LAYER3: 100, // 第3层星星数量
+    STAR_PARALLAX_FACTOR1: 0.1, // 第1层星星视差因子
+    STAR_PARALLAX_FACTOR2: 0.3, // 第2层星星视差因子
+    STAR_PARALLAX_FACTOR3: 0.6, // 第3层星星视差因子
 
-    // Shooting star effect
-    SHOOTING_STAR_COUNT: 3,
-    SHOOTING_STAR_RESPAWN_DELAY: 2000, // ms
+    // 流星效果
+    SHOOTING_STAR_COUNT: 3, // 流星数量
+    SHOOTING_STAR_RESPAWN_DELAY: 2000, // 流星重生延迟 (毫秒)
 
-    // Text scramble effect characters
+    // 文字打乱效果所用的字符集
     SCRAMBLE_CHARS: 'ĀČĘĢĪĶĻŅŌŖŠŪŽdħĕįŏŧș⇋⇌⇟⇞⌆⌅⌄⍰⍞⍯⎈⎔⎚☍⚿⛶⛯⛮⛻⛼⛾⛿',
 
-    // Raindrop effect
-    RAINDROP_COUNT: 150,
+    // 雨滴效果
+    RAINDROP_COUNT: 150, // 雨滴数量
 };
 
 
-/* --- 1. EFFECT CLASSES --- */
-/* ------------------------- */
+/* --- 1. EFFECT CLASSES / 效果类 --- */
+/* ---------------------------------- */
 
 /**
- * Creates a text scramble animation effect on an element.
+ * 在元素上创建文本打乱动画效果。
  */
 class TextScramble {
     constructor(el) {
-        this.el = el;
-        this.chars = CONFIG.SCRAMBLE_CHARS;
-        this.update = this.update.bind(this);
-        this.isRunning = false;
+        this.el = el; // 目标元素
+        this.chars = CONFIG.SCRAMBLE_CHARS; // 字符集
+        this.update = this.update.bind(this); // 绑定 update 方法的 this 上下文
+        this.isRunning = false; // 动画是否正在运行的标志
     }
 
     setText(newText) {
-        if (this.isRunning) return Promise.resolve();
+        if (this.isRunning) return Promise.resolve(); // 如果正在运行，则直接返回
         this.isRunning = true;
 
         const oldText = this.el.innerText;
@@ -80,11 +83,11 @@ class TextScramble {
         for (let i = 0; i < length; i++) {
             const from = oldText[i] || '';
             const to = newText[i] || '';
-            const start = Math.floor(Math.random() * 40);
-            const end = start + Math.floor(Math.random() * 40);
+            const start = Math.floor(Math.random() * 40); // 随机开始帧
+            const end = start + Math.floor(Math.random() * 40); // 随机结束帧
             this.queue.push({ from, to, start, end });
         }
-        cancelAnimationFrame(this.frameRequest);
+        cancelAnimationFrame(this.frameRequest); // 取消之前的动画帧
         this.frame = 0;
         this.update();
         return promise;
@@ -97,23 +100,23 @@ class TextScramble {
             let { from, to, start, end, char } = this.queue[i];
             if (this.frame >= end) {
                 complete++;
-                output += to;
+                output += to; // 动画结束，显示最终字符
             } else if (this.frame >= start) {
                 if (!char || Math.random() < 0.28) {
-                    char = this.randomChar();
+                    char = this.randomChar(); // 随机选择一个字符
                     this.queue[i].char = char;
                 }
-                output += `<span class="dud">${char}</span>`;
+                output += `<span class="dud">${char}</span>`; // 显示随机字符
             } else {
-                output += from;
+                output += from; // 动画开始前，显示原始字符
             }
         }
         this.el.innerHTML = output;
         if (complete === this.queue.length) {
-            this.resolve();
+            this.resolve(); // 所有字符动画完成
             this.isRunning = false;
         } else {
-            this.frameRequest = requestAnimationFrame(this.update);
+            this.frameRequest = requestAnimationFrame(this.update); // 请求下一帧
             this.frame++;
         }
     }
@@ -124,14 +127,14 @@ class TextScramble {
 }
 
 /**
- * Represents a single star in the starfield background.
+ * 代表星空背景中的一颗星星。
  */
 class Star {
     constructor(width, height) {
         this.x = Math.random() * width;
         this.y = Math.random() * height;
-        this.size = Math.random() * 1.5 + 0.5;
-        this.opacity = Math.random() * 0.5 + 0.2;
+        this.size = Math.random() * 1.5 + 0.5; // 星星大小
+        this.opacity = Math.random() * 0.5 + 0.2; // 星星透明度
     }
 
     draw(ctx) {
@@ -143,7 +146,7 @@ class Star {
 }
 
 /**
- * Represents a single shooting star.
+ * 代表一颗流星。
  */
 class ShootingStar {
     constructor(width, height) {
@@ -155,11 +158,11 @@ class ShootingStar {
     reset() {
         this.x = Math.random() * this.width;
         this.y = 0;
-        this.len = Math.random() * 80 + 10;
-        this.speed = Math.random() * 10 + 6;
-        this.size = Math.random() * 1 + 0.1;
-        this.waitTime = new Date().getTime() + Math.random() * CONFIG.SHOOTING_STAR_RESPAWN_DELAY;
-        this.active = false;
+        this.len = Math.random() * 80 + 10; // 流星长度
+        this.speed = Math.random() * 10 + 6; // 流星速度
+        this.size = Math.random() * 1 + 0.1; // 流星粗细
+        this.waitTime = new Date().getTime() + Math.random() * CONFIG.SHOOTING_STAR_RESPAWN_DELAY; // 下次出现的时间
+        this.active = false; // 是否可见
     }
 
     update() {
@@ -167,10 +170,10 @@ class ShootingStar {
             this.x -= this.speed;
             this.y += this.speed;
             if (this.x < 0 || this.y >= this.height) {
-                this.reset();
+                this.reset(); // 飞出屏幕后重置
             }
         } else if (new Date().getTime() > this.waitTime) {
-            this.active = true;
+            this.active = true; // 等待时间结束后激活
         }
     }
 
@@ -186,7 +189,7 @@ class ShootingStar {
 }
 
 /**
- * Represents a single raindrop.
+ * 代表一个雨滴。
  */
 class Raindrop {
     constructor(width, height) {
@@ -197,16 +200,16 @@ class Raindrop {
 
     reset() {
         this.x = Math.random() * this.width;
-        this.y = Math.random() * -this.height;
-        this.speed = Math.random() * 6 + 2;
-        this.length = Math.random() * 20 + 10;
-        this.opacity = Math.random() * 0.3 + 0.2;
+        this.y = Math.random() * -this.height; // 从屏幕外开始
+        this.speed = Math.random() * 6 + 2; // 雨滴速度
+        this.length = Math.random() * 20 + 10; // 雨滴长度
+        this.opacity = Math.random() * 0.3 + 0.2; // 雨滴透明度
     }
 
     update() {
         this.y += this.speed;
         if (this.y > this.height) {
-            this.reset();
+            this.reset(); // 落出屏幕后重置
             this.y = 0;
         }
     }
@@ -222,17 +225,17 @@ class Raindrop {
 }
 
 
-/* --- 2. INITIALIZATION FUNCTIONS --- */
-/* ----------------------------------- */
+/* --- 2. INITIALIZATION FUNCTIONS / 初始化函数 --- */
+/* ----------------------------------------------- */
 
 /**
- * Initializes the welcome screen typing animation.
+ * 初始化欢迎屏幕的打字动画。
  */
 function initWelcomeScreen() {
     const welcomeScreen = document.getElementById('welcome-screen');
     const welcomeTextEl = document.getElementById('welcome-text');
     if (!welcomeScreen || !welcomeTextEl) {
-        document.body.classList.add('is-ready');
+        document.body.classList.add('is-ready'); // 如果元素不存在，直接标记为准备就绪
         return;
     }
 
@@ -243,17 +246,18 @@ function initWelcomeScreen() {
             charIndex++;
             setTimeout(typeChar, CONFIG.WELCOME_TYPE_SPEED);
         } else {
+            // 打字结束后，延迟一段时间再隐藏欢迎屏幕
             setTimeout(() => {
                 welcomeScreen.classList.add('hidden');
                 document.body.classList.add('is-ready');
             }, CONFIG.WELCOME_FADE_DELAY);
         }
     }
-    setTimeout(typeChar, 500);
+    setTimeout(typeChar, 500); // 延迟开始打字
 }
 
 /**
- * Initializes the clock, greeting, and date display.
+ * 初始化时钟、问候语和日期显示。
  */
 function initClockAndGreeting() {
     const hourEl = document.getElementById('hour');
@@ -276,6 +280,7 @@ function initClockAndGreeting() {
         const hours = now.getHours();
         const greetingKey = String(hours);
 
+        // 仅在小时变化时更新问候语，避免不必要的 DOM 操作
         if (greetingKey !== lastGreetingKey) {
             let greetingText = '你好';
             if (hours >= 5 && hours <= 8) greetingText = '早上好';
@@ -286,6 +291,7 @@ function initClockAndGreeting() {
             else greetingText = '夜深了';
 
             if (greetingEl && !reduceMotion) {
+                // 使用字符动画更新问候语
                 greetingEl.innerHTML = '';
                 greetingText.split('').forEach((char, i) => {
                     const span = document.createElement('span');
@@ -301,6 +307,7 @@ function initClockAndGreeting() {
 
         if (todayEl) {
             const dateKey = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
+            // 仅在日期变化时更新日期显示
             if (dateKey !== lastDateKey) {
                 todayEl.textContent = dateFormatter.format(now);
                 lastDateKey = dateKey;
@@ -318,12 +325,13 @@ function initClockAndGreeting() {
 
     function scheduleClock() {
         updateClock();
-        // Calculate delay until the start of the next second for precision
+        // 计算到下一秒开始的延迟，以实现精准更新
         const delay = 1000 - (Date.now() % 1000);
         clockTimer = window.setTimeout(scheduleClock, delay);
     }
 
     scheduleClock();
+    // 当页面从后台切回前台时，重新同步时钟
     document.addEventListener('visibilitychange', () => {
         if (!document.hidden) {
             if (clockTimer) window.clearTimeout(clockTimer);
@@ -333,14 +341,14 @@ function initClockAndGreeting() {
 }
 
 /**
- * Initializes the calendar widget.
+ * 初始化日历小工具。
  */
 function initCalendar() {
     const calendarGrid = document.getElementById('calendar-grid');
     const calendarMonthEl = document.getElementById('calendar-month');
     if (!calendarGrid) return;
 
-    calendarGrid.textContent = '';
+    calendarGrid.textContent = ''; // 清空日历
     const now = new Date();
     const year = now.getFullYear();
     const month = now.getMonth();
@@ -350,17 +358,19 @@ function initCalendar() {
         calendarMonthEl.textContent = `${year}年${month + 1}月`;
     }
 
+    // 添加星期标题
     const shortWeekDays = ['一', '二', '三', '四', '五', '六', '日'];
     shortWeekDays.forEach((day, index) => {
         const el = document.createElement('div');
         el.className = 'calendar-day-name';
-        if (index >= 5) el.classList.add('weekend');
+        if (index >= 5) el.classList.add('weekend'); // 标记周末
         el.textContent = day;
         calendarGrid.appendChild(el);
     });
 
+    // 计算当月第一天是星期几，并填充空白
     const firstDayOfMonth = new Date(year, month, 1).getDay();
-    let startOffset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
+    let startOffset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; // 周一为0
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
     for (let i = 0; i < startOffset; i++) {
@@ -369,19 +379,20 @@ function initCalendar() {
         calendarGrid.appendChild(el);
     }
 
+    // 填充当月所有日期
     for (let i = 1; i <= daysInMonth; i++) {
         const el = document.createElement('div');
         el.className = 'calendar-day';
         el.textContent = i;
         const dayOfWeek = new Date(year, month, i).getDay();
         if (dayOfWeek === 0 || dayOfWeek === 6) el.classList.add('weekend');
-        if (i === today) el.classList.add('current');
+        if (i === today) el.classList.add('current'); // 标记当天
         calendarGrid.appendChild(el);
     }
 }
 
 /**
- * Initializes the theme toggle functionality with a creative transition.
+ * 初始化主题切换功能，并使用 View Transitions API 实现创意过渡效果。
  */
 function initTheme() {
     const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
@@ -391,6 +402,7 @@ function initTheme() {
         document.documentElement.setAttribute('data-theme', theme);
     }
 
+    // 同步切换按钮的图标和文本
     function syncThemeToggle(theme) {
         if (!toggleBtn) return;
         const iconEl = toggleBtn.querySelector('i');
@@ -401,6 +413,7 @@ function initTheme() {
         toggleBtn.setAttribute('aria-label', isDark ? '切换到浅色模式' : '切换到深色模式');
     }
 
+    // 初始化主题：优先使用本地存储，其次是系统偏好
     const savedTheme = localStorage.getItem('theme');
     const initialTheme = savedTheme ?? (prefersDarkScheme.matches ? 'dark' : 'light');
     setTheme(initialTheme);
@@ -411,7 +424,7 @@ function initTheme() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
 
-            // Fallback for browsers that don't support View Transitions
+            // 如果浏览器不支持 View Transitions API，则使用回退方案
             if (!document.startViewTransition) {
                 setTheme(nextTheme);
                 localStorage.setItem('theme', nextTheme);
@@ -419,7 +432,7 @@ function initTheme() {
                 return;
             }
 
-            // Get click coordinates for the circular reveal animation
+            // 获取点击坐标，用于圆形揭示动画
             const x = event.clientX;
             const y = event.clientY;
             const endRadius = Math.hypot(
@@ -427,14 +440,14 @@ function initTheme() {
                 Math.max(y, window.innerHeight - y)
             );
 
-            // Start the view transition
+            // 开始视图过渡
             const transition = document.startViewTransition(() => {
                 setTheme(nextTheme);
                 localStorage.setItem('theme', nextTheme);
                 syncThemeToggle(nextTheme);
             });
 
-            // Animate the new view
+            // 为新视图添加动画
             transition.ready.then(() => {
                 document.documentElement.animate(
                     {
@@ -446,15 +459,16 @@ function initTheme() {
                     {
                         duration: 550,
                         easing: 'ease-in-out',
-                        pseudoElement: '::view-transition-new(root)',
+                        pseudoElement: '::view-transition-new(root)', // 动画作用于新视图的根伪元素
                     }
                 );
             });
         });
     }
 
+    // 监听系统颜色方案变化
     prefersDarkScheme.addEventListener('change', (e) => {
-        if (!localStorage.getItem('theme')) {
+        if (!localStorage.getItem('theme')) { // 仅当用户未手动设置主题时才跟随系统
             const nextTheme = e.matches ? 'dark' : 'light';
             if (!document.startViewTransition) {
                 setTheme(nextTheme);
@@ -470,9 +484,10 @@ function initTheme() {
 }
 
 /**
- * Initializes all interactive visual effects.
+ * 初始化所有交互式视觉效果。
  */
 function initInteractiveEffects() {
+    // 如果用户偏好减少动画，则不初始化效果
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const bg = document.querySelector('.background-gradient');
@@ -480,27 +495,28 @@ function initInteractiveEffects() {
     const profileCard = document.querySelector('.profile-card');
     const avatarHalo = profileCard?.querySelector('.avatar-large');
 
-    // Animation state variables
+    // 动画状态变量
     const animationState = {
-        targetX: 0, currentX: 0,
-        targetY: 0, currentY: 0,
-        targetSpotX: 50, currentSpotX: 50,
-        targetSpotY: 28, currentSpotY: 28,
-        targetSpotA: 0.1, currentSpotA: 0.1,
-        targetHaloScale: 1, currentHaloScale: 1,
-        targetHaloOpacity: 0.72, currentHaloOpacity: 0.72,
-        targetGlobalTiltX: 0, currentGlobalTiltX: 0,
-        targetGlobalTiltY: 0, currentGlobalTiltY: 0,
-        magneticElements: [],
-        floatingElements: [],
-        starfieldUpdate: () => {},
-        shootingStarUpdate: () => {},
-        raindropUpdate: () => {},
+        targetX: 0, currentX: 0, // 视差 X 轴目标值和当前值
+        targetY: 0, currentY: 0, // 视差 Y 轴目标值和当前值
+        targetSpotX: 50, currentSpotX: 50, // 鼠标光斑 X 轴
+        targetSpotY: 28, currentSpotY: 28, // 鼠标光斑 Y 轴
+        targetSpotA: 0.1, currentSpotA: 0.1, // 鼠标光斑透明度
+        targetHaloScale: 1, currentHaloScale: 1, // 头像光环缩放
+        targetHaloOpacity: 0.72, currentHaloOpacity: 0.72, // 头像光环透明度
+        targetGlobalTiltX: 0, currentGlobalTiltX: 0, // 全局倾斜 X 轴
+        targetGlobalTiltY: 0, currentGlobalTiltY: 0, // 全局倾斜 Y 轴
+        magneticElements: [], // 存储所有需要磁性效果的元素
+        floatingElements: [], // 存储所有需要浮动效果的元素
+        starfieldUpdate: () => {}, // 星空更新函数
+        shootingStarUpdate: () => {}, // 流星更新函数
+        raindropUpdate: () => {}, // 雨滴更新函数
     };
 
-    // Main animation loop
+    // 主动画循环
     function tick() {
         const { LERP_FACTOR_NORMAL, LERP_FACTOR_FAST } = CONFIG;
+        // 使用线性插值 (Lerp) 实现平滑动画
         animationState.currentX += (animationState.targetX - animationState.currentX) * LERP_FACTOR_NORMAL;
         animationState.currentY += (animationState.targetY - animationState.currentY) * LERP_FACTOR_NORMAL;
         animationState.currentSpotX += (animationState.targetSpotX - animationState.currentSpotX) * LERP_FACTOR_NORMAL;
@@ -511,6 +527,7 @@ function initInteractiveEffects() {
         animationState.currentGlobalTiltX += (animationState.targetGlobalTiltX - animationState.currentGlobalTiltX) * LERP_FACTOR_NORMAL;
         animationState.currentGlobalTiltY += (animationState.targetGlobalTiltY - animationState.currentGlobalTiltY) * LERP_FACTOR_NORMAL;
 
+        // 更新 DOM 元素的样式
         if (bg) {
             bg.style.transform = `translate3d(${animationState.currentX}px, ${animationState.currentY}px, 0) scale(1.06)`;
             bg.style.setProperty('--spot-x', `${animationState.currentSpotX.toFixed(2)}%`);
@@ -526,6 +543,7 @@ function initInteractiveEffects() {
             gridContainer.style.setProperty('--global-tilt-y', `${animationState.currentGlobalTiltY.toFixed(2)}deg`);
         }
 
+        // 更新磁性元素的位移
         animationState.magneticElements.forEach(item => {
             item.currentX += (item.targetX - item.currentX) * LERP_FACTOR_FAST;
             item.currentY += (item.targetY - item.currentY) * LERP_FACTOR_FAST;
@@ -533,19 +551,21 @@ function initInteractiveEffects() {
             item.el.style.setProperty('--magnetic-y', `${item.currentY.toFixed(2)}px`);
         });
 
+        // 更新浮动元素的位移
         const now = performance.now();
         animationState.floatingElements.forEach(item => {
             const floatY = Math.sin(item.phase + now * item.speed) * item.amplitude;
             item.el.style.setProperty('--float-y', `${floatY.toFixed(2)}px`);
         });
         
+        // 更新背景效果
         animationState.starfieldUpdate(animationState.currentX, animationState.currentY);
         animationState.shootingStarUpdate();
         animationState.raindropUpdate();
-        requestAnimationFrame(tick);
+        requestAnimationFrame(tick); // 请求下一帧
     }
 
-    // Mouse move listener for parallax and other effects
+    // 鼠标移出窗口时重置动画目标值
     const resetAnimationTargets = () => {
         animationState.targetX = 0;
         animationState.targetY = 0;
@@ -558,22 +578,25 @@ function initInteractiveEffects() {
         animationState.targetGlobalTiltY = 0;
     };
 
+    // 监听鼠标移动事件
     window.addEventListener('mousemove', (e) => {
         const { clientX: mouseX, clientY: mouseY } = e;
         const { innerWidth, innerHeight } = window;
-        const dx = mouseX / innerWidth - 0.5;
-        const dy = mouseY / innerHeight - 0.5;
+        const dx = mouseX / innerWidth - 0.5; // 鼠标 X 坐标归一化到 [-0.5, 0.5]
+        const dy = mouseY / innerHeight - 0.5; // 鼠标 Y 坐标归一化到 [-0.5, 0.5]
 
+        // 更新视差和全局倾斜的目标值
         animationState.targetX = dx * CONFIG.PARALLAX_STRENGTH_X;
         animationState.targetY = dy * CONFIG.PARALLAX_STRENGTH_Y;
-
         animationState.targetGlobalTiltX = -dy * CONFIG.GLOBAL_TILT_STRENGTH;
         animationState.targetGlobalTiltY = dx * CONFIG.GLOBAL_TILT_STRENGTH;
 
+        // 更新鼠标光斑的目标值
         animationState.targetSpotX = (mouseX / innerWidth) * 100;
         animationState.targetSpotY = (mouseY / innerHeight) * 100;
         animationState.targetSpotA = 0.18;
 
+        // 更新头像光环的目标值
         if (profileCard) {
             const rect = profileCard.getBoundingClientRect();
             const dist = Math.hypot(mouseX - (rect.left + rect.width / 2), mouseY - (rect.top + rect.height / 2));
@@ -582,6 +605,7 @@ function initInteractiveEffects() {
             animationState.targetHaloOpacity = 0.72 + proximity * 0.28;
         }
 
+        // 更新磁性元素的目标值
         animationState.magneticElements.forEach(item => {
             const rect = item.el.getBoundingClientRect();
             const centerX = rect.left + rect.width / 2;
@@ -602,18 +626,19 @@ function initInteractiveEffects() {
     window.addEventListener('blur', resetAnimationTargets);
     document.addEventListener('mouseleave', resetAnimationTargets);
 
-    // Card tilt, magnetic, and text scramble setup
-    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    // 为卡片设置倾斜、磁性和文字打乱效果
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) { // 仅在支持悬停的设备上启用
         document.querySelectorAll('.card').forEach((card, index) => {
-            // Add floating animation properties to each card
+            // 为每个卡片添加浮动动画属性
             const floatItem = {
                 el: card,
-                phase: Math.random() * Math.PI * 2, // Random start phase for natural look
-                amplitude: 2 + Math.random() * 2, // Slight variation in float height
-                speed: 0.005 + Math.random() * 0.005, // Slight variation in float speed
+                phase: Math.random() * Math.PI * 2, // 随机初始相位，使浮动看起来更自然
+                amplitude: 2 + Math.random() * 2, // 浮动振幅
+                speed: 0.005 + Math.random() * 0.005, // 浮动速度
             };
             animationState.floatingElements.push(floatItem);
 
+            // 为链接卡片添加磁性效果
             if (card.classList.contains('link-card')) {
                 animationState.magneticElements.push({
                     el: card,
@@ -623,6 +648,7 @@ function initInteractiveEffects() {
                     maxDist: CONFIG.MAGNETIC_MAX_DIST,
                 });
 
+                // 为链接卡片添加文字打乱效果
                 const textEl = card.querySelector('.link-text');
                 if (textEl) {
                     const fx = new TextScramble(textEl);
@@ -631,6 +657,7 @@ function initInteractiveEffects() {
                 }
             }
 
+            // 监听卡片上的鼠标移动以实现倾斜效果
             card.addEventListener('pointermove', (e) => {
                 const rect = card.getBoundingClientRect();
                 const px = (e.clientX - rect.left) / rect.width - 0.5;
@@ -641,6 +668,7 @@ function initInteractiveEffects() {
                 card.style.setProperty('--my', `${Math.round((py + 0.5) * 100)}%`);
             });
 
+            // 鼠标离开卡片时重置倾斜
             card.addEventListener('pointerleave', () => {
                 card.style.setProperty('--tilt-x', '0deg');
                 card.style.setProperty('--tilt-y', '0deg');
@@ -650,18 +678,18 @@ function initInteractiveEffects() {
         });
     }
 
-    // Initialize background effects
+    // 初始化背景效果
     animationState.starfieldUpdate = initStarfield();
     animationState.shootingStarUpdate = initShootingStars();
     animationState.raindropUpdate = initRaindrops();
     
-    // Start the animation loop
+    // 启动动画循环
     tick();
 }
 
 /**
- * Initializes and manages the multi-layered starfield background.
- * @returns {function} An update function to be called in the main animation loop.
+ * 初始化并管理多层星空背景。
+ * @returns {function} 一个在主循环中调用的更新函数。
  */
 function initStarfield() {
     const layers = [
@@ -674,11 +702,11 @@ function initStarfield() {
     const starLayers = [];
 
     function resize() {
-        dpr = window.devicePixelRatio || 1;
+        dpr = window.devicePixelRatio || 1; // 获取设备像素比
         width = window.innerWidth;
         height = window.innerHeight;
         
-        starLayers.length = 0; // Clear existing layers
+        starLayers.length = 0; // 清空现有图层
 
         layers.forEach(layerConfig => {
             if (!layerConfig.canvas) return;
@@ -686,7 +714,7 @@ function initStarfield() {
             canvas.width = width * dpr;
             canvas.height = height * dpr;
             const ctx = canvas.getContext('2d');
-            ctx.scale(dpr, dpr);
+            ctx.scale(dpr, dpr); // 根据 dpr 缩放画布，以适应高分屏
 
             const stars = Array.from({ length: layerConfig.count }, () => new Star(width, height));
             starLayers.push({ ctx, stars, factor: layerConfig.factor });
@@ -694,13 +722,13 @@ function initStarfield() {
     }
 
     resize();
-    window.addEventListener('resize', resize);
+    window.addEventListener('resize', resize); // 监听窗口大小变化
 
     return function updateStarfield(parallaxX, parallaxY) {
         starLayers.forEach(({ ctx, stars, factor }) => {
             ctx.clearRect(0, 0, width, height);
             ctx.save();
-            ctx.translate(parallaxX * factor, parallaxY * factor);
+            ctx.translate(parallaxX * factor, parallaxY * factor); // 根据视差因子移动图层
             stars.forEach(star => star.draw(ctx));
             ctx.restore();
         });
@@ -708,8 +736,8 @@ function initStarfield() {
 }
 
 /**
- * Initializes and manages the shooting star effect.
- * @returns {function} An update function to be called in the main animation loop.
+ * 初始化并管理流星效果。
+ * @returns {function} 一个在主循环中调用的更新函数。
  */
 function initShootingStars() {
     const canvas = document.getElementById('shooting-star-canvas');
@@ -742,8 +770,8 @@ function initShootingStars() {
 }
 
 /**
- * Initializes and manages the raindrop effect.
- * @returns {function} An update function to be called in the main animation loop.
+ * 初始化并管理雨滴效果。
+ * @returns {function} 一个在主循环中调用的更新函数。
  */
 function initRaindrops() {
     const canvas = document.getElementById('raindrop-canvas');
@@ -776,14 +804,14 @@ function initRaindrops() {
 }
 
 
-/* --- 3. MAIN APPLICATION --- */
-/* --------------------------- */
+/* --- 3. MAIN APPLICATION / 主应用 --- */
+/* ------------------------------------ */
 
 /**
- * Main function to initialize the application.
+ * 主函数，用于初始化整个应用。
  */
 function main() {
-    // Set stagger animation delay for cards
+    // 为卡片设置交错动画延迟
     document.querySelectorAll('.card').forEach((card, index) => {
         card.style.setProperty('--stagger', String(index));
     });
@@ -795,5 +823,5 @@ function main() {
     initInteractiveEffects();
 }
 
-// Run the application
+// 运行应用
 document.addEventListener('DOMContentLoaded', main);

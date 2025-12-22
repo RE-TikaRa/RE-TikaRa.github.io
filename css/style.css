@@ -2,25 +2,27 @@
  *
  *  Tika's Personal Homepage - Stylesheet
  *  Version: 2.0 (Refactored)
+ *  Tika 的个人主页 - 样式表
+ *  版本: 2.0 (重构版)
  *
  */
 
-/* --- 0. FONT DEFINITIONS --- */
-/* --------------------------- */
+/* --- 0. FONT DEFINITIONS / 字体定义 --- */
+/* ------------------------------------ */
 
 @font-face {
-    font-family: "NasaDisplay";
+    font-family: "NasaDisplay"; /* Nasa 主题字体 */
     src:
         url("../fonts/NasaDisplay.woff2") format("woff2"),
         url("../fonts/NasaDisplay.woff") format("woff"),
         url("../fonts/NasaDisplay.ttf") format("truetype");
-    font-weight: 100 900;
-    font-style: normal;
-    font-display: swap;
+    font-weight: 100 900; /* 字体粗细范围 */
+    font-style: normal; /* 正常样式 */
+    font-display: swap; /* 字体加载策略 */
 }
 
 @font-face {
-    font-family: "中华薪火体";
+    font-family: "中华薪火体"; /* 中文主体字体 */
     src:
         url("../fonts/中华薪火体.woff2") format("woff2"),
         url("../fonts/中华薪火体.woff") format("woff"),
@@ -31,7 +33,7 @@
 }
 
 @font-face {
-    font-family: "DS-Digital";
+    font-family: "DS-Digital"; /* 数字时钟字体 */
     src:
         url("../fonts/DS-Digital-Normal.woff2") format("woff2"),
         url("../fonts/DS-Digital-Normal.woff") format("woff");
@@ -45,7 +47,7 @@
     src:
         url("../fonts/DS-Digital-Bold.woff2") format("woff2"),
         url("../fonts/DS-Digital-Bold.woff") format("woff");
-    font-weight: bold;
+    font-weight: bold; /* 粗体 */
     font-style: normal;
     font-display: swap;
 }
@@ -56,7 +58,7 @@
         url("../fonts/DS-Digital-Italic.woff2") format("woff2"),
         url("../fonts/DS-Digital-Italic.woff") format("woff");
     font-weight: normal;
-    font-style: italic;
+    font-style: italic; /* 斜体 */
     font-display: swap;
 }
 
@@ -66,60 +68,60 @@
         url("../fonts/DS-Digital-BoldItalic.woff2") format("woff2"),
         url("../fonts/DS-Digital-BoldItalic.woff") format("woff");
     font-weight: bold;
-    font-style: italic;
+    font-style: italic; /* 粗斜体 */
     font-display: swap;
 }
 
 
-/* --- 1. ROOT & THEME VARIABLES --- */
-/* --------------------------------- */
+/* --- 1. ROOT & THEME VARIABLES / 根元素与主题变量 --- */
+/* ---------------------------------------------------- */
 
 :root {
-    /* Color Scheme */
-    color-scheme: light;
+    /* Color Scheme / 配色方案 */
+    color-scheme: light; /* 默认浅色主题 */
 
-    /* Background */
-    --bg-image: url('https://s2.loli.net/2025/12/22/nBapAxK8NowjZFP.png');
-    --bg-color: #f4f4f8; /* Fallback */
+    /* Background / 背景 */
+    --bg-image: url('https://s2.loli.net/2025/12/22/nBapAxK8NowjZFP.png'); /* 背景图片 */
+    --bg-color: #f4f4f8; /* 背景颜色（备用） */
 
-    /* Glassmorphism */
-    --glass-bg: rgba(255, 255, 255, 0.75);
-    --glass-border: rgba(220, 220, 220, 0.8);
-    --glass-inset: rgba(255, 255, 255, 0.4);
-    --glass-glow: rgba(var(--accent-rgb), 0.12);
-    --blur-strength: 16px;
+    /* Glassmorphism / 玻璃拟态 */
+    --glass-bg: rgba(255, 255, 255, 0.75); /* 玻璃背景色 */
+    --glass-border: rgba(220, 220, 220, 0.8); /* 玻璃边框色 */
+    --glass-inset: rgba(255, 255, 255, 0.4); /* 玻璃内嵌高光 */
+    --glass-glow: rgba(var(--accent-rgb), 0.12); /* 玻璃辉光 */
+    --blur-strength: 16px; /* 模糊强度 */
 
-    /* Typography */
-    --text-primary: #F0EFEB;
-    --text-secondary: #bdc3c7;
+    /* Typography / 字体排印 */
+    --text-primary: #F0EFEB; /* 主要文本颜色 */
+    --text-secondary: #bdc3c7; /* 次要文本颜色 */
 
-    /* Accents */
-    --accent-color: #2980b9;
-    --accent-rgb: 41, 128, 185;
-    --highlight-bg: #fff;
+    /* Accents / 强调色 */
+    --accent-color: #2980b9; /* 强调色 */
+    --accent-rgb: 41, 128, 185; /* 强调色的 RGB 值 */
+    --highlight-bg: #fff; /* 高亮背景 */
 
-    /* Sizing & Radius */
-    --radius-lg: 28px;
-    --radius-md: 18px;
+    /* Sizing & Radius / 尺寸与圆角 */
+    --radius-lg: 28px; /* 大圆角 */
+    --radius-md: 18px; /* 中圆角 */
 
-    /* Shadows & Effects */
-    --card-shadow: 0 18px 45px rgba(0, 0, 0, 0.12);
-    --card-hover-shadow: 0 24px 60px rgba(0, 0, 0, 0.16);
-    --focus-ring: 0 0 0 4px rgba(var(--accent-rgb), 0.22);
+    /* Shadows & Effects / 阴影与效果 */
+    --card-shadow: 0 18px 45px rgba(0, 0, 0, 0.12); /* 卡片阴影 */
+    --card-hover-shadow: 0 24px 60px rgba(0, 0, 0, 0.16); /* 卡片悬停阴影 */
+    --focus-ring: 0 0 0 4px rgba(var(--accent-rgb), 0.22); /* 聚焦环 */
 
-    /* Animation & Transitions */
-    --ease-out: cubic-bezier(0.2, 0.9, 0.2, 1);
-    --breathe: 8.5s;
-    --breathe-slow: 18s;
+    /* Animation & Transitions / 动画与过渡 */
+    --ease-out: cubic-bezier(0.2, 0.9, 0.2, 1); /* 缓动函数 */
+    --breathe: 8.5s; /* 呼吸动画时长 */
+    --breathe-slow: 18s; /* 慢速呼吸动画时长 */
 
-    /* Interactive Properties */
-    --spot-x: 50%;
-    --spot-y: 28%;
-    --spot-a: 0.10;
+    /* Interactive Properties / 交互属性 */
+    --spot-x: 50%; /* 鼠标光斑 X 坐标 */
+    --spot-y: 28%; /* 鼠标光斑 Y 坐标 */
+    --spot-a: 0.10; /* 鼠标光斑透明度 */
 }
 
 [data-theme="dark"] {
-    color-scheme: dark;
+    color-scheme: dark; /* 深色主题 */
     --bg-image: url('https://s2.loli.net/2025/12/22/uBnZDzxcI7JHCX3.png');
     --bg-color: #1a1a1a;
     --glass-bg: rgba(16, 16, 18, 0.42);
@@ -138,58 +140,57 @@
 }
 
 
-/* --- 2. BASE & RESET STYLES --- */
-/* ------------------------------ */
+/* --- 2. BASE & RESET STYLES / 基础与重置样式 --- */
+/* ---------------------------------------------- */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "中华薪火体", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+    margin: 0; /* 清除外边距 */
+    padding: 0; /* 清除内边距 */
+    box-sizing: border-box; /* 盒模型设为 border-box */
+    font-family: "中华薪火体", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif; /* 默认字体栈 */
 }
 
 html {
-    background-color: var(--bg-color);
-    /* The transition is now handled by the View Transitions API */
+    background-color: var(--bg-color); /* 背景色 */
+    /* 过渡效果现在由 View Transitions API 处理 */
 }
 
 body {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: clamp(18px, 4vw, 30px);
-    overflow-x: hidden;
-    /* background-color is now on the html element for View Transitions */
-    color: var(--text-primary);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    min-height: 100vh; /* 最小高度为视口高度 */
+    padding: clamp(18px, 4vw, 30px); /* 响应式内边距 */
+    overflow-x: hidden; /* 隐藏水平溢出 */
+    color: var(--text-primary); /* 文本颜色 */
+    -webkit-font-smoothing: antialiased; /* 抗锯齿（Chrome, Safari） */
+    -moz-osx-font-smoothing: grayscale; /* 抗锯齿（Firefox） */
+    text-rendering: optimizeLegibility; /* 优化文本渲染 */
 }
 
 ::selection {
-    background: rgba(var(--accent-rgb), 0.22);
+    background: rgba(var(--accent-rgb), 0.22); /* 文本选中背景色 */
 }
 
 
-/* --- 3. BACKGROUND & DECORATIVE ELEMENTS --- */
-/* ------------------------------------------- */
+/* --- 3. BACKGROUND & DECORATIVE ELEMENTS / 背景与装饰元素 --- */
+/* ---------------------------------------------------------- */
 
 .background-gradient {
-    position: fixed;
-    inset: 0;
+    position: fixed; /* 固定定位 */
+    inset: 0; /* 覆盖整个视口 */
     width: 100%;
     height: 100%;
-    background-image: var(--bg-image);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-    transition: background-image 0.5s ease-in-out;
-    will-change: transform;
+    background-image: var(--bg-image); /* 背景图片 */
+    background-size: cover; /* 背景覆盖 */
+    background-position: center; /* 背景居中 */
+    background-repeat: no-repeat; /* 背景不重复 */
+    z-index: -1; /* 置于底层 */
+    transition: background-image 0.5s ease-in-out; /* 背景图片过渡 */
+    will-change: transform; /* 性能优化提示 */
 }
 
-/* Static decorative gradients */
+/* 静态装饰性渐变 */
 body::before {
     content: '';
     position: fixed;
@@ -197,7 +198,7 @@ body::before {
     background:
         radial-gradient(900px circle at 50% 10%, rgba(0, 0, 0, 0.10), transparent 60%),
         radial-gradient(900px circle at 50% 100%, rgba(0, 0, 0, 0.16), transparent 60%);
-    pointer-events: none;
+    pointer-events: none; /* 不响应鼠标事件 */
     z-index: -1;
 }
 
@@ -207,7 +208,7 @@ body::before {
         radial-gradient(900px circle at 50% 100%, rgba(0, 0, 0, 0.55), transparent 60%);
 }
 
-/* Animated decorative gradients */
+/* 动画装饰性渐变 */
 .background-gradient::before {
     content: '';
     position: absolute;
@@ -219,7 +220,7 @@ body::before {
     opacity: 0.42;
     pointer-events: none;
     will-change: transform, opacity;
-    animation: floatBokeh 18s ease-in-out infinite;
+    animation: floatBokeh 18s ease-in-out infinite; /* 浮动光斑动画 */
 }
 
 [data-theme="dark"] .background-gradient::before {
@@ -230,7 +231,7 @@ body::before {
     opacity: 0.52;
 }
 
-/* Mouse-interactive gradient */
+/* 鼠标交互式渐变 */
 .background-gradient::after {
     content: '';
     position: absolute;
@@ -242,7 +243,7 @@ body::before {
     opacity: 0.45;
     pointer-events: none;
     will-change: opacity, transform;
-    animation: ambientGlow 14s ease-in-out infinite, bgBreathe var(--breathe-slow) ease-in-out infinite;
+    animation: ambientGlow 14s ease-in-out infinite, bgBreathe var(--breathe-slow) ease-in-out infinite; /* 环境光和呼吸动画 */
 }
 
 [data-theme="dark"] .background-gradient::after {
@@ -253,7 +254,7 @@ body::before {
     opacity: 0.55;
 }
 
-/* Canvas for JS effects */
+/* 用于 JS 效果的 Canvas */
 .starfield-canvas {
     position: fixed;
     inset: 0;
@@ -261,26 +262,26 @@ body::before {
     height: 100%;
     pointer-events: none;
     z-index: -1;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
+    opacity: 0; /* 初始透明 */
+    transition: opacity 0.8s ease-in-out; /* 透明度过渡 */
 }
 
 body.is-ready .starfield-canvas {
-    opacity: 1;
+    opacity: 1; /* 页面准备好后显示 */
 }
 
-#starfield-layer1 { opacity: 0.7; }
-#starfield-layer2 { opacity: 0.5; }
-#starfield-layer3 { opacity: 0.3; }
-#shooting-star-canvas { z-index: -1; opacity: 1; }
-#raindrop-canvas { z-index: -1; opacity: 0.7; }
+#starfield-layer1 { opacity: 0.7; } /* 星空层1透明度 */
+#starfield-layer2 { opacity: 0.5; } /* 星空层2透明度 */
+#starfield-layer3 { opacity: 0.3; } /* 星空层3透明度 */
+#shooting-star-canvas { z-index: -1; opacity: 1; } /* 流星层 */
+#raindrop-canvas { z-index: -1; opacity: 0.7; } /* 雨滴层 */
 
 
-/* --- 4. LAYOUT --- */
-/* ----------------- */
+/* --- 4. LAYOUT / 布局 --- */
+/* ----------------------- */
 
 .parallax-container {
-    perspective: 2000px;
+    perspective: 2000px; /* 3D 视差容器 */
     width: 100%;
     height: 100%;
     display: flex;
@@ -289,42 +290,42 @@ body.is-ready .starfield-canvas {
 }
 
 .grid-container {
-    display: grid;
-    grid-template-columns: 1.2fr 1fr 1.2fr;
-    gap: clamp(18px, 3vw, 28px);
-    align-items: start;
+    display: grid; /* 网格布局 */
+    grid-template-columns: 1.2fr 1fr 1.2fr; /* 三列布局 */
+    gap: clamp(18px, 3vw, 28px); /* 响应式间距 */
+    align-items: start; /* 顶部对齐 */
     width: 100%;
-    max-width: 1200px;
+    max-width: 1200px; /* 最大宽度 */
     padding: 0;
 }
 
 .column {
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* 列内元素垂直排列 */
     gap: clamp(18px, 3vw, 26px);
 }
 
 .full-height {
-    min-height: 560px;
+    min-height: 560px; /* 最小高度 */
     height: auto;
 }
 
 
-/* --- 5. BASE COMPONENT STYLES --- */
-/* -------------------------------- */
+/* --- 5. BASE COMPONENT STYLES / 基础组件样式 --- */
+/* ---------------------------------------------- */
 
-/* Glassmorphism Base */
+/* 玻璃拟态基础样式 */
 .glass {
     position: relative;
-    overflow: clip; /* Use clip to prevent pseudo-elements from overflowing */
+    overflow: clip; /* 防止伪元素溢出 */
     border-radius: var(--radius-lg);
     border: 1px solid rgba(255, 255, 255, 0.28);
     background: rgba(255, 255, 255, 0.06);
-    backdrop-filter: blur(20px) saturate(150%);
-    -webkit-backdrop-filter: blur(20px) saturate(150%);
+    backdrop-filter: blur(20px) saturate(150%); /* 背景模糊和饱和度 */
+    -webkit-backdrop-filter: blur(20px) saturate(150%); /* Safari 兼容 */
     box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.25),
-        0 24px 60px rgba(0, 0, 0, 0.45);
+        inset 0 1px 0 rgba(255, 255, 255, 0.25), /* 内阴影高光 */
+        0 24px 60px rgba(0, 0, 0, 0.45); /* 外阴影 */
 }
 
 [data-theme="dark"] .glass {
@@ -335,7 +336,7 @@ body.is-ready .starfield-canvas {
         0 24px 60px rgba(0, 0, 0, 0.55);
 }
 
-/* "Liquid" inside the glass */
+/* 玻璃内部的“液体”效果 */
 .glass::before {
     content: "";
     position: absolute;
@@ -345,7 +346,7 @@ body.is-ready .starfield-canvas {
         radial-gradient(220px 160px at 80% 40%, rgba(255, 255, 255, 0.18), transparent 65%),
         radial-gradient(320px 200px at 40% 85%, rgba(255, 255, 255, 0.12), transparent 70%);
     filter: blur(18px) saturate(140%);
-    animation: drift 12s ease-in-out infinite alternate;
+    animation: drift 12s ease-in-out infinite alternate; /* 漂移动画 */
     pointer-events: none;
 }
 
@@ -356,7 +357,7 @@ body.is-ready .starfield-canvas {
         radial-gradient(320px 200px at 40% 85%, rgba(255, 255, 255, 0.08), transparent 70%);
 }
 
-/* Diagonal highlight sheen */
+/* 对角线高光效果 */
 .glass::after {
     content: "";
     position: absolute;
@@ -367,74 +368,74 @@ body.is-ready .starfield-canvas {
         rgba(255, 255, 255, 0.28) 0%,
         rgba(255, 255, 255, 0) 40% 60%,
         rgba(255, 255, 255, 0.16) 100%);
-    mix-blend-mode: screen;
+    mix-blend-mode: screen; /* 混合模式 */
     pointer-events: none;
 }
 
-/* Card Base */
+/* 卡片基础样式 */
 .card {
     padding: 20px;
     color: var(--text-primary);
-    transform-style: preserve-3d;
+    transform-style: preserve-3d; /* 保持 3D 变换 */
     will-change: transform;
     
-    /* CSS Vars for JS interaction */
-    --lift: 0px;
-    --enter-y: 0px;
-    --tilt-x: 0deg;
-    --tilt-y: 0deg;
-    --mx: 50%;
-    --my: 15%;
-    --shine: 0;
-    --magnetic-x: 0px;
-    --magnetic-y: 0px;
-    --float-y: 0px;
+    /* 用于 JS 交互的 CSS 变量 */
+    --lift: 0px; /* 悬浮高度 */
+    --enter-y: 0px; /* 入场 Y 偏移 */
+    --tilt-x: 0deg; /* X 轴倾斜 */
+    --tilt-y: 0deg; /* Y 轴倾斜 */
+    --mx: 50%; /* 鼠标 X 坐标百分比 */
+    --my: 15%; /* 鼠标 Y 坐标百分比 */
+    --shine: 0; /* 光泽效果 */
+    --magnetic-x: 0px; /* 磁性吸附 X */
+    --magnetic-y: 0px; /* 磁性吸附 Y */
+    --float-y: 0px; /* 浮动 Y */
 
     transform: perspective(900px) translate3d(var(--magnetic-x), calc(var(--lift) + var(--enter-y) + var(--magnetic-y) + var(--float-y)), 0) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
     transition: transform 0.22s var(--ease-out), box-shadow 0.22s var(--ease-out), filter 0.22s var(--ease-out), border-color 0.22s var(--ease-out);
 }
 
 .card:hover {
-    --lift: -2px;
+    --lift: -2px; /* 悬停时抬起 */
     --shine: 1;
     box-shadow: var(--card-hover-shadow), 0 0 0 1px rgba(255, 255, 255, 0.10) inset;
     filter: saturate(1.03) contrast(1.01);
 }
 
 .card:active {
-    transform: perspective(900px) translate3d(0, calc(var(--lift) + 1px), 0) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));
+    transform: perspective(900px) translate3d(0, calc(var(--lift) + 1px), 0) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)); /* 点击时下沉 */
 }
 
 .link-card:focus-visible,
 #theme-toggle:focus-visible {
-    outline: 2px solid var(--accent-color);
+    outline: 2px solid var(--accent-color); /* 键盘聚焦样式 */
     outline-offset: 4px;
     box-shadow: var(--focus-ring), var(--card-hover-shadow);
 }
 
 
-/* --- 6. SPECIFIC COMPONENT STYLES --- */
-/* ------------------------------------- */
+/* --- 6. SPECIFIC COMPONENT STYLES / 特定组件样式 --- */
+/* ------------------------------------------------- */
 
-/* Welcome Screen */
+/* 欢迎屏幕 */
 #welcome-screen {
     position: fixed;
     inset: 0;
-    z-index: 9999;
+    z-index: 9999; /* 最高层级 */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #F0EFEB; /* Specific background for light theme welcome */
+    background-color: #F0EFEB; /* 浅色主题欢迎页特定背景 */
     transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
 
 [data-theme="dark"] #welcome-screen {
-    background-color: var(--bg-color); /* Revert to theme color for dark mode */
+    background-color: var(--bg-color); /* 深色主题使用主题背景色 */
 }
 
 #welcome-screen.hidden {
     opacity: 0;
-    visibility: hidden;
+    visibility: hidden; /* 隐藏欢迎屏幕 */
 }
 
 #welcome-text-container {
@@ -442,11 +443,11 @@ body.is-ready .starfield-canvas {
     align-items: center;
     font-family: "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     font-size: clamp(1.5rem, 4vw, 2.5rem);
-    color: #000000; /* Specific text color for light theme welcome */
+    color: #000000; /* 浅色主题欢迎页特定文本颜色 */
 }
 
 [data-theme="dark"] #welcome-text-container {
-    color: var(--text-primary); /* Revert to theme color for dark mode */
+    color: var(--text-primary); /* 深色主题使用主题文本颜色 */
 }
 
 #welcome-text-container .cursor {
@@ -455,10 +456,10 @@ body.is-ready .starfield-canvas {
     height: clamp(1.5rem, 4vw, 2.5rem);
     margin-left: 10px;
     background-color: var(--accent-color);
-    animation: blink 1s step-end infinite;
+    animation: blink 1s step-end infinite; /* 光标闪烁动画 */
 }
 
-/* Profile Card (Left Column) */
+/* 个人资料卡片 (左列) */
 .profile-card {
     display: flex;
     flex-direction: column;
@@ -498,6 +499,7 @@ body.is-ready .starfield-canvas {
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
 }
 
+/* 头像光环效果 */
 .avatar-large::before {
     content: '';
     position: absolute;
@@ -529,7 +531,7 @@ body.is-ready .starfield-canvas {
 .greeting-title {
     position: relative;
     overflow: hidden;
-    min-height: 1.3em; /* Prevent layout shift */
+    min-height: 1.3em; /* 防止布局抖动 */
     font-size: 1.05rem;
     font-weight: 650;
     line-height: 1.3;
@@ -572,6 +574,7 @@ body.is-ready .starfield-canvas {
     top: -1px; /* 修正字体垂直对齐 */
 }
 
+/* 个人简介的扫光动画 */
 .profile-desc-box::after {
     content: '';
     position: absolute;
@@ -589,7 +592,7 @@ body.is-ready .starfield-canvas {
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.12), transparent);
 }
 
-/* Link Cards (Middle Column) */
+/* 链接卡片 (中列) */
 .center-links {
     justify-content: space-between;
     gap: clamp(18px, 2.8vw, 28px);
@@ -606,7 +609,7 @@ body.is-ready .starfield-canvas {
     padding: 22px;
     min-height: 110px;
     text-decoration: none;
-    --link-accent-rgb: var(--accent-rgb);
+    --link-accent-rgb: var(--accent-rgb); /* 链接特定的强调色 */
     --glass-border: rgba(var(--link-accent-rgb), 0.20);
 }
 
@@ -618,7 +621,7 @@ body.is-ready .starfield-canvas {
     transform: translateY(-1px) scale(0.99);
 }
 
-/* Glow effect */
+/* 辉光效果 */
 .link-card::after {
     content: '';
     position: absolute;
@@ -637,7 +640,7 @@ body.is-ready .starfield-canvas {
     transform: scale(1.02);
 }
 
-/* Link-specific accent colors */
+/* 特定链接的强调色 */
 .link-github { --link-accent-rgb: 155, 102, 255; }
 .link-bilibili { --link-accent-rgb: 0, 161, 214; }
 .link-blog { --link-accent-rgb: 230, 126, 34; }
@@ -694,7 +697,7 @@ body.is-ready .starfield-canvas {
 .link-text {
     position: relative;
     top: -2px; /* 修正字体垂直对齐 */
-    min-width: 80px; /* Prevent layout shift during scramble */
+    min-width: 80px; /* 防止布局抖动 */
     font-size: clamp(1.2rem, 1.8vw, 1.45rem);
     font-weight: 600;
     letter-spacing: 0.2px;
@@ -704,7 +707,7 @@ body.is-ready .starfield-canvas {
 }
 
 .link-chevron {
-    margin-left: auto;
+    margin-left: auto; /* 推到最右边 */
     font-size: 1rem;
     color: var(--text-secondary);
     opacity: 0.45;
@@ -734,7 +737,7 @@ body.is-ready .starfield-canvas {
     opacity: 0.9;
 }
 
-/* Clock Widget (Right Column) */
+/* 时钟小工具 (右列) */
 .clock-card {
     position: relative;
     display: flex;
@@ -760,7 +763,7 @@ body.is-ready .starfield-canvas {
     justify-content: center;
     gap: 10px;
     font-family: "DS-Digital", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-    font-variant-numeric: tabular-nums;
+    font-variant-numeric: tabular-nums; /* 等宽数字 */
     letter-spacing: 0.5px;
 }
 
@@ -784,7 +787,7 @@ body.is-ready .starfield-canvas {
     line-height: 1;
     color: var(--text-secondary);
     opacity: 0.45;
-    animation: clockPulse 2.4s ease-in-out infinite;
+    animation: clockPulse 2.4s ease-in-out infinite; /* 时钟分隔符脉动动画 */
 }
 
 [data-theme="dark"] .clock-sep {
@@ -796,7 +799,7 @@ body.is-ready .starfield-canvas {
     opacity: 0.85;
 }
 
-/* Calendar Widget (Right Column) */
+/* 日历小工具 (右列) */
 .calendar-card {
     position: relative;
     display: flex;
@@ -836,7 +839,7 @@ body.is-ready .starfield-canvas {
 
 .calendar-grid {
     display: grid;
-    grid-template-columns: repeat(7, 1fr);
+    grid-template-columns: repeat(7, 1fr); /* 7 列 */
     gap: 6px;
     width: 100%;
     margin-top: auto;
@@ -880,7 +883,7 @@ body.is-ready .starfield-canvas {
     color: #fff;
     background: var(--accent-color);
     box-shadow: 0 14px 30px rgba(var(--accent-rgb), 0.26);
-    animation: todayPulse 2.8s ease-in-out infinite;
+    animation: todayPulse 2.8s ease-in-out infinite; /* 当天日期脉动动画 */
 }
 
 .calendar-day.current:hover {
@@ -888,7 +891,7 @@ body.is-ready .starfield-canvas {
     box-shadow: 0 18px 44px rgba(var(--accent-rgb), 0.44);
 }
 
-/* Theme Toggle Button */
+/* 主题切换按钮 */
 .theme-switch-wrapper {
     position: fixed;
     top: 20px;
@@ -947,8 +950,8 @@ body.is-ready .starfield-canvas {
 }
 
 
-/* --- 7. ANIMATIONS --- */
-/* --------------------- */
+/* --- 7. ANIMATIONS / 动画 --- */
+/* --------------------------- */
 
 @property --enter-y {
     syntax: "<length>";
@@ -956,7 +959,7 @@ body.is-ready .starfield-canvas {
     initial-value: 0px;
 }
 
-/* Initial card entrance animation */
+/* 初始卡片入场动画 */
 body:not(.is-ready) .card {
     opacity: 0;
     filter: blur(10px) saturate(0.92);
@@ -965,7 +968,7 @@ body:not(.is-ready) .card {
 
 body.is-ready .card {
     animation: glitchScanIn 1s var(--ease-out) both;
-    animation-delay: calc(var(--stagger, 0) * 90ms);
+    animation-delay: calc(var(--stagger, 0) * 90ms); /* 错开动画 */
 }
 
 @keyframes glitchScanIn {
@@ -978,7 +981,7 @@ body.is-ready .card {
     20% {
         opacity: 0.8;
         transform: perspective(900px) translate3d(var(--magnetic-x), calc(var(--lift) + var(--enter-y) + var(--magnetic-y) - 5px), 0) rotateX(var(--tilt-x)) rotateY(var(--tilt-y)) scale(1.01);
-        text-shadow: 2px 0 0 red, -2px 0 0 cyan;
+        text-shadow: 2px 0 0 red, -2px 0 0 cyan; /* 故障效果 */
     }
     60% {
         opacity: 1;
@@ -995,13 +998,13 @@ body.is-ready .card {
     }
 }
 
-/* Greeting text character entrance */
+/* 问候语文字入场动画 */
 .greeting-title span {
     display: inline-block;
     opacity: 0;
     transform: translateY(100%);
     animation: charFadeIn 0.5s forwards;
-    animation-delay: calc(var(--char-index) * 0.05s);
+    animation-delay: calc(var(--char-index) * 0.05s); /* 字符错开动画 */
 }
 
 @keyframes charFadeIn {
@@ -1011,7 +1014,7 @@ body.is-ready .card {
     }
 }
 
-/* General ambient animations */
+/* 通用环境动画 */
 @keyframes blink {
     from, to { background-color: transparent; }
     50% { background-color: var(--accent-color); }
@@ -1067,17 +1070,17 @@ body.is-ready .card {
 }
 
 
-/* --- 8. VIEW TRANSITIONS --- */
-/* --------------------------- */
+/* --- 8. VIEW TRANSITIONS / 视图过渡 --- */
+/* -------------------------------------- */
 
-/* Disable the default browser fade animation */
+/* 禁用默认的浏览器淡入淡出动画 */
 ::view-transition-old(root),
 ::view-transition-new(root) {
     animation: none;
     mix-blend-mode: normal;
 }
 
-/* During dark-to-light transition, the old (dark) view is on top */
+/* 深色到浅色过渡时，旧的（深色）视图在顶部 */
 [data-theme="light"]::view-transition-old(root) {
     z-index: 1;
 }
@@ -1085,7 +1088,7 @@ body.is-ready .card {
     z-index: 999;
 }
 
-/* During light-to-dark transition, the new (dark) view is on top */
+/* 浅色到深色过渡时，新的（深色）视图在顶部 */
 [data-theme="dark"]::view-transition-old(root) {
     z-index: 1;
 }
@@ -1094,8 +1097,8 @@ body.is-ready .card {
 }
 
 
-/* --- 9. RESPONSIVE & ACCESSIBILITY --- */
-/* ------------------------------------- */
+/* --- 9. RESPONSIVE & ACCESSIBILITY / 响应式与可访问性 --- */
+/* ------------------------------------------------------- */
 
 @media (max-width: 900px) {
 .grid-container {
@@ -1114,7 +1117,7 @@ body.is-ready .card {
         right: 14px;
     }
     .grid-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 在小屏幕上变为单列布局 */
     }
     .profile-card {
         padding: 34px 18px;
@@ -1148,6 +1151,7 @@ body.is-ready .card {
     }
 }
 
+/* 减少动画的媒体查询 */
 @media (prefers-reduced-motion: reduce) {
     *,
     *::before,
