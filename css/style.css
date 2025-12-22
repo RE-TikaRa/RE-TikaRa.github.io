@@ -1145,6 +1145,15 @@ body.is-ready .card {
     .grid-container {
         grid-template-columns: 1fr; /* 在小屏幕上变为单列布局 */
     }
+
+    /* 重置所有列的网格位置，以强制实现单列堆叠 */
+    .column:nth-child(1),
+    .column:nth-child(2),
+    .column:nth-child(3) {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
     .column:nth-child(3) {
         flex-direction: column; /* 在更小的屏幕上，小工具恢复垂直排列 */
     }
