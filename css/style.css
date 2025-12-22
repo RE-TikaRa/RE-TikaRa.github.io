@@ -1,3 +1,43 @@
+/* Welcome Screen */
+#welcome-screen {
+    position: fixed;
+    inset: 0;
+    background-color: var(--bg-color);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+}
+
+#welcome-screen.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+#welcome-text-container {
+    font-family: "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+}
+
+#welcome-text-container .cursor {
+    display: inline-block;
+    width: clamp(0.8rem, 2vw, 1.2rem);
+    height: clamp(1.5rem, 4vw, 2.5rem);
+    background-color: var(--accent-color);
+    margin-left: 10px;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    from, to { background-color: transparent; }
+    50% { background-color: var(--accent-color); }
+}
+
+
 @font-face {
     font-family: "NasaDisplay";
     src:

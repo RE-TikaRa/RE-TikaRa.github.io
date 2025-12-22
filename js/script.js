@@ -1,10 +1,40 @@
 document.addEventListener('DOMContentLoaded', () => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+    function initWelcomeScreen() {
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const welcomeTextEl = document.getElementById('welcome-text');
+        if (!welcomeScreen || !welcomeTextEl) {
+            document.body.classList.add('is-ready');
+            return;
+        }
+
+        const textToType = "正在唤醒生命体接口…";
+        let charIndex = 0;
+
+        function typeChar() {
+            if (charIndex < textToType.length) {
+                welcomeTextEl.textContent += textToType.charAt(charIndex);
+                charIndex++;
+                setTimeout(typeChar, 120);
+            } else {
+                // Finished typing
+                setTimeout(() => {
+                    welcomeScreen.classList.add('hidden');
+                    document.body.classList.add('is-ready');
+                }, 1000); // Wait 1s before fading out
+            }
+        }
+
+        // Start typing after a short delay
+        setTimeout(typeChar, 500);
+    }
+
+    initWelcomeScreen();
+
     document.querySelectorAll('.card').forEach((card, index) => {
         card.style.setProperty('--stagger', String(index));
     });
-    document.body.classList.add('is-ready');
 
     const hourEl = document.getElementById('hour');
     const minuteEl = document.getElementById('minute');
