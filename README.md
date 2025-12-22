@@ -25,10 +25,10 @@
 ## 文件结构
 
 - `index.html`: 页面结构
-- `style.css`: 样式定义（包含 CSS 变量主题配置）
-- `script.js`: 交互逻辑（时钟、日历、主题切换）
+- `css/style.css`: 样式定义（包含 CSS 变量主题配置）
+- `js/script.js`: 交互逻辑（时钟、日历、主题切换）
 
 ## 自定义
 
-可以在 `style.css` 的 `:root` 变量中修改颜色主题。
+可以在 `css/style.css` 的 `:root` 变量中修改颜色主题。
 可以在 `index.html` 中修改链接和文本内容。
