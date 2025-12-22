@@ -1,5 +1,83 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
     // 1. Clock Functionality
+    function setFlipCardValue(el, value) {
+        const top = el.querySelector('.flip-card__top span');
+        const bottom = el.querySelector('.flip-card__bottom span');
+        const topFlip = el.querySelector('.flip-card__top-flip span');
+        const bottomFlip = el.querySelector('.flip-card__bottom-flip span');
+        if (!top || !bottom || !topFlip || !bottomFlip) return;
+
+        top.textContent = value;
+        bottom.textContent = value;
+        topFlip.textContent = value;
+        bottomFlip.textContent = value;
+        el.dataset.value = value;
+    }
+
+    function flipTo(el, nextValue) {
+        const currentValue = el.dataset.value;
+        const top = el.querySelector('.flip-card__top span');
+        const bottom = el.querySelector('.flip-card__bottom span');
+        const topFlip = el.querySelector('.flip-card__top-flip span');
+        const bottomFlip = el.querySelector('.flip-card__bottom-flip span');
+        if (!top || !bottom || !topFlip || !bottomFlip) return;
+
+        if (!currentValue) {
+            setFlipCardValue(el, nextValue);
+            return;
+        }
+        if (currentValue === nextValue) return;
+
+        const bottomFlipEl = el.querySelector('.flip-card__bottom-flip');
+        if (bottomFlipEl && el._flipHandler) {
+            bottomFlipEl.removeEventListener('animationend', el._flipHandler);
+            el._flipHandler = null;
+        }
+
+        if (el.classList.contains('is-flipping')) {
+            el.classList.remove('is-flipping');
+        }
+
+        top.textContent = currentValue;
+        bottom.textContent = currentValue;
+        topFlip.textContent = currentValue;
+        bottomFlip.textContent = nextValue;
+        el.dataset.value = nextValue;
+
+        if (reduceMotion) {
+            top.textContent = nextValue;
+            bottom.textContent = nextValue;
+            topFlip.textContent = nextValue;
+            bottomFlip.textContent = nextValue;
+            return;
+        }
+
+        el.classList.add('is-flipping');
+
+        const onDone = () => {
+            top.textContent = nextValue;
+            bottom.textContent = nextValue;
+            topFlip.textContent = nextValue;
+            bottomFlip.textContent = nextValue;
+            el.classList.remove('is-flipping');
+        };
+
+        if (!bottomFlipEl) {
+            onDone();
+            return;
+        }
+
+        const handler = () => {
+            bottomFlipEl.removeEventListener('animationend', handler);
+            el._flipHandler = null;
+            onDone();
+        };
+        el._flipHandler = handler;
+        bottomFlipEl.addEventListener('animationend', handler);
+    }
+
     function updateClock() {
         const now = new Date();
         const hours = String(now.getHours()).padStart(2, '0');
@@ -10,9 +88,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const minuteEl = document.getElementById('minute');
         const secondEl = document.getElementById('second');
 
-        if(hourEl) hourEl.textContent = hours;
-        if(minuteEl) minuteEl.textContent = minutes;
-        if(secondEl) secondEl.textContent = seconds;
+        if (hourEl) flipTo(hourEl, hours);
+        if (minuteEl) flipTo(minuteEl, minutes);
+        if (secondEl) flipTo(secondEl, seconds);
     }
     setInterval(updateClock, 1000);
     updateClock();
@@ -114,4 +192,59 @@ document.addEventListener('DOMContentLoaded', () => {
             syncThemeToggle(nextTheme);
         }
     });
+
+    if (!reduceMotion) {
+        const bg = document.querySelector('.background-gradient');
+        let targetX = 0;
+        let targetY = 0;
+        let currentX = 0;
+        let currentY = 0;
+
+        function tickParallax() {
+            currentX += (targetX - currentX) * 0.08;
+            currentY += (targetY - currentY) * 0.08;
+            if (bg) bg.style.transform = `translate3d(${currentX}px, ${currentY}px, 0) scale(1.06)`;
+            requestAnimationFrame(tickParallax);
+        }
+        if (bg) requestAnimationFrame(tickParallax);
+
+        if (bg) {
+            const resetParallax = () => {
+                targetX = 0;
+                targetY = 0;
+            };
+
+            window.addEventListener('mousemove', (e) => {
+                const dx = e.clientX / window.innerWidth - 0.5;
+                const dy = e.clientY / window.innerHeight - 0.5;
+                targetX = dx * -14;
+                targetY = dy * -10;
+            });
+            window.addEventListener('blur', resetParallax);
+            document.addEventListener('mouseleave', resetParallax);
+        }
+
+        const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        if (finePointer) {
+            document.querySelectorAll('.card').forEach((card) => {
+                card.addEventListener('pointermove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const px = (e.clientX - rect.left) / rect.width - 0.5;
+                    const py = (e.clientY - rect.top) / rect.height - 0.5;
+                    const max = 3.2;
+                    card.style.setProperty('--tilt-y', `${px * max}deg`);
+                    card.style.setProperty('--tilt-x', `${-py * max}deg`);
+                    card.style.setProperty('--mx', `${Math.round((px + 0.5) * 100)}%`);
+                    card.style.setProperty('--my', `${Math.round((py + 0.5) * 100)}%`);
+                });
+
+                card.addEventListener('pointerleave', () => {
+                    card.style.setProperty('--tilt-x', '0deg');
+                    card.style.setProperty('--tilt-y', '0deg');
+                    card.style.setProperty('--mx', '50%');
+                    card.style.setProperty('--my', '15%');
+                });
+            });
+        }
+    }
 });
