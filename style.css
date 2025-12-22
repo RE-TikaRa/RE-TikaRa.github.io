@@ -4,10 +4,10 @@
     --bg-gradient-1: #e0c3fc;
     --bg-gradient-2: #8ec5fc;
     --bg-color: #f3e7e9; /* Fallback */
-    --glass-bg: rgba(255, 255, 255, 0.40);
-    --glass-border: rgba(255, 255, 255, 0.55);
-    --text-primary: #4a4a4a;
-    --text-secondary: #7a7a7a;
+    --glass-bg: rgba(255, 255, 255, 0.60);
+    --glass-border: rgba(255, 255, 255, 0.72);
+    --text-primary: #1f1f1f;
+    --text-secondary: #4c4c4c;
     --card-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
     --card-hover-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.25);
     --accent-color: #e67e22;
@@ -44,7 +44,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: stretch;
+    align-items: center;
     overflow-x: hidden;
     background-color: var(--bg-color);
     padding: 24px;
@@ -85,18 +85,18 @@ body {
     padding: 0;
     max-width: 1200px;
     width: 100%;
-    min-height: 100%;
+    align-items: start;
 }
 
 .column {
     display: flex;
     flex-direction: column;
     gap: 24px;
-    height: 100%;
 }
 
 .full-height {
-    height: 100%;
+    height: auto;
+    min-height: 560px;
 }
 
 /* Card Common Styles */
@@ -163,7 +163,7 @@ body {
 
 /* Link Cards (Middle Column) */
 .center-links {
-    height: 100%;
+    justify-content: center;
 }
 
 .link-card {
@@ -172,8 +172,8 @@ body {
     gap: 20px;
     padding: 25px 30px;
     text-decoration: none;
-    justify-content: center;
-    flex: 1;
+    justify-content: flex-start;
+    min-height: 110px;
     --link-accent-rgb: var(--accent-rgb);
 }
 
@@ -212,7 +212,7 @@ body {
     align-items: center;
     justify-content: center;
     position: relative;
-    flex: 0 0 260px;
+    min-height: 200px;
 }
 
 .flip-clock {
@@ -222,8 +222,8 @@ body {
 }
 
 .flip-card {
-    background: #202020;
-    color: #e0e0e0;
+    background: rgba(255, 255, 255, 0.90);
+    color: #1d1d1d;
     font-size: 5rem;
     font-weight: bold;
     padding: 10px 20px;
@@ -231,9 +231,15 @@ body {
     position: relative;
     min-width: 120px;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
     font-family: 'Segoe UI', sans-serif;
     line-height: 1;
+}
+
+[data-theme="dark"] .flip-card {
+    background: #202020;
+    color: #e0e0e0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 /* Split line effect */
@@ -244,16 +250,20 @@ body {
     left: 0;
     width: 100%;
     height: 2px;
-    background: rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.12);
     transform: translateY(-50%);
+}
+
+[data-theme="dark"] .flip-card::after {
+    background: rgba(0,0,0,0.4);
 }
 
 .flip-seconds {
     position: absolute;
     bottom: 10px;
     right: 10px;
-    background: #333;
-    color: #fff;
+    background: rgba(0,0,0,0.12);
+    color: #1d1d1d;
     font-size: 1.2rem;
     padding: 2px 6px;
     border-radius: 4px;
@@ -261,12 +271,17 @@ body {
     z-index: 2; /* Above split line */
 }
 
+[data-theme="dark"] .flip-seconds {
+    background: #333;
+    color: #fff;
+}
+
 .calendar-card {
     display: flex;
     flex-direction: column;
     position: relative;
     padding: 30px;
-    flex: 1;
+    min-height: 360px;
 }
 
 .calendar-top-row {
@@ -290,7 +305,7 @@ body {
     text-align: center;
     font-size: 0.8rem;
     margin-top: auto;
-    opacity: 0.8;
+    opacity: 1;
     width: 100%;
 }
 

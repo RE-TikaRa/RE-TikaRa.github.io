@@ -11,16 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const secondEl = document.getElementById('second');
 
         if(hourEl) hourEl.textContent = hours;
-        if(minuteEl) {
-            const textNode = Array.from(minuteEl.childNodes).find(
-                (node) => node.nodeType === Node.TEXT_NODE
-            );
-            if (textNode) {
-                textNode.nodeValue = minutes;
-            } else {
-                minuteEl.insertBefore(document.createTextNode(minutes), minuteEl.firstChild);
-            }
-        }
+        if(minuteEl) minuteEl.textContent = minutes;
         if(secondEl) secondEl.textContent = seconds;
     }
     setInterval(updateClock, 1000);
