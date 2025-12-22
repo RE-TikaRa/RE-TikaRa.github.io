@@ -10,7 +10,7 @@
  */
 const CONFIG = {
     // Welcome screen settings
-    WELCOME_TEXT: "正在唤醒生命体接口…",
+    WELCOME_TEXT: "正在唤醒情绪体接口…",
     WELCOME_TYPE_SPEED: 120, // ms
     WELCOME_FADE_DELAY: 1000, // ms
 
