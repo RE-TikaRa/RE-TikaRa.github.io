@@ -2,98 +2,36 @@ document.addEventListener('DOMContentLoaded', () => {
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     // 1. Clock Functionality
-    function setFlipCardValue(el, value) {
-        const top = el.querySelector('.flip-card__top span');
-        const bottom = el.querySelector('.flip-card__bottom span');
-        const topFlip = el.querySelector('.flip-card__top-flip span');
-        const bottomFlip = el.querySelector('.flip-card__bottom-flip span');
-        if (!top || !bottom || !topFlip || !bottomFlip) return;
+    const hourEl = document.getElementById('hour');
+    const minuteEl = document.getElementById('minute');
+    const secondEl = document.getElementById('second');
 
-        top.textContent = value;
-        bottom.textContent = value;
-        topFlip.textContent = value;
-        bottomFlip.textContent = value;
-        el.dataset.value = value;
-    }
-
-    function flipTo(el, nextValue) {
-        const currentValue = el.dataset.value;
-        const top = el.querySelector('.flip-card__top span');
-        const bottom = el.querySelector('.flip-card__bottom span');
-        const topFlip = el.querySelector('.flip-card__top-flip span');
-        const bottomFlip = el.querySelector('.flip-card__bottom-flip span');
-        if (!top || !bottom || !topFlip || !bottomFlip) return;
-
-        if (!currentValue) {
-            setFlipCardValue(el, nextValue);
-            return;
-        }
-        if (currentValue === nextValue) return;
-
-        const bottomFlipEl = el.querySelector('.flip-card__bottom-flip');
-        if (bottomFlipEl && el._flipHandler) {
-            bottomFlipEl.removeEventListener('animationend', el._flipHandler);
-            el._flipHandler = null;
-        }
-
-        if (el.classList.contains('is-flipping')) {
-            el.classList.remove('is-flipping');
-        }
-
-        top.textContent = currentValue;
-        bottom.textContent = currentValue;
-        topFlip.textContent = currentValue;
-        bottomFlip.textContent = nextValue;
-        el.dataset.value = nextValue;
-
-        if (reduceMotion) {
-            top.textContent = nextValue;
-            bottom.textContent = nextValue;
-            topFlip.textContent = nextValue;
-            bottomFlip.textContent = nextValue;
-            return;
-        }
-
-        el.classList.add('is-flipping');
-
-        const onDone = () => {
-            top.textContent = nextValue;
-            bottom.textContent = nextValue;
-            topFlip.textContent = nextValue;
-            bottomFlip.textContent = nextValue;
-            el.classList.remove('is-flipping');
-        };
-
-        if (!bottomFlipEl) {
-            onDone();
-            return;
-        }
-
-        const handler = () => {
-            bottomFlipEl.removeEventListener('animationend', handler);
-            el._flipHandler = null;
-            onDone();
-        };
-        el._flipHandler = handler;
-        bottomFlipEl.addEventListener('animationend', handler);
-    }
-
+    let clockTimer = null;
     function updateClock() {
         const now = new Date();
         const hours = String(now.getHours()).padStart(2, '0');
         const minutes = String(now.getMinutes()).padStart(2, '0');
         const seconds = String(now.getSeconds()).padStart(2, '0');
-        
-        const hourEl = document.getElementById('hour');
-        const minuteEl = document.getElementById('minute');
-        const secondEl = document.getElementById('second');
 
-        if (hourEl) flipTo(hourEl, hours);
-        if (minuteEl) flipTo(minuteEl, minutes);
-        if (secondEl) flipTo(secondEl, seconds);
+        if (hourEl) hourEl.textContent = hours;
+        if (minuteEl) minuteEl.textContent = minutes;
+        if (secondEl) secondEl.textContent = seconds;
     }
-    setInterval(updateClock, 1000);
-    updateClock();
+
+    function scheduleClock() {
+        updateClock();
+        const delay = 1010 - (Date.now() % 1000);
+        clockTimer = window.setTimeout(scheduleClock, delay);
+    }
+
+    scheduleClock();
+
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+            if (clockTimer) window.clearTimeout(clockTimer);
+            scheduleClock();
+        }
+    });
 
     // 2. Calendar Functionality
     function initCalendar() {

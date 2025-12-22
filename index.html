@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALp_Studio</title>
     <link rel="icon" type="image/x-icon" href="https://youke2.picui.cn/s1/2025/12/22/69487018d79ad.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&display=swap">
+    <script src="https://c.webfontfree.com/c.js?f=NasaDisplay" type="text/javascript"></script>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -57,25 +61,12 @@
         <div class="column">
             <!-- Clock -->
             <div class="card clock-card glass">
-                <div class="flip-clock">
-                    <div class="flip-card flip-card--time" id="hour" aria-label="小时">
-                        <div class="flip-card__top"><span>00</span></div>
-                        <div class="flip-card__bottom"><span>00</span></div>
-                        <div class="flip-card__top-flip" aria-hidden="true"><span>00</span></div>
-                        <div class="flip-card__bottom-flip" aria-hidden="true"><span>00</span></div>
-                    </div>
-                    <div class="flip-card flip-card--time" id="minute" aria-label="分钟">
-                        <div class="flip-card__top"><span>00</span></div>
-                        <div class="flip-card__bottom"><span>00</span></div>
-                        <div class="flip-card__top-flip" aria-hidden="true"><span>00</span></div>
-                        <div class="flip-card__bottom-flip" aria-hidden="true"><span>00</span></div>
-                    </div>
-                    <div class="flip-card flip-card--second" id="second" aria-label="秒">
-                        <div class="flip-card__top"><span>00</span></div>
-                        <div class="flip-card__bottom"><span>00</span></div>
-                        <div class="flip-card__top-flip" aria-hidden="true"><span>00</span></div>
-                        <div class="flip-card__bottom-flip" aria-hidden="true"><span>00</span></div>
-                    </div>
+                <div class="clock-display" aria-label="当前时间">
+                    <span class="clock-part" id="hour">00</span>
+                    <span class="clock-sep" aria-hidden="true">:</span>
+                    <span class="clock-part" id="minute">00</span>
+                    <span class="clock-sep" aria-hidden="true">:</span>
+                    <span class="clock-part clock-part--second" id="second">00</span>
                 </div>
             </div>
 
