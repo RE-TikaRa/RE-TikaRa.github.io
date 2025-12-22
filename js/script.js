@@ -318,7 +318,8 @@ function initClockAndGreeting() {
 
     function scheduleClock() {
         updateClock();
-        const delay = 1010 - (Date.now() % 1000);
+        // Calculate delay until the start of the next second for precision
+        const delay = 1000 - (Date.now() % 1000);
         clockTimer = window.setTimeout(scheduleClock, delay);
     }
 
