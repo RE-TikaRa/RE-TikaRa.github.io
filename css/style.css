@@ -1,3 +1,25 @@
+@font-face {
+    font-family: "NasaDisplay";
+    src:
+        url("../fonts/NasaDisplay.woff2") format("woff2"),
+        url("../fonts/NasaDisplay.woff") format("woff"),
+        url("../fonts/NasaDisplay.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: "中华薪火体";
+    src:
+        url("../fonts/中华薪火体.woff2") format("woff2"),
+        url("../fonts/中华薪火体.woff") format("woff"),
+        url("../fonts/中华薪火体.ttf") format("truetype");
+    font-weight: 100 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
     /* Light Mode Variables */
     --bg-image: url('https://s2.loli.net/2025/12/22/nBapAxK8NowjZFP.png');
@@ -36,7 +58,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+    font-family: "中华薪火体", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
@@ -331,6 +353,7 @@ body::before {
     align-items: baseline;
     justify-content: center;
     gap: 10px;
+    font-family: "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     font-variant-numeric: tabular-nums;
     letter-spacing: 0.5px;
 }
@@ -350,6 +373,7 @@ body::before {
     line-height: 1;
     opacity: 0.45;
     color: var(--text-secondary);
+    font-family: "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
 }
 
 .clock-part--second {
