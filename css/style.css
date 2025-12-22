@@ -1101,37 +1101,10 @@ body.is-ready .card {
 /* ------------------------------------------------------- */
 
 @media (max-width: 960px) {
-    /* --- Performance Optimizations for Mobile --- */
-    .glass {
-        backdrop-filter: none !important; /* 禁用高成本的模糊效果 */
-        -webkit-backdrop-filter: none !important;
-    }
-
-    .glass::before,
-    .glass::after,
-    .background-gradient::before,
-    .background-gradient::after,
-    .profile-desc-box::after,
-    .clock-card::after,
-    .link-card::after {
-        animation: none !important; /* 禁用耗性能的动画 */
-        display: none !important; /* 隐藏装饰性伪元素 */
-    }
-
-    .card {
-        /* 禁用由 JS 控制的复杂 3D 变换 */
-        transform: none !important;
-        will-change: auto;
-    }
-
-    .grid-container {
-        transform: none !important; /* 禁用全局倾斜 */
-    }
-
+    /* 在移动端隐藏星空背景以提升性能 */
     .starfield-canvas {
-        display: none; /* 完全禁用星空背景 */
+        display: none;
     }
-    /* --- End of Performance Optimizations --- */
 
     .grid-container {
         grid-template-columns: 1fr 1fr; /* 两列布局 */

@@ -57,6 +57,11 @@ const CONFIG = {
     RAINDROP_COUNT: 150, // 雨滴数量
 };
 
+// --- Mobile-specific overrides / 移动端专属配置覆盖 ---
+if (window.matchMedia('(max-width: 960px)').matches) {
+    CONFIG.RAINDROP_COUNT = 50; // 在移动端减少雨滴数量以提升性能
+}
+
 
 /* --- 1. EFFECT CLASSES / 效果类 --- */
 /* ---------------------------------- */
@@ -447,22 +452,25 @@ function initTheme() {
                 syncThemeToggle(nextTheme);
             });
 
-            // 为新视图添加动画
-            transition.ready.then(() => {
-                document.documentElement.animate(
-                    {
-                        clipPath: [
-                            `circle(0px at ${x}px ${y}px)`,
-                            `circle(${endRadius}px at ${x}px ${y}px)`,
-                        ],
-                    },
-                    {
-                        duration: 550,
-                        easing: 'ease-in-out',
-                        pseudoElement: '::view-transition-new(root)', // 动画作用于新视图的根伪元素
-                    }
-                );
-            });
+            // 仅在桌面端应用耗性能的圆形揭示动画
+            if (window.matchMedia('(min-width: 961px)').matches) {
+                // 为新视图添加动画
+                transition.ready.then(() => {
+                    document.documentElement.animate(
+                        {
+                            clipPath: [
+                                `circle(0px at ${x}px ${y}px)`,
+                                `circle(${endRadius}px at ${x}px ${y}px)`,
+                            ],
+                        },
+                        {
+                            duration: 550,
+                            easing: 'ease-in-out',
+                            pseudoElement: '::view-transition-new(root)', // 动画作用于新视图的根伪元素
+                        }
+                    );
+                });
+            }
         });
     }
 
@@ -820,7 +828,11 @@ function main() {
     initClockAndGreeting();
     initCalendar();
     initTheme();
-    initInteractiveEffects();
+
+    // 仅在桌面端（宽度 > 960px）初始化耗费性能的交互式效果
+    if (window.matchMedia('(min-width: 961px)').matches) {
+        initInteractiveEffects();
+    }
 }
 
 // 运行应用
