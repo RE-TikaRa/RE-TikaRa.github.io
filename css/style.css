@@ -1100,12 +1100,33 @@ body.is-ready .card {
 /* --- 9. RESPONSIVE & ACCESSIBILITY / 响应式与可访问性 --- */
 /* ------------------------------------------------------- */
 
-@media (max-width: 900px) {
-.grid-container {
-    transform-style: preserve-3d;
-    transform: rotateY(var(--global-tilt-y, 0deg)) rotateX(var(--global-tilt-x, 0deg));
-    transition: transform 0.1s linear;
-}
+@media (max-width: 960px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr; /* 两列布局 */
+        max-width: 800px;
+    }
+
+    .column:nth-child(1) {
+        grid-column: 1 / 2; /* 个人资料卡片占第一列 */
+    }
+    .column:nth-child(2) {
+        grid-column: 2 / 3; /* 链接卡片占第二列 */
+        grid-row: 1 / 2;
+    }
+    .column:nth-child(3) {
+        grid-column: 1 / 3; /* 小工具占满两列，形成新的一行 */
+        flex-direction: row; /* 小工具内部横向排列 */
+    }
+    .clock-card, .calendar-card {
+        width: 100%; /* 让时钟和日历平分空间 */
+    }
+    .full-height {
+        min-height: 480px; /* 调整个人资料卡片高度 */
+    }
+    .center-links {
+        min-height: 480px; /* 调整链接卡片区域高度 */
+        justify-content: center;
+    }
 }
 
 @media (max-width: 600px) {
@@ -1118,6 +1139,9 @@ body.is-ready .card {
     }
     .grid-container {
         grid-template-columns: 1fr; /* 在小屏幕上变为单列布局 */
+    }
+    .column:nth-child(3) {
+        flex-direction: column; /* 在更小的屏幕上，小工具恢复垂直排列 */
     }
     .profile-card {
         padding: 34px 18px;
