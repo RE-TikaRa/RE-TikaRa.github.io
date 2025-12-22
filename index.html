@@ -15,8 +15,11 @@
         </div>
     </div>
     <div class="background-gradient"></div>
-    <canvas id="raindrop-canvas" class="raindrop-canvas" aria-hidden="true"></canvas>
-    <svg id="constellation-svg" class="constellation-canvas" aria-hidden="true"></svg>
+    <canvas id="starfield-layer1" class="starfield-canvas" data-layer-id="1"></canvas>
+    <canvas id="starfield-layer2" class="starfield-canvas" data-layer-id="2"></canvas>
+    <canvas id="starfield-layer3" class="starfield-canvas" data-layer-id="3"></canvas>
+    <canvas id="shooting-star-canvas" class="starfield-canvas"></canvas>
+    <canvas id="raindrop-canvas" class="starfield-canvas"></canvas>
 
     <div class="theme-switch-wrapper">
         <button id="theme-toggle" type="button" aria-label="切换主题">
@@ -25,8 +28,9 @@
         </button>
     </div>
     
-    <main class="grid-container">
-        <!-- Column 1: Profile -->
+    <div class="parallax-container">
+        <main class="grid-container">
+            <!-- Column 1: Profile -->
         <div class="column">
             <div class="card profile-card glass full-height">
                 <div class="profile-content-wrapper">
@@ -89,6 +93,7 @@
             </div>
         </div>
     </main>
+</div>
 
     <script src="js/script.js"></script>
 </body>
