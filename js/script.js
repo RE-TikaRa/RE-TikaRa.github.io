@@ -418,10 +418,8 @@ function initTheme() {
         toggleBtn.setAttribute('aria-label', isDark ? '切换到浅色模式' : '切换到深色模式');
     }
 
-    // 初始化主题：优先使用本地存储，其次是系统偏好
-    const savedTheme = localStorage.getItem('theme');
-    const initialTheme = savedTheme ?? (prefersDarkScheme.matches ? 'dark' : 'light');
-    setTheme(initialTheme);
+    // 页面加载时，根据已设置的 data-theme 同步切换按钮状态
+    const initialTheme = document.documentElement.getAttribute('data-theme') || 'light';
     syncThemeToggle(initialTheme);
 
     if (toggleBtn) {

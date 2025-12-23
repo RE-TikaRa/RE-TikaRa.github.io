@@ -7,6 +7,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 设置视口，以确保在移动设备上正确渲染 -->
     <title>ALp_Studio</title> <!-- 页面标题 -->
     <link rel="icon" type="image/x-icon" href="https://youke2.picui.cn/s1/2025/12/22/69487018d79ad.ico"> <!-- 设置网站图标 -->
+
+    <!-- 预加载主题脚本，防止闪烁 -->
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', initialTheme);
+        })();
+    </script>
     
     <!-- 引入外部样式表 -->
     <link rel="stylesheet" href="css/style.css"> <!-- 自定义样式表 -->
