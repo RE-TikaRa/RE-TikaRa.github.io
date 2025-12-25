@@ -291,7 +291,7 @@ body.is-ready .starfield-canvas {
     display: grid; /* 网格布局 */
     grid-template-columns: 1.2fr 1fr 1.2fr; /* 三列布局 */
     gap: clamp(18px, 3vw, 28px); /* 响应式间距 */
-    align-items: start; /* 顶部对齐 */
+    align-items: stretch; /* 使所有列等高 */
     width: 100%;
     max-width: 1200px; /* 最大宽度 */
     padding: 0;
@@ -303,10 +303,25 @@ body.is-ready .starfield-canvas {
     gap: clamp(18px, 3vw, 26px);
 }
 
-.full-height {
-    min-height: 560px; /* 最小高度 */
-    height: auto;
+.center-links,
+.widgets-column {
+    justify-content: space-between; /* 仅在多项目的列中均匀分布 */
 }
+
+/* 大屏幕下调整列的顺序 */
+@media (min-width: 961px) {
+    .profile-column {
+        order: 2; /* 个人信息列排在第二位 */
+    }
+    .center-links {
+        order: 1; /* 链接列排在第一位 */
+    }
+    .widgets-column {
+        order: 3; /* 小工具列排在第三位 */
+    }
+}
+
+/* .full-height is no longer needed, flex-grow on profile-card handles this. */
 
 
 /* --- 5. BASE COMPONENT STYLES / 基础组件样式 --- */
@@ -350,9 +365,9 @@ body.is-ready .starfield-canvas {
 
 [data-theme="dark"] .glass::before {
     background:
-        radial-gradient(180px 140px at 20% 30%, rgba(255, 255, 255, 0.15), transparent 60%),
-        radial-gradient(220px 160px at 80% 40%, rgba(255, 255, 255, 0.10), transparent 65%),
-        radial-gradient(320px 200px at 40% 85%, rgba(255, 255, 255, 0.08), transparent 70%);
+        radial-gradient(180px 140px at 20% 30%, rgba(255, 255, 255, 0.05), transparent 60%),
+        radial-gradient(220px 160px at 80% 40%, rgba(255, 255, 255, 0.04), transparent 65%),
+        radial-gradient(320px 200px at 40% 85%, rgba(255, 255, 255, 0.03), transparent 70%);
 }
 
 /* 对角线高光效果 */
@@ -592,10 +607,7 @@ body.is-ready .starfield-canvas {
 
 /* 链接卡片 (中列) */
 .center-links {
-    justify-content: space-between;
     gap: clamp(18px, 2.8vw, 28px);
-    padding: 12px 0;
-    min-height: 520px;
 }
 
 .link-card {
@@ -619,24 +631,9 @@ body.is-ready .starfield-canvas {
     transform: translateY(-1px) scale(0.99);
 }
 
-/* 辉光效果 */
-.link-card::after {
-    content: '';
-    position: absolute;
-    inset: -2px;
-    z-index: -1;
-    border-radius: var(--radius-lg);
-    background: radial-gradient(circle at center, rgba(var(--link-accent-rgb), 0.25), transparent 60%);
-    opacity: 0;
-    transform: scale(0.95);
-    pointer-events: none;
-    transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
-}
-
-.link-card:hover::after {
-    opacity: 1;
-    transform: scale(1.02);
-}
+/* The link-card hover glow is now handled by the icon's pseudo-element.
+   Removing this rule allows the link-card to inherit the default .glass::after highlight,
+   which fixes the color inconsistency. */
 
 /* 特定链接的强调色 */
 .link-github { --link-accent-rgb: 155, 102, 255; }
@@ -746,14 +743,6 @@ body.is-ready .starfield-canvas {
     --glass-border: rgba(var(--accent-rgb), 0.18);
 }
 
-.clock-card::after {
-    content: '';
-    position: absolute;
-    inset: -60px;
-    background: radial-gradient(closest-side at 50% 25%, var(--glass-glow), transparent 70%);
-    opacity: 0.65;
-    pointer-events: none;
-}
 
 .clock-display {
     display: flex;
@@ -887,6 +876,63 @@ body.is-ready .starfield-canvas {
 .calendar-day.current:hover {
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 18px 44px rgba(var(--accent-rgb), 0.44);
+}
+
+
+/* 天气小工具 */
+.weather-card {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 12px;
+    min-height: 180px;
+    opacity: 0; /* 初始隐藏，由 JS 控制显示 */
+    transition: opacity 0.5s ease-in-out;
+}
+
+.weather-card:not([hidden]) {
+    opacity: 1;
+}
+
+.weather-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+}
+
+.weather-location {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.weather-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin: 10px 0;
+}
+
+.weather-temp {
+    font-family: "DS-Digital", monospace;
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    line-height: 1;
+}
+
+.weather-icon {
+    font-size: 2.8rem;
+    color: var(--accent-color);
+}
+
+.weather-description {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    opacity: 0.9;
 }
 
 /* 主题切换按钮 */
@@ -1367,11 +1413,12 @@ body.is-ready .card {
     }
 
     /* 重置所有列的网格位置，以强制实现单列堆叠 */
-    .column:nth-child(1),
-    .column:nth-child(2),
-    .column:nth-child(3) {
+    .column:nth-child(1), /* 个人信息列 */
+    .column:nth-child(2), /* 链接列 */
+    .column:nth-child(3) { /* 小工具列 */
         grid-column: auto;
         grid-row: auto;
+        order: unset; /* 移除大屏幕下的 order 属性 */
     }
 
     .column:nth-child(3) {

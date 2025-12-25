@@ -86,7 +86,7 @@
     <div class="parallax-container">
         <main class="grid-container">
             <!-- 第一列: 个人资料 -->
-            <section class="column" aria-labelledby="profile-heading">
+            <section class="column profile-column" aria-labelledby="profile-heading">
                 <div class="card profile-card glass full-height">
                     <div class="profile-content-wrapper">
                         <div class="avatar-large">
@@ -124,10 +124,24 @@
                     <span class="link-text">文章库</span>
                     <i class="fa-solid fa-chevron-right link-chevron" aria-hidden="true"></i>
                 </a>
+
+                <!-- 天气小工具 -->
+                <div id="weather-card" class="card weather-card glass" hidden>
+                    <div class="weather-content">
+                        <div class="weather-location">加载中...</div>
+                        <div class="weather-main">
+                            <div class="weather-temp">--°</div>
+                            <div class="weather-icon">
+                                <i class="fa-solid fa-spinner fa-spin"></i>
+                            </div>
+                        </div>
+                        <div class="weather-description">正在获取天气</div>
+                    </div>
+                </div>
             </section>
 
             <!-- 第三列: 小工具 -->
-            <section class="column" aria-label="实时小工具">
+            <section class="column widgets-column" aria-label="实时小工具">
                 <!-- 时钟小工具 -->
                 <div class="card clock-card glass">
                     <div class="clock-display" aria-label="当前时间">
@@ -139,15 +153,19 @@
                     </div>
                 </div>
 
-                <!-- 日历小工具 -->
-                <div class="card calendar-card glass">
-                    <div class="calendar-top-row">
-                        <div class="calendar-title">
-                            <div class="calendar-title-large">日历</div>
-                            <div class="calendar-month" id="calendar-month">——</div>
+                <!-- 小工具组: 日历和天气 -->
+                <div class="widget-group">
+                    <!-- 日历小工具 -->
+                    <div class="card calendar-card glass">
+                        <div class="calendar-top-row">
+                            <div class="calendar-title">
+                                <div class="calendar-title-large">日历</div>
+                                <div class="calendar-month" id="calendar-month">——</div>
+                            </div>
                         </div>
+                        <div class="calendar-grid" id="calendar-grid"></div> <!-- 日历网格将由 JavaScript 动态生成 -->
                     </div>
-                    <div class="calendar-grid" id="calendar-grid"></div> <!-- 日历网格将由 JavaScript 动态生成 -->
+
                 </div>
             </section>
         </main>

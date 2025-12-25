@@ -403,6 +403,41 @@ function initCalendar() {
 }
 
 /**
+ * 初始化天气小工具。
+ */
+function initWeather() {
+    const weatherCard = document.getElementById('weather-card');
+    if (!weatherCard) return;
+
+    const locationEl = weatherCard.querySelector('.weather-location');
+    const tempEl = weatherCard.querySelector('.weather-temp');
+    const iconEl = weatherCard.querySelector('.weather-icon i');
+    const descriptionEl = weatherCard.querySelector('.weather-description');
+
+    // 模拟天气数据
+    const mockWeatherData = {
+        location: '赛博城',
+        temp: 22,
+        description: '信号晴朗',
+        iconClass: 'fa-solid fa-sun', // Font Awesome icon class
+    };
+
+    // 模拟 API 调用延迟
+    setTimeout(() => {
+        if (locationEl) locationEl.textContent = mockWeatherData.location;
+        if (tempEl) tempEl.textContent = `${mockWeatherData.temp}°`;
+        if (descriptionEl) descriptionEl.textContent = mockWeatherData.description;
+        if (iconEl) {
+            iconEl.className = mockWeatherData.iconClass;
+        }
+
+        // 数据加载后显示卡片
+        weatherCard.hidden = false;
+        weatherCard.style.opacity = 1;
+    }, 1500); // 延迟 1.5 秒模拟加载
+}
+
+/**
  * 初始化主题切换功能，并使用 View Transitions API 实现创意过渡效果。
  */
 function initTheme() {
@@ -885,7 +920,7 @@ function initSettingsPanel() {
         toggle.addEventListener('change', (e) => applySetting(key, e.target.checked));
     });
 
-    settingsToggle.addEventListener('click', () => settingsPanel.hidden = false);
+    settingsToggle.addEventListener('click', () => settingsPanel.hidden = !settingsPanel.hidden);
     settingsClose.addEventListener('click', () => settingsPanel.hidden = true);
 
     document.addEventListener('click', (e) => {
@@ -899,6 +934,19 @@ function initSettingsPanel() {
             settingsPanel.hidden = true;
         }
     });
+}
+
+
+/**
+ * 禁用 F12 和右键菜单
+ */
+function disableDevTools() {
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+            e.preventDefault();
+        }
+    });
+    document.addEventListener('contextmenu', (e) => e.preventDefault());
 }
 
 
@@ -1008,6 +1056,11 @@ function initCLI() {
             e.preventDefault();
             toggleCLI();
         }
+        // 使用 Escape 键关闭 CLI
+        if (e.key === 'Escape' && !cliContainer.hidden) {
+            e.preventDefault();
+            toggleCLI(false);
+        }
     });
 
     cliInput.addEventListener('keydown', (e) => {
@@ -1049,6 +1102,7 @@ function main() {
     initWelcomeScreen();
     initClockAndGreeting();
     initCalendar();
+    initWeather(); // 初始化天气小工具
     initTheme();
     initSettingsPanel(); // 初始化设置面板
     initCLI(); // 初始化 CLI 彩蛋
@@ -1057,6 +1111,8 @@ function main() {
     if (window.matchMedia('(min-width: 961px)').matches) {
         initInteractiveEffects();
     }
+
+    disableDevTools(); // 禁用开发者工具
 }
 
 // 运行应用
