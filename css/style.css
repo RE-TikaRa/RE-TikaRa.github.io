@@ -291,7 +291,7 @@ body.is-ready .starfield-canvas {
     display: grid; /* 网格布局 */
     grid-template-columns: 1.2fr 1fr 1.2fr; /* 三列布局 */
     gap: clamp(18px, 3vw, 28px); /* 响应式间距 */
-    align-items: stretch; /* 使所有列等高 */
+    align-items: center; /* 垂直居中对齐 */
     width: 100%;
     max-width: 1200px; /* 最大宽度 */
     padding: 0;

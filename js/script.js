@@ -403,9 +403,9 @@ function initCalendar() {
 }
 
 /**
- * 初始化天气小工具。
+ * 初始化天气小工具，使用 Open-Meteo API。
  */
-function initWeather() {
+async function initWeather() {
     const weatherCard = document.getElementById('weather-card');
     if (!weatherCard) return;
 
@@ -414,27 +414,71 @@ function initWeather() {
     const iconEl = weatherCard.querySelector('.weather-icon i');
     const descriptionEl = weatherCard.querySelector('.weather-description');
 
-    // 模拟天气数据
-    const mockWeatherData = {
-        location: '赛博城',
-        temp: 22,
-        description: '信号晴朗',
-        iconClass: 'fa-solid fa-sun', // Font Awesome icon class
+    // 天气代码到 Font Awesome 图标和中文描述的映射
+    const weatherCodeMap = {
+        0: { icon: 'fa-solid fa-sun', description: '晴' },
+        1: { icon: 'fa-solid fa-cloud-sun', description: '基本晴朗' },
+        2: { icon: 'fa-solid fa-cloud', description: '部分多云' },
+        3: { icon: 'fa-solid fa-cloud', description: '阴天' },
+        45: { icon: 'fa-solid fa-smog', description: '雾' },
+        48: { icon: 'fa-solid fa-smog', description: '冻雾' },
+        51: { icon: 'fa-solid fa-cloud-rain', description: '小雨' },
+        53: { icon: 'fa-solid fa-cloud-rain', description: '中雨' },
+        55: { icon: 'fa-solid fa-cloud-showers-heavy', description: '大雨' },
+        61: { icon: 'fa-solid fa-cloud-rain', description: '小雨' },
+        63: { icon: 'fa-solid fa-cloud-rain', description: '中雨' },
+        65: { icon: 'fa-solid fa-cloud-showers-heavy', description: '大雨' },
+        80: { icon: 'fa-solid fa-cloud-showers-heavy', description: '阵雨' },
+        81: { icon: 'fa-solid fa-cloud-showers-heavy', description: '中度阵雨' },
+        82: { icon: 'fa-solid fa-cloud-showers-heavy', description: '猛烈阵雨' },
+        95: { icon: 'fa-solid fa-bolt', description: '雷暴' },
     };
 
-    // 模拟 API 调用延迟
-    setTimeout(() => {
-        if (locationEl) locationEl.textContent = mockWeatherData.location;
-        if (tempEl) tempEl.textContent = `${mockWeatherData.temp}°`;
-        if (descriptionEl) descriptionEl.textContent = mockWeatherData.description;
-        if (iconEl) {
-            iconEl.className = mockWeatherData.iconClass;
-        }
+    function updateWeatherUI(data) {
+        const temperature = data.current.temperature_2m;
+        const weathercode = data.current.weather_code;
+        const weatherInfo = weatherCodeMap[weathercode] || { icon: 'fa-solid fa-question', description: '未知' };
 
-        // 数据加载后显示卡片
+        if (tempEl) tempEl.textContent = `${Math.round(temperature)}°`;
+        if (descriptionEl) descriptionEl.textContent = weatherInfo.description;
+        if (iconEl) iconEl.className = weatherInfo.icon;
+        if (locationEl) locationEl.textContent = '当前位置'; // 使用通用文本
+
         weatherCard.hidden = false;
-        weatherCard.style.opacity = 1;
-    }, 1500); // 延迟 1.5 秒模拟加载
+    }
+
+    function showError(message) {
+        if (locationEl) locationEl.textContent = '错误';
+        if (descriptionEl) descriptionEl.textContent = message;
+        if (iconEl) iconEl.className = 'fa-solid fa-circle-exclamation';
+        weatherCard.hidden = false;
+    }
+
+    try {
+        const position = await new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 10000 });
+        });
+
+        const { latitude, longitude } = position.coords;
+        const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code`;
+        
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error(`HTTP 错误! 状态: ${response.status}`);
+        
+        const data = await response.json();
+        
+        updateWeatherUI(data);
+
+    } catch (error) {
+        console.error("获取天气失败:", error.message || error);
+        let errorMessage = '无法获取天气信息。';
+        if (error.code === 1) {
+            errorMessage = '请允许访问您的位置。';
+        } else if (error.message.includes('HTTP')) {
+            errorMessage = '天气服务暂时不可用。';
+        }
+        showError(errorMessage);
+    }
 }
 
 /**
