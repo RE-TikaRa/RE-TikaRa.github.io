@@ -14,8 +14,7 @@
     font-family: "NasaDisplay"; /* Nasa 主题字体 */
     src:
         url("../fonts/NasaDisplay.woff2") format("woff2"),
-        url("../fonts/NasaDisplay.woff") format("woff"),
-        url("../fonts/NasaDisplay.ttf") format("truetype");
+        url("../fonts/NasaDisplay.woff") format("woff");
     font-weight: 100 900; /* 字体粗细范围 */
     font-style: normal; /* 正常样式 */
     font-display: swap; /* 字体加载策略 */
@@ -25,8 +24,7 @@
     font-family: "中华薪火体"; /* 中文主体字体 */
     src:
         url("../fonts/中华薪火体.woff2") format("woff2"),
-        url("../fonts/中华薪火体.woff") format("woff"),
-        url("../fonts/中华薪火体.ttf") format("truetype");
+        url("../fonts/中华薪火体.woff") format("woff");
     font-weight: 100 900;
     font-style: normal;
     font-display: swap;
@@ -1097,8 +1095,37 @@ body.is-ready .card {
 }
 
 
-/* --- 9. RESPONSIVE & ACCESSIBILITY / 响应式与可访问性 --- */
-/* ------------------------------------------------------- */
+/* --- 9. FOOTER / 页脚 --- */
+/* ------------------------- */
+
+.site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    z-index: 10;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.site-footer:hover {
+    opacity: 1;
+}
+
+[data-theme="dark"] .site-footer {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- 10. RESPONSIVE & ACCESSIBILITY / 响应式与可访问性 --- */
+/* -------------------------------------------------------- */
 
 @media (max-width: 960px) {
     /* 在移动端隐藏星空背景以提升性能 */
