@@ -1130,6 +1130,108 @@ function initCLI() {
     });
 }
 
+/**
+ * 初始化音乐播放器，从 config.json 加载歌曲 ID 列表并随机播放一首。
+ */
+async function initMusicPlayer() {
+    const musicCard = document.getElementById('music-card');
+    if (!musicCard) return;
+
+    try {
+        // 添加时间戳以防止浏览器缓存旧的配置文件
+        const response = await fetch('config.json?v=' + new Date().getTime());
+        if (!response.ok) {
+            throw new Error('无法加载音乐配置');
+        }
+        const config = await response.json();
+        const musicIds = config.netease_music_ids;
+
+        if (musicIds && Array.isArray(musicIds) && musicIds.length > 0) {
+            // 从列表中随机选择一个 ID
+            const musicId = musicIds[Math.floor(Math.random() * musicIds.length)];
+            
+            const iframe = document.createElement('iframe');
+            // 使用外链播放器 URL
+            iframe.src = `https://music.163.com/outchain/player?type=2&id=${musicId}&auto=0&height=66`;
+            iframe.allow = "autoplay";
+            iframe.setAttribute('frameborder', 'no');
+            iframe.setAttribute('border', '0');
+            iframe.setAttribute('marginwidth', '0');
+            iframe.setAttribute('marginheight', '0');
+            
+            // 清空占位符并添加播放器
+            musicCard.innerHTML = '';
+            musicCard.appendChild(iframe);
+        } else {
+            throw new Error('在 config.json 中未找到有效的 musicIds 数组');
+        }
+    } catch (error) {
+        console.error('初始化音乐播放器失败:', error);
+        // 在卡片中显示错误信息，并启动一言回退
+        initHitokotoFallback(musicCard);
+    }
+}
+
+/**
+ * 初始化一言 (Hitokoto) 回退功能，在音乐加载失败时显示。
+ * @param {HTMLElement} container - 用于显示语录的容器元素。
+ */
+function initHitokotoFallback(container) {
+    if (!container) return;
+
+    container.innerHTML = `
+        <div class="hitokoto-container">
+            <p id="hitokoto-text"></p><span class="cursor"></span>
+            <p id="hitokoto-from"></p>
+        </div>
+    `;
+
+    const textEl = document.getElementById('hitokoto-text');
+    const fromEl = document.getElementById('hitokoto-from');
+    let intervalId = null; // 用于存储定时器ID
+
+    const typewriter = (text, element, onComplete) => {
+        let i = 0;
+        element.innerHTML = ''; // 清空旧内容
+        const typing = () => {
+            if (i < text.length) {
+                element.textContent += text.charAt(i);
+                i++;
+                setTimeout(typing, 80); // 打字速度
+            } else if (onComplete) {
+                onComplete();
+            }
+        };
+        typing();
+    };
+
+    const fetchAndShowHitokoto = async () => {
+        try {
+            const response = await fetch('https://v1.hitokoto.cn/?encode=json&charset=utf-8');
+            if (!response.ok) throw new Error('Hitokoto API request failed');
+            const data = await response.json();
+            
+            // 开始打字机效果
+            typewriter(data.hitokoto, textEl, () => {
+                // 打字结束后显示来源
+                fromEl.textContent = `—— ${data.from_who || ''}「${data.from}」`;
+                fromEl.style.opacity = '1';
+            });
+            fromEl.style.opacity = '0'; // 在打字时隐藏来源
+
+        } catch (error) {
+            console.error('获取一言失败:', error);
+            textEl.textContent = '生活，就是一半烟火，一半清欢。'; // 备用语录
+            fromEl.textContent = '';
+        }
+    };
+
+    // 立即执行一次，然后设置定时器
+    fetchAndShowHitokoto();
+    if (intervalId) clearInterval(intervalId); // 清除旧的定时器
+    intervalId = setInterval(fetchAndShowHitokoto, 10000); // 每 10 秒切换一句
+}
+
 
 /* --- 5. MAIN APPLICATION / 主应用 --- */
 /* ------------------------------------ */
@@ -1150,6 +1252,7 @@ function main() {
     initTheme();
     initSettingsPanel(); // 初始化设置面板
     initCLI(); // 初始化 CLI 彩蛋
+    initMusicPlayer(); // 初始化音乐播放器
 
     // 仅在桌面端（宽度 > 960px）初始化耗费性能的交互式效果
     if (window.matchMedia('(min-width: 961px)').matches) {
