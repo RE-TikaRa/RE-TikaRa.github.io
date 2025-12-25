@@ -11,6 +11,12 @@
  * 用于各种效果和设置的配置对象。
  * @const {object}
  */
+let visualSettings = {}; // 全局视觉设置
+
+/**
+ * 用于各种效果和设置的配置对象。
+ * @const {object}
+ */
 const CONFIG = {
     // 欢迎屏幕设置
     WELCOME_TEXT: "正在唤醒情绪体接口…", // 欢迎语文本
@@ -557,12 +563,21 @@ function initInteractiveEffects() {
             item.el.style.setProperty('--magnetic-y', `${item.currentY.toFixed(2)}px`);
         });
 
-        // 更新浮动元素的位移
+        // 根据设置更新浮动元素的位移
         const now = performance.now();
-        animationState.floatingElements.forEach(item => {
-            const floatY = Math.sin(item.phase + now * item.speed) * item.amplitude;
-            item.el.style.setProperty('--float-y', `${floatY.toFixed(2)}px`);
-        });
+        if (visualSettings.cardFloat) {
+            animationState.floatingElements.forEach(item => {
+                const floatY = Math.sin(item.phase + now * item.speed) * item.amplitude;
+                item.el.style.setProperty('--float-y', `${floatY.toFixed(2)}px`);
+            });
+        } else {
+            // 如果禁用了浮动，则将所有卡片的浮动效果重置为0
+            animationState.floatingElements.forEach(item => {
+                if (item.el.style.getPropertyValue('--float-y') !== '0px') {
+                    item.el.style.setProperty('--float-y', '0px');
+                }
+            });
+        }
         
         // 更新背景效果
         animationState.starfieldUpdate(animationState.currentX, animationState.currentY);
@@ -635,7 +650,7 @@ function initInteractiveEffects() {
     // 为卡片设置倾斜、磁性和文字打乱效果
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) { // 仅在支持悬停的设备上启用
         document.querySelectorAll('.card').forEach((card, index) => {
-            // 为每个卡片添加浮动动画属性
+            // 为每个卡片添加浮动动画属性，无论设置如何，都先填充数组
             const floatItem = {
                 el: card,
                 phase: Math.random() * Math.PI * 2, // 随机初始相位，使浮动看起来更自然
@@ -810,7 +825,216 @@ function initRaindrops() {
 }
 
 
-/* --- 3. MAIN APPLICATION / 主应用 --- */
+/* --- 3. SETTINGS PANEL LOGIC / 设置面板逻辑 --- */
+/* --------------------------------------------- */
+
+/**
+ * 初始化交互式设置面板。
+ */
+function initSettingsPanel() {
+    const settingsToggle = document.getElementById('settings-toggle');
+    const settingsPanel = document.getElementById('settings-panel');
+    const settingsClose = document.getElementById('settings-close');
+    const toggles = document.querySelectorAll('.toggle-switch');
+
+    if (!settingsPanel || !settingsToggle || !settingsClose) {
+        return;
+    }
+
+    const defaultSettings = {
+        starfield: true,
+        shootingStars: true,
+        raindrops: true,
+        cardFloat: true,
+    };
+
+    const savedSettings = JSON.parse(localStorage.getItem('visualSettings')) || {};
+    visualSettings = { ...defaultSettings, ...savedSettings };
+
+    const effectElements = {
+        starfield: [
+            document.getElementById('starfield-layer1'),
+            document.getElementById('starfield-layer2'),
+            document.getElementById('starfield-layer3'),
+        ],
+        shootingStars: [document.getElementById('shooting-star-canvas')],
+        raindrops: [document.getElementById('raindrop-canvas')],
+    };
+
+    function applySetting(key, value) {
+        visualSettings[key] = value;
+        localStorage.setItem('visualSettings', JSON.stringify(visualSettings));
+
+        if (effectElements[key]) {
+            effectElements[key].forEach(el => {
+                if (el) el.hidden = !value;
+            });
+        }
+    }
+
+    toggles.forEach(toggle => {
+        const key = toggle.dataset.setting;
+        if (key in visualSettings) {
+            toggle.checked = visualSettings[key];
+            if (effectElements[key]) {
+                effectElements[key].forEach(el => {
+                    if (el) el.hidden = !visualSettings[key];
+                });
+            }
+        }
+        toggle.addEventListener('change', (e) => applySetting(key, e.target.checked));
+    });
+
+    settingsToggle.addEventListener('click', () => settingsPanel.hidden = false);
+    settingsClose.addEventListener('click', () => settingsPanel.hidden = true);
+
+    document.addEventListener('click', (e) => {
+        if (!settingsPanel.hidden && !settingsPanel.contains(e.target) && !settingsToggle.contains(e.target)) {
+            settingsPanel.hidden = true;
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !settingsPanel.hidden) {
+            settingsPanel.hidden = true;
+        }
+    });
+}
+
+
+/* --- 4. CLI EASTER EGG / CLI 彩蛋 --- */
+/* ------------------------------------ */
+
+/**
+ * 初始化命令行界面 (CLI) 彩蛋。
+ */
+function initCLI() {
+    const cliContainer = document.getElementById('cli-container');
+    const cliOutput = document.getElementById('cli-output');
+    const cliInput = document.getElementById('cli-input');
+
+    if (!cliContainer || !cliInput || !cliOutput) return;
+
+    let commandHistory = [];
+    let historyIndex = -1;
+
+    const commands = {
+        help: () => {
+            return `可用命令:
+  <span class="cli-command">help</span>      - 显示此帮助信息
+  <span class="cli-command">clear</span>     - 清空终端屏幕
+  <span class="cli-command">theme</span>     - 切换亮/暗主题
+  <span class="cli-command">fetch</span>     - 显示一些虚拟信息
+  <span class="cli-command">exit</span>      - 关闭 CLI 窗口`;
+        },
+        clear: () => {
+            cliOutput.innerHTML = '';
+            return '';
+        },
+        theme: () => {
+            document.getElementById('theme-toggle')?.click();
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            return `主题已切换为 ${currentTheme === 'dark' ? '深色' : '浅色'} 模式。`;
+        },
+        fetch: () => {
+            return `
+<pre>
+██████╗░███████╗██╗░░██╗░█████╗░
+██╔══██╗██╔════╝██║░░██║██╔══██╗
+██████╔╝█████╗░░███████║██║░░██║
+██╔══██╗██╔══╝░░██╔══██║██║░░██║
+██║░░██║███████╗██║░░██║╚█████╔╝
+╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░
+</pre>
+:: Tika's Personal Interface v2.3
+:: 状态: 稳定
+:: 连接: 安全
+`;
+        },
+        exit: () => {
+            toggleCLI(false);
+            return '关闭终端...';
+        }
+    };
+
+    function toggleCLI(show) {
+        const isVisible = !cliContainer.hidden;
+        if (show === undefined) show = !isVisible; // 如果未指定，则切换状态
+
+        if (show) {
+            cliContainer.hidden = false;
+            cliInput.focus();
+            if (cliOutput.innerHTML === '') { // 仅在首次打开时显示欢迎信息
+                printToCLI('欢迎来到 Tika 的终端。输入 `help` 查看可用命令。');
+            }
+        } else {
+            cliContainer.hidden = true;
+            cliInput.blur();
+        }
+    }
+
+    function printToCLI(text) {
+        cliOutput.innerHTML += `<div>${text}</div>`;
+        // 使用 setTimeout 确保 DOM 更新后再滚动
+        setTimeout(() => {
+            cliContainer.scrollTop = cliContainer.scrollHeight;
+        }, 0);
+    }
+
+    function executeCommand(command) {
+        const trimmedCommand = command.trim();
+        if (trimmedCommand === '') return;
+        
+        printToCLI(`<span class="cli-prompt">[tika@lab ~]$</span> <span class="cli-command-input">${trimmedCommand.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">")}</span>`);
+
+        if (commandHistory[0] !== trimmedCommand) {
+            commandHistory.unshift(trimmedCommand);
+        }
+        historyIndex = -1;
+
+        const [cmd, ...args] = trimmedCommand.toLowerCase().split(' ');
+        if (commands[cmd]) {
+            const result = commands[cmd](args);
+            if (result) printToCLI(result);
+        } else {
+            printToCLI(`命令未找到: ${cmd}。输入 'help' 查看列表。`);
+        }
+    }
+
+    // --- Event Listeners ---
+    document.addEventListener('keydown', (e) => {
+        // 使用 `~` 键或反引号键来切换 CLI
+        if (e.key === '`' || e.key === '~') {
+            e.preventDefault();
+            toggleCLI();
+        }
+    });
+
+    cliInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            executeCommand(cliInput.value);
+            cliInput.value = '';
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (commandHistory.length > 0 && historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                cliInput.value = commandHistory[historyIndex];
+            }
+        } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex > 0) {
+                historyIndex--;
+                cliInput.value = commandHistory[historyIndex];
+            } else {
+                historyIndex = -1;
+                cliInput.value = '';
+            }
+        }
+    });
+}
+
+
+/* --- 5. MAIN APPLICATION / 主应用 --- */
 /* ------------------------------------ */
 
 /**
@@ -826,6 +1050,8 @@ function main() {
     initClockAndGreeting();
     initCalendar();
     initTheme();
+    initSettingsPanel(); // 初始化设置面板
+    initCLI(); // 初始化 CLI 彩蛋
 
     // 仅在桌面端（宽度 > 960px）初始化耗费性能的交互式效果
     if (window.matchMedia('(min-width: 961px)').matches) {

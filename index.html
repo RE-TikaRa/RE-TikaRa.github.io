@@ -41,6 +41,39 @@
     <canvas id="shooting-star-canvas" class="starfield-canvas"></canvas> <!-- 流星动画层 -->
     <canvas id="raindrop-canvas" class="starfield-canvas"></canvas> <!-- 雨滴动画层 -->
 
+    <!-- 设置按钮 -->
+    <div class="settings-wrapper">
+        <button id="settings-toggle" type="button" aria-label="打开设置">
+            <i class="fa-solid fa-gear" aria-hidden="true"></i>
+        </button>
+    </div>
+
+    <!-- 设置面板 -->
+    <div id="settings-panel" class="card glass" hidden>
+        <div class="settings-header">
+            <h3>显示设置</h3>
+            <button id="settings-close" type="button" aria-label="关闭设置">&times;</button>
+        </div>
+        <div class="settings-content">
+            <div class="setting-item">
+                <label for="toggle-starfield">星空背景</label>
+                <input type="checkbox" id="toggle-starfield" class="toggle-switch" data-setting="starfield" checked>
+            </div>
+            <div class="setting-item">
+                <label for="toggle-shooting-stars">流星效果</label>
+                <input type="checkbox" id="toggle-shooting-stars" class="toggle-switch" data-setting="shootingStars" checked>
+            </div>
+            <div class="setting-item">
+                <label for="toggle-raindrops">雨滴效果</label>
+                <input type="checkbox" id="toggle-raindrops" class="toggle-switch" data-setting="raindrops" checked>
+            </div>
+            <div class="setting-item">
+                <label for="toggle-card-float">卡片浮动</label>
+                <input type="checkbox" id="toggle-card-float" class="toggle-switch" data-setting="cardFloat" checked>
+            </div>
+        </div>
+    </div>
+
     <!-- 主题切换按钮 -->
     <div class="theme-switch-wrapper">
         <button id="theme-toggle" type="button" aria-label="切换主题">
@@ -124,6 +157,15 @@
     <footer class="site-footer">
         <p>实例仍在运行  日志未终止  // The instance is still running; the logs haven’t terminated.</p>
     </footer>
+
+    <!-- CLI 彩蛋 -->
+    <div id="cli-container" hidden>
+        <div id="cli-output"></div>
+        <div id="cli-input-line">
+            <span class="cli-prompt">[tika@lab ~]$</span>
+            <input type="text" id="cli-input" autocomplete="off" spellcheck="false">
+        </div>
+    </div>
 
     <!-- 引入 JavaScript 文件 -->
     <script src="js/script.js"></script>

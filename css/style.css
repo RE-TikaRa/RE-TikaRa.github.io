@@ -1095,8 +1095,155 @@ body.is-ready .card {
 }
 
 
-/* --- 9. FOOTER / 页脚 --- */
-/* ------------------------- */
+/* --- 9. SETTINGS PANEL / 设置面板 --- */
+/* ------------------------------------ */
+
+.settings-wrapper {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 100;
+}
+
+#settings-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.32);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.26), rgba(255, 255, 255, 0.12));
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.22), 0 0 0 1px rgba(255, 255, 255, 0.10) inset;
+    color: var(--text-primary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+}
+
+[data-theme="dark"] #settings-toggle {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.06));
+    border-color: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55), 0 0 0 1px rgba(255, 255, 255, 0.08) inset;
+}
+
+#settings-toggle:hover {
+    transform: translateY(-2px) rotate(15deg);
+    border-color: rgba(255, 255, 255, 0.40);
+    box-shadow: 0 20px 48px rgba(0, 0, 0, 0.28), 0 0 0 1px rgba(255, 255, 255, 0.12) inset;
+}
+
+#settings-toggle:active {
+    transform: translateY(-1px) scale(0.98) rotate(10deg);
+}
+
+#settings-panel {
+    position: fixed;
+    top: 70px;
+    left: 20px;
+    z-index: 101;
+    width: 280px;
+    padding: 20px;
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+    will-change: opacity, transform;
+}
+
+#settings-panel:not([hidden]) {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+}
+
+.settings-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.settings-header h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+#settings-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#settings-close:hover {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.setting-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.setting-item label {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+}
+
+/* Custom Toggle Switch */
+.toggle-switch {
+    -webkit-appearance: none;
+    appearance: none;
+    position: relative;
+    width: 40px;
+    height: 22px;
+    border-radius: 11px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.toggle-switch::before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s var(--ease-out);
+}
+
+.toggle-switch:checked {
+    background-color: var(--accent-color);
+}
+
+.toggle-switch:checked::before {
+    transform: translateX(18px);
+}
+
+
+/* --- 10. FOOTER / 页脚 --- */
+/* -------------------------- */
 
 .site-footer {
     position: fixed;
@@ -1124,8 +1271,83 @@ body.is-ready .card {
 }
 
 
-/* --- 10. RESPONSIVE & ACCESSIBILITY / 响应式与可访问性 --- */
-/* -------------------------------------------------------- */
+/* --- 11. CLI EASTER EGG / CLI 彩蛋 --- */
+/* ------------------------------------- */
+
+#cli-container {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 200;
+    color: #e0e0e0;
+    font-family: "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-size: 0.9rem;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(100%);
+    transition: transform 0.4s var(--ease-out);
+}
+
+#cli-container:not([hidden]) {
+    transform: translateY(0);
+}
+
+#cli-output {
+    flex-grow: 1;
+    overflow-y: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+#cli-output::-webkit-scrollbar {
+    width: 8px;
+}
+
+#cli-output::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+#cli-output::-webkit-scrollbar-thumb {
+    background: rgba(var(--accent-rgb), 0.6);
+    border-radius: 4px;
+}
+
+#cli-input-line {
+    display: flex;
+    align-items: center;
+}
+
+.cli-prompt {
+    color: var(--accent-color);
+    margin-right: 8px;
+    white-space: nowrap;
+}
+
+#cli-input {
+    flex-grow: 1;
+    background: none;
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0;
+}
+
+#cli-input:focus {
+    outline: none;
+    caret-color: var(--accent-color);
+}
+
+
+/* --- 12. RESPONSIVE & ACCESSIBILITY / 响应式与可访问性 --- */
+/* --------------------------------------------------------- */
 
 @media (max-width: 960px) {
     /* 在移动端隐藏星空背景以提升性能 */
