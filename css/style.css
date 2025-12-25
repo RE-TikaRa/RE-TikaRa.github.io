@@ -1393,11 +1393,10 @@ body.is-ready .card {
 
 /* 音乐卡片样式 */
 #music-card {
-    padding: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 116px; /* 播放器高度(86px) + 上下内边距(15px*2) */
+    /* 移除固定的 padding 和 min-height，使其继承 .card 的默认样式 */
 }
 
 #music-card iframe {
@@ -1408,10 +1407,12 @@ body.is-ready .card {
     transition: filter 0.5s ease-in-out; /* 为滤镜添加过渡效果 */
 }
 
-/* 在深色模式下反转播放器颜色以模拟深色主题 */
+/* 在深色模式下反转播放器颜色以模拟深色主题 - 已移除以保证专辑封面颜色正常 */
+/*
 [data-theme="dark"] #music-card iframe {
     filter: invert(1) hue-rotate(180deg);
 }
+*/
 
 /* 一言 (Hitokoto) 回退样式 */
 .hitokoto-container {

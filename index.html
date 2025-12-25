@@ -20,6 +20,9 @@
         })();
     </script>
     
+    <!-- 预连接外部资源以提升加载性能 -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
     <!-- 引入外部样式表 -->
     <link rel="stylesheet" href="css/style.css"> <!-- 自定义样式表 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Font Awesome 图标库 -->
@@ -71,6 +74,10 @@
                 <label for="toggle-card-float">卡片浮动</label>
                 <input type="checkbox" id="toggle-card-float" class="toggle-switch" data-setting="cardFloat" checked>
             </div>
+            <div class="setting-item">
+                <label for="toggle-autoplay">音乐自动播放</label>
+                <input type="checkbox" id="toggle-autoplay" class="toggle-switch" data-setting="musicAutoplay" checked>
+            </div>
         </div>
     </div>
 
@@ -90,7 +97,7 @@
                 <div class="card profile-card glass full-height">
                     <div class="profile-content-wrapper">
                         <div class="avatar-large">
-                            <img src="https://s2.loli.net/2025/12/22/mkWtIYraVxdnTCe.jpg" alt="Avatar"> <!-- 个人头像 -->
+                            <img src="https://s2.loli.net/2025/12/22/mkWtIYraVxdnTCe.jpg" alt="亓翎_Re-TikaRa 的头像"> <!-- 个人头像 -->
                         </div>
                         <h2 class="profile-name" id="profile-heading">亓翎_Re-TikaRa</h2> <!-- 用户名 -->
                         <div class="profile-greeting" aria-label="问候语">
