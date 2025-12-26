@@ -629,7 +629,15 @@
                     if (textEl) {
                         const fx = new TextScramble(textEl);
                         const originalText = textEl.textContent;
-                        card.addEventListener('mouseenter', () => fx.setText(originalText));
+                        card.addEventListener('mouseenter', () => {
+                            // 在动画开始前设置最小宽度以防止抖动
+                            const textWidth = textEl.getBoundingClientRect().width;
+                            textEl.style.minWidth = `${textWidth}px`;
+                            fx.setText(originalText).then(() => {
+                                // 动画结束后移除最小宽度
+                                textEl.style.minWidth = '';
+                            });
+                        });
                     }
                 }
 

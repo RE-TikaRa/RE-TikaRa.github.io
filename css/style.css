@@ -289,7 +289,7 @@ body.is-ready .starfield-canvas {
 
 .grid-container {
     display: grid; /* 网格布局 */
-    grid-template-columns: 1.2fr 1fr 1.2fr; /* 三列布局 */
+    grid-template-columns: 1fr 1.2fr 1fr; /* 三列布局 */
     gap: clamp(18px, 3vw, 28px); /* 响应式间距 */
     align-items: center; /* 垂直居中对齐 */
     width: 100%;
@@ -1285,6 +1285,34 @@ body.is-ready .card {
 
 .toggle-switch:checked::before {
     transform: translateX(18px);
+}
+
+/* Custom Select Switch */
+.select-switch {
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: rgba(0, 0, 0, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    padding: 6px 30px 6px 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23a0a0a0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 1em;
+    transition: all 0.2s ease;
+}
+
+.select-switch:hover {
+    border-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.select-switch:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.2);
 }
 
 
