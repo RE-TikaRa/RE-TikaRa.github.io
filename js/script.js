@@ -1193,9 +1193,7 @@
                             <span>Now Playing</span>
                         </div>
                         <div class="music-content">
-                            <div class="iframe-wrapper">
-                                <iframe id="music-player-iframe" frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="110" src="${src}"></iframe>
-                            </div>
+                            <iframe id="music-player-iframe" frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="110" src="${src}"></iframe>
                         </div>
                     </div>
                 `;

@@ -1434,35 +1434,17 @@ body.is-ready .card {
     padding: 10px;
 }
 
-.iframe-wrapper {
-    position: relative;
-    width: 100%;
-    height: 110px; /* 匹配 iframe 高度 */
-    border-radius: 8px;
-    overflow: hidden; /* 确保伪元素不会溢出 */
-}
-
-.iframe-wrapper::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: #000;
-    opacity: 0;
-    pointer-events: none; /* 确保可以与 iframe 交互 */
-    transition: opacity 0.5s ease-in-out;
-    z-index: 1; /* 确保在 iframe 之上 */
-}
-
-[data-theme="dark"] .iframe-wrapper::before {
-    opacity: 0.75; /* 深色模式下的遮罩不透明度 */
-}
-
 #music-card iframe {
-    position: relative;
-    z-index: 0; /* 确保在伪元素之下 */
     width: 100%;
-    height: 110px;
+    height: 86px;
     border: none;
+    border-radius: 8px;
+    transition: filter 0.5s ease-in-out; /* 为主题切换添加平滑过渡 */
+}
+
+/* 在深色模式下反转音乐播放器的颜色以匹配主题 */
+[data-theme="dark"] #music-card iframe {
+    filter: invert(1) hue-rotate(180deg);
 }
 
 /* 一言 (Hitokoto) 回退样式 */
