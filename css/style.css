@@ -1274,6 +1274,15 @@ body.is-ready .card {
 /* --- 11. CLI EASTER EGG / CLI 彩蛋 --- */
 /* ------------------------------------- */
 
+@font-face {
+    font-family: "JetBrains Mono"; /* 终端字体 */
+    src:
+        url("../fonts/JetBrainsMono-Regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 #cli-container {
     position: fixed;
     bottom: 0;
@@ -1286,7 +1295,7 @@ body.is-ready .card {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     z-index: 200;
     color: #e0e0e0;
-    font-family: "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-family: "JetBrains Mono", "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     font-size: 0.9rem;
     padding: 15px;
     display: flex;

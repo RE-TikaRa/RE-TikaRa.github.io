@@ -920,12 +920,20 @@ function initCLI() {
 
     const commands = {
         help: () => {
-            return `可用命令:
+            return `<pre>
+             █████╗ ██╗     ██████╗     ███████╗████████╗██╗   ██╗██████╗ ██╗ ██████╗ 
+            ██╔══██╗██║     ██╔══██╗    ██╔════╝╚══██╔══╝██║   ██║██╔══██╗██║██╔═══██╗
+            ███████║██║     ██████╔╝    ███████╗   ██║   ██║   ██║██║  ██║██║██║   ██║
+            ██╔══██║██║     ██╔═══╝     ╚════██║   ██║   ██║   ██║██║  ██║██║██║   ██║
+            ██║  ██║███████╗██║         ███████║   ██║   ╚██████╔╝██████╔╝██║╚██████╔╝
+            ╚═╝  ╚═╝╚══════╝╚═╝         ╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝
+
+可用命令:
   <span class="cli-command">help</span>      - 显示此帮助信息
   <span class="cli-command">clear</span>     - 清空终端屏幕
   <span class="cli-command">theme</span>     - 切换亮/暗主题
-  <span class="cli-command">fetch</span>     - 显示一些虚拟信息
-  <span class="cli-command">exit</span>      - 关闭 CLI 窗口`;
+  <span class="cli-command">info</span>      - 显示系统和版本信息
+  <span class="cli-command">exit</span>      - 关闭 CLI 窗口</pre>`;
         },
         clear: () => {
             cliOutput.innerHTML = '';
@@ -936,20 +944,24 @@ function initCLI() {
             const currentTheme = document.documentElement.getAttribute('data-theme');
             return `主题已切换为 ${currentTheme === 'dark' ? '深色' : '浅色'} 模式。`;
         },
-        fetch: () => {
-            return `
-<pre>
-██████╗░███████╗██╗░░██╗░█████╗░
-██╔══██╗██╔════╝██║░░██║██╔══██╗
-██████╔╝█████╗░░███████║██║░░██║
-██╔══██╗██╔══╝░░██╔══██║██║░░██║
-██║░░██║███████╗██║░░██║╚█████╔╝
-╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░
-</pre>
-:: Tika's Personal Interface v2.3
-:: 状态: 稳定
-:: 连接: 安全
-`;
+        info: () => {
+            return `<pre>
+             █████╗ ██╗     ██████╗     ███████╗████████╗██╗   ██╗██████╗ ██╗ ██████╗ 
+            ██╔══██╗██║     ██╔══██╗    ██╔════╝╚══██╔══╝██║   ██║██╔══██╗██║██╔═══██╗
+            ███████║██║     ██████╔╝    ███████╗   ██║   ██║   ██║██║  ██║██║██║   ██║
+            ██╔══██║██║     ██╔═══╝     ╚════██║   ██║   ██║   ██║██║  ██║██║██║   ██║
+            ██║  ██║███████╗██║         ███████║   ██║   ╚██████╔╝██████╔╝██║╚██████╔╝
+            ╚═╝  ╚═╝╚══════╝╚═╝         ╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝
+            
+    <span class="cli-user">tika</span>@<span class="cli-host">lab</span>
+    --------------------
+    <span class="cli-title">操作系统</span>:   TikaOS 情绪体接口
+    <span class="cli-title">主机</span>:       个人主页 v2.2
+    <span class="cli-title">内核</span>:       5.4.0-TikaRa
+    <span class="cli-title">运行时间</span>:   42 天, 6 小时, 9 分钟
+    <span class="cli-title">主题</span>:       ${document.documentElement.getAttribute('data-theme') === 'dark' ? '深色' : '浅色'}
+
+</pre>`;
         },
         exit: () => {
             toggleCLI(false);
@@ -965,7 +977,7 @@ function initCLI() {
             cliContainer.hidden = false;
             cliInput.focus();
             if (cliOutput.innerHTML === '') { // 仅在首次打开时显示欢迎信息
-                printToCLI('欢迎来到 Tika 的终端。输入 `help` 查看可用命令。');
+                executeCommand('info');
             }
         } else {
             cliContainer.hidden = true;
@@ -1002,11 +1014,23 @@ function initCLI() {
     }
 
     // --- Event Listeners ---
+    cliContainer.addEventListener('click', () => {
+        // 点击终端任何地方都聚焦输入框，除非正在选择文本
+        const selection = window.getSelection();
+        if (selection.type !== 'Range') {
+          cliInput.focus();
+        }
+    });
+
     document.addEventListener('keydown', (e) => {
         // 使用 `~` 键或反引号键来切换 CLI
         if (e.key === '`' || e.key === '~') {
             e.preventDefault();
             toggleCLI();
+        }
+        // 使用 ESC 键关闭 CLI
+        if (e.key === 'Escape' && !cliContainer.hidden) {
+            toggleCLI(false);
         }
     });
 
