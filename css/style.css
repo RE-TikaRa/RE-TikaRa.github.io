@@ -1391,68 +1391,117 @@ body.is-ready .card {
     caret-color: var(--accent-color);
 }
 
-/* 音乐卡片样式 */
+/* 音乐卡片新样式 */
 #music-card {
+    padding: 0; /* 移除内边距以允许新播放器填充卡片 */
     display: flex;
-    justify-content: center;
     align-items: center;
-    /* 移除固定的 padding 和 min-height，使其继承 .card 的默认样式 */
+    justify-content: center;
+    min-height: 110px; /* 与其他链接卡片高度匹配 */
+    cursor: pointer; /* 使其感觉可交互 */
+    overflow: hidden; /* 隐藏内部的 iframe */
 }
 
-#music-card iframe {
+.new-music-player {
+    display: flex;
+    align-items: center;
+    gap: 18px;
     width: 100%;
-    height: 86px;
-    border: none;
-    border-radius: 8px; /* 轻微的圆角以匹配卡片风格 */
-    transition: filter 0.5s ease-in-out; /* 为滤镜添加过渡效果 */
+    padding: 0 22px; /* 与链接卡片内边距匹配 */
+    transition: transform 0.3s var(--ease-out);
 }
 
-/* 在深色模式下反转播放器颜色以模拟深色主题 - 已移除以保证专辑封面颜色正常 */
-/*
-[data-theme="dark"] #music-card iframe {
-    filter: invert(1) hue-rotate(180deg);
+#music-card:hover .new-music-player {
+    transform: scale(1.02); /* 微妙的悬停效果 */
 }
-*/
 
-/* 一言 (Hitokoto) 回退样式 */
-.hitokoto-container {
-    text-align: center;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    width: 100%;
+.new-music-icon-container {
+    position: relative;
+    flex-shrink: 0;
+    width: 56px;
+    height: 56px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: rgba(var(--accent-rgb), 0.12);
+    border: 1px solid rgba(var(--accent-rgb), 0.2);
+    color: var(--accent-color);
+    font-size: 1.8rem;
+    transition: transform 0.4s var(--ease-out);
+}
+
+#music-card:hover .new-music-icon-container {
+    transform: rotate(90deg);
+}
+
+.new-music-icon-container i.fa-compact-disc {
+    animation: spin 8s linear infinite; /* 旋转光盘动画 */
+}
+
+#music-card:hover .new-music-icon-container i.fa-compact-disc {
+    animation-play-state: paused; /* 悬停时暂停旋转 */
+}
+
+.new-music-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    overflow: hidden; /* 防止文本溢出 */
+}
+
+.new-music-title {
+    font-size: 1.1rem;
+    font-weight: 600;
     color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
-#hitokoto-text {
-    margin-bottom: 0.5em;
-    min-height: 2.2em; /* 预留至少两行的高度，防止切换时跳动 */
-    display: inline; /* 让光标能紧随其后 */
-}
-
-#hitokoto-from {
-    font-size: 0.8rem;
+.new-music-source {
+    font-size: 0.85rem;
     color: var(--text-secondary);
+    opacity: 0.9;
+}
+
+/* 一言特定样式 */
+.hitokoto-mode .new-music-icon-container {
+    background: rgba(var(--accent-rgb), 0.1);
+}
+
+.hitokoto-mode .new-music-icon-container i {
+    transition: transform 0.4s var(--ease-out);
+}
+
+#music-card:hover .hitokoto-mode .new-music-icon-container i {
+    transform: scale(1.1) rotate(-10deg);
+}
+
+.hitokoto-mode .new-music-title {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    white-space: normal;
+    font-weight: normal;
+}
+
+.hitokoto-mode .new-music-source {
     text-align: right;
     width: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    margin-top: 0.5em;
+    margin-top: 4px;
 }
 
-/* 打字机光标 */
-.cursor {
-    display: inline-block;
-    width: 8px;
-    height: 1em;
-    background-color: var(--text-primary);
-    margin-left: 4px;
-    animation: blink 1s infinite;
-    vertical-align: text-bottom;
+.hitokoto-mode.fade-in {
+    animation: contentFadeIn 0.5s ease-in-out;
 }
 
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes contentFadeIn {
+    from { opacity: 0.5; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 

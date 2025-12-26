@@ -438,17 +438,23 @@
             95: { icon: 'fa-solid fa-bolt', description: '雷暴' },
         };
 
-        function updateWeatherUI(data) {
-            const temperature = data.current.temperature_2m;
-            const weathercode = data.current.weather_code;
-            const weatherInfo = weatherCodeMap[weathercode] || { icon: 'fa-solid fa-question', description: '未知' };
-
+        function updateWeatherUI(location, temperature, weatherInfo) {
             if (tempEl) tempEl.textContent = `${Math.round(temperature)}°`;
             if (descriptionEl) descriptionEl.textContent = weatherInfo.description;
             if (iconEl) iconEl.className = weatherInfo.icon;
-            if (locationEl) locationEl.textContent = '当前位置'; // 使用通用文本
+            if (locationEl) locationEl.textContent = location;
 
             weatherCard.hidden = false;
+        }
+
+        function showVirtualWeather() {
+            console.log("加载虚拟天气数据...");
+            const weatherCodes = Object.keys(weatherCodeMap);
+            const randomCode = weatherCodes[Math.floor(Math.random() * weatherCodes.length)];
+            const virtualWeatherInfo = weatherCodeMap[randomCode];
+            const virtualTemperature = Math.floor(Math.random() * (30 - 10 + 1)) + 10; // 10-30度随机温度
+
+            updateWeatherUI('ALp_Studio', virtualTemperature, virtualWeatherInfo);
         }
 
         function showError(message) {
@@ -460,7 +466,7 @@
 
         try {
             const position = await new Promise((resolve, reject) => {
-                navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 10000 });
+                navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 8000 }); // 缩短超时
             });
 
             const { latitude, longitude } = position.coords;
@@ -470,18 +476,14 @@
             if (!response.ok) throw new Error(`HTTP 错误! 状态: ${response.status}`);
             
             const data = await response.json();
+            const weatherInfo = weatherCodeMap[data.current.weather_code] || { icon: 'fa-solid fa-question', description: '未知' };
             
-            updateWeatherUI(data);
+            updateWeatherUI('当前位置', data.current.temperature_2m, weatherInfo);
 
         } catch (error) {
             console.error("获取天气失败:", error.message || error);
-            let errorMessage = '无法获取天气信息。';
-            if (error.code === 1) {
-                errorMessage = '请允许访问您的位置。';
-            } else if (error.message.includes('HTTP')) {
-                errorMessage = '天气服务暂时不可用。';
-            }
-            showError(errorMessage);
+            // 获取真实天气失败时，加载虚拟天气
+            showVirtualWeather();
         }
     }
 
@@ -1142,6 +1144,9 @@
         const musicCard = document.getElementById('music-card');
         if (!musicCard) return;
 
+        // 为音乐卡片应用基础样式，以确保视觉统一
+        musicCard.classList.add('card', 'glass');
+
         try {
             // 如果存在一言的定时器，先清除它，因为音乐播放器即将加载
             if (appState.hitokotoIntervalId) {
@@ -1172,8 +1177,22 @@
                 iframe.setAttribute('marginwidth', '0');
                 iframe.setAttribute('marginheight', '0');
                 
-                // 清空占位符并添加播放器
-                musicCard.innerHTML = '';
+                // 创建一个全新的、更美观的播放器结构
+                musicCard.innerHTML = `
+                    <div class="new-music-player">
+                        <div class="new-music-icon-container">
+                            <i class="fa-solid fa-compact-disc"></i>
+                        </div>
+                        <div class="new-music-details">
+                            <div class="new-music-title">正在播放...</div>
+                            <div class="new-music-source">来自网易云音乐</div>
+                        </div>
+                    </div>
+                `;
+                // 将 iframe 隐藏在卡片内部，用于实际播放
+                iframe.style.position = 'absolute';
+                iframe.style.top = '-9999px';
+                iframe.style.left = '-9999px';
                 musicCard.appendChild(iframe);
             } else {
                 throw new Error('在 config.json 中未找到有效的 musicIds 数组');
@@ -1192,30 +1211,22 @@
     function initHitokotoFallback(container) {
         if (!container) return;
 
+        // 创建与新音乐播放器一致的结构
         container.innerHTML = `
-            <div class="hitokoto-container">
-                <p id="hitokoto-text"></p><span class="cursor"></span>
-                <p id="hitokoto-from"></p>
+            <div class="new-music-player hitokoto-mode">
+                <div class="new-music-icon-container">
+                    <i class="fa-solid fa-quote-right"></i>
+                </div>
+                <div class="new-music-details">
+                    <div id="hitokoto-text" class="new-music-title"></div>
+                    <div id="hitokoto-from" class="new-music-source"></div>
+                </div>
             </div>
         `;
 
         const textEl = document.getElementById('hitokoto-text');
         const fromEl = document.getElementById('hitokoto-from');
-
-        const typewriter = (text, element, onComplete) => {
-            let i = 0;
-            element.innerHTML = ''; // 清空旧内容
-            const typing = () => {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typing, 80); // 打字速度
-                } else if (onComplete) {
-                    onComplete();
-                }
-            };
-            typing();
-        };
+        if (!textEl || !fromEl) return;
 
         const fetchAndShowHitokoto = async () => {
             try {
@@ -1223,13 +1234,13 @@
                 if (!response.ok) throw new Error('Hitokoto API request failed');
                 const data = await response.json();
                 
-                // 开始打字机效果
-                typewriter(data.hitokoto, textEl, () => {
-                    // 打字结束后显示来源
-                    fromEl.textContent = `—— ${data.from_who || ''}「${data.from}」`;
-                    fromEl.style.opacity = '1';
-                });
-                fromEl.style.opacity = '0'; // 在打字时隐藏来源
+                textEl.textContent = data.hitokoto;
+                fromEl.textContent = `—— ${data.from_who || ''}「${data.from}」`;
+                
+                // 触发一个简单的淡入效果
+                container.classList.remove('fade-in');
+                void container.offsetWidth; // 强制重绘
+                container.classList.add('fade-in');
 
             } catch (error) {
                 console.error('获取一言失败:', error);
