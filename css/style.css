@@ -21,7 +21,7 @@
 }
 
 @font-face {
-    font-family: "中华薪火体"; /* 中文主体字体 */
+    font-family: "XinHuoTi"; /* 中文主体字体 */
     src:
         url("../fonts/中华薪火体.woff2") format("woff2"),
         url("../fonts/中华薪火体.woff") format("woff");
@@ -145,7 +145,6 @@
     margin: 0; /* 清除外边距 */
     padding: 0; /* 清除内边距 */
     box-sizing: border-box; /* 盒模型设为 border-box */
-    font-family: "中华薪火体", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif; /* 默认字体栈 */
 }
 
 html {
@@ -160,6 +159,7 @@ body {
     min-height: 100vh; /* 最小高度为视口高度 */
     padding: clamp(18px, 4vw, 30px); /* 响应式内边距 */
     overflow-x: hidden; /* 隐藏水平溢出 */
+    font-family: "XinHuoTi", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif; /* 默认字体栈 */
     color: var(--text-primary); /* 文本颜色 */
     -webkit-font-smoothing: antialiased; /* 抗锯齿（Chrome, Safari） */
     -moz-osx-font-smoothing: grayscale; /* 抗锯齿（Firefox） */
@@ -289,9 +289,9 @@ body.is-ready .starfield-canvas {
 
 .grid-container {
     display: grid; /* 网格布局 */
-    grid-template-columns: 1fr 1.2fr 1fr; /* 三列布局 */
+    grid-template-columns: 1fr 1fr 1fr; /* 三列布局 */
     gap: clamp(18px, 3vw, 28px); /* 响应式间距 */
-    align-items: center; /* 垂直居中对齐 */
+    align-items: start; /* 垂直居中对齐 */
     width: 100%;
     max-width: 1200px; /* 最大宽度 */
     padding: 0;
@@ -454,7 +454,7 @@ body.is-ready .starfield-canvas {
 #welcome-text-container {
     display: flex;
     align-items: center;
-    font-family: "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-family: "XinHuoTi", "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     color: #000000; /* 浅色主题欢迎页特定文本颜色 */
 }
@@ -1459,108 +1459,99 @@ body.is-ready .card {
 /* --- 音乐卡片重构样式 --- */
 #music-card {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
     padding: 0; /* 移除卡片内边距，由 APlayer 内部控制 */
+    width: 100%;
+    max-width: 380px;
+    margin: 0 auto; /* 在列内居中 */
 }
 
 #music-card .aplayer {
     width: 100%;
-    background: transparent !important;
-    box-shadow: none !important;
     margin: 0;
-    border-radius: var(--radius-lg);
+    background: transparent !important; /* 保持透明背景以适应玻璃效果 */
+    box-shadow: none !important;
+    border-radius: var(--radius-lg); /* 继承卡片圆角 */
     overflow: hidden;
 }
 
 #music-card .aplayer .aplayer-body {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 15px;
+    gap: 16px; /* 封面和信息的间距 */
+    padding: 16px; /* 统一内边距 */
 }
 
 #music-card .aplayer .aplayer-pic {
-    flex: 0 0 80px; /* 不放大，不收缩，基础宽度 80px */
-    width: 80px;
+    flex-shrink: 0;
+    width: 80px; /* 调整封面尺寸 */
     height: 80px;
-    border-radius: 12px;
+    border-radius: 12px; /* 封面圆角 */
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s var(--ease-out);
 }
 
 #music-card .aplayer:hover .aplayer-pic {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(-3deg); /* 添加悬停效果 */
 }
 
 #music-card .aplayer .aplayer-info {
-    flex: 1 1 auto; /* 占据剩余空间，允许收缩 */
+    flex: 1 1 auto; /* 占据剩余空间 */
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    min-width: 0; /* 允许 flex item 收缩的关键 */
+    justify-content: center; /* 垂直居中内容 */
+    min-width: 0; /* 防止 flex 子项溢出 */
     padding: 0 !important;
     border: none !important;
-    height: 80px !important; /* 保持与图片等高 */
+    height: auto !important; /* 确保高度自适应 */
 }
 
 #music-card .aplayer .aplayer-music {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 0;
-    margin-bottom: 0 !important;
+    margin-bottom: 10px !important; /* 音乐信息和进度条之间的间距 */
+    /* 移除固定高度和 flex 布局，让其自然堆叠 */
 }
 
 #music-card .aplayer .aplayer-title,
 #music-card .aplayer .aplayer-author {
-    white-space: nowrap;
+    white-space: normal; /* 允许文本换行 */
     overflow: hidden;
     text-overflow: ellipsis;
+    line-height: 1.4; /* 调整行高以获得更好的视觉效果 */
+    width: 100%; /* 确保文本溢出正常工作 */
+    word-break: break-all; /* 允许在任意字符间换行 */
 }
 
 #music-card .aplayer .aplayer-title {
-    font-size: 1rem !important;
+    font-size: 1.0rem !important; /* 调整字体大小 */
     font-weight: 600;
     color: var(--text-primary) !important;
+    margin-bottom: 4px; /* 标题和作者之间的间距 */
 }
 
 #music-card .aplayer .aplayer-author {
     font-size: 0.85rem !important;
     color: var(--text-secondary) !important;
-    margin-top: 4px;
 }
 
 #music-card .aplayer .aplayer-lrc {
-    display: none;
+    display: none; /* 始终隐藏歌词 */
 }
 
 #music-card .aplayer .aplayer-controller {
-    min-width: 0;
+    display: flex;
+    align-items: center;
 }
 
-/* 窄模式下的特定调整 */
-#music-card .aplayer.aplayer-narrow .aplayer-body {
-    gap: 12px;
-    padding: 12px;
+#music-card .aplayer .aplayer-bar-wrap {
+    flex: 1;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
-#music-card .aplayer.aplayer-narrow .aplayer-pic {
-    flex: 0 0 64px; /* 窄模式下图片更小 */
-    width: 64px;
-    height: 64px;
-}
-
-#music-card .aplayer.aplayer-narrow .aplayer-info {
-    height: 64px !important; /* 匹配图片高度 */
-}
-
-/* --- 通用 APlayer 颜色调整 --- */
+/* --- 通用 APlayer 颜色和细节调整 --- */
 #music-card .aplayer .aplayer-controller .aplayer-time {
     color: var(--text-secondary) !important;
+    font-size: 0.8rem !important;
 }
 
 #music-card .aplayer .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded {
