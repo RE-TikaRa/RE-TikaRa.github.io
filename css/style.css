@@ -701,6 +701,21 @@ body.is-ready .starfield-canvas {
     transition: transform 0.22s var(--ease-out);
 }
 
+.link-text.is-scrambling {
+    display: inline-block;
+    width: var(--scramble-width);
+    max-width: var(--scramble-width);
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.link-text .dud {
+    display: inline-block;
+    width: 1ch;
+    text-align: center;
+    font-family: "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
 .link-chevron {
     margin-left: auto; /* 推到最右边 */
     font-size: 1rem;
@@ -1291,11 +1306,12 @@ body.is-ready .card {
 .select-switch {
     -webkit-appearance: none;
     appearance: none;
-    background-color: rgba(0, 0, 0, 0.25);
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.12);
     border-radius: 8px;
     padding: 6px 30px 6px 12px;
-    color: var(--text-secondary);
+    color: #1f1f1f;
+    font-size: 0.95rem;
     cursor: pointer;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23a0a0a0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
@@ -1304,9 +1320,30 @@ body.is-ready .card {
     transition: all 0.2s ease;
 }
 
+[data-theme="dark"] .select-switch {
+    background-color: rgba(18, 18, 20, 0.65);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--text-primary);
+}
+
+.select-switch option {
+    color: #1f1f1f;
+    background-color: #f7f7f7;
+}
+
+[data-theme="dark"] .select-switch option {
+    color: var(--text-primary);
+    background-color: #1c1c1f;
+}
+
 .select-switch:hover {
-    border-color: rgba(255, 255, 255, 0.3);
-    background-color: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.35);
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+[data-theme="light"] .select-switch:hover {
+    border-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.85);
 }
 
 .select-switch:focus {
@@ -1419,50 +1456,17 @@ body.is-ready .card {
     caret-color: var(--accent-color);
 }
 
-/* 音乐卡片样式 */
+/* --- 音乐卡片重构样式 --- */
 #music-card {
-    /* padding is now inherited from .card */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically center the inner container */
-    min-height: 140px; /* Give it a minimum height to look consistent */
-}
-
-.music-player-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-}
-
-.music-header {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 20px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-}
-
-[data-theme="dark"] .music-header {
-    border-bottom-color: rgba(255, 255, 255, 0.12);
-}
-
-.music-header i {
-    color: var(--accent-color);
-}
-
-.music-content {
-    flex-grow: 1;
-    display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 10px;
+    width: 100%;
+    padding: 0; /* 移除卡片内边距，由 APlayer 内部控制 */
 }
 
 #music-card .aplayer {
+    width: 100%;
     background: transparent !important;
     box-shadow: none !important;
     margin: 0;
@@ -1474,34 +1478,48 @@ body.is-ready .card {
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 15px; /* 为整体增加一些内边距 */
+    padding: 15px;
 }
 
 #music-card .aplayer .aplayer-pic {
-    height: 80px !important;
-    width: 80px !important;
-    border-radius: 12px; /* 圆角 */
+    flex: 0 0 80px; /* 不放大，不收缩，基础宽度 80px */
+    width: 80px;
+    height: 80px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* 添加阴影以增强立体感 */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s var(--ease-out);
 }
 
 #music-card .aplayer:hover .aplayer-pic {
-    transform: scale(1.05); /* 悬停时轻微放大 */
+    transform: scale(1.05);
 }
 
 #music-card .aplayer .aplayer-info {
-    flex-grow: 1;
+    flex: 1 1 auto; /* 占据剩余空间，允许收缩 */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 !important; /* 移除原有内边距 */
-    border-left: none !important;
-    height: 80px !important;
+    min-width: 0; /* 允许 flex item 收缩的关键 */
+    padding: 0 !important;
+    border: none !important;
+    height: 80px !important; /* 保持与图片等高 */
 }
 
 #music-card .aplayer .aplayer-music {
-    margin-bottom: 8px !important;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 0;
+    margin-bottom: 0 !important;
+}
+
+#music-card .aplayer .aplayer-title,
+#music-card .aplayer .aplayer-author {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #music-card .aplayer .aplayer-title {
@@ -1513,12 +1531,34 @@ body.is-ready .card {
 #music-card .aplayer .aplayer-author {
     font-size: 0.85rem !important;
     color: var(--text-secondary) !important;
+    margin-top: 4px;
 }
 
 #music-card .aplayer .aplayer-lrc {
-    display: none; /* 隐藏歌词以保持简洁 */
+    display: none;
 }
 
+#music-card .aplayer .aplayer-controller {
+    min-width: 0;
+}
+
+/* 窄模式下的特定调整 */
+#music-card .aplayer.aplayer-narrow .aplayer-body {
+    gap: 12px;
+    padding: 12px;
+}
+
+#music-card .aplayer.aplayer-narrow .aplayer-pic {
+    flex: 0 0 64px; /* 窄模式下图片更小 */
+    width: 64px;
+    height: 64px;
+}
+
+#music-card .aplayer.aplayer-narrow .aplayer-info {
+    height: 64px !important; /* 匹配图片高度 */
+}
+
+/* --- 通用 APlayer 颜色调整 --- */
 #music-card .aplayer .aplayer-controller .aplayer-time {
     color: var(--text-secondary) !important;
 }

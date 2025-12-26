@@ -34,7 +34,7 @@
         STAR_PARALLAX_FACTOR3: 0.6,
         SHOOTING_STAR_COUNT: 3,
         SHOOTING_STAR_RESPAWN_DELAY: 2000,
-        SCRAMBLE_CHARS: 'ĀČĘĢĪĶĻŅŌŖŠŪŽdħĕįŏŧș⇋⇌⇟⇞⌆⌅⌄⍰⍞⍯⎈⎔⎚☍⚿⛶⛯⛮⛻⛼⛾⛿',
+        SCRAMBLE_CHARS: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
         RAINDROP_COUNT: 150,
     };
 
@@ -630,12 +630,14 @@
                         const fx = new TextScramble(textEl);
                         const originalText = textEl.textContent;
                         card.addEventListener('mouseenter', () => {
-                            // 在动画开始前设置最小宽度以防止抖动
+                            // 在动画开始前固定宽度以防止抖动
                             const textWidth = textEl.getBoundingClientRect().width;
-                            textEl.style.minWidth = `${textWidth}px`;
+                            textEl.style.setProperty('--scramble-width', `${textWidth}px`);
+                            textEl.classList.add('is-scrambling');
                             fx.setText(originalText).then(() => {
-                                // 动画结束后移除最小宽度
-                                textEl.style.minWidth = '';
+                                // 动画结束后移除固定宽度
+                                textEl.classList.remove('is-scrambling');
+                                textEl.style.removeProperty('--scramble-width');
                             });
                         });
                     }
@@ -881,10 +883,14 @@
                 appState.hitokotoIntervalId = null;
             }
 
-            const response = await fetch('config.json?v=' + new Date().getTime());
-            if (!response.ok) throw new Error('无法加载音乐配置');
-            
-            const config = await response.json();
+            const config = {
+              "netease_music_items": [
+                { "id": "2053344480", "type": "song" },
+                { "id": "2053344483", "type": "song" },
+                { "id": "2053344486", "type": "song" },
+                { "id": "179521966", "type": "album" }
+              ]
+            };
             const allMusicItems = config.netease_music_items;
 
             const playlistType = visualSettings.playlistType || 'song';
