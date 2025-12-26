@@ -1502,11 +1502,6 @@ body.is-ready .card {
     font-feature-settings: "liga" 0, "calt" 0;
 }
 
-.cli-help,
-.cli-info {
-    line-height: 1.5;
-}
-
 .cli-command {
     color: var(--cli-accent);
     font-weight: 600;
@@ -1516,31 +1511,11 @@ body.is-ready .card {
     color: #e6edf3;
 }
 
-.cli-title {
-    color: var(--cli-muted);
-}
-
-.cli-info {
-    line-height: 1.5;
-}
-
 .cli-box {
     white-space: pre;
     font-family: inherit;
     line-height: 1.4;
     color: inherit;
-}
-
-.cli-divider,
-.cli-kv,
-.cli-label,
-.cli-value {
-    display: none;
-}
-
-.cli-user,
-.cli-host {
-    color: var(--cli-accent);
 }
 
 @media (min-width: 961px) {

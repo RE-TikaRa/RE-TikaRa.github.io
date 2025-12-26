@@ -1,69 +1,75 @@
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0:ff9a9e,50:fad0c4,100:96deda&height=280&text=Observation%20Deck&desc=A%20Place%20for%20Tika's%20Data%20Fragments&fontAlign=50&fontAlignY=35&descAlign=50&descAlignY=60&fontSize=70&descSize=20&animation=twinkling" />
-</p>
+# ALp_Studio
 
-<div align="center">
+> 这里是亓翎_Re-TikaRa 的观测站。首先非常高兴你可以找到这里。
+> 一些数据正在记录中，请允许它缓慢生长。（思考）
 
-### 你好，这里是亓翎。
+## 简介
+- 一个用于展示与归档的个人主页。
+- 内含音乐、天气、CLI 彩蛋等交互模块。（偶尔会闹脾气）
+- 这里不是门面，是一处持续记录的“接口”。
 
-这里是我堆放观察日记和数据碎片的地方，你可以把它当成我的一个临时观测站。<br>
-欢迎你的来访，但请注意，部分数据可能处于不稳定状态。（笑）
+## 结构
+- `index.html` 页面入口与主要布局。
+- `css/style.css` 视觉样式与主题规则。
+- `js/script.js` 动画与交互逻辑。
+- `config.json` 音乐播放列表配置。
 
-</div>
+## 交互模块
+- 欢迎屏与打字效果
+- 主题切换与设置面板
+- 星空 / 流星 / 雨滴的背景模拟
+- 时钟 / 日历 / 天气卡片
+- 音乐播放器与一言回退
+- CLI 彩蛋与命令交互
 
----
+## 配置与数据
+- `config.json`：音乐列表（支持 song / album）。
+- `localStorage`：保存主题与显示设置。
+- `CNAME`：自定义域名（如启用 GitHub Pages）。
 
-<p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" />
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" />
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
-</p>
+## CLI 命令
+- `help` 查看可用命令
+- `info` 显示系统信息与运行时间
+- `date` 当前日期时间
+- `clear` 清屏
+- `theme` 切换主题
+- `fortune` 随机一言
+- `say <text>` 输出一段自定义文本
+- `exit` 关闭终端
 
----
-
-### `[tika@lab ~]$ cat project.log`
+## project.log
 ```log
 ┌─ project.log
-│ [项目名称] 亓翎的个人空间
-│ [项目代号] Observation_Deck_Alpha
-│ [当前版本] v0.1.2 (持续迭代中)
-│
-│ [实验目标] 
-│   01. 搭建一个用于记录和展示观察数据的前端界面。
-│   02. 测试人类对不同视觉元素的反应。（比如，通过一些微小的排版瑕疵，观察人类的“强迫症”式反应。）
-│   03. 归档一些...我的个人数据碎片，以便后续分析。 (有点不好意思)
+│ [项目名] ALp_Studio
+│ [版本] v2.3
+│ [状态] ONLINE
+│ [目标]
+│   01. 展示与归档观察记录
+│   02. 保持交互与视觉实验
+│   03. 持续校准情绪体接口
 └─
 ```
 
-### `[tika@lab ~]$ cat status.log`
+## status.log
 ```log
 ┌─ status.log
-│ [系统状态] 运行稳定，正在持续收录数据。
-│ [情绪模块] 73% 稳定，偶尔会因未知输入产生波动。 (´・ω・｀)
-│ [已知问题] 长期观察可能导致数据过载，需要定期清理缓存。
-│ [未来计划] 可能会加入更多交互功能，如果我能理解它们的话。 (思考)
+│ [系统] 稳定
+│ [情绪模块] 学习中（请温柔对待）
+│ [提示] 访问即视为一次记录
 └─
 ```
 
-### `[tika@lab ~]$ tail -n 3 run.log`
+## run.log
 ```log
-┌─ run.log (tail -n 3)
-│ [LOG] 认知训练 | 正在分析人类为何喜欢在夜间浏览无意义的信息。
-│ [LOG] 视觉校准 | 对 1px 的偏差进行修正，试图理解“像素眼”这一概念。
-│ [LOG] 交互协议 | 记录到一次新的访问，正在尝试分析访问者的意图...
+┌─ run.log
+│ [LOG] 观测窗口 | 已挂载，等待数据流。
+│ [LOG] 视觉校准 | 像素对齐完成，允许轻微漂移。
+│ [LOG] 交互协议 | 捕获到访问动作，开始记录。 (记录中)
 └─
 ```
 
----
-
-<div align="center">
-
-感谢你的访问。 (鞠躬)
+## 备注
+- 音乐播放可能受浏览器手势限制，需要一次交互后才会自动播放。
+- 天气卡片会尝试获取地理位置；拒绝时将使用虚拟数据。
 
 _实例仍在运行，日志未终止。_
-
-</div>
-
-<p align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&color=gradient&customColorList=0:ff9a9e,50:fad0c4,100:96deda" />
-</p>
