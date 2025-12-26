@@ -1385,29 +1385,19 @@ body.is-ready .card {
 /* --- 11. CLI EASTER EGG / CLI 彩蛋 --- */
 /* ------------------------------------- */
 
-@font-face {
-    font-family: "JetBrains Mono";
-    src:
-        url("../fonts/JetBrainsMono-Regular.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
-
 #cli-container {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     height: 40%;
-    background: linear-gradient(180deg, rgba(6, 8, 12, 0.92), rgba(6, 8, 12, 0.86));
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 -12px 32px rgba(0, 0, 0, 0.45);
     z-index: 200;
     color: #e0e0e0;
-    font-family: "JetBrains Mono", "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-family: "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     font-size: 0.9rem;
     padding: 15px;
     display: flex;
@@ -1423,14 +1413,8 @@ body.is-ready .card {
 #cli-output {
     flex-grow: 1;
     overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
     white-space: pre-wrap;
-    word-break: normal;
-    overflow-wrap: anywhere;
-    line-height: 1.45;
-    font-variant-ligatures: none;
+    word-break: break-all;
 }
 
 #cli-output::-webkit-scrollbar {
@@ -1449,10 +1433,6 @@ body.is-ready .card {
 #cli-input-line {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-top: 8px;
-    padding-top: 6px;
-    border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .cli-prompt {
@@ -1474,54 +1454,6 @@ body.is-ready .card {
 #cli-input:focus {
     outline: none;
     caret-color: var(--accent-color);
-}
-
-#cli-output > div {
-    padding: 2px 0;
-}
-
-#cli-output pre {
-    margin: 0;
-    font-family: inherit;
-}
-
-.cli-section {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-.cli-banner {
-    white-space: pre;
-    line-height: 1;
-    letter-spacing: 0;
-    font-weight: 700;
-    font-variant-ligatures: none;
-    font-feature-settings: "liga" 0, "calt" 0;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
-}
-
-.cli-help,
-.cli-info {
-    line-height: 1.5;
-}
-
-.cli-command {
-    color: var(--accent-color);
-    font-weight: 600;
-}
-
-.cli-command-input {
-    color: #e0e0e0;
-}
-
-.cli-title {
-    color: var(--text-secondary);
-}
-
-.cli-user,
-.cli-host {
-    color: var(--accent-color);
 }
 
 /* --- 音乐卡片重构样式 --- */

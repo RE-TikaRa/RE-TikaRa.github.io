@@ -3,3 +3,4 @@ codemap/
 .vscode/codemap*
 .pem
 .bak
+backup/
