@@ -1,7 +1,8 @@
 {
-  "netease_music_ids": [
-    "2053344480",
-    "2053344483",
-    "2053344486"
+  "netease_music_items": [
+    { "id": "2053344480", "type": "song" },
+    { "id": "2053344483", "type": "song" },
+    { "id": "2053344486", "type": "song" },
+    { "id": "179521966", "type": "album" }
   ]
 }

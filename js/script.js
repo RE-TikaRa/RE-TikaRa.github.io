@@ -920,7 +920,7 @@
         const settingsToggle = document.getElementById('settings-toggle');
         const settingsPanel = document.getElementById('settings-panel');
         const settingsClose = document.getElementById('settings-close');
-        const toggles = document.querySelectorAll('.toggle-switch');
+        const controls = document.querySelectorAll('.toggle-switch, .select-switch');
 
         if (!settingsPanel || !settingsToggle || !settingsClose) {
             return;
@@ -931,7 +931,8 @@
             shootingStars: true,
             raindrops: true,
             cardFloat: true,
-            musicAutoplay: true, // 默认开启音乐自动播放
+            musicAutoplay: true,
+            playlistType: 'song', // 默认播放单曲
         };
 
         const savedSettings = JSON.parse(localStorage.getItem('visualSettings')) || {};
@@ -956,19 +957,31 @@
                     if (el) el.hidden = !value;
                 });
             }
+            // 如果更改的是播放列表类型，则重新加载音乐播放器
+            if (key === 'playlistType') {
+                initMusicPlayer();
+            }
         }
 
-        toggles.forEach(toggle => {
-            const key = toggle.dataset.setting;
+        controls.forEach(control => {
+            const key = control.dataset.setting;
             if (key in visualSettings) {
-                toggle.checked = visualSettings[key];
+                if (control.type === 'checkbox') {
+                    control.checked = visualSettings[key];
+                } else {
+                    control.value = visualSettings[key];
+                }
+                
                 if (effectElements[key]) {
                     effectElements[key].forEach(el => {
                         if (el) el.hidden = !visualSettings[key];
                     });
                 }
             }
-            toggle.addEventListener('change', (e) => applySetting(key, e.target.checked));
+            control.addEventListener('change', (e) => {
+                const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
+                applySetting(key, value);
+            });
         });
 
         settingsToggle.addEventListener('click', () => settingsPanel.hidden = !settingsPanel.hidden);
@@ -1144,62 +1157,53 @@
         const musicCard = document.getElementById('music-card');
         if (!musicCard) return;
 
-        // 为音乐卡片应用基础样式，以确保视觉统一
         musicCard.classList.add('card', 'glass');
 
         try {
-            // 如果存在一言的定时器，先清除它，因为音乐播放器即将加载
             if (appState.hitokotoIntervalId) {
                 clearInterval(appState.hitokotoIntervalId);
                 appState.hitokotoIntervalId = null;
             }
 
-            // 添加时间戳以防止浏览器缓存旧的配置文件
             const response = await fetch('config.json?v=' + new Date().getTime());
-            if (!response.ok) {
-                throw new Error('无法加载音乐配置');
-            }
+            if (!response.ok) throw new Error('无法加载音乐配置');
+            
             const config = await response.json();
-            const musicIds = config.netease_music_ids;
+            const allMusicItems = config.netease_music_items;
 
-            if (musicIds && Array.isArray(musicIds) && musicIds.length > 0) {
-                // 从列表中随机选择一个 ID
-                const musicId = musicIds[Math.floor(Math.random() * musicIds.length)];
+            // 根据设置筛选播放列表
+            const playlistType = visualSettings.playlistType || 'song';
+            const filteredItems = allMusicItems.filter(item => item.type === playlistType);
+
+            if (filteredItems && filteredItems.length > 0) {
+                const item = filteredItems[Math.floor(Math.random() * filteredItems.length)];
+                const { id, type } = item;
+
+                let src = '';
+                if (type === 'album') {
+                    src = `//music.163.com/outchain/player?type=1&id=${id}&auto=1&height=90`;
+                } else {
+                    src = `//music.163.com/outchain/player?type=2&id=${id}&auto=1&height=66`;
+                }
                 
-                const iframe = document.createElement('iframe');
-                // 根据设置决定是否自动播放
-                const autoPlay = visualSettings.musicAutoplay ? 1 : 0;
-                // 使用外链播放器 URL
-                iframe.src = `https://music.163.com/outchain/player?type=2&id=${musicId}&auto=${autoPlay}&height=66`;
-                iframe.allow = "autoplay";
-                iframe.setAttribute('frameborder', 'no');
-                iframe.setAttribute('border', '0');
-                iframe.setAttribute('marginwidth', '0');
-                iframe.setAttribute('marginheight', '0');
-                
-                // 创建一个全新的、更美观的播放器结构
                 musicCard.innerHTML = `
-                    <div class="new-music-player">
-                        <div class="new-music-icon-container">
-                            <i class="fa-solid fa-compact-disc"></i>
+                    <div class="music-player-container">
+                        <div class="music-header">
+                            <i class="fa-solid fa-music"></i>
+                            <span>Now Playing</span>
                         </div>
-                        <div class="new-music-details">
-                            <div class="new-music-title">正在播放...</div>
-                            <div class="new-music-source">来自网易云音乐</div>
+                        <div class="music-content">
+                            <div class="iframe-wrapper">
+                                <iframe id="music-player-iframe" frameborder="no" border="0" marginwidth="0" marginheight="0" width="100%" height="110" src="${src}"></iframe>
+                            </div>
                         </div>
                     </div>
                 `;
-                // 将 iframe 隐藏在卡片内部，用于实际播放
-                iframe.style.position = 'absolute';
-                iframe.style.top = '-9999px';
-                iframe.style.left = '-9999px';
-                musicCard.appendChild(iframe);
             } else {
-                throw new Error('在 config.json 中未找到有效的 musicIds 数组');
+                throw new Error(`在 config.json 中未找到类型为 "${playlistType}" 的有效音乐项目`);
             }
         } catch (error) {
             console.error('初始化音乐播放器失败:', error);
-            // 在卡片中显示错误信息，并启动一言回退
             initHitokotoFallback(musicCard);
         }
     }
@@ -1211,22 +1215,38 @@
     function initHitokotoFallback(container) {
         if (!container) return;
 
-        // 创建与新音乐播放器一致的结构
         container.innerHTML = `
-            <div class="new-music-player hitokoto-mode">
-                <div class="new-music-icon-container">
-                    <i class="fa-solid fa-quote-right"></i>
+            <div class="music-player-container">
+                <div class="music-header">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <span>Hitokoto</span>
                 </div>
-                <div class="new-music-details">
-                    <div id="hitokoto-text" class="new-music-title"></div>
-                    <div id="hitokoto-from" class="new-music-source"></div>
+                <div class="music-content">
+                    <div class="hitokoto-container">
+                        <p id="hitokoto-text"></p><span class="cursor"></span>
+                        <p id="hitokoto-from"></p>
+                    </div>
                 </div>
             </div>
         `;
 
         const textEl = document.getElementById('hitokoto-text');
         const fromEl = document.getElementById('hitokoto-from');
-        if (!textEl || !fromEl) return;
+
+        const typewriter = (text, element, onComplete) => {
+            let i = 0;
+            element.innerHTML = '';
+            const typing = () => {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    setTimeout(typing, 80);
+                } else if (onComplete) {
+                    onComplete();
+                }
+            };
+            typing();
+        };
 
         const fetchAndShowHitokoto = async () => {
             try {
@@ -1234,25 +1254,22 @@
                 if (!response.ok) throw new Error('Hitokoto API request failed');
                 const data = await response.json();
                 
-                textEl.textContent = data.hitokoto;
-                fromEl.textContent = `—— ${data.from_who || ''}「${data.from}」`;
-                
-                // 触发一个简单的淡入效果
-                container.classList.remove('fade-in');
-                void container.offsetWidth; // 强制重绘
-                container.classList.add('fade-in');
+                typewriter(data.hitokoto, textEl, () => {
+                    fromEl.textContent = `—— ${data.from_who || ''}「${data.from}」`;
+                    fromEl.style.opacity = '1';
+                });
+                fromEl.style.opacity = '0';
 
             } catch (error) {
                 console.error('获取一言失败:', error);
-                textEl.textContent = '生活，就是一半烟火，一半清欢。'; // 备用语录
+                textEl.textContent = '生活，就是一半烟火，一半清欢。';
                 fromEl.textContent = '';
             }
         };
 
-        // 立即执行一次，然后设置定时器
         fetchAndShowHitokoto();
-        if (appState.hitokotoIntervalId) clearInterval(appState.hitokotoIntervalId); // 清除旧的定时器
-        appState.hitokotoIntervalId = setInterval(fetchAndShowHitokoto, 10000); // 每 10 秒切换一句
+        if (appState.hitokotoIntervalId) clearInterval(appState.hitokotoIntervalId);
+        appState.hitokotoIntervalId = setInterval(fetchAndShowHitokoto, 10000);
     }
 
 
