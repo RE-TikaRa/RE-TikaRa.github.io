@@ -21,7 +21,7 @@
 }
 
 @font-face {
-    font-family: "XinHuoTi"; /* 中文主体字体 */
+    font-family: "中华薪火体"; /* 中文主体字体 */
     src:
         url("../fonts/中华薪火体.woff2") format("woff2"),
         url("../fonts/中华薪火体.woff") format("woff");
@@ -145,6 +145,7 @@
     margin: 0; /* 清除外边距 */
     padding: 0; /* 清除内边距 */
     box-sizing: border-box; /* 盒模型设为 border-box */
+    font-family: "中华薪火体", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif; /* 默认字体栈 */
 }
 
 html {
@@ -159,7 +160,6 @@ body {
     min-height: 100vh; /* 最小高度为视口高度 */
     padding: clamp(18px, 4vw, 30px); /* 响应式内边距 */
     overflow-x: hidden; /* 隐藏水平溢出 */
-    font-family: "XinHuoTi", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif; /* 默认字体栈 */
     color: var(--text-primary); /* 文本颜色 */
     -webkit-font-smoothing: antialiased; /* 抗锯齿（Chrome, Safari） */
     -moz-osx-font-smoothing: grayscale; /* 抗锯齿（Firefox） */
@@ -289,9 +289,9 @@ body.is-ready .starfield-canvas {
 
 .grid-container {
     display: grid; /* 网格布局 */
-    grid-template-columns: 1fr 1fr 1fr; /* 三列布局 */
+    grid-template-columns: 1.2fr 1fr 1.2fr; /* 三列布局 */
     gap: clamp(18px, 3vw, 28px); /* 响应式间距 */
-    align-items: start; /* 垂直居中对齐 */
+    align-items: start; /* 顶部对齐 */
     width: 100%;
     max-width: 1200px; /* 最大宽度 */
     padding: 0;
@@ -303,25 +303,10 @@ body.is-ready .starfield-canvas {
     gap: clamp(18px, 3vw, 26px);
 }
 
-.center-links,
-.widgets-column {
-    justify-content: space-between; /* 仅在多项目的列中均匀分布 */
+.full-height {
+    min-height: 560px; /* 最小高度 */
+    height: auto;
 }
-
-/* 大屏幕下调整列的顺序 */
-@media (min-width: 961px) {
-    .profile-column {
-        order: 2; /* 个人信息列排在第二位 */
-    }
-    .center-links {
-        order: 1; /* 链接列排在第一位 */
-    }
-    .widgets-column {
-        order: 3; /* 小工具列排在第三位 */
-    }
-}
-
-/* .full-height is no longer needed, flex-grow on profile-card handles this. */
 
 
 /* --- 5. BASE COMPONENT STYLES / 基础组件样式 --- */
@@ -365,9 +350,9 @@ body.is-ready .starfield-canvas {
 
 [data-theme="dark"] .glass::before {
     background:
-        radial-gradient(180px 140px at 20% 30%, rgba(255, 255, 255, 0.05), transparent 60%),
-        radial-gradient(220px 160px at 80% 40%, rgba(255, 255, 255, 0.04), transparent 65%),
-        radial-gradient(320px 200px at 40% 85%, rgba(255, 255, 255, 0.03), transparent 70%);
+        radial-gradient(180px 140px at 20% 30%, rgba(255, 255, 255, 0.15), transparent 60%),
+        radial-gradient(220px 160px at 80% 40%, rgba(255, 255, 255, 0.10), transparent 65%),
+        radial-gradient(320px 200px at 40% 85%, rgba(255, 255, 255, 0.08), transparent 70%);
 }
 
 /* 对角线高光效果 */
@@ -454,7 +439,7 @@ body.is-ready .starfield-canvas {
 #welcome-text-container {
     display: flex;
     align-items: center;
-    font-family: "XinHuoTi", "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+    font-family: "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     color: #000000; /* 浅色主题欢迎页特定文本颜色 */
 }
@@ -607,7 +592,10 @@ body.is-ready .starfield-canvas {
 
 /* 链接卡片 (中列) */
 .center-links {
+    justify-content: space-between;
     gap: clamp(18px, 2.8vw, 28px);
+    padding: 12px 0;
+    min-height: 520px;
 }
 
 .link-card {
@@ -631,9 +619,24 @@ body.is-ready .starfield-canvas {
     transform: translateY(-1px) scale(0.99);
 }
 
-/* The link-card hover glow is now handled by the icon's pseudo-element.
-   Removing this rule allows the link-card to inherit the default .glass::after highlight,
-   which fixes the color inconsistency. */
+/* 辉光效果 */
+.link-card::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    border-radius: var(--radius-lg);
+    background: radial-gradient(circle at center, rgba(var(--link-accent-rgb), 0.25), transparent 60%);
+    opacity: 0;
+    transform: scale(0.95);
+    pointer-events: none;
+    transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.link-card:hover::after {
+    opacity: 1;
+    transform: scale(1.02);
+}
 
 /* 特定链接的强调色 */
 .link-github { --link-accent-rgb: 155, 102, 255; }
@@ -701,21 +704,6 @@ body.is-ready .starfield-canvas {
     transition: transform 0.22s var(--ease-out);
 }
 
-.link-text.is-scrambling {
-    display: inline-block;
-    width: var(--scramble-width);
-    max-width: var(--scramble-width);
-    overflow: hidden;
-    white-space: nowrap;
-}
-
-.link-text .dud {
-    display: inline-block;
-    width: 1ch;
-    text-align: center;
-    font-family: "NasaDisplay", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
-}
-
 .link-chevron {
     margin-left: auto; /* 推到最右边 */
     font-size: 1rem;
@@ -758,6 +746,14 @@ body.is-ready .starfield-canvas {
     --glass-border: rgba(var(--accent-rgb), 0.18);
 }
 
+.clock-card::after {
+    content: '';
+    position: absolute;
+    inset: -60px;
+    background: radial-gradient(closest-side at 50% 25%, var(--glass-glow), transparent 70%);
+    opacity: 0.65;
+    pointer-events: none;
+}
 
 .clock-display {
     display: flex;
@@ -891,63 +887,6 @@ body.is-ready .starfield-canvas {
 .calendar-day.current:hover {
     transform: translateY(-2px) scale(1.05);
     box-shadow: 0 18px 44px rgba(var(--accent-rgb), 0.44);
-}
-
-
-/* 天气小工具 */
-.weather-card {
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 12px;
-    min-height: 180px;
-    opacity: 0; /* 初始隐藏，由 JS 控制显示 */
-    transition: opacity 0.5s ease-in-out;
-}
-
-.weather-card:not([hidden]) {
-    opacity: 1;
-}
-
-.weather-content {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    text-align: center;
-}
-
-.weather-location {
-    font-size: 1rem;
-    font-weight: 500;
-    color: var(--text-secondary);
-}
-
-.weather-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin: 10px 0;
-}
-
-.weather-temp {
-    font-family: "DS-Digital", monospace;
-    font-size: 3.5rem;
-    font-weight: bold;
-    color: var(--text-primary);
-    line-height: 1;
-}
-
-.weather-icon {
-    font-size: 2.8rem;
-    color: var(--accent-color);
-}
-
-.weather-description {
-    font-size: 0.95rem;
-    color: var(--text-primary);
-    opacity: 0.9;
 }
 
 /* 主题切换按钮 */
@@ -1302,56 +1241,6 @@ body.is-ready .card {
     transform: translateX(18px);
 }
 
-/* Custom Select Switch */
-.select-switch {
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: rgba(255, 255, 255, 0.7);
-    border: 1px solid rgba(0, 0, 0, 0.12);
-    border-radius: 8px;
-    padding: 6px 30px 6px 12px;
-    color: #1f1f1f;
-    font-size: 0.95rem;
-    cursor: pointer;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23a0a0a0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 8px center;
-    background-size: 1em;
-    transition: all 0.2s ease;
-}
-
-[data-theme="dark"] .select-switch {
-    background-color: rgba(18, 18, 20, 0.65);
-    border-color: rgba(255, 255, 255, 0.2);
-    color: var(--text-primary);
-}
-
-.select-switch option {
-    color: #1f1f1f;
-    background-color: #f7f7f7;
-}
-
-[data-theme="dark"] .select-switch option {
-    color: var(--text-primary);
-    background-color: #1c1c1f;
-}
-
-.select-switch:hover {
-    border-color: rgba(255, 255, 255, 0.35);
-    background-color: rgba(0, 0, 0, 0.25);
-}
-
-[data-theme="light"] .select-switch:hover {
-    border-color: rgba(0, 0, 0, 0.2);
-    background-color: rgba(255, 255, 255, 0.85);
-}
-
-.select-switch:focus {
-    outline: none;
-    border-color: var(--accent-color);
-    box-shadow: 0 0 0 2px rgba(var(--accent-rgb), 0.2);
-}
-
 
 /* --- 10. FOOTER / 页脚 --- */
 /* -------------------------- */
@@ -1456,171 +1345,6 @@ body.is-ready .card {
     caret-color: var(--accent-color);
 }
 
-/* --- 音乐卡片重构样式 --- */
-#music-card {
-    display: flex;
-    padding: 0; /* 移除卡片内边距，由 APlayer 内部控制 */
-    width: 100%;
-    max-width: 380px;
-    margin: 0 auto; /* 在列内居中 */
-}
-
-#music-card .aplayer {
-    width: 100%;
-    margin: 0;
-    background: transparent !important; /* 保持透明背景以适应玻璃效果 */
-    box-shadow: none !important;
-    border-radius: var(--radius-lg); /* 继承卡片圆角 */
-    overflow: hidden;
-}
-
-#music-card .aplayer .aplayer-body {
-    display: flex;
-    align-items: center;
-    gap: 16px; /* 封面和信息的间距 */
-    padding: 16px; /* 统一内边距 */
-}
-
-#music-card .aplayer .aplayer-pic {
-    flex-shrink: 0;
-    width: 80px; /* 调整封面尺寸 */
-    height: 80px;
-    border-radius: 12px; /* 封面圆角 */
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s var(--ease-out);
-}
-
-#music-card .aplayer:hover .aplayer-pic {
-    transform: scale(1.05) rotate(-3deg); /* 添加悬停效果 */
-}
-
-#music-card .aplayer .aplayer-info {
-    flex: 1 1 auto; /* 占据剩余空间 */
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* 垂直居中内容 */
-    min-width: 0; /* 防止 flex 子项溢出 */
-    padding: 0 !important;
-    margin: 0 !important; /* 彻底移除 APlayer 的默认边距 */
-    border: none !important;
-    height: auto !important; /* 确保高度自适应 */
-}
-
-#music-card .aplayer .aplayer-music {
-    margin-bottom: 10px !important; /* 音乐信息和进度条之间的间距 */
-    /* 移除固定高度和 flex 布局，让其自然堆叠 */
-}
-
-#music-card .aplayer .aplayer-title,
-#music-card .aplayer .aplayer-author {
-    white-space: normal; /* 允许文本换行 */
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.4; /* 调整行高以获得更好的视觉效果 */
-    width: 100%; /* 确保文本溢出正常工作 */
-    word-break: break-all; /* 允许在任意字符间换行 */
-}
-
-#music-card .aplayer .aplayer-title {
-    font-size: 1.0rem !important; /* 调整字体大小 */
-    font-weight: 600;
-    color: var(--text-primary) !important;
-    margin-bottom: 4px; /* 标题和作者之间的间距 */
-}
-
-#music-card .aplayer .aplayer-author {
-    font-size: 0.85rem !important;
-    color: var(--text-secondary) !important;
-}
-
-#music-card .aplayer .aplayer-lrc {
-    display: none; /* 始终隐藏歌词 */
-}
-
-#music-card .aplayer .aplayer-controller {
-    display: flex;
-    align-items: center;
-}
-
-#music-card .aplayer .aplayer-bar-wrap {
-    flex: 1;
-    padding: 0 !important;
-    margin: 0 !important;
-}
-
-/* --- 通用 APlayer 颜色和细节调整 --- */
-#music-card .aplayer .aplayer-controller .aplayer-time {
-    color: var(--text-secondary) !important;
-    font-size: 0.8rem !important;
-}
-
-#music-card .aplayer .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded {
-    background: rgba(var(--accent-rgb), 0.2) !important;
-}
-
-#music-card .aplayer .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played {
-    background: var(--accent-color) !important;
-}
-
-#music-card .aplayer .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb {
-    background: var(--accent-color) !important;
-    box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.5);
-}
-
-#music-card .aplayer .aplayer-controller .aplayer-time .aplayer-icon {
-    color: var(--text-secondary) !important;
-    opacity: 0.7;
-    transition: all 0.2s ease;
-}
-
-#music-card .aplayer .aplayer-controller .aplayer-time .aplayer-icon:hover {
-    opacity: 1;
-    color: var(--accent-color) !important;
-}
-
-/* 一言 (Hitokoto) 回退样式 */
-.hitokoto-container {
-    text-align: center;
-    font-size: 0.95rem;
-    line-height: 1.6;
-    width: 100%;
-    color: var(--text-primary);
-    padding: 10px; /* 为一言添加一些内边距 */
-}
-
-#hitokoto-text {
-    margin-bottom: 0.5em;
-    min-height: 2.2em; /* 预留至少两行的高度，防止切换时跳动 */
-    display: inline; /* 让光标能紧随其后 */
-}
-
-#hitokoto-from {
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-    text-align: right;
-    width: 100%;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-    margin-top: 0.5em;
-}
-
-/* 打字机光标 */
-.cursor {
-    display: inline-block;
-    width: 8px;
-    height: 1em;
-    background-color: var(--text-primary);
-    margin-left: 4px;
-    animation: blink 1s infinite;
-    vertical-align: text-bottom;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
 
 /* --- 12. RESPONSIVE & ACCESSIBILITY / 响应式与可访问性 --- */
 /* --------------------------------------------------------- */
@@ -1643,12 +1367,11 @@ body.is-ready .card {
     }
 
     /* 重置所有列的网格位置，以强制实现单列堆叠 */
-    .column:nth-child(1), /* 个人信息列 */
-    .column:nth-child(2), /* 链接列 */
-    .column:nth-child(3) { /* 小工具列 */
+    .column:nth-child(1),
+    .column:nth-child(2),
+    .column:nth-child(3) {
         grid-column: auto;
         grid-row: auto;
-        order: unset; /* 移除大屏幕下的 order 属性 */
     }
 
     .column:nth-child(3) {

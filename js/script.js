@@ -1,1151 +1,1063 @@
-(function() {
-    /**
-     *
-     *  Tika's Personal Homepage - Interactive Script
-     *  Version: 2.3 (APlayer + MetingJS Integration)
-     *  Tika 的个人主页 - 交互脚本
-     *  版本: 2.3 (集成 APlayer + MetingJS)
-     *
-     */
+/**
+ *
+ *  Tika's Personal Homepage - Interactive Script
+ *  Version: 2.2 (Re-introducing Shooting Stars)
+ *  Tika 的个人主页 - 交互脚本
+ *  版本: 2.2 (重新引入流星效果)
+ *
+ */
 
-    let visualSettings = {}; // 全局视觉设置
-    const appState = {
-        hitokotoIntervalId: null,
-    };
+/**
+ * 用于各种效果和设置的配置对象。
+ * @const {object}
+ */
+let visualSettings = {}; // 全局视觉设置
 
-    const CONFIG = {
-        WELCOME_TEXT: "正在唤醒情绪体接口…",
-        WELCOME_TYPE_SPEED: 120,
-        WELCOME_FADE_DELAY: 1000,
-        LERP_FACTOR_FAST: 0.1,
-        LERP_FACTOR_NORMAL: 0.08,
-        GLOBAL_TILT_STRENGTH: 8,
-        PARALLAX_STRENGTH_X: -14,
-        PARALLAX_STRENGTH_Y: -10,
-        TILT_MAX_ANGLE: 3.2,
-        MAGNETIC_STRENGTH: 12,
-        MAGNETIC_MAX_DIST: 150,
-        HALO_PROXIMITY_MAX_DIST: 400,
-        STAR_COUNT_LAYER1: 300,
-        STAR_COUNT_LAYER2: 200,
-        STAR_COUNT_LAYER3: 100,
-        STAR_PARALLAX_FACTOR1: 0.1,
-        STAR_PARALLAX_FACTOR2: 0.3,
-        STAR_PARALLAX_FACTOR3: 0.6,
-        SHOOTING_STAR_COUNT: 3,
-        SHOOTING_STAR_RESPAWN_DELAY: 2000,
-        SCRAMBLE_CHARS: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
-        RAINDROP_COUNT: 150,
-    };
+/**
+ * 用于各种效果和设置的配置对象。
+ * @const {object}
+ */
+const CONFIG = {
+    // 欢迎屏幕设置
+    WELCOME_TEXT: "正在唤醒情绪体接口…", // 欢迎语文本
+    WELCOME_TYPE_SPEED: 120, // 打字速度 (毫秒)
+    WELCOME_FADE_DELAY: 1000, // 打字结束后淡出延迟 (毫秒)
 
-    if (window.matchMedia('(max-width: 960px)').matches) {
-        CONFIG.RAINDROP_COUNT = 50;
+    // 动画插值因子 (用于平滑动画)
+    LERP_FACTOR_FAST: 0.1, // 快速插值
+    LERP_FACTOR_NORMAL: 0.08, // 普通插值
+
+    // 全局视差效果
+    GLOBAL_TILT_STRENGTH: 8, // 全局倾斜强度 (度)
+
+    // 背景视差效果
+    PARALLAX_STRENGTH_X: -14, // X轴视差强度
+    PARALLAX_STRENGTH_Y: -10, // Y轴视差强度
+
+    // 卡片倾斜效果
+    TILT_MAX_ANGLE: 3.2, // 最大倾斜角度 (度)
+
+    // 卡片磁性吸附效果
+    MAGNETIC_STRENGTH: 12, // 磁性强度，值越大吸力越强
+    MAGNETIC_MAX_DIST: 150, // 磁性最大响应距离
+
+    // 头像光环效果
+    HALO_PROXIMITY_MAX_DIST: 400, // 鼠标接近头像触发光环效果的最大距离 (像素)
+
+    // 星空背景效果
+    STAR_COUNT_LAYER1: 300, // 第1层星星数量
+    STAR_COUNT_LAYER2: 200, // 第2层星星数量
+    STAR_COUNT_LAYER3: 100, // 第3层星星数量
+    STAR_PARALLAX_FACTOR1: 0.1, // 第1层星星视差因子
+    STAR_PARALLAX_FACTOR2: 0.3, // 第2层星星视差因子
+    STAR_PARALLAX_FACTOR3: 0.6, // 第3层星星视差因子
+
+    // 流星效果
+    SHOOTING_STAR_COUNT: 3, // 流星数量
+    SHOOTING_STAR_RESPAWN_DELAY: 2000, // 流星重生延迟 (毫秒)
+
+    // 文字打乱效果所用的字符集
+    SCRAMBLE_CHARS: 'ĀČĘĢĪĶĻŅŌŖŠŪŽdħĕįŏŧș⇋⇌⇟⇞⌆⌅⌄⍰⍞⍯⎈⎔⎚☍⚿⛶⛯⛮⛻⛼⛾⛿',
+
+    // 雨滴效果
+    RAINDROP_COUNT: 150, // 雨滴数量
+};
+
+// --- Mobile-specific overrides / 移动端专属配置覆盖 ---
+if (window.matchMedia('(max-width: 960px)').matches) {
+    CONFIG.RAINDROP_COUNT = 50; // 在移动端减少雨滴数量以提升性能
+}
+
+
+/* --- 1. EFFECT CLASSES / 效果类 --- */
+/* ---------------------------------- */
+
+/**
+ * 在元素上创建文本打乱动画效果。
+ */
+class TextScramble {
+    constructor(el) {
+        this.el = el; // 目标元素
+        this.chars = CONFIG.SCRAMBLE_CHARS; // 字符集
+        this.update = this.update.bind(this); // 绑定 update 方法的 this 上下文
+        this.isRunning = false; // 动画是否正在运行的标志
     }
 
-    class TextScramble {
-        constructor(el) {
-            this.el = el;
-            this.chars = CONFIG.SCRAMBLE_CHARS;
-            this.update = this.update.bind(this);
+    setText(newText) {
+        if (this.isRunning) return Promise.resolve(); // 如果正在运行，则直接返回
+        this.isRunning = true;
+
+        const oldText = this.el.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise((resolve) => (this.resolve = resolve));
+        this.queue = [];
+        for (let i = 0; i < length; i++) {
+            const from = oldText[i] || '';
+            const to = newText[i] || '';
+            const start = Math.floor(Math.random() * 40); // 随机开始帧
+            const end = start + Math.floor(Math.random() * 40); // 随机结束帧
+            this.queue.push({ from, to, start, end });
+        }
+        cancelAnimationFrame(this.frameRequest); // 取消之前的动画帧
+        this.frame = 0;
+        this.update();
+        return promise;
+    }
+
+    update() {
+        let output = '';
+        let complete = 0;
+        for (let i = 0, n = this.queue.length; i < n; i++) {
+            let { from, to, start, end, char } = this.queue[i];
+            if (this.frame >= end) {
+                complete++;
+                output += to; // 动画结束，显示最终字符
+            } else if (this.frame >= start) {
+                if (!char || Math.random() < 0.28) {
+                    char = this.randomChar(); // 随机选择一个字符
+                    this.queue[i].char = char;
+                }
+                output += `<span class="dud">${char}</span>`; // 显示随机字符
+            } else {
+                output += from; // 动画开始前，显示原始字符
+            }
+        }
+        this.el.innerHTML = output;
+        if (complete === this.queue.length) {
+            this.resolve(); // 所有字符动画完成
             this.isRunning = false;
-        }
-        setText(newText) {
-            if (this.isRunning) return Promise.resolve();
-            this.isRunning = true;
-            const oldText = this.el.innerText;
-            const length = Math.max(oldText.length, newText.length);
-            const promise = new Promise((resolve) => (this.resolve = resolve));
-            this.queue = [];
-            for (let i = 0; i < length; i++) {
-                const from = oldText[i] || '';
-                const to = newText[i] || '';
-                const start = Math.floor(Math.random() * 40);
-                const end = start + Math.floor(Math.random() * 40);
-                this.queue.push({ from, to, start, end });
-            }
-            cancelAnimationFrame(this.frameRequest);
-            this.frame = 0;
-            this.update();
-            return promise;
-        }
-        update() {
-            let output = '';
-            let complete = 0;
-            for (let i = 0, n = this.queue.length; i < n; i++) {
-                let { from, to, start, end, char } = this.queue[i];
-                if (this.frame >= end) {
-                    complete++;
-                    output += to;
-                } else if (this.frame >= start) {
-                    if (!char || Math.random() < 0.28) {
-                        char = this.randomChar();
-                        this.queue[i].char = char;
-                    }
-                    output += `<span class="dud">${char}</span>`;
-                } else {
-                    output += from;
-                }
-            }
-            this.el.innerHTML = output;
-            if (complete === this.queue.length) {
-                this.resolve();
-                this.isRunning = false;
-            } else {
-                this.frameRequest = requestAnimationFrame(this.update);
-                this.frame++;
-            }
-        }
-        randomChar() {
-            return this.chars[Math.floor(Math.random() * this.chars.length)];
+        } else {
+            this.frameRequest = requestAnimationFrame(this.update); // 请求下一帧
+            this.frame++;
         }
     }
 
-    class Star {
-        constructor(width, height) {
-            this.x = Math.random() * width;
-            this.y = Math.random() * height;
-            this.size = Math.random() * 1.5 + 0.5;
-            this.opacity = Math.random() * 0.5 + 0.2;
-        }
-        draw(ctx) {
-            ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fill();
-        }
+    randomChar() {
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
+    }
+}
+
+/**
+ * 代表星空背景中的一颗星星。
+ */
+class Star {
+    constructor(width, height) {
+        this.x = Math.random() * width;
+        this.y = Math.random() * height;
+        this.size = Math.random() * 1.5 + 0.5; // 星星大小
+        this.opacity = Math.random() * 0.5 + 0.2; // 星星透明度
     }
 
-    class ShootingStar {
-        constructor(width, height) {
-            this.width = width;
-            this.height = height;
-            this.reset();
-        }
-        reset() {
-            this.x = Math.random() * this.width;
-            this.y = 0;
-            this.len = Math.random() * 80 + 10;
-            this.speed = Math.random() * 10 + 6;
-            this.size = Math.random() * 1 + 0.1;
-            this.waitTime = new Date().getTime() + Math.random() * CONFIG.SHOOTING_STAR_RESPAWN_DELAY;
-            this.active = false;
-        }
-        update() {
-            if (this.active) {
-                this.x -= this.speed;
-                this.y += this.speed;
-                if (this.x < 0 || this.y >= this.height) {
-                    this.reset();
-                }
-            } else if (new Date().getTime() > this.waitTime) {
-                this.active = true;
-            }
-        }
-        draw(ctx) {
-            if (!this.active) return;
-            ctx.lineWidth = this.size;
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
-            ctx.beginPath();
-            ctx.moveTo(this.x, this.y);
-            ctx.lineTo(this.x - this.len, this.y + this.len);
-            ctx.stroke();
-        }
+    draw(ctx) {
+        ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+/**
+ * 代表一颗流星。
+ */
+class ShootingStar {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+        this.reset();
     }
 
-    class Raindrop {
-        constructor(width, height) {
-            this.width = width;
-            this.height = height;
-            this.reset();
-        }
-        reset() {
-            this.x = Math.random() * this.width;
-            this.y = Math.random() * -this.height;
-            this.speed = Math.random() * 6 + 2;
-            this.length = Math.random() * 20 + 10;
-            this.opacity = Math.random() * 0.3 + 0.2;
-        }
-        update() {
+    reset() {
+        this.x = Math.random() * this.width;
+        this.y = 0;
+        this.len = Math.random() * 80 + 10; // 流星长度
+        this.speed = Math.random() * 10 + 6; // 流星速度
+        this.size = Math.random() * 1 + 0.1; // 流星粗细
+        this.waitTime = new Date().getTime() + Math.random() * CONFIG.SHOOTING_STAR_RESPAWN_DELAY; // 下次出现的时间
+        this.active = false; // 是否可见
+    }
+
+    update() {
+        if (this.active) {
+            this.x -= this.speed;
             this.y += this.speed;
-            if (this.y > this.height) {
-                this.reset();
-                this.y = 0;
+            if (this.x < 0 || this.y >= this.height) {
+                this.reset(); // 飞出屏幕后重置
             }
-        }
-        draw(ctx) {
-            ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
-            ctx.lineWidth = 1.5;
-            ctx.beginPath();
-            ctx.moveTo(this.x, this.y);
-            ctx.lineTo(this.x, this.y + this.length);
-            ctx.stroke();
+        } else if (new Date().getTime() > this.waitTime) {
+            this.active = true; // 等待时间结束后激活
         }
     }
 
-    function initWelcomeScreen() {
-        const welcomeScreen = document.getElementById('welcome-screen');
-        const welcomeTextEl = document.getElementById('welcome-text');
-        if (!welcomeScreen || !welcomeTextEl) {
-            document.body.classList.add('is-ready');
-            return;
-        }
-        let charIndex = 0;
-        function typeChar() {
-            if (charIndex < CONFIG.WELCOME_TEXT.length) {
-                welcomeTextEl.textContent += CONFIG.WELCOME_TEXT.charAt(charIndex);
-                charIndex++;
-                setTimeout(typeChar, CONFIG.WELCOME_TYPE_SPEED);
-            } else {
-                setTimeout(() => {
-                    welcomeScreen.classList.add('hidden');
-                    document.body.classList.add('is-ready');
-                }, CONFIG.WELCOME_FADE_DELAY);
-            }
-        }
-        setTimeout(typeChar, 500);
+    draw(ctx) {
+        if (!this.active) return;
+        ctx.lineWidth = this.size;
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.5)';
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x - this.len, this.y + this.len);
+        ctx.stroke();
+    }
+}
+
+/**
+ * 代表一个雨滴。
+ */
+class Raindrop {
+    constructor(width, height) {
+        this.width = width;
+        this.height = height;
+        this.reset();
     }
 
-    function initClockAndGreeting() {
-        const hourEl = document.getElementById('hour');
-        const minuteEl = document.getElementById('minute');
-        const secondEl = document.getElementById('second');
-        const greetingEl = document.getElementById('greeting');
-        const todayEl = document.getElementById('today');
-        if (!hourEl && !minuteEl && !secondEl && !greetingEl && !todayEl) return;
-
-        let clockTimer = null;
-        let lastGreetingKey = '';
-        let lastDateKey = '';
-        const dateFormatter = new Intl.DateTimeFormat('zh-CN', {
-            year: 'numeric', month: 'long', day: 'numeric', weekday: 'long',
-        });
-        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-        function updateGreeting(now) {
-            if (!greetingEl && !todayEl) return;
-            const hours = now.getHours();
-            const greetingKey = String(hours);
-
-            if (greetingKey !== lastGreetingKey) {
-                let greetingText = '你好';
-                if (hours >= 5 && hours <= 8) greetingText = '早上好';
-                else if (hours >= 9 && hours <= 11) greetingText = '上午好';
-                else if (hours >= 12 && hours <= 13) greetingText = '中午好';
-                else if (hours >= 14 && hours <= 17) greetingText = '下午好';
-                else if (hours >= 18 && hours <= 22) greetingText = '晚上好';
-                else greetingText = '夜深了';
-
-                if (greetingEl && !reduceMotion) {
-                    greetingEl.innerHTML = '';
-                    greetingText.split('').forEach((char, i) => {
-                        const span = document.createElement('span');
-                        span.textContent = char;
-                        span.style.setProperty('--char-index', i);
-                        greetingEl.appendChild(span);
-                    });
-                } else if (greetingEl) {
-                    greetingEl.textContent = greetingText;
-                }
-                lastGreetingKey = greetingKey;
-            }
-
-            if (todayEl) {
-                const dateKey = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
-                if (dateKey !== lastDateKey) {
-                    todayEl.textContent = dateFormatter.format(now);
-                    lastDateKey = dateKey;
-                }
-            }
-        }
-
-        function updateClock() {
-            const now = new Date();
-            if (hourEl) hourEl.textContent = String(now.getHours()).padStart(2, '0');
-            if (minuteEl) minuteEl.textContent = String(now.getMinutes()).padStart(2, '0');
-            if (secondEl) secondEl.textContent = String(now.getSeconds()).padStart(2, '0');
-            updateGreeting(now);
-        }
-
-        function scheduleClock() {
-            updateClock();
-            const delay = 1000 - (Date.now() % 1000);
-            clockTimer = window.setTimeout(scheduleClock, delay);
-        }
-
-        scheduleClock();
-        document.addEventListener('visibilitychange', () => {
-            if (!document.hidden) {
-                if (clockTimer) window.clearTimeout(clockTimer);
-                scheduleClock();
-            }
-        });
+    reset() {
+        this.x = Math.random() * this.width;
+        this.y = Math.random() * -this.height; // 从屏幕外开始
+        this.speed = Math.random() * 6 + 2; // 雨滴速度
+        this.length = Math.random() * 20 + 10; // 雨滴长度
+        this.opacity = Math.random() * 0.3 + 0.2; // 雨滴透明度
     }
 
-    function initCalendar() {
-        const calendarGrid = document.getElementById('calendar-grid');
-        const calendarMonthEl = document.getElementById('calendar-month');
-        if (!calendarGrid) return;
+    update() {
+        this.y += this.speed;
+        if (this.y > this.height) {
+            this.reset(); // 落出屏幕后重置
+            this.y = 0;
+        }
+    }
 
-        calendarGrid.textContent = '';
+    draw(ctx) {
+        ctx.strokeStyle = `rgba(255, 255, 255, ${this.opacity})`;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.moveTo(this.x, this.y);
+        ctx.lineTo(this.x, this.y + this.length);
+        ctx.stroke();
+    }
+}
+
+
+/* --- 2. INITIALIZATION FUNCTIONS / 初始化函数 --- */
+/* ----------------------------------------------- */
+
+/**
+ * 初始化欢迎屏幕的打字动画。
+ */
+function initWelcomeScreen() {
+    const welcomeScreen = document.getElementById('welcome-screen');
+    const welcomeTextEl = document.getElementById('welcome-text');
+    if (!welcomeScreen || !welcomeTextEl) {
+        document.body.classList.add('is-ready'); // 如果元素不存在，直接标记为准备就绪
+        return;
+    }
+
+    let charIndex = 0;
+    function typeChar() {
+        if (charIndex < CONFIG.WELCOME_TEXT.length) {
+            welcomeTextEl.textContent += CONFIG.WELCOME_TEXT.charAt(charIndex);
+            charIndex++;
+            setTimeout(typeChar, CONFIG.WELCOME_TYPE_SPEED);
+        } else {
+            // 打字结束后，延迟一段时间再隐藏欢迎屏幕
+            setTimeout(() => {
+                welcomeScreen.classList.add('hidden');
+                document.body.classList.add('is-ready');
+            }, CONFIG.WELCOME_FADE_DELAY);
+        }
+    }
+    setTimeout(typeChar, 500); // 延迟开始打字
+}
+
+/**
+ * 初始化时钟、问候语和日期显示。
+ */
+function initClockAndGreeting() {
+    const hourEl = document.getElementById('hour');
+    const minuteEl = document.getElementById('minute');
+    const secondEl = document.getElementById('second');
+    const greetingEl = document.getElementById('greeting');
+    const todayEl = document.getElementById('today');
+    if (!hourEl && !minuteEl && !secondEl && !greetingEl && !todayEl) return;
+
+    let clockTimer = null;
+    let lastGreetingKey = '';
+    let lastDateKey = '';
+    const dateFormatter = new Intl.DateTimeFormat('zh-CN', {
+        year: 'numeric', month: 'long', day: 'numeric', weekday: 'long',
+    });
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function updateGreeting(now) {
+        if (!greetingEl && !todayEl) return;
+        const hours = now.getHours();
+        const greetingKey = String(hours);
+
+        // 仅在小时变化时更新问候语，避免不必要的 DOM 操作
+        if (greetingKey !== lastGreetingKey) {
+            let greetingText = '你好';
+            if (hours >= 5 && hours <= 8) greetingText = '早上好';
+            else if (hours >= 9 && hours <= 11) greetingText = '上午好';
+            else if (hours >= 12 && hours <= 13) greetingText = '中午好';
+            else if (hours >= 14 && hours <= 17) greetingText = '下午好';
+            else if (hours >= 18 && hours <= 22) greetingText = '晚上好';
+            else greetingText = '夜深了';
+
+            if (greetingEl && !reduceMotion) {
+                // 使用字符动画更新问候语
+                greetingEl.innerHTML = '';
+                greetingText.split('').forEach((char, i) => {
+                    const span = document.createElement('span');
+                    span.textContent = char;
+                    span.style.setProperty('--char-index', i);
+                    greetingEl.appendChild(span);
+                });
+            } else if (greetingEl) {
+                greetingEl.textContent = greetingText;
+            }
+            lastGreetingKey = greetingKey;
+        }
+
+        if (todayEl) {
+            const dateKey = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
+            // 仅在日期变化时更新日期显示
+            if (dateKey !== lastDateKey) {
+                todayEl.textContent = dateFormatter.format(now);
+                lastDateKey = dateKey;
+            }
+        }
+    }
+
+    function updateClock() {
         const now = new Date();
-        const year = now.getFullYear();
-        const month = now.getMonth();
-        const today = now.getDate();
-
-        if (calendarMonthEl) {
-            calendarMonthEl.textContent = `${year}年${month + 1}月`;
-        }
-
-        const shortWeekDays = ['一', '二', '三', '四', '五', '六', '日'];
-        shortWeekDays.forEach((day, index) => {
-            const el = document.createElement('div');
-            el.className = 'calendar-day-name';
-            if (index >= 5) el.classList.add('weekend');
-            el.textContent = day;
-            calendarGrid.appendChild(el);
-        });
-
-        const firstDayOfMonth = new Date(year, month, 1).getDay();
-        let startOffset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-        for (let i = 0; i < startOffset; i++) {
-            const el = document.createElement('div');
-            el.className = 'calendar-day empty';
-            calendarGrid.appendChild(el);
-        }
-
-        for (let i = 1; i <= daysInMonth; i++) {
-            const el = document.createElement('div');
-            el.className = 'calendar-day';
-            el.textContent = i;
-            const dayOfWeek = new Date(year, month, i).getDay();
-            if (dayOfWeek === 0 || dayOfWeek === 6) el.classList.add('weekend');
-            if (i === today) el.classList.add('current');
-            calendarGrid.appendChild(el);
-        }
+        if (hourEl) hourEl.textContent = String(now.getHours()).padStart(2, '0');
+        if (minuteEl) minuteEl.textContent = String(now.getMinutes()).padStart(2, '0');
+        if (secondEl) secondEl.textContent = String(now.getSeconds()).padStart(2, '0');
+        updateGreeting(now);
     }
 
-    async function initWeather() {
-        const weatherCard = document.getElementById('weather-card');
-        if (!weatherCard) return;
+    function scheduleClock() {
+        updateClock();
+        // 计算到下一秒开始的延迟，以实现精准更新
+        const delay = 1000 - (Date.now() % 1000);
+        clockTimer = window.setTimeout(scheduleClock, delay);
+    }
 
-        const locationEl = weatherCard.querySelector('.weather-location');
-        const tempEl = weatherCard.querySelector('.weather-temp');
-        const iconEl = weatherCard.querySelector('.weather-icon i');
-        const descriptionEl = weatherCard.querySelector('.weather-description');
+    scheduleClock();
+    // 当页面从后台切回前台时，重新同步时钟
+    document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+            if (clockTimer) window.clearTimeout(clockTimer);
+            scheduleClock();
+        }
+    });
+}
 
-        // 获取地理位置
-        let position;
-        try {
-            position = await new Promise((resolve, reject) => {
-                navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 8000 });
+/**
+ * 初始化日历小工具。
+ */
+function initCalendar() {
+    const calendarGrid = document.getElementById('calendar-grid');
+    const calendarMonthEl = document.getElementById('calendar-month');
+    if (!calendarGrid) return;
+
+    calendarGrid.textContent = ''; // 清空日历
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = now.getMonth();
+    const today = now.getDate();
+
+    if (calendarMonthEl) {
+        calendarMonthEl.textContent = `${year}年${month + 1}月`;
+    }
+
+    // 添加星期标题
+    const shortWeekDays = ['一', '二', '三', '四', '五', '六', '日'];
+    shortWeekDays.forEach((day, index) => {
+        const el = document.createElement('div');
+        el.className = 'calendar-day-name';
+        if (index >= 5) el.classList.add('weekend'); // 标记周末
+        el.textContent = day;
+        calendarGrid.appendChild(el);
+    });
+
+    // 计算当月第一天是星期几，并填充空白
+    const firstDayOfMonth = new Date(year, month, 1).getDay();
+    let startOffset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; // 周一为0
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for (let i = 0; i < startOffset; i++) {
+        const el = document.createElement('div');
+        el.className = 'calendar-day empty';
+        calendarGrid.appendChild(el);
+    }
+
+    // 填充当月所有日期
+    for (let i = 1; i <= daysInMonth; i++) {
+        const el = document.createElement('div');
+        el.className = 'calendar-day';
+        el.textContent = i;
+        const dayOfWeek = new Date(year, month, i).getDay();
+        if (dayOfWeek === 0 || dayOfWeek === 6) el.classList.add('weekend');
+        if (i === today) el.classList.add('current'); // 标记当天
+        calendarGrid.appendChild(el);
+    }
+}
+
+/**
+ * 初始化主题切换功能，并使用 View Transitions API 实现创意过渡效果。
+ */
+function initTheme() {
+    const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+    const toggleBtn = document.getElementById('theme-toggle');
+
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+    }
+
+    // 同步切换按钮的图标和文本
+    function syncThemeToggle(theme) {
+        if (!toggleBtn) return;
+        const iconEl = toggleBtn.querySelector('i');
+        const textEl = toggleBtn.querySelector('.theme-toggle-text');
+        const isDark = theme === 'dark';
+        if (iconEl) iconEl.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+        if (textEl) textEl.textContent = isDark ? '深色' : '浅色';
+        toggleBtn.setAttribute('aria-label', isDark ? '切换到浅色模式' : '切换到深色模式');
+    }
+
+    // 页面加载时，根据已设置的 data-theme 同步切换按钮状态
+    const initialTheme = document.documentElement.getAttribute('data-theme') || 'light';
+    syncThemeToggle(initialTheme);
+
+    if (toggleBtn) {
+        toggleBtn.addEventListener('click', (event) => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+            // 如果浏览器不支持 View Transitions API，则使用回退方案
+            if (!document.startViewTransition) {
+                setTheme(nextTheme);
+                localStorage.setItem('theme', nextTheme);
+                syncThemeToggle(nextTheme);
+                return;
+            }
+
+            // 获取点击坐标，用于圆形揭示动画
+            const x = event.clientX;
+            const y = event.clientY;
+            const endRadius = Math.hypot(
+                Math.max(x, window.innerWidth - x),
+                Math.max(y, window.innerHeight - y)
+            );
+
+            // 开始视图过渡
+            const transition = document.startViewTransition(() => {
+                setTheme(nextTheme);
+                localStorage.setItem('theme', nextTheme);
+                syncThemeToggle(nextTheme);
             });
-        } catch (error) {
-            console.error("获取地理位置失败:", error.message || error);
-            showVirtualWeather();
-            return;
+
+            // 仅在桌面端应用耗性能的圆形揭示动画
+            if (window.matchMedia('(min-width: 961px)').matches) {
+                // 为新视图添加动画
+                transition.ready.then(() => {
+                    document.documentElement.animate(
+                        {
+                            clipPath: [
+                                `circle(0px at ${x}px ${y}px)`,
+                                `circle(${endRadius}px at ${x}px ${y}px)`,
+                            ],
+                        },
+                        {
+                            duration: 550,
+                            easing: 'ease-in-out',
+                            pseudoElement: '::view-transition-new(root)', // 动画作用于新视图的根伪元素
+                        }
+                    );
+                });
+            }
+        });
+    }
+
+    // 监听系统颜色方案变化
+    prefersDarkScheme.addEventListener('change', (e) => {
+        if (!localStorage.getItem('theme')) { // 仅当用户未手动设置主题时才跟随系统
+            const nextTheme = e.matches ? 'dark' : 'light';
+            if (!document.startViewTransition) {
+                setTheme(nextTheme);
+                syncThemeToggle(nextTheme);
+                return;
+            }
+            document.startViewTransition(() => {
+                setTheme(nextTheme);
+                syncThemeToggle(nextTheme);
+            });
+        }
+    });
+}
+
+/**
+ * 初始化所有交互式视觉效果。
+ */
+function initInteractiveEffects() {
+    // 如果用户偏好减少动画，则不初始化效果
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    const bg = document.querySelector('.background-gradient');
+    const gridContainer = document.querySelector('.grid-container');
+    const profileCard = document.querySelector('.profile-card');
+    const avatarHalo = profileCard?.querySelector('.avatar-large');
+
+    // 动画状态变量
+    const animationState = {
+        targetX: 0, currentX: 0, // 视差 X 轴目标值和当前值
+        targetY: 0, currentY: 0, // 视差 Y 轴目标值和当前值
+        targetSpotX: 50, currentSpotX: 50, // 鼠标光斑 X 轴
+        targetSpotY: 28, currentSpotY: 28, // 鼠标光斑 Y 轴
+        targetSpotA: 0.1, currentSpotA: 0.1, // 鼠标光斑透明度
+        targetHaloScale: 1, currentHaloScale: 1, // 头像光环缩放
+        targetHaloOpacity: 0.72, currentHaloOpacity: 0.72, // 头像光环透明度
+        targetGlobalTiltX: 0, currentGlobalTiltX: 0, // 全局倾斜 X 轴
+        targetGlobalTiltY: 0, currentGlobalTiltY: 0, // 全局倾斜 Y 轴
+        magneticElements: [], // 存储所有需要磁性效果的元素
+        floatingElements: [], // 存储所有需要浮动效果的元素
+        starfieldUpdate: () => {}, // 星空更新函数
+        shootingStarUpdate: () => {}, // 流星更新函数
+        raindropUpdate: () => {}, // 雨滴更新函数
+    };
+
+    // 主动画循环
+    function tick() {
+        const { LERP_FACTOR_NORMAL, LERP_FACTOR_FAST } = CONFIG;
+        // 使用线性插值 (Lerp) 实现平滑动画
+        animationState.currentX += (animationState.targetX - animationState.currentX) * LERP_FACTOR_NORMAL;
+        animationState.currentY += (animationState.targetY - animationState.currentY) * LERP_FACTOR_NORMAL;
+        animationState.currentSpotX += (animationState.targetSpotX - animationState.currentSpotX) * LERP_FACTOR_NORMAL;
+        animationState.currentSpotY += (animationState.targetSpotY - animationState.currentSpotY) * LERP_FACTOR_NORMAL;
+        animationState.currentSpotA += (animationState.targetSpotA - animationState.currentSpotA) * LERP_FACTOR_FAST;
+        animationState.currentHaloScale += (animationState.targetHaloScale - animationState.currentHaloScale) * LERP_FACTOR_FAST;
+        animationState.currentHaloOpacity += (animationState.targetHaloOpacity - animationState.currentHaloOpacity) * LERP_FACTOR_FAST;
+        animationState.currentGlobalTiltX += (animationState.targetGlobalTiltX - animationState.currentGlobalTiltX) * LERP_FACTOR_NORMAL;
+        animationState.currentGlobalTiltY += (animationState.targetGlobalTiltY - animationState.currentGlobalTiltY) * LERP_FACTOR_NORMAL;
+
+        // 更新 DOM 元素的样式
+        if (bg) {
+            bg.style.transform = `translate3d(${animationState.currentX}px, ${animationState.currentY}px, 0) scale(1.06)`;
+            bg.style.setProperty('--spot-x', `${animationState.currentSpotX.toFixed(2)}%`);
+            bg.style.setProperty('--spot-y', `${animationState.currentSpotY.toFixed(2)}%`);
+            bg.style.setProperty('--spot-a', animationState.currentSpotA.toFixed(3));
+        }
+        if (avatarHalo) {
+            avatarHalo.style.setProperty('--halo-scale', animationState.currentHaloScale.toFixed(3));
+            avatarHalo.style.setProperty('--halo-opacity', animationState.currentHaloOpacity.toFixed(3));
+        }
+        if (gridContainer) {
+            gridContainer.style.setProperty('--global-tilt-x', `${animationState.currentGlobalTiltX.toFixed(2)}deg`);
+            gridContainer.style.setProperty('--global-tilt-y', `${animationState.currentGlobalTiltY.toFixed(2)}deg`);
+        }
+
+        // 更新磁性元素的位移
+        animationState.magneticElements.forEach(item => {
+            item.currentX += (item.targetX - item.currentX) * LERP_FACTOR_FAST;
+            item.currentY += (item.targetY - item.currentY) * LERP_FACTOR_FAST;
+            item.el.style.setProperty('--magnetic-x', `${item.currentX.toFixed(2)}px`);
+            item.el.style.setProperty('--magnetic-y', `${item.currentY.toFixed(2)}px`);
+        });
+
+        // 根据设置更新浮动元素的位移
+        const now = performance.now();
+        if (visualSettings.cardFloat) {
+            animationState.floatingElements.forEach(item => {
+                const floatY = Math.sin(item.phase + now * item.speed) * item.amplitude;
+                item.el.style.setProperty('--float-y', `${floatY.toFixed(2)}px`);
+            });
+        } else {
+            // 如果禁用了浮动，则将所有卡片的浮动效果重置为0
+            animationState.floatingElements.forEach(item => {
+                if (item.el.style.getPropertyValue('--float-y') !== '0px') {
+                    item.el.style.setProperty('--float-y', '0px');
+                }
+            });
         }
         
-        const { latitude, longitude } = position.coords;
-
-        try {
-            await fetchOpenMeteoWeather(latitude, longitude);
-        } catch (error) {
-            console.error("天气 API (Open-Meteo) 失败，加载虚拟天气:", error.message || error);
-            showVirtualWeather();
-        }
-
-        // --- Open-Meteo 天气数据获取逻辑 ---
-        async function fetchOpenMeteoWeather(lat, lon) {
-            const weatherCodeMap = {
-                0: { icon: 'fa-solid fa-sun', description: '晴' }, 1: { icon: 'fa-solid fa-cloud-sun', description: '基本晴朗' },
-                2: { icon: 'fa-solid fa-cloud', description: '部分多云' }, 3: { icon: 'fa-solid fa-cloud', description: '阴天' },
-                45: { icon: 'fa-solid fa-smog', description: '雾' }, 48: { icon: 'fa-solid fa-smog', description: '冻雾' },
-                51: { icon: 'fa-solid fa-cloud-rain', description: '小雨' }, 53: { icon: 'fa-solid fa-cloud-rain', description: '中雨' },
-                55: { icon: 'fa-solid fa-cloud-showers-heavy', description: '大雨' }, 61: { icon: 'fa-solid fa-cloud-rain', description: '小雨' },
-                63: { icon: 'fa-solid fa-cloud-rain', description: '中雨' }, 65: { icon: 'fa-solid fa-cloud-showers-heavy', description: '大雨' },
-                80: { icon: 'fa-solid fa-cloud-showers-heavy', description: '阵雨' }, 81: { icon: 'fa-solid fa-cloud-showers-heavy', description: '中度阵雨' },
-                82: { icon: 'fa-solid fa-cloud-showers-heavy', description: '猛烈阵雨' }, 95: { icon: 'fa-solid fa-bolt', description: '雷暴' },
-            };
-            const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,weather_code`;
-            const response = await fetch(apiUrl);
-            if (!response.ok) throw new Error(`HTTP 错误! 状态: ${response.status}`);
-            const data = await response.json();
-            const weatherInfo = weatherCodeMap[data.current.weather_code] || { icon: 'fa-solid fa-question', description: '未知' };
-            const locationName = await reverseGeocode(lat, lon);
-            const displayLocation = locationName ? `当前位置: ${locationName}` : '当前位置';
-            updateWeatherUI(displayLocation, data.current.temperature_2m, weatherInfo);
-        }
-
-        // --- 反向地理编码 ---
-        async function reverseGeocode(lat, lon) {
-            try {
-                const geoResponse = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&accept-language=zh-CN`);
-                if (geoResponse.ok) {
-                    const geoData = await geoResponse.json();
-                    return geoData.address.city || geoData.address.town || geoData.address.village || '';
-                }
-            } catch (geoError) {
-                console.warn("反向地理编码失败:", geoError.message || geoError);
-            }
-            return '';
-        }
-
-        // --- UI 更新与虚拟天气 ---
-        function updateWeatherUI(location, temperature, weatherInfo) {
-            if (tempEl) tempEl.textContent = `${Math.round(temperature)}°`;
-            if (descriptionEl) descriptionEl.textContent = weatherInfo.description;
-            if (iconEl) {
-                iconEl.className = weatherInfo.icon;
-            }
-            if (locationEl) locationEl.textContent = location;
-            weatherCard.hidden = false;
-        }
-
-        function showVirtualWeather() {
-            console.log("加载虚拟天气数据...");
-            const virtualWeatherOptions = [
-                { description: '晴', icon: 'fa-solid fa-sun', tempMin: 20, tempMax: 35 },
-                { description: '多云', icon: 'fa-solid fa-cloud', tempMin: 15, tempMax: 28 },
-                { description: '小雨', icon: 'fa-solid fa-cloud-rain', tempMin: 12, tempMax: 22 },
-                { description: '雷暴', icon: 'fa-solid fa-bolt', tempMin: 18, tempMax: 28 },
-                { description: '有雾', icon: 'fa-solid fa-smog', tempMin: 5, tempMax: 18 },
-                { description: '下雪', icon: 'fa-solid fa-snowflake', tempMin: -5, tempMax: 5 }
-            ];
-            const selectedWeather = virtualWeatherOptions[Math.floor(Math.random() * virtualWeatherOptions.length)];
-            const virtualTemperature = Math.floor(Math.random() * (selectedWeather.tempMax - selectedWeather.tempMin + 1)) + selectedWeather.tempMin;
-            const weatherInfo = {
-                icon: selectedWeather.icon,
-                description: selectedWeather.description
-            };
-            updateWeatherUI('ALp_Studio', virtualTemperature, weatherInfo);
-        }
+        // 更新背景效果
+        animationState.starfieldUpdate(animationState.currentX, animationState.currentY);
+        animationState.shootingStarUpdate();
+        animationState.raindropUpdate();
+        requestAnimationFrame(tick); // 请求下一帧
     }
 
-    function initTheme() {
-        const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
-        const toggleBtn = document.getElementById('theme-toggle');
+    // 鼠标移出窗口时重置动画目标值
+    const resetAnimationTargets = () => {
+        animationState.targetX = 0;
+        animationState.targetY = 0;
+        animationState.targetSpotX = 50;
+        animationState.targetSpotY = 28;
+        animationState.targetSpotA = 0.1;
+        animationState.targetHaloScale = 1;
+        animationState.targetHaloOpacity = 0.72;
+        animationState.targetGlobalTiltX = 0;
+        animationState.targetGlobalTiltY = 0;
+    };
 
-        function setTheme(theme, isInitial = false) {
-            document.documentElement.setAttribute('data-theme', theme);
-            // APlayer 主题切换
-            const metingEle = document.querySelector('meting-js');
-            if (metingEle && metingEle.aplayer) {
-                metingEle.aplayer.theme(theme === 'dark' ? '#222' : '#fff', true);
-            }
+    // 监听鼠标移动事件
+    window.addEventListener('mousemove', (e) => {
+        const { clientX: mouseX, clientY: mouseY } = e;
+        const { innerWidth, innerHeight } = window;
+        const dx = mouseX / innerWidth - 0.5; // 鼠标 X 坐标归一化到 [-0.5, 0.5]
+        const dy = mouseY / innerHeight - 0.5; // 鼠标 Y 坐标归一化到 [-0.5, 0.5]
+
+        // 更新视差和全局倾斜的目标值
+        animationState.targetX = dx * CONFIG.PARALLAX_STRENGTH_X;
+        animationState.targetY = dy * CONFIG.PARALLAX_STRENGTH_Y;
+        animationState.targetGlobalTiltX = -dy * CONFIG.GLOBAL_TILT_STRENGTH;
+        animationState.targetGlobalTiltY = dx * CONFIG.GLOBAL_TILT_STRENGTH;
+
+        // 更新鼠标光斑的目标值
+        animationState.targetSpotX = (mouseX / innerWidth) * 100;
+        animationState.targetSpotY = (mouseY / innerHeight) * 100;
+        animationState.targetSpotA = 0.18;
+
+        // 更新头像光环的目标值
+        if (profileCard) {
+            const rect = profileCard.getBoundingClientRect();
+            const dist = Math.hypot(mouseX - (rect.left + rect.width / 2), mouseY - (rect.top + rect.height / 2));
+            const proximity = Math.max(0, 1 - dist / CONFIG.HALO_PROXIMITY_MAX_DIST);
+            animationState.targetHaloScale = 1 + proximity * 0.05;
+            animationState.targetHaloOpacity = 0.72 + proximity * 0.28;
         }
 
-        function syncThemeToggle(theme) {
-            if (!toggleBtn) return;
-            const iconEl = toggleBtn.querySelector('i');
-            const textEl = toggleBtn.querySelector('.theme-toggle-text');
-            const isDark = theme === 'dark';
-            if (iconEl) iconEl.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
-            if (textEl) textEl.textContent = isDark ? '深色' : '浅色';
-            toggleBtn.setAttribute('aria-label', isDark ? '切换到浅色模式' : '切换到深色模式');
-        }
-
-        const initialTheme = document.documentElement.getAttribute('data-theme') || 'light';
-        syncThemeToggle(initialTheme);
-
-        if (toggleBtn) {
-            toggleBtn.addEventListener('click', (event) => {
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                const nextTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-                if (!document.startViewTransition) {
-                    setTheme(nextTheme);
-                    localStorage.setItem('theme', nextTheme);
-                    syncThemeToggle(nextTheme);
-                    return;
-                }
-
-                const x = event.clientX;
-                const y = event.clientY;
-                const endRadius = Math.hypot(
-                    Math.max(x, window.innerWidth - x),
-                    Math.max(y, window.innerHeight - y)
-                );
-
-                const transition = document.startViewTransition(() => {
-                    setTheme(nextTheme);
-                    localStorage.setItem('theme', nextTheme);
-                    syncThemeToggle(nextTheme);
-                });
-
-                if (window.matchMedia('(min-width: 961px)').matches) {
-                    transition.ready.then(() => {
-                        document.documentElement.animate(
-                            {
-                                clipPath: [
-                                    `circle(0px at ${x}px ${y}px)`,
-                                    `circle(${endRadius}px at ${x}px ${y}px)`,
-                                ],
-                            },
-                            {
-                                duration: 550,
-                                easing: 'ease-in-out',
-                                pseudoElement: '::view-transition-new(root)',
-                            }
-                        );
-                    });
-                }
-            });
-        }
-
-        prefersDarkScheme.addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
-                const nextTheme = e.matches ? 'dark' : 'light';
-                if (!document.startViewTransition) {
-                    setTheme(nextTheme);
-                    syncThemeToggle(nextTheme);
-                    return;
-                }
-                document.startViewTransition(() => {
-                    setTheme(nextTheme);
-                    syncThemeToggle(nextTheme);
-                });
-            }
-        });
-    }
-
-    function initInteractiveEffects() {
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-        const bg = document.querySelector('.background-gradient');
-        const gridContainer = document.querySelector('.grid-container');
-        const profileCard = document.querySelector('.profile-card');
-        const avatarHalo = profileCard?.querySelector('.avatar-large');
-        const animationState = {
-            targetX: 0, currentX: 0,
-            targetY: 0, currentY: 0,
-            targetSpotX: 50, currentSpotX: 50,
-            targetSpotY: 28, currentSpotY: 28,
-            targetSpotA: 0.1, currentSpotA: 0.1,
-            targetHaloScale: 1, currentHaloScale: 1,
-            targetHaloOpacity: 0.72, currentHaloOpacity: 0.72,
-            targetGlobalTiltX: 0, currentGlobalTiltX: 0,
-            targetGlobalTiltY: 0, currentGlobalTiltY: 0,
-            magneticElements: [],
-            floatingElements: [],
-            starfieldUpdate: () => {},
-            shootingStarUpdate: () => {},
-            raindropUpdate: () => {},
-        };
-
-        function tick() {
-            const { LERP_FACTOR_NORMAL, LERP_FACTOR_FAST } = CONFIG;
-            animationState.currentX += (animationState.targetX - animationState.currentX) * LERP_FACTOR_NORMAL;
-            animationState.currentY += (animationState.targetY - animationState.currentY) * LERP_FACTOR_NORMAL;
-            animationState.currentSpotX += (animationState.targetSpotX - animationState.currentSpotX) * LERP_FACTOR_NORMAL;
-            animationState.currentSpotY += (animationState.targetSpotY - animationState.currentSpotY) * LERP_FACTOR_NORMAL;
-            animationState.currentSpotA += (animationState.targetSpotA - animationState.currentSpotA) * LERP_FACTOR_FAST;
-            animationState.currentHaloScale += (animationState.targetHaloScale - animationState.currentHaloScale) * LERP_FACTOR_FAST;
-            animationState.currentHaloOpacity += (animationState.targetHaloOpacity - animationState.currentHaloOpacity) * LERP_FACTOR_FAST;
-            animationState.currentGlobalTiltX += (animationState.targetGlobalTiltX - animationState.currentGlobalTiltX) * LERP_FACTOR_NORMAL;
-            animationState.currentGlobalTiltY += (animationState.targetGlobalTiltY - animationState.currentGlobalTiltY) * LERP_FACTOR_NORMAL;
-
-            if (bg) {
-                bg.style.transform = `translate3d(${animationState.currentX}px, ${animationState.currentY}px, 0) scale(1.06)`;
-                bg.style.setProperty('--spot-x', `${animationState.currentSpotX.toFixed(2)}%`);
-                bg.style.setProperty('--spot-y', `${animationState.currentSpotY.toFixed(2)}%`);
-                bg.style.setProperty('--spot-a', animationState.currentSpotA.toFixed(3));
-            }
-            if (avatarHalo) {
-                avatarHalo.style.setProperty('--halo-scale', animationState.currentHaloScale.toFixed(3));
-                avatarHalo.style.setProperty('--halo-opacity', animationState.currentHaloOpacity.toFixed(3));
-            }
-            if (gridContainer) {
-                gridContainer.style.setProperty('--global-tilt-x', `${animationState.currentGlobalTiltX.toFixed(2)}deg`);
-                gridContainer.style.setProperty('--global-tilt-y', `${animationState.currentGlobalTiltY.toFixed(2)}deg`);
-            }
-
-            animationState.magneticElements.forEach(item => {
-                item.currentX += (item.targetX - item.currentX) * LERP_FACTOR_FAST;
-                item.currentY += (item.targetY - item.currentY) * LERP_FACTOR_FAST;
-                item.el.style.setProperty('--magnetic-x', `${item.currentX.toFixed(2)}px`);
-                item.el.style.setProperty('--magnetic-y', `${item.currentY.toFixed(2)}px`);
-            });
-
-            const now = performance.now();
-            if (visualSettings.cardFloat) {
-                animationState.floatingElements.forEach(item => {
-                    const floatY = Math.sin(item.phase + now * item.speed) * item.amplitude;
-                    item.el.style.setProperty('--float-y', `${floatY.toFixed(2)}px`);
-                });
-            } else {
-                animationState.floatingElements.forEach(item => {
-                    if (item.el.style.getPropertyValue('--float-y') !== '0px') {
-                        item.el.style.setProperty('--float-y', '0px');
-                    }
-                });
-            }
+        // 更新磁性元素的目标值
+        animationState.magneticElements.forEach(item => {
+            const rect = item.el.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+            const dist = Math.hypot(mouseX - centerX, mouseY - centerY);
             
-            animationState.starfieldUpdate(animationState.currentX, animationState.currentY);
-            animationState.shootingStarUpdate();
-            animationState.raindropUpdate();
-            requestAnimationFrame(tick);
-        }
+            if (dist < item.maxDist) {
+                const angle = Math.atan2(mouseY - centerY, mouseX - centerX);
+                const proximity = 1 - (dist / item.maxDist);
+                item.targetX = Math.cos(angle) * item.strength * proximity;
+                item.targetY = Math.sin(angle) * item.strength * proximity;
+            } else {
+                item.targetX = 0;
+                item.targetY = 0;
+            }
+        });
+    });
+    window.addEventListener('blur', resetAnimationTargets);
+    document.addEventListener('mouseleave', resetAnimationTargets);
 
-        const resetAnimationTargets = () => {
-            animationState.targetX = 0;
-            animationState.targetY = 0;
-            animationState.targetSpotX = 50;
-            animationState.targetSpotY = 28;
-            animationState.targetSpotA = 0.1;
-            animationState.targetHaloScale = 1;
-            animationState.targetHaloOpacity = 0.72;
-            animationState.targetGlobalTiltX = 0;
-            animationState.targetGlobalTiltY = 0;
-        };
+    // 为卡片设置倾斜、磁性和文字打乱效果
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) { // 仅在支持悬停的设备上启用
+        document.querySelectorAll('.card').forEach((card, index) => {
+            // 为每个卡片添加浮动动画属性，无论设置如何，都先填充数组
+            const floatItem = {
+                el: card,
+                phase: Math.random() * Math.PI * 2, // 随机初始相位，使浮动看起来更自然
+                amplitude: 2 + Math.random() * 2, // 浮动振幅
+                speed: 0.005 + Math.random() * 0.005, // 浮动速度
+            };
+            animationState.floatingElements.push(floatItem);
 
-        window.addEventListener('mousemove', (e) => {
-            const { clientX: mouseX, clientY: mouseY } = e;
-            const { innerWidth, innerHeight } = window;
-            const dx = mouseX / innerWidth - 0.5;
-            const dy = mouseY / innerHeight - 0.5;
+            // 为链接卡片添加磁性效果
+            if (card.classList.contains('link-card')) {
+                animationState.magneticElements.push({
+                    el: card,
+                    targetX: 0, currentX: 0,
+                    targetY: 0, currentY: 0,
+                    strength: CONFIG.MAGNETIC_STRENGTH,
+                    maxDist: CONFIG.MAGNETIC_MAX_DIST,
+                });
 
-            animationState.targetX = dx * CONFIG.PARALLAX_STRENGTH_X;
-            animationState.targetY = dy * CONFIG.PARALLAX_STRENGTH_Y;
-            animationState.targetGlobalTiltX = -dy * CONFIG.GLOBAL_TILT_STRENGTH;
-            animationState.targetGlobalTiltY = dx * CONFIG.GLOBAL_TILT_STRENGTH;
-            animationState.targetSpotX = (mouseX / innerWidth) * 100;
-            animationState.targetSpotY = (mouseY / innerHeight) * 100;
-            animationState.targetSpotA = 0.18;
-
-            if (profileCard) {
-                const rect = profileCard.getBoundingClientRect();
-                const dist = Math.hypot(mouseX - (rect.left + rect.width / 2), mouseY - (rect.top + rect.height / 2));
-                const proximity = Math.max(0, 1 - dist / CONFIG.HALO_PROXIMITY_MAX_DIST);
-                animationState.targetHaloScale = 1 + proximity * 0.05;
-                animationState.targetHaloOpacity = 0.72 + proximity * 0.28;
+                // 为链接卡片添加文字打乱效果
+                const textEl = card.querySelector('.link-text');
+                if (textEl) {
+                    const fx = new TextScramble(textEl);
+                    const originalText = textEl.textContent;
+                    card.addEventListener('mouseenter', () => fx.setText(originalText));
+                }
             }
 
-            animationState.magneticElements.forEach(item => {
-                const rect = item.el.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const dist = Math.hypot(mouseX - centerX, mouseY - centerY);
-                
-                if (dist < item.maxDist) {
-                    const angle = Math.atan2(mouseY - centerY, mouseX - centerX);
-                    const proximity = 1 - (dist / item.maxDist);
-                    item.targetX = Math.cos(angle) * item.strength * proximity;
-                    item.targetY = Math.sin(angle) * item.strength * proximity;
-                } else {
-                    item.targetX = 0;
-                    item.targetY = 0;
-                }
+            // 监听卡片上的鼠标移动以实现倾斜效果
+            card.addEventListener('pointermove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const px = (e.clientX - rect.left) / rect.width - 0.5;
+                const py = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.setProperty('--tilt-y', `${px * CONFIG.TILT_MAX_ANGLE}deg`);
+                card.style.setProperty('--tilt-x', `${-py * CONFIG.TILT_MAX_ANGLE}deg`);
+                card.style.setProperty('--mx', `${Math.round((px + 0.5) * 100)}%`);
+                card.style.setProperty('--my', `${Math.round((py + 0.5) * 100)}%`);
+            });
+
+            // 鼠标离开卡片时重置倾斜
+            card.addEventListener('pointerleave', () => {
+                card.style.setProperty('--tilt-x', '0deg');
+                card.style.setProperty('--tilt-y', '0deg');
+                card.style.setProperty('--mx', '50%');
+                card.style.setProperty('--my', '15%');
             });
         });
-        window.addEventListener('blur', resetAnimationTargets);
-        document.addEventListener('mouseleave', resetAnimationTargets);
+    }
 
-        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-            document.querySelectorAll('.card').forEach((card, index) => {
-                const floatItem = {
-                    el: card,
-                    phase: Math.random() * Math.PI * 2,
-                    amplitude: 2 + Math.random() * 2,
-                    speed: 0.005 + Math.random() * 0.005,
-                };
-                animationState.floatingElements.push(floatItem);
+    // 初始化背景效果
+    animationState.starfieldUpdate = initStarfield();
+    animationState.shootingStarUpdate = initShootingStars();
+    animationState.raindropUpdate = initRaindrops();
+    
+    // 启动动画循环
+    tick();
+}
 
-                if (card.classList.contains('link-card')) {
-                    animationState.magneticElements.push({
-                        el: card,
-                        targetX: 0, currentX: 0,
-                        targetY: 0, currentY: 0,
-                        strength: CONFIG.MAGNETIC_STRENGTH,
-                        maxDist: CONFIG.MAGNETIC_MAX_DIST,
-                    });
+/**
+ * 初始化并管理多层星空背景。
+ * @returns {function} 一个在主循环中调用的更新函数。
+ */
+function initStarfield() {
+    const layers = [
+        { canvas: document.getElementById('starfield-layer1'), count: CONFIG.STAR_COUNT_LAYER1, factor: CONFIG.STAR_PARALLAX_FACTOR1 },
+        { canvas: document.getElementById('starfield-layer2'), count: CONFIG.STAR_COUNT_LAYER2, factor: CONFIG.STAR_PARALLAX_FACTOR2 },
+        { canvas: document.getElementById('starfield-layer3'), count: CONFIG.STAR_COUNT_LAYER3, factor: CONFIG.STAR_PARALLAX_FACTOR3 },
+    ];
 
-                    const textEl = card.querySelector('.link-text');
-                    if (textEl) {
-                        const fx = new TextScramble(textEl);
-                        const originalText = textEl.textContent;
-                        card.addEventListener('mouseenter', () => {
-                            // 在动画开始前固定宽度以防止抖动
-                            const textWidth = textEl.getBoundingClientRect().width;
-                            textEl.style.setProperty('--scramble-width', `${textWidth}px`);
-                            textEl.classList.add('is-scrambling');
-                            fx.setText(originalText).then(() => {
-                                // 动画结束后移除固定宽度
-                                textEl.classList.remove('is-scrambling');
-                                textEl.style.removeProperty('--scramble-width');
-                            });
-                        });
-                    }
-                }
+    let width, height, dpr;
+    const starLayers = [];
 
-                card.addEventListener('pointermove', (e) => {
-                    const rect = card.getBoundingClientRect();
-                    const px = (e.clientX - rect.left) / rect.width - 0.5;
-                    const py = (e.clientY - rect.top) / rect.height - 0.5;
-                    card.style.setProperty('--tilt-y', `${px * CONFIG.TILT_MAX_ANGLE}deg`);
-                    card.style.setProperty('--tilt-x', `${-py * CONFIG.TILT_MAX_ANGLE}deg`);
-                    card.style.setProperty('--mx', `${Math.round((px + 0.5) * 100)}%`);
-                    card.style.setProperty('--my', `${Math.round((py + 0.5) * 100)}%`);
-                });
-
-                card.addEventListener('pointerleave', () => {
-                    card.style.setProperty('--tilt-x', '0deg');
-                    card.style.setProperty('--tilt-y', '0deg');
-                    card.style.setProperty('--mx', '50%');
-                    card.style.setProperty('--my', '15%');
-                });
-            });
-        }
-
-        animationState.starfieldUpdate = initStarfield();
-        animationState.shootingStarUpdate = initShootingStars();
-        animationState.raindropUpdate = initRaindrops();
+    function resize() {
+        dpr = window.devicePixelRatio || 1; // 获取设备像素比
+        width = window.innerWidth;
+        height = window.innerHeight;
         
-        tick();
-    }
+        starLayers.length = 0; // 清空现有图层
 
-    function initStarfield() {
-        const layers = [
-            { canvas: document.getElementById('starfield-layer1'), count: CONFIG.STAR_COUNT_LAYER1, factor: CONFIG.STAR_PARALLAX_FACTOR1 },
-            { canvas: document.getElementById('starfield-layer2'), count: CONFIG.STAR_COUNT_LAYER2, factor: CONFIG.STAR_PARALLAX_FACTOR2 },
-            { canvas: document.getElementById('starfield-layer3'), count: CONFIG.STAR_COUNT_LAYER3, factor: CONFIG.STAR_PARALLAX_FACTOR3 },
-        ];
-        let width, height, dpr;
-        const starLayers = [];
-
-        function resize() {
-            dpr = window.devicePixelRatio || 1;
-            width = window.innerWidth;
-            height = window.innerHeight;
-            starLayers.length = 0;
-            layers.forEach(layerConfig => {
-                if (!layerConfig.canvas) return;
-                const canvas = layerConfig.canvas;
-                canvas.width = width * dpr;
-                canvas.height = height * dpr;
-                const ctx = canvas.getContext('2d');
-                ctx.scale(dpr, dpr);
-                const stars = Array.from({ length: layerConfig.count }, () => new Star(width, height));
-                starLayers.push({ ctx, stars, factor: layerConfig.factor });
-            });
-        }
-        resize();
-        window.addEventListener('resize', resize);
-
-        return function updateStarfield(parallaxX, parallaxY) {
-            starLayers.forEach(({ ctx, stars, factor }) => {
-                ctx.clearRect(0, 0, width, height);
-                ctx.save();
-                ctx.translate(parallaxX * factor, parallaxY * factor);
-                stars.forEach(star => star.draw(ctx));
-                ctx.restore();
-            });
-        };
-    }
-
-    function initShootingStars() {
-        const canvas = document.getElementById('shooting-star-canvas');
-        if (!canvas) return () => {};
-        let width, height, dpr;
-        let shootingStars = [];
-        const ctx = canvas.getContext('2d');
-
-        function resize() {
-            dpr = window.devicePixelRatio || 1;
-            width = window.innerWidth;
-            height = window.innerHeight;
+        layers.forEach(layerConfig => {
+            if (!layerConfig.canvas) return;
+            const canvas = layerConfig.canvas;
             canvas.width = width * dpr;
             canvas.height = height * dpr;
-            ctx.scale(dpr, dpr);
-            shootingStars = Array.from({ length: CONFIG.SHOOTING_STAR_COUNT }, () => new ShootingStar(width, height));
-        }
-        resize();
-        window.addEventListener('resize', resize);
+            const ctx = canvas.getContext('2d');
+            ctx.scale(dpr, dpr); // 根据 dpr 缩放画布，以适应高分屏
 
-        return function updateShootingStars() {
-            ctx.clearRect(0, 0, width, height);
-            shootingStars.forEach(star => {
-                star.update();
-                star.draw(ctx);
-            });
-        };
+            const stars = Array.from({ length: layerConfig.count }, () => new Star(width, height));
+            starLayers.push({ ctx, stars, factor: layerConfig.factor });
+        });
     }
 
-    function initRaindrops() {
-        const canvas = document.getElementById('raindrop-canvas');
-        if (!canvas) return () => {};
-        let width, height, dpr;
-        let raindrops = [];
-        const ctx = canvas.getContext('2d');
+    resize();
+    window.addEventListener('resize', resize); // 监听窗口大小变化
 
-        function resize() {
-            dpr = window.devicePixelRatio || 1;
-            width = window.innerWidth;
-            height = window.innerHeight;
-            canvas.width = width * dpr;
-            canvas.height = height * dpr;
-            ctx.scale(dpr, dpr);
-            raindrops = Array.from({ length: CONFIG.RAINDROP_COUNT }, () => new Raindrop(width, height));
-        }
-        resize();
-        window.addEventListener('resize', resize);
-
-        return function updateRaindrops() {
+    return function updateStarfield(parallaxX, parallaxY) {
+        starLayers.forEach(({ ctx, stars, factor }) => {
             ctx.clearRect(0, 0, width, height);
-            raindrops.forEach(drop => {
-                drop.update();
-                drop.draw(ctx);
-            });
-        };
+            ctx.save();
+            ctx.translate(parallaxX * factor, parallaxY * factor); // 根据视差因子移动图层
+            stars.forEach(star => star.draw(ctx));
+            ctx.restore();
+        });
+    };
+}
+
+/**
+ * 初始化并管理流星效果。
+ * @returns {function} 一个在主循环中调用的更新函数。
+ */
+function initShootingStars() {
+    const canvas = document.getElementById('shooting-star-canvas');
+    if (!canvas) return () => {};
+
+    let width, height, dpr;
+    let shootingStars = [];
+    const ctx = canvas.getContext('2d');
+
+    function resize() {
+        dpr = window.devicePixelRatio || 1;
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+        shootingStars = Array.from({ length: CONFIG.SHOOTING_STAR_COUNT }, () => new ShootingStar(width, height));
     }
 
-    function initSettingsPanel() {
-        const settingsToggle = document.getElementById('settings-toggle');
-        const settingsPanel = document.getElementById('settings-panel');
-        const settingsClose = document.getElementById('settings-close');
-        const controls = document.querySelectorAll('.toggle-switch, .select-switch');
+    resize();
+    window.addEventListener('resize', resize);
 
-        if (!settingsPanel || !settingsToggle || !settingsClose) return;
+    return function updateShootingStars() {
+        ctx.clearRect(0, 0, width, height);
+        shootingStars.forEach(star => {
+            star.update();
+            star.draw(ctx);
+        });
+    };
+}
 
-        const defaultSettings = {
-            starfield: true,
-            shootingStars: true,
-            raindrops: true,
-            cardFloat: true,
-            musicAutoplay: true,
-            playlistType: 'song',
-        };
+/**
+ * 初始化并管理雨滴效果。
+ * @returns {function} 一个在主循环中调用的更新函数。
+ */
+function initRaindrops() {
+    const canvas = document.getElementById('raindrop-canvas');
+    if (!canvas) return () => {};
 
-        const savedSettings = JSON.parse(localStorage.getItem('visualSettings')) || {};
-        visualSettings = { ...defaultSettings, ...savedSettings };
+    let width, height, dpr;
+    let raindrops = [];
+    const ctx = canvas.getContext('2d');
 
-        const effectElements = {
-            starfield: [
-                document.getElementById('starfield-layer1'),
-                document.getElementById('starfield-layer2'),
-                document.getElementById('starfield-layer3'),
-            ],
-            shootingStars: [document.getElementById('shooting-star-canvas')],
-            raindrops: [document.getElementById('raindrop-canvas')],
-        };
+    function resize() {
+        dpr = window.devicePixelRatio || 1;
+        width = window.innerWidth;
+        height = window.innerHeight;
+        canvas.width = width * dpr;
+        canvas.height = height * dpr;
+        ctx.scale(dpr, dpr);
+        raindrops = Array.from({ length: CONFIG.RAINDROP_COUNT }, () => new Raindrop(width, height));
+    }
 
-        function applySetting(key, value) {
-            visualSettings[key] = value;
-            localStorage.setItem('visualSettings', JSON.stringify(visualSettings));
+    resize();
+    window.addEventListener('resize', resize);
 
+    return function updateRaindrops() {
+        ctx.clearRect(0, 0, width, height);
+        raindrops.forEach(drop => {
+            drop.update();
+            drop.draw(ctx);
+        });
+    };
+}
+
+
+/* --- 3. SETTINGS PANEL LOGIC / 设置面板逻辑 --- */
+/* --------------------------------------------- */
+
+/**
+ * 初始化交互式设置面板。
+ */
+function initSettingsPanel() {
+    const settingsToggle = document.getElementById('settings-toggle');
+    const settingsPanel = document.getElementById('settings-panel');
+    const settingsClose = document.getElementById('settings-close');
+    const toggles = document.querySelectorAll('.toggle-switch');
+
+    if (!settingsPanel || !settingsToggle || !settingsClose) {
+        return;
+    }
+
+    const defaultSettings = {
+        starfield: true,
+        shootingStars: true,
+        raindrops: true,
+        cardFloat: true,
+    };
+
+    const savedSettings = JSON.parse(localStorage.getItem('visualSettings')) || {};
+    visualSettings = { ...defaultSettings, ...savedSettings };
+
+    const effectElements = {
+        starfield: [
+            document.getElementById('starfield-layer1'),
+            document.getElementById('starfield-layer2'),
+            document.getElementById('starfield-layer3'),
+        ],
+        shootingStars: [document.getElementById('shooting-star-canvas')],
+        raindrops: [document.getElementById('raindrop-canvas')],
+    };
+
+    function applySetting(key, value) {
+        visualSettings[key] = value;
+        localStorage.setItem('visualSettings', JSON.stringify(visualSettings));
+
+        if (effectElements[key]) {
+            effectElements[key].forEach(el => {
+                if (el) el.hidden = !value;
+            });
+        }
+    }
+
+    toggles.forEach(toggle => {
+        const key = toggle.dataset.setting;
+        if (key in visualSettings) {
+            toggle.checked = visualSettings[key];
             if (effectElements[key]) {
                 effectElements[key].forEach(el => {
-                    if (el) el.hidden = !value;
+                    if (el) el.hidden = !visualSettings[key];
                 });
             }
-            if (key === 'playlistType' || key === 'musicAutoplay') {
-                initMusicPlayer();
-            }
         }
+        toggle.addEventListener('change', (e) => applySetting(key, e.target.checked));
+    });
 
-        controls.forEach(control => {
-            const key = control.dataset.setting;
-            if (key in visualSettings) {
-                if (control.type === 'checkbox') {
-                    control.checked = visualSettings[key];
-                } else {
-                    control.value = visualSettings[key];
-                }
-                if (effectElements[key]) {
-                    effectElements[key].forEach(el => {
-                        if (el) el.hidden = !visualSettings[key];
-                    });
-                }
-            }
-            control.addEventListener('change', (e) => {
-                const value = e.target.type === 'checkbox' ? e.target.checked : e.target.value;
-                applySetting(key, value);
-            });
-        });
+    settingsToggle.addEventListener('click', () => settingsPanel.hidden = false);
+    settingsClose.addEventListener('click', () => settingsPanel.hidden = true);
 
-        settingsToggle.addEventListener('click', () => settingsPanel.hidden = !settingsPanel.hidden);
-        settingsClose.addEventListener('click', () => settingsPanel.hidden = true);
-        document.addEventListener('click', (e) => {
-            if (!settingsPanel.hidden && !settingsPanel.contains(e.target) && !settingsToggle.contains(e.target)) {
-                settingsPanel.hidden = true;
-            }
-        });
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && !settingsPanel.hidden) {
-                settingsPanel.hidden = true;
-            }
-        });
-    }
+    document.addEventListener('click', (e) => {
+        if (!settingsPanel.hidden && !settingsPanel.contains(e.target) && !settingsToggle.contains(e.target)) {
+            settingsPanel.hidden = true;
+        }
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !settingsPanel.hidden) {
+            settingsPanel.hidden = true;
+        }
+    });
+}
 
 
-    /* --- 4. CLI EASTER EGG / CLI 彩蛋 --- */
-    /* ------------------------------------ */
+/* --- 4. CLI EASTER EGG / CLI 彩蛋 --- */
+/* ------------------------------------ */
 
-    /**
-     * 初始化命令行界面 (CLI) 彩蛋。
-     */
-    function initCLI() {
-        const cliContainer = document.getElementById('cli-container');
-        const cliOutput = document.getElementById('cli-output');
-        const cliInput = document.getElementById('cli-input');
+/**
+ * 初始化命令行界面 (CLI) 彩蛋。
+ */
+function initCLI() {
+    const cliContainer = document.getElementById('cli-container');
+    const cliOutput = document.getElementById('cli-output');
+    const cliInput = document.getElementById('cli-input');
 
-        if (!cliContainer || !cliInput || !cliOutput) return;
+    if (!cliContainer || !cliInput || !cliOutput) return;
 
-        let commandHistory = [];
-        let historyIndex = -1;
+    let commandHistory = [];
+    let historyIndex = -1;
 
-        const commands = {
-            help: () => {
-                return `可用命令:
+    const commands = {
+        help: () => {
+            return `可用命令:
   <span class="cli-command">help</span>      - 显示此帮助信息
   <span class="cli-command">clear</span>     - 清空终端屏幕
   <span class="cli-command">theme</span>     - 切换亮/暗主题
   <span class="cli-command">fetch</span>     - 显示一些虚拟信息
   <span class="cli-command">exit</span>      - 关闭 CLI 窗口`;
-            },
-            clear: () => {
-                cliOutput.innerHTML = '';
-                return '';
-            },
-            theme: () => {
-                document.getElementById('theme-toggle')?.click();
-                const currentTheme = document.documentElement.getAttribute('data-theme');
-                return `主题已切换为 ${currentTheme === 'dark' ? '深色' : '浅色'} 模式。`;
-            },
-            fetch: () => {
-                return `
+        },
+        clear: () => {
+            cliOutput.innerHTML = '';
+            return '';
+        },
+        theme: () => {
+            document.getElementById('theme-toggle')?.click();
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            return `主题已切换为 ${currentTheme === 'dark' ? '深色' : '浅色'} 模式。`;
+        },
+        fetch: () => {
+            return `
 <pre>
- █████╗ ██╗     ██████╗    _    ███████╗████████╗██╗   ██╗██████╗ ██╗ ██████╗
-██╔══██╗██║     ██╔══██╗  |_|   ██╔════╝╚══██╔══╝██║   ██║██╔══██╗██║██╔═══██╗
-███████║██║     ██████╔╝        ███████╗   ██║   ██║   ██║██║  ██║██║██║   ██║
-██╔══██║██║     ██╔═══╝         ╚════██║   ██║   ██║   ██║██║  ██║██║██║   ██║
-██║  ██║███████╗██║             ███████║   ██║   ╚██████╔╝██████╔╝██║╚██████╔╝
-╚═╝  ╚═╝╚══════╝╚═╝             ╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝
-
+██████╗░███████╗██╗░░██╗░█████╗░
+██╔══██╗██╔════╝██║░░██║██╔══██╗
+██████╔╝█████╗░░███████║██║░░██║
+██╔══██╗██╔══╝░░██╔══██║██║░░██║
+██║░░██║███████╗██║░░██║╚█████╔╝
+╚═╝░░╚═╝╚══════╝╚═╝░░╚═╝░╚════╝░
 </pre>
 :: Tika's Personal Interface v2.3
 :: 状态: 稳定
 :: 连接: 安全
 `;
-            },
-            exit: () => {
-                toggleCLI(false);
-                return '关闭终端...';
+        },
+        exit: () => {
+            toggleCLI(false);
+            return '关闭终端...';
+        }
+    };
+
+    function toggleCLI(show) {
+        const isVisible = !cliContainer.hidden;
+        if (show === undefined) show = !isVisible; // 如果未指定，则切换状态
+
+        if (show) {
+            cliContainer.hidden = false;
+            cliInput.focus();
+            if (cliOutput.innerHTML === '') { // 仅在首次打开时显示欢迎信息
+                printToCLI('欢迎来到 Tika 的终端。输入 `help` 查看可用命令。');
             }
-        };
+        } else {
+            cliContainer.hidden = true;
+            cliInput.blur();
+        }
+    }
 
-        function toggleCLI(show) {
-            const isVisible = !cliContainer.hidden;
-            if (show === undefined) show = !isVisible; // 如果未指定，则切换状态
+    function printToCLI(text) {
+        cliOutput.innerHTML += `<div>${text}</div>`;
+        // 使用 setTimeout 确保 DOM 更新后再滚动
+        setTimeout(() => {
+            cliContainer.scrollTop = cliContainer.scrollHeight;
+        }, 0);
+    }
 
-            if (show) {
-                cliContainer.hidden = false;
-                cliInput.focus();
-                if (cliOutput.innerHTML === '') { // 仅在首次打开时显示欢迎信息
-                    printToCLI('欢迎来到 Tika 的终端。输入 `help` 查看可用命令。');
-                    printToCLI(commands.fetch());
-                }
+    function executeCommand(command) {
+        const trimmedCommand = command.trim();
+        if (trimmedCommand === '') return;
+        
+        printToCLI(`<span class="cli-prompt">[tika@lab ~]$</span> <span class="cli-command-input">${trimmedCommand.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">")}</span>`);
+
+        if (commandHistory[0] !== trimmedCommand) {
+            commandHistory.unshift(trimmedCommand);
+        }
+        historyIndex = -1;
+
+        const [cmd, ...args] = trimmedCommand.toLowerCase().split(' ');
+        if (commands[cmd]) {
+            const result = commands[cmd](args);
+            if (result) printToCLI(result);
+        } else {
+            printToCLI(`命令未找到: ${cmd}。输入 'help' 查看列表。`);
+        }
+    }
+
+    // --- Event Listeners ---
+    document.addEventListener('keydown', (e) => {
+        // 使用 `~` 键或反引号键来切换 CLI
+        if (e.key === '`' || e.key === '~') {
+            e.preventDefault();
+            toggleCLI();
+        }
+    });
+
+    cliInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+            executeCommand(cliInput.value);
+            cliInput.value = '';
+        } else if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            if (commandHistory.length > 0 && historyIndex < commandHistory.length - 1) {
+                historyIndex++;
+                cliInput.value = commandHistory[historyIndex];
+            }
+        } else if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            if (historyIndex > 0) {
+                historyIndex--;
+                cliInput.value = commandHistory[historyIndex];
             } else {
-                cliContainer.hidden = true;
-                cliInput.blur();
-            }
-        }
-
-        function printToCLI(text) {
-            cliOutput.innerHTML += `<div>${text}</div>`;
-            // 使用 setTimeout 确保 DOM 更新后再滚动
-            setTimeout(() => {
-                cliContainer.scrollTop = cliContainer.scrollHeight;
-            }, 0);
-        }
-
-        function executeCommand(command) {
-            const trimmedCommand = command.trim();
-            if (trimmedCommand === '') return;
-
-            printToCLI(`<span class="cli-prompt">[tika@lab ~]$</span>: <span class="cli-command-input">${trimmedCommand.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">")}</span>`);
-
-            if (commandHistory[0] !== trimmedCommand) {
-                commandHistory.unshift(trimmedCommand);
-            }
-            historyIndex = -1;
-
-            const [cmd, ...args] = trimmedCommand.toLowerCase().split(' ');
-            if (commands[cmd]) {
-                const result = commands[cmd](args);
-                if (result) printToCLI(result);
-            } else {
-                printToCLI(`命令未找到: ${cmd}。输入 'help' 查看列表。`);
-            }
-        }
-
-        // --- Event Listeners ---
-        document.addEventListener('keydown', (e) => {
-            // 使用 `~` 键或反引号键来切换 CLI
-            if (e.key === '`' || e.key === '~') {
-                e.preventDefault();
-                toggleCLI();
-            }
-        });
-
-        cliInput.addEventListener('keydown', (e) => {
-            if (e.key === 'Enter') {
-                executeCommand(cliInput.value);
+                historyIndex = -1;
                 cliInput.value = '';
-            } else if (e.key === 'ArrowUp') {
-                e.preventDefault();
-                if (commandHistory.length > 0 && historyIndex < commandHistory.length - 1) {
-                    historyIndex++;
-                    cliInput.value = commandHistory[historyIndex];
-                }
-            } else if (e.key === 'ArrowDown') {
-                e.preventDefault();
-                if (historyIndex > 0) {
-                    historyIndex--;
-                    cliInput.value = commandHistory[historyIndex];
-                } else {
-                    historyIndex = -1;
-                    cliInput.value = '';
-                }
             }
-        });
-    }
-
-    async function initMusicPlayer() {
-        const musicCard = document.getElementById('music-card');
-        if (!musicCard) return;
-
-        try {
-            if (appState.hitokotoIntervalId) {
-                clearInterval(appState.hitokotoIntervalId);
-                appState.hitokotoIntervalId = null;
-            }
-
-            const config = {
-              "netease_music_items": [
-                { "id": "2053344480", "type": "song" },
-                { "id": "2053344483", "type": "song" },
-                { "id": "2053344486", "type": "song" },
-                { "id": "179521966", "type": "album" }
-              ]
-            };
-            const allMusicItems = config.netease_music_items;
-
-            const playlistType = visualSettings.playlistType || 'song';
-            const filteredItems = allMusicItems.filter(item => item.type === playlistType);
-
-            if (filteredItems && filteredItems.length > 0) {
-                const item = filteredItems[Math.floor(Math.random() * filteredItems.length)];
-                const { id, type } = item;
-
-                // 清空旧的播放器
-                musicCard.innerHTML = '';
-
-                const meting = document.createElement('meting-js');
-                meting.setAttribute('server', 'netease');
-                meting.setAttribute('type', type);
-                meting.setAttribute('id', id);
-                meting.setAttribute('fixed', 'false');
-                meting.setAttribute('autoplay', visualSettings.musicAutoplay ? 'true' : 'false');
-                meting.setAttribute('loop', 'all');
-                meting.setAttribute('order', 'random');
-                meting.setAttribute('preload', 'auto');
-                meting.setAttribute('list-folded', 'true');
-                
-                // 将 MetingJS 播放器添加到 music-card 中
-                musicCard.appendChild(meting);
-
-                // 确保 APlayer 主题在加载后能正确设置
-                const observer = new MutationObserver((mutations, obs) => {
-                    const aplayer = meting.querySelector('.aplayer');
-                    if (aplayer) {
-                        const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-                        if (meting.aplayer) {
-                           meting.aplayer.theme(currentTheme === 'dark' ? '#222' : '#fff', true);
-                        }
-                        obs.disconnect(); // 找到后停止观察
-                    }
-                });
-                observer.observe(musicCard, { childList: true, subtree: true });
-
-            } else {
-                throw new Error(`在 config.json 中未找到类型为 "${playlistType}" 的有效音乐项目`);
-            }
-        } catch (error) {
-            console.error('初始化音乐播放器失败:', error);
-            initHitokotoFallback(musicCard);
         }
-    }
+    });
+}
 
-    function initHitokotoFallback(container) {
-        if (!container) return;
-        container.innerHTML = `
-            <div class="music-player-container">
-                <div class="music-header">
-                    <i class="fa-solid fa-quote-left"></i>
-                    <span>Hitokoto</span>
-                </div>
-                <div class="music-content">
-                    <div class="hitokoto-container">
-                        <p id="hitokoto-text"></p><span class="cursor"></span>
-                        <p id="hitokoto-from"></p>
-                    </div>
-                </div>
-            </div>
-        `;
-        const textEl = document.getElementById('hitokoto-text');
-        const fromEl = document.getElementById('hitokoto-from');
-        const typewriter = (text, element, onComplete) => {
-            let i = 0;
-            element.innerHTML = '';
-            const typing = () => {
-                if (i < text.length) {
-                    element.textContent += text.charAt(i);
-                    i++;
-                    setTimeout(typing, 80);
-                } else if (onComplete) {
-                    onComplete();
-                }
-            };
-            typing();
-        };
-        const fetchAndShowHitokoto = async () => {
-            try {
-                const response = await fetch('https://v1.hitokoto.cn/?encode=json&charset=utf-8');
-                if (!response.ok) throw new Error('Hitokoto API request failed');
-                const data = await response.json();
-                typewriter(data.hitokoto, textEl, () => {
-                    fromEl.textContent = `—— ${data.from_who || ''}「${data.from}」`;
-                    fromEl.style.opacity = '1';
-                });
-                fromEl.style.opacity = '0';
-            } catch (error) {
-                console.error('获取一言失败:', error);
-                textEl.textContent = '欢迎回来，实验体';
-                fromEl.textContent = '';
-            }
-        };
-        fetchAndShowHitokoto();
-        if (appState.hitokotoIntervalId) clearInterval(appState.hitokotoIntervalId);
-        appState.hitokotoIntervalId = setInterval(fetchAndShowHitokoto, 10000);
-    }
 
-    function main() {
-        document.querySelectorAll('.card').forEach((card, index) => {
-            card.style.setProperty('--stagger', String(index));
-        });
-        initWelcomeScreen();
-        initClockAndGreeting();
-        initCalendar();
-        initWeather();
-        initTheme();
-        initSettingsPanel();
-        initCLI();
-        initMusicPlayer();
-        if (window.matchMedia('(min-width: 961px)').matches) {
-            initInteractiveEffects();
-        }
-    }
+/* --- 5. MAIN APPLICATION / 主应用 --- */
+/* ------------------------------------ */
 
-    document.addEventListener('DOMContentLoaded', main);
-})();
+/**
+ * 主函数，用于初始化整个应用。
+ */
+function main() {
+    // 为卡片设置交错动画延迟
+    document.querySelectorAll('.card').forEach((card, index) => {
+        card.style.setProperty('--stagger', String(index));
+    });
+
+    initWelcomeScreen();
+    initClockAndGreeting();
+    initCalendar();
+    initTheme();
+    initSettingsPanel(); // 初始化设置面板
+    initCLI(); // 初始化 CLI 彩蛋
+
+    // 仅在桌面端（宽度 > 960px）初始化耗费性能的交互式效果
+    if (window.matchMedia('(min-width: 961px)').matches) {
+        initInteractiveEffects();
+    }
+}
+
+// 运行应用
+document.addEventListener('DOMContentLoaded', main);

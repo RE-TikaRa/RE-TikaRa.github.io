@@ -20,13 +20,9 @@
         })();
     </script>
     
-    <!-- 预连接外部资源以提升加载性能 -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-
     <!-- 引入外部样式表 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"> <!-- APlayer CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"> <!-- Font Awesome from jsDelivr -->
     <link rel="stylesheet" href="css/style.css"> <!-- 自定义样式表 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Font Awesome 图标库 -->
 </head>
 <body>
     <!-- 欢迎屏幕 -->
@@ -75,17 +71,6 @@
                 <label for="toggle-card-float">卡片浮动</label>
                 <input type="checkbox" id="toggle-card-float" class="toggle-switch" data-setting="cardFloat" checked>
             </div>
-            <div class="setting-item">
-                <label for="toggle-autoplay">音乐自动播放</label>
-                <input type="checkbox" id="toggle-autoplay" class="toggle-switch" data-setting="musicAutoplay" checked>
-            </div>
-            <div class="setting-item">
-                <label for="toggle-playlist-type">播放列表</label>
-                <select id="toggle-playlist-type" class="select-switch" data-setting="playlistType">
-                    <option value="song">单曲</option>
-                    <option value="album">专辑</option>
-                </select>
-            </div>
         </div>
     </div>
 
@@ -101,11 +86,11 @@
     <div class="parallax-container">
         <main class="grid-container">
             <!-- 第一列: 个人资料 -->
-            <section class="column profile-column" aria-labelledby="profile-heading">
+            <section class="column" aria-labelledby="profile-heading">
                 <div class="card profile-card glass full-height">
                     <div class="profile-content-wrapper">
                         <div class="avatar-large">
-                            <img src="https://s2.loli.net/2025/12/22/mkWtIYraVxdnTCe.jpg" alt="亓翎_Re-TikaRa 的头像"> <!-- 个人头像 -->
+                            <img src="https://s2.loli.net/2025/12/22/mkWtIYraVxdnTCe.jpg" alt="Avatar"> <!-- 个人头像 -->
                         </div>
                         <h2 class="profile-name" id="profile-heading">亓翎_Re-TikaRa</h2> <!-- 用户名 -->
                         <div class="profile-greeting" aria-label="问候语">
@@ -116,9 +101,6 @@
                             <span class="profile-desc-text">一个人造生命体的自娱自乐</span> <!-- 个人简介 -->
                         </div>
                     </div>
-                </div>
-                <div id="music-card" class="card glass">
-                    <!-- 音乐播放器将在这里 -->
                 </div>
             </section>
 
@@ -142,24 +124,10 @@
                     <span class="link-text">文章库</span>
                     <i class="fa-solid fa-chevron-right link-chevron" aria-hidden="true"></i>
                 </a>
-
-                <!-- 天气小工具 -->
-                <div id="weather-card" class="card weather-card glass" hidden>
-                    <div class="weather-content">
-                        <div class="weather-location">加载中...</div>
-                        <div class="weather-main">
-                            <div class="weather-temp">--°</div>
-                            <div class="weather-icon">
-                                <i class="fa-solid fa-spinner fa-spin"></i>
-                            </div>
-                        </div>
-                        <div class="weather-description">正在获取天气</div>
-                    </div>
-                </div>
             </section>
 
             <!-- 第三列: 小工具 -->
-            <section class="column widgets-column" aria-label="实时小工具">
+            <section class="column" aria-label="实时小工具">
                 <!-- 时钟小工具 -->
                 <div class="card clock-card glass">
                     <div class="clock-display" aria-label="当前时间">
@@ -171,19 +139,15 @@
                     </div>
                 </div>
 
-                <!-- 小工具组: 日历和天气 -->
-                <div class="widget-group">
-                    <!-- 日历小工具 -->
-                    <div class="card calendar-card glass">
-                        <div class="calendar-top-row">
-                            <div class="calendar-title">
-                                <div class="calendar-title-large">日历</div>
-                                <div class="calendar-month" id="calendar-month">——</div>
-                            </div>
+                <!-- 日历小工具 -->
+                <div class="card calendar-card glass">
+                    <div class="calendar-top-row">
+                        <div class="calendar-title">
+                            <div class="calendar-title-large">日历</div>
+                            <div class="calendar-month" id="calendar-month">——</div>
                         </div>
-                        <div class="calendar-grid" id="calendar-grid"></div> <!-- 日历网格将由 JavaScript 动态生成 -->
                     </div>
-
+                    <div class="calendar-grid" id="calendar-grid"></div> <!-- 日历网格将由 JavaScript 动态生成 -->
                 </div>
             </section>
         </main>
@@ -191,7 +155,7 @@
 
     <!-- 页面页脚 -->
     <footer class="site-footer">
-        <p>实例仍在运行  日志尚未终止  // The instance is still running; the logs haven’t terminated.</p>
+        <p>实例仍在运行  日志未终止  // The instance is still running; the logs haven’t terminated.</p>
     </footer>
 
     <!-- CLI 彩蛋 -->
@@ -204,8 +168,6 @@
     </div>
 
     <!-- 引入 JavaScript 文件 -->
-    <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     <script src="js/script.js"></script>
 </body>
 </html>
