@@ -913,8 +913,8 @@
             const items = [
                 { label: '用户', value: 'tika@lab' },
                 { label: '操作系统', value: 'TikaOS 情绪体接口' },
-                { label: '主机', value: '个人主页 v2.3' },
-                { label: '内核', value: '5.4.0-TikaRa' },
+                { label: '主机', value: 'Project_Emotion V4' },
+                { label: '内核', value: 'ALp_Studio v4' },
                 { label: '运行时间', value: formatUptime() },
                 { label: '主题', value: document.documentElement.getAttribute('data-theme') === 'dark' ? '深色' : '浅色' },
             ];
