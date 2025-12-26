@@ -867,18 +867,32 @@
             });
         }
 
+        const UPTIME_START = Date.parse('2020-06-21T01:39:45Z');
+        function formatUptime() {
+            const diffMs = Math.max(0, Date.now() - UPTIME_START);
+            const totalSeconds = Math.floor(diffMs / 1000);
+            const days = Math.floor(totalSeconds / 86400);
+            const hours = Math.floor((totalSeconds % 86400) / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+            return `${days} 天, ${hours} 小时, ${minutes} 分钟, ${seconds} 秒`;
+        }
+
         let commandHistory = [];
         let historyIndex = -1;
+        let uptimeTimer = null;
 
         const commands = {
             help: () => {
                 return `<div class="cli-section">
-<pre class="cli-banner">█████╗ ██╗     ██████╗     ███████╗████████╗██╗   ██╗██████╗ ██╗ ██████╗ 
-██╔══██╗██║     ██╔══██╗    ██╔════╝╚══██╔══╝██║   ██║██╔══██╗██║██╔═══██╗
-███████║██║     ██████╔╝    ███████╗   ██║   ██║   ██║██║  ██║██║██║   ██║
-██╔══██║██║     ██╔═══╝     ╚════██║   ██║   ██║   ██║██║  ██║██║██║   ██║
-██║  ██║███████╗██║         ███████║   ██║   ╚██████╔╝██████╔╝██║╚██████╔╝
-╚═╝  ╚═╝╚══════╝╚═╝         ╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝</pre>
+<pre class="cli-banner">   █████████   █████       ███████████             █████████  ███████████ █████  █████ ██████████   █████    ███████   
+  ███░░░░░███ ░░███       ░░███░░░░░███           ███░░░░░███░█░░░███░░░█░░███  ░░███ ░░███░░░░███ ░░███   ███░░░░░███ 
+ ░███    ░███  ░███        ░███    ░███          ░███    ░░░ ░   ░███  ░  ░███   ░███  ░███   ░░███ ░███  ███     ░░███
+ ░███████████  ░███        ░██████████           ░░█████████     ░███     ░███   ░███  ░███    ░███ ░███ ░███      ░███
+ ░███░░░░░███  ░███        ░███░░░░░░             ░░░░░░░░███    ░███     ░███   ░███  ░███    ░███ ░███ ░███      ░███
+ ░███    ░███  ░███      █ ░███                   ███    ░███    ░███     ░███   ░███  ░███    ███  ░███ ░░███     ███ 
+ █████   █████ ███████████ █████        █████████░░█████████     █████    ░░████████   ██████████   █████ ░░░███████░  
+░░░░░   ░░░░░ ░░░░░░░░░░░ ░░░░░        ░░░░░░░░░  ░░░░░░░░░     ░░░░░      ░░░░░░░░   ░░░░░░░░░░   ░░░░░    ░░░░░░░    </pre>
 <pre class="cli-help">可用命令:
   <span class="cli-command">help</span>      - 显示此帮助信息
   <span class="cli-command">clear</span>     - 清空终端屏幕
@@ -892,6 +906,10 @@
             },
             clear: () => {
                 cliOutput.innerHTML = '';
+                if (uptimeTimer) {
+                    clearInterval(uptimeTimer);
+                    uptimeTimer = null;
+                }
                 return '';
             },
             theme: () => {
@@ -901,18 +919,20 @@
             },
             info: () => {
                 return `<div class="cli-section">
-<pre class="cli-banner">█████╗ ██╗     ██████╗     ███████╗████████╗██╗   ██╗██████╗ ██╗ ██████╗ 
-██╔══██╗██║     ██╔══██╗    ██╔════╝╚══██╔══╝██║   ██║██╔══██╗██║██╔═══██╗
-███████║██║     ██████╔╝    ███████╗   ██║   ██║   ██║██║  ██║██║██║   ██║
-██╔══██║██║     ██╔═══╝     ╚════██║   ██║   ██║   ██║██║  ██║██║██║   ██║
-██║  ██║███████╗██║         ███████║   ██║   ╚██████╔╝██████╔╝██║╚██████╔╝
-╚═╝  ╚═╝╚══════╝╚═╝         ╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝</pre>
+<pre class="cli-banner">   █████████   █████       ███████████             █████████  ███████████ █████  █████ ██████████   █████    ███████   
+  ███░░░░░███ ░░███       ░░███░░░░░███           ███░░░░░███░█░░░███░░░█░░███  ░░███ ░░███░░░░███ ░░███   ███░░░░░███ 
+ ░███    ░███  ░███        ░███    ░███          ░███    ░░░ ░   ░███  ░  ░███   ░███  ░███   ░░███ ░███  ███     ░░███
+ ░███████████  ░███        ░██████████           ░░█████████     ░███     ░███   ░███  ░███    ░███ ░███ ░███      ░███
+ ░███░░░░░███  ░███        ░███░░░░░░             ░░░░░░░░███    ░███     ░███   ░███  ░███    ░███ ░███ ░███      ░███
+ ░███    ░███  ░███      █ ░███                   ███    ░███    ░███     ░███   ░███  ░███    ███  ░███ ░░███     ███ 
+ █████   █████ ███████████ █████        █████████░░█████████     █████    ░░████████   ██████████   █████ ░░░███████░  
+░░░░░   ░░░░░ ░░░░░░░░░░░ ░░░░░        ░░░░░░░░░  ░░░░░░░░░     ░░░░░      ░░░░░░░░   ░░░░░░░░░░   ░░░░░    ░░░░░░░    </pre>
 <pre class="cli-info"><span class="cli-user">tika</span>@<span class="cli-host">lab</span>
 --------------------
 <span class="cli-title">操作系统</span>:   TikaOS 情绪体接口
 <span class="cli-title">主机</span>:       个人主页 v2.3
 <span class="cli-title">内核</span>:       5.4.0-TikaRa
-<span class="cli-title">运行时间</span>:   42 天, 6 小时, 9 分钟
+<span class="cli-title">运行时间</span>:   <span class="cli-uptime">${formatUptime()}</span>
 <span class="cli-title">主题</span>:       ${document.documentElement.getAttribute('data-theme') === 'dark' ? '深色' : '浅色'}</pre>
 </div>`;
             },
@@ -981,6 +1001,18 @@
             }, 0);
         }
 
+        function startUptimeTicker() {
+            const nodes = cliOutput.querySelectorAll('.cli-uptime');
+            const uptimeEl = nodes[nodes.length - 1];
+            if (!uptimeEl) return;
+            if (uptimeTimer) clearInterval(uptimeTimer);
+            const update = () => {
+                uptimeEl.textContent = formatUptime();
+            };
+            update();
+            uptimeTimer = setInterval(update, 1000);
+        }
+
         function executeCommand(command) {
             const trimmedCommand = command.trim();
             if (trimmedCommand === '') return;
@@ -1001,11 +1033,15 @@
                 if (result && typeof result.then === 'function') {
                     result
                         .then((text) => {
-                            if (text) printToCLI(text);
+                            if (text) {
+                                printToCLI(text);
+                                if (text.includes('cli-uptime')) startUptimeTicker();
+                            }
                         })
                         .catch(() => printToCLI('抱歉，该实验体权限不足'));
                 } else if (result) {
                     printToCLI(result);
+                    if (result.includes('cli-uptime')) startUptimeTicker();
                 }
             } else {
                 printToCLI('抱歉，该实验体权限不足');

@@ -1400,7 +1400,7 @@ body.is-ready .card {
     left: 0;
     width: 100%;
     height: 40%;
-    background: linear-gradient(180deg, rgba(6, 8, 12, 0.92), rgba(6, 8, 12, 0.86));
+    background: rgba(0, 0, 0, 0.82);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -1414,6 +1414,8 @@ body.is-ready .card {
     flex-direction: column;
     transform: translateY(100%);
     transition: transform 0.4s var(--ease-out);
+    --cli-accent: var(--accent-color);
+    --cli-muted: var(--text-secondary);
 }
 
 #cli-container:not([hidden]) {
@@ -1456,7 +1458,7 @@ body.is-ready .card {
 }
 
 .cli-prompt {
-    color: var(--accent-color);
+    color: var(--cli-accent);
     margin-right: 8px;
     white-space: nowrap;
 }
@@ -1498,7 +1500,6 @@ body.is-ready .card {
     font-weight: 700;
     font-variant-ligatures: none;
     font-feature-settings: "liga" 0, "calt" 0;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
 }
 
 .cli-help,
@@ -1507,21 +1508,44 @@ body.is-ready .card {
 }
 
 .cli-command {
-    color: var(--accent-color);
+    color: var(--cli-accent);
     font-weight: 600;
 }
 
 .cli-command-input {
-    color: #e0e0e0;
+    color: #e6edf3;
 }
 
 .cli-title {
-    color: var(--text-secondary);
+    color: var(--cli-muted);
 }
 
 .cli-user,
 .cli-host {
-    color: var(--accent-color);
+    color: var(--cli-accent);
+}
+
+@media (min-width: 961px) {
+    #cli-container {
+        height: 45%;
+        background: linear-gradient(180deg, rgba(6, 8, 12, 0.75), rgba(6, 8, 12, 0.7));
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+            linear-gradient(180deg, rgba(6, 8, 12, 0.75), rgba(6, 8, 12, 0.7));
+        background-size: 100% 3px, 100% 100%;
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        border-top: 1px solid rgba(124, 255, 178, 0.18);
+        box-shadow: 0 -16px 36px rgba(0, 0, 0, 0.5);
+        color: #d7e0ea;
+        --cli-accent: #7cffb2;
+        --cli-muted: #9aa6b2;
+    }
+
+    .cli-banner {
+        color: #e6edf3;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.08);
+    }
 }
 
 /* --- 音乐卡片重构样式 --- */
