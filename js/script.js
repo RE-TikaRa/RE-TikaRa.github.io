@@ -877,30 +877,138 @@
         });
     }
 
-        });
-        document.addEventListener('contextmenu', (e) => e.preventDefault());
-    }
 
+    /* --- 4. CLI EASTER EGG / CLI 彩蛋 --- */
+    /* ------------------------------------ */
+
+    /**
+     * 初始化命令行界面 (CLI) 彩蛋。
+     */
     function initCLI() {
         const cliContainer = document.getElementById('cli-container');
         const cliOutput = document.getElementById('cli-output');
         const cliInput = document.getElementById('cli-input');
+
         if (!cliContainer || !cliInput || !cliOutput) return;
 
         let commandHistory = [];
         let historyIndex = -1;
+
         const commands = {
-            help: () => `...`,
-            clear: () => { cliOutput.innerHTML = ''; return ''; },
-            theme: () => { document.getElementById('theme-toggle')?.click(); return `...`; },
-            fetch: () => `...`,
-            exit: () => { toggleCLI(false); return '...'; }
+            help: () => {
+                return `可用命令:
+  <span class="cli-command">help</span>      - 显示此帮助信息
+  <span class="cli-command">clear</span>     - 清空终端屏幕
+  <span class="cli-command">theme</span>     - 切换亮/暗主题
+  <span class="cli-command">fetch</span>     - 显示一些虚拟信息
+  <span class="cli-command">exit</span>      - 关闭 CLI 窗口`;
+            },
+            clear: () => {
+                cliOutput.innerHTML = '';
+                return '';
+            },
+            theme: () => {
+                document.getElementById('theme-toggle')?.click();
+                const currentTheme = document.documentElement.getAttribute('data-theme');
+                return `主题已切换为 ${currentTheme === 'dark' ? '深色' : '浅色'} 模式。`;
+            },
+            fetch: () => {
+                return `
+<pre>
+ █████╗ ██╗     ██████╗    _    ███████╗████████╗██╗   ██╗██████╗ ██╗ ██████╗
+██╔══██╗██║     ██╔══██╗  |_|   ██╔════╝╚══██╔══╝██║   ██║██╔══██╗██║██╔═══██╗
+███████║██║     ██████╔╝        ███████╗   ██║   ██║   ██║██║  ██║██║██║   ██║
+██╔══██║██║     ██╔═══╝         ╚════██║   ██║   ██║   ██║██║  ██║██║██║   ██║
+██║  ██║███████╗██║             ███████║   ██║   ╚██████╔╝██████╔╝██║╚██████╔╝
+╚═╝  ╚═╝╚══════╝╚═╝             ╚══════╝   ╚═╝    ╚═════╝ ╚═════╝ ╚═╝ ╚═════╝
+
+</pre>
+:: Tika's Personal Interface v2.3
+:: 状态: 稳定
+:: 连接: 安全
+`;
+            },
+            exit: () => {
+                toggleCLI(false);
+                return '关闭终端...';
+            }
         };
-        function toggleCLI(show) { /* ... */ }
-        function printToCLI(text) { /* ... */ }
-        function executeCommand(command) { /* ... */ }
-        document.addEventListener('keydown', (e) => { /* ... */ });
-        cliInput.addEventListener('keydown', (e) => { /* ... */ });
+
+        function toggleCLI(show) {
+            const isVisible = !cliContainer.hidden;
+            if (show === undefined) show = !isVisible; // 如果未指定，则切换状态
+
+            if (show) {
+                cliContainer.hidden = false;
+                cliInput.focus();
+                if (cliOutput.innerHTML === '') { // 仅在首次打开时显示欢迎信息
+                    printToCLI('欢迎来到 Tika 的终端。输入 `help` 查看可用命令。');
+                    printToCLI(commands.fetch());
+                }
+            } else {
+                cliContainer.hidden = true;
+                cliInput.blur();
+            }
+        }
+
+        function printToCLI(text) {
+            cliOutput.innerHTML += `<div>${text}</div>`;
+            // 使用 setTimeout 确保 DOM 更新后再滚动
+            setTimeout(() => {
+                cliContainer.scrollTop = cliContainer.scrollHeight;
+            }, 0);
+        }
+
+        function executeCommand(command) {
+            const trimmedCommand = command.trim();
+            if (trimmedCommand === '') return;
+
+            printToCLI(`<span class="cli-prompt">[tika@lab ~]$</span>: <span class="cli-command-input">${trimmedCommand.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">")}</span>`);
+
+            if (commandHistory[0] !== trimmedCommand) {
+                commandHistory.unshift(trimmedCommand);
+            }
+            historyIndex = -1;
+
+            const [cmd, ...args] = trimmedCommand.toLowerCase().split(' ');
+            if (commands[cmd]) {
+                const result = commands[cmd](args);
+                if (result) printToCLI(result);
+            } else {
+                printToCLI(`命令未找到: ${cmd}。输入 'help' 查看列表。`);
+            }
+        }
+
+        // --- Event Listeners ---
+        document.addEventListener('keydown', (e) => {
+            // 使用 `~` 键或反引号键来切换 CLI
+            if (e.key === '`' || e.key === '~') {
+                e.preventDefault();
+                toggleCLI();
+            }
+        });
+
+        cliInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') {
+                executeCommand(cliInput.value);
+                cliInput.value = '';
+            } else if (e.key === 'ArrowUp') {
+                e.preventDefault();
+                if (commandHistory.length > 0 && historyIndex < commandHistory.length - 1) {
+                    historyIndex++;
+                    cliInput.value = commandHistory[historyIndex];
+                }
+            } else if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                if (historyIndex > 0) {
+                    historyIndex--;
+                    cliInput.value = commandHistory[historyIndex];
+                } else {
+                    historyIndex = -1;
+                    cliInput.value = '';
+                }
+            }
+        });
     }
 
     async function initMusicPlayer() {
