@@ -1026,7 +1026,7 @@
             if (show) {
                 cliContainer.hidden = false;
                 cliInput.focus();
-                cliContainer.scrollTop = cliContainer.scrollHeight;
+                cliOutput.scrollTop = cliOutput.scrollHeight;
                 if (cliOutput.innerHTML === '') {
                     executeCommand('info');
                 }
@@ -1039,7 +1039,7 @@
         function printToCLI(text) {
             cliOutput.innerHTML += `<div>${text}</div>`;
             setTimeout(() => {
-                cliContainer.scrollTop = cliContainer.scrollHeight;
+                cliOutput.scrollTop = cliOutput.scrollHeight;
             }, 0);
         }
 
