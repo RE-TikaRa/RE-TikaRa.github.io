@@ -1689,6 +1689,32 @@ body.is-ready .card {
     color: var(--accent-color) !important;
 }
 
+/* 音乐加载失败时的容器排版 */
+#music-card .music-player-container {
+    width: 100%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#music-card .music-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+#music-card .music-header i {
+    color: var(--accent-color);
+}
+
+#music-card .music-content {
+    display: flex;
+    justify-content: center;
+}
+
 /* 一言 (Hitokoto) 回退样式 */
 .hitokoto-container {
     text-align: center;
@@ -1700,9 +1726,12 @@ body.is-ready .card {
 }
 
 #hitokoto-text {
-    margin-bottom: 0.5em;
+    margin: 0 0 0.5em;
     min-height: 2.2em; /* 预留至少两行的高度，防止切换时跳动 */
-    display: inline; /* 让光标能紧随其后 */
+    display: inline-block; /* 让光标能紧随其后 */
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
 }
 
 #hitokoto-from {
@@ -1712,7 +1741,7 @@ body.is-ready .card {
     width: 100%;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
-    margin-top: 0.5em;
+    margin: 0.5em 0 0;
 }
 
 /* 打字机光标 */
