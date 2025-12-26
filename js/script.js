@@ -957,8 +957,8 @@
                     if (el) el.hidden = !value;
                 });
             }
-            // 如果更改的是播放列表类型，则重新加载音乐播放器
-            if (key === 'playlistType') {
+            // 如果更改的是播放列表类型或自动播放设置，则重新加载音乐播放器
+            if (key === 'playlistType' || key === 'musicAutoplay') {
                 initMusicPlayer();
             }
         }
@@ -1179,11 +1179,12 @@
                 const item = filteredItems[Math.floor(Math.random() * filteredItems.length)];
                 const { id, type } = item;
 
+                const autoplayParam = visualSettings.musicAutoplay ? '1' : '0';
                 let src = '';
                 if (type === 'album') {
-                    src = `//music.163.com/outchain/player?type=1&id=${id}&auto=1&height=90`;
+                    src = `//music.163.com/outchain/player?type=1&id=${id}&auto=${autoplayParam}&height=90`;
                 } else {
-                    src = `//music.163.com/outchain/player?type=2&id=${id}&auto=1&height=66`;
+                    src = `//music.163.com/outchain/player?type=2&id=${id}&auto=${autoplayParam}&height=66`;
                 }
                 
                 musicCard.innerHTML = `
