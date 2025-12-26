@@ -877,6 +877,11 @@
         });
     }
 
+    function disableDevTools() {
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && e.key === 'I')) {
+                e.preventDefault();
+            }
         });
         document.addEventListener('contextmenu', (e) => e.preventDefault());
     }
@@ -1037,6 +1042,7 @@
         if (window.matchMedia('(min-width: 961px)').matches) {
             initInteractiveEffects();
         }
+        disableDevTools();
     }
 
     document.addEventListener('DOMContentLoaded', main);
