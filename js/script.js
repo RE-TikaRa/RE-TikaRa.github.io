@@ -915,6 +915,25 @@ function initCLI() {
 
     if (!cliContainer || !cliInput || !cliOutput) return;
 
+    function escapeHTML(value) {
+        return value.replace(/[&<>"']/g, (char) => {
+            switch (char) {
+                case '&':
+                    return '&amp;';
+                case '<':
+                    return '&lt;';
+                case '>':
+                    return '&gt;';
+                case '"':
+                    return '&quot;';
+                case "'":
+                    return '&#39;';
+                default:
+                    return char;
+            }
+        });
+    }
+
     let commandHistory = [];
     let historyIndex = -1;
 
@@ -996,8 +1015,9 @@ function initCLI() {
     function executeCommand(command) {
         const trimmedCommand = command.trim();
         if (trimmedCommand === '') return;
-        
-        printToCLI(`<span class="cli-prompt">[tika@lab ~]$</span> <span class="cli-command-input">${trimmedCommand.replace(/&/g, "&").replace(/</g, "<").replace(/>/g, ">")}</span>`);
+
+        const safeCommand = escapeHTML(trimmedCommand);
+        printToCLI(`<span class="cli-prompt">[tika@lab ~]$</span> <span class="cli-command-input">${safeCommand}</span>`);
 
         if (commandHistory[0] !== trimmedCommand) {
             commandHistory.unshift(trimmedCommand);
@@ -1009,7 +1029,7 @@ function initCLI() {
             const result = commands[cmd](args);
             if (result) printToCLI(result);
         } else {
-            printToCLI(`命令未找到: ${cmd}。输入 'help' 查看列表。`);
+            printToCLI('抱歉，该实验体权限不足');
         }
     }
 
