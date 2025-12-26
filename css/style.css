@@ -1502,6 +1502,7 @@ body.is-ready .card {
     justify-content: center; /* 垂直居中内容 */
     min-width: 0; /* 防止 flex 子项溢出 */
     padding: 0 !important;
+    margin: 0 !important; /* 彻底移除 APlayer 的默认边距 */
     border: none !important;
     height: auto !important; /* 确保高度自适应 */
 }
