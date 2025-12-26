@@ -735,7 +735,7 @@ function initStarfield() {
             canvas.width = width * dpr;
             canvas.height = height * dpr;
             const ctx = canvas.getContext('2d');
-            ctx.scale(dpr, dpr); // 根据 dpr 缩放画布，以适应高分屏
+            ctx.setTransform(dpr, 0, 0, dpr, 0, 0); // 根据 dpr 缩放画布，以适应高分屏
 
             const stars = Array.from({ length: layerConfig.count }, () => new Star(width, height));
             starLayers.push({ ctx, stars, factor: layerConfig.factor });
@@ -774,7 +774,7 @@ function initShootingStars() {
         height = window.innerHeight;
         canvas.width = width * dpr;
         canvas.height = height * dpr;
-        ctx.scale(dpr, dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         shootingStars = Array.from({ length: CONFIG.SHOOTING_STAR_COUNT }, () => new ShootingStar(width, height));
     }
 
@@ -808,7 +808,7 @@ function initRaindrops() {
         height = window.innerHeight;
         canvas.width = width * dpr;
         canvas.height = height * dpr;
-        ctx.scale(dpr, dpr);
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         raindrops = Array.from({ length: CONFIG.RAINDROP_COUNT }, () => new Raindrop(width, height));
     }
 
@@ -848,7 +848,11 @@ function initSettingsPanel() {
         cardFloat: true,
     };
 
-    const savedSettings = JSON.parse(localStorage.getItem('visualSettings')) || {};
+    let savedSettings = {};
+    try {
+        const rawSettings = localStorage.getItem('visualSettings');
+        if (rawSettings) savedSettings = JSON.parse(rawSettings);
+    } catch {}
     visualSettings = { ...defaultSettings, ...savedSettings };
 
     const effectElements = {
@@ -952,6 +956,9 @@ function initCLI() {
   <span class="cli-command">clear</span>     - 清空终端屏幕
   <span class="cli-command">theme</span>     - 切换亮/暗主题
   <span class="cli-command">info</span>      - 显示系统和版本信息
+  <span class="cli-command">date</span>      - 显示当前时间
+  <span class="cli-command">fortune</span>   - 随机输出一言
+  <span class="cli-command">say</span>       - 说点什么
   <span class="cli-command">exit</span>      - 关闭 CLI 窗口</pre>`;
         },
         clear: () => {
@@ -981,6 +988,42 @@ function initCLI() {
     <span class="cli-title">主题</span>:       ${document.documentElement.getAttribute('data-theme') === 'dark' ? '深色' : '浅色'}
 
 </pre>`;
+        },
+        date: () => {
+            return new Intl.DateTimeFormat('zh-CN', {
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric',
+                weekday: 'long',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+            }).format(new Date());
+        },
+        fortune: () => {
+            printToCLI('正在获取一言...');
+            return fetch('https://v1.hitokoto.cn/?encode=json', { cache: 'no-store' })
+                .then((response) => {
+                    if (!response.ok) throw new Error('hitokoto fetch failed');
+                    return response.json();
+                })
+                .then((data) => {
+                    const text = typeof data?.hitokoto === 'string' ? data.hitokoto : '';
+                    if (!text) throw new Error('invalid hitokoto');
+                    const fromWho = typeof data?.from_who === 'string' ? data.from_who.trim() : '';
+                    const from = typeof data?.from === 'string' ? data.from.trim() : '';
+                    const suffixParts = [];
+                    if (fromWho) suffixParts.push(fromWho);
+                    if (from) suffixParts.push(`《${from}》`);
+                    const suffix = suffixParts.length > 0 ? ` —— ${suffixParts.join(' ')}` : '';
+                    return `${escapeHTML(text)}${escapeHTML(suffix)}`;
+                })
+                .catch(() => '抱歉，该实验体权限不足');
+        },
+        say: (args) => {
+            const message = args.join(' ').trim();
+            if (!message) return '请输入内容。';
+            return escapeHTML(message);
         },
         exit: () => {
             toggleCLI(false);
@@ -1024,10 +1067,20 @@ function initCLI() {
         }
         historyIndex = -1;
 
-        const [cmd, ...args] = trimmedCommand.toLowerCase().split(' ');
+        const parts = trimmedCommand.split(' ');
+        const cmd = parts.shift().toLowerCase();
+        const args = parts;
         if (commands[cmd]) {
             const result = commands[cmd](args);
-            if (result) printToCLI(result);
+            if (result && typeof result.then === 'function') {
+                result
+                    .then((text) => {
+                        if (text) printToCLI(text);
+                    })
+                    .catch(() => printToCLI('抱歉，该实验体权限不足'));
+            } else if (result) {
+                printToCLI(result);
+            }
         } else {
             printToCLI('抱歉，该实验体权限不足');
         }

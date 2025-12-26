@@ -1,6 +1,5 @@
 .codemap/
 codemap/
 .vscode/codemap*
-
-# 本地配置文件，包含敏感信息
 .pem
+.bak
