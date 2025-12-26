@@ -878,12 +878,66 @@
             return `${days} 天, ${hours} 小时, ${minutes} 分钟, ${seconds} 秒`;
         }
 
+        function getDisplayWidth(text) {
+            let width = 0;
+            for (const ch of text) {
+                width += /[^\x00-\xff]/.test(ch) ? 2 : 1;
+            }
+            return width;
+        }
+
+        function padToWidth(text, width) {
+            const pad = Math.max(0, width - getDisplayWidth(text));
+            return `${text}${' '.repeat(pad)}`;
+        }
+
+        function formatKvLines(items) {
+            const labelWidth = Math.max(...items.map((item) => getDisplayWidth(item.label)));
+            return items.map((item) => {
+                const label = padToWidth(item.label, labelWidth);
+                return `${label}: ${item.value}`;
+            });
+        }
+
+        function buildBoxText(lines) {
+            const contentWidth = Math.max(...lines.map((line) => getDisplayWidth(line)));
+            const prefix = ' ';
+            const border = '#'.repeat(contentWidth + getDisplayWidth(prefix));
+            const body = lines
+                .map((line) => `${prefix}${padToWidth(line, contentWidth)}`)
+                .join('\n');
+            return `${border}\n${body}\n${border}`;
+        }
+
+        function renderInfoBoxText() {
+            const items = [
+                { label: '用户', value: 'tika@lab' },
+                { label: '操作系统', value: 'TikaOS 情绪体接口' },
+                { label: '主机', value: '个人主页 v2.3' },
+                { label: '内核', value: '5.4.0-TikaRa' },
+                { label: '运行时间', value: formatUptime() },
+                { label: '主题', value: document.documentElement.getAttribute('data-theme') === 'dark' ? '深色' : '浅色' },
+            ];
+            return buildBoxText(formatKvLines(items));
+        }
+
         let commandHistory = [];
         let historyIndex = -1;
         let uptimeTimer = null;
 
         const commands = {
             help: () => {
+                const helpItems = [
+                    { label: 'help', value: '显示此帮助信息' },
+                    { label: 'clear', value: '清空终端屏幕' },
+                    { label: 'theme', value: '切换亮/暗主题' },
+                    { label: 'info', value: '显示系统和版本信息' },
+                    { label: 'date', value: '显示当前时间' },
+                    { label: 'fortune', value: '随机输出一言' },
+                    { label: 'say', value: '说点什么' },
+                    { label: 'exit', value: '关闭 CLI 窗口' },
+                ];
+                const helpBox = buildBoxText(formatKvLines(helpItems));
                 return `<div class="cli-section">
 <pre class="cli-banner">   █████████   █████       ███████████             █████████  ███████████ █████  █████ ██████████   █████    ███████   
   ███░░░░░███ ░░███       ░░███░░░░░███           ███░░░░░███░█░░░███░░░█░░███  ░░███ ░░███░░░░███ ░░███   ███░░░░░███ 
@@ -893,15 +947,7 @@
  ░███    ░███  ░███      █ ░███                   ███    ░███    ░███     ░███   ░███  ░███    ███  ░███ ░░███     ███ 
  █████   █████ ███████████ █████        █████████░░█████████     █████    ░░████████   ██████████   █████ ░░░███████░  
 ░░░░░   ░░░░░ ░░░░░░░░░░░ ░░░░░        ░░░░░░░░░  ░░░░░░░░░     ░░░░░      ░░░░░░░░   ░░░░░░░░░░   ░░░░░    ░░░░░░░    </pre>
-<pre class="cli-help">可用命令:
-  <span class="cli-command">help</span>      - 显示此帮助信息
-  <span class="cli-command">clear</span>     - 清空终端屏幕
-  <span class="cli-command">theme</span>     - 切换亮/暗主题
-  <span class="cli-command">info</span>      - 显示系统和版本信息
-  <span class="cli-command">date</span>      - 显示当前时间
-  <span class="cli-command">fortune</span>   - 随机输出一言
-  <span class="cli-command">say</span>       - 说点什么
-  <span class="cli-command">exit</span>      - 关闭 CLI 窗口</pre>
+<pre class="cli-box">${escapeHTML(helpBox)}</pre>
 </div>`;
             },
             clear: () => {
@@ -918,6 +964,7 @@
                 return `主题已切换为 ${currentTheme === 'dark' ? '深色' : '浅色'} 模式。`;
             },
             info: () => {
+                const infoBox = renderInfoBoxText();
                 return `<div class="cli-section">
 <pre class="cli-banner">   █████████   █████       ███████████             █████████  ███████████ █████  █████ ██████████   █████    ███████   
   ███░░░░░███ ░░███       ░░███░░░░░███           ███░░░░░███░█░░░███░░░█░░███  ░░███ ░░███░░░░███ ░░███   ███░░░░░███ 
@@ -927,13 +974,7 @@
  ░███    ░███  ░███      █ ░███                   ███    ░███    ░███     ░███   ░███  ░███    ███  ░███ ░░███     ███ 
  █████   █████ ███████████ █████        █████████░░█████████     █████    ░░████████   ██████████   █████ ░░░███████░  
 ░░░░░   ░░░░░ ░░░░░░░░░░░ ░░░░░        ░░░░░░░░░  ░░░░░░░░░     ░░░░░      ░░░░░░░░   ░░░░░░░░░░   ░░░░░    ░░░░░░░    </pre>
-<pre class="cli-info"><span class="cli-user">tika</span>@<span class="cli-host">lab</span>
---------------------
-<span class="cli-title">操作系统</span>:   TikaOS 情绪体接口
-<span class="cli-title">主机</span>:       个人主页 v2.3
-<span class="cli-title">内核</span>:       5.4.0-TikaRa
-<span class="cli-title">运行时间</span>:   <span class="cli-uptime">${formatUptime()}</span>
-<span class="cli-title">主题</span>:       ${document.documentElement.getAttribute('data-theme') === 'dark' ? '深色' : '浅色'}</pre>
+<pre class="cli-box cli-box-info">${escapeHTML(infoBox)}</pre>
 </div>`;
             },
             date: () => {
@@ -985,6 +1026,7 @@
             if (show) {
                 cliContainer.hidden = false;
                 cliInput.focus();
+                cliContainer.scrollTop = cliContainer.scrollHeight;
                 if (cliOutput.innerHTML === '') {
                     executeCommand('info');
                 }
@@ -1002,12 +1044,12 @@
         }
 
         function startUptimeTicker() {
-            const nodes = cliOutput.querySelectorAll('.cli-uptime');
-            const uptimeEl = nodes[nodes.length - 1];
-            if (!uptimeEl) return;
+            const boxes = cliOutput.querySelectorAll('.cli-box-info');
+            const box = boxes[boxes.length - 1];
+            if (!box) return;
             if (uptimeTimer) clearInterval(uptimeTimer);
             const update = () => {
-                uptimeEl.textContent = formatUptime();
+                box.textContent = renderInfoBoxText();
             };
             update();
             uptimeTimer = setInterval(update, 1000);
@@ -1041,7 +1083,7 @@
                         .catch(() => printToCLI('抱歉，该实验体权限不足'));
                 } else if (result) {
                     printToCLI(result);
-                    if (result.includes('cli-uptime')) startUptimeTicker();
+                    if (result.includes('cli-box-info')) startUptimeTicker();
                 }
             } else {
                 printToCLI('抱歉，该实验体权限不足');
@@ -1098,15 +1140,12 @@
                 appState.hitokotoIntervalId = null;
             }
 
-            const config = {
-              "netease_music_items": [
-                { "id": "2053344480", "type": "song" },
-                { "id": "2053344483", "type": "song" },
-                { "id": "2053344486", "type": "song" },
-                { "id": "179521966", "type": "album" }
-              ]
-            };
-            const allMusicItems = config.netease_music_items;
+            const response = await fetch('config.json', { cache: 'no-store' });
+            if (!response.ok) throw new Error('config.json load failed');
+            const config = await response.json();
+            const allMusicItems = Array.isArray(config?.netease_music_items)
+                ? config.netease_music_items
+                : [];
 
             const playlistType = visualSettings.playlistType || 'song';
             const filteredItems = allMusicItems.filter(item => item.type === playlistType);
