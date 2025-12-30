@@ -600,7 +600,7 @@ body.is-ready .starfield-canvas {
     grid-column: span 4;
     display: flex;
     flex-direction: column;
-    gap: clamp(10px, 1.8vw, 16px);
+    gap: clamp(12px, 2vw, 18px);
     align-self: stretch;
 }
 
@@ -1269,7 +1269,7 @@ body.is-ready .starfield-canvas {
     justify-content: center;
     gap: 12px;
     padding: var(--card-padding, var(--space-6));
-    min-height: 130px;
+    min-height: 135px;
     font-family: "XinHuoTi", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
 }
 
@@ -1279,7 +1279,7 @@ body.is-ready .starfield-canvas {
 }
 
 .date-display {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     letter-spacing: 0.4px;
     color: var(--text-primary);
     line-height: 1.4;
@@ -1294,7 +1294,7 @@ body.is-ready .starfield-canvas {
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;
-    min-height: 130px;
+    min-height: 135px;
     opacity: 0; /* 初始隐藏，由 JS 控制显示 */
     transition: opacity 0.5s ease-in-out;
 }
@@ -2021,7 +2021,7 @@ body.is-ready .card {
     width: 100%;
     max-width: 100%;
     margin: 0;
-    min-height: 130px;
+    min-height: 135px;
 }
 
 #music-card.card--ghost {
@@ -2057,14 +2057,14 @@ body.is-ready .card {
 #music-card .aplayer .aplayer-body {
     display: flex;
     align-items: center;
-    gap: 8px; /* 封面和信息的间距 */
-    padding: 8px; /* 统一内边距 */
+    gap: 10px; /* 封面和信息的间距 */
+    padding: 10px; /* 统一内边距 */
 }
 
 #music-card .aplayer .aplayer-pic {
     flex-shrink: 0;
-    width: 58px; /* 调整封面尺寸 */
-    height: 58px;
+    width: 62px; /* 调整封面尺寸 */
+    height: 62px;
     border-radius: 12px; /* 封面圆角 */
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
