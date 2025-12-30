@@ -1,6 +1,7 @@
 {
     "refreshIntervalSeconds": 60,
     "historyLength": 60,
+    "dataUrl": "https://raw.githubusercontent.com/RE-TikaRa/RE-TikaRa.github.io/status-data/status.json",
     "targets": [
         {
             "id": "blog",

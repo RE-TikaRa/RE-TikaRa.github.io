@@ -10,6 +10,8 @@
     const STATUS_URL = 'status.json';
     const CONFIG_URL = 'status.config.json';
 
+    let cachedConfig = null;
+
     let refreshInterval = 60;
     let nextTick = refreshInterval;
 
@@ -166,20 +168,33 @@
             : [],
     });
 
-    const loadStatus = async () => {
+    const loadConfig = async () => {
+        if (cachedConfig) return cachedConfig;
         try {
-            const res = await fetch(STATUS_URL, { cache: 'no-store' });
+            const res = await fetch(`${CONFIG_URL}?t=${Date.now()}`, { cache: 'no-store' });
+            if (!res.ok) throw new Error('config not ready');
+            cachedConfig = await res.json();
+            return cachedConfig;
+        } catch (error) {
+            return null;
+        }
+    };
+
+    const loadStatus = async () => {
+        const config = await loadConfig();
+        const dataUrl = config?.dataUrl ? String(config.dataUrl).trim() : '';
+        const statusUrl = dataUrl || STATUS_URL;
+
+        try {
+            const res = await fetch(`${statusUrl}${statusUrl.includes('?') ? '&' : '?'}t=${Date.now()}`, { cache: 'no-store' });
             if (!res.ok) throw new Error('status.json not ready');
             const data = await res.json();
             renderStatus(data);
         } catch (error) {
-            try {
-                const res = await fetch(CONFIG_URL, { cache: 'no-store' });
-                if (!res.ok) throw new Error('config not ready');
-                const config = await res.json();
+            if (config) {
                 renderStatus(buildFromConfig(config));
-            } catch (fallbackError) {
-                if (updatedEl) updatedEl.textContent = '等待首次检测...';
+            } else if (updatedEl) {
+                updatedEl.textContent = '等待首次检测...';
             }
         }
     };
