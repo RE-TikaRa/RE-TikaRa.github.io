@@ -47,18 +47,27 @@
 
     <!-- 设置按钮 -->
     <div class="settings-wrapper">
-        <button id="settings-toggle" type="button" aria-label="打开设置">
+        <button id="settings-toggle" type="button" aria-label="打开设置" aria-expanded="false" aria-controls="settings-panel">
             <i class="fa-solid fa-gear" aria-hidden="true"></i>
+            <span class="icon-text">设定</span>
         </button>
     </div>
 
     <!-- 设置面板 -->
-    <div id="settings-panel" class="card glass" hidden>
+    <div id="settings-panel" class="card card--tertiary glass" hidden>
         <div class="settings-header">
             <h3>显示设置</h3>
             <button id="settings-close" type="button" aria-label="关闭设置">&times;</button>
         </div>
         <div class="settings-content">
+            <div class="setting-item">
+                <label for="toggle-high-contrast">高对比模式</label>
+                <input type="checkbox" id="toggle-high-contrast" class="toggle-switch" data-setting="highContrast">
+            </div>
+            <div class="setting-item">
+                <label for="toggle-lite-mode">轻量模式</label>
+                <input type="checkbox" id="toggle-lite-mode" class="toggle-switch" data-setting="liteMode">
+            </div>
             <div class="setting-item">
                 <label for="toggle-starfield">星空背景</label>
                 <input type="checkbox" id="toggle-starfield" class="toggle-switch" data-setting="starfield" checked>
@@ -99,53 +108,62 @@
     
     <!-- 主要内容容器，使用视差效果 -->
     <div class="parallax-container">
-        <main class="grid-container">
-            <!-- 第一列: 个人资料 -->
-            <section class="column profile-column" aria-labelledby="profile-heading">
-                <div class="card profile-card glass full-height">
+        <div class="grid-container layout-grid">
+            <aside class="nav-panel" aria-label="主导航">
+                <div class="nav-brand">
+                    <span class="brand-title"><span class="is-latin" lang="en">ALp_Studio</span></span>
+                    <span class="brand-sub">观测站 · 控制台</span>
+                </div>
+                <nav class="nav-list" aria-label="主导航列表">
+                    <a href="index.html" class="nav-item is-active" aria-current="page">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
+                        <span>主页</span>
+                    </a>
+                    <a href="https://www.re-tikara.fun/Blog" target="_blank" rel="noopener noreferrer" class="nav-item">
+                        <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+                        <span>博客</span>
+                    </a>
+                    <a href="https://www.re-tikara.fun/Article" target="_blank" rel="noopener noreferrer" class="nav-item">
+                        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                        <span>文章库</span>
+                    </a>
+                    <a href="https://github.com/RE-TikaRa" target="_blank" rel="noopener noreferrer" class="nav-item">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                        <span><span class="is-latin" lang="en">GitHub</span></span>
+                    </a>
+                    <a href="https://space.bilibili.com/374412219" target="_blank" rel="noopener noreferrer" class="nav-item">
+                        <i class="fa-brands fa-bilibili" aria-hidden="true"></i>
+                        <span><span class="is-latin" lang="en">BiliBili</span></span>
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="main-panel" aria-labelledby="profile-heading">
+                <div class="card card--tertiary profile-card glass">
                     <div class="profile-content-wrapper">
                         <div class="avatar-large">
                             <img src="https://s2.loli.net/2025/12/22/mkWtIYraVxdnTCe.jpg" alt="亓翎_Re-TikaRa 的头像"> <!-- 个人头像 -->
                         </div>
-                        <h2 class="profile-name" id="profile-heading">亓翎_Re-TikaRa</h2> <!-- 用户名 -->
-                        <div class="profile-greeting" aria-label="问候语">
-                            <div class="greeting-title" id="greeting">你好</div> <!-- 问候语标题 -->
-                            <div class="greeting-sub" id="today">——</div> <!-- 日期或额外信息 -->
-                        </div>
-                        <div class="profile-desc-box">
-                            <span class="profile-desc-text">一个人造生命体的自娱自乐</span> <!-- 个人简介 -->
+                        <div class="profile-text">
+                            <h2 class="profile-name" id="profile-heading">亓翎_Re-TikaRa</h2> <!-- 用户名 -->
+                            <div class="profile-greeting" aria-label="问候语">
+                                <div class="greeting-title" id="greeting">你好</div> <!-- 问候语标题 -->
+                            </div>
+                            <div class="profile-desc-box">
+                                <span class="profile-desc-text">一个人造生命体的自娱自乐</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div id="music-card" class="card glass">
-                    <!-- 音乐播放器将在这里 -->
-                </div>
-            </section>
+            </main>
 
-            <!-- 第二列: 链接 -->
-            <section class="column center-links" aria-label="社交与项目链接">
-                <!-- GitHub 链接 -->
-                <a href="https://github.com/RE-TikaRa" target="_blank" rel="noopener noreferrer" class="card link-card glass link-github">
-                    <div class="icon-circle"><i class="fab fa-github"></i></div>
-                    <span class="link-text">GitHub</span>
-                    <i class="fa-solid fa-chevron-right link-chevron" aria-hidden="true"></i>
-                </a>
-                <!-- BiliBili 链接 -->
-                <a href="https://space.bilibili.com/374412219" target="_blank" rel="noopener noreferrer" class="card link-card glass link-bilibili">
-                    <div class="icon-circle"><i class="fab fa-bilibili"></i></div>
-                    <span class="link-text">BiliBili</span>
-                    <i class="fa-solid fa-chevron-right link-chevron" aria-hidden="true"></i>
-                </a>
-                <!-- 文章库/博客 链接 -->
-                <a href="https://www.re-tikara.fun/Blog" target="_blank" rel="noopener noreferrer" class="card link-card glass link-blog">
-                    <div class="icon-circle"><i class="fas fa-book"></i></div>
-                    <span class="link-text">文章库</span>
-                    <i class="fa-solid fa-chevron-right link-chevron" aria-hidden="true"></i>
-                </a>
-
-                <!-- 天气小工具 -->
-                <div id="weather-card" class="card weather-card glass" hidden>
+            <aside class="side-panel" aria-label="实时与媒体">
+                <div id="weather-card" class="card card--tertiary weather-card glass" hidden>
                     <div class="weather-content">
+                        <div class="weather-meta">
+                            <span class="weather-tag"><span class="is-latin" lang="en">WEATHER</span></span>
+                            <span class="weather-source" id="weather-source">定位中</span>
+                        </div>
                         <div class="weather-location">加载中...</div>
                         <div class="weather-main">
                             <div class="weather-temp">--°</div>
@@ -156,42 +174,30 @@
                         <div class="weather-description">正在获取天气</div>
                     </div>
                 </div>
-            </section>
 
-            <!-- 第三列: 小工具 -->
-            <section class="column widgets-column" aria-label="实时小工具">
-                <!-- 时钟小工具 -->
-                <div class="card clock-card glass">
-                    <div class="clock-display" aria-label="当前时间">
-                        <span class="clock-part" id="hour">00</span>
-                        <span class="clock-sep" aria-hidden="true">:</span>
-                        <span class="clock-part" id="minute">00</span>
-                        <span class="clock-sep" aria-hidden="true">:</span>
-                        <span class="clock-part clock-part--second" id="second">00</span>
+                <div class="card card--tertiary date-card glass">
+                    <div class="card-header">
+                        <div class="card-title">日期</div>
                     </div>
+                    <div class="date-display" id="today">——</div>
                 </div>
 
-                <!-- 小工具组: 日历和天气 -->
-                <div class="widget-group">
-                    <!-- 日历小工具 -->
-                    <div class="card calendar-card glass">
-                        <div class="calendar-top-row">
-                            <div class="calendar-title">
-                                <div class="calendar-title-large">日历</div>
-                                <div class="calendar-month" id="calendar-month">——</div>
-                            </div>
-                        </div>
-                        <div class="calendar-grid" id="calendar-grid"></div> <!-- 日历网格将由 JavaScript 动态生成 -->
-                    </div>
+                <div id="music-card" class="card card--tertiary glass">
+                    <!-- 音乐播放器将在这里 -->
+                </div>
+            </aside>
 
+            <section class="hitokoto-panel" aria-label="记录">
+                <div id="hitokoto-card" class="card card--tertiary glass">
+                    <!-- Hitokoto -->
                 </div>
             </section>
-        </main>
+        </div>
     </div>
 
     <!-- 页面页脚 -->
     <footer class="site-footer">
-        <p>实例仍在运行  日志尚未终止  // The instance is still running; the logs haven’t terminated.</p>
+        <p>实例仍在运行  日志尚未终止  // <span class="is-latin" lang="en">The instance is still running; the logs haven’t terminated.</span></p>
     </footer>
 
     <!-- CLI 彩蛋 -->

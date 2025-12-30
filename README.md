@@ -62,7 +62,7 @@
 - 玻璃拟态卡片：全局 3D 视差、悬浮、磁性吸附、文字扰动与入场扫描动画。
 - 主题切换：深/浅主题保存到 `localStorage`，支持 View Transitions 过渡动画。
 - 设置面板：星空/流星/雨滴/卡片浮动/音乐自动播放/播放列表类型（单曲或专辑）。
-- 实时小工具：数字时钟、动态问候、日历高亮、天气模块。
+- 实时小工具：数字时钟、动态问候、天气模块。
 - 音乐模块：APlayer + MetingJS，随机读取 `config.json` 的网易云 ID。
 - 回退方案：音乐失败时自动切换到 Hitokoto 一言，定时刷新。
 - CLI 彩蛋：通过 `\`` 或 `~` 唤出，支持内置指令与 ASCII 信息面板。
@@ -72,13 +72,12 @@
 - 星空/流星/雨滴：`canvas` 绘制，三层星空视差，流星与雨滴独立控制。
 - 视差与磁性：鼠标移动驱动整体背景与卡片倾斜，链接卡片有磁性吸附与文字扰动。
 - 问候与时间：按小时切换问候语，日期使用 `Intl.DateTimeFormat` 输出。
-- 日历：本月网格渲染，周末标记，当前日期脉动高亮。
 - 天气：优先地理定位，调用 Open-Meteo；失败时进入虚拟天气模拟。
 - 音乐：随机挑选 `song/album`，APlayer 主题与页面同步。
 - CLI：`help / clear / theme / info / date / fortune / say / exit`，`Esc` 关闭。
 
 ### `[tika@lab ~]$ cat runbook.md`
-1. 静态预览：直接打开 `index.html` 即可浏览基础界面。
+1. 启动本地服务：双击 `start-server.bat`，然后访问 `http://localhost:5173/`。
 2. 完整功能：天气、音乐、定位、外部图标需要网络与 HTTPS/localhost 环境。
 3. 自动播放提示：浏览器可能拦截自动播放，可在设置面板关闭或手动播放。
 4. 部署方式：任意静态托管均可运行（GitHub Pages / Vercel / Cloudflare Pages 等）。

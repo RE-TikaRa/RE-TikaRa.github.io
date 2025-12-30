@@ -11,6 +11,7 @@
     let visualSettings = {}; // 全局视觉设置
     const appState = {
         hitokotoIntervalId: null,
+        hitokotoTargets: [],
     };
 
     const CONFIG = {
@@ -211,15 +212,25 @@
         const secondEl = document.getElementById('second');
         const greetingEl = document.getElementById('greeting');
         const todayEl = document.getElementById('today');
+        const timezoneEl = document.getElementById('clock-timezone');
         if (!hourEl && !minuteEl && !secondEl && !greetingEl && !todayEl) return;
 
         let clockTimer = null;
         let lastGreetingKey = '';
         let lastDateKey = '';
-        const dateFormatter = new Intl.DateTimeFormat('zh-CN', {
-            year: 'numeric', month: 'long', day: 'numeric', weekday: 'long',
-        });
         const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const timeZoneLabel = (() => {
+            const offsetMinutes = -new Date().getTimezoneOffset();
+            const sign = offsetMinutes >= 0 ? '+' : '-';
+            const absMinutes = Math.abs(offsetMinutes);
+            const hours = String(Math.floor(absMinutes / 60)).padStart(2, '0');
+            const minutes = String(absMinutes % 60).padStart(2, '0');
+            const tzName = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+            const offsetLabel = `UTC${sign}${hours}:${minutes}`;
+            return tzName ? `${offsetLabel} · ${tzName}` : offsetLabel;
+        })();
+
+        if (timezoneEl) timezoneEl.textContent = timeZoneLabel;
 
         function updateGreeting(now) {
             if (!greetingEl && !todayEl) return;
@@ -250,9 +261,14 @@
             }
 
             if (todayEl) {
-                const dateKey = `${now.getFullYear()}-${now.getMonth()}-${now.getDate()}`;
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+                const dateKey = `${year}-${month}-${day}-${hours}-${minutes}`;
                 if (dateKey !== lastDateKey) {
-                    todayEl.textContent = dateFormatter.format(now);
+                    todayEl.textContent = `${year}年${month}月${day}日 ${hours}点${minutes}分`;
                     lastDateKey = dateKey;
                 }
             }
@@ -281,51 +297,6 @@
         });
     }
 
-    function initCalendar() {
-        const calendarGrid = document.getElementById('calendar-grid');
-        const calendarMonthEl = document.getElementById('calendar-month');
-        if (!calendarGrid) return;
-
-        calendarGrid.textContent = '';
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = now.getMonth();
-        const today = now.getDate();
-
-        if (calendarMonthEl) {
-            calendarMonthEl.textContent = `${year}年${month + 1}月`;
-        }
-
-        const shortWeekDays = ['一', '二', '三', '四', '五', '六', '日'];
-        shortWeekDays.forEach((day, index) => {
-            const el = document.createElement('div');
-            el.className = 'calendar-day-name';
-            if (index >= 5) el.classList.add('weekend');
-            el.textContent = day;
-            calendarGrid.appendChild(el);
-        });
-
-        const firstDayOfMonth = new Date(year, month, 1).getDay();
-        let startOffset = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-        for (let i = 0; i < startOffset; i++) {
-            const el = document.createElement('div');
-            el.className = 'calendar-day empty';
-            calendarGrid.appendChild(el);
-        }
-
-        for (let i = 1; i <= daysInMonth; i++) {
-            const el = document.createElement('div');
-            el.className = 'calendar-day';
-            el.textContent = i;
-            const dayOfWeek = new Date(year, month, i).getDay();
-            if (dayOfWeek === 0 || dayOfWeek === 6) el.classList.add('weekend');
-            if (i === today) el.classList.add('current');
-            calendarGrid.appendChild(el);
-        }
-    }
-
     async function initWeather() {
         const weatherCard = document.getElementById('weather-card');
         if (!weatherCard) return;
@@ -334,6 +305,7 @@
         const tempEl = weatherCard.querySelector('.weather-temp');
         const iconEl = weatherCard.querySelector('.weather-icon i');
         const descriptionEl = weatherCard.querySelector('.weather-description');
+        const sourceEl = weatherCard.querySelector('#weather-source');
 
         const weatherCodeMap = {
             0: { icon: 'fa-solid fa-sun', description: '晴' },
@@ -354,11 +326,12 @@
             95: { icon: 'fa-solid fa-bolt', description: '雷暴' },
         };
 
-        function updateWeatherUI(location, temperature, weatherInfo) {
+        function updateWeatherUI(location, temperature, weatherInfo, sourceText) {
             if (tempEl) tempEl.textContent = `${Math.round(temperature)}°`;
             if (descriptionEl) descriptionEl.textContent = weatherInfo.description;
             if (iconEl) iconEl.className = weatherInfo.icon;
             if (locationEl) locationEl.textContent = location;
+            if (sourceEl) sourceEl.textContent = sourceText;
             weatherCard.hidden = false;
         }
 
@@ -368,7 +341,7 @@
             const randomCode = weatherCodes[Math.floor(Math.random() * weatherCodes.length)];
             const virtualWeatherInfo = weatherCodeMap[randomCode];
             const virtualTemperature = Math.floor(Math.random() * (30 - 10 + 1)) + 10;
-            updateWeatherUI('ALp_Studio', virtualTemperature, virtualWeatherInfo);
+            updateWeatherUI('ALp_Studio', virtualTemperature, virtualWeatherInfo, '模拟');
         }
 
         try {
@@ -381,7 +354,7 @@
             if (!response.ok) throw new Error(`HTTP 错误! 状态: ${response.status}`);
             const data = await response.json();
             const weatherInfo = weatherCodeMap[data.current.weather_code] || { icon: 'fa-solid fa-question', description: '未知' };
-            updateWeatherUI('当前位置', data.current.temperature_2m, weatherInfo);
+            updateWeatherUI('当前位置', data.current.temperature_2m, weatherInfo, '定位');
         } catch (error) {
             console.error("获取天气失败:", error.message || error);
             showVirtualWeather();
@@ -409,6 +382,7 @@
             if (iconEl) iconEl.className = isDark ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
             if (textEl) textEl.textContent = isDark ? '深色' : '浅色';
             toggleBtn.setAttribute('aria-label', isDark ? '切换到浅色模式' : '切换到深色模式');
+            toggleBtn.setAttribute('aria-pressed', String(isDark));
         }
 
         const initialTheme = document.documentElement.getAttribute('data-theme') || 'light';
@@ -478,7 +452,7 @@
     function initInteractiveEffects() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
         const bg = document.querySelector('.background-gradient');
-        const gridContainer = document.querySelector('.grid-container');
+        const gridContainer = document.querySelector('.main-panel');
         const profileCard = document.querySelector('.profile-card');
         const avatarHalo = profileCard?.querySelector('.avatar-large');
         const animationState = {
@@ -607,7 +581,7 @@
         document.addEventListener('mouseleave', resetAnimationTargets);
 
         if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-            document.querySelectorAll('.card').forEach((card, index) => {
+            document.querySelectorAll('.card.tilt-card').forEach((card, index) => {
                 const floatItem = {
                     el: card,
                     phase: Math.random() * Math.PI * 2,
@@ -773,6 +747,8 @@
         if (!settingsPanel || !settingsToggle || !settingsClose) return;
 
         const defaultSettings = {
+            highContrast: false,
+            liteMode: false,
             starfield: true,
             shootingStars: true,
             raindrops: true,
@@ -794,9 +770,35 @@
             raindrops: [document.getElementById('raindrop-canvas')],
         };
 
+        if (visualSettings.highContrast) {
+            document.documentElement.setAttribute('data-contrast', 'high');
+        } else {
+            document.documentElement.removeAttribute('data-contrast');
+        }
+        if (visualSettings.liteMode) {
+            document.documentElement.setAttribute('data-lite', 'true');
+        } else {
+            document.documentElement.removeAttribute('data-lite');
+        }
+
         function applySetting(key, value) {
             visualSettings[key] = value;
             localStorage.setItem('visualSettings', JSON.stringify(visualSettings));
+
+            if (key === 'highContrast') {
+                if (value) {
+                    document.documentElement.setAttribute('data-contrast', 'high');
+                } else {
+                    document.documentElement.removeAttribute('data-contrast');
+                }
+            }
+            if (key === 'liteMode') {
+                if (value) {
+                    document.documentElement.setAttribute('data-lite', 'true');
+                } else {
+                    document.documentElement.removeAttribute('data-lite');
+                }
+            }
 
             if (effectElements[key]) {
                 effectElements[key].forEach(el => {
@@ -828,16 +830,21 @@
             });
         });
 
-        settingsToggle.addEventListener('click', () => settingsPanel.hidden = !settingsPanel.hidden);
-        settingsClose.addEventListener('click', () => settingsPanel.hidden = true);
+        function setSettingsOpen(isOpen) {
+            settingsPanel.hidden = !isOpen;
+            settingsToggle.setAttribute('aria-expanded', String(isOpen));
+        }
+
+        settingsToggle.addEventListener('click', () => setSettingsOpen(settingsPanel.hidden));
+        settingsClose.addEventListener('click', () => setSettingsOpen(false));
         document.addEventListener('click', (e) => {
             if (!settingsPanel.hidden && !settingsPanel.contains(e.target) && !settingsToggle.contains(e.target)) {
-                settingsPanel.hidden = true;
+                setSettingsOpen(false);
             }
         });
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && !settingsPanel.hidden) {
-                settingsPanel.hidden = true;
+                setSettingsOpen(false);
             }
         });
     }
@@ -1135,6 +1142,7 @@
         if (!musicCard) return;
 
         try {
+            musicCard.classList.remove('card--ghost');
             if (appState.hitokotoIntervalId) {
                 clearInterval(appState.hitokotoIntervalId);
                 appState.hitokotoIntervalId = null;
@@ -1155,7 +1163,13 @@
                 const { id, type } = item;
 
                 // 清空旧的播放器
-                musicCard.innerHTML = '';
+                musicCard.innerHTML = `
+                    <div class="card-header music-card-header">
+                        <div class="card-title">音乐</div>
+                        <div class="card-meta">网易云</div>
+                    </div>
+                    <div class="music-player-shell"></div>
+                `;
 
                 const meting = document.createElement('meting-js');
                 meting.setAttribute('server', 'netease');
@@ -1169,7 +1183,12 @@
                 meting.setAttribute('list-folded', 'true');
                 
                 // 将 MetingJS 播放器添加到 music-card 中
-                musicCard.appendChild(meting);
+                const playerShell = musicCard.querySelector('.music-player-shell');
+                if (playerShell) {
+                    playerShell.appendChild(meting);
+                } else {
+                    musicCard.appendChild(meting);
+                }
 
                 // 确保 APlayer 主题在加载后能正确设置
                 const observer = new MutationObserver((mutations, obs) => {
@@ -1189,12 +1208,27 @@
             }
         } catch (error) {
             console.error('初始化音乐播放器失败:', error);
-            initHitokotoFallback(musicCard);
+            if (musicCard) {
+                musicCard.classList.remove('card--ghost');
+                musicCard.innerHTML = `
+                    <div class="music-player-container">
+                        <div class="music-header">
+                            <i class="fa-solid fa-music"></i>
+                            <span>音乐</span>
+                        </div>
+                        <div class="music-content">
+                            <span>播放器加载失败</span>
+                        </div>
+                    </div>
+                `;
+            }
         }
     }
 
-    function initHitokotoFallback(container) {
+    function initHitokotoFallback(container, options = {}) {
         if (!container) return;
+        const { ghost = true } = options;
+        container.classList.toggle('card--ghost', ghost);
         container.innerHTML = `
             <div class="music-player-container">
                 <div class="music-header">
@@ -1203,14 +1237,27 @@
                 </div>
                 <div class="music-content">
                     <div class="hitokoto-container">
-                        <p id="hitokoto-text"></p><span class="cursor"></span>
-                        <p id="hitokoto-from"></p>
+                        <p class="hitokoto-text"></p><span class="cursor"></span>
+                        <p class="hitokoto-from"></p>
                     </div>
                 </div>
             </div>
         `;
-        const textEl = document.getElementById('hitokoto-text');
-        const fromEl = document.getElementById('hitokoto-from');
+        const textEl = container.querySelector('.hitokoto-text');
+        const fromEl = container.querySelector('.hitokoto-from');
+        if (!textEl || !fromEl) return;
+
+        if (!Array.isArray(appState.hitokotoTargets)) {
+            appState.hitokotoTargets = [];
+        }
+        const existingIndex = appState.hitokotoTargets.findIndex((item) => item.container === container);
+        const target = { container, textEl, fromEl };
+        if (existingIndex >= 0) {
+            appState.hitokotoTargets[existingIndex] = target;
+        } else {
+            appState.hitokotoTargets.push(target);
+        }
+
         const typewriter = (text, element, onComplete) => {
             let i = 0;
             element.innerHTML = '';
@@ -1225,20 +1272,30 @@
             };
             typing();
         };
+
+        const renderAll = (text, from) => {
+            appState.hitokotoTargets.forEach((item) => {
+                if (!item.textEl || !item.fromEl) return;
+                item.fromEl.style.opacity = '0';
+                typewriter(text, item.textEl, () => {
+                    item.fromEl.textContent = from;
+                    item.fromEl.style.opacity = '1';
+                });
+            });
+        };
+
         const fetchAndShowHitokoto = async () => {
             try {
                 const response = await fetch('https://v1.hitokoto.cn/?encode=json&charset=utf-8');
                 if (!response.ok) throw new Error('Hitokoto API request failed');
                 const data = await response.json();
-                typewriter(data.hitokoto, textEl, () => {
-                    fromEl.textContent = `—— ${data.from_who || ''}「${data.from}」`;
-                    fromEl.style.opacity = '1';
-                });
-                fromEl.style.opacity = '0';
+                const fromWho = data.from_who ? data.from_who : '';
+                const from = data.from ? data.from : '';
+                const suffix = `—— ${fromWho}${from ? `「${from}」` : ''}`;
+                renderAll(data.hitokoto, suffix);
             } catch (error) {
                 console.error('获取一言失败:', error);
-                textEl.textContent = '生活，就是一半烟火，一半清欢。';
-                fromEl.textContent = '';
+                renderAll('生活，就是一半烟火，一半清欢。', '');
             }
         };
         fetchAndShowHitokoto();
@@ -1252,12 +1309,15 @@
         });
         initWelcomeScreen();
         initClockAndGreeting();
-        initCalendar();
         initWeather();
         initTheme();
         initSettingsPanel();
         initCLI();
         initMusicPlayer();
+        const hitokotoCard = document.getElementById('hitokoto-card');
+        if (hitokotoCard) {
+            initHitokotoFallback(hitokotoCard, { ghost: false });
+        }
         if (window.matchMedia('(min-width: 961px)').matches) {
             initInteractiveEffects();
         }
