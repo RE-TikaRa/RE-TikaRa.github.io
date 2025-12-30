@@ -1,5 +1,5 @@
 {
-    "generatedAt": "2025-12-30T22:54:30.763Z",
+    "generatedAt": "2025-12-30T23:19:14.758Z",
     "intervalSeconds": 60,
     "historyLength": 60,
     "targets": [
@@ -9,7 +9,7 @@
             "url": "https://www.re-tikara.fun/Blog",
             "status": "ok",
             "statusCode": 200,
-            "responseTime": 508,
+            "responseTime": 711,
             "history": [
                 {
                     "ok": true,
@@ -22,6 +22,12 @@
                     "statusCode": 200,
                     "responseTime": 508,
                     "timestamp": "2025-12-30T22:54:30.763Z"
+                },
+                {
+                    "ok": true,
+                    "statusCode": 200,
+                    "responseTime": 711,
+                    "timestamp": "2025-12-30T23:19:14.758Z"
                 }
             ]
         },
@@ -31,7 +37,7 @@
             "url": "https://www.re-tikara.fun/Article",
             "status": "ok",
             "statusCode": 200,
-            "responseTime": 136,
+            "responseTime": 360,
             "history": [
                 {
                     "ok": true,
@@ -44,6 +50,12 @@
                     "statusCode": 200,
                     "responseTime": 136,
                     "timestamp": "2025-12-30T22:54:30.763Z"
+                },
+                {
+                    "ok": true,
+                    "statusCode": 200,
+                    "responseTime": 360,
+                    "timestamp": "2025-12-30T23:19:14.758Z"
                 }
             ]
         },
@@ -53,7 +65,7 @@
             "url": "https://github.com/RE-TikaRa",
             "status": "ok",
             "statusCode": 200,
-            "responseTime": 1480,
+            "responseTime": 434,
             "history": [
                 {
                     "ok": true,
@@ -66,6 +78,12 @@
                     "statusCode": 200,
                     "responseTime": 1480,
                     "timestamp": "2025-12-30T22:54:30.763Z"
+                },
+                {
+                    "ok": true,
+                    "statusCode": 200,
+                    "responseTime": 434,
+                    "timestamp": "2025-12-30T23:19:14.758Z"
                 }
             ]
         },
@@ -75,7 +93,7 @@
             "url": "https://space.bilibili.com/374412219",
             "status": "ok",
             "statusCode": 200,
-            "responseTime": 613,
+            "responseTime": 542,
             "history": [
                 {
                     "ok": true,
@@ -88,6 +106,12 @@
                     "statusCode": 200,
                     "responseTime": 613,
                     "timestamp": "2025-12-30T22:54:30.763Z"
+                },
+                {
+                    "ok": true,
+                    "statusCode": 200,
+                    "responseTime": 542,
+                    "timestamp": "2025-12-30T23:19:14.758Z"
                 }
             ]
         }
