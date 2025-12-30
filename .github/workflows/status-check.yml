@@ -27,6 +27,8 @@ jobs:
         run: |
           if git status --porcelain | grep -q "status.json"; then
             cp status.json /tmp/status.json
+            git reset --hard
+            git clean -fdx
             git switch --orphan status-data
             git rm -rf .
             mv /tmp/status.json status.json
