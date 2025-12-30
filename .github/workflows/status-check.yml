@@ -30,7 +30,7 @@ jobs:
             git reset --hard
             git clean -fdx
             git switch --orphan status-data
-            git rm -rf .
+            git rm -rf . || true
             mv /tmp/status.json status.json
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
