@@ -2357,6 +2357,7 @@ body.is-ready .card {
 
 .status-page {
     position: relative;
+    font-family: "XinHuoTi", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
 }
 
 .status-page::before {
