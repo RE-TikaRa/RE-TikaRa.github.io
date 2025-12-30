@@ -335,6 +335,25 @@
             weatherCard.hidden = false;
         }
 
+        async function reverseGeocode(lat, lon) {
+            try {
+                const url = `https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}&zoom=10&addressdetails=1&accept-language=zh-CN`;
+                const response = await fetch(url, { cache: 'no-store' });
+                if (!response.ok) throw new Error('reverse geocode failed');
+                const data = await response.json();
+                const address = data?.address || {};
+                const city = address.city || address.town || address.village || address.county || '';
+                const state = address.state || address.region || '';
+                const country = address.country || '';
+                const parts = [city, state].filter(Boolean);
+                const label = parts.length ? parts.join(' · ') : country;
+                return label || '当前位置';
+            } catch (error) {
+                console.warn('获取位置名称失败:', error);
+                return '当前位置';
+            }
+        }
+
         function showVirtualWeather() {
             console.log("加载虚拟天气数据...");
             const weatherCodes = Object.keys(weatherCodeMap);
@@ -354,7 +373,8 @@
             if (!response.ok) throw new Error(`HTTP 错误! 状态: ${response.status}`);
             const data = await response.json();
             const weatherInfo = weatherCodeMap[data.current.weather_code] || { icon: 'fa-solid fa-question', description: '未知' };
-            updateWeatherUI('当前位置', data.current.temperature_2m, weatherInfo, '定位');
+            const locationLabel = await reverseGeocode(latitude, longitude);
+            updateWeatherUI(locationLabel, data.current.temperature_2m, weatherInfo, '定位');
         } catch (error) {
             console.error("获取天气失败:", error.message || error);
             showVirtualWeather();
