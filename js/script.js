@@ -238,13 +238,13 @@
             const greetingKey = String(hours);
 
             if (greetingKey !== lastGreetingKey) {
-                let greetingText = '你好';
-                if (hours >= 5 && hours <= 8) greetingText = '早上好';
-                else if (hours >= 9 && hours <= 11) greetingText = '上午好';
-                else if (hours >= 12 && hours <= 13) greetingText = '中午好';
-                else if (hours >= 14 && hours <= 17) greetingText = '下午好';
-                else if (hours >= 18 && hours <= 22) greetingText = '晚上好';
-                else greetingText = '夜深了';
+                let greetingText = '你好，实验体';
+                if (hours >= 5 && hours <= 8) greetingText = '早上好，开始今天的计划吧。';
+                else if (hours >= 9 && hours <= 11) greetingText = '上午好，来开始今天的计划吧。';
+                else if (hours >= 12 && hours <= 13) greetingText = '中午好，来享用午饭吧~';
+                else if (hours >= 14 && hours <= 17) greetingText = '下午好，来杯咖啡吧~';
+                else if (hours >= 18 && hours <= 22) greetingText = '晚上好，还在忙碌么？';
+                else greetingText = '夜深了，还不睡么？';
 
                 if (greetingEl && !reduceMotion) {
                     greetingEl.innerHTML = '';
