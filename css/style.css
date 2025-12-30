@@ -2252,6 +2252,106 @@ body.is-ready .card {
 }
 
 
+/* --- 11.5. ERROR PAGE / 404 页面 --- */
+/* -------------------------------- */
+
+.error-page {
+    position: relative;
+    --error-border: rgba(18, 28, 38, 0.45);
+    --error-surface: rgba(255, 255, 255, 0.82);
+    --error-shadow: 0 20px 45px rgba(12, 18, 28, 0.18);
+    --error-glow: rgba(var(--accent-rgb), 0.12);
+}
+
+[data-theme="dark"] .error-page {
+    --error-border: rgba(210, 230, 245, 0.4);
+    --error-surface: rgba(10, 14, 20, 0.78);
+    --error-shadow: 0 28px 60px rgba(0, 0, 0, 0.55);
+    --error-glow: rgba(var(--accent-rgb), 0.18);
+}
+
+.error-shell {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(18px, 4vw, 28px);
+    padding: clamp(80px, 12vh, 140px) 0 90px;
+    position: relative;
+    z-index: 1;
+}
+
+.error-card {
+    width: 100%;
+    text-align: center;
+    padding: clamp(40px, 6vw, 70px);
+    --card-radius: 34px;
+    --card-bg: var(--error-surface);
+    --card-border: var(--error-border);
+    --card-shadow: var(--error-shadow);
+    border-width: 2px;
+    box-shadow: var(--card-shadow), 0 0 0 1px rgba(var(--accent-rgb), 0.08) inset;
+}
+
+.error-label {
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.error-code {
+    font-family: var(--font-display);
+    font-size: clamp(3.6rem, 8vw, 6.2rem);
+    letter-spacing: 8px;
+    color: var(--text-primary);
+    text-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
+    margin-bottom: 18px;
+}
+
+.error-desc {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.2px;
+}
+
+.error-cta {
+    width: min(760px, 100%);
+    text-align: center;
+    padding: 20px 24px;
+    --card-radius: 26px;
+    --card-bg: color-mix(in srgb, var(--error-surface) 80%, rgba(var(--accent-rgb), 0.12));
+    --card-border: var(--error-border);
+    --card-shadow: var(--shadow-2);
+    border-width: 2px;
+    box-shadow: var(--shadow-2), 0 0 0 1px rgba(var(--accent-rgb), 0.08) inset;
+}
+
+.error-home {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: 0.4px;
+}
+
+.error-home:hover {
+    color: var(--accent-color);
+}
+
+.error-home:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 4px;
+}
+
+
 /* --- 12. RESPONSIVE & ACCESSIBILITY / 响应式与可访问性 --- */
 /* --------------------------------------------------------- */
 
@@ -2259,6 +2359,17 @@ body.is-ready .card {
     /* 在移动端隐藏星空背景以提升性能 */
     .starfield-canvas {
         display: none;
+    }
+
+    .error-shell {
+        min-height: auto;
+        padding-top: 90px;
+        padding-bottom: 70px;
+    }
+
+    .error-card,
+    .error-cta {
+        width: 100%;
     }
 
     body {

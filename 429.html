@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>429 | ALp_Studio</title>
+    <meta name="description" content="请求过于频繁，请稍后再试。">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/x-icon" href="https://free.picui.cn/free/2025/12/30/6953f28ba97a0.ico">
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', initialTheme);
+
+            const savedSettings = JSON.parse(localStorage.getItem('visualSettings') || '{}');
+            if (savedSettings.highContrast) {
+                document.documentElement.setAttribute('data-contrast', 'high');
+            }
+            if (savedSettings.liteMode) {
+                document.documentElement.setAttribute('data-lite', 'true');
+            }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="error-page is-ready">
+    <div class="background-gradient"></div>
+    <canvas id="starfield-layer1" class="starfield-canvas" data-layer-id="1"></canvas>
+    <canvas id="starfield-layer2" class="starfield-canvas" data-layer-id="2"></canvas>
+    <canvas id="starfield-layer3" class="starfield-canvas" data-layer-id="3"></canvas>
+    <canvas id="shooting-star-canvas" class="starfield-canvas"></canvas>
+    <canvas id="raindrop-canvas" class="starfield-canvas"></canvas>
+
+    <div class="settings-wrapper">
+        <button id="settings-toggle" type="button" aria-label="打开设置" aria-expanded="false" aria-controls="settings-panel">
+            <i class="fa-solid fa-gear" aria-hidden="true"></i>
+            <span class="icon-text">设定</span>
+        </button>
+    </div>
+
+    <div id="settings-panel" class="card card--tertiary glass" hidden>
+        <div class="settings-header">
+            <h3>显示设置</h3>
+            <button id="settings-close" type="button" aria-label="关闭设置">&times;</button>
+        </div>
+        <div class="settings-content">
+            <div class="setting-item">
+                <label for="toggle-high-contrast">高对比模式</label>
+                <input type="checkbox" id="toggle-high-contrast" class="toggle-switch" data-setting="highContrast">
+            </div>
+            <div class="setting-item">
+                <label for="toggle-lite-mode">轻量模式</label>
+                <input type="checkbox" id="toggle-lite-mode" class="toggle-switch" data-setting="liteMode">
+            </div>
+        </div>
+    </div>
+
+    <div class="theme-switch-wrapper">
+        <button id="theme-toggle" type="button" aria-label="切换主题">
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            <span class="theme-toggle-text">深色</span>
+        </button>
+    </div>
+
+    <main class="error-shell">
+        <section class="card glass error-card" aria-labelledby="error-title">
+            <p class="error-label">错误码</p>
+            <h1 class="error-code" id="error-title">429</h1>
+            <p class="error-desc">请求过于频繁，系统正在限流，请稍后再试。</p>
+        </section>
+        <div class="card glass error-cta">
+            <a class="error-home" href="https://re-tikara.fun/">回到首页</a>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>实例仍在运行  日志尚未终止  // <span class="is-latin" lang="en">The instance is still running; the logs haven’t terminated.</span></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
