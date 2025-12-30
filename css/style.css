@@ -2359,6 +2359,17 @@ body.is-ready .card {
     position: relative;
 }
 
+.status-page::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(900px circle at 15% 10%, rgba(0, 0, 0, 0.35), transparent 55%),
+        radial-gradient(900px circle at 80% 90%, rgba(0, 0, 0, 0.45), transparent 60%);
+    pointer-events: none;
+    z-index: -1;
+}
+
 .status-shell {
     width: min(1240px, 100%);
     margin: 0 auto;
@@ -2376,8 +2387,21 @@ body.is-ready .card {
     gap: 16px;
     padding: clamp(28px, 5vw, 42px);
     --card-radius: 26px;
-    --card-bg: var(--surface-1);
-    --card-border: var(--surface-border-1);
+    --card-bg: color-mix(in srgb, var(--surface-1) 88%, rgba(0, 0, 0, 0.08));
+    --card-border: rgba(var(--accent-rgb), 0.3);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.06) inset;
+}
+
+.status-header::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background:
+        linear-gradient(120deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.02) 45%, transparent 70%),
+        linear-gradient(180deg, rgba(var(--accent-rgb), 0.08), transparent 55%);
+    pointer-events: none;
+    opacity: 0.8;
 }
 
 .status-back {
@@ -2390,7 +2414,7 @@ body.is-ready .card {
     padding: 6px 12px;
     border-radius: var(--radius-pill);
     border: 1px solid rgba(var(--accent-rgb), 0.28);
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.78);
     color: var(--text-primary);
     font-size: 0.85rem;
     text-decoration: none;
@@ -2410,8 +2434,8 @@ body.is-ready .card {
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    font-size: 0.85rem;
-    letter-spacing: 1.2px;
+    font-size: 0.8rem;
+    letter-spacing: 1.6px;
     color: var(--text-secondary);
     text-transform: uppercase;
 }
@@ -2430,7 +2454,7 @@ body.is-ready .card {
 .status-title {
     font-family: var(--font-display);
     font-size: clamp(2rem, 4vw, 3.2rem);
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     color: var(--text-primary);
 }
 
@@ -2448,7 +2472,8 @@ body.is-ready .card {
     border-radius: var(--radius-pill);
     font-size: 0.85rem;
     border: 1px solid transparent;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
 }
 
 .status-pill.status-ok {
@@ -2487,6 +2512,7 @@ body.is-ready .card {
     letter-spacing: 1.2px;
     text-transform: uppercase;
     border: 1px solid transparent;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
 }
 
 .status-overall.status-ok {
@@ -2520,17 +2546,40 @@ body.is-ready .card {
     gap: 14px;
     min-height: 210px;
     --card-radius: 20px;
-    --card-bg: var(--surface-2);
-    --card-border: var(--surface-border-2);
-    --card-shadow: var(--shadow-2);
+    --card-bg: color-mix(in srgb, var(--surface-2) 90%, rgba(0, 0, 0, 0.08));
+    --card-border: rgba(255, 255, 255, 0.08);
+    --card-shadow: 0 14px 34px rgba(0, 0, 0, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.status-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+}
+
+.status-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(320px circle at 20% 10%, rgba(var(--accent-rgb), 0.18), transparent 60%);
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 .status-card.is-ok {
     border-color: rgba(26, 122, 75, 0.35);
+    box-shadow: 0 16px 36px rgba(26, 122, 75, 0.18), var(--card-shadow);
 }
 
 .status-card.is-bad {
     border-color: rgba(201, 61, 61, 0.35);
+    box-shadow: 0 16px 36px rgba(201, 61, 61, 0.2), var(--card-shadow);
 }
 
 .status-card-head {
@@ -2561,13 +2610,30 @@ body.is-ready .card {
     padding: 4px 10px;
     border-radius: var(--radius-pill);
     font-size: 0.78rem;
-    border: 1px solid rgba(var(--accent-rgb), 0.25);
+    border: 1px solid transparent;
     color: var(--text-primary);
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.8);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
 }
 
 [data-theme="dark"] .status-state {
     background: rgba(10, 16, 24, 0.7);
+}
+
+.status-state.is-ok {
+    border-color: rgba(26, 122, 75, 0.4);
+    color: #1a7a4b;
+}
+
+.status-state.is-bad {
+    border-color: rgba(201, 61, 61, 0.4);
+    color: #c93d3d;
+}
+
+.status-state.is-unknown {
+    border-color: rgba(120, 120, 120, 0.35);
+    color: var(--text-secondary);
 }
 
 .status-card-link {
@@ -2580,11 +2646,17 @@ body.is-ready .card {
     border: 1px solid rgba(var(--accent-rgb), 0.2);
     color: var(--text-primary);
     text-decoration: none;
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.85);
+    transition: transform 0.2s var(--ease-out), background 0.2s var(--ease-out);
 }
 
 [data-theme="dark"] .status-card-link {
     background: rgba(10, 16, 24, 0.7);
+}
+
+.status-card-link:hover {
+    transform: translateY(-1px);
+    background: rgba(var(--accent-rgb), 0.12);
 }
 
 .status-card-metrics {
@@ -2598,6 +2670,10 @@ body.is-ready .card {
     display: flex;
     flex-direction: column;
     gap: 6px;
+    padding: 10px 12px;
+    border-radius: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.12);
 }
 
 .status-metric-label {

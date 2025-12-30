@@ -91,7 +91,7 @@
             nameWrap.appendChild(urlEl);
 
             const stateEl = document.createElement('div');
-            stateEl.className = 'status-state';
+            stateEl.className = `status-state ${isOk ? 'is-ok' : isBad ? 'is-bad' : 'is-unknown'}`;
             stateEl.textContent = statusText;
 
             const openEl = document.createElement('a');
