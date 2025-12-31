@@ -43,6 +43,18 @@
         CONFIG.RAINDROP_COUNT = 50;
     }
 
+    const isStatusPage = document.body && document.body.classList.contains('status-page');
+    if (isStatusPage) {
+        CONFIG.STAR_COUNT_LAYER1 = 140;
+        CONFIG.STAR_COUNT_LAYER2 = 90;
+        CONFIG.STAR_COUNT_LAYER3 = 60;
+        CONFIG.SHOOTING_STAR_COUNT = 1;
+        CONFIG.RAINDROP_COUNT = 0;
+        CONFIG.GLOBAL_TILT_STRENGTH = 5;
+        CONFIG.PARALLAX_STRENGTH_X = -10;
+        CONFIG.PARALLAX_STRENGTH_Y = -8;
+    }
+
     class TextScramble {
         constructor(el) {
             this.el = el;
@@ -540,9 +552,16 @@
                 });
             }
             
-            animationState.starfieldUpdate(animationState.currentX, animationState.currentY);
-            animationState.shootingStarUpdate();
-            animationState.raindropUpdate();
+            const liteModeEnabled = visualSettings.liteMode || document.documentElement.getAttribute('data-lite') === 'true';
+            if (!liteModeEnabled && visualSettings.starfield) {
+                animationState.starfieldUpdate(animationState.currentX, animationState.currentY);
+            }
+            if (!liteModeEnabled && visualSettings.shootingStars) {
+                animationState.shootingStarUpdate();
+            }
+            if (!liteModeEnabled && visualSettings.raindrops) {
+                animationState.raindropUpdate();
+            }
             requestAnimationFrame(tick);
         }
 
@@ -776,6 +795,11 @@
             musicAutoplay: true,
             playlistType: 'song',
         };
+        if (isStatusPage) {
+            defaultSettings.shootingStars = false;
+            defaultSettings.raindrops = false;
+            defaultSettings.cardFloat = false;
+        }
 
         const savedSettings = JSON.parse(localStorage.getItem('visualSettings')) || {};
         visualSettings = { ...defaultSettings, ...savedSettings };
