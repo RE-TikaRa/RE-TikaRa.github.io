@@ -16,6 +16,17 @@
     let refreshInterval = 60;
     let nextTick = refreshInterval;
     let lastGeneratedAt = null;
+    let statusTimer = null;
+    let currentIntervalSeconds = null;
+
+    const resetStatusTimer = (seconds) => {
+        const value = Number(seconds);
+        if (!Number.isFinite(value) || value <= 0) return;
+        if (currentIntervalSeconds === value && statusTimer) return;
+        currentIntervalSeconds = value;
+        if (statusTimer) window.clearInterval(statusTimer);
+        statusTimer = window.setInterval(loadStatus, currentIntervalSeconds * 1000);
+    };
 
     const formatNumber = (value) => (typeof value === 'number' ? value.toLocaleString() : '--');
 
@@ -84,6 +95,7 @@
         lastGeneratedAt = payload.generatedAt || null;
         if (updatedEl) updatedEl.textContent = formatTimestamp(payload.generatedAt);
         updateAge();
+        resetStatusTimer(refreshInterval);
 
         let okCount = 0;
         let badCount = 0;
@@ -235,7 +247,8 @@
         updateAge();
     };
 
-    loadStatus();
-    window.setInterval(loadStatus, refreshInterval * 1000);
+    loadStatus().then(() => {
+        if (!statusTimer) resetStatusTimer(refreshInterval);
+    });
     window.setInterval(tickCountdown, 1000);
 })();

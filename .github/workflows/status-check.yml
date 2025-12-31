@@ -3,7 +3,7 @@ name: Status Check
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/30 * * * *'
 
 permissions:
   contents: write
@@ -19,6 +19,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+
+      - name: Restore previous status snapshot
+        run: |
+          git fetch origin status-data || true
+          if git cat-file -e origin/status-data:status.json 2>/dev/null; then
+            git show origin/status-data:status.json > status.json
+          fi
 
       - name: Run status check
         run: node scripts/status-check.mjs
