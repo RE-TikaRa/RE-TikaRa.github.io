@@ -4,6 +4,7 @@
     const badCountEl = document.getElementById('status-bad-count');
     const unknownCountEl = document.getElementById('status-unknown-count');
     const updatedEl = document.getElementById('status-updated');
+    const ageEl = document.getElementById('status-age');
     const nextEl = document.getElementById('status-next');
     const overallEl = document.getElementById('status-overall');
 
@@ -14,6 +15,7 @@
 
     let refreshInterval = 60;
     let nextTick = refreshInterval;
+    let lastGeneratedAt = null;
 
     const formatNumber = (value) => (typeof value === 'number' ? value.toLocaleString() : '--');
 
@@ -22,6 +24,31 @@
         const date = new Date(iso);
         if (Number.isNaN(date.getTime())) return '更新中...';
         return `更新于 ${date.getFullYear()}/${String(date.getMonth() + 1).padStart(2, '0')}/${String(date.getDate()).padStart(2, '0')} ${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}:${String(date.getSeconds()).padStart(2, '0')}`;
+    };
+
+    const updateAge = () => {
+        if (!ageEl) return;
+        if (!lastGeneratedAt) {
+            ageEl.textContent = '距上次更新 -- 分钟';
+            ageEl.className = 'status-age';
+            return;
+        }
+        const now = Date.now();
+        const last = new Date(lastGeneratedAt).getTime();
+        if (Number.isNaN(last)) {
+            ageEl.textContent = '距上次更新 -- 分钟';
+            ageEl.className = 'status-age';
+            return;
+        }
+        const minutes = Math.max(0, Math.floor((now - last) / 60000));
+        ageEl.textContent = `距上次更新 ${formatNumber(minutes)} 分钟`;
+        if (minutes <= 6) {
+            ageEl.className = 'status-age is-ok';
+        } else if (minutes <= 15) {
+            ageEl.className = 'status-age is-warn';
+        } else {
+            ageEl.className = 'status-age is-bad';
+        }
     };
 
     const buildHistoryBars = (history, total) => {
@@ -54,7 +81,9 @@
         refreshInterval = Number(payload.intervalSeconds || payload.refreshIntervalSeconds || 60);
         nextTick = refreshInterval;
         if (nextEl) nextEl.textContent = `下次刷新 ${formatNumber(nextTick)}s`;
+        lastGeneratedAt = payload.generatedAt || null;
         if (updatedEl) updatedEl.textContent = formatTimestamp(payload.generatedAt);
+        updateAge();
 
         let okCount = 0;
         let badCount = 0;
@@ -203,6 +232,7 @@
         nextTick = Math.max(0, nextTick - 1);
         if (nextEl) nextEl.textContent = `下次刷新 ${formatNumber(nextTick)}s`;
         if (nextTick <= 0) nextTick = refreshInterval;
+        updateAge();
     };
 
     loadStatus();

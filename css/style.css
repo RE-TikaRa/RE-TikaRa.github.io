@@ -2502,6 +2502,32 @@ body.is-ready .card {
     color: var(--text-secondary);
 }
 
+.status-age {
+    padding: 4px 10px;
+    border-radius: var(--radius-pill);
+    border: 1px solid rgba(120, 120, 120, 0.3);
+    background: rgba(120, 120, 120, 0.12);
+    color: var(--text-secondary);
+}
+
+.status-age.is-ok {
+    border-color: rgba(26, 122, 75, 0.35);
+    background: rgba(26, 122, 75, 0.12);
+    color: #1a7a4b;
+}
+
+.status-age.is-warn {
+    border-color: rgba(167, 122, 27, 0.35);
+    background: rgba(167, 122, 27, 0.12);
+    color: #a77a1b;
+}
+
+.status-age.is-bad {
+    border-color: rgba(201, 61, 61, 0.35);
+    background: rgba(201, 61, 61, 0.12);
+    color: #c93d3d;
+}
+
 .status-overall {
     position: absolute;
     top: 18px;
