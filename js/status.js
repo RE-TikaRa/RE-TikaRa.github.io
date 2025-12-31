@@ -30,24 +30,24 @@
         if (!ageEl) return;
         if (!lastGeneratedAt) {
             ageEl.textContent = '距上次更新 -- 分钟';
-            ageEl.className = 'status-age';
+            ageEl.className = 'status-pill status-age';
             return;
         }
         const now = Date.now();
         const last = new Date(lastGeneratedAt).getTime();
         if (Number.isNaN(last)) {
             ageEl.textContent = '距上次更新 -- 分钟';
-            ageEl.className = 'status-age';
+            ageEl.className = 'status-pill status-age';
             return;
         }
         const minutes = Math.max(0, Math.floor((now - last) / 60000));
         ageEl.textContent = `距上次更新 ${formatNumber(minutes)} 分钟`;
         if (minutes <= 6) {
-            ageEl.className = 'status-age is-ok';
+            ageEl.className = 'status-pill status-age is-ok';
         } else if (minutes <= 15) {
-            ageEl.className = 'status-age is-warn';
+            ageEl.className = 'status-pill status-age is-warn';
         } else {
-            ageEl.className = 'status-age is-bad';
+            ageEl.className = 'status-pill status-age is-bad';
         }
     };
 
