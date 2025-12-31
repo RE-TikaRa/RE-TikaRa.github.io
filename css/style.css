@@ -2261,6 +2261,7 @@ body.is-ready .card {
     --error-surface: rgba(255, 255, 255, 0.82);
     --error-shadow: 0 20px 45px rgba(12, 18, 28, 0.18);
     --error-glow: rgba(var(--accent-rgb), 0.12);
+    font-family: "XinHuoTi", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
 }
 
 [data-theme="dark"] .error-page {
