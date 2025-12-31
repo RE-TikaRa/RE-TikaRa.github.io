@@ -53,9 +53,9 @@
         }
         const minutes = Math.max(0, Math.floor((now - last) / 60000));
         ageEl.textContent = `距上次更新 ${formatNumber(minutes)} 分钟`;
-        if (minutes <= 6) {
+        if (minutes <= 30) {
             ageEl.className = 'status-pill status-age is-ok';
-        } else if (minutes <= 15) {
+        } else if (minutes <= 60) {
             ageEl.className = 'status-pill status-age is-warn';
         } else {
             ageEl.className = 'status-pill status-age is-bad';
