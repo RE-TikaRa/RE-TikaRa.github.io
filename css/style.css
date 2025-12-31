@@ -2406,9 +2406,6 @@ body.is-ready .card {
 }
 
 .status-back {
-    position: absolute;
-    top: 18px;
-    left: 18px;
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -2419,6 +2416,7 @@ body.is-ready .card {
     color: var(--text-primary);
     font-size: 0.85rem;
     text-decoration: none;
+    width: fit-content;
     transition: transform 0.2s var(--ease-out), background 0.2s var(--ease-out);
 }
 
