@@ -983,7 +983,7 @@
                     { label: 'clear', value: '清空终端屏幕' },
                     { label: 'theme', value: '切换亮/暗主题' },
                     { label: 'info', value: '显示系统和版本信息' },
-                    { label: 'status', value: '跳转到系统状态页面' },
+                    { label: 'status', value: '查看系统服务状态' },
                     { label: 'date', value: '显示当前时间' },
                     { label: 'fortune', value: '随机输出一言' },
                     { label: 'say', value: '说点什么' },
@@ -1015,9 +1015,45 @@
                 const currentTheme = document.documentElement.getAttribute('data-theme');
                 return `主题已切换为 ${currentTheme === 'dark' ? '深色' : '浅色'} 模式。`;
             },
-            status: () => {
-                window.location.href = 'status.html';
-                return '正在跳转到系统状态页面...';
+            status: (args) => {
+                if (args && args[0] === 'web') {
+                    window.location.href = 'status.html';
+                    return '正在跳转到系统状态页面...';
+                }
+
+                fetch('status.config.json')
+                    .then(res => res.json())
+                    .then(config => {
+                        if (!config.dataUrl) throw new Error('No dataUrl');
+                        return fetch(config.dataUrl);
+                    })
+                    .then(res => res.json())
+                    .then(data => {
+                        const lines = [];
+                        lines.push(`最后更新: ${new Date(data.generatedAt).toLocaleString('zh-CN')}`);
+                        lines.push('-'.repeat(35));
+                        
+                        if (Array.isArray(data.targets)) {
+                            const maxNameLen = Math.max(...data.targets.map(t => getDisplayWidth(t.name)));
+                            data.targets.forEach(target => {
+                                const isOk = target.status === 'ok';
+                                const statusMark = isOk ? '<span style="color:#4caf50">OK </span>' : '<span style="color:#f44336">ERR</span>';
+                                const name = padToWidth(target.name, maxNameLen);
+                                const time = target.responseTime ? `${target.responseTime}ms` : '';
+                                lines.push(`${statusMark} ${name}  ${time}`);
+                            });
+                        }
+                        lines.push('-'.repeat(35));
+                        lines.push('输入 "status web" 跳转到详细页面');
+                        
+                        printToCLI(`<pre style="margin:0">${lines.join('\n')}</pre>`);
+                    })
+                    .catch(err => {
+                        console.error(err);
+                        printToCLI('获取状态数据失败，请尝试 "status web"');
+                    });
+
+                return '正在获取系统状态...';
             },
             info: () => {
                 const infoBox = renderInfoBoxText();
