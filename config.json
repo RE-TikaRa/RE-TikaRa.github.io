@@ -24,19 +24,23 @@
   "latest_articles": [
     {
       "title": "DesktopTimer",
-      "link": "https://re-tikara.fun/Blog/posts/998ef9dc/"
+      "link": "https://re-tikara.fun/Blog/posts/998ef9dc/",
+      "date": "2026-01-02"
     },
     {
       "title": "Certificate-Management",
-      "link": "https://re-tikara.fun/Blog/posts/6c20921f/"
+      "link": "https://re-tikara.fun/Blog/posts/6c20921f/",
+      "date": "2026-01-02"
     },
     {
       "title": "LaTeX学习日志01-前期准备",
-      "link": "https://re-tikara.fun/Blog/posts/828fd9e/"
+      "link": "https://re-tikara.fun/Blog/posts/828fd9e/",
+      "date": "2025-12-26"
     },
     {
       "title": "置顶公告",
-      "link": "https://re-tikara.fun/Blog/posts/25ad5f96/"
+      "link": "https://re-tikara.fun/Blog/posts/25ad5f96/",
+      "date": "2025-12-22"
     }
   ],
   "projects": [

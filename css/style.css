@@ -448,8 +448,9 @@ body.is-ready .starfield-canvas {
 
 .grid-container {
     display: grid; /* 12 列栅格 */
+    --grid-gap: clamp(18px, 3vw, 32px);
     grid-template-columns: repeat(12, minmax(0, 1fr));
-    gap: clamp(18px, 3vw, 32px); /* 响应式间距 */
+    gap: var(--grid-gap); /* 响应式间距 */
     align-items: start;
     width: 100%;
     max-width: 100%;
@@ -464,6 +465,7 @@ body.is-ready .starfield-canvas {
 
 .nav-panel {
     grid-column: span 3;
+    grid-row: 1 / span 2; /* Span 2 rows to stay sticky alongside bottom content */
     display: flex;
     flex-direction: column;
     gap: var(--space-6);
@@ -612,6 +614,23 @@ body.is-ready .starfield-canvas {
 .hitokoto-panel {
     grid-column: 1 / -1;
     margin-top: clamp(10px, 2vw, 18px);
+    transition: padding-left 0.6s cubic-bezier(0.22, 1, 0.36, 1); /* Smooth transition */
+}
+
+/* When scrolled, indent the panel to accommodate sticky nav (Desktop only) */
+@media (min-width: 961px) {
+    body.is-scrolled .hitokoto-panel {
+        /* Calculate indentation: 3 columns (25%) + 3 gaps - 2.75 gaps = 25% + 0.25 gap */
+        /* Wait, logic check: 
+           Width of 3 cols = 3 * ((100% - 11g)/12) + 2g
+           Gap between nav and content = 1g
+           Total indent = 3 * ((100% - 11g)/12) + 3g
+           = (100% - 11g)/4 + 3g
+           = 25% - 2.75g + 3g
+           = 25% + 0.25g
+        */
+        padding-left: calc(25% + 0.25 * var(--grid-gap));
+    }
 }
 
 .hitokoto-panel .card {
@@ -2826,6 +2845,18 @@ body.is-ready .card {
     .hitokoto-panel {
         grid-column: 1 / -1;
     }
+
+    /* Mobile optimizations for Article List */
+    .article-link {
+        padding: 10px 8px;
+    }
+    .article-title {
+        font-size: 0.95rem;
+    }
+    .article-item:hover {
+        transform: none; /* Disable slide on touch devices */
+    }
+
     .profile-card {
         padding: 34px 18px;
         align-items: center;
@@ -2870,21 +2901,28 @@ body.is-ready .card {
 /* Latest Articles Widget */
 .article-list {
     list-style: none;
-    padding: 0;
+    padding: 0 4px; /* Add side padding */
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: var(--space-3);
+    gap: 2px; /* Small gap between items */
 }
 
 .article-item {
-    border-bottom: 1px solid var(--surface-border-3);
-    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--surface-border-2);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Smoother bezier */
+    border-radius: 8px; /* Rounded corners */
 }
 
 .article-item:last-child {
     border-bottom: none;
-    padding-bottom: 0;
+}
+
+.article-item:hover {
+    background-color: rgba(var(--accent-rgb), 0.08); /* Subtle accent glow */
+    border-color: transparent;
+    transform: translateX(4px); /* Smooth slide */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04); /* Soft shadow */
 }
 
 .article-link {
@@ -2892,9 +2930,11 @@ body.is-ready .card {
     justify-content: space-between;
     align-items: center;
     text-decoration: none;
-    color: var(--text-1);
-    transition: color 0.2s ease;
+    color: var(--text-primary);
+    padding: 12px 8px; /* Increased padding */
     font-size: var(--type-body);
+    width: 100%;
+    transition: color 0.3s ease;
 }
 
 .article-link:hover {
@@ -2907,31 +2947,87 @@ body.is-ready .card {
     overflow: hidden;
     text-overflow: ellipsis;
     margin-right: var(--space-2);
+    font-weight: 500;
+    font-family: var(--font-body); /* Ensure consistent font */
 }
 
-.article-icon {
-    font-size: 0.8em;
-    opacity: 0.7;
+.article-action {
+    font-size: 0.85em;
+    opacity: 0.6;
+    transition: opacity 0.2s, transform 0.2s, color 0.2s;
+    white-space: nowrap;
+}
+
+.article-link:hover .article-action {
+    opacity: 1;
+    color: var(--accent);
+    transform: translateX(2px);
 }
 
 #latest-articles-card .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--space-4);
+    margin-bottom: var(--space-2);
+    padding-bottom: var(--space-2);
+    border-bottom: 1px dashed var(--surface-border-2);
+}
+
+#latest-articles-card .card-title {
+    font-size: var(--type-title);
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 12px;
+}
+
+#latest-articles-card .card-title::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 4px;
+    height: 70%;
+    background-color: var(--accent);
+    border-radius: 2px;
 }
 
 #latest-articles-card .card-more-link {
     font-size: var(--type-caption);
-    color: var(--text-2);
+    color: var(--text-secondary);
     text-decoration: none;
     display: flex;
     align-items: center;
     gap: 4px;
-    transition: color 0.2s;
+    transition: all 0.2s ease;
+    font-weight: 500;
 }
 
 #latest-articles-card .card-more-link:hover {
     color: var(--accent);
+    transform: translateX(2px);
+}
+
+#latest-articles-card .card-more-link i {
+    font-size: 0.8em;
+}
+
+
+/* Adjust spacing for cards in hitokoto-panel */
+.hitokoto-panel {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+}
+
+
+.article-date {
+    font-size: 0.85em;
+    color: var(--text-secondary);
+    margin-right: var(--space-2);
+    white-space: nowrap;
+    font-family: var(--font-mono); /* Use monospace for alignment */
+    opacity: 0.8;
 }
 

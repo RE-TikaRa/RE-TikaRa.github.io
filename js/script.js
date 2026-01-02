@@ -1420,7 +1420,8 @@
                 <li class="article-item">
                     <a href="${article.link}" target="_blank" class="article-link">
                         <span class="article-title">${article.title}</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square article-icon"></i>
+                        ${article.date ? `<span class="article-date">${article.date}</span>` : ''}
+                        <span class="article-action">点击查看</span>
                     </a>
                 </li>
             `).join('');
@@ -1430,6 +1431,21 @@
             console.error('Failed to load articles:', error);
             container.hidden = true;
         }
+    }
+
+    function initScrollLayout() {
+        const handleScroll = () => {
+            const scrollY = window.scrollY;
+            const threshold = 100; // Adjust threshold as needed
+            if (scrollY > threshold) {
+                document.body.classList.add('is-scrolled');
+            } else {
+                document.body.classList.remove('is-scrolled');
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // Initial check
     }
 
     function main() {
@@ -1444,6 +1460,7 @@
         initCLI();
         initMusicPlayer();
         initLatestArticles();
+        initScrollLayout();
         const hitokotoCard = document.getElementById('hitokoto-card');
         if (hitokotoCard) {
             initHitokotoFallback(hitokotoCard, { ghost: false });

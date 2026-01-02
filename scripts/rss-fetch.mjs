@@ -47,23 +47,37 @@ function parseXML(xml, limit) {
     const itemRegex = isAtom ? /<entry>([\s\S]*?)<\/entry>/g : /<item>([\s\S]*?)<\/item>/g;
     const titleRegex = /<title[^>]*>([^<]+)<\/title>/;
     const linkRegex = isAtom ? /<link[^>]*href="([^"]+)"/ : /<link>([^<]+)<\/link>/;
-    // Date parsing can be tricky, skipping for now or adding simple check
-    // const dateRegex = isAtom ? /<updated>([^<]+)<\/updated>/ : /<pubDate>([^<]+)<\/pubDate>/;
+    const dateRegex = isAtom ? /<updated>([^<]+)<\/updated>/ : /<pubDate>([^<]+)<\/pubDate>/;
 
     let match;
     while ((match = itemRegex.exec(xml)) !== null && items.length < limit) {
         const itemContent = match[1];
         const titleMatch = titleRegex.exec(itemContent);
         const linkMatch = linkRegex.exec(itemContent);
+        const dateMatch = dateRegex.exec(itemContent);
 
         if (titleMatch && linkMatch) {
             // Decode HTML entities in title if necessary (basic ones)
             let title = titleMatch[1].replace(/<!\[CDATA\[(.*?)\]\]>/g, '$1');
             let link = linkMatch[1];
+            let date = '';
+
+            if (dateMatch) {
+                try {
+                    const d = new Date(dateMatch[1]);
+                    if (!isNaN(d.getTime())) {
+                        // Format: YYYY-MM-DD
+                        date = d.toISOString().split('T')[0];
+                    }
+                } catch (e) {
+                    // Keep empty if parsing fails
+                }
+            }
 
             items.push({
                 title: title.trim(),
-                link: link.trim()
+                link: link.trim(),
+                date: date
             });
         }
     }
