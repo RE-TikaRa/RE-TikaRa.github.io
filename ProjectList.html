@@ -206,11 +206,25 @@
             try {
                 console.log('Starting project load...');
                 // Add timestamp to prevent caching
-                const response = await fetch(`config.json?t=${new Date().getTime()}`);
+                const fetchUrl = `config.json?t=${new Date().getTime()}`;
+                console.log('Fetching:', fetchUrl);
                 
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const response = await fetch(fetchUrl);
                 
-                const config = await response.json();
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
+                }
+                
+                const text = await response.text();
+                let config;
+                try {
+                    config = JSON.parse(text);
+                } catch (e) {
+                    // If parsing fails, it's likely HTML (404 page) or malformed JSON
+                    const preview = text.substring(0, 50).replace(/</g, '&lt;');
+                    throw new Error(`JSON 解析失败: ${e.message}<br>返回内容预览: ${preview}...`);
+                }
+                
                 const projects = config.projects || [];
 
                 container.innerHTML = ''; // Clear loading
