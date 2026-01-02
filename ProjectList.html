@@ -199,12 +199,17 @@
     <script src="js/script.js"></script>
     <script>
         // Load projects from config.json
-        document.addEventListener('DOMContentLoaded', async () => {
+        (async function initProjects() {
             const container = document.getElementById('project-container');
+            if (!container) return;
+
             try {
+                console.log('Starting project load...');
                 // Add timestamp to prevent caching
                 const response = await fetch(`config.json?t=${new Date().getTime()}`);
+                
                 if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                
                 const config = await response.json();
                 const projects = config.projects || [];
 
@@ -237,21 +242,7 @@
                     container.appendChild(card);
                 });
                 
-                // Re-initialize tilt effect for new cards if needed
-                // The main script's initInteractiveEffects runs on load, but we might need to re-run or manually attach
-                // However, script.js uses document.querySelectorAll('.card.tilt-card') inside initInteractiveEffects
-                // We might need to trigger it again or just let the user hover (if the script attaches listeners dynamically? No, it attaches once)
-                // Let's check script.js. It attaches listeners once.
-                // We should probably expose a function to re-attach or just manually attach here.
-                // For simplicity, let's just reload the page or assume script.js runs after this? 
-                // Actually script.js is included before this script block runs (if deferred) or after.
-                // Wait, script.js is included at the bottom. This script block is also at the bottom.
-                // If script.js runs first, it won't find these elements.
-                // If this runs first, script.js will find them.
-                // But fetch is async. So script.js will likely run before fetch completes.
-                // We need to manually attach tilt effects.
-                
-                // Simple tilt effect re-attachment (simplified version of script.js logic)
+                // Simple tilt effect re-attachment
                 if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
                     const cards = container.querySelectorAll('.tilt-card');
                     cards.forEach(card => {
@@ -259,7 +250,7 @@
                             const rect = card.getBoundingClientRect();
                             const px = (e.clientX - rect.left) / rect.width - 0.5;
                             const py = (e.clientY - rect.top) / rect.height - 0.5;
-                            card.style.setProperty('--tilt-y', `${px * 8}deg`); // 8 is GLOBAL_TILT_STRENGTH approx
+                            card.style.setProperty('--tilt-y', `${px * 8}deg`);
                             card.style.setProperty('--tilt-x', `${-py * 8}deg`);
                             card.style.setProperty('--mx', `${Math.round((px + 0.5) * 100)}%`);
                             card.style.setProperty('--my', `${Math.round((py + 0.5) * 100)}%`);
@@ -275,13 +266,15 @@
                 }
 
             } catch (error) {
-                console.error('Error l`<div style="color: #ff6a3d; text-align: center; padding: 20px;">
+                console.error('Error loading projects:', error);
+                container.innerHTML = `<div style="color: #ff6a3d; text-align: center; padding: 20px;">
                     <i class="fa-solid fa-triangle-exclamation"></i> 加载失败<br>
                     <span style="font-size: 0.8em; opacity: 0.8;">${error.message}</span>
-                </div>`
-                container.innerHTML = '<div style="color: red; text-align: center;">加载失败</div>';
+                    <br><br>
+                    <span style="font-size: 0.7em; opacity: 0.6;">请确保使用 http://localhost 访问，而不是 file://</span>
+                </div>`;
             }
-        });
+        })();
     </script>
 </body>
 </html>
