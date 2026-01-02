@@ -983,6 +983,7 @@
                     { label: 'clear', value: '清空终端屏幕' },
                     { label: 'theme', value: '切换亮/暗主题' },
                     { label: 'info', value: '显示系统和版本信息' },
+                    { label: 'status', value: '跳转到系统状态页面' },
                     { label: 'date', value: '显示当前时间' },
                     { label: 'fortune', value: '随机输出一言' },
                     { label: 'say', value: '说点什么' },
@@ -1013,6 +1014,10 @@
                 document.getElementById('theme-toggle')?.click();
                 const currentTheme = document.documentElement.getAttribute('data-theme');
                 return `主题已切换为 ${currentTheme === 'dark' ? '深色' : '浅色'} 模式。`;
+            },
+            status: () => {
+                window.location.href = 'status.html';
+                return '正在跳转到系统状态页面...';
             },
             info: () => {
                 const infoBox = renderInfoBoxText();

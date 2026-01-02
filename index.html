@@ -26,6 +26,7 @@
     <!-- 引入外部样式表 -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css"> <!-- APlayer CSS -->
     <link rel="stylesheet" href="css/style.css"> <!-- 自定义样式表 -->
+    <link rel="stylesheet" href="css/style-enhanced.css"> <!-- 深度美化样式表 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Font Awesome 图标库 -->
 </head>
 <body>
@@ -115,9 +116,13 @@
                     <span class="brand-sub">观测站 · 控制台</span>
                 </div>
                 <nav class="nav-list" aria-label="主导航列表">
-                    <a href="index.html" class="nav-item is-active" aria-current="page">
+                    <a href="#" class="nav-item is-active" aria-current="page" id="nav-home-btn">
                         <i class="fa-solid fa-house" aria-hidden="true"></i>
                         <span>主页</span>
+                    </a>
+                    <a href="ProjectList.html" class="nav-item">
+                        <i class="fa-solid fa-code" aria-hidden="true"></i>
+                        <span>项目</span>
                     </a>
                     <a href="https://www.re-tikara.fun/Blog" target="_blank" rel="noopener noreferrer" class="nav-item">
                         <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
@@ -139,7 +144,7 @@
             </aside>
 
             <main class="main-panel" aria-labelledby="profile-heading">
-                <div class="card card--tertiary profile-card glass">
+                <div class="card card--tertiary profile-card glass tilt-card">
                     <div class="profile-content-wrapper">
                         <div class="avatar-large">
                             <img src="https://s2.loli.net/2025/12/22/mkWtIYraVxdnTCe.jpg" alt="亓翎_Re-TikaRa 的头像"> <!-- 个人头像 -->
@@ -158,7 +163,7 @@
             </main>
 
             <aside class="side-panel" aria-label="实时与媒体">
-                <div id="weather-card" class="card card--tertiary weather-card glass" hidden>
+                <div id="weather-card" class="card card--tertiary weather-card glass tilt-card" hidden>
                     <div class="weather-content">
                         <div class="weather-meta">
                             <span class="weather-tag"><span class="is-latin" lang="en">WEATHER</span></span>
@@ -175,20 +180,20 @@
                     </div>
                 </div>
 
-                <div class="card card--tertiary date-card glass">
+                <div class="card card--tertiary date-card glass tilt-card">
                     <div class="card-header">
                         <div class="card-title">日期</div>
                     </div>
                     <div class="date-display" id="today">——</div>
                 </div>
 
-                <div id="music-card" class="card card--tertiary glass">
+                <div id="music-card" class="card card--tertiary glass tilt-card">
                     <!-- 音乐播放器将在这里 -->
                 </div>
             </aside>
 
             <section class="hitokoto-panel" aria-label="记录">
-                <div id="hitokoto-card" class="card card--tertiary glass">
+                <div id="hitokoto-card" class="card card--tertiary glass tilt-card">
                     <!-- Hitokoto -->
                 </div>
             </section>
@@ -213,5 +218,28 @@
     <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        // 5 clicks on Home to jump to status
+        const homeBtn = document.getElementById('nav-home-btn');
+        let clickCount = 0;
+        let clickTimer;
+
+        if (homeBtn) {
+            homeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                clickCount++;
+                
+                clearTimeout(clickTimer);
+                clickTimer = setTimeout(() => {
+                    clickCount = 0;
+                }, 500); // Reset count if no click within 500ms
+
+                if (clickCount >= 5) {
+                    window.location.href = 'status.html';
+                    clickCount = 0;
+                }
+            });
+        }
+    </script>
 </body>
 </html>

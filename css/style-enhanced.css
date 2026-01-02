@@ -1,0 +1,219 @@
+/* 
+ * Tika's Personal Homepage - Enhanced Styles
+ * 深度美化样式表
+ */
+
+/* --- 1. 全局滚动条美化 --- */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(var(--accent-rgb), 0.3);
+    border-radius: 3px;
+    backdrop-filter: blur(4px);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(var(--accent-rgb), 0.6);
+}
+
+/* --- 2. 增强玻璃拟态质感 --- */
+.glass {
+    /* 增强模糊度与饱和度，使背景更通透 */
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    
+    /* 调整边框，使其更细腻 */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    
+    /* 增加多重阴影以提升层次感 */
+    box-shadow: 
+        0 8px 32px 0 rgba(31, 38, 135, 0.07),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .glass {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 
+        0 8px 32px 0 rgba(0, 0, 0, 0.3),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+        inset 0 0 20px rgba(255, 255, 255, 0.02);
+}
+
+/* 增强玻璃光泽动画 */
+.glass::before {
+    opacity: 0.4;
+    filter: blur(25px) saturate(150%);
+    animation: drift 20s ease-in-out infinite alternate;
+}
+
+/* --- 3. 卡片交互增强 --- */
+.card {
+    transition: 
+        transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+        box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.card:hover {
+    /* 悬停时更明显的上浮 */
+    transform: translateY(-6px) scale(1.005);
+    /* 增强阴影 */
+    box-shadow: 
+        0 20px 40px -10px rgba(0, 0, 0, 0.15),
+        0 0 0 1px rgba(var(--accent-rgb), 0.2) inset;
+    /* 边框高亮 */
+    border-color: rgba(var(--accent-rgb), 0.3);
+    z-index: 10;
+}
+
+[data-theme="dark"] .card:hover {
+    box-shadow: 
+        0 20px 50px -10px rgba(0, 0, 0, 0.5),
+        0 0 0 1px rgba(var(--accent-rgb), 0.3) inset;
+}
+
+/* --- 4. 导航栏美化 --- */
+.nav-item {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* 导航项悬停流光效果 */
+.nav-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg, 
+        transparent, 
+        rgba(var(--accent-rgb), 0.1), 
+        transparent
+    );
+    transition: left 0.6s ease;
+    z-index: 0;
+    border-radius: inherit;
+}
+
+.nav-item:hover::before {
+    left: 100%;
+}
+
+.nav-item:hover {
+    background: rgba(var(--accent-rgb), 0.08);
+    border-color: rgba(var(--accent-rgb), 0.2);
+    transform: translateX(4px); /* 向右轻微移动 */
+}
+
+.nav-item.is-active {
+    background: rgba(var(--accent-rgb), 0.15);
+    border-color: rgba(var(--accent-rgb), 0.4);
+    box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.15);
+}
+
+.nav-item i {
+    transition: transform 0.3s ease;
+}
+
+.nav-item:hover i {
+    transform: scale(1.2) rotate(5deg); /* 图标微动 */
+}
+
+/* --- 5. 头像区域增强 --- */
+.avatar-large {
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.avatar-large:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+.avatar-large img {
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* 动态光环 */
+@keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.avatar-large::before {
+    background: conic-gradient(
+        from 0deg, 
+        transparent 0%, 
+        rgba(var(--accent-rgb), 0.4) 20%, 
+        transparent 40%, 
+        transparent 100%
+    );
+    animation: spin-slow 8s linear infinite;
+    opacity: 0.6;
+    filter: blur(8px);
+}
+
+/* --- 6. 标题与文字美化 --- */
+.profile-name {
+    background: linear-gradient(120deg, var(--text-primary), var(--text-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(var(--accent-rgb), 0.1);
+}
+
+.brand-title {
+    text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
+}
+
+/* --- 7. 装饰性元素增强 --- */
+/* 侧边栏卡片标题前的装饰线 */
+.card-title::before {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    height: 1em;
+    background: var(--accent-color);
+    margin-right: 8px;
+    border-radius: 2px;
+    vertical-align: middle;
+    opacity: 0.8;
+}
+
+/* --- 8. 欢迎屏幕微调 --- */
+#welcome-screen {
+    background: radial-gradient(circle at center, var(--surface-2), var(--bg-color));
+}
+
+#welcome-text {
+    text-shadow: 0 0 15px rgba(var(--accent-rgb), 0.5);
+}
+
+/* --- 9. 移动端适配优化 --- */
+@media (max-width: 768px) {
+    .parallax-container {
+        padding-top: 20px;
+    }
+    
+    .nav-panel {
+        position: relative;
+        top: 0;
+        min-height: auto;
+        margin-bottom: 20px;
+    }
+    
+    .card:hover {
+        transform: none; /* 移动端取消悬停位移，防止误触 */
+    }
+}

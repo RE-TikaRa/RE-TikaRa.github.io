@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - ALp_Studio</title>
+    <meta name="description" content="亓翎_Re-TikaRa 的项目展示。">
+    <link rel="icon" type="image/x-icon" href="https://free.picui.cn/free/2025/12/30/6953f28ba97a0.ico">
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', initialTheme);
+        })();
+    </script>
+    
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-enhanced.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Project List Specific Styles */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+        
+        .project-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .project-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .project-desc {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 16px;
+            flex-grow: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .project-tag {
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background: rgba(var(--accent-rgb), 0.1);
+            color: var(--accent-color);
+            font-weight: 500;
+        }
+        
+        .main-panel-full {
+            grid-column: span 9; /* Occupy remaining space */
+        }
+
+        @media (max-width: 960px) {
+            .main-panel-full {
+                grid-column: span 12;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-gradient"></div>
+    <canvas id="starfield-layer1" class="starfield-canvas" data-layer-id="1"></canvas>
+    <canvas id="starfield-layer2" class="starfield-canvas" data-layer-id="2"></canvas>
+    <canvas id="starfield-layer3" class="starfield-canvas" data-layer-id="3"></canvas>
+    <canvas id="shooting-star-canvas" class="starfield-canvas"></canvas>
+    <canvas id="raindrop-canvas" class="starfield-canvas"></canvas>
+
+    <div class="settings-wrapper">
+        <button id="settings-toggle" type="button" aria-label="打开设置">
+            <i class="fa-solid fa-gear" aria-hidden="true"></i>
+            <span class="icon-text">设定</span>
+        </button>
+    </div>
+
+    <div id="settings-panel" class="card card--tertiary glass" hidden>
+        <div class="settings-header">
+            <h3>显示设置</h3>
+            <button id="settings-close" type="button">&times;</button>
+        </div>
+        <div class="settings-content">
+            <div class="setting-item">
+                <label for="toggle-high-contrast">高对比模式</label>
+                <input type="checkbox" id="toggle-high-contrast" class="toggle-switch" data-setting="highContrast">
+            </div>
+            <div class="setting-item">
+                <label for="toggle-lite-mode">轻量模式</label>
+                <input type="checkbox" id="toggle-lite-mode" class="toggle-switch" data-setting="liteMode">
+            </div>
+            <div class="setting-item">
+                <label for="toggle-starfield">星空背景</label>
+                <input type="checkbox" id="toggle-starfield" class="toggle-switch" data-setting="starfield" checked>
+            </div>
+            <div class="setting-item">
+                <label for="toggle-shooting-stars">流星效果</label>
+                <input type="checkbox" id="toggle-shooting-stars" class="toggle-switch" data-setting="shootingStars" checked>
+            </div>
+            <div class="setting-item">
+                <label for="toggle-raindrops">雨滴效果</label>
+                <input type="checkbox" id="toggle-raindrops" class="toggle-switch" data-setting="raindrops" checked>
+            </div>
+            <div class="setting-item">
+                <label for="toggle-card-float">卡片浮动</label>
+                <input type="checkbox" id="toggle-card-float" class="toggle-switch" data-setting="cardFloat" checked>
+            </div>
+        </div>
+    </div>
+
+    <div class="theme-switch-wrapper">
+        <button id="theme-toggle" type="button" aria-label="切换主题">
+            <i class="fa-solid fa-moon" aria-hidden="true"></i>
+            <span class="theme-toggle-text">深色</span>
+        </button>
+    </div>
+    
+    <div class="parallax-container">
+        <div class="grid-container layout-grid">
+            <aside class="nav-panel" aria-label="主导航">
+                <div class="nav-brand">
+                    <span class="brand-title"><span class="is-latin" lang="en">ALp_Studio</span></span>
+                    <span class="brand-sub">观测站 · 控制台</span>
+                </div>
+                <nav class="nav-list" aria-label="主导航列表">
+                    <a href="index.html" class="nav-item" id="nav-home">
+                        <i class="fa-solid fa-house" aria-hidden="true"></i>
+                        <span>主页</span>
+                    </a>
+                    <a href="ProjectList.html" class="nav-item is-active" aria-current="page">
+                        <i class="fa-solid fa-code" aria-hidden="true"></i>
+                        <span>项目</span>
+                    </a>
+                    <a href="https://www.re-tikara.fun/Blog" target="_blank" rel="noopener noreferrer" class="nav-item">
+                        <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+                        <span>博客</span>
+                    </a>
+                    <a href="https://www.re-tikara.fun/Article" target="_blank" rel="noopener noreferrer" class="nav-item">
+                        <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+                        <span>文章库</span>
+                    </a>
+                    <a href="https://github.com/RE-TikaRa" target="_blank" rel="noopener noreferrer" class="nav-item">
+                        <i class="fa-brands fa-github" aria-hidden="true"></i>
+                        <span><span class="is-latin" lang="en">GitHub</span></span>
+                    </a>
+                    <a href="https://space.bilibili.com/374412219" target="_blank" rel="noopener noreferrer" class="nav-item">
+                        <i class="fa-brands fa-bilibili" aria-hidden="true"></i>
+                        <span><span class="is-latin" lang="en">BiliBili</span></span>
+                    </a>
+                </nav>
+            </aside>
+
+            <main class="main-panel main-panel-full" aria-labelledby="projects-heading">
+                <div class="card card--tertiary glass">
+                    <div class="card-header">
+                        <h2 class="card-title" id="projects-heading">项目列表</h2>
+                    </div>
+                    <div id="project-container" class="project-grid">
+                        <!-- Projects will be loaded here -->
+                        <div style="padding: 20px; text-align: center; color: var(--text-secondary);">
+                            <i class="fa-solid fa-spinner fa-spin"></i> 加载中...
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <p>实例仍在运行  日志尚未终止  // <span class="is-latin" lang="en">The instance is still running; the logs haven’t terminated.</span></p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Load projects from config.json
+        document.addEventListener('DOMContentLoaded', async () => {
+            const container = document.getElementById('project-container');
+            try {
+                // Add timestamp to prevent caching
+                const response = await fetch(`config.json?t=${new Date().getTime()}`);
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                const config = await response.json();
+                const projects = config.projects || [];
+
+                container.innerHTML = ''; // Clear loading
+
+                if (projects.length === 0) {
+                    container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px;">暂无项目</div>';
+                    return;
+                }
+
+                projects.forEach(project => {
+                    const card = document.createElement('a');
+                    card.href = project.link || '#';
+                    card.className = 'card card--secondary glass tilt-card project-card';
+                    if (project.link && project.link.startsWith('http')) {
+                        card.target = '_blank';
+                        card.rel = 'noopener noreferrer';
+                    }
+
+                    const tagsHtml = (project.tags || []).map(tag => `<span class="project-tag">${tag}</span>`).join('');
+
+                    card.innerHTML = `
+                        <div class="project-card-header">
+                            <span class="project-title">${project.title}</span>
+                            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; opacity: 0.6;"></i>
+                        </div>
+                        <div class="project-desc">${project.description}</div>
+                        <div class="project-tags">${tagsHtml}</div>
+                    `;
+                    container.appendChild(card);
+                });
+                
+                // Re-initialize tilt effect for new cards if needed
+                // The main script's initInteractiveEffects runs on load, but we might need to re-run or manually attach
+                // However, script.js uses document.querySelectorAll('.card.tilt-card') inside initInteractiveEffects
+                // We might need to trigger it again or just let the user hover (if the script attaches listeners dynamically? No, it attaches once)
+                // Let's check script.js. It attaches listeners once.
+                // We should probably expose a function to re-attach or just manually attach here.
+                // For simplicity, let's just reload the page or assume script.js runs after this? 
+                // Actually script.js is included before this script block runs (if deferred) or after.
+                // Wait, script.js is included at the bottom. This script block is also at the bottom.
+                // If script.js runs first, it won't find these elements.
+                // If this runs first, script.js will find them.
+                // But fetch is async. So script.js will likely run before fetch completes.
+                // We need to manually attach tilt effects.
+                
+                // Simple tilt effect re-attachment (simplified version of script.js logic)
+                if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+                    const cards = container.querySelectorAll('.tilt-card');
+                    cards.forEach(card => {
+                        card.addEventListener('pointermove', (e) => {
+                            const rect = card.getBoundingClientRect();
+                            const px = (e.clientX - rect.left) / rect.width - 0.5;
+                            const py = (e.clientY - rect.top) / rect.height - 0.5;
+                            card.style.setProperty('--tilt-y', `${px * 8}deg`); // 8 is GLOBAL_TILT_STRENGTH approx
+                            card.style.setProperty('--tilt-x', `${-py * 8}deg`);
+                            card.style.setProperty('--mx', `${Math.round((px + 0.5) * 100)}%`);
+                            card.style.setProperty('--my', `${Math.round((py + 0.5) * 100)}%`);
+                        });
+
+                        card.addEventListener('pointerleave', () => {
+                            card.style.setProperty('--tilt-x', '0deg');
+                            card.style.setProperty('--tilt-y', '0deg');
+                            card.style.setProperty('--mx', '50%');
+                            card.style.setProperty('--my', '15%');
+                        });
+                    });
+                }
+
+            } catch (error) {
+                console.error('Error l`<div style="color: #ff6a3d; text-align: center; padding: 20px;">
+                    <i class="fa-solid fa-triangle-exclamation"></i> 加载失败<br>
+                    <span style="font-size: 0.8em; opacity: 0.8;">${error.message}</span>
+                </div>`
+                container.innerHTML = '<div style="color: red; text-align: center;">加载失败</div>';
+            }
+        });
+    </script>
+</body>
+</html>
