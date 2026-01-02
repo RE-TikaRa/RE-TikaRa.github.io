@@ -206,10 +206,17 @@
             try {
                 console.log('Starting project load...');
                 // Add timestamp to prevent caching
-                const fetchUrl = `../config.json?t=${new Date().getTime()}`;
+                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                const baseUrl = isLocal ? '../config.json' : 'https://raw.githubusercontent.com/RE-TikaRa/RE-TikaRa.github.io/rss-data/config.json';
+                let fetchUrl = `${baseUrl}?t=${new Date().getTime()}`;
                 console.log('Fetching:', fetchUrl);
                 
-                const response = await fetch(fetchUrl);
+                let response = await fetch(fetchUrl);
+                if (!response.ok && !isLocal) {
+                    console.log('Remote fetch failed, falling back to local');
+                    fetchUrl = `../config.json?t=${new Date().getTime()}`;
+                    response = await fetch(fetchUrl);
+                }
                 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);

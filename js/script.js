@@ -1223,6 +1223,21 @@
         });
     }
 
+    const fetchConfig = async () => {
+        const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        const url = isLocal ? 'config.json' : 'https://raw.githubusercontent.com/RE-TikaRa/RE-TikaRa.github.io/rss-data/config.json';
+        try {
+            let response = await fetch(url, { cache: 'no-store' });
+            if (!response.ok && !isLocal) {
+                response = await fetch('config.json', { cache: 'no-store' });
+            }
+            if (!response.ok) throw new Error('config.json load failed');
+            return await response.json();
+        } catch (e) {
+            throw e;
+        }
+    };
+
     async function initMusicPlayer() {
         const musicCard = document.getElementById('music-card');
         if (!musicCard) return;
@@ -1234,9 +1249,7 @@
                 appState.hitokotoIntervalId = null;
             }
 
-            const response = await fetch('config.json', { cache: 'no-store' });
-            if (!response.ok) throw new Error('config.json load failed');
-            const config = await response.json();
+            const config = await fetchConfig();
             const allMusicItems = Array.isArray(config?.netease_music_items)
                 ? config.netease_music_items
                 : [];
@@ -1389,6 +1402,36 @@
         appState.hitokotoIntervalId = setInterval(fetchAndShowHitokoto, 10000);
     }
 
+    async function initLatestArticles() {
+        const container = document.getElementById('latest-articles-card');
+        const list = document.getElementById('article-list');
+        if (!container || !list) return;
+
+        try {
+            const config = await fetchConfig();
+            const articles = config.latest_articles || [];
+
+            if (articles.length === 0) {
+                container.hidden = true;
+                return;
+            }
+
+            list.innerHTML = articles.map(article => `
+                <li class="article-item">
+                    <a href="${article.link}" target="_blank" class="article-link">
+                        <span class="article-title">${article.title}</span>
+                        <i class="fa-solid fa-arrow-up-right-from-square article-icon"></i>
+                    </a>
+                </li>
+            `).join('');
+            
+            container.hidden = false;
+        } catch (error) {
+            console.error('Failed to load articles:', error);
+            container.hidden = true;
+        }
+    }
+
     function main() {
         document.querySelectorAll('.card').forEach((card, index) => {
             card.style.setProperty('--stagger', String(index));
@@ -1400,6 +1443,7 @@
         initSettingsPanel();
         initCLI();
         initMusicPlayer();
+        initLatestArticles();
         const hitokotoCard = document.getElementById('hitokoto-card');
         if (hitokotoCard) {
             initHitokotoFallback(hitokotoCard, { ghost: false });

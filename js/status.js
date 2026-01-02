@@ -9,7 +9,8 @@
     const overallEl = document.getElementById('status-overall');
 
     const STATUS_URL = '../status.json';
-    const CONFIG_URL = '../config.json';
+    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const CONFIG_URL = isLocal ? '../config.json' : 'https://raw.githubusercontent.com/RE-TikaRa/RE-TikaRa.github.io/rss-data/config.json';
 
     let cachedConfig = null;
 
@@ -203,7 +204,10 @@
     const loadConfig = async () => {
         if (cachedConfig) return cachedConfig;
         try {
-            const res = await fetch(`${CONFIG_URL}?t=${Date.now()}`, { cache: 'no-store' });
+            let res = await fetch(`${CONFIG_URL}?t=${Date.now()}`, { cache: 'no-store' });
+            if (!res.ok && !isLocal) {
+                res = await fetch(`../config.json?t=${Date.now()}`, { cache: 'no-store' });
+            }
             if (!res.ok) throw new Error('config not ready');
             cachedConfig = await res.json();
             return cachedConfig;

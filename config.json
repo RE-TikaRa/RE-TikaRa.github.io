@@ -1,28 +1,70 @@
 {
   "netease_music_items": [
-    { "id": "2053344480", "type": "song" },
-    { "id": "2053344483", "type": "song" },
-    { "id": "2053344486", "type": "song" },
-    { "id": "179521966", "type": "album" }
+    {
+      "id": "2053344480",
+      "type": "song"
+    },
+    {
+      "id": "2053344483",
+      "type": "song"
+    },
+    {
+      "id": "2053344486",
+      "type": "song"
+    },
+    {
+      "id": "179521966",
+      "type": "album"
+    }
+  ],
+  "rss": {
+    "url": "https://re-tikara.fun/Blog/rss2.xml",
+    "max_items": 5
+  },
+  "latest_articles": [
+    {
+      "title": "DesktopTimer",
+      "link": "https://re-tikara.fun/Blog/posts/998ef9dc/"
+    },
+    {
+      "title": "Certificate-Management",
+      "link": "https://re-tikara.fun/Blog/posts/6c20921f/"
+    },
+    {
+      "title": "LaTeX学习日志01-前期准备",
+      "link": "https://re-tikara.fun/Blog/posts/828fd9e/"
+    },
+    {
+      "title": "置顶公告",
+      "link": "https://re-tikara.fun/Blog/posts/25ad5f96/"
+    }
   ],
   "projects": [
     {
       "title": "Certificate-Management",
       "description": "荣誉项目管理平台。",
       "link": "https://re-tikara.fun/Certificate-Management/",
-      "tags": ["Python", "Pyside6"]
+      "tags": [
+        "Python",
+        "Pyside6"
+      ]
     },
     {
       "title": "Paste-Into-File-CHS",
       "description": "一键将剪贴板内容保存为文件的 Windows 工具 ",
       "link": "https://github.com/RE-TikaRa/Paste-Into-File-CHS",
-      "tags": [".NET Framework 4.7.2"]
+      "tags": [
+        ".NET Framework 4.7.2"
+      ]
     },
     {
       "title": "DesktopTimer",
       "description": "基于 PyQt5 的轻量级桌面计时器",
       "link": "https://re-tikara.fun/DesktopTimer",
-      "tags": ["Design", "UI/UX"]
+      "tags": [
+        "Design",
+        "UI/UX"
+      ]
     }
   ],
   "status_checks": {

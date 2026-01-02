@@ -1,0 +1,46 @@
+name: RSS Update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 */4 * * *' # Run every 4 hours
+
+permissions:
+  contents: write
+
+jobs:
+  update-rss:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run RSS fetch
+        run: node scripts/rss-fetch.mjs
+
+      - name: Publish config.json to rss-data branch
+        run: |
+          # Configure git
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Create a temporary directory for the artifact
+          mkdir -p /tmp/rss-artifact
+          cp config.json /tmp/rss-artifact/config.json
+          
+          # Switch to orphan branch
+          git checkout --orphan rss-data
+          git rm -rf .
+          
+          # Restore config.json
+          cp /tmp/rss-artifact/config.json config.json
+          
+          # Commit and push
+          git add config.json
+          git commit -m "chore: update rss feed in config.json"
+          git push --force origin rss-data
