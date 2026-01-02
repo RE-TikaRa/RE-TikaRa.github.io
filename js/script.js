@@ -1021,9 +1021,10 @@
                     return '正在跳转到系统状态页面...';
                 }
 
-                fetch('status.config.json')
+                fetch('config.json')
                     .then(res => res.json())
-                    .then(config => {
+                    .then(fullConfig => {
+                        const config = fullConfig.status_checks || {};
                         if (!config.dataUrl) throw new Error('No dataUrl');
                         return fetch(config.dataUrl);
                     })

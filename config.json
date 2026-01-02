@@ -24,5 +24,42 @@
       "link": "https://re-tikara.fun/DesktopTimer",
       "tags": ["Design", "UI/UX"]
     }
-  ]
+  ],
+  "status_checks": {
+    "refreshIntervalSeconds": 1800,
+    "historyLength": 60,
+    "dataUrl": "https://raw.githubusercontent.com/RE-TikaRa/RE-TikaRa.github.io/status-data/status.json",
+    "targets": [
+      {
+        "id": "blog",
+        "name": "博客",
+        "url": "https://www.re-tikara.fun/Blog"
+      },
+      {
+        "id": "article",
+        "name": "文章库",
+        "url": "https://www.re-tikara.fun/Article"
+      },
+      {
+        "id": "github",
+        "name": "GitHub",
+        "url": "https://github.com/RE-TikaRa"
+      },
+      {
+        "id": "bilibili",
+        "name": "BiliBili",
+        "url": "https://space.bilibili.com/374412219"
+      },
+      {
+        "id": "Certificate-Management",
+        "name": "Certificate-Management",
+        "url": "https://re-tikara.fun/Certificate-Management/"
+      },
+      {
+        "id": "DesktopTimer",
+        "name": "DesktopTimer",
+        "url": "https://re-tikara.fun/DesktopTimer/"
+      }
+    ]
+  }
 }

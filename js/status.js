@@ -9,7 +9,7 @@
     const overallEl = document.getElementById('status-overall');
 
     const STATUS_URL = 'status.json';
-    const CONFIG_URL = 'status.config.json';
+    const CONFIG_URL = 'config.json';
 
     let cachedConfig = null;
 
@@ -222,7 +222,9 @@
     };
 
     const loadStatus = async () => {
-        const config = await loadConfig();
+        const fullConfig = await loadConfig();
+        const config = fullConfig?.status_checks || {};
+
         const dataUrl = config?.dataUrl ? String(config.dataUrl).trim() : '';
         const statusUrl = dataUrl || STATUS_URL;
 
@@ -232,7 +234,7 @@
             const data = await res.json();
             renderStatus(data);
         } catch (error) {
-            if (config) {
+            if (config && Array.isArray(config.targets)) {
                 renderStatus(buildFromConfig(config));
             } else if (updatedEl) {
                 updatedEl.textContent = '等待首次检测...';
