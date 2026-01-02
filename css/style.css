@@ -2956,6 +2956,7 @@ body.is-ready .card {
     opacity: 0.6;
     transition: opacity 0.2s, transform 0.2s, color 0.2s;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .article-link:hover .article-action {
@@ -3025,9 +3026,10 @@ body.is-ready .card {
 .article-date {
     font-size: 0.85em;
     color: var(--text-secondary);
-    margin-right: var(--space-2);
+    margin-right: var(--space-3);
     white-space: nowrap;
-    font-family: var(--font-mono); /* Use monospace for alignment */
+    font-family: var(--font-mono);
     opacity: 0.8;
+    flex-shrink: 0;
 }
 
