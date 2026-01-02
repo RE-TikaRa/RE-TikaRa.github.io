@@ -122,33 +122,24 @@
             const nameWrap = document.createElement('div');
             nameWrap.className = 'status-card-name-wrap';
 
-            const nameEl = document.createElement('div');
+            const nameEl = document.createElement('a');
             nameEl.className = 'status-card-name';
+            nameEl.href = target.url || '#';
+            nameEl.target = '_blank';
+            nameEl.rel = 'noopener noreferrer';
             nameEl.textContent = target.name || target.id || '未知目标';
-
-            const urlEl = document.createElement('div');
-            urlEl.className = 'status-card-url';
-            urlEl.textContent = target.url || '';
+            nameEl.style.textDecoration = 'none';
+            nameEl.style.color = 'inherit';
 
             nameWrap.appendChild(nameEl);
-            nameWrap.appendChild(urlEl);
 
             const stateEl = document.createElement('div');
             stateEl.className = `status-state ${isOk ? 'is-ok' : isBad ? 'is-bad' : 'is-unknown'}`;
             stateEl.textContent = statusText;
 
-            const openEl = document.createElement('a');
-            openEl.className = 'status-card-link';
-            openEl.href = target.url || '#';
-            openEl.target = '_blank';
-            openEl.rel = 'noopener noreferrer';
-            openEl.title = '打开页面';
-            openEl.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square"></i>';
-
             const rightWrap = document.createElement('div');
             rightWrap.className = 'status-card-actions';
             rightWrap.appendChild(stateEl);
-            rightWrap.appendChild(openEl);
 
             header.appendChild(nameWrap);
             header.appendChild(rightWrap);
