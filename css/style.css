@@ -279,6 +279,7 @@ body {
     -webkit-font-smoothing: antialiased; /* 抗锯齿（Chrome, Safari） */
     -moz-osx-font-smoothing: grayscale; /* 抗锯齿（Firefox） */
     text-rendering: optimizeLegibility; /* 优化文本渲染 */
+    font-variant-numeric: lining-nums; /* 强制数字等高对齐 */
     letter-spacing: 0.2px;
     line-height: 1.55;
 }
@@ -858,6 +859,8 @@ body.is-ready .starfield-canvas {
     justify-content: center;
     align-items: center;
     background-color: var(--bg-color); /* 欢迎页背景 */
+    background-image: none !important; /* 确保无背景图干扰 */
+    opacity: 1 !important; /* 强制不透明 */
     transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
 }
 
@@ -1225,7 +1228,7 @@ body.is-ready .starfield-canvas {
     align-items: baseline;
     justify-content: center;
     gap: 10px;
-    font-family: var(--font-mono);
+    font-family: "NasaDisplay", var(--font-mono);
     font-variant-numeric: tabular-nums; /* 等宽数字 */
     letter-spacing: 1px;
 }
@@ -1270,7 +1273,7 @@ body.is-ready .starfield-canvas {
     gap: 12px;
     padding: var(--card-padding, var(--space-6));
     min-height: 135px;
-    font-family: "XinHuoTi", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+    font-family: "Baskervville", "XinHuoTi", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
 }
 
 .date-card .card-title,
@@ -1285,6 +1288,7 @@ body.is-ready .starfield-canvas {
     line-height: 1.4;
     text-align: center;
     width: 100%;
+    font-family: "NasaDisplay", "Baskervville", "XinHuoTi", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
 }
 
 /* 天气小工具 */
@@ -2261,7 +2265,7 @@ body.is-ready .card {
     --error-surface: rgba(255, 255, 255, 0.82);
     --error-shadow: 0 20px 45px rgba(12, 18, 28, 0.18);
     --error-glow: rgba(var(--accent-rgb), 0.12);
-    font-family: "XinHuoTi", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+    font-family: "Baskervville", "XinHuoTi", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
 }
 
 [data-theme="dark"] .error-page {
@@ -2358,7 +2362,7 @@ body.is-ready .card {
 
 .status-page {
     position: relative;
-    font-family: "XinHuoTi", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
+    font-family: "Baskervville", "XinHuoTi", "Noto Serif SC", "Songti SC", "STSong", "SimSun", serif;
 }
 
 .status-page::before {
@@ -2614,6 +2618,14 @@ body.is-ready .card {
     gap: 12px;
 }
 
+.status-card-name-wrap {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
 .status-card-name {
     font-size: 1.1rem;
     font-weight: 600;
@@ -2641,6 +2653,8 @@ body.is-ready .card {
     background: rgba(255, 255, 255, 0.8);
     text-transform: uppercase;
     letter-spacing: 0.8px;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 [data-theme="dark"] .status-state {
