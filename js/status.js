@@ -8,8 +8,8 @@
     const nextEl = document.getElementById('status-next');
     const overallEl = document.getElementById('status-overall');
 
-    const STATUS_URL = 'status.json';
-    const CONFIG_URL = 'config.json';
+    const STATUS_URL = '../status.json';
+    const CONFIG_URL = '../config.json';
 
     let cachedConfig = null;
 

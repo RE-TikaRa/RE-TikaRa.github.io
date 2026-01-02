@@ -18,8 +18,8 @@
     
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/style-enhanced.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style-enhanced.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         /* Project List Specific Styles */
@@ -149,11 +149,11 @@
                     <span class="brand-sub">观测站 · 控制台</span>
                 </div>
                 <nav class="nav-list" aria-label="主导航列表">
-                    <a href="index.html" class="nav-item" id="nav-home">
+                    <a href="../index.html" class="nav-item" id="nav-home">
                         <i class="fa-solid fa-house" aria-hidden="true"></i>
                         <span>主页</span>
                     </a>
-                    <a href="ProjectList.html" class="nav-item is-active" aria-current="page">
+                    <a href="./" class="nav-item is-active" aria-current="page">
                         <i class="fa-solid fa-code" aria-hidden="true"></i>
                         <span>项目</span>
                     </a>
@@ -196,7 +196,7 @@
         <p>实例仍在运行  日志尚未终止  // <span class="is-latin" lang="en">The instance is still running; the logs haven’t terminated.</span></p>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
     <script>
         // Load projects from config.json
         (async function initProjects() {
@@ -206,7 +206,7 @@
             try {
                 console.log('Starting project load...');
                 // Add timestamp to prevent caching
-                const fetchUrl = `config.json?t=${new Date().getTime()}`;
+                const fetchUrl = `../config.json?t=${new Date().getTime()}`;
                 console.log('Fetching:', fetchUrl);
                 
                 const response = await fetch(fetchUrl);
