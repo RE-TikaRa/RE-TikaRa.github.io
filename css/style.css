@@ -21,7 +21,7 @@
         --radius-pill: 999px;
         --bg-opacity: 0.52;
         --surface-1: rgba(255, 255, 255, 0.94);
-        --surface-2: rgba(255, 255, 255, 0.86);
+        --surface-2: rgba(255, 255, 255, 0.65);
         --surface-3: rgba(255, 255, 255, 0.7);
         --surface-border-1: rgba(24, 20, 16, 0.22);
         --surface-border-2: rgba(24, 20, 16, 0.16);
@@ -43,7 +43,7 @@
 [data-theme="dark"] {
         --bg-opacity: 0.68;
         --surface-1: rgba(8, 12, 18, 0.92);
-        --surface-2: rgba(10, 16, 24, 0.82);
+        --surface-2: rgba(10, 16, 24, 0.65);
         --surface-3: rgba(12, 18, 28, 0.68);
         --surface-border-1: rgba(210, 230, 245, 0.44);
         --surface-border-2: rgba(210, 230, 245, 0.3);
