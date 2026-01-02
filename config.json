@@ -19,8 +19,8 @@
       "tags": [".NET Framework 4.7.2"]
     },
     {
-      "title": "https://github.com/RE-TikaRa/DesktopTimer",
-      "description": "基于 PyQt5 的轻量级桌面计时器，支持正计时/倒计时/时钟模式，系统托盘、快捷键、音效与闪烁提醒、多语言（中/英）以及丰富的外观自定义。",
+      "title": "DesktopTimer",
+      "description": "基于 PyQt5 的轻量级桌面计时器",
       "link": "https://github.com/RE-TikaRa/DesktopTimer",
       "tags": ["Design", "UI/UX"]
     }
