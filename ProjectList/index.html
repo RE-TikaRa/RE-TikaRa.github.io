@@ -206,7 +206,8 @@
             try {
                 console.log('Starting project load...');
                 // Add timestamp to prevent caching
-                const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+                const hostname = window.location.hostname;
+                const isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1' || hostname === '::';
                 const baseUrl = isLocal ? '../config.json' : 'https://raw.githubusercontent.com/RE-TikaRa/RE-TikaRa.github.io/rss-data/config.json';
                 let fetchUrl = `${baseUrl}?t=${new Date().getTime()}`;
                 console.log('Fetching:', fetchUrl);

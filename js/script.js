@@ -1224,7 +1224,8 @@
     }
 
     const fetchConfig = async () => {
-        const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+        const hostname = window.location.hostname;
+        const isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1' || hostname === '::';
         const url = isLocal ? 'config.json' : 'https://raw.githubusercontent.com/RE-TikaRa/RE-TikaRa.github.io/rss-data/config.json';
         try {
             let response = await fetch(url, { cache: 'no-store' });

@@ -9,7 +9,8 @@
     const overallEl = document.getElementById('status-overall');
 
     const STATUS_URL = '../status.json';
-    const isLocal = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+    const LOCAL_HOSTS = new Set(['localhost', '127.0.0.1', '::1', '::']);
+    const isLocal = LOCAL_HOSTS.has(window.location.hostname);
     const CONFIG_URL = isLocal ? '../config.json' : 'https://raw.githubusercontent.com/RE-TikaRa/RE-TikaRa.github.io/rss-data/config.json';
 
     let cachedConfig = null;
@@ -221,7 +222,7 @@
         const config = fullConfig?.status_checks || {};
 
         const dataUrl = config?.dataUrl ? String(config.dataUrl).trim() : '';
-        const statusUrl = dataUrl || STATUS_URL;
+        const statusUrl = isLocal || !dataUrl ? STATUS_URL : dataUrl;
 
         try {
             const res = await fetch(`${statusUrl}${statusUrl.includes('?') ? '&' : '?'}t=${Date.now()}`, { cache: 'no-store' });
