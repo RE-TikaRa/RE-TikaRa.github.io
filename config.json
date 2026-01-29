@@ -69,6 +69,15 @@
         "Design",
         "UI/UX"
       ]
+    },
+    {
+      "title": "FileLocksmith",
+      "description": "微软 PowerToys 的 File Locksmith 单工具版本。",
+      "link": "https://re-tikara.fun/FileLocksmith/",
+      "tags": [
+        "Windows",
+        "PowerToys"
+      ]
     }
   ],
   "status_checks": {
@@ -105,6 +114,11 @@
         "id": "DesktopTimer",
         "name": "DesktopTimer",
         "url": "https://re-tikara.fun/DesktopTimer/"
+      },
+      {
+        "id": "FileLocksmith",
+        "name": "File Locksmith 单工具版本",
+        "url": "https://re-tikara.fun/FileLocksmith/"
       }
     ]
   }
