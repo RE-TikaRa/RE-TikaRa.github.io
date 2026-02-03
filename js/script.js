@@ -1017,7 +1017,7 @@
             },
             status: (args) => {
                 if (args && args[0] === 'web') {
-                    window.location.href = 'status.html';
+                    window.location.href = 'status/';
                     return '正在跳转到系统状态页面...';
                 }
 
