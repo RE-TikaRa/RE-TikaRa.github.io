@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>维护中 | ALp_Studio</title>
+    <meta name="description" content="站点维护中，部分功能暂时不可用。">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/x-icon" href="https://free.picui.cn/free/2025/12/30/6953f28ba97a0.ico">
+
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', initialTheme);
+
+            const savedSettings = JSON.parse(localStorage.getItem('visualSettings') || '{}');
+            if (savedSettings.highContrast) {
+                document.documentElement.setAttribute('data-contrast', 'high');
+            }
+            if (savedSettings.liteMode) {
+                document.documentElement.setAttribute('data-lite', 'true');
+            }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="error-page is-ready">
+    <div class="background-gradient"></div>
+    <canvas id="starfield-layer1" class="starfield-canvas" data-layer-id="1"></canvas>
+    <canvas id="starfield-layer2" class="starfield-canvas" data-layer-id="2"></canvas>
+    <canvas id="starfield-layer3" class="starfield-canvas" data-layer-id="3"></canvas>
+    <canvas id="shooting-star-canvas" class="starfield-canvas"></canvas>
+    <canvas id="raindrop-canvas" class="starfield-canvas"></canvas>
+
+    <main class="error-shell">
+        <section class="card glass error-card" aria-labelledby="error-title">
+            <h1 class="error-code" id="error-title">维护中</h1>
+            <p class="error-desc">观测站正在执行维护与校准，本模块暂时离线，请稍后再来。</p>
+        </section>
+        <div class="card glass error-cta">
+            <a class="error-home" href="https://re-tikara.fun/">回到首页</a>
+        </div>
+    </main>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
