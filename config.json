@@ -23,24 +23,29 @@
   },
   "latest_articles": [
     {
-      "title": "DesktopTimer",
-      "link": "https://re-tikara.fun/Blog/posts/998ef9dc/",
-      "date": "2026-01-02"
+      "title": "Vmware系列-Ubuntu断网修复指南",
+      "link": "https://re-tikara.fun/Blog/posts/40349006/",
+      "date": "2026-02-12"
     },
     {
-      "title": "Certificate-Management",
-      "link": "https://re-tikara.fun/Blog/posts/6c20921f/",
-      "date": "2026-01-02"
+      "title": "Linux基础-NANO使用方法",
+      "link": "https://re-tikara.fun/Blog/posts/83c08d17/",
+      "date": "2026-02-10"
     },
     {
-      "title": "LaTeX学习日志01-前期准备",
-      "link": "https://re-tikara.fun/Blog/posts/828fd9e/",
-      "date": "2025-12-26"
+      "title": "Linux基础-VIM使用方法",
+      "link": "https://re-tikara.fun/Blog/posts/d51e69ff/",
+      "date": "2026-02-10"
     },
     {
-      "title": "置顶公告",
-      "link": "https://re-tikara.fun/Blog/posts/25ad5f96/",
-      "date": "2025-12-22"
+      "title": "Typora Vlook 系列主题的GitHub Pages在线部署教程",
+      "link": "https://re-tikara.fun/Blog/posts/8443937e/",
+      "date": "2026-02-09"
+    },
+    {
+      "title": "第一章——程序设计基本概念 第三节——结构化程序设计和模块化结构",
+      "link": "https://re-tikara.fun/Blog/posts/bf2a0d0e/",
+      "date": "2026-02-06"
     }
   ],
   "projects": [

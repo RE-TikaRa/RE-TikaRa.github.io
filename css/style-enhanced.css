@@ -1,270 +1,463 @@
 /* 
  * Tika's Personal Homepage - Enhanced Styles
  * 深度美化样式表
+ * 使用 @layer overrides 确保正确的层叠顺序
  */
 
-/* --- 1. 全局滚动条美化 --- */
-::-webkit-scrollbar {
-    width: 6px;
-    height: 6px;
-}
+@layer overrides {
 
-::-webkit-scrollbar-track {
-    background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-    background: rgba(var(--accent-rgb), 0.3);
-    border-radius: 3px;
-    backdrop-filter: blur(4px);
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: rgba(var(--accent-rgb), 0.6);
-}
-
-/* --- 2. 增强玻璃拟态质感 --- */
-.glass {
-    /* 增强模糊度与饱和度，使背景更通透 */
-    backdrop-filter: blur(20px) saturate(140%);
-    -webkit-backdrop-filter: blur(20px) saturate(140%);
-    
-    /* 调整边框，使其更细腻 */
-    border: 1px solid rgba(255, 255, 255, 0.15);
-    
-    /* 增加多重阴影以提升层次感 */
-    box-shadow: 
-        0 8px 32px 0 rgba(31, 38, 135, 0.07),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.1),
-        inset 0 0 20px rgba(255, 255, 255, 0.05);
-}
-
-[data-theme="dark"] .glass {
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow: 
-        0 8px 32px 0 rgba(0, 0, 0, 0.3),
-        inset 0 0 0 1px rgba(255, 255, 255, 0.05),
-        inset 0 0 20px rgba(255, 255, 255, 0.02);
-}
-
-/* 增强玻璃光泽动画 */
-.glass::before {
-    opacity: 0.4;
-    filter: blur(25px) saturate(150%);
-    animation: drift 20s ease-in-out infinite alternate;
-}
-
-/* --- 3. 卡片交互增强 --- */
-.card {
-    transition: 
-        transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
-        border-color 0.3s ease,
-        background-color 0.3s ease;
-}
-
-.card:hover {
-    /* 悬停时更明显的上浮 */
-    transform: translateY(-6px) scale(1.005);
-    /* 增强阴影 */
-    box-shadow: 
-        0 20px 40px -10px rgba(0, 0, 0, 0.15),
-        0 0 0 1px rgba(var(--accent-rgb), 0.2) inset;
-    /* 边框高亮 */
-    border-color: rgba(var(--accent-rgb), 0.3);
-    z-index: 10;
-}
-
-[data-theme="dark"] .card:hover {
-    box-shadow: 
-        0 20px 50px -10px rgba(0, 0, 0, 0.5),
-        0 0 0 1px rgba(var(--accent-rgb), 0.3) inset;
-}
-
-/* --- 4. 导航栏美化 --- */
-.nav-item {
-    position: relative;
-    overflow: hidden;
-    border: 1px solid transparent;
-    transition: all 0.3s ease;
-}
-
-/* 导航项悬停流光效果 */
-.nav-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        90deg, 
-        transparent, 
-        rgba(var(--accent-rgb), 0.1), 
-        transparent
-    );
-    transition: left 0.6s ease;
-    z-index: 0;
-    border-radius: inherit;
-}
-
-.nav-item:hover::before {
-    left: 100%;
-}
-
-.nav-item:hover {
-    background: rgba(var(--accent-rgb), 0.08);
-    border-color: rgba(var(--accent-rgb), 0.2);
-    transform: translateX(4px); /* 向右轻微移动 */
-}
-
-.nav-item.is-active {
-    background: rgba(var(--accent-rgb), 0.15);
-    border-color: rgba(var(--accent-rgb), 0.4);
-    box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.15);
-}
-
-.nav-item i {
-    transition: transform 0.3s ease;
-}
-
-.nav-item:hover i {
-    transform: scale(1.2) rotate(5deg); /* 图标微动 */
-}
-
-/* --- 5. 头像区域增强 --- */
-.avatar-large {
-    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.avatar-large:hover {
-    transform: scale(1.05) rotate(2deg);
-}
-
-.avatar-large img {
-    border: 3px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-}
-
-/* 动态光环 */
-@keyframes spin-slow {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
-}
-
-.avatar-large::before {
-    background: conic-gradient(
-        from 0deg, 
-        transparent 0%, 
-        rgba(var(--accent-rgb), 0.4) 20%, 
-        transparent 40%, 
-        transparent 100%
-    );
-    animation: spin-slow 8s linear infinite;
-    opacity: 0.6;
-    filter: blur(8px);
-}
-
-/* --- 6. 标题与文字美化 --- */
-.profile-name {
-    background: linear-gradient(120deg, var(--text-primary), var(--text-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-shadow: 0 2px 10px rgba(var(--accent-rgb), 0.1);
-}
-
-.brand-title {
-    text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
-}
-
-/* --- 7. 装饰性元素增强 --- */
-/* 侧边栏卡片标题前的装饰线 */
-.card-title::before {
-    content: '';
-    display: inline-block;
-    width: 4px;
-    height: 1em;
-    background: var(--accent-color);
-    margin-right: 8px;
-    border-radius: 2px;
-    vertical-align: middle;
-    opacity: 0.8;
-}
-
-/* --- 8. 欢迎屏幕微调 --- */
-#welcome-screen {
-    background: #f2efe8 !important;
-    opacity: 1;
-}
-
-[data-theme="dark"] #welcome-screen {
-    background: #0b1119 !important;
-}
-
-#welcome-text {
-    text-shadow: 0 0 15px rgba(var(--accent-rgb), 0.5);
-}
-
-/* --- 9. 移动端适配优化 --- */
-@media (max-width: 768px) {
-    .parallax-container {
-        padding-top: 20px;
+    /* --- 1. 全局滚动条美化 --- */
+    ::-webkit-scrollbar {
+        width: 6px;
+        height: 6px;
     }
-    
-    .nav-panel {
-        position: relative;
-        top: 0;
-        min-height: auto;
-        margin-bottom: 20px;
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
     }
-    
+
+    ::-webkit-scrollbar-thumb {
+        background: rgba(var(--accent-rgb), 0.3);
+        border-radius: 3px;
+        backdrop-filter: blur(4px);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgba(var(--accent-rgb), 0.6);
+    }
+
+    /* --- 2. 增强玻璃拟态质感 --- */
+    .glass {
+        /* 增强模糊度与饱和度，使背景更通透 */
+        backdrop-filter: blur(20px) saturate(140%);
+        -webkit-backdrop-filter: blur(20px) saturate(140%);
+        
+        /* 调整边框，使其更细腻 */
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        
+        /* 增加多重阴影以提升层次感 */
+        box-shadow: 
+            0 8px 32px 0 rgba(31, 38, 135, 0.07),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.1),
+            inset 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+
+    [data-theme="dark"] .glass {
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 
+            0 8px 32px 0 rgba(0, 0, 0, 0.3),
+            inset 0 0 0 1px rgba(255, 255, 255, 0.05),
+            inset 0 0 20px rgba(255, 255, 255, 0.02);
+    }
+
+    /* 增强玻璃光泽动画 */
+    .glass::before {
+        opacity: 0.4;
+        filter: blur(25px) saturate(150%);
+        animation: drift 20s ease-in-out infinite alternate;
+    }
+
+    /* --- 3. 卡片交互增强 --- */
+    .card {
+        transition: 
+            transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+            box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1),
+            border-color 0.3s ease,
+            background-color 0.3s ease;
+    }
+
     .card:hover {
-        transform: none; /* 移动端取消悬停位移，防止误触 */
+        /* 悬停时更明显的上浮 */
+        transform: translateY(-6px) scale(1.005);
+        /* 增强阴影 */
+        box-shadow: 
+            0 20px 40px -10px rgba(0, 0, 0, 0.15),
+            0 0 0 1px rgba(var(--accent-rgb), 0.2) inset;
+        /* 边框高亮 */
+        border-color: rgba(var(--accent-rgb), 0.3);
+        z-index: 10;
     }
-}
 
-/* --- 10. 状态页面增强 --- */
-.status-card.is-ok .status-state {
-    background: rgba(26, 122, 75, 0.15);
-    box-shadow: 0 0 10px rgba(26, 122, 75, 0.2);
-}
+    [data-theme="dark"] .card:hover {
+        box-shadow: 
+            0 20px 50px -10px rgba(0, 0, 0, 0.5),
+            0 0 0 1px rgba(var(--accent-rgb), 0.3) inset;
+    }
 
-.status-card.is-bad .status-state {
-    background: rgba(201, 61, 61, 0.15);
-    box-shadow: 0 0 10px rgba(201, 61, 61, 0.2);
-}
+    /* --- 4. 导航栏美化 --- */
+    .nav-item {
+        position: relative;
+        overflow: hidden;
+        border: 1px solid transparent;
+        transition: all 0.3s ease;
+    }
 
-.status-card.is-unknown .status-state {
-    background: rgba(120, 120, 120, 0.15);
-}
+    /* 导航项悬停流光效果 */
+    .nav-item::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+            90deg, 
+            transparent, 
+            rgba(var(--accent-rgb), 0.1), 
+            transparent
+        );
+        transition: left 0.6s ease;
+        z-index: 0;
+        border-radius: inherit;
+    }
 
-.status-metric-value {
-    font-family: var(--font-mono);
-    font-weight: 700;
-}
+    .nav-item:hover::before {
+        left: 100%;
+    }
 
-.status-bar {
-    transition: height 0.3s ease, background-color 0.3s ease;
-}
+    .nav-item:hover {
+        background: rgba(var(--accent-rgb), 0.08);
+        border-color: rgba(var(--accent-rgb), 0.2);
+        transform: translateX(4px); /* 向右轻微移动 */
+    }
 
-.status-bar:hover {
-    transform: scaleY(1.2);
-    filter: brightness(1.2);
-}
+    .nav-item.is-active {
+        background: rgba(var(--accent-rgb), 0.15);
+        border-color: rgba(var(--accent-rgb), 0.4);
+        box-shadow: 0 4px 12px rgba(var(--accent-rgb), 0.15);
+    }
 
-/* 状态指示灯呼吸效果 */
-@keyframes status-pulse {
-    0% { box-shadow: 0 0 0 0 rgba(var(--status-color-rgb), 0.4); }
-    70% { box-shadow: 0 0 0 6px rgba(var(--status-color-rgb), 0); }
-    100% { box-shadow: 0 0 0 0 rgba(var(--status-color-rgb), 0); }
-}
+    .nav-item i {
+        transition: transform 0.3s ease;
+    }
 
-.status-state.is-ok {
-    --status-color-rgb: 26, 122, 75;
-    animation: status-pulse 2s infinite;
-}
+    .nav-item:hover i {
+        transform: scale(1.2) rotate(5deg); /* 图标微动 */
+    }
 
-.status-state.is-bad {
-    --status-color-rgb: 201, 61, 61;
-    animation: status-pulse 1.5s infinite;
-}
+    /* --- 5. 头像区域增强 --- */
+    .avatar-large {
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .avatar-large:hover {
+        transform: scale(1.05) rotate(2deg);
+    }
+
+    .avatar-large img {
+        border: 3px solid rgba(255, 255, 255, 0.8);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    /* 动态光环 */
+    @keyframes spin-slow {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    .avatar-large::before {
+        background: conic-gradient(
+            from 0deg, 
+            transparent 0%, 
+            rgba(var(--accent-rgb), 0.4) 20%, 
+            transparent 40%, 
+            transparent 100%
+        );
+        animation: spin-slow 8s linear infinite;
+        opacity: 0.6;
+        filter: blur(8px);
+    }
+
+    /* --- 6. 标题与文字美化 --- */
+    .profile-name {
+        background: linear-gradient(120deg, var(--text-primary), var(--text-secondary));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+    }
+
+    .brand-title {
+        text-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
+    }
+
+    /* --- 7. 装饰性元素增强 --- */
+    /* 侧边栏卡片标题前的装饰线 */
+    .card-title::before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 1em;
+        background: var(--accent-color);
+        margin-right: 8px;
+        border-radius: 2px;
+        vertical-align: middle;
+        opacity: 0.8;
+    }
+
+    /* --- 8. 欢迎屏幕微调 --- */
+    #welcome-screen {
+        background: #f2efe8 !important;
+        opacity: 1;
+    }
+
+    [data-theme="dark"] #welcome-screen {
+        background: #0b1119 !important;
+    }
+
+    #welcome-text {
+        text-shadow: 0 0 15px rgba(var(--accent-rgb), 0.5);
+    }
+
+    /* --- 9. 移动端适配优化 --- */
+    @media (max-width: 960px) {
+        .parallax-container {
+            padding-top: 20px;
+        }
+        
+        .nav-panel {
+            position: relative;
+            top: 0;
+            min-height: auto;
+            margin-bottom: 20px;
+        }
+        
+        .card:hover {
+            transform: none; /* 移动端取消悬停位移，防止误触 */
+        }
+        
+        /* 移动端禁用导航项流光效果 */
+        .nav-item::before {
+            display: none;
+        }
+        
+        .nav-item:hover {
+            transform: none;
+        }
+    }
+
+    /* --- 10. 状态页面增强 --- */
+    .status-card.is-ok .status-state {
+        background: rgba(26, 122, 75, 0.15);
+        box-shadow: 0 0 10px rgba(26, 122, 75, 0.2);
+    }
+
+    .status-card.is-bad .status-state {
+        background: rgba(201, 61, 61, 0.15);
+        box-shadow: 0 0 10px rgba(201, 61, 61, 0.2);
+    }
+
+    .status-card.is-unknown .status-state {
+        background: rgba(120, 120, 120, 0.15);
+    }
+
+    .status-metric-value {
+        font-family: var(--font-mono);
+        font-weight: 700;
+    }
+
+    .status-bar {
+        transition: height 0.3s ease, background-color 0.3s ease;
+    }
+
+    .status-bar:hover {
+        transform: scaleY(1.2);
+        filter: brightness(1.2);
+    }
+
+    /* 状态指示灯呼吸效果 */
+    @keyframes status-pulse {
+        0% { box-shadow: 0 0 0 0 rgba(var(--status-color-rgb), 0.4); }
+        70% { box-shadow: 0 0 0 6px rgba(var(--status-color-rgb), 0); }
+        100% { box-shadow: 0 0 0 0 rgba(var(--status-color-rgb), 0); }
+    }
+
+    .status-state.is-ok {
+        --status-color-rgb: 26, 122, 75;
+        animation: status-pulse 2s infinite;
+    }
+
+    .status-state.is-bad {
+        --status-color-rgb: 201, 61, 61;
+        animation: status-pulse 1.5s infinite;
+    }
+
+    /* --- 11. 微交互增强 --- */
+    
+    /* 按钮点击反馈 */
+    #theme-toggle,
+    #settings-toggle,
+    .mobile-nav-item {
+        position: relative;
+        overflow: hidden;
+    }
+    
+    #theme-toggle::after,
+    #settings-toggle::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at var(--ripple-x, 50%) var(--ripple-y, 50%), rgba(255, 255, 255, 0.3), transparent 60%);
+        opacity: 0;
+        transform: scale(0);
+        transition: opacity 0.3s, transform 0.3s;
+        pointer-events: none;
+    }
+    
+    #theme-toggle:active::after,
+    #settings-toggle:active::after {
+        opacity: 1;
+        transform: scale(2);
+        transition: opacity 0s, transform 0s;
+    }
+    
+    /* 链接悬停下划线动画 */
+    .article-link {
+        position: relative;
+    }
+    
+    .article-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-color);
+        transition: width 0.3s ease;
+    }
+    
+    .article-link:hover::after {
+        width: 100%;
+    }
+    
+    /* 天气卡片图标动画 */
+    .weather-icon i {
+        transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    
+    .weather-card:hover .weather-icon i {
+        transform: scale(1.1) rotate(5deg);
+    }
+    
+    /* 日期卡片悬停效果 */
+    .date-card {
+        transition: border-color 0.3s ease;
+    }
+    
+    .date-card:hover {
+        border-color: rgba(var(--accent-rgb), 0.4);
+    }
+    
+    /* 音乐卡片播放按钮增强 */
+    #music-card .aplayer .aplayer-play {
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    
+    #music-card .aplayer .aplayer-play:hover {
+        transform: scale(1.1);
+    }
+    
+    /* 一言卡片引号装饰 */
+    #hitokoto-card {
+        position: relative;
+    }
+    
+    #hitokoto-card::before {
+        content: '"';
+        position: absolute;
+        top: 12px;
+        left: 16px;
+        font-size: 3rem;
+        font-family: Georgia, serif;
+        color: rgba(var(--accent-rgb), 0.15);
+        line-height: 1;
+        pointer-events: none;
+    }
+    
+    /* 设置面板项悬停效果 */
+    .setting-item {
+        padding: 8px 12px;
+        margin: -8px -12px;
+        border-radius: 8px;
+        transition: background-color 0.2s ease;
+    }
+    
+    .setting-item:hover {
+        background: rgba(var(--accent-rgb), 0.06);
+    }
+
+    /* --- 12. 骨架屏加载效果 --- */
+    @keyframes skeleton-shimmer {
+        0% {
+            background-position: -200% 0;
+        }
+        100% {
+            background-position: 200% 0;
+        }
+    }
+    
+    .skeleton {
+        background: linear-gradient(
+            90deg,
+            rgba(var(--accent-rgb), 0.08) 25%,
+            rgba(var(--accent-rgb), 0.15) 50%,
+            rgba(var(--accent-rgb), 0.08) 75%
+        );
+        background-size: 200% 100%;
+        animation: skeleton-shimmer 1.5s ease-in-out infinite;
+        border-radius: 8px;
+    }
+    
+    .skeleton-text {
+        height: 1em;
+        margin-bottom: 0.5em;
+    }
+    
+    .skeleton-text:last-child {
+        width: 60%;
+    }
+    
+    .skeleton-circle {
+        border-radius: 50%;
+    }
+    
+    .skeleton-rect {
+        border-radius: 12px;
+    }
+
+    /* --- 13. 滚动淡入动画 --- */
+    @keyframes scroll-fade-in {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .scroll-reveal {
+        opacity: 0;
+    }
+    
+    .scroll-reveal.is-visible {
+        animation: scroll-fade-in 0.6s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+    }
+    
+    .scroll-reveal:nth-child(1) { animation-delay: 0s; }
+    .scroll-reveal:nth-child(2) { animation-delay: 0.08s; }
+    .scroll-reveal:nth-child(3) { animation-delay: 0.16s; }
+    .scroll-reveal:nth-child(4) { animation-delay: 0.24s; }
+    .scroll-reveal:nth-child(5) { animation-delay: 0.32s; }
+    
+    @media (prefers-reduced-motion: reduce) {
+        .scroll-reveal {
+            opacity: 1;
+        }
+        .scroll-reveal.is-visible {
+            animation: none;
+        }
+    }
+
+} /* End of @layer overrides */

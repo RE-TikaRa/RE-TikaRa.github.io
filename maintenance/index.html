@@ -27,9 +27,12 @@
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style-enhanced.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="error-page is-ready">
+    <a href="#main-content" class="skip-link">跳过导航，直达内容</a>
+    
     <div class="background-gradient"></div>
     <canvas id="starfield-layer1" class="starfield-canvas" data-layer-id="1"></canvas>
     <canvas id="starfield-layer2" class="starfield-canvas" data-layer-id="2"></canvas>
@@ -37,7 +40,7 @@
     <canvas id="shooting-star-canvas" class="starfield-canvas"></canvas>
     <canvas id="raindrop-canvas" class="starfield-canvas"></canvas>
 
-    <main class="error-shell">
+    <main id="main-content" class="error-shell">
         <section class="card glass error-card" aria-labelledby="error-title">
             <h1 class="error-code" id="error-title">维护中</h1>
             <p class="error-desc">观测站正在执行维护与校准，本模块暂时离线，请稍后再来。</p>
@@ -46,6 +49,33 @@
             <a class="error-home" href="https://re-tikara.fun/">回到首页</a>
         </div>
     </main>
+
+    <footer class="site-footer">
+        <p>实例仍在运行  日志尚未终止  // <span class="is-latin" lang="en">The instance is still running; the logs haven't terminated.</span></p>
+    </footer>
+
+    <nav class="mobile-nav" aria-label="移动端导航">
+        <a href="../" class="mobile-nav-item">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+            <span>主页</span>
+        </a>
+        <a href="../ProjectList/" class="mobile-nav-item">
+            <i class="fa-solid fa-code" aria-hidden="true"></i>
+            <span>项目</span>
+        </a>
+        <a href="https://www.re-tikara.fun/Blog" target="_blank" rel="noopener noreferrer" class="mobile-nav-item">
+            <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+            <span>博客</span>
+        </a>
+        <a href="https://re-tikara.fun/Article/" target="_blank" rel="noopener noreferrer" class="mobile-nav-item">
+            <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+            <span>文章</span>
+        </a>
+        <a href="https://github.com/RE-TikaRa" target="_blank" rel="noopener noreferrer" class="mobile-nav-item">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+        </a>
+    </nav>
 
     <script src="../js/script.js"></script>
 </body>

@@ -30,6 +30,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"> <!-- Font Awesome 图标库 -->
 </head>
 <body>
+    <a href="#main-content" class="skip-link">跳过导航，直达内容</a>
+    
     <!-- 欢迎屏幕 -->
     <div id="welcome-screen">
         <div id="welcome-text-container">
@@ -143,7 +145,7 @@
                 </nav>
             </aside>
 
-            <main class="main-panel" aria-labelledby="profile-heading">
+            <main id="main-content" class="main-panel" aria-labelledby="profile-heading">
                 <div class="card card--tertiary profile-card glass tilt-card">
                     <div class="profile-content-wrapper">
                         <div class="avatar-large">
@@ -210,10 +212,38 @@
         </div>
     </div>
 
+    <!-- 移动端底部导航栏 -->
+    <nav class="mobile-nav" aria-label="移动端导航">
+        <a href="#" class="mobile-nav-item is-active" id="mobile-nav-home">
+            <i class="fa-solid fa-house" aria-hidden="true"></i>
+            <span>主页</span>
+        </a>
+        <a href="ProjectList/" class="mobile-nav-item">
+            <i class="fa-solid fa-code" aria-hidden="true"></i>
+            <span>项目</span>
+        </a>
+        <a href="https://www.re-tikara.fun/Blog" target="_blank" rel="noopener noreferrer" class="mobile-nav-item">
+            <i class="fa-solid fa-pen-nib" aria-hidden="true"></i>
+            <span>博客</span>
+        </a>
+        <a href="https://re-tikara.fun/Article/" target="_blank" rel="noopener noreferrer" class="mobile-nav-item">
+            <i class="fa-solid fa-book-open" aria-hidden="true"></i>
+            <span>文章</span>
+        </a>
+        <a href="https://github.com/RE-TikaRa" target="_blank" rel="noopener noreferrer" class="mobile-nav-item">
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+            <span>GitHub</span>
+        </a>
+    </nav>
+
     <!-- 页面页脚 -->
     <footer class="site-footer">
-        <p>实例仍在运行  日志尚未终止  // <span class="is-latin" lang="en">The instance is still running; the logs haven’t terminated.</span></p>
+        <p>实例仍在运行  日志尚未终止  // <span class="is-latin" lang="en">The instance is still running; the logs haven't terminated.</span></p>
     </footer>
+
+    <button id="back-to-top" type="button" aria-label="返回顶部" hidden>
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
 
     <!-- CLI 彩蛋 -->
     <div id="cli-container" hidden>
