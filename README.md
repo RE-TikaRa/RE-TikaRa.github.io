@@ -26,7 +26,7 @@
 ┌─ project.log
 │ [项目名称] 亓翎的个人空间
 │ [项目代号] Observation_Deck_Alpha
-│ [当前版本] v2.3 (持续迭代中)
+│ [当前版本] v2.4 (持续迭代中)
 │
 │ [实验目标]
 │   01. 搭建一个用于记录和展示观察数据的前端界面。
@@ -62,6 +62,7 @@
 - 玻璃拟态卡片：全局 3D 视差、悬浮、磁性吸附、文字扰动与入场扫描动画。
 - 主题切换：深/浅主题保存到 `localStorage`，支持 View Transitions 过渡动画。
 - 设置面板：星空/流星/雨滴/卡片浮动/音乐自动播放/播放列表类型（单曲或专辑）。
+- 移动端导航：底部悬浮 Dock 风格导航栏，支持激活态高亮与触控反馈。
 - 实时小工具：数字时钟、动态问候、天气模块。
 - 音乐模块：APlayer + MetingJS，随机读取 `config.json` 的网易云 ID。
 - 回退方案：音乐失败时自动切换到 Hitokoto 一言，定时刷新。
@@ -115,20 +116,36 @@
 ### `[tika@lab ~]$ tree -L 2`
 ```text
 Home/
-├─ index.html        # 页面结构与文案入口
+├─ index.html
+├─ 404.html
+├─ ProjectList/
+│  └─ index.html
+├─ status/
+│  └─ index.html
+├─ maintenance/
+│  └─ index.html
 ├─ css/
-│  └─ style.css      # 视觉与动效风格
+│  ├─ style.css
+│  └─ style-enhanced.css
 ├─ js/
-│  └─ script.js      # 交互逻辑与模块控制
-├─ config.json       # 音乐列表配置（网易云）
-├─ fonts/            # 本地字体与图标资产
-├─ CNAME             # 部署时的自定义域名记录
-└─ README.md         # 项目说明
+│  ├─ script.js
+│  └─ status.js
+├─ scripts/
+│  ├─ rss-fetch.mjs
+│  └─ status-check.mjs
+├─ .github/
+│  └─ workflows/
+├─ config.json
+├─ start-server.bat
+├─ fonts/
+├─ CNAME
+└─ README.md
 ```
 
 ### `[tika@lab ~]$ cat notes.md`
 - 无后端、无数据库，仅为静态展示型观测站。
 - 移动端会隐藏星空背景，降低雨滴数量以减少性能压力。
+- 移动端底栏已改为悬浮 Dock 风格，并为安全区（`safe-area-inset-bottom`）预留空间。
 - `prefers-reduced-motion` 会自动关闭大部分动画与浮动效果。
 - CLI 使用 `\`` 或 `~` 唤出，`Esc` 关闭；移动端可能无法触发。
 - 若外部资源失效，可替换为本地资源或自建镜像。
