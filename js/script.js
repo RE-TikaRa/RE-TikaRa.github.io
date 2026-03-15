@@ -213,8 +213,15 @@
     function initWelcomeScreen() {
         const welcomeScreen = document.getElementById('welcome-screen');
         const welcomeTextEl = document.getElementById('welcome-text');
-        if (!welcomeScreen || !welcomeTextEl) {
+        let hasMarkedReady = false;
+        const markPageReady = () => {
+            if (hasMarkedReady) return;
+            hasMarkedReady = true;
             document.body.classList.add('is-ready');
+            window.dispatchEvent(new Event('welcome-ready'));
+        };
+        if (!welcomeScreen || !welcomeTextEl) {
+            markPageReady();
             return;
         }
         let charIndex = 0;
@@ -226,7 +233,22 @@
             } else {
                 setTimeout(() => {
                     welcomeScreen.classList.add('hidden');
-                    document.body.classList.add('is-ready');
+                    if (prefersReducedMotion) {
+                        markPageReady();
+                        return;
+                    }
+
+                    const onWelcomeHidden = (event) => {
+                        if (event.target !== welcomeScreen || event.propertyName !== 'opacity') return;
+                        welcomeScreen.removeEventListener('transitionend', onWelcomeHidden);
+                        markPageReady();
+                    };
+
+                    welcomeScreen.addEventListener('transitionend', onWelcomeHidden);
+                    window.setTimeout(() => {
+                        welcomeScreen.removeEventListener('transitionend', onWelcomeHidden);
+                        markPageReady();
+                    }, 900);
                 }, CONFIG.WELCOME_FADE_DELAY);
             }
         }
@@ -1504,6 +1526,10 @@
 
     function initScrollReveal() {
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        if (!document.body.classList.contains('is-ready')) {
+            window.addEventListener('welcome-ready', initScrollReveal, { once: true });
+            return;
+        }
         
         const cards = document.querySelectorAll('.side-panel .card, .hitokoto-panel .card, #latest-articles-card');
         if (cards.length === 0) return;
