@@ -443,6 +443,95 @@ body.is-ready .starfield-canvas {
 #shooting-star-canvas { z-index: -1; opacity: 1; } /* 流星层 */
 #raindrop-canvas { z-index: -1; opacity: 0.12; } /* 雨滴层 */
 
+.cursor-aura-layer {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 80;
+    overflow: hidden;
+    isolation: isolate;
+    transition: opacity 0.24s ease;
+    --cursor-x: 50vw;
+    --cursor-y: 50vh;
+    --cursor-scale: 1;
+    --cursor-opacity: 0.34;
+}
+
+.cursor-aura-layer.is-hidden {
+    opacity: 0;
+}
+
+.cursor-aura {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate3d(calc(var(--cursor-x) - 50%), calc(var(--cursor-y) - 50%), 0) scale(var(--cursor-scale));
+    opacity: var(--cursor-opacity);
+    transition: opacity 0.2s ease;
+}
+
+.cursor-aura--outer {
+    width: 240px;
+    height: 240px;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(var(--accent-rgb), 0.42), rgba(var(--accent-rgb), 0.08) 48%, transparent 72%);
+    filter: blur(16px) saturate(130%);
+}
+
+[data-theme="dark"] .cursor-aura--outer {
+    background:
+        radial-gradient(circle at 50% 50%, rgba(var(--accent-rgb), 0.5), rgba(var(--accent-rgb), 0.12) 48%, transparent 72%);
+}
+
+.cursor-aura--inner {
+    width: 108px;
+    height: 108px;
+    background:
+        radial-gradient(circle at 45% 40%, rgba(255, 255, 255, 0.78), rgba(var(--accent-rgb), 0.36) 42%, transparent 72%);
+    filter: blur(5px);
+    transform: translate3d(calc(var(--cursor-x) - 50%), calc(var(--cursor-y) - 50%), 0) scale(calc(var(--cursor-scale) * 0.68));
+}
+
+.cursor-ripple {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: 1px solid rgba(var(--accent-rgb), 0.5);
+    background: radial-gradient(circle, rgba(var(--accent-rgb), 0.25), transparent 72%);
+    transform: translate3d(calc(var(--ripple-x) - 50%), calc(var(--ripple-y) - 50%), 0) scale(0.3);
+    animation: cursorRipple 760ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.scroll-progress {
+    position: fixed;
+    inset: 0 auto auto 0;
+    width: 100%;
+    height: 3px;
+    pointer-events: none;
+    z-index: 140;
+    transform-origin: left center;
+    transform: scaleX(var(--scroll-progress, 0));
+    background: linear-gradient(90deg, rgba(var(--accent-rgb), 0.68), rgba(255, 255, 255, 0.94));
+    box-shadow: 0 0 18px rgba(var(--accent-rgb), 0.5);
+}
+
+.scroll-progress::after {
+    content: '';
+    position: absolute;
+    top: -3px;
+    right: -1px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.75);
+    box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.6);
+}
+
 
 /* --- 4. LAYOUT / 布局 --- */
 /* ----------------------- */
@@ -625,6 +714,12 @@ body.is-ready .starfield-canvas {
     flex-direction: column;
     gap: clamp(18px, 2.8vw, 30px);
     align-self: stretch;
+    --global-tilt-x: 0deg;
+    --global-tilt-y: 0deg;
+    transform: perspective(1600px) rotateX(var(--global-tilt-x)) rotateY(var(--global-tilt-y));
+    transform-origin: 50% 20%;
+    transition: transform 0.24s var(--ease-out);
+    will-change: transform;
 }
 
 .side-panel {
@@ -751,6 +846,7 @@ body.is-ready .starfield-canvas {
     inset: -1px;
     border-radius: inherit;
     background:
+        radial-gradient(220px 180px at var(--mx, 50%) var(--my, 15%), rgba(var(--accent-rgb), var(--shine-alpha, 0)), transparent 74%),
         linear-gradient(110deg,
         rgba(255, 255, 255, 0.28) 0%,
         rgba(255, 255, 255, 0.04) 38%,
@@ -758,8 +854,9 @@ body.is-ready .starfield-canvas {
         rgba(255, 255, 255, 0.12) 82%,
         rgba(255, 255, 255, 0) 100%);
     mix-blend-mode: screen; /* 混合模式 */
-    opacity: 0.7;
+    opacity: var(--shine-opacity, 0.58);
     pointer-events: none;
+    transition: opacity 0.22s var(--ease-out), background-position 0.22s var(--ease-out);
 }
 
 /* 卡片基础样式 */
@@ -782,6 +879,8 @@ body.is-ready .starfield-canvas {
     --mx: 50%; /* 鼠标 X 坐标百分比 */
     --my: 15%; /* 鼠标 Y 坐标百分比 */
     --shine: 0; /* 光泽效果 */
+    --shine-alpha: 0;
+    --shine-opacity: 0.58;
     --magnetic-x: 0px; /* 磁性吸附 X */
     --magnetic-y: 0px; /* 磁性吸附 Y */
     --float-y: 0px; /* 浮动 Y */
@@ -793,6 +892,8 @@ body.is-ready .starfield-canvas {
 .card:hover {
     --lift: -2px; /* 悬停时抬起 */
     --shine: 1;
+    --shine-alpha: 0.26;
+    --shine-opacity: 0.8;
     box-shadow: var(--card-hover-shadow), 0 0 0 1px rgba(255, 255, 255, 0.10) inset;
     filter: saturate(1.03) contrast(1.01);
 }
@@ -909,6 +1010,8 @@ body.is-ready .starfield-canvas {
     background-image: none !important; /* 确保无背景图干扰 */
     opacity: 1 !important; /* 强制不透明 */
     transition: opacity 0.8s ease-in-out, visibility 0.8s ease-in-out;
+    overflow: hidden;
+    isolation: isolate;
 }
 
 #welcome-screen.hidden {
@@ -916,12 +1019,19 @@ body.is-ready .starfield-canvas {
     visibility: hidden; /* 隐藏欢迎屏幕 */
 }
 
+#welcome-screen.is-revealing-main {
+    background-color: transparent;
+}
+
 #welcome-text-container {
+    position: relative;
+    z-index: 2;
     display: flex;
     align-items: center;
     font-family: var(--font-display);
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     color: var(--text-primary);
+    transition: opacity 0.35s ease, transform 0.42s var(--ease-out), filter 0.42s ease;
 }
 
 #welcome-text-container .cursor {
@@ -931,6 +1041,21 @@ body.is-ready .starfield-canvas {
     margin-left: 10px;
     background-color: var(--accent-color);
     animation: blink 1s step-end infinite; /* 光标闪烁动画 */
+}
+
+#welcome-screen.is-dissolving #welcome-text-container {
+    opacity: 0;
+    transform: translateY(-10px) scale(0.985);
+    filter: blur(2px);
+}
+
+.welcome-poly-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
 }
 
 /* 个人资料卡片 (左列) */
@@ -1626,6 +1751,13 @@ body.is-ready .card {
 @keyframes shimmer {
     100% {
         transform: translateX(150%);
+    }
+}
+
+@keyframes cursorRipple {
+    to {
+        transform: translate3d(calc(var(--ripple-x) - 50%), calc(var(--ripple-y) - 50%), 0) scale(13);
+        opacity: 0;
     }
 }
 
@@ -2868,6 +3000,11 @@ body.is-ready .card {
         display: none;
     }
 
+    .cursor-aura-layer,
+    .scroll-progress {
+        display: none !important;
+    }
+
     .error-shell {
         min-height: auto;
         padding-top: 90px;
@@ -3097,6 +3234,10 @@ body.is-ready .card {
         box-sizing: border-box;
     }
 
+    .main-panel {
+        transform: none !important;
+    }
+
     .article-link {
         padding: 10px 8px;
     }
@@ -3204,6 +3345,15 @@ body.is-ready .card {
     }
     .background-gradient {
         transform: none !important;
+    }
+
+    .main-panel {
+        transform: none !important;
+    }
+
+    .cursor-aura-layer,
+    .scroll-progress {
+        display: none !important;
     }
 }
 

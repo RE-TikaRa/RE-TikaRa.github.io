@@ -37,6 +37,9 @@
         SHOOTING_STAR_RESPAWN_DELAY: 2000,
         SCRAMBLE_CHARS: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789',
         RAINDROP_COUNT: 150,
+        CURSOR_AURA_BASE_OPACITY: 0.34,
+        CURSOR_AURA_MAX_OPACITY: 0.72,
+        CURSOR_AURA_SCALE_RANGE: 0.28,
     };
 
     const isMobile = window.matchMedia('(max-width: 960px)').matches;
@@ -210,6 +213,273 @@
         }
     }
 
+    function parseCssColor(value, fallback) {
+        if (typeof value !== 'string') return fallback;
+        const color = value.trim();
+        if (color.startsWith('#')) {
+            let hex = color.slice(1);
+            if (hex.length === 3) hex = hex.split('').map((ch) => ch + ch).join('');
+            if (hex.length === 6) {
+                return [
+                    parseInt(hex.slice(0, 2), 16),
+                    parseInt(hex.slice(2, 4), 16),
+                    parseInt(hex.slice(4, 6), 16),
+                ];
+            }
+            return fallback;
+        }
+
+        const rgbMatch = color.match(/rgba?\(([^)]+)\)/i);
+        if (!rgbMatch) return fallback;
+        const parts = rgbMatch[1]
+            .split(',')
+            .slice(0, 3)
+            .map((part) => Number.parseFloat(part.trim()))
+            .filter((num) => Number.isFinite(num));
+        if (parts.length !== 3) return fallback;
+        return parts.map((num) => Math.max(0, Math.min(255, Math.round(num))));
+    }
+
+    function mixRgb(a, b, t, lift = 0) {
+        return a.map((value, index) => {
+            const mixed = value + (b[index] - value) * t + lift;
+            return Math.max(0, Math.min(255, Math.round(mixed)));
+        });
+    }
+
+    function playWelcomeLowPolyDissolve(welcomeScreen, options = {}) {
+        return new Promise((resolve) => {
+            const { onDissolveStart } = options;
+            if (!welcomeScreen || typeof window.requestAnimationFrame !== 'function') {
+                resolve();
+                return;
+            }
+
+            const width = welcomeScreen.clientWidth || window.innerWidth;
+            const height = welcomeScreen.clientHeight || window.innerHeight;
+            if (width <= 0 || height <= 0) {
+                resolve();
+                return;
+            }
+
+            const canvas = document.createElement('canvas');
+            canvas.className = 'welcome-poly-canvas';
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                resolve();
+                return;
+            }
+
+            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvas.width = Math.round(width * dpr);
+            canvas.height = Math.round(height * dpr);
+            canvas.style.width = `${width}px`;
+            canvas.style.height = `${height}px`;
+            ctx.scale(dpr, dpr);
+            welcomeScreen.appendChild(canvas);
+
+            const rootStyles = getComputedStyle(document.documentElement);
+            const isDarkTheme = document.documentElement.getAttribute('data-theme') === 'dark';
+            const baseColor = parseCssColor(
+                rootStyles.getPropertyValue('--bg-color'),
+                isDarkTheme ? [11, 17, 25] : [242, 239, 232]
+            );
+            const accentColor = parseCssColor(
+                rootStyles.getPropertyValue('--accent-color'),
+                isDarkTheme ? [107, 220, 255] : [255, 106, 61]
+            );
+            const crackDuration = 680;
+            const crackHold = 140;
+            const fragmentGrowDuration = 360;
+            const fragmentRevealStart = crackDuration + crackHold;
+            const dissolveStart = fragmentRevealStart + fragmentGrowDuration;
+
+            const step = Math.max(86, Math.min(132, Math.round(width / 11)));
+            const jitter = step * 0.34;
+            const columns = Math.ceil(width / step) + 2;
+            const rows = Math.ceil(height / step) + 2;
+            const points = [];
+
+            for (let y = 0; y < rows; y++) {
+                const row = [];
+                for (let x = 0; x < columns; x++) {
+                    const isBoundaryX = x === 0 || x === columns - 1;
+                    const isBoundaryY = y === 0 || y === rows - 1;
+                    const px = x * step + (isBoundaryX ? 0 : (Math.random() - 0.5) * jitter);
+                    const py = y * step + (isBoundaryY ? 0 : (Math.random() - 0.5) * jitter);
+                    row.push({
+                        id: y * columns + x,
+                        x: Math.max(0, Math.min(width, px)),
+                        y: Math.max(0, Math.min(height, py)),
+                    });
+                }
+                points.push(row);
+            }
+
+            const triangles = [];
+            for (let y = 0; y < rows - 1; y++) {
+                for (let x = 0; x < columns - 1; x++) {
+                    const p00 = points[y][x];
+                    const p10 = points[y][x + 1];
+                    const p01 = points[y + 1][x];
+                    const p11 = points[y + 1][x + 1];
+                    const useForward = Math.random() > 0.5;
+                    if (useForward) {
+                        triangles.push([p00, p10, p11], [p00, p11, p01]);
+                    } else {
+                        triangles.push([p00, p10, p01], [p10, p11, p01]);
+                    }
+                }
+            }
+
+            const fragments = triangles.map((triangle) => {
+                const cx = (triangle[0].x + triangle[1].x + triangle[2].x) / 3;
+                const cy = (triangle[0].y + triangle[1].y + triangle[2].y) / 3;
+                const depth = Math.min(1, cy / Math.max(1, height));
+                const mixFactor = 0.04 + Math.random() * 0.22 + depth * 0.12;
+                const lightShift = isDarkTheme ? Math.random() * 12 : Math.random() * 7;
+                const rgb = mixRgb(baseColor, accentColor, mixFactor, lightShift);
+                const revealDelay = fragmentRevealStart + Math.random() * 210 + depth * 120;
+                const revealDuration = 220 + Math.random() * 260;
+                const dissolveDelay = Math.random() * 240 + depth * 150;
+                const dissolveDuration = 420 + Math.random() * 260 + depth * 120;
+                return {
+                    triangle,
+                    cx,
+                    cy,
+                    dx: (Math.random() - 0.5) * (140 + depth * 130),
+                    dy: 70 + Math.random() * 220 + depth * 100,
+                    rotate: (Math.random() - 0.5) * 0.56,
+                    revealDelay,
+                    revealDuration,
+                    dissolveDelay,
+                    dissolveDuration,
+                    alpha: 0.86 + Math.random() * 0.12,
+                    fill: `rgb(${rgb[0]} ${rgb[1]} ${rgb[2]})`,
+                };
+            });
+
+            const edgeMap = new Map();
+            const addEdge = (a, b) => {
+                const minId = Math.min(a.id, b.id);
+                const maxId = Math.max(a.id, b.id);
+                const key = `${minId}-${maxId}`;
+                if (edgeMap.has(key)) return;
+                const depth = Math.min(1, ((a.y + b.y) * 0.5) / Math.max(1, height));
+                edgeMap.set(key, {
+                    a,
+                    b,
+                    delay: Math.random() * (crackDuration * 0.58) + depth * (crackDuration * 0.35),
+                    duration: 150 + Math.random() * 210,
+                    alpha: 0.42 + Math.random() * 0.26,
+                });
+            };
+            triangles.forEach(([a, b, c]) => {
+                addEdge(a, b);
+                addEdge(b, c);
+                addEdge(c, a);
+            });
+            const edges = [...edgeMap.values()];
+
+            const finishAt = fragments.reduce(
+                (max, fragment) => Math.max(max, dissolveStart + fragment.dissolveDelay + fragment.dissolveDuration),
+                dissolveStart
+            ) + 120;
+
+            const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+            const polyStrokeColor = isDarkTheme ? 'rgba(255, 255, 255, 0.045)' : 'rgba(255, 255, 255, 0.08)';
+            const crackStrokeColor = isDarkTheme ? [214, 236, 248] : [72, 64, 55];
+            const start = performance.now();
+            let fragmentPhaseActivated = false;
+            let dissolveActivated = false;
+
+            const cleanup = () => {
+                if (canvas.isConnected) canvas.remove();
+                resolve();
+            };
+
+            const render = (now) => {
+                const elapsed = now - start;
+                ctx.clearRect(0, 0, width, height);
+                if (!fragmentPhaseActivated && elapsed >= fragmentRevealStart) {
+                    fragmentPhaseActivated = true;
+                    welcomeScreen.classList.add('is-dissolving');
+                }
+                if (!dissolveActivated && elapsed >= dissolveStart) {
+                    dissolveActivated = true;
+                    welcomeScreen.classList.remove('is-cracking');
+                    if (typeof onDissolveStart === 'function') {
+                        onDissolveStart();
+                    }
+                }
+
+                fragments.forEach((fragment) => {
+                    const revealRaw = (elapsed - fragment.revealDelay) / fragment.revealDuration;
+                    const reveal = Math.max(0, Math.min(1, revealRaw));
+                    if (reveal <= 0.001) return;
+                    const revealEase = easeOutCubic(reveal);
+
+                    const dissolveRaw = (elapsed - (dissolveStart + fragment.dissolveDelay)) / fragment.dissolveDuration;
+                    const dissolve = Math.max(0, Math.min(1, dissolveRaw));
+                    const dissolveEase = easeOutCubic(dissolve);
+                    const alpha = fragment.alpha * revealEase * (1 - dissolveEase);
+                    if (alpha <= 0.005) return;
+
+                    ctx.save();
+                    ctx.globalAlpha = alpha;
+                    ctx.translate(
+                        fragment.cx + fragment.dx * dissolveEase,
+                        fragment.cy + fragment.dy * dissolveEase
+                    );
+                    ctx.rotate(fragment.rotate * dissolveEase);
+                    ctx.translate(-fragment.cx, -fragment.cy);
+                    ctx.beginPath();
+                    ctx.moveTo(fragment.triangle[0].x, fragment.triangle[0].y);
+                    ctx.lineTo(fragment.triangle[1].x, fragment.triangle[1].y);
+                    ctx.lineTo(fragment.triangle[2].x, fragment.triangle[2].y);
+                    ctx.closePath();
+                    ctx.fillStyle = fragment.fill;
+                    ctx.fill();
+                    ctx.strokeStyle = polyStrokeColor;
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                    ctx.restore();
+                });
+
+                const crackFade = elapsed <= dissolveStart
+                    ? 1
+                    : Math.max(0, 1 - ((elapsed - dissolveStart) / (finishAt - dissolveStart)) * 1.15);
+                edges.forEach((edge) => {
+                    const raw = (elapsed - edge.delay) / edge.duration;
+                    const progress = Math.max(0, Math.min(1, raw));
+                    if (progress <= 0.001) return;
+                    const ex = edge.a.x + (edge.b.x - edge.a.x) * progress;
+                    const ey = edge.a.y + (edge.b.y - edge.a.y) * progress;
+                    const alpha = edge.alpha * crackFade * (0.45 + progress * 0.55);
+                    if (alpha <= 0.003) return;
+
+                    ctx.save();
+                    ctx.globalAlpha = alpha;
+                    ctx.beginPath();
+                    ctx.moveTo(edge.a.x, edge.a.y);
+                    ctx.lineTo(ex, ey);
+                    ctx.strokeStyle = `rgb(${crackStrokeColor[0]} ${crackStrokeColor[1]} ${crackStrokeColor[2]})`;
+                    ctx.lineWidth = 1.05;
+                    ctx.stroke();
+                    ctx.restore();
+                });
+
+                if (elapsed < finishAt) {
+                    requestAnimationFrame(render);
+                } else {
+                    cleanup();
+                }
+            };
+
+            requestAnimationFrame(render);
+        });
+    }
+
     function initWelcomeScreen() {
         const welcomeScreen = document.getElementById('welcome-screen');
         const welcomeTextEl = document.getElementById('welcome-text');
@@ -232,23 +502,27 @@
                 setTimeout(typeChar, CONFIG.WELCOME_TYPE_SPEED);
             } else {
                 setTimeout(() => {
-                    welcomeScreen.classList.add('hidden');
                     if (prefersReducedMotion) {
+                        welcomeScreen.style.transition = 'none';
+                        welcomeScreen.classList.add('hidden');
                         markPageReady();
                         return;
                     }
 
-                    const onWelcomeHidden = (event) => {
-                        if (event.target !== welcomeScreen || event.propertyName !== 'opacity') return;
-                        welcomeScreen.removeEventListener('transitionend', onWelcomeHidden);
+                    welcomeScreen.classList.add('is-cracking');
+                    playWelcomeLowPolyDissolve(welcomeScreen, {
+                        onDissolveStart: () => {
+                            welcomeScreen.classList.add('is-revealing-main');
+                            markPageReady();
+                        },
+                    }).finally(() => {
+                        welcomeScreen.classList.remove('is-cracking');
+                        welcomeScreen.classList.remove('is-dissolving');
+                        welcomeScreen.classList.remove('is-revealing-main');
+                        welcomeScreen.style.transition = 'none';
+                        welcomeScreen.classList.add('hidden');
                         markPageReady();
-                    };
-
-                    welcomeScreen.addEventListener('transitionend', onWelcomeHidden);
-                    window.setTimeout(() => {
-                        welcomeScreen.removeEventListener('transitionend', onWelcomeHidden);
-                        markPageReady();
-                    }, 900);
+                    });
                 }, CONFIG.WELCOME_FADE_DELAY);
             }
         }
@@ -524,6 +798,22 @@
         const gridContainer = document.querySelector('.main-panel');
         const profileCard = document.querySelector('.profile-card');
         const avatarHalo = profileCard?.querySelector('.avatar-large');
+        const hasFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+        const auraLayer = hasFinePointer ? document.createElement('div') : null;
+        const spawnCursorRipple = (x, y) => {
+            if (!auraLayer) return;
+            const ripple = document.createElement('span');
+            ripple.className = 'cursor-ripple';
+            ripple.style.setProperty('--ripple-x', `${x}px`);
+            ripple.style.setProperty('--ripple-y', `${y}px`);
+            auraLayer.appendChild(ripple);
+            ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+        };
+        if (auraLayer) {
+            auraLayer.className = 'cursor-aura-layer';
+            auraLayer.innerHTML = '<span class="cursor-aura cursor-aura--outer"></span><span class="cursor-aura cursor-aura--inner"></span>';
+            document.body.appendChild(auraLayer);
+        }
         const animationState = {
             targetX: 0, currentX: 0,
             targetY: 0, currentY: 0,
@@ -534,6 +824,16 @@
             targetHaloOpacity: 0.72, currentHaloOpacity: 0.72,
             targetGlobalTiltX: 0, currentGlobalTiltX: 0,
             targetGlobalTiltY: 0, currentGlobalTiltY: 0,
+            lastMouseX: window.innerWidth / 2,
+            lastMouseY: window.innerHeight / 2,
+            targetCursorX: window.innerWidth / 2,
+            currentCursorX: window.innerWidth / 2,
+            targetCursorY: window.innerHeight / 2,
+            currentCursorY: window.innerHeight / 2,
+            targetCursorScale: 1,
+            currentCursorScale: 1,
+            targetCursorOpacity: CONFIG.CURSOR_AURA_BASE_OPACITY,
+            currentCursorOpacity: CONFIG.CURSOR_AURA_BASE_OPACITY,
             magneticElements: [],
             floatingElements: [],
             starfieldUpdate: () => {},
@@ -568,6 +868,21 @@
                 gridContainer.style.setProperty('--global-tilt-y', `${animationState.currentGlobalTiltY.toFixed(2)}deg`);
             }
 
+            const liteModeEnabled = visualSettings.liteMode || document.documentElement.getAttribute('data-lite') === 'true';
+            if (auraLayer) {
+                animationState.currentCursorX += (animationState.targetCursorX - animationState.currentCursorX) * LERP_FACTOR_FAST;
+                animationState.currentCursorY += (animationState.targetCursorY - animationState.currentCursorY) * LERP_FACTOR_FAST;
+                animationState.currentCursorScale += (animationState.targetCursorScale - animationState.currentCursorScale) * LERP_FACTOR_FAST;
+                animationState.currentCursorOpacity += (animationState.targetCursorOpacity - animationState.currentCursorOpacity) * LERP_FACTOR_FAST;
+                auraLayer.classList.toggle('is-hidden', liteModeEnabled);
+                if (!liteModeEnabled) {
+                    auraLayer.style.setProperty('--cursor-x', `${animationState.currentCursorX.toFixed(2)}px`);
+                    auraLayer.style.setProperty('--cursor-y', `${animationState.currentCursorY.toFixed(2)}px`);
+                    auraLayer.style.setProperty('--cursor-scale', animationState.currentCursorScale.toFixed(3));
+                    auraLayer.style.setProperty('--cursor-opacity', animationState.currentCursorOpacity.toFixed(3));
+                }
+            }
+
             animationState.magneticElements.forEach(item => {
                 item.currentX += (item.targetX - item.currentX) * LERP_FACTOR_FAST;
                 item.currentY += (item.targetY - item.currentY) * LERP_FACTOR_FAST;
@@ -588,8 +903,6 @@
                     }
                 });
             }
-            
-            const liteModeEnabled = visualSettings.liteMode || document.documentElement.getAttribute('data-lite') === 'true';
             if (!liteModeEnabled && visualSettings.starfield) {
                 animationState.starfieldUpdate(animationState.currentX, animationState.currentY);
             }
@@ -612,6 +925,8 @@
             animationState.targetHaloOpacity = 0.72;
             animationState.targetGlobalTiltX = 0;
             animationState.targetGlobalTiltY = 0;
+            animationState.targetCursorScale = 1;
+            animationState.targetCursorOpacity = CONFIG.CURSOR_AURA_BASE_OPACITY;
         };
 
         window.addEventListener('mousemove', (e) => {
@@ -627,6 +942,8 @@
             animationState.targetSpotX = (mouseX / innerWidth) * 100;
             animationState.targetSpotY = (mouseY / innerHeight) * 100;
             animationState.targetSpotA = 0.18;
+            animationState.targetCursorX = mouseX;
+            animationState.targetCursorY = mouseY;
 
             if (profileCard) {
                 const rect = profileCard.getBoundingClientRect();
@@ -635,6 +952,12 @@
                 animationState.targetHaloScale = 1 + proximity * 0.05;
                 animationState.targetHaloOpacity = 0.72 + proximity * 0.28;
             }
+            const speed = Math.hypot(mouseX - animationState.lastMouseX, mouseY - animationState.lastMouseY);
+            const speedFactor = Math.min(1, speed / 34);
+            animationState.targetCursorScale = 1 + speedFactor * CONFIG.CURSOR_AURA_SCALE_RANGE;
+            animationState.targetCursorOpacity = CONFIG.CURSOR_AURA_BASE_OPACITY + speedFactor * (CONFIG.CURSOR_AURA_MAX_OPACITY - CONFIG.CURSOR_AURA_BASE_OPACITY);
+            animationState.lastMouseX = mouseX;
+            animationState.lastMouseY = mouseY;
 
             animationState.magneticElements.forEach(item => {
                 const rect = item.el.getBoundingClientRect();
@@ -655,8 +978,13 @@
         });
         window.addEventListener('blur', resetAnimationTargets);
         document.addEventListener('mouseleave', resetAnimationTargets);
+        window.addEventListener('pointerdown', (event) => {
+            if (!auraLayer || event.pointerType !== 'mouse') return;
+            if (visualSettings.liteMode || document.documentElement.getAttribute('data-lite') === 'true') return;
+            spawnCursorRipple(event.clientX, event.clientY);
+        });
 
-        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        if (hasFinePointer) {
             document.querySelectorAll('.card.tilt-card').forEach((card, index) => {
                 const floatItem = {
                     el: card,
@@ -1500,6 +1828,29 @@
         }
     }
 
+    function initScrollProgress() {
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+        const progressBar = document.createElement('div');
+        progressBar.className = 'scroll-progress';
+        document.body.appendChild(progressBar);
+
+        const updateProgress = () => {
+            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+            if (maxScroll <= 0) {
+                progressBar.hidden = true;
+                progressBar.style.setProperty('--scroll-progress', '0');
+                return;
+            }
+            progressBar.hidden = false;
+            const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+            progressBar.style.setProperty('--scroll-progress', progress.toFixed(4));
+        };
+
+        window.addEventListener('scroll', updateProgress, { passive: true });
+        window.addEventListener('resize', updateProgress);
+        updateProgress();
+    }
+
     function main() {
         document.querySelectorAll('.card').forEach((card, index) => {
             card.style.setProperty('--stagger', String(index));
@@ -1513,6 +1864,7 @@
         initMusicPlayer();
         initLatestArticles();
         initScrollLayout();
+        initScrollProgress();
         const hitokotoCard = document.getElementById('hitokoto-card');
         if (hitokotoCard) {
             initHitokotoFallback(hitokotoCard, { ghost: false });

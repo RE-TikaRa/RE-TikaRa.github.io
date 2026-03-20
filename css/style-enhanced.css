@@ -208,6 +208,10 @@
         background: #0b1119 !important;
     }
 
+    #welcome-screen.is-revealing-main {
+        background: transparent !important;
+    }
+
     #welcome-text {
         text-shadow: 0 0 15px rgba(var(--accent-rgb), 0.5);
     }
