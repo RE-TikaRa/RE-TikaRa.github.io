@@ -8,22 +8,8 @@
     <meta name="robots" content="noindex">
     <link rel="icon" type="image/x-icon" href="https://free.picui.cn/free/2025/12/30/6953f28ba97a0.ico">
 
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', initialTheme);
-
-            const savedSettings = JSON.parse(localStorage.getItem('visualSettings') || '{}');
-            if (savedSettings.highContrast) {
-                document.documentElement.setAttribute('data-contrast', 'high');
-            }
-            if (savedSettings.liteMode) {
-                document.documentElement.setAttribute('data-lite', 'true');
-            }
-        })();
-    </script>
+    <script src="../js/theme-bootstrap.js"></script>
+    <script src="../js/config-loader-module.js"></script>
 
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="../css/style.css">
@@ -126,7 +112,19 @@
         </a>
     </nav>
 
+    <script src="../js/access-guard-module.js"></script>
     <script src="../js/status.js"></script>
+    <script src="../js/home-page-extensions.js"></script>
+    <script src="../js/settings-panel-module.js"></script>
+    <script src="../js/cli-module.js"></script>
+    <script src="../js/theme-module.js"></script>
+    <script src="../js/clock-module.js"></script>
+    <script src="../js/music-module.js"></script>
+    <script src="../js/weather-module.js"></script>
+    <script src="../js/welcome-effects-module.js"></script>
+    <script src="../js/welcome-screen-module.js"></script>
+    <script src="../js/interactive-effects-module.js"></script>
+    <script src="../js/navigation-effects-module.js"></script>
     <script src="../js/script.js"></script>
 </body>
 </html>

@@ -7,14 +7,8 @@
     <meta name="description" content="亓翎_Re-TikaRa 的项目展示。">
     <link rel="icon" type="image/x-icon" href="https://free.picui.cn/free/2025/12/30/6953f28ba97a0.ico">
 
-    <script>
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
-            document.documentElement.setAttribute('data-theme', initialTheme);
-        })();
-    </script>
+    <script src="../js/theme-bootstrap.js"></script>
+    <script src="../js/config-loader-module.js"></script>
     
     <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
@@ -219,107 +213,19 @@
         </a>
     </nav>
 
+    <script src="../js/home-page-extensions.js"></script>
+    <script src="../js/settings-panel-module.js"></script>
+    <script src="../js/cli-module.js"></script>
+    <script src="../js/theme-module.js"></script>
+    <script src="../js/clock-module.js"></script>
+    <script src="../js/music-module.js"></script>
+    <script src="../js/weather-module.js"></script>
+    <script src="../js/welcome-effects-module.js"></script>
+    <script src="../js/welcome-screen-module.js"></script>
+    <script src="../js/interactive-effects-module.js"></script>
+    <script src="../js/navigation-effects-module.js"></script>
+    <script src="../js/access-guard-module.js"></script>
     <script src="../js/script.js"></script>
-    <script>
-        // Load projects from config.json
-        (async function initProjects() {
-            const container = document.getElementById('project-container');
-            if (!container) return;
-
-            try {
-                console.log('Starting project load...');
-                // Add timestamp to prevent caching
-                const hostname = window.location.hostname;
-                const isLocal = hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1' || hostname === '::';
-                const baseUrl = isLocal ? '../config.json' : 'https://raw.githubusercontent.com/RE-TikaRa/RE-TikaRa.github.io/rss-data/config.json';
-                let fetchUrl = `${baseUrl}?t=${new Date().getTime()}`;
-                console.log('Fetching:', fetchUrl);
-                
-                let response = await fetch(fetchUrl);
-                if (!response.ok && !isLocal) {
-                    console.log('Remote fetch failed, falling back to local');
-                    fetchUrl = `../config.json?t=${new Date().getTime()}`;
-                    response = await fetch(fetchUrl);
-                }
-                
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status} ${response.statusText}`);
-                }
-                
-                const text = await response.text();
-                let config;
-                try {
-                    config = JSON.parse(text);
-                } catch (e) {
-                    // If parsing fails, it's likely HTML (404 page) or malformed JSON
-                    const preview = text.substring(0, 50).replace(/</g, '&lt;');
-                    throw new Error(`JSON 解析失败: ${e.message}<br>返回内容预览: ${preview}...`);
-                }
-                
-                const projects = config.projects || [];
-
-                container.innerHTML = ''; // Clear loading
-
-                if (projects.length === 0) {
-                    container.innerHTML = '<div style="grid-column: 1/-1; text-align: center; padding: 40px;">暂无项目</div>';
-                    return;
-                }
-
-                projects.forEach(project => {
-                    const card = document.createElement('a');
-                    card.href = project.link || '#';
-                    card.className = 'card card--secondary glass tilt-card project-card';
-                    if (project.link && project.link.startsWith('http')) {
-                        card.target = '_blank';
-                        card.rel = 'noopener noreferrer';
-                    }
-
-                    const tagsHtml = (project.tags || []).map(tag => `<span class="project-tag">${tag}</span>`).join('');
-
-                    card.innerHTML = `
-                        <div class="project-card-header">
-                            <span class="project-title">${project.title}</span>
-                            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 0.8rem; opacity: 0.6;"></i>
-                        </div>
-                        <div class="project-desc">${project.description}</div>
-                        <div class="project-tags">${tagsHtml}</div>
-                    `;
-                    container.appendChild(card);
-                });
-                
-                // Simple tilt effect re-attachment
-                if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-                    const cards = container.querySelectorAll('.tilt-card');
-                    cards.forEach(card => {
-                        card.addEventListener('pointermove', (e) => {
-                            const rect = card.getBoundingClientRect();
-                            const px = (e.clientX - rect.left) / rect.width - 0.5;
-                            const py = (e.clientY - rect.top) / rect.height - 0.5;
-                            card.style.setProperty('--tilt-y', `${px * 8}deg`);
-                            card.style.setProperty('--tilt-x', `${-py * 8}deg`);
-                            card.style.setProperty('--mx', `${Math.round((px + 0.5) * 100)}%`);
-                            card.style.setProperty('--my', `${Math.round((py + 0.5) * 100)}%`);
-                        });
-
-                        card.addEventListener('pointerleave', () => {
-                            card.style.setProperty('--tilt-x', '0deg');
-                            card.style.setProperty('--tilt-y', '0deg');
-                            card.style.setProperty('--mx', '50%');
-                            card.style.setProperty('--my', '15%');
-                        });
-                    });
-                }
-
-            } catch (error) {
-                console.error('Error loading projects:', error);
-                container.innerHTML = `<div style="color: #ff6a3d; text-align: center; padding: 20px;">
-                    <i class="fa-solid fa-triangle-exclamation"></i> 加载失败<br>
-                    <span style="font-size: 0.8em; opacity: 0.8;">${error.message}</span>
-                    <br><br>
-                    <span style="font-size: 0.7em; opacity: 0.6;">请确保使用 http://localhost 访问，而不是 file://</span>
-                </div>`;
-            }
-        })();
-    </script>
+    <script src="../js/project-list.js"></script>
 </body>
 </html>

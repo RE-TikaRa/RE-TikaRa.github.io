@@ -1,4 +1,6 @@
 (() => {
+    if (window.TikaAccessGuardState?.blocked) return;
+
     const statusGrid = document.getElementById('status-grid');
     const okCountEl = document.getElementById('status-ok-count');
     const badCountEl = document.getElementById('status-bad-count');
@@ -9,9 +11,9 @@
     const overallEl = document.getElementById('status-overall');
 
     const STATUS_URL = '../status.json';
-    const LOCAL_HOSTS = new Set(['localhost', '127.0.0.1', '::1', '::']);
-    const isLocal = LOCAL_HOSTS.has(window.location.hostname);
-    const CONFIG_URL = isLocal ? '../config.json' : 'https://raw.githubusercontent.com/RE-TikaRa/RE-TikaRa.github.io/rss-data/config.json';
+    const isLocal = typeof window.TikaConfigLoader?.isLocalHost === 'function'
+        ? window.TikaConfigLoader.isLocalHost()
+        : false;
 
     let cachedConfig = null;
 
@@ -31,6 +33,38 @@
     };
 
     const formatNumber = (value) => (typeof value === 'number' ? value.toLocaleString() : '--');
+
+    const normalizeExternalUrl = typeof window.TikaShared?.normalizeExternalUrl === 'function'
+        ? window.TikaShared.normalizeExternalUrl
+        : (value) => {
+            if (typeof value !== 'string') return '#';
+            try {
+                const url = new URL(value, window.location.href);
+                if (url.protocol === 'http:' || url.protocol === 'https:') {
+                    return url.href;
+                }
+                return '#';
+            } catch {
+                return '#';
+            }
+        };
+
+    const buildMetric = (label, value) => {
+        const metric = document.createElement('div');
+        metric.className = 'status-metric';
+
+        const labelEl = document.createElement('span');
+        labelEl.className = 'status-metric-label';
+        labelEl.textContent = label;
+
+        const valueEl = document.createElement('span');
+        valueEl.className = 'status-metric-value';
+        valueEl.textContent = value;
+
+        metric.appendChild(labelEl);
+        metric.appendChild(valueEl);
+        return metric;
+    };
 
     const formatTimestamp = (iso) => {
         if (!iso) return '更新中...';
@@ -126,7 +160,7 @@
 
             const nameEl = document.createElement('a');
             nameEl.className = 'status-card-name';
-            nameEl.href = target.url || '#';
+            nameEl.href = normalizeExternalUrl(target?.url);
             nameEl.target = '_blank';
             nameEl.rel = 'noopener noreferrer';
             nameEl.textContent = target.name || target.id || '未知目标';
@@ -149,13 +183,8 @@
             const metrics = document.createElement('div');
             metrics.className = 'status-card-metrics';
 
-            const timeItem = document.createElement('div');
-            timeItem.className = 'status-metric';
-            timeItem.innerHTML = `<span class="status-metric-label">响应</span><span class="status-metric-value">${formatNumber(target.responseTime)} ms</span>`;
-
-            const codeItem = document.createElement('div');
-            codeItem.className = 'status-metric';
-            codeItem.innerHTML = `<span class="status-metric-label">状态</span><span class="status-metric-value">${target.statusCode ?? '--'}</span>`;
+            const timeItem = buildMetric('响应', `${formatNumber(target.responseTime)} ms`);
+            const codeItem = buildMetric('状态', String(target.statusCode ?? '--'));
 
             metrics.appendChild(timeItem);
             metrics.appendChild(codeItem);
@@ -205,12 +234,9 @@
     const loadConfig = async () => {
         if (cachedConfig) return cachedConfig;
         try {
-            let res = await fetch(`${CONFIG_URL}?t=${Date.now()}`, { cache: 'no-store' });
-            if (!res.ok && !isLocal) {
-                res = await fetch(`../config.json?t=${Date.now()}`, { cache: 'no-store' });
-            }
-            if (!res.ok) throw new Error('config not ready');
-            cachedConfig = await res.json();
+            const loader = window.TikaConfigLoader?.fetchConfigJSON;
+            if (typeof loader !== 'function') throw new Error('config loader unavailable');
+            cachedConfig = await loader();
             return cachedConfig;
         } catch (error) {
             return null;
