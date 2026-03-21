@@ -14,10 +14,13 @@
 
     function detectMobileDevice() {
         const ua = navigator.userAgent || '';
+        const platform = `${navigator.platform || ''} ${navigator.userAgentData?.platform || ''}`;
         const isMobileUA = /Android|iPhone|iPod|iPad|Windows Phone|BlackBerry|Opera Mini|IEMobile|Mobile/i.test(ua);
-        const isNarrowTouch = window.matchMedia('(max-width: 960px)').matches
-            && window.matchMedia('(hover: none) and (pointer: coarse)').matches;
-        return isMobileUA || isNarrowTouch;
+        const hasMobilePlatformHint = /Android|iPhone|iPod|iPad|Windows Phone|Linux arm|armv8|armv7/i.test(`${ua} ${platform}`);
+        const isCoarsePointer = window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+        const shortEdge = Math.min(window.screen?.width || 0, window.screen?.height || 0);
+        const isSmallPhysicalScreen = shortEdge > 0 && shortEdge <= 1100;
+        return isMobileUA || (hasMobilePlatformHint && isCoarsePointer) || (isCoarsePointer && isSmallPhysicalScreen);
     }
 
     function createBaseOverlay() {

@@ -1,34 +1,95 @@
 # Repository Guidelines
 
-## 项目结构与模块组织
-- `index.html`：页面结构与文案入口。
-- `css/style.css`：主题、布局与动画样式。
-- `js/script.js`：交互模块（欢迎屏、视差、天气、音乐、CLI）。
-- `config.json`：网易云音乐列表配置。
-- `fonts/`：本地字体资源；`CNAME`：自定义域名记录。
-- 本项目为纯静态站点，无后端与数据库。
+### `[tika@lab ~]$ cat repo-policy.log`
+```log
+┌─ repo-policy.log
+│ [项目类型] 纯静态站点（无后端 / 无数据库）
+│ [维护目标] 模块清晰、结构稳定、禁止回退成堆砌式脚本
+└─
+```
 
-## 本地开发与运行
-- `start-server.bat`：启动本地静态服务器（端口 5173）。
-- 或使用 `python -m http.server 5173`。
-- 访问 `http://localhost:5173/` 进行预览。
-- 生产部署可用任意静态托管。
+---
 
-## 代码风格与命名
-- 缩进 4 空格，保持现有注释头与结构。
-- JS 采用单文件 IIFE 组织，使用 `const/let` 与分号。
-- CSS 按 `@layer tokens, base, components, utilities, overrides` 分层追加。
-- 文件命名保持小写；新增资源优先放入 `fonts/` 或新增 `assets/`。
+## `[tika@lab ~]$ cat layout.md`
 
-## 测试指南
-- 当前无自动化测试框架。
-- 手动检查：页面加载、主题切换、欢迎动画、星空/雨滴、音乐与 Hitokoto 回退、CLI（`~` 或反引号）以及控制台无报错。
+页面：
+- `index.html`
+- `ProjectList/index.html`
+- `status/index.html`
+- `maintenance/index.html`
+- `404.html`
 
-## 提交与 PR 规范
-- 提交信息遵循 Conventional Commits：`feat:`、`fix:` 等（示例：`fix: 调整卡片间距`）。
-- 主题简短命令式，必要时添加 scope。
-- PR 需包含简要说明；有 UI 改动请附截图/GIF；涉及外部资源或 API 变更需说明。
+样式：
+- `css/style.css`
+- `css/style-enhanced.css`
 
-## 配置与外部依赖
-- 修改 `config.json` 的 `netease_music_items` 以更新播放列表。
-- 依赖 Open-Meteo、Hitokoto、APlayer/Meting、Font Awesome 等外部服务与 CDN；部署需 HTTPS 或 localhost。
+脚本（核心）：
+- `js/theme-bootstrap.js`
+- `js/config-loader-module.js`
+- `js/access-guard-module.js`
+- `js/script.js`
+
+脚本（功能）：
+- 其余 `*-module.js` 与页面脚本按职责拆分，不并回大脚本。
+
+---
+
+## `[tika@lab ~]$ cat script-order.md`
+
+推荐顺序：
+1. `theme-bootstrap` + `config-loader`
+2. 业务模块
+3. `access-guard-module`
+4. 页面专属脚本（可选）
+5. `script.js`
+
+硬约束：
+- `access-guard-module` 必须早于页面专属数据脚本。
+- 页面专属脚本若早于 `script.js`，必须可单独运行并读取守卫状态。
+
+---
+
+## `[tika@lab ~]$ cat code-style.md`
+
+- JS 使用 IIFE 模块风格，减少全局污染。
+- `script.js` 只负责调度，不接受业务细节回填。
+- 动态内容渲染优先 DOM API。
+- 外链统一走协议白名单过滤（`http/https`）。
+- CSS 变更采用最小改动原则，避免重复选择器互相覆盖。
+
+---
+
+## `[tika@lab ~]$ cat mobile-performance.md`
+
+- 移动端默认降低高开销特效。
+- `liteMode` 为性能主开关，开启后应锁定并禁用高开销项。
+- 微信内置浏览器访问必须保持拦截，不可绕过主流程。
+
+---
+
+## `[tika@lab ~]$ cat local-dev.md`
+
+启动方式：
+```bash
+start-server.bat
+```
+或：
+```bash
+python -m http.server 5173
+```
+
+预览地址：
+- `http://localhost:5173/`
+
+提交前检查：
+- `node --check js/*.js`（按当前 shell 展开）
+- 手动回归主页/项目/状态/移动端关键行为
+
+---
+
+## `[tika@lab ~]$ cat pr-policy.md`
+
+- 提交信息建议使用 Conventional Commits（`feat:` / `fix:` / `refactor:`）。
+- PR 需写清影响范围，UI 改动附截图或录屏。
+- 禁止把“无关格式化”混入业务修复。
+
