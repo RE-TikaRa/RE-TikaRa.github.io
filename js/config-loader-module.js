@@ -1,5 +1,5 @@
 (function () {
-    const LOCAL_HOSTS = new Set(['localhost', '127.0.0.1', '::1', '::']);
+    const LOCAL_HOSTS = new Set(['localhost', '127.0.0.1', '::1', '[::1]', '::']);
     const REMOTE_CONFIG_URL = 'https://raw.githubusercontent.com/RE-TikaRa/RE-TikaRa.github.io/rss-data/config.json';
     const ROOT_CONFIG_URL = '/config.json';
 

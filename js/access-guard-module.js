@@ -57,7 +57,7 @@
         dialog.innerHTML = [
             '<p class="access-guard-kicker">访问提示</p>',
             '<h2 class="access-guard-title">推荐使用电脑端访问</h2>',
-            '<p class="access-guard-desc">当前为移动端访问，桌面端显示效果和交互更完整。你仍可继续在手机上访问。</p>',
+            '<p class="access-guard-desc">当前为移动端访问，桌面端显示效果和交互更完整。不过你仍可继续在手机上访问。</p>',
             '<button type="button" class="access-guard-btn access-guard-btn-primary" id="access-guard-continue">继续在手机上访问</button>',
         ].join('');
 

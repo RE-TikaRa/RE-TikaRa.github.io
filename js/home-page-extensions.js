@@ -138,6 +138,7 @@
         updateProgress();
     }
 
+    
     function initHiddenStatusNavigation() {
         const homeBtn = document.getElementById('nav-home-btn');
         if (!homeBtn) return;

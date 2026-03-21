@@ -123,12 +123,19 @@
             },
             status: (args) => {
                 if (args && args[0] === 'web') {
-                    window.location.href = 'status/';
+                    window.location.href = '/status/';
                     return '正在跳转到系统状态页面...';
                 }
 
-                fetch('config.json')
-                    .then((res) => res.json())
+                const loadConfig = window.TikaConfigLoader?.fetchConfigJSON;
+                const configPromise = typeof loadConfig === 'function'
+                    ? loadConfig()
+                    : fetch('/config.json', { cache: 'no-store' }).then((res) => {
+                        if (!res.ok) throw new Error(`config load failed: ${res.status}`);
+                        return res.json();
+                    });
+
+                configPromise
                     .then((fullConfig) => {
                         const config = fullConfig.status_checks || {};
                         if (!config.dataUrl) throw new Error('No dataUrl');
