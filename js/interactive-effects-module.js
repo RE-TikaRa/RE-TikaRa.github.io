@@ -292,8 +292,30 @@
             shootingStarUpdate: () => {},
             raindropUpdate: () => {},
         };
+        let animationFrameId = null;
+        let loopRunning = false;
+
+        function stopTickLoop() {
+            loopRunning = false;
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+                animationFrameId = null;
+            }
+        }
+
+        function requestNextTick() {
+            if (!loopRunning) return;
+            animationFrameId = requestAnimationFrame(tick);
+        }
+
+        function startTickLoop() {
+            if (loopRunning) return;
+            loopRunning = true;
+            requestNextTick();
+        }
 
         function tick() {
+            if (!loopRunning) return;
             const { LERP_FACTOR_NORMAL, LERP_FACTOR_FAST } = config;
             animationState.currentX += (animationState.targetX - animationState.currentX) * LERP_FACTOR_NORMAL;
             animationState.currentY += (animationState.targetY - animationState.currentY) * LERP_FACTOR_NORMAL;
@@ -365,7 +387,7 @@
             if (!liteModeEnabled && settings.raindrops) {
                 animationState.raindropUpdate();
             }
-            requestAnimationFrame(tick);
+            requestNextTick();
         }
 
         const resetAnimationTargets = () => {
@@ -431,6 +453,13 @@
         });
         window.addEventListener('blur', resetAnimationTargets);
         document.addEventListener('mouseleave', resetAnimationTargets);
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopTickLoop();
+                return;
+            }
+            startTickLoop();
+        });
         window.addEventListener('pointerdown', (event) => {
             if (!auraLayer || event.pointerType !== 'mouse') return;
             const settings = getVisualSettings() || {};
@@ -495,7 +524,9 @@
         animationState.starfieldUpdate = initStarfield(config);
         animationState.shootingStarUpdate = initShootingStars(config);
         animationState.raindropUpdate = initRaindrops(config);
-        tick();
+        if (!document.hidden) {
+            startTickLoop();
+        }
     }
 
     window.TikaInteractiveEffectsModule = {

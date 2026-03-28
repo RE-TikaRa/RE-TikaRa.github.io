@@ -4,3 +4,10 @@ codemap/
 .pem
 .bak
 backup/
+
+# local tooling artifacts
+node_modules/
+.npm-cache/
+.tmp/
+package.json
+package-lock.json

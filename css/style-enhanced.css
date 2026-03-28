@@ -99,7 +99,7 @@
 
     .card:hover {
         /* 悬停时更明显的上浮 */
-        transform: translateY(-6px) scale(1.005);
+        --lift: -6px;
         /* 增强阴影 */
         box-shadow: 
             0 20px 40px -10px rgba(0, 0, 0, 0.15),
@@ -120,7 +120,7 @@
         position: relative;
         overflow: hidden;
         border: 1px solid transparent;
-        transition: all 0.3s ease;
+        transition: transform 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     /* 导航项悬停流光效果 */
@@ -281,7 +281,6 @@
 
     .status-state.is-ok {
         --status-color-rgb: 26, 122, 75;
-        animation: status-pulse 2s infinite;
     }
 
     .status-state.is-bad {
@@ -460,6 +459,13 @@
     .scroll-reveal:nth-child(5) { animation-delay: 0.32s; }
     
     @media (prefers-reduced-motion: reduce) {
+        .glass::before,
+        .avatar-large::before,
+        .status-state.is-bad,
+        .status-state.is-unknown,
+        .skeleton {
+            animation: none !important;
+        }
         .scroll-reveal {
             opacity: 1;
         }

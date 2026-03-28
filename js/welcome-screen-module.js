@@ -7,6 +7,7 @@
         } = options;
         if (!config || typeof playWelcomeLowPolyDissolve !== 'function') return;
         const isMobile = window.matchMedia('(max-width: 960px)').matches;
+        const isLiteMode = document.documentElement.getAttribute('data-lite') === 'true';
 
         const welcomeScreen = document.getElementById('welcome-screen');
         const welcomeTextEl = document.getElementById('welcome-text');
@@ -36,7 +37,7 @@
                 setTimeout(typeChar, typeSpeed);
             } else {
                 setTimeout(() => {
-                    if (prefersReducedMotion || isMobile) {
+                    if (prefersReducedMotion || isMobile || isLiteMode) {
                         welcomeScreen.style.transition = 'none';
                         welcomeScreen.classList.add('hidden');
                         markPageReady();

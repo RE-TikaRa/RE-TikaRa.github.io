@@ -22,6 +22,7 @@
     let lastGeneratedAt = null;
     let statusTimer = null;
     let currentIntervalSeconds = null;
+    let localStatusFileMissing = false;
 
     const resetStatusTimer = (seconds) => {
         const value = Number(seconds);
@@ -245,26 +246,67 @@
 
     const loadStatus = async () => {
         const fullConfig = await loadConfig();
+        if (!fullConfig || typeof fullConfig !== 'object') {
+            if (updatedEl) {
+                updatedEl.textContent = '配置加载失败，等待重试...';
+            }
+            return;
+        }
         const config = fullConfig?.status_checks || {};
 
         const dataUrl = config?.dataUrl ? String(config.dataUrl).trim() : '';
-        const statusUrl = isLocal || !dataUrl ? STATUS_URL : dataUrl;
+        const useLocalStatusFile = !dataUrl;
+        const statusUrl = useLocalStatusFile ? STATUS_URL : dataUrl;
+        if (isLocal && useLocalStatusFile && localStatusFileMissing) {
+            if (config && Array.isArray(config.targets)) {
+                renderStatus(buildFromConfig(config));
+            }
+            if (updatedEl) {
+                updatedEl.textContent = '本地未找到 status.json（使用占位数据）';
+            }
+            if (nextEl) {
+                nextEl.textContent = '本地缺少 status.json';
+            }
+            return;
+        }
 
         try {
             const res = await fetch(`${statusUrl}${statusUrl.includes('?') ? '&' : '?'}t=${Date.now()}`, { cache: 'no-store' });
-            if (!res.ok) throw new Error('status.json not ready');
+            if (!res.ok) {
+                const error = new Error(`status fetch failed: ${res.status}`);
+                error.status = res.status;
+                throw error;
+            }
             const data = await res.json();
+            localStatusFileMissing = false;
             renderStatus(data);
         } catch (error) {
+            const statusCode = Number(error?.status);
+            if (isLocal && useLocalStatusFile && statusCode === 404) {
+                localStatusFileMissing = true;
+            }
             if (config && Array.isArray(config.targets)) {
                 renderStatus(buildFromConfig(config));
             } else if (updatedEl) {
                 updatedEl.textContent = '等待首次检测...';
             }
+            if (localStatusFileMissing) {
+                if (updatedEl) {
+                    updatedEl.textContent = '本地未找到 status.json（使用占位数据）';
+                }
+                if (nextEl) {
+                    nextEl.textContent = '本地缺少 status.json';
+                }
+            }
         }
     };
 
     const tickCountdown = () => {
+        if (isLocal && localStatusFileMissing) {
+            if (nextEl) nextEl.textContent = '本地缺少 status.json';
+            updateAge();
+            return;
+        }
         nextTick = Math.max(0, nextTick - 1);
         if (nextEl) nextEl.textContent = `下次刷新 ${formatNumber(nextTick)}s`;
         if (nextTick <= 0) nextTick = refreshInterval;

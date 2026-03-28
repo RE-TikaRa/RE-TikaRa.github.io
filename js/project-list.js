@@ -67,29 +67,6 @@
         return card;
     };
 
-    const applyTiltEffect = () => {
-        if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
-        const cards = container.querySelectorAll('.tilt-card');
-        cards.forEach((card) => {
-            card.addEventListener('pointermove', (event) => {
-                const rect = card.getBoundingClientRect();
-                const px = (event.clientX - rect.left) / rect.width - 0.5;
-                const py = (event.clientY - rect.top) / rect.height - 0.5;
-                card.style.setProperty('--tilt-y', `${px * 8}deg`);
-                card.style.setProperty('--tilt-x', `${-py * 8}deg`);
-                card.style.setProperty('--mx', `${Math.round((px + 0.5) * 100)}%`);
-                card.style.setProperty('--my', `${Math.round((py + 0.5) * 100)}%`);
-            });
-
-            card.addEventListener('pointerleave', () => {
-                card.style.setProperty('--tilt-x', '0deg');
-                card.style.setProperty('--tilt-y', '0deg');
-                card.style.setProperty('--mx', '50%');
-                card.style.setProperty('--my', '15%');
-            });
-        });
-    };
-
     const renderError = (error) => {
         container.textContent = '';
 
@@ -142,7 +119,6 @@
             fragment.appendChild(createProjectCard(project));
         });
         container.appendChild(fragment);
-        applyTiltEffect();
     } catch (error) {
         console.error('Error loading projects:', error);
         renderError(error);

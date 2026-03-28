@@ -82,6 +82,7 @@
     }
 
     const isStatusPage = document.body && document.body.classList.contains('status-page');
+    const isErrorPage = document.body && document.body.classList.contains('error-page');
     if (isStatusPage) {
         CONFIG.STAR_COUNT_LAYER1 = 140;
         CONFIG.STAR_COUNT_LAYER2 = 90;
@@ -119,7 +120,13 @@
 
     function initWelcomeScreen() {
         const module = window.TikaWelcomeScreenModule?.initWelcomeScreen;
-        if (typeof module !== 'function') return;
+        if (typeof module !== 'function') {
+            if (document.body && !document.body.classList.contains('is-ready')) {
+                document.body.classList.add('is-ready');
+                window.dispatchEvent(new Event('welcome-ready'));
+            }
+            return;
+        }
         module({
             config: CONFIG,
             prefersReducedMotion,
@@ -269,7 +276,7 @@
         if (hitokotoCard) {
             runInitializer('hitokoto-fallback', () => initHitokotoFallback(hitokotoCard, { ghost: false }));
         }
-        if (window.matchMedia('(min-width: 961px)').matches) {
+        if (window.matchMedia('(min-width: 961px)').matches && !isErrorPage) {
             runInitializer('interactive-effects', () => initInteractiveEffects());
         }
         runInitializer('view-transitions', () => initViewTransitions());
