@@ -13,6 +13,20 @@
         }
     }
 
+    function readStoredVisualSettings() {
+        try {
+            return localStorage.getItem('visualSettings');
+        } catch {
+            return null;
+        }
+    }
+
+    function writeStoredVisualSettings(value) {
+        try {
+            localStorage.setItem('visualSettings', JSON.stringify(value));
+        } catch {}
+    }
+
     function initSettingsPanel(options = {}) {
         const {
             isStatusPage = false,
@@ -49,7 +63,7 @@
             defaultSettings.cardFloat = false;
         }
 
-        const rawSettings = localStorage.getItem('visualSettings');
+        const rawSettings = readStoredVisualSettings();
         const parsedSettings = safeParseObjectJSON(rawSettings, null);
         const visualSettings = parsedSettings && typeof parsedSettings === 'object'
             ? { ...defaultSettings, ...parsedSettings }
@@ -106,12 +120,25 @@
             liteDependentKeys.forEach((key) => setControlLocked(key, locked));
         };
 
+        const getEffectiveSetting = (key) => {
+            if (visualSettings.liteMode && liteDependentKeys.includes(key)) {
+                return false;
+            }
+            return visualSettings[key];
+        };
+
+        const syncEffectVisibility = () => {
+            Object.keys(effectElements).forEach((key) => {
+                setEffectVisibility(key, Boolean(getEffectiveSetting(key)));
+            });
+        };
+
         setRootAttribute('data-contrast', visualSettings.highContrast, 'high');
         setRootAttribute('data-lite', visualSettings.liteMode, 'true');
 
         const applySetting = (key, value) => {
             visualSettings[key] = value;
-            localStorage.setItem('visualSettings', JSON.stringify(visualSettings));
+            writeStoredVisualSettings(visualSettings);
 
             if (key === 'highContrast') {
                 setRootAttribute('data-contrast', value, 'high');
@@ -119,8 +146,11 @@
             if (key === 'liteMode') {
                 setRootAttribute('data-lite', value, 'true');
                 syncLiteModeDependents();
+                syncEffectVisibility();
             }
-            setEffectVisibility(key, value);
+            if (key in effectElements) {
+                setEffectVisibility(key, Boolean(getEffectiveSetting(key)));
+            }
             if ((key === 'playlistType' || key === 'musicAutoplay') && typeof onMusicSettingsChange === 'function') {
                 onMusicSettingsChange();
             }
@@ -134,7 +164,6 @@
                 } else {
                     control.value = visualSettings[key];
                 }
-                setEffectVisibility(key, visualSettings[key]);
             }
             control.addEventListener('change', (event) => {
                 const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
@@ -143,6 +172,7 @@
         });
 
         syncLiteModeDependents();
+        syncEffectVisibility();
 
         const setSettingsOpen = (isOpen) => {
             settingsPanel.hidden = !isOpen;

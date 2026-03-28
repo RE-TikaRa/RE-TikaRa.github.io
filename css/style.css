@@ -2997,6 +2997,68 @@ body.is-main-reveal .grid-container {
     gap: clamp(14px, 2.6vw, 22px);
 }
 
+.main-panel-full {
+    grid-column: span 9;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    width: 100%;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.project-title {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.project-desc {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 16px;
+    flex-grow: 1;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tag {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: rgba(var(--accent-rgb), 0.1);
+    color: var(--accent-color);
+    font-weight: 500;
+}
+
+.project-loading-state {
+    padding: 20px;
+    text-align: center;
+    color: var(--text-secondary);
+}
+
 .status-card {
     padding: 18px;
     display: flex;

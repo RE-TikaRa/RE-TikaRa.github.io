@@ -91,6 +91,13 @@
             updateWeatherUI('ALp_Studio', virtualTemperature, virtualWeatherInfo, '模拟', Number(randomCode));
         }
 
+        function isGeolocationPermissionDenied(error) {
+            if (!error) return false;
+            if (typeof error.code === 'number' && error.code === 1) return true;
+            const message = typeof error.message === 'string' ? error.message.toLowerCase() : '';
+            return message.includes('geolocation') && message.includes('denied');
+        }
+
         try {
             const position = await new Promise((resolve, reject) => {
                 navigator.geolocation.getCurrentPosition(resolve, reject, { timeout: 8000 });
@@ -104,7 +111,9 @@
             const locationLabel = await reverseGeocode(latitude, longitude);
             updateWeatherUI(locationLabel, data.current.temperature_2m, weatherInfo, '定位', Number(data.current.weather_code));
         } catch (error) {
-            console.error('获取天气失败:', error.message || error);
+            if (!isGeolocationPermissionDenied(error)) {
+                console.error('获取天气失败:', error.message || error);
+            }
             showVirtualWeather();
         }
     }

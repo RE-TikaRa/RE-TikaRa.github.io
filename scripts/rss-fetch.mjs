@@ -1,5 +1,4 @@
 import fs from 'node:fs/promises';
-import path from 'node:path';
 
 const configPath = new URL('../config.json', import.meta.url);
 
@@ -36,48 +35,95 @@ async function fetchRSS() {
     }
 }
 
+function decodeXmlEntities(value) {
+    return String(value)
+        .replace(/&#x([0-9a-f]+);/gi, (_, hex) => {
+            const codePoint = Number.parseInt(hex, 16);
+            return Number.isFinite(codePoint) ? String.fromCodePoint(codePoint) : '';
+        })
+        .replace(/&#(\d+);/g, (_, code) => {
+            const codePoint = Number.parseInt(code, 10);
+            return Number.isFinite(codePoint) ? String.fromCodePoint(codePoint) : '';
+        })
+        .replace(/&lt;/g, '<')
+        .replace(/&gt;/g, '>')
+        .replace(/&quot;/g, '"')
+        .replace(/&apos;/g, '\'')
+        .replace(/&#39;/g, '\'')
+        .replace(/&amp;/g, '&');
+}
+
+function normalizeText(value) {
+    return decodeXmlEntities(
+        String(value)
+            .replace(/<!\[CDATA\[([\s\S]*?)\]\]>/g, '$1')
+            .replace(/<[^>]+>/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim()
+    );
+}
+
+function extractFirstTagContent(source, tagNames) {
+    for (const tagName of tagNames) {
+        const match = source.match(new RegExp(`<${tagName}\\b[^>]*>([\\s\\S]*?)<\\/${tagName}>`, 'i'));
+        if (match?.[1]) {
+            return match[1];
+        }
+    }
+    return '';
+}
+
+function extractAtomLink(source) {
+    const alternateMatch = source.match(/<link\b[^>]*\brel=(["'])alternate\1[^>]*\bhref=(["'])(.*?)\2[^>]*\/?>/i);
+    if (alternateMatch?.[3]) {
+        return alternateMatch[3];
+    }
+
+    const hrefMatch = source.match(/<link\b[^>]*\bhref=(["'])(.*?)\1[^>]*\/?>/i);
+    if (hrefMatch?.[2]) {
+        return hrefMatch[2];
+    }
+
+    return extractFirstTagContent(source, ['id']);
+}
+
+function extractRssLink(source) {
+    return extractFirstTagContent(source, ['link', 'guid']);
+}
+
+function normalizeDate(rawValue) {
+    const text = normalizeText(rawValue);
+    if (!text) return '';
+
+    const date = new Date(text);
+    if (Number.isNaN(date.getTime())) {
+        return '';
+    }
+    return date.toISOString().split('T')[0];
+}
+
 function parseXML(xml, limit) {
     const items = [];
-    // Simple regex-based parser for RSS/Atom
-    // Note: This is not a full-fledged XML parser but sufficient for standard feeds
-    
-    // Check if Atom or RSS
     const isAtom = xml.includes('<feed') || xml.includes('xmlns="http://www.w3.org/2005/Atom"');
-    
-    const itemRegex = isAtom ? /<entry>([\s\S]*?)<\/entry>/g : /<item>([\s\S]*?)<\/item>/g;
-    const titleRegex = /<title[^>]*>([^<]+)<\/title>/;
-    const linkRegex = isAtom ? /<link[^>]*href="([^"]+)"/ : /<link>([^<]+)<\/link>/;
-    const dateRegex = isAtom ? /<updated>([^<]+)<\/updated>/ : /<pubDate>([^<]+)<\/pubDate>/;
+    const itemRegex = isAtom ? /<entry\b[^>]*>([\s\S]*?)<\/entry>/gi : /<item\b[^>]*>([\s\S]*?)<\/item>/gi;
 
     let match;
     while ((match = itemRegex.exec(xml)) !== null && items.length < limit) {
         const itemContent = match[1];
-        const titleMatch = titleRegex.exec(itemContent);
-        const linkMatch = linkRegex.exec(itemContent);
-        const dateMatch = dateRegex.exec(itemContent);
+        const rawTitle = extractFirstTagContent(itemContent, ['title']);
+        const rawLink = isAtom ? extractAtomLink(itemContent) : extractRssLink(itemContent);
+        const rawDate = isAtom
+            ? extractFirstTagContent(itemContent, ['updated', 'published'])
+            : extractFirstTagContent(itemContent, ['pubDate', 'dc:date']);
+        const title = normalizeText(rawTitle);
+        const link = normalizeText(rawLink);
+        const date = normalizeDate(rawDate);
 
-        if (titleMatch && linkMatch) {
-            // Decode HTML entities in title if necessary (basic ones)
-            let title = titleMatch[1].replace(/<!\[CDATA\[(.*?)\]\]>/g, '$1');
-            let link = linkMatch[1];
-            let date = '';
-
-            if (dateMatch) {
-                try {
-                    const d = new Date(dateMatch[1]);
-                    if (!isNaN(d.getTime())) {
-                        // Format: YYYY-MM-DD
-                        date = d.toISOString().split('T')[0];
-                    }
-                } catch (e) {
-                    // Keep empty if parsing fails
-                }
-            }
-
+        if (title && link) {
             items.push({
-                title: title.trim(),
-                link: link.trim(),
-                date: date
+                title,
+                link,
+                date,
             });
         }
     }

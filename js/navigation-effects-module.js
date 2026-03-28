@@ -34,17 +34,28 @@
         const internalLinks = document.querySelectorAll('a[href^="/"], a[href^="./"], a[href^="../"], a[href^="index"], a[href^="ProjectList"], a[href^="status"]');
 
         internalLinks.forEach((link) => {
-            if (link.target === '_blank') return;
+            if (link.target && link.target !== '_self') return;
+            if (link.hasAttribute('download')) return;
             if (link.href.includes('#')) return;
 
             link.addEventListener('click', (e) => {
                 const href = link.href;
                 if (!href || href === window.location.href) return;
+                if (e.defaultPrevented || e.button !== 0) return;
+                if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+
+                let url;
+                try {
+                    url = new URL(href, window.location.href);
+                } catch {
+                    return;
+                }
+                if (url.origin !== window.location.origin) return;
 
                 e.preventDefault();
 
                 document.startViewTransition(() => {
-                    window.location.href = href;
+                    window.location.href = url.href;
                 });
             });
         });

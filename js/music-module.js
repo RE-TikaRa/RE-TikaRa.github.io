@@ -103,10 +103,6 @@
         try {
             stopMusicPulse(appState);
             musicCard.classList.remove('card--ghost');
-            if (appState.hitokotoIntervalId) {
-                clearInterval(appState.hitokotoIntervalId);
-                appState.hitokotoIntervalId = null;
-            }
 
             const config = await fetchConfig();
             const allMusicItems = Array.isArray(config?.netease_music_items)

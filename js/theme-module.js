@@ -15,6 +15,20 @@
         ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
     }
 
+    function readStoredTheme() {
+        try {
+            return localStorage.getItem('theme');
+        } catch {
+            return null;
+        }
+    }
+
+    function persistTheme(theme) {
+        try {
+            localStorage.setItem('theme', theme);
+        } catch {}
+    }
+
     function initTheme() {
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
         const toggleBtn = document.getElementById('theme-toggle');
@@ -56,7 +70,7 @@
 
                 if (!document.startViewTransition || isMobile) {
                     setTheme(nextTheme);
-                    localStorage.setItem('theme', nextTheme);
+                    persistTheme(nextTheme);
                     syncThemeToggle(nextTheme);
                     return;
                 }
@@ -68,7 +82,7 @@
 
                 const transition = document.startViewTransition(() => {
                     setTheme(nextTheme);
-                    localStorage.setItem('theme', nextTheme);
+                    persistTheme(nextTheme);
                     syncThemeToggle(nextTheme);
                 });
 
@@ -93,7 +107,7 @@
         }
 
         prefersDarkScheme.addEventListener('change', (e) => {
-            if (!localStorage.getItem('theme')) {
+            if (!readStoredTheme()) {
                 const nextTheme = e.matches ? 'dark' : 'light';
                 if (!document.startViewTransition || isMobile) {
                     setTheme(nextTheme);

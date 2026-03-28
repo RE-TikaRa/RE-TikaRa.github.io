@@ -82,6 +82,20 @@
         let historyIndex = -1;
         let uptimeTimer = null;
 
+        function stopUptimeTicker() {
+            if (!uptimeTimer) return;
+            clearInterval(uptimeTimer);
+            uptimeTimer = null;
+        }
+
+        function getSiteUrl(path) {
+            const resolver = window.TikaConfigLoader?.getSiteUrl;
+            if (typeof resolver === 'function') {
+                return resolver(path);
+            }
+            return new URL(path, window.location.href).href;
+        }
+
         const commands = {
             help: () => {
                 const helpItems = [
@@ -110,10 +124,7 @@
             },
             clear: () => {
                 cliOutput.innerHTML = '';
-                if (uptimeTimer) {
-                    clearInterval(uptimeTimer);
-                    uptimeTimer = null;
-                }
+                stopUptimeTicker();
                 return '';
             },
             theme: () => {
@@ -123,14 +134,14 @@
             },
             status: (args) => {
                 if (args && args[0] === 'web') {
-                    window.location.href = '/status/';
+                    window.location.href = getSiteUrl('status/');
                     return '正在跳转到系统状态页面...';
                 }
 
                 const loadConfig = window.TikaConfigLoader?.fetchConfigJSON;
                 const configPromise = typeof loadConfig === 'function'
                     ? loadConfig()
-                    : fetch('/config.json', { cache: 'no-store' }).then((res) => {
+                    : fetch(getSiteUrl('config.json'), { cache: 'no-store' }).then((res) => {
                         if (!res.ok) throw new Error(`config load failed: ${res.status}`);
                         return res.json();
                     });
@@ -239,8 +250,11 @@
                 cliOutput.scrollTop = cliOutput.scrollHeight;
                 if (cliOutput.innerHTML === '') {
                     executeCommand('info');
+                } else if (cliOutput.querySelector('.cli-box-info')) {
+                    startUptimeTicker();
                 }
             } else {
+                stopUptimeTicker();
                 cliContainer.hidden = true;
                 cliInput.blur();
             }
@@ -259,7 +273,7 @@
             const boxes = cliOutput.querySelectorAll('.cli-box-info');
             const box = boxes[boxes.length - 1];
             if (!box) return;
-            if (uptimeTimer) clearInterval(uptimeTimer);
+            stopUptimeTicker();
             const update = () => {
                 box.textContent = renderInfoBoxText();
             };
@@ -289,7 +303,7 @@
                         .then((text) => {
                             if (text) {
                                 printToCLI(text);
-                                if (text.includes('cli-uptime')) startUptimeTicker();
+                                if (text.includes('cli-box-info')) startUptimeTicker();
                             }
                         })
                         .catch(() => printToCLI('抱歉，该实验体权限不足'));
