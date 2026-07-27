@@ -4,12 +4,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout title="维护中 | ALp_Studio" description="观测站正在执行维护与校准。" bodyClass="error-page">
   <main id="main-content" class="error-shell">
-    <section class="card glass error-card" aria-labelledby="error-title">
+    <section class="blueprint-frame error-card" aria-labelledby="error-title">
+      <div class="frame-label">
+        <span class="frame-label__mark data-field">[--]</span>
+        <span class="frame-label__text">// SYSTEM.calibrating</span>
+      </div>
       <h1 class="error-code" id="error-title">维护中</h1>
       <p class="error-desc">观测站正在执行维护与校准，本模块暂时离线，请稍后再来。</p>
+      <a class="error-home data-field" href="/">回到首页</a>
     </section>
-    <div class="card glass error-cta">
-      <a class="error-home" href="/">回到首页</a>
-    </div>
   </main>
 </BaseLayout>

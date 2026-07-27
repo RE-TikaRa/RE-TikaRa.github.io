@@ -5,30 +5,28 @@ import MobileNav from '../components/MobileNav.astro';
 
 <BaseLayout title="状态面板 | ALp_Studio" description="导航页面状态检查面板。" bodyClass="status-page">
   <main id="main-content" class="status-shell">
-    <a class="status-back" href="/">
-      <i class="fa-solid fa-arrow-left"></i>
+    <a class="status-back data-field" href="/">
+      <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
       返回首页
     </a>
 
-    <header class="card glass status-header">
-      <div class="status-kicker">
-        <span class="status-kicker-icon">
-          <i class="fa-solid fa-wave-square"></i>
-        </span>
-        <span>GROUP VIEW</span>
+    <header class="blueprint-frame status-header">
+      <div class="frame-label">
+        <span class="frame-label__mark data-field">[//]</span>
+        <span class="frame-label__text">// STATUS.monitor</span>
+        <span class="status-overall status-unknown data-field" id="status-overall">CHECKING</span>
       </div>
       <h1 class="status-title">导航状态检查</h1>
       <div class="status-summary">
-        <span class="status-pill status-ok" id="status-ok-count">0 正常</span>
-        <span class="status-pill status-bad" id="status-bad-count">0 异常</span>
-        <span class="status-pill status-warn" id="status-unknown-count">0 未知</span>
-        <span id="status-age" class="status-pill status-age">距上次更新 -- 分钟</span>
+        <span class="status-pill status-ok data-field" id="status-ok-count">0 正常</span>
+        <span class="status-pill status-bad data-field" id="status-bad-count">0 异常</span>
+        <span class="status-pill status-warn data-field" id="status-unknown-count">0 未知</span>
+        <span id="status-age" class="status-pill status-age data-field">距上次更新 -- 分钟</span>
       </div>
-      <div class="status-meta">
+      <div class="status-meta data-field">
         <span id="status-updated">更新中...</span>
         <span id="status-next">下次刷新 --s</span>
       </div>
-      <div class="status-overall status-unknown" id="status-overall">CHECKING</div>
     </header>
 
     <section class="status-grid" id="status-grid" aria-live="polite"></section>
@@ -36,3 +34,307 @@ import MobileNav from '../components/MobileNav.astro';
 
   <MobileNav />
 </BaseLayout>
+
+<style>
+  .status-shell {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 6rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .status-back {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ink-dim);
+  }
+  .status-back:hover {
+    color: var(--color-accent);
+  }
+  .status-header .frame-label {
+    justify-content: flex-start;
+  }
+  .status-overall {
+    margin-left: auto;
+    padding: 0.15rem 0.6rem;
+    border: 1px solid currentColor;
+    font-size: 0.66rem;
+  }
+  .status-overall.status-ok { color: var(--color-accent); }
+  .status-overall.status-bad { color: var(--color-warn); }
+  .status-overall.status-unknown { color: var(--color-ink-dim); }
+  .status-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    margin: 0.4rem 0 0.9rem;
+  }
+  .status-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 0.7rem;
+  }
+  .status-pill {
+    padding: 0.2rem 0.6rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    border: 1px solid var(--color-grid-major);
+    color: var(--color-ink-dim);
+  }
+  .status-pill.status-ok { color: var(--color-accent); border-color: var(--color-accent); }
+  .status-pill.status-bad { color: var(--color-warn); border-color: var(--color-warn); }
+  .status-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-dim);
+  }
+  .status-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 960px) {
+    .status-shell {
+      padding: 1.25rem 1rem 6rem;
+    }
+  }
+</style>
+
+<script>
+  import { fetchConfigJSON } from '../lib/config';
+
+  interface StatusHistoryItem {
+    ok?: boolean;
+  }
+  interface StatusTargetData {
+    id?: string;
+    name?: string;
+    url?: string;
+    status?: string;
+    statusCode?: number | null;
+    responseTime?: number | null;
+    history?: StatusHistoryItem[];
+  }
+  interface StatusPayload {
+    generatedAt?: string;
+    intervalSeconds?: number;
+    refreshIntervalSeconds?: number;
+    historyLength?: number;
+    targets?: StatusTargetData[];
+  }
+
+  const statusGrid = document.getElementById('status-grid');
+  const okCountEl = document.getElementById('status-ok-count');
+  const badCountEl = document.getElementById('status-bad-count');
+  const unknownCountEl = document.getElementById('status-unknown-count');
+  const updatedEl = document.getElementById('status-updated');
+  const nextEl = document.getElementById('status-next');
+  const overallEl = document.getElementById('status-overall');
+  const ageEl = document.getElementById('status-age');
+
+  let refreshInterval = 60;
+  let nextTick = refreshInterval;
+  let generatedAtMs = 0;
+
+  const formatNumber = (value: unknown) =>
+    typeof value === 'number' ? value.toLocaleString() : '--';
+
+  const formatTimestamp = (iso?: string) => {
+    if (!iso) return '更新中...';
+    const date = new Date(iso);
+    if (Number.isNaN(date.getTime())) return '更新中...';
+    const pad = (n: number) => String(n).padStart(2, '0');
+    return `更新于 ${date.getFullYear()}/${pad(date.getMonth() + 1)}/${pad(date.getDate())} ${pad(date.getHours())}:${pad(date.getMinutes())}:${pad(date.getSeconds())}`;
+  };
+
+  const updateAge = () => {
+    if (!ageEl) return;
+    if (!generatedAtMs) {
+      ageEl.textContent = '距上次更新 -- 分钟';
+      return;
+    }
+    const minutes = Math.max(0, Math.floor((Date.now() - generatedAtMs) / 60000));
+    ageEl.textContent = `距上次更新 ${minutes} 分钟`;
+  };
+
+  const buildHistoryBars = (history: StatusHistoryItem[] | undefined, total: number) => {
+    const bars = document.createElement('div');
+    bars.className = 'status-history';
+    const items = Array.isArray(history) && history.length ? history.slice(-total) : [];
+    const missing = total - items.length;
+    for (let i = 0; i < missing; i++) {
+      const bar = document.createElement('span');
+      bar.className = 'status-bar is-empty';
+      bars.appendChild(bar);
+    }
+    items.forEach((item) => {
+      const bar = document.createElement('span');
+      if (item && item.ok === true) bar.className = 'status-bar is-ok';
+      else if (item && item.ok === false) bar.className = 'status-bar is-bad';
+      else bar.className = 'status-bar is-empty';
+      bars.appendChild(bar);
+    });
+    return bars;
+  };
+
+  const renderStatus = (payload: StatusPayload) => {
+    if (!payload || !Array.isArray(payload.targets)) return;
+
+    refreshInterval = Number(payload.intervalSeconds || payload.refreshIntervalSeconds || 60);
+    nextTick = refreshInterval;
+    if (nextEl) nextEl.textContent = `下次刷新 ${formatNumber(nextTick)}s`;
+    if (updatedEl) updatedEl.textContent = formatTimestamp(payload.generatedAt);
+    generatedAtMs = payload.generatedAt ? new Date(payload.generatedAt).getTime() || 0 : 0;
+    updateAge();
+
+    let okCount = 0;
+    let badCount = 0;
+    let unknownCount = 0;
+
+    if (statusGrid) statusGrid.innerHTML = '';
+
+    payload.targets.forEach((target) => {
+      const isOk = target.status === 'ok';
+      const isBad = target.status === 'error';
+      const statusText = isOk ? '正常' : isBad ? '异常' : '未知';
+      if (isOk) okCount += 1;
+      else if (isBad) badCount += 1;
+      else unknownCount += 1;
+
+      const card = document.createElement('article');
+      card.className = `blueprint-frame status-card ${isOk ? 'is-ok' : isBad ? 'is-bad' : 'is-unknown'}`;
+
+      const header = document.createElement('div');
+      header.className = 'status-card-head';
+
+      const nameWrap = document.createElement('div');
+      nameWrap.className = 'status-card-name-wrap';
+      const nameEl = document.createElement('div');
+      nameEl.className = 'status-card-name';
+      nameEl.textContent = target.name || target.id || '未知目标';
+      const urlEl = document.createElement('div');
+      urlEl.className = 'status-card-url data-field';
+      urlEl.textContent = target.url || '';
+      nameWrap.appendChild(nameEl);
+      nameWrap.appendChild(urlEl);
+
+      const stateEl = document.createElement('div');
+      stateEl.className = 'status-state data-field';
+      stateEl.textContent = statusText;
+
+      const openEl = document.createElement('a');
+      openEl.className = 'status-card-link';
+      openEl.href = target.url || '#';
+      openEl.target = '_blank';
+      openEl.rel = 'noopener noreferrer';
+      openEl.title = '打开页面';
+      openEl.innerHTML = '<i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>';
+
+      const rightWrap = document.createElement('div');
+      rightWrap.className = 'status-card-actions';
+      rightWrap.appendChild(stateEl);
+      rightWrap.appendChild(openEl);
+
+      header.appendChild(nameWrap);
+      header.appendChild(rightWrap);
+
+      const metrics = document.createElement('div');
+      metrics.className = 'status-card-metrics';
+      const timeItem = document.createElement('div');
+      timeItem.className = 'status-metric data-field';
+      timeItem.innerHTML = `<span class="status-metric-label">响应</span><span class="status-metric-value">${formatNumber(target.responseTime)} ms</span>`;
+      const codeItem = document.createElement('div');
+      codeItem.className = 'status-metric data-field';
+      codeItem.innerHTML = `<span class="status-metric-label">状态</span><span class="status-metric-value">${target.statusCode ?? '--'}</span>`;
+      metrics.appendChild(timeItem);
+      metrics.appendChild(codeItem);
+
+      const history = buildHistoryBars(target.history, payload.historyLength || 60);
+
+      card.appendChild(header);
+      card.appendChild(metrics);
+      card.appendChild(history);
+      if (statusGrid) statusGrid.appendChild(card);
+    });
+
+    if (okCountEl) okCountEl.textContent = `${formatNumber(okCount)} 正常`;
+    if (badCountEl) badCountEl.textContent = `${formatNumber(badCount)} 异常`;
+    if (unknownCountEl) unknownCountEl.textContent = `${formatNumber(unknownCount)} 未知`;
+
+    if (overallEl) {
+      if (badCount > 0) {
+        overallEl.textContent = 'ISSUES';
+        overallEl.className = 'status-overall status-bad data-field';
+      } else if (okCount > 0 && badCount === 0) {
+        overallEl.textContent = 'OPERATIONAL';
+        overallEl.className = 'status-overall status-ok data-field';
+      } else {
+        overallEl.textContent = 'CHECKING';
+        overallEl.className = 'status-overall status-unknown data-field';
+      }
+    }
+  };
+
+  const buildFromConfig = (targets: StatusTargetData[], interval: number, historyLength: number): StatusPayload => ({
+    generatedAt: '',
+    intervalSeconds: interval,
+    historyLength,
+    targets: targets.map((target) => ({
+      ...target,
+      status: 'unknown',
+      statusCode: null,
+      responseTime: null,
+      history: [],
+    })),
+  });
+
+  let statusConfig: { dataUrl?: string; refreshIntervalSeconds?: number; historyLength?: number; targets?: StatusTargetData[] } = {};
+
+  const loadStatus = async () => {
+    try {
+      if (!statusConfig.dataUrl) throw new Error('no dataUrl');
+      const res = await fetch(statusConfig.dataUrl, { cache: 'no-store' });
+      if (!res.ok) throw new Error('status data not ready');
+      const data = await res.json();
+      renderStatus(data);
+    } catch {
+      renderStatus(
+        buildFromConfig(
+          Array.isArray(statusConfig.targets) ? statusConfig.targets : [],
+          statusConfig.refreshIntervalSeconds || 60,
+          statusConfig.historyLength || 60,
+        ),
+      );
+      if (updatedEl) updatedEl.textContent = '等待首次检测...';
+    }
+  };
+
+  const tickCountdown = () => {
+    nextTick = Math.max(0, nextTick - 1);
+    if (nextEl) nextEl.textContent = `下次刷新 ${formatNumber(nextTick)}s`;
+    if (nextTick <= 0) nextTick = refreshInterval;
+    updateAge();
+  };
+
+  (async () => {
+    try {
+      const config = await fetchConfigJSON();
+      statusConfig = config.status_checks || {};
+    } catch (error) {
+      console.error('Failed to load status config:', error);
+    }
+    await loadStatus();
+    window.setInterval(loadStatus, refreshInterval * 1000);
+    window.setInterval(tickCountdown, 1000);
+  })();
+</script>

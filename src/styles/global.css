@@ -716,6 +716,190 @@
 }
 
 /* ============================================================
+   项目页 / 状态页 / 错误页(动态注入元素样式必须全局)
+   ============================================================ */
+@layer components {
+  /* --- 项目卡(createElement 注入) --- */
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    color: var(--color-ink);
+    transition: transform 0.12s var(--ease-linear), box-shadow 0.12s var(--ease-linear);
+  }
+  .project-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0 var(--color-border);
+  }
+  .project-card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.6rem;
+  }
+  .project-title {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .project-open {
+    font-size: 0.75rem;
+    color: var(--color-accent);
+  }
+  .project-desc {
+    font-size: 0.9rem;
+    color: var(--color-ink-dim);
+    margin: 0;
+    flex: 1;
+  }
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .project-tag {
+    padding: 0.15rem 0.5rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
+    color: var(--color-accent);
+    border: 1px solid var(--color-grid-major);
+  }
+
+  /* --- 状态卡(createElement 注入) --- */
+  .status-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    border-left-width: 3px;
+  }
+  .status-card.is-ok { border-left-color: var(--color-accent); }
+  .status-card.is-bad { border-left-color: var(--color-warn); }
+  .status-card.is-unknown { border-left-color: var(--color-grid-major); }
+  .status-card-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0.6rem;
+  }
+  .status-card-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    color: var(--color-ink);
+  }
+  .status-card-url {
+    font-size: 0.64rem;
+    letter-spacing: 0.02em;
+    color: var(--color-ink-dim);
+    word-break: break-all;
+  }
+  .status-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-shrink: 0;
+  }
+  .status-state {
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    padding: 0.1rem 0.45rem;
+    border: 1px solid currentColor;
+  }
+  .status-card.is-ok .status-state { color: var(--color-accent); }
+  .status-card.is-bad .status-state { color: var(--color-warn); }
+  .status-card.is-unknown .status-state { color: var(--color-ink-dim); }
+  .status-card-link {
+    color: var(--color-ink-dim);
+  }
+  .status-card-link:hover {
+    color: var(--color-accent);
+  }
+  .status-card-metrics {
+    display: flex;
+    gap: 1.2rem;
+  }
+  .status-metric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+  .status-metric-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-ink-dim);
+  }
+  .status-metric-value {
+    font-size: 0.85rem;
+    color: var(--color-ink);
+  }
+  .status-history {
+    display: flex;
+    gap: 2px;
+    height: 20px;
+    align-items: stretch;
+  }
+  .status-bar {
+    flex: 1;
+    min-width: 2px;
+    background: var(--color-grid);
+  }
+  .status-bar.is-ok { background: var(--color-accent); }
+  .status-bar.is-bad { background: var(--color-warn); }
+  .status-bar.is-empty { background: var(--color-grid); }
+
+  /* --- 错误页 / 维护页(极简居中单图框) --- */
+  .error-shell {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1.5rem;
+  }
+  .error-card {
+    max-width: 460px;
+    text-align: center;
+  }
+  .error-card .frame-label {
+    justify-content: center;
+  }
+  .error-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-ink-dim);
+    margin: 0;
+  }
+  .error-code {
+    font-family: var(--font-display);
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--color-accent);
+    margin: 0.3rem 0 0.8rem;
+  }
+  .error-desc {
+    font-size: 0.95rem;
+    color: var(--color-ink-dim);
+    margin: 0 0 1.4rem;
+  }
+  .error-home {
+    display: inline-block;
+    padding: 0.5rem 1.2rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-bg);
+    background: var(--color-accent);
+    border: var(--frame-border-width) solid var(--color-border);
+    box-shadow: var(--frame-shadow);
+    transition: transform 0.12s var(--ease-linear);
+  }
+  .error-home:hover {
+    transform: translate(-1px, -1px);
+  }
+}
+
+/* ============================================================
    降级:reduced-motion / lite 关闭网格动画等
    (动效在阶段2 由 GSAP 接管,这里只保静态降级)
    ============================================================ */

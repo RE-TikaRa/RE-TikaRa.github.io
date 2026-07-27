@@ -5,24 +5,129 @@ import MobileNav from '../components/MobileNav.astro';
 ---
 
 <BaseLayout title="项目 | ALp_Studio" description="亓翎_Re-TikaRa 的项目列表。">
-  <div class="parallax-container">
-    <div class="grid-container layout-grid">
-      <NavPanel active="projects" />
+  <div class="console-layout">
+    <NavPanel active="projects" />
 
-      <main id="main-content" class="main-panel main-panel-full" aria-labelledby="projects-heading">
-        <div class="card card--tertiary glass">
-          <div class="card-header">
-            <h2 class="card-title" id="projects-heading">项目列表</h2>
-          </div>
-          <div id="project-container" class="project-grid">
-            <div class="project-loading-state">
-              <i class="fa-solid fa-spinner fa-spin"></i> 加载中...
-            </div>
-          </div>
+    <main id="main-content" class="blueprint-frame projects-card" aria-labelledby="projects-heading">
+      <div class="frame-label">
+        <span class="frame-label__mark data-field">[//]</span>
+        <span class="frame-label__text" id="projects-heading">// PROJECTS.registry</span>
+      </div>
+      <div id="project-container" class="project-grid">
+        <div class="project-loading-state data-field">
+          <i class="fa-solid fa-spinner fa-spin" aria-hidden="true"></i> 编译单元载入中...
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   </div>
 
   <MobileNav active="projects" />
 </BaseLayout>
+
+<style>
+  .console-layout {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 1.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    align-items: start;
+  }
+  .projects-card {
+    min-height: 60vh;
+  }
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.25rem;
+  }
+  .project-loading-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--color-ink-dim);
+    letter-spacing: 0.08em;
+  }
+
+  @media (max-width: 960px) {
+    .console-layout {
+      grid-template-columns: minmax(0, 1fr);
+      padding: 1.25rem 1rem 6rem;
+    }
+  }
+</style>
+
+<script>
+  import { fetchConfigJSON } from '../lib/config';
+  import { normalizeExternalUrl } from '../lib/shared';
+
+  async function initProjects() {
+    const container = document.getElementById('project-container');
+    if (!container) return;
+
+    const renderMessage = (text: string, tone: 'dim' | 'warn' = 'dim') => {
+      container.textContent = '';
+      const box = document.createElement('div');
+      box.className = 'project-loading-state data-field';
+      if (tone === 'warn') box.style.color = 'var(--color-warn)';
+      box.textContent = text;
+      container.appendChild(box);
+    };
+
+    try {
+      const config = await fetchConfigJSON();
+      const projects = Array.isArray(config?.projects) ? config.projects : [];
+      if (projects.length === 0) {
+        renderMessage('暂无项目');
+        return;
+      }
+      container.textContent = '';
+      const fragment = document.createDocumentFragment();
+      projects.forEach((project) => {
+        const card = document.createElement('a');
+        card.className = 'blueprint-frame project-card';
+        card.href = normalizeExternalUrl(project?.link);
+        if (typeof project?.link === 'string' && project.link.startsWith('http')) {
+          card.target = '_blank';
+          card.rel = 'noopener noreferrer';
+        }
+
+        const head = document.createElement('div');
+        head.className = 'project-card-head';
+        const title = document.createElement('span');
+        title.className = 'project-title';
+        title.textContent = typeof project?.title === 'string' ? project.title : '未命名单元';
+        const mark = document.createElement('i');
+        mark.className = 'fa-solid fa-arrow-up-right-from-square project-open';
+        mark.setAttribute('aria-hidden', 'true');
+        head.appendChild(title);
+        head.appendChild(mark);
+
+        const desc = document.createElement('p');
+        desc.className = 'project-desc';
+        desc.textContent = typeof project?.description === 'string' ? project.description : '';
+
+        const tags = document.createElement('div');
+        tags.className = 'project-tags';
+        (Array.isArray(project?.tags) ? project.tags : []).forEach((tag) => {
+          const tagEl = document.createElement('span');
+          tagEl.className = 'project-tag data-field';
+          tagEl.textContent = String(tag);
+          tags.appendChild(tagEl);
+        });
+
+        card.appendChild(head);
+        card.appendChild(desc);
+        card.appendChild(tags);
+        fragment.appendChild(card);
+      });
+      container.appendChild(fragment);
+    } catch (error) {
+      console.error('Failed to load projects:', error);
+      renderMessage('项目加载失败', 'warn');
+    }
+  }
+
+  initProjects();
+</script>
