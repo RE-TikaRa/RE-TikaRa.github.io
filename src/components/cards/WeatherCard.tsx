@@ -126,21 +126,20 @@ export default function WeatherCard() {
   if (!view) return null;
 
   return (
-    <div id="weather-card" className="card card--tertiary weather-card glass tilt-card">
-      <div className="weather-content">
-        <div className="weather-meta">
-          <span className="weather-tag"><span className="is-latin" lang="en">WEATHER</span></span>
-          <span className="weather-source" id="weather-source">{view.source}</span>
+    <section id="weather-card" className="blueprint-frame weather-card">
+      <div className="frame-label">
+        <span className="frame-label__mark data-field">[01]</span>
+        <span className="frame-label__text">// WEATHER.probe</span>
+        <span className="weather-source data-field" id="weather-source">{view.source}</span>
+      </div>
+      <div className="weather-body">
+        <div className="weather-main">
+          <span className="weather-temp data-field">{Math.round(view.temp)}°</span>
+          <i className={`weather-icon ${view.icon}`} aria-hidden="true"></i>
         </div>
         <div className="weather-location">{view.location}</div>
-        <div className="weather-main">
-          <div className="weather-temp">{Math.round(view.temp)}°</div>
-          <div className="weather-icon">
-            <i className={view.icon}></i>
-          </div>
-        </div>
         <div className="weather-description">{view.description}</div>
       </div>
-    </div>
+    </section>
   );
 }

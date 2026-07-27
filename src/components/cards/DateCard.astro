@@ -1,9 +1,22 @@
 ---
 ---
 
-<div class="card card--tertiary date-card glass tilt-card">
-  <div class="card-header">
-    <div class="card-title">日期</div>
+<section class="blueprint-frame date-card">
+  <div class="frame-label">
+    <span class="frame-label__mark data-field">[02]</span>
+    <span class="frame-label__text">// CLOCK.probe</span>
   </div>
-  <div class="date-display" id="today">——</div>
-</div>
+  <p class="date-display data-field" id="today">——</p>
+</section>
+
+<style>
+  .date-card {
+    height: 100%;
+  }
+  .date-display {
+    font-size: 1.05rem;
+    letter-spacing: 0.03em;
+    color: var(--color-ink);
+    margin: 0;
+  }
+</style>

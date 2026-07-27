@@ -26,6 +26,14 @@ const run = async () => {
   });
   assert('3D 线框 canvas 就位', wireframeReady);
 
+  const panelsVisible = await page.evaluate(() => {
+    const frames = Array.from(document.querySelectorAll('.blueprint-frame'));
+    if (frames.length === 0) return { count: 0, visible: 0 };
+    const visible = frames.filter((f) => Number(getComputedStyle(f).opacity) > 0.01).length;
+    return { count: frames.length, visible };
+  });
+  assert('首页图框面板首屏可见', panelsVisible.count > 0 && panelsVisible.visible > 0, `${panelsVisible.visible}/${panelsVisible.count} 可见`);
+
   const wireframeDrawn = await page.evaluate(() => {
     const c = document.getElementById('blueprint-wireframe-canvas');
     if (!(c instanceof HTMLCanvasElement)) return false;

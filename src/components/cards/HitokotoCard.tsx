@@ -54,19 +54,15 @@ export default function HitokotoCard() {
   }, []);
 
   return (
-    <div id="hitokoto-card" className="card card--tertiary glass tilt-card">
-      <div className="music-player-container">
-        <div className="music-header">
-          <i className="fa-solid fa-quote-left"></i>
-          <span>Hitokoto</span>
-        </div>
-        <div className="music-content">
-          <div className="hitokoto-container">
-            <p className="hitokoto-text" ref={textRef}></p><span className="cursor"></span>
-            <p className="hitokoto-from" style={{ opacity: fromVisible ? '1' : '0' }}>{from}</p>
-          </div>
-        </div>
+    <section id="hitokoto-card" className="blueprint-frame hitokoto-card">
+      <div className="frame-label">
+        <span className="frame-label__mark data-field">[04]</span>
+        <span className="frame-label__text">// HITOKOTO.echo</span>
       </div>
-    </div>
+      <div className="hitokoto-container">
+        <p className="hitokoto-text" ref={textRef}></p><span className="cursor"></span>
+        <p className="hitokoto-from" style={{ opacity: fromVisible ? '1' : '0' }}>{from}</p>
+      </div>
+    </section>
   );
 }

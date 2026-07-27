@@ -1,19 +1,79 @@
 ---
 ---
 
-<div class="card card--tertiary profile-card glass tilt-card">
-  <div class="profile-content-wrapper">
+<section class="blueprint-frame profile-card">
+  <div class="frame-label">
+    <span class="frame-label__mark data-field">[00]</span>
+    <span class="frame-label__text">// PROFILE.unit</span>
+  </div>
+  <div class="profile-body">
     <div class="avatar-large">
       <img src="https://s2.loli.net/2025/12/22/mkWtIYraVxdnTCe.jpg" alt="亓翎_Re-TikaRa 的头像" />
     </div>
     <div class="profile-text">
       <h2 class="profile-name" id="profile-heading">亓翎_Re-TikaRa</h2>
-      <div class="profile-greeting" aria-label="问候语">
-        <div class="greeting-title" id="greeting">你好</div>
-      </div>
-      <div class="profile-desc-box">
-        <span class="profile-desc-text">一个人造生命体的自娱自乐</span>
-      </div>
+      <p class="profile-greeting greeting-title" id="greeting" aria-label="问候语">你好</p>
+      <p class="profile-desc">一个人造生命体的自娱自乐</p>
     </div>
   </div>
-</div>
+</section>
+
+<style>
+  .profile-card {
+    height: 100%;
+  }
+  .profile-body {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .avatar-large {
+    flex-shrink: 0;
+    width: 96px;
+    height: 96px;
+    border: var(--frame-border-width) solid var(--color-border);
+    padding: 3px;
+    background: var(--color-surface-sunk);
+  }
+  .avatar-large img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(0.35) contrast(1.05);
+  }
+  .profile-text {
+    min-width: 0;
+  }
+  .profile-name {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.35rem;
+  }
+  .profile-greeting {
+    font-family: var(--font-data);
+    font-size: 0.9rem;
+    letter-spacing: 0.06em;
+    color: var(--color-accent);
+    margin: 0 0 0.6rem;
+    min-height: 1.4em;
+  }
+  .profile-greeting :global(span) {
+    display: inline-block;
+  }
+  .profile-desc {
+    font-size: 0.95rem;
+    color: var(--color-ink-dim);
+    padding-left: 0.7rem;
+    border-left: 2px solid var(--color-grid-major);
+    margin: 0;
+  }
+
+  @media (max-width: 480px) {
+    .profile-body {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

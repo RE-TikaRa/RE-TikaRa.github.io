@@ -141,9 +141,9 @@ export default function MusicCard() {
         }
         const item = filtered[Math.floor(Math.random() * filtered.length)];
         card.innerHTML = `
-          <div class="card-header music-card-header">
-            <div class="card-title">音乐</div>
-            <div class="card-meta">网易云</div>
+          <div class="card-header music-card-header frame-label">
+            <span class="frame-label__mark data-field card-meta">[03]</span>
+            <span class="frame-label__text card-title">// MUSIC.stream · 网易云</span>
           </div>
           <div class="music-player-shell"></div>
         `;
@@ -178,15 +178,11 @@ export default function MusicCard() {
         stopPulse();
         card.classList.remove('card--ghost');
         card.innerHTML = `
-          <div class="music-player-container">
-            <div class="music-header">
-              <i class="fa-solid fa-music"></i>
-              <span>音乐</span>
-            </div>
-            <div class="music-content">
-              <span>播放器加载失败</span>
-            </div>
+          <div class="card-header frame-label">
+            <span class="frame-label__mark data-field">[03]</span>
+            <span class="frame-label__text">// MUSIC.stream</span>
           </div>
+          <p class="music-error">播放器加载失败</p>
         `;
       }
     };
@@ -203,5 +199,5 @@ export default function MusicCard() {
     };
   }, []);
 
-  return <div id="music-card" ref={cardRef} className="card card--tertiary glass tilt-card"></div>;
+  return <section id="music-card" ref={cardRef} className="blueprint-frame music-card"></section>;
 }

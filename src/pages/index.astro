@@ -12,30 +12,82 @@ import Cli from '../components/Cli.tsx';
 ---
 
 <BaseLayout title="ALp_Studio">
-  <div class="parallax-container">
-    <div class="grid-container layout-grid">
-      <NavPanel active="home" />
+  <div class="console-layout">
+    <NavPanel active="home" />
 
-      <main id="main-content" class="main-panel" aria-labelledby="profile-heading">
+    <div class="console-grid" role="region" aria-label="控制台仪表盘">
+      <main id="main-content" class="cell cell-profile" aria-labelledby="profile-heading">
         <ProfileCard />
       </main>
-
-      <aside class="side-panel" aria-label="实时与媒体">
-        <WeatherCard client:idle />
-        <DateCard />
-        <MusicCard client:idle />
-      </aside>
-
-      <section class="hitokoto-panel" aria-label="记录">
-        <HitokotoCard client:idle />
-        <ArticlesCard />
-      </section>
+      <div class="cell cell-weather"><WeatherCard client:idle /></div>
+      <div class="cell cell-date"><DateCard /></div>
+      <div class="cell cell-music"><MusicCard client:idle /></div>
+      <div class="cell cell-hitokoto"><HitokotoCard client:idle /></div>
+      <div class="cell cell-articles"><ArticlesCard /></div>
     </div>
   </div>
 
   <MobileNav active="home" />
   <Cli client:idle />
 </BaseLayout>
+
+<style>
+  .console-layout {
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    gap: 1.5rem;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    align-items: start;
+  }
+
+  .console-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: minmax(0, auto);
+    gap: 1.25rem;
+    grid-template-areas:
+      'profile profile weather'
+      'profile profile date'
+      'hitokoto hitokoto music'
+      'articles articles articles';
+  }
+
+  .cell-profile { grid-area: profile; }
+  .cell-weather { grid-area: weather; }
+  .cell-date { grid-area: date; }
+  .cell-music { grid-area: music; }
+  .cell-hitokoto { grid-area: hitokoto; }
+  .cell-articles { grid-area: articles; }
+
+  .cell {
+    min-width: 0;
+    display: flex;
+  }
+  .cell > :global(*) {
+    width: 100%;
+  }
+
+  @media (max-width: 960px) {
+    .console-layout {
+      grid-template-columns: minmax(0, 1fr);
+      padding: 1.25rem 1rem 6rem;
+      gap: 1rem;
+    }
+    .console-grid {
+      grid-template-columns: minmax(0, 1fr);
+      grid-template-areas:
+        'profile'
+        'weather'
+        'date'
+        'music'
+        'hitokoto'
+        'articles';
+      gap: 1rem;
+    }
+  }
+</style>
 
 <script>
   import { fetchConfigJSON } from '../lib/config';

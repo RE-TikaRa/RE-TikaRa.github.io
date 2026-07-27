@@ -289,6 +289,433 @@
 }
 
 /* ============================================================
+   首页控制台外壳(动态注入元素样式必须全局)
+   NavPanel / MobileNav / 各业务岛卡片 / SettingsPanel / CLI
+   ============================================================ */
+@layer components {
+  /* --- 左侧导航栏 --- */
+  .nav-panel {
+    position: sticky;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 1.25rem;
+    background: var(--color-surface);
+    border: var(--frame-border-width) solid var(--color-border);
+    box-shadow: var(--frame-shadow);
+  }
+  .nav-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-grid-major);
+  }
+  .brand-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--color-ink);
+  }
+  .brand-sub {
+    font-family: var(--font-data);
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-ink-dim);
+  }
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.55rem 0.7rem;
+    font-family: var(--font-data);
+    font-size: 0.82rem;
+    letter-spacing: 0.08em;
+    color: var(--color-ink);
+    border-left: 2px solid transparent;
+    transition: border-color 0.12s var(--ease-linear), background 0.12s var(--ease-linear);
+  }
+  .nav-item i {
+    width: 1.1rem;
+    text-align: center;
+    color: var(--color-ink-dim);
+  }
+  .nav-item:hover {
+    background: var(--color-surface-sunk);
+    border-left-color: var(--color-accent);
+  }
+  .nav-item.is-active {
+    border-left-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+  .nav-item.is-active i {
+    color: var(--color-accent);
+  }
+
+  /* --- 移动端底栏 --- */
+  .mobile-nav {
+    display: none;
+  }
+
+  /* --- 档案卡问候动画 --- */
+  .greeting-title span {
+    display: inline-block;
+    opacity: 0;
+    animation: char-in 0.4s var(--ease-draw) forwards;
+    animation-delay: calc(var(--char-index) * 0.03s);
+  }
+  @keyframes char-in {
+    from { opacity: 0; transform: translateY(0.25em); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* --- 天气卡 --- */
+  .weather-source {
+    margin-left: auto;
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    color: var(--color-accent);
+  }
+  .weather-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .weather-main {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .weather-temp {
+    font-size: 2.4rem;
+    line-height: 1;
+    color: var(--color-ink);
+  }
+  .weather-icon {
+    font-size: 1.8rem;
+    color: var(--color-accent);
+  }
+  .weather-location {
+    font-size: 0.95rem;
+    color: var(--color-ink);
+  }
+  .weather-description {
+    font-family: var(--font-data);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--color-ink-dim);
+  }
+
+  /* --- 一言卡 --- */
+  .hitokoto-container {
+    position: relative;
+  }
+  .hitokoto-text {
+    display: inline;
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--color-ink);
+    margin: 0;
+  }
+  .hitokoto-container .cursor {
+    display: inline-block;
+    width: 0.5em;
+    height: 1.1em;
+    vertical-align: text-bottom;
+    background: var(--color-accent);
+    animation: cursor-blink 1s steps(2) infinite;
+  }
+  @keyframes cursor-blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+  }
+  .hitokoto-from {
+    margin: 0.8rem 0 0;
+    text-align: right;
+    font-family: var(--font-data);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-dim);
+    transition: opacity 0.3s var(--ease-linear);
+  }
+
+  /* --- 音乐卡(innerHTML 注入,契约 class) --- */
+  #music-card {
+    --music-beat: 0;
+    transition: box-shadow 0.15s var(--ease-linear);
+  }
+  #music-card.is-playing {
+    box-shadow:
+      var(--frame-shadow),
+      0 0 calc(6px + var(--music-beat) * 40px) rgba(45, 212, 191, calc(0.2 + var(--music-beat) * 0.5));
+  }
+  .music-card-header .card-title {
+    color: var(--color-ink-dim);
+  }
+  .music-player-shell {
+    margin-top: 0.4rem;
+  }
+  .music-error {
+    font-family: var(--font-data);
+    font-size: 0.8rem;
+    color: var(--color-warn);
+    margin: 0;
+  }
+
+  /* --- 文章卡列表(createElement 注入) --- */
+  .article-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .article-item {
+    border-bottom: 1px dashed var(--color-grid-major);
+  }
+  .article-item:last-child {
+    border-bottom: none;
+  }
+  .article-link {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    padding: 0.5rem 0.2rem;
+    transition: padding-left 0.12s var(--ease-linear);
+  }
+  .article-link:hover {
+    padding-left: 0.6rem;
+    background: var(--color-surface-sunk);
+  }
+  .article-title {
+    flex: 1;
+    min-width: 0;
+    font-size: 0.95rem;
+    color: var(--color-ink);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .article-date {
+    font-family: var(--font-data);
+    font-size: 0.66rem;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-dim);
+  }
+  .article-action {
+    font-family: var(--font-data);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+  }
+
+  /* --- 设置面板(BaseLayout,浮层) --- */
+  #settings-panel {
+    position: fixed;
+    top: 3.6rem;
+    right: 1rem;
+    z-index: 110;
+    width: 260px;
+    max-width: calc(100vw - 2rem);
+  }
+  .settings-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.9rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-grid-major);
+  }
+  .settings-header h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    margin: 0;
+  }
+  #settings-close {
+    font-size: 1.3rem;
+    line-height: 1;
+    color: var(--color-ink-dim);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  #settings-close:hover {
+    color: var(--color-warn);
+  }
+  .settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    font-family: var(--font-data);
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+  .setting-item.is-disabled {
+    opacity: 0.4;
+  }
+  .toggle-switch {
+    appearance: none;
+    width: 2.4rem;
+    height: 1.2rem;
+    flex-shrink: 0;
+    background: var(--color-surface-sunk);
+    border: 1.5px solid var(--color-border);
+    cursor: pointer;
+    position: relative;
+    transition: background 0.12s var(--ease-linear);
+  }
+  .toggle-switch::after {
+    content: '';
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    width: calc(1.2rem - 4px);
+    height: calc(1.2rem - 4px);
+    background: var(--color-border);
+    transition: transform 0.12s var(--ease-linear);
+  }
+  .toggle-switch:checked {
+    background: var(--color-accent);
+  }
+  .toggle-switch:checked::after {
+    transform: translateX(1.2rem);
+    background: var(--color-bg);
+  }
+  .toggle-switch:disabled {
+    cursor: not-allowed;
+  }
+  .select-switch {
+    font-family: var(--font-data);
+    font-size: 0.76rem;
+    padding: 0.25rem 0.5rem;
+    color: var(--color-ink);
+    background: var(--color-surface-sunk);
+    border: 1.5px solid var(--color-border);
+    cursor: pointer;
+  }
+
+  /* --- CLI 终端(React 岛 + innerHTML 注入) --- */
+  #cli-container {
+    position: fixed;
+    inset: auto 1.5rem 1.5rem 1.5rem;
+    z-index: 200;
+    max-width: 720px;
+    margin: 0 auto;
+    height: 340px;
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border: var(--frame-border-width) solid var(--color-border);
+    box-shadow: var(--frame-shadow);
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+  }
+  #cli-output {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.9rem;
+    line-height: 1.5;
+    color: var(--color-ink);
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  #cli-input-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 0.9rem;
+    border-top: 1px solid var(--color-grid-major);
+  }
+  .cli-prompt {
+    color: var(--color-accent);
+    flex-shrink: 0;
+  }
+  #cli-input {
+    flex: 1;
+    min-width: 0;
+    font-family: inherit;
+    font-size: inherit;
+    color: var(--color-ink);
+    background: none;
+    border: none;
+    outline: none;
+  }
+  .cli-command-input {
+    color: var(--color-ink);
+  }
+  .cli-banner {
+    font-size: 0.4rem;
+    line-height: 1.1;
+    color: var(--color-accent);
+    margin: 0;
+    overflow-x: auto;
+  }
+  .cli-box {
+    color: var(--color-ink-dim);
+    margin: 0.4rem 0 0;
+  }
+  .cli-section {
+    margin: 0.4rem 0;
+  }
+
+  @media (max-width: 960px) {
+    .nav-panel {
+      display: none;
+    }
+    .mobile-nav {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-around;
+      padding: 0.4rem 0.5rem;
+      background: var(--color-surface);
+      border-top: var(--frame-border-width) solid var(--color-border);
+    }
+    .mobile-nav-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      padding: 0.3rem 0.5rem;
+      font-family: var(--font-data);
+      font-size: 0.6rem;
+      letter-spacing: 0.06em;
+      color: var(--color-ink-dim);
+    }
+    .mobile-nav-item i {
+      font-size: 1.1rem;
+    }
+    .mobile-nav-item.is-active {
+      color: var(--color-accent);
+    }
+    #cli-container {
+      inset: auto 0.5rem 4.5rem 0.5rem;
+      height: 50vh;
+    }
+  }
+}
+
+/* ============================================================
    降级:reduced-motion / lite 关闭网格动画等
    (动效在阶段2 由 GSAP 接管,这里只保静态降级)
    ============================================================ */
