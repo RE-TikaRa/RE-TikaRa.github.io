@@ -210,6 +210,51 @@
   letter-spacing: 0.1em;
 }
 
+/* 卷轴布局:不对称错落 + 卡片微倾斜(挂外层 plan-cell,避开图框 transform 通道) */
+:root[data-theme='light'] .board-plan {
+  gap: 2rem 1.8rem;
+  grid-template-columns: 1.25fr 1fr 0.85fr;
+  grid-template-areas:
+    'profile  profile  clock'
+    'profile  profile  weather'
+    'hitokoto articles articles'
+    'music    articles articles';
+}
+:root[data-theme='light'] .plan-profile { transform: rotate(-0.6deg); }
+:root[data-theme='light'] .plan-clock { transform: rotate(0.9deg); }
+:root[data-theme='light'] .plan-weather { transform: rotate(-0.5deg); }
+:root[data-theme='light'] .plan-hitokoto { transform: rotate(0.6deg); }
+:root[data-theme='light'] .plan-articles { transform: rotate(-0.3deg); }
+:root[data-theme='light'] .plan-music { transform: rotate(0.8deg); }
+
+/* 窄屏:卷轴回落规整 + 取消倾斜(与 dark 断点对齐特异度) */
+@media (max-width: 1040px) {
+  :root[data-theme='light'] .board-plan {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.3rem;
+    grid-template-areas:
+      'profile profile'
+      'clock weather'
+      'hitokoto hitokoto'
+      'music music'
+      'articles articles';
+  }
+  :root[data-theme='light'] .plan-cell { transform: none; }
+}
+@media (max-width: 620px) {
+  :root[data-theme='light'] .board-plan {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1rem;
+    grid-template-areas:
+      'profile'
+      'clock'
+      'weather'
+      'hitokoto'
+      'music'
+      'articles';
+  }
+}
+
 /* 轻量模式:关网格动画、去硬阴影偏移 */
 :root[data-lite='true'] {
   --frame-shadow: none;
