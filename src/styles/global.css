@@ -202,12 +202,62 @@
   height: 7px;
   border-color: rgba(90, 68, 38, 0.42);
 }
-/* 图签分隔线:实线换手稿虚点线 */
+/* 图签文字:手稿下取消全大写、收紧字距 */
 :root[data-theme='light'] .frame-label {
-  border-bottom-style: dashed;
-  border-bottom-color: rgba(90, 68, 38, 0.3);
   text-transform: none;
   letter-spacing: 0.1em;
+}
+
+/* 火漆印章序号:方括号标记在 light 下换红褐蜡印圆徽 */
+:root[data-theme='light'] .frame-label__mark {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.15em;
+  height: 2.15em;
+  font-family: var(--font-latin);
+  font-size: 0.6rem;
+  letter-spacing: 0;
+  color: #fbe4d0;
+  background:
+    radial-gradient(circle at 35% 30%, #a8442a 0%, #8f3320 46%, #6f2416 100%);
+  border-radius: 50%;
+  box-shadow:
+    inset 0 1px 2px rgba(255, 220, 190, 0.35),
+    inset 0 -2px 4px rgba(60, 12, 6, 0.5),
+    0 1px 2px rgba(80, 30, 16, 0.4);
+  transform: rotate(-4deg);
+  text-shadow: 0 1px 1px rgba(60, 12, 6, 0.5);
+}
+/* 蜡印内圈刻痕 */
+:root[data-theme='light'] .frame-label__mark::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px solid rgba(251, 228, 208, 0.28);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* 图签:印章居中对齐 + 下边框换手绘藤蔓 flourish */
+:root[data-theme='light'] .frame-label {
+  align-items: center;
+  border-bottom: none;
+  padding-bottom: 0.7rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='8' viewBox='0 0 240 8'%3E%3Cpath d='M2 5 C40 5 40 2 78 3 C96 3.5 104 6 120 4 C136 2 144 3.5 162 3 C200 2 200 5 238 5' fill='none' stroke='%235a442680' stroke-width='1'/%3E%3Ccircle cx='120' cy='4' r='2' fill='%238f332099'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 100% 8px;
+}
+
+/* 拉丁花体首字:站点图签 brand 首字母 drop-cap */
+:root[data-theme='light'] .tb-brand::first-letter {
+  font-family: var(--font-drop);
+  font-size: 1.7em;
+  line-height: 0.8;
+  color: var(--color-accent);
+  padding-right: 0.04em;
 }
 
 /* 卷轴布局:不对称错落 + 卡片微倾斜(挂外层 plan-cell,避开图框 transform 通道) */
