@@ -101,11 +101,11 @@
   --font-mono: 'JetBrains Mono', 'NasaDisplay', ui-monospace, monospace;
   --font-drop: 'UnifrakturMaguntia', 'Cinzel', serif;
 
-  /* 几何:手稿/蓝图都要硬边直角 */
+  /* 几何:手稿柔阴影(纸张离桌感),dark 覆盖回硬阴影 */
   --radius-frame: 0px;
   --frame-border-width: 1.5px;
   --frame-shadow-offset: 3px;
-  --frame-shadow: 3px 3px 0 var(--color-border);
+  --frame-shadow: 0 2px 5px rgba(60, 44, 24, 0.12), 0 10px 24px rgba(60, 44, 24, 0.14);
 
   /* 网格尺度 */
   --grid-cell: 28px;
@@ -156,6 +156,58 @@
   --color-border: #ffffff;
   --color-grid: rgba(255, 255, 255, 0.3);
   --color-grid-major: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================================
+   light 手稿皮肤(羊皮纸材质 · 只叠加在 light,dark 不命中)
+   ============================================================ */
+:root[data-theme='light'] body {
+  background-color: var(--color-bg);
+  background-image:
+    radial-gradient(120% 130% at 50% 0%, rgba(255, 250, 235, 0.55) 0%, transparent 42%),
+    radial-gradient(140% 120% at 100% 100%, rgba(120, 92, 52, 0.16) 0%, transparent 46%),
+    radial-gradient(140% 120% at 0% 100%, rgba(120, 92, 52, 0.14) 0%, transparent 46%),
+    radial-gradient(circle at 18% 32%, rgba(150, 118, 70, 0.05) 0 2px, transparent 2px),
+    radial-gradient(circle at 72% 58%, rgba(150, 118, 70, 0.045) 0 2px, transparent 2px),
+    radial-gradient(circle at 44% 84%, rgba(150, 118, 70, 0.04) 0 1.5px, transparent 1.5px),
+    linear-gradient(var(--color-grid) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%,
+    180px 180px,
+    240px 240px,
+    200px 200px,
+    var(--grid-cell) var(--grid-cell),
+    var(--grid-cell) var(--grid-cell);
+  background-attachment: fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed;
+}
+:root[data-theme='light'] {
+  --color-grid: rgba(90, 68, 38, 0.05);
+  --color-grid-major: rgba(90, 68, 38, 0.16);
+}
+
+/* 图框墨迹化:柔边框 + 纸面微渐变 + 柔阴影 */
+:root[data-theme='light'] .blueprint-frame {
+  border-color: rgba(60, 44, 24, 0.62);
+  background:
+    linear-gradient(160deg, rgba(255, 251, 240, 0.5) 0%, transparent 40%),
+    var(--color-surface);
+}
+/* CAD 定位角在手稿下弱化为墨点角饰 */
+:root[data-theme='light'] .blueprint-frame::before,
+:root[data-theme='light'] .blueprint-frame::after {
+  width: 7px;
+  height: 7px;
+  border-color: rgba(90, 68, 38, 0.42);
+}
+/* 图签分隔线:实线换手稿虚点线 */
+:root[data-theme='light'] .frame-label {
+  border-bottom-style: dashed;
+  border-bottom-color: rgba(90, 68, 38, 0.3);
+  text-transform: none;
+  letter-spacing: 0.1em;
 }
 
 /* 轻量模式:关网格动画、去硬阴影偏移 */
