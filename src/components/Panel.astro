@@ -1,0 +1,32 @@
+---
+interface Props {
+  label?: string;
+  index?: string;
+  variant?: 'default' | 'sunk' | 'bare';
+  class?: string;
+}
+
+const { label, index, variant = 'default', class: className = '' } = Astro.props;
+const frameClass = variant === 'bare' ? '' : 'blueprint-frame';
+const surfaceStyle = variant === 'sunk' ? 'background: var(--color-surface-sunk);' : '';
+---
+
+<div class={`panel ${frameClass} ${className}`} style={surfaceStyle}>
+  {
+    label && (
+      <div class="frame-label">
+        {index && <span class="frame-label__mark data-field">[{index}]</span>}
+        <span class="frame-label__text">// {label}</span>
+      </div>
+    )
+  }
+  <div class="panel-body">
+    <slot />
+  </div>
+</div>
+
+<style>
+  .panel-body {
+    position: relative;
+  }
+</style>

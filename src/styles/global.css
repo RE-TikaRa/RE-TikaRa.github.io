@@ -1,17 +1,299 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-accent: #ff6a3d;
-  --color-text-primary: #1f1b17;
-  --color-text-secondary: #3e3832;
-  --font-display: 'Baskervville', 'NasaDisplay', 'XinHuoTi', 'Noto Serif SC', serif;
-  --font-body: 'Baskervville', 'XinHuoTi', 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
-  --font-latin: 'Baskervville', 'NasaDisplay', serif;
-  --font-mono: 'JetBrains Mono', 'DS-Digital', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --radius-lg: 20px;
-  --radius-md: 12px;
-  --ease-out: cubic-bezier(0.2, 0.9, 0.2, 1);
+/* ============================================================
+   字体资产(本地 public/fonts/,零 CDN)
+   拉丁衬线:EB Garamond(正文)/ Cormorant(大标题)
+   中文衬线:中华薪火体(油墨报纸)
+   数据显示:NasaDisplay(数码管,仅英文数字)
+   等宽:JetBrains Mono(CLI/代码)
+   ============================================================ */
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond-Latin.woff2') format('woff2');
+  font-weight: 400 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/fonts/EBGaramond-Italic-Latin.woff2') format('woff2');
+  font-weight: 400 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cormorant';
+  src: url('/fonts/Cormorant-Latin.woff2') format('woff2');
+  font-weight: 500 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Cormorant';
+  src: url('/fonts/Cormorant-Italic-Latin.woff2') format('woff2');
+  font-weight: 500 700;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'XinHuoTi';
+  src:
+    url('/fonts/中华薪火体.woff2') format('woff2'),
+    url('/fonts/中华薪火体.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'NasaDisplay';
+  src:
+    url('/fonts/NasaDisplay.woff2') format('woff2'),
+    url('/fonts/NasaDisplay.woff') format('woff');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-@import './legacy.css';
-@import './legacy-enhanced.css';
+/* ============================================================
+   Design Tokens · 默认 = light(过去 · 羊皮纸科学手稿)
+   ============================================================ */
+@theme {
+  /* 表面 */
+  --color-bg: #e9e2cf;
+  --color-surface: #f3ecd8;
+  --color-surface-sunk: #e0d8c0;
+  --color-grid: rgba(60, 44, 24, 0.14);
+  --color-grid-major: rgba(60, 44, 24, 0.24);
+
+  /* 墨与标注 */
+  --color-ink: #2c2318;
+  --color-ink-dim: #6b5d47;
+  --color-accent: #1d3a63;
+  --color-warn: #a83a1e;
+  --color-border: #2c2318;
+
+  /* 字体栈 */
+  --font-display: 'Cormorant', 'XinHuoTi', 'Songti SC', 'STSong', serif;
+  --font-body: 'EB Garamond', 'XinHuoTi', 'Songti SC', 'STSong', serif;
+  --font-latin: 'EB Garamond', 'Cormorant', serif;
+  --font-data: 'NasaDisplay', 'JetBrains Mono', ui-monospace, monospace;
+  --font-mono: 'JetBrains Mono', 'NasaDisplay', ui-monospace, monospace;
+
+  /* 几何:手稿/蓝图都要硬边直角 */
+  --radius-frame: 0px;
+  --frame-border-width: 1.5px;
+  --frame-shadow-offset: 3px;
+  --frame-shadow: 3px 3px 0 var(--color-border);
+
+  /* 网格尺度 */
+  --grid-cell: 28px;
+  --grid-major: 140px;
+
+  /* 缓动:机械精确,无弹跳 */
+  --ease-draw: cubic-bezier(0.33, 0, 0.15, 1);
+  --ease-linear: linear;
+}
+
+/* ============================================================
+   dark(未来 · 冷峻 CAD 蓝图)
+   ============================================================ */
+:root[data-theme='dark'] {
+  --color-bg: #0b0f14;
+  --color-surface: #11161d;
+  --color-surface-sunk: #0d1218;
+  --color-grid: rgba(120, 160, 190, 0.12);
+  --color-grid-major: rgba(120, 160, 190, 0.22);
+
+  --color-ink: #e6edf3;
+  --color-ink-dim: #8792a2;
+  --color-accent: #2dd4bf;
+  --color-warn: #ff5a1f;
+  --color-border: #cdd9e5;
+
+  --frame-shadow: 0 0 0 1px rgba(45, 212, 191, 0.15), 3px 3px 0 rgba(45, 212, 191, 0.28);
+}
+
+/* 高对比:两维度都拉满纯黑纯白 */
+:root[data-contrast='high'] {
+  --color-ink: #000000;
+  --color-ink-dim: #1a1a1a;
+  --color-border: #000000;
+  --color-grid: rgba(0, 0, 0, 0.32);
+  --color-grid-major: rgba(0, 0, 0, 0.5);
+}
+:root[data-theme='dark'][data-contrast='high'] {
+  --color-bg: #000000;
+  --color-surface: #0a0a0a;
+  --color-ink: #ffffff;
+  --color-ink-dim: #e0e0e0;
+  --color-border: #ffffff;
+  --color-grid: rgba(255, 255, 255, 0.3);
+  --color-grid-major: rgba(255, 255, 255, 0.5);
+}
+
+/* 轻量模式:关网格动画、去硬阴影偏移 */
+:root[data-lite='true'] {
+  --frame-shadow: none;
+}
+
+/* 天气契约(WeatherCard 写入) */
+:root[data-weather='rain'] {
+  --weather-rain-opacity: 0.35;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    color: var(--color-ink);
+    background-color: var(--color-bg);
+    background-image:
+      linear-gradient(var(--color-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px),
+      linear-gradient(var(--color-grid-major) 1.5px, transparent 1.5px),
+      linear-gradient(90deg, var(--color-grid-major) 1.5px, transparent 1.5px);
+    background-size:
+      var(--grid-cell) var(--grid-cell),
+      var(--grid-cell) var(--grid-cell),
+      var(--grid-major) var(--grid-major),
+      var(--grid-major) var(--grid-major);
+    background-attachment: fixed;
+    font-family: var(--font-body);
+    font-size: 18px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    line-height: 1.15;
+    margin: 0;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================================
+   图版组件基础 class(Panel.astro 消费)
+   ============================================================ */
+@layer components {
+  /* 图框:硬边直角 + 硬阴影偏移 */
+  .blueprint-frame {
+    position: relative;
+    background: var(--color-surface);
+    border: var(--frame-border-width) solid var(--color-border);
+    border-radius: var(--radius-frame);
+    box-shadow: var(--frame-shadow);
+    padding: 1.25rem 1.5rem;
+  }
+
+  /* CAD 定位角标:四角短线 */
+  .blueprint-frame::before,
+  .blueprint-frame::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-color: var(--color-accent);
+    border-style: solid;
+    border-width: 0;
+    pointer-events: none;
+  }
+  .blueprint-frame::before {
+    top: 4px;
+    left: 4px;
+    border-top-width: 1.5px;
+    border-left-width: 1.5px;
+  }
+  .blueprint-frame::after {
+    bottom: 4px;
+    right: 4px;
+    border-bottom-width: 1.5px;
+    border-right-width: 1.5px;
+  }
+
+  /* 图框标题:工程标注风 + 尺寸标注线分隔 */
+  .frame-label {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    font-family: var(--font-data);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-ink-dim);
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.9rem;
+    border-bottom: 1px solid var(--color-grid-major);
+  }
+  .frame-label .frame-label__mark {
+    color: var(--color-accent);
+  }
+
+  /* 数据字段:等宽 + 引线感 */
+  .data-field {
+    font-family: var(--font-data);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: 0.04em;
+  }
+
+  /* 跳过链接(无障碍) */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 999;
+    padding: 0.6rem 1rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-family: var(--font-data);
+    font-size: 0.85rem;
+  }
+  .skip-link:focus {
+    left: 0.5rem;
+    top: 0.5rem;
+  }
+}
+
+/* ============================================================
+   降级:reduced-motion / lite 关闭网格动画等
+   (动效在阶段2 由 GSAP 接管,这里只保静态降级)
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
