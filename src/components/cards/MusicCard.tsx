@@ -128,7 +128,6 @@ export default function MusicCard() {
         observer.disconnect();
         observer = null;
       }
-      card.classList.remove('card--ghost');
       try {
         await ensureMusicCdn();
         const config = await fetchConfigJSON();
@@ -176,7 +175,6 @@ export default function MusicCard() {
       } catch (error) {
         console.error('初始化音乐播放器失败:', error);
         stopPulse();
-        card.classList.remove('card--ghost');
         card.innerHTML = `
           <div class="card-header frame-label">
             <span class="frame-label__mark data-field">[03]</span>

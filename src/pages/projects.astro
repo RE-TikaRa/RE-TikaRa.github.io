@@ -25,36 +25,8 @@ import MobileNav from '../components/MobileNav.astro';
 </BaseLayout>
 
 <style>
-  .console-layout {
-    display: grid;
-    grid-template-columns: 240px minmax(0, 1fr);
-    gap: 1.5rem;
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
-    align-items: start;
-  }
   .projects-card {
     min-height: 60vh;
-  }
-  .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 1.25rem;
-  }
-  .project-loading-state {
-    grid-column: 1 / -1;
-    text-align: center;
-    padding: 3rem 1rem;
-    color: var(--color-ink-dim);
-    letter-spacing: 0.08em;
-  }
-
-  @media (max-width: 960px) {
-    .console-layout {
-      grid-template-columns: minmax(0, 1fr);
-      padding: 1.25rem 1rem 6rem;
-    }
   }
 </style>
 

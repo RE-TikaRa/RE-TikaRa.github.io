@@ -27,7 +27,7 @@ function createBaseOverlay(): { overlay: HTMLDivElement; dialog: HTMLElement } {
   overlay.id = OVERLAY_ID;
   overlay.className = 'access-guard-overlay';
   const dialog = document.createElement('section');
-  dialog.className = 'access-guard-dialog card glass';
+  dialog.className = 'access-guard-dialog blueprint-frame';
   overlay.appendChild(dialog);
   return { overlay, dialog };
 }

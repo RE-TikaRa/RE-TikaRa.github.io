@@ -4,11 +4,11 @@
 
 <div align="center">
 
-### 你好，这里是亓翎。
+### 你好,这里是亓翎。
 
 这里是我堆放观察日志和数据碎片的地方。
 
-最近做了一轮“拆掉堆砌代码”的大修，站点现在终于不再像一团打结的线了。（瘫倒）
+站点整站重做了一轮,从纯静态站迁到 Astro,视觉推倒成了工程蓝图的样子。(瘫倒)
 
 </div>
 
@@ -18,155 +18,146 @@
 ```log
 ┌─ project.log
 │ [项目名称] ALp_Studio Home
-│ [当前版本] v2.4+ (模块化重构阶段)
+│ [当前版本] v3.0 (Astro 整站重设计)
 │
 │ [本轮改造]
-│   01. 将单文件脚本拆分为模块化结构，script.js 仅保留调度职责。
-│   02. 统一配置加载链路，减少页面重复 fetch 与解析逻辑。
-│   03. 移动端性能收敛（降低特效负担，减少快速滑动错位感）。
-│   04. 增加访问守卫：微信内置浏览器拦截、移动端继续访问提示。
+│   01. 从纯静态站迁到 Astro 5 + React 岛,数据链路与视觉外壳分离。
+│   02. 双维度主题:light 羊皮纸科学手稿 / dark 冷峻 CAD 蓝图,共享结构只换皮肤。
+│   03. 动效换成 GSAP 描边入场 + 手写 3D 线框背景,删尽旧粒子系统。
+│   04. 全本地字体零 CDN,衬线为主。
 └─
 ```
 
 ### `[tika@lab ~]$ cat routes.log`
 ```log
 ┌─ routes.log
-│ /
-│ /ProjectList/
-│ /status/
-│ /maintenance/
-│ /404.html
+│ /               控制台仪表盘
+│ /projects/      项目卡片列表
+│ /status/        状态监测网格
+│ /maintenance/   维护占位
+│ /404.html       信号丢失
 └─
 ```
 
 ---
 
 ### `[tika@lab ~]$ cat feature-map.md`
-- 欢迎屏与主界面揭示（可按设备降级）。
-- 主题切换（深浅色）与本地持久化。
-- 设置面板（高对比、轻量模式、动效项、音乐行为）。
-- 天气模块（Open-Meteo）。
-- 音乐模块（APlayer + Meting）与 Hitokoto 回退。
-- 最新文章卡片（`config.json.latest_articles`）。
-- 项目列表页（`config.json.projects`）。
-- 状态页（读取 `status.json`，失败时回退目标占位）。
-- CLI 彩蛋（`~` / `` ` `` 唤起）。
+- 双维度主题(昼夜)切换与本地持久化。
+- 控制台仪表盘首页(档案 / 天气 / 日期 / 音乐 / 一言 / 文章 6 模块)。
+- 设置面板(高对比 / 轻量模式 / 背景线框 / 网格扫描线 / 音乐行为)。
+- 天气模块(Open-Meteo)与 `data-weather` 氛围联动。
+- 音乐模块(APlayer + Meting)与播放脉冲。
+- 一言回声(Hitokoto)。
+- 最新文章卡片(`config.json.latest_articles`)。
+- 项目列表页(`config.json.projects`)。
+- 状态页(读取 `status.json`,失败回退目标占位)。
+- CLI 彩蛋。
+- 3D 线框背景(手写投影,昼夜切皮肤)。
+- 访问守卫(微信拦截 / 移动端提示)。
 
-### `[tika@lab ~]$ cat access-guard.md`
-- 微信内置浏览器（`MicroMessenger`）：
-  - 拦截访问并提示“在浏览器打开”。
-- 移动端设备：
-  - 首次会话弹窗提示“推荐电脑端访问，但可继续在手机访问”。
+### `[tika@lab ~]$ cat theme.md`
+- `light`(默认 · 过去):羊皮纸底 + 铁胆墨水褐 + 普鲁士蓝标注,古典衬线。
+- `dark`(未来):深蓝黑底 + 蓝图青细线 + 硬边发光。
+- 两维度共享同一套图框 / 网格 / 标注结构,`data-theme` 只换皮肤语言。
 
 ### `[tika@lab ~]$ cat lite-mode.md`
-- `liteMode` 是主性能开关。
-- 开启后以下项会直接浅灰并禁用（不可设置）：
-  - `starfield`
-  - `shootingStars`
-  - `raindrops`
-  - `cardFloat`
+- `liteMode` 是性能主开关。
+- 开启后 `wireframe`(背景线框)与 `scanline`(网格扫描线)会联动禁用。
+- 动效降到仅 fade,线框静态无旋转。
 
 ---
 
 ### `[tika@lab ~]$ tree -L 2`
 ```text
 Home/
-├─ index.html
-├─ 404.html
-├─ maintenance/
-│  └─ index.html
-├─ ProjectList/
-│  └─ index.html
-├─ status/
-│  └─ index.html
-├─ css/
-│  ├─ style.css
-│  └─ style-enhanced.css
-├─ js/
-│  ├─ access-guard-module.js
-│  ├─ cli-module.js
-│  ├─ clock-module.js
-│  ├─ config-loader-module.js
-│  ├─ home-page-extensions.js
-│  ├─ interactive-effects-module.js
-│  ├─ music-module.js
-│  ├─ navigation-effects-module.js
-│  ├─ project-list.js
-│  ├─ script.js
-│  ├─ settings-panel-module.js
-│  ├─ status.js
-│  ├─ theme-bootstrap.js
-│  ├─ theme-module.js
-│  ├─ weather-module.js
-│  ├─ welcome-effects-module.js
-│  └─ welcome-screen-module.js
+├─ src/
+│  ├─ pages/          # index / projects / status / maintenance / 404
+│  ├─ layouts/        # BaseLayout.astro
+│  ├─ components/     # 图框 / 导航 / 岛 / cards
+│  ├─ lib/            # config / theme / motion / page-motion / wireframe / access-guard / shared
+│  └─ styles/         # global.css(@theme + data-* + 图框 class)
+├─ public/
+│  ├─ fonts/          # 全本地字体
+│  ├─ config.json     # 站点数据源
+│  ├─ auth/
+│  └─ CNAME
 ├─ scripts/
 │  ├─ rss-fetch.mjs
-│  └─ status-check.mjs
+│  ├─ status-check.mjs
+│  └─ smoke-motion.mjs
 ├─ .github/workflows/
 │  ├─ rss-update.yml
 │  └─ status-check.yml
-├─ config.json
-├─ start-server.bat
+├─ astro.config.mjs
+├─ package.json
 ├─ ARCHITECTURE.md
+├─ AGENTS.md
 └─ README.md
 ```
 
 ---
 
 ### `[tika@lab ~]$ cat runbook.md`
-1. 启动本地服务：
+1. 安装依赖:
 ```bash
-start-server.bat
+npm install
 ```
-或
+2. 本地开发:
 ```bash
-python -m http.server 5173
+npm run dev
 ```
-2. 访问：`http://localhost:5173/`
-3. 不建议 `file://` 直开页面（配置、天气、状态数据都会受影响）。
+3. 构建 + 预览:
+```bash
+npm run build
+npm run preview
+```
+4. 冒烟测试(需先 `npm run preview` 起服务):
+```bash
+node scripts/smoke-motion.mjs
+```
 
 ### `[tika@lab ~]$ cat config.md`
-`config.json` 关键字段：
+`config.json` 关键字段:
 - `netease_music_items`
 - `latest_articles`
 - `projects`
 - `status_checks`
 
-状态数据来源：
-- 前端状态页优先读取 `status_checks.dataUrl` 指向的 `status.json`。
+状态数据来源:
+- 状态页优先读取 `status_checks.dataUrl` 指向的 `status.json`。
 - 失败后回退 `targets` 的占位状态展示。
 
 ### `[tika@lab ~]$ cat automation.md`
 - `scripts/rss-fetch.mjs` + `.github/workflows/rss-update.yml`
-  - 拉取 RSS，更新 `latest_articles`，发布到 `rss-data` 分支。
+  - 拉取 RSS,更新 `latest_articles`,发布到 `rss-data` 分支。
 - `scripts/status-check.mjs` + `.github/workflows/status-check.yml`
-  - 检测目标可达性，生成 `status.json`，发布到 `status-data` 分支。
+  - 检测目标可达性,生成 `status.json`,发布到 `status-data` 分支。
 
 ---
 
 ### `[tika@lab ~]$ cat integrations.md`
-- APlayer `1.10.1`（jsDelivr）
-- MetingJS `2`（jsDelivr）
-- Font Awesome `6.4.0`（cdnjs）
+- APlayer `1.10.1`(jsDelivr)
+- MetingJS `2`(jsDelivr)
+- Font Awesome `6.4.0`(cdnjs)
 - Open-Meteo API
 - Hitokoto API
 
 ---
 
 ### `[tika@lab ~]$ cat checklist.md`
-- [ ] 首页无报错，欢迎屏和主题切换正常
-- [ ] 文章/项目/状态页渲染正常
+- [ ] 首页无报错,昼夜主题切换正常
+- [ ] 文章 / 项目 / 状态页渲染正常
+- [ ] 图框描边入场就位,线框背景运转
 - [ ] 微信内置浏览器能触发拦截
-- [ ] 移动端首次提示仅出现一次（同会话）
-- [ ] 轻量模式开启后，4 个高开销项浅灰且不可点
-- [ ] 移动端快速滑动时无明显错位/卡顿
+- [ ] 移动端首次提示仅出现一次(同会话)
+- [ ] 轻量模式开启后,背景线框与扫描线禁用
+- [ ] 三档降级(reduced / lite / mobile)路径正确
 
 ---
 
 <div align="center">
-实例仍在运行，日志尚未终止。
-Thanks for stopping by.（挥手）
+实例仍在运行,日志尚未终止。
+Thanks for stopping by.(挥手)
 
 </div>
 
