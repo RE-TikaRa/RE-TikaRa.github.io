@@ -42,7 +42,8 @@ const run = async () => {
   assert('线框 canvas 已按 DPR 尺寸初始化', wireframeDrawn);
 
   const themeBefore = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
-  await page.click('#theme-toggle');
+  // 浮动 toggle 已隐藏(切换入口移至设置面板),但按钮仍是功能入口,用 click() 触发
+  await page.evaluate(() => document.getElementById('theme-toggle')?.click());
   await page.waitForTimeout(400);
   const themeAfter = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
   assert('theme toggle 翻转 data-theme', themeBefore !== themeAfter, `${themeBefore} → ${themeAfter}`);

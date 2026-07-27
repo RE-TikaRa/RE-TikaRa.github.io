@@ -260,6 +260,20 @@
   padding-right: 0.04em;
 }
 
+/* 中文花体首字:一言正文首字放大(中文古籍体,经典手稿 drop-cap) */
+:root[data-theme='light'] .hitokoto-text {
+  display: inline-block;
+}
+:root[data-theme='light'] .hitokoto-text::first-letter {
+  float: left;
+  font-family: var(--font-display);
+  font-size: 2.9em;
+  line-height: 0.72;
+  font-weight: 600;
+  margin: 0.06em 0.12em 0 0;
+  color: var(--color-accent);
+}
+
 /* 卷轴布局:不对称错落 + 卡片微倾斜(挂外层 plan-cell,避开图框 transform 通道) */
 :root[data-theme='light'] .board-plan {
   gap: 2rem 1.8rem;
