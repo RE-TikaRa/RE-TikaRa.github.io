@@ -60,6 +60,20 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Cinzel';
+  src: url('/fonts/Cinzel-Latin.woff2') format('woff2');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'UnifrakturMaguntia';
+  src: url('/fonts/Unifraktur-Latin.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* ============================================================
    Design Tokens · 默认 = light(过去 · 羊皮纸科学手稿)
@@ -79,12 +93,13 @@
   --color-warn: #a83a1e;
   --color-border: #2c2318;
 
-  /* 字体栈 */
-  --font-display: 'Cormorant', 'XinHuoTi', 'Songti SC', 'STSong', serif;
+  /* 字体栈 · light 手稿:罗马碑刻标题 + 古典衬线数字 */
+  --font-display: 'Cinzel', 'XinHuoTi', 'Songti SC', 'STSong', serif;
   --font-body: 'EB Garamond', 'XinHuoTi', 'Songti SC', 'STSong', serif;
-  --font-latin: 'EB Garamond', 'Cormorant', serif;
-  --font-data: 'NasaDisplay', 'JetBrains Mono', ui-monospace, monospace;
+  --font-latin: 'EB Garamond', 'Cinzel', serif;
+  --font-data: 'EB Garamond', 'Cormorant', 'Songti SC', serif;
   --font-mono: 'JetBrains Mono', 'NasaDisplay', ui-monospace, monospace;
+  --font-drop: 'UnifrakturMaguntia', 'Cinzel', serif;
 
   /* 几何:手稿/蓝图都要硬边直角 */
   --radius-frame: 0px;
@@ -118,6 +133,11 @@
   --color-border: #cdd9e5;
 
   --frame-shadow: 0 0 0 1px rgba(45, 212, 191, 0.15), 3px 3px 0 rgba(45, 212, 191, 0.28);
+
+  /* 字体栈 · dark 蓝图:冷峻标题 + 数码管数据 */
+  --font-display: 'Cormorant', 'XinHuoTi', 'Songti SC', 'STSong', serif;
+  --font-latin: 'EB Garamond', 'Cormorant', serif;
+  --font-data: 'NasaDisplay', 'JetBrains Mono', ui-monospace, monospace;
 }
 
 /* 高对比:两维度都拉满纯黑纯白 */
