@@ -9,5 +9,10 @@ backup/
 node_modules/
 .npm-cache/
 .tmp/
-package.json
-package-lock.json
+
+# astro build output
+dist/
+.astro/
+
+# omc local state
+.omc/

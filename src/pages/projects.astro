@@ -1,0 +1,28 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavPanel from '../components/NavPanel.astro';
+import MobileNav from '../components/MobileNav.astro';
+---
+
+<BaseLayout title="项目 | ALp_Studio" description="亓翎_Re-TikaRa 的项目列表。">
+  <div class="parallax-container">
+    <div class="grid-container layout-grid">
+      <NavPanel active="projects" />
+
+      <main id="main-content" class="main-panel main-panel-full" aria-labelledby="projects-heading">
+        <div class="card card--tertiary glass">
+          <div class="card-header">
+            <h2 class="card-title" id="projects-heading">项目列表</h2>
+          </div>
+          <div id="project-container" class="project-grid">
+            <div class="project-loading-state">
+              <i class="fa-solid fa-spinner fa-spin"></i> 加载中...
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <MobileNav active="projects" />
+</BaseLayout>

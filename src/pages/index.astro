@@ -1,0 +1,165 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NavPanel from '../components/NavPanel.astro';
+import MobileNav from '../components/MobileNav.astro';
+import ProfileCard from '../components/cards/ProfileCard.astro';
+import DateCard from '../components/cards/DateCard.astro';
+import ArticlesCard from '../components/cards/ArticlesCard.astro';
+import WeatherCard from '../components/cards/WeatherCard.tsx';
+import MusicCard from '../components/cards/MusicCard.tsx';
+import HitokotoCard from '../components/cards/HitokotoCard.tsx';
+import Cli from '../components/Cli.tsx';
+import Welcome from '../components/Welcome.astro';
+---
+
+<BaseLayout title="ALp_Studio">
+  <Welcome />
+  <div class="parallax-container">
+    <div class="grid-container layout-grid">
+      <NavPanel active="home" />
+
+      <main id="main-content" class="main-panel" aria-labelledby="profile-heading">
+        <ProfileCard />
+      </main>
+
+      <aside class="side-panel" aria-label="实时与媒体">
+        <WeatherCard client:idle />
+        <DateCard />
+        <MusicCard client:idle />
+      </aside>
+
+      <section class="hitokoto-panel" aria-label="记录">
+        <HitokotoCard client:idle />
+        <ArticlesCard />
+      </section>
+    </div>
+  </div>
+
+  <MobileNav active="home" />
+  <Cli client:idle />
+</BaseLayout>
+
+<script>
+  import { fetchConfigJSON } from '../lib/config';
+  import { normalizeExternalUrl } from '../lib/shared';
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const greetingEl = document.getElementById('greeting');
+  const todayEl = document.getElementById('today');
+  let lastGreetingKey = '';
+  let lastDateKey = '';
+  let timer: number | null = null;
+
+  function updateGreeting(now: Date) {
+    const hours = now.getHours();
+    const greetingKey = String(hours);
+    if (greetingEl && greetingKey !== lastGreetingKey) {
+      let text = '你好，实验体';
+      if (hours >= 5 && hours <= 8) text = '早上好，开始今天的计划吧。';
+      else if (hours >= 9 && hours <= 11) text = '上午好，来开始今天的计划吧。';
+      else if (hours >= 12 && hours <= 13) text = '中午好，来享用午饭吧~';
+      else if (hours >= 14 && hours <= 17) text = '下午好，来杯咖啡吧~';
+      else if (hours >= 18 && hours <= 22) text = '晚上好，还在忙碌么？';
+      else text = '夜深了，还不睡么？';
+      if (!reduceMotion) {
+        greetingEl.innerHTML = '';
+        text.split('').forEach((char, i) => {
+          const span = document.createElement('span');
+          span.textContent = char;
+          span.style.setProperty('--char-index', String(i));
+          greetingEl.appendChild(span);
+        });
+      } else {
+        greetingEl.textContent = text;
+      }
+      lastGreetingKey = greetingKey;
+    }
+    if (todayEl) {
+      const y = now.getFullYear();
+      const mo = String(now.getMonth() + 1).padStart(2, '0');
+      const d = String(now.getDate()).padStart(2, '0');
+      const h = String(now.getHours()).padStart(2, '0');
+      const mi = String(now.getMinutes()).padStart(2, '0');
+      const key = `${y}-${mo}-${d}-${h}-${mi}`;
+      if (key !== lastDateKey) {
+        todayEl.textContent = `${y}年${mo}月${d}日 ${h}点${mi}分`;
+        lastDateKey = key;
+      }
+    }
+  }
+
+  function schedule() {
+    updateGreeting(new Date());
+    const delay = 1000 - (Date.now() % 1000);
+    timer = window.setTimeout(schedule, delay);
+  }
+
+  schedule();
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) {
+      if (timer) window.clearTimeout(timer);
+      schedule();
+    }
+  });
+
+  async function initLatestArticles() {
+    const container = document.getElementById('latest-articles-card');
+    const list = document.getElementById('article-list');
+    if (!container || !list) return;
+
+    const renderPlaceholder = (text: string) => {
+      list.textContent = '';
+      const item = document.createElement('li');
+      item.className = 'article-item';
+      const title = document.createElement('span');
+      title.className = 'article-title';
+      title.textContent = text;
+      item.appendChild(title);
+      list.appendChild(item);
+      container.hidden = false;
+    };
+
+    try {
+      const config = await fetchConfigJSON();
+      const articles = Array.isArray(config?.latest_articles) ? config.latest_articles : [];
+      if (articles.length === 0) {
+        renderPlaceholder('暂无文章');
+        return;
+      }
+      list.textContent = '';
+      const fragment = document.createDocumentFragment();
+      articles.forEach((article) => {
+        const item = document.createElement('li');
+        item.className = 'article-item';
+        const link = document.createElement('a');
+        link.className = 'article-link';
+        link.href = normalizeExternalUrl(article?.link);
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        const title = document.createElement('span');
+        title.className = 'article-title';
+        title.textContent = typeof article?.title === 'string' ? article.title : '未命名文章';
+        link.appendChild(title);
+        if (article?.date) {
+          const date = document.createElement('span');
+          date.className = 'article-date';
+          date.textContent = String(article.date);
+          link.appendChild(date);
+        }
+        const action = document.createElement('span');
+        action.className = 'article-action';
+        action.textContent = '点击查看';
+        link.appendChild(action);
+        item.appendChild(link);
+        fragment.appendChild(item);
+      });
+      list.appendChild(fragment);
+      container.hidden = false;
+    } catch (error) {
+      console.error('Failed to load articles:', error);
+      renderPlaceholder('文章加载失败');
+    }
+  }
+
+  initLatestArticles();
+</script>

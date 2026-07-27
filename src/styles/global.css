@@ -1,0 +1,17 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-accent: #ff6a3d;
+  --color-text-primary: #1f1b17;
+  --color-text-secondary: #3e3832;
+  --font-display: 'Baskervville', 'NasaDisplay', 'XinHuoTi', 'Noto Serif SC', serif;
+  --font-body: 'Baskervville', 'XinHuoTi', 'Noto Serif SC', 'Songti SC', 'STSong', 'SimSun', serif;
+  --font-latin: 'Baskervville', 'NasaDisplay', serif;
+  --font-mono: 'JetBrains Mono', 'DS-Digital', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --radius-lg: 20px;
+  --radius-md: 12px;
+  --ease-out: cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+@import './legacy.css';
+@import './legacy-enhanced.css';

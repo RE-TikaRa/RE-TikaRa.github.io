@@ -1,0 +1,105 @@
+---
+import '../styles/global.css';
+import Background from '../components/Background.astro';
+import ThemeToggle from '../components/ThemeToggle.tsx';
+import SettingsPanel from '../components/SettingsPanel.tsx';
+
+interface Props {
+  title?: string;
+  description?: string;
+  bodyClass?: string;
+}
+
+const {
+  title = 'ALp_Studio',
+  description = '亓翎_Re-TikaRa 的个人主页。一个展示项目、分享想法和记录生活的地方。',
+  bodyClass = '',
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="亓翎, Re-TikaRa, 个人主页, 博客, 技术, 作品集, 前端开发" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="https://free.picui.cn/free/2025/12/30/6953f28ba97a0.ico"
+    />
+
+    <script is:inline>
+      (function () {
+        function parse(raw) {
+          if (typeof raw !== 'string' || raw.trim() === '') return {};
+          try {
+            const p = JSON.parse(raw);
+            return p && typeof p === 'object' ? p : {};
+          } catch {
+            return {};
+          }
+        }
+        let theme = null;
+        let visual = {};
+        try {
+          theme = localStorage.getItem('theme');
+          visual = parse(localStorage.getItem('visualSettings'));
+        } catch {}
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const root = document.documentElement;
+        root.setAttribute('data-theme', theme || (prefersDark ? 'dark' : 'light'));
+        if (visual.highContrast) root.setAttribute('data-contrast', 'high');
+        if (visual.liteMode) root.setAttribute('data-lite', 'true');
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body class={bodyClass}>
+    <a class="skip-link" href="#main-content">跳到主要内容</a>
+
+    <Background />
+
+    <div class="settings-wrapper">
+      <button
+        id="settings-toggle"
+        type="button"
+        aria-label="打开设置"
+        aria-expanded="false"
+        aria-controls="settings-panel"
+      >
+        <i class="fa-solid fa-gear" aria-hidden="true"></i>
+        <span class="icon-text">设定</span>
+      </button>
+    </div>
+
+    <SettingsPanel client:idle />
+    <ThemeToggle client:idle />
+
+    <slot />
+
+    <footer class="site-footer">
+      <p>
+        实例仍在运行  日志尚未终止  //
+        <span class="is-latin" lang="en">The instance is still running; the logs haven't terminated.</span>
+      </p>
+    </footer>
+
+    <button id="back-to-top" type="button" aria-label="返回顶部" hidden>
+      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <script>
+      import { initPageMotion } from '../lib/page-motion';
+      initPageMotion();
+    </script>
+  </body>
+</html>

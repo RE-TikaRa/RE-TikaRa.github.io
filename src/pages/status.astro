@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import MobileNav from '../components/MobileNav.astro';
+---
+
+<BaseLayout title="状态面板 | ALp_Studio" description="导航页面状态检查面板。" bodyClass="status-page">
+  <main id="main-content" class="status-shell">
+    <a class="status-back" href="/">
+      <i class="fa-solid fa-arrow-left"></i>
+      返回首页
+    </a>
+
+    <header class="card glass status-header">
+      <div class="status-kicker">
+        <span class="status-kicker-icon">
+          <i class="fa-solid fa-wave-square"></i>
+        </span>
+        <span>GROUP VIEW</span>
+      </div>
+      <h1 class="status-title">导航状态检查</h1>
+      <div class="status-summary">
+        <span class="status-pill status-ok" id="status-ok-count">0 正常</span>
+        <span class="status-pill status-bad" id="status-bad-count">0 异常</span>
+        <span class="status-pill status-warn" id="status-unknown-count">0 未知</span>
+        <span id="status-age" class="status-pill status-age">距上次更新 -- 分钟</span>
+      </div>
+      <div class="status-meta">
+        <span id="status-updated">更新中...</span>
+        <span id="status-next">下次刷新 --s</span>
+      </div>
+      <div class="status-overall status-unknown" id="status-overall">CHECKING</div>
+    </header>
+
+    <section class="status-grid" id="status-grid" aria-live="polite"></section>
+  </main>
+
+  <MobileNav />
+</BaseLayout>
