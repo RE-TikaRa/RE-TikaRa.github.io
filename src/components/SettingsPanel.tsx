@@ -39,7 +39,17 @@ function applyEffect(key: keyof VisualSettings, enabled: boolean): void {
 export default function SettingsPanel() {
   const [settings, setSettings] = useState<VisualSettings>({});
   const [open, setOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const panelRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const root = document.documentElement;
+    const sync = () => setIsDark(root.getAttribute('data-theme') === 'dark');
+    sync();
+    const observer = new MutationObserver(sync);
+    observer.observe(root, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const defaults = buildDefaults();
@@ -133,6 +143,10 @@ export default function SettingsPanel() {
         </button>
       </div>
       <div className="settings-content">
+        <div className="setting-item">
+          <label htmlFor="toggle-theme-mode">深色模式</label>
+          <input type="checkbox" id="toggle-theme-mode" className="toggle-switch" checked={isDark} onChange={() => document.getElementById('theme-toggle')?.click()} />
+        </div>
         <div className="setting-item">
           <label htmlFor="toggle-high-contrast">高对比模式</label>
           <input type="checkbox" id="toggle-high-contrast" className="toggle-switch" checked={check('highContrast')} onChange={(e) => apply('highContrast', e.target.checked)} />

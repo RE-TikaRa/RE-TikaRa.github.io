@@ -2,6 +2,7 @@ import { initAccessGuard } from './access-guard';
 import { initMotion, motionLevel, registerTicker } from './motion';
 import { gsap, ScrollTrigger } from './motion';
 import { initWireframe } from './wireframe';
+import { playWelcome } from './welcome';
 
 function readWireframeEnabled(): boolean {
   try {
@@ -43,14 +44,23 @@ function initScanline(): void {
 }
 
 function revealFrames(): void {
+  const root = document.documentElement;
   const frames = gsap.utils.toArray<HTMLElement>('.blueprint-frame');
-  if (frames.length === 0) return;
+  if (frames.length === 0) {
+    root.classList.remove('is-frame-pending');
+    return;
+  }
 
   const level = motionLevel();
   if (level === 'reduced') {
     gsap.set(frames, { clearProps: 'all' });
+    root.classList.remove('is-frame-pending');
     return;
   }
+
+  // 先用 GSAP inline 压住隐藏态,再摘 CSS 预藏类,避免中间帧闪现
+  gsap.set(frames, { autoAlpha: 0 });
+  root.classList.remove('is-frame-pending');
 
   const drawIn = (targets: HTMLElement[]) => {
     if (level === 'lite') {
@@ -136,7 +146,7 @@ function initViewTransitions(): void {
   });
 }
 
-export function initPageMotion(): void {
+export async function initPageMotion(): Promise<void> {
   const guard = initAccessGuard();
   if (guard.blocked) return;
 
@@ -146,6 +156,8 @@ export function initPageMotion(): void {
     initWireframe();
   }
   initScanline();
+
+  await playWelcome();
 
   revealFrames();
   initViewTransitions();

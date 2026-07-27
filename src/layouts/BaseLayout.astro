@@ -53,6 +53,7 @@ const {
         root.setAttribute('data-theme', theme || (prefersDark ? 'dark' : 'light'));
         if (visual.highContrast) root.setAttribute('data-contrast', 'high');
         if (visual.liteMode) root.setAttribute('data-lite', 'true');
+        root.classList.add('is-frame-pending');
       })();
     </script>
 

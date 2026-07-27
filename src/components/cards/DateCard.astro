@@ -6,17 +6,58 @@
     <span class="frame-label__mark data-field">[02]</span>
     <span class="frame-label__text">// CLOCK.probe</span>
   </div>
-  <p class="date-display data-field" id="today">——</p>
+  <div class="clock-body">
+    <p class="clock-time data-field" id="clock-time">--:--:--</p>
+    <p class="clock-date data-field" id="today">——</p>
+    <div class="clock-meta">
+      <span class="clock-weekday data-field" id="clock-weekday">——</span>
+      <span class="clock-tz data-field">UTC+08</span>
+    </div>
+  </div>
 </section>
 
 <style>
   .date-card {
     height: 100%;
   }
-  .date-display {
-    font-size: 1.05rem;
-    letter-spacing: 0.03em;
+  .clock-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.6rem;
+    height: 100%;
+    min-height: 160px;
+  }
+  .clock-time {
+    font-family: var(--font-data);
+    font-size: 2.6rem;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    color: var(--color-accent);
+    margin: 0;
+  }
+  .clock-date {
+    font-size: 1rem;
+    letter-spacing: 0.02em;
     color: var(--color-ink);
     margin: 0;
+  }
+  .clock-meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-top: 0.2rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed var(--color-grid-major);
+  }
+  .clock-weekday {
+    font-size: 0.9rem;
+    color: var(--color-ink);
+  }
+  .clock-tz {
+    font-family: var(--font-data);
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    color: var(--color-ink-dim);
   }
 </style>

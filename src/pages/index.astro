@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import NavPanel from '../components/NavPanel.astro';
-import MobileNav from '../components/MobileNav.astro';
+import Welcome from '../components/Welcome.astro';
+import TitleBlock from '../components/TitleBlock.astro';
 import ProfileCard from '../components/cards/ProfileCard.astro';
 import DateCard from '../components/cards/DateCard.astro';
 import ArticlesCard from '../components/cards/ArticlesCard.astro';
@@ -12,67 +12,38 @@ import Cli from '../components/Cli.tsx';
 ---
 
 <BaseLayout title="ALp_Studio">
-  <div class="console-layout">
-    <NavPanel active="home" />
+  <Welcome />
+  <TitleBlock active="home" />
+  <div class="drafting-board">
+    <div class="board-coords" aria-hidden="true">
+      <div class="board-coords__row board-coords__row--top">
+        <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span>
+      </div>
+      <div class="board-coords__row board-coords__row--bottom">
+        <span>A</span><span>B</span><span>C</span><span>D</span><span>E</span><span>F</span>
+      </div>
+      <div class="board-coords__col board-coords__col--left">
+        <span>1</span><span>2</span><span>3</span>
+      </div>
+      <div class="board-coords__col board-coords__col--right">
+        <span>1</span><span>2</span><span>3</span>
+      </div>
+    </div>
 
-    <div class="console-grid" role="region" aria-label="控制台仪表盘">
-      <main id="main-content" class="cell cell-profile" aria-labelledby="profile-heading">
+    <div class="board-plan" role="region" aria-label="控制台仪表盘">
+      <main id="main-content" class="plan-cell plan-profile" aria-labelledby="profile-heading">
         <ProfileCard />
       </main>
-      <div class="cell cell-weather"><WeatherCard client:idle /></div>
-      <div class="cell cell-date"><DateCard /></div>
-      <div class="cell cell-music"><MusicCard client:idle /></div>
-      <div class="cell cell-hitokoto"><HitokotoCard client:idle /></div>
-      <div class="cell cell-articles"><ArticlesCard /></div>
+      <div class="plan-cell plan-weather"><WeatherCard client:idle /></div>
+      <div class="plan-cell plan-hitokoto"><HitokotoCard client:idle /></div>
+      <div class="plan-cell plan-clock"><DateCard /></div>
+      <div class="plan-cell plan-music"><MusicCard client:idle /></div>
+      <div class="plan-cell plan-articles"><ArticlesCard /></div>
     </div>
   </div>
 
-  <MobileNav active="home" />
   <Cli client:idle />
 </BaseLayout>
-
-<style>
-  .console-grid {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    grid-auto-rows: minmax(0, auto);
-    gap: 1.25rem;
-    grid-template-areas:
-      'profile profile weather'
-      'profile profile date'
-      'hitokoto hitokoto music'
-      'articles articles articles';
-  }
-
-  .cell-profile { grid-area: profile; }
-  .cell-weather { grid-area: weather; }
-  .cell-date { grid-area: date; }
-  .cell-music { grid-area: music; }
-  .cell-hitokoto { grid-area: hitokoto; }
-  .cell-articles { grid-area: articles; }
-
-  .cell {
-    min-width: 0;
-    display: flex;
-  }
-  .cell > :global(*) {
-    width: 100%;
-  }
-
-  @media (max-width: 960px) {
-    .console-grid {
-      grid-template-columns: minmax(0, 1fr);
-      grid-template-areas:
-        'profile'
-        'weather'
-        'date'
-        'music'
-        'hitokoto'
-        'articles';
-      gap: 1rem;
-    }
-  }
-</style>
 
 <script>
   import { fetchConfigJSON } from '../lib/config';
@@ -81,8 +52,12 @@ import Cli from '../components/Cli.tsx';
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const greetingEl = document.getElementById('greeting');
   const todayEl = document.getElementById('today');
+  const clockTimeEl = document.getElementById('clock-time');
+  const clockWeekdayEl = document.getElementById('clock-weekday');
+  const WEEKDAYS = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
   let lastGreetingKey = '';
   let lastDateKey = '';
+  let lastTimeKey = '';
   let timer: number | null = null;
 
   function updateGreeting(now: Date) {
@@ -109,17 +84,25 @@ import Cli from '../components/Cli.tsx';
       }
       lastGreetingKey = greetingKey;
     }
-    if (todayEl) {
-      const y = now.getFullYear();
-      const mo = String(now.getMonth() + 1).padStart(2, '0');
-      const d = String(now.getDate()).padStart(2, '0');
-      const h = String(now.getHours()).padStart(2, '0');
-      const mi = String(now.getMinutes()).padStart(2, '0');
-      const key = `${y}-${mo}-${d}-${h}-${mi}`;
-      if (key !== lastDateKey) {
-        todayEl.textContent = `${y}年${mo}月${d}日 ${h}点${mi}分`;
-        lastDateKey = key;
+    const y = now.getFullYear();
+    const mo = String(now.getMonth() + 1).padStart(2, '0');
+    const d = String(now.getDate()).padStart(2, '0');
+    const h = String(now.getHours()).padStart(2, '0');
+    const mi = String(now.getMinutes()).padStart(2, '0');
+    const s = String(now.getSeconds()).padStart(2, '0');
+
+    if (clockTimeEl) {
+      const timeKey = `${h}:${mi}:${s}`;
+      if (timeKey !== lastTimeKey) {
+        clockTimeEl.textContent = timeKey;
+        lastTimeKey = timeKey;
       }
+    }
+    const dateKey = `${y}-${mo}-${d}`;
+    if (dateKey !== lastDateKey) {
+      if (todayEl) todayEl.textContent = `${y}.${mo}.${d}`;
+      if (clockWeekdayEl) clockWeekdayEl.textContent = WEEKDAYS[now.getDay()];
+      lastDateKey = dateKey;
     }
   }
 

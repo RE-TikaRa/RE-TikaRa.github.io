@@ -1,13 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import NavPanel from '../components/NavPanel.astro';
-import MobileNav from '../components/MobileNav.astro';
+import TitleBlock from '../components/TitleBlock.astro';
 ---
 
 <BaseLayout title="项目 | ALp_Studio" description="亓翎_Re-TikaRa 的项目列表。">
-  <div class="console-layout">
-    <NavPanel active="projects" />
-
+  <TitleBlock active="projects" />
+  <div class="drafting-board">
     <main id="main-content" class="blueprint-frame projects-card" aria-labelledby="projects-heading">
       <div class="frame-label">
         <span class="frame-label__mark data-field">[//]</span>
@@ -20,8 +18,6 @@ import MobileNav from '../components/MobileNav.astro';
       </div>
     </main>
   </div>
-
-  <MobileNav active="projects" />
 </BaseLayout>
 
 <style>

@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import MobileNav from '../components/MobileNav.astro';
+import TitleBlock from '../components/TitleBlock.astro';
 ---
 
 <BaseLayout title="状态面板 | ALp_Studio" description="导航页面状态检查面板。" bodyClass="status-page">
+  <TitleBlock />
   <main id="main-content" class="status-shell">
     <a class="status-back data-field" href="/">
       <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
@@ -31,8 +32,6 @@ import MobileNav from '../components/MobileNav.astro';
 
     <section class="status-grid" id="status-grid" aria-live="polite"></section>
   </main>
-
-  <MobileNav />
 </BaseLayout>
 
 <style>

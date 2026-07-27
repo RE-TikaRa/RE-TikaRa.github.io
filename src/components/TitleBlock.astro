@@ -1,0 +1,42 @@
+---
+interface Props {
+  active?: 'home' | 'projects';
+}
+const { active = 'home' } = Astro.props;
+
+const links = [
+  { href: '/', label: '主页', icon: 'fa-solid fa-house', key: 'home', id: 'nav-home-btn' },
+  { href: '/projects/', label: '项目', icon: 'fa-solid fa-code', key: 'projects' },
+  { href: 'https://www.re-tikara.fun/Blog', label: '博客', icon: 'fa-solid fa-pen-nib', ext: true },
+  { href: 'https://re-tikara.fun/Article/', label: '文章库', icon: 'fa-solid fa-book-open', ext: true },
+  { href: 'https://github.com/RE-TikaRa', label: 'GitHub', icon: 'fa-brands fa-github', ext: true, latin: true },
+  { href: 'https://space.bilibili.com/374412219', label: 'BiliBili', icon: 'fa-brands fa-bilibili', ext: true, latin: true },
+];
+---
+
+<footer class="title-block" aria-label="站点图签">
+  <div class="tb-cell tb-ident">
+    <span class="tb-brand is-latin" lang="en">ALp_Studio</span>
+    <span class="tb-sub">观测站 · 控制台</span>
+  </div>
+  <nav class="tb-cell tb-nav" aria-label="主导航">
+    {links.map((l) => (
+      <a
+        href={l.href}
+        id={l.id}
+        class={`tb-link${l.key === active ? ' is-active' : ''}`}
+        aria-current={l.key === active ? 'page' : undefined}
+        target={l.ext ? '_blank' : undefined}
+        rel={l.ext ? 'noopener noreferrer' : undefined}
+      >
+        <i class={l.icon} aria-hidden="true"></i>
+        <span class={l.latin ? 'is-latin' : undefined} lang={l.latin ? 'en' : undefined}>{l.label}</span>
+      </a>
+    ))}
+  </nav>
+  <dl class="tb-cell tb-meta">
+    <div class="tb-meta-row"><dt>DWG</dt><dd class="data-field">ALP-01</dd></div>
+    <div class="tb-meta-row"><dt>SCALE</dt><dd class="data-field">1:1</dd></div>
+    <div class="tb-meta-row"><dt>REV</dt><dd class="data-field">A</dd></div>
+  </dl>
+</footer>

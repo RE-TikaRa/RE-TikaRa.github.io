@@ -162,10 +162,12 @@ export default function MusicCard() {
         observer = new MutationObserver((_mutations, obs) => {
           const aplayer = meting.querySelector('.aplayer');
           if (aplayer) {
-            const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+            const accent = getComputedStyle(document.documentElement)
+              .getPropertyValue('--color-accent')
+              .trim();
             const instance = (meting as unknown as { aplayer?: APlayerLike }).aplayer;
             if (instance) {
-              instance.theme(currentTheme === 'dark' ? '#222' : '#fff', true);
+              instance.theme(accent || '#2dd4bf', true);
               attachPulse(instance);
             }
             obs.disconnect();
