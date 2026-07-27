@@ -1,9 +1,47 @@
 ---
 ---
 
-<div class="background-gradient"></div>
-<canvas id="starfield-layer1" class="starfield-canvas" data-layer-id="1"></canvas>
-<canvas id="starfield-layer2" class="starfield-canvas" data-layer-id="2"></canvas>
-<canvas id="starfield-layer3" class="starfield-canvas" data-layer-id="3"></canvas>
-<canvas id="shooting-star-canvas" class="starfield-canvas"></canvas>
-<canvas id="raindrop-canvas" class="starfield-canvas"></canvas>
+<div class="bg-field" aria-hidden="true">
+  <canvas id="blueprint-wireframe-canvas"></canvas>
+  <div id="grid-scanline" class="grid-scanline" hidden></div>
+</div>
+
+<style>
+  .bg-field {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  #blueprint-wireframe-canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    opacity: 0.5;
+  }
+
+  :global(:root[data-theme='dark']) #blueprint-wireframe-canvas {
+    opacity: 0.65;
+  }
+
+  .grid-scanline {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      var(--color-accent) 20%,
+      var(--color-accent) 80%,
+      transparent
+    );
+    opacity: 0.35;
+    will-change: transform;
+  }
+</style>

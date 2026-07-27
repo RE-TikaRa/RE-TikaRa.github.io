@@ -3,10 +3,8 @@ import { safeParseObjectJSON } from './shared';
 export interface VisualSettings {
   highContrast?: boolean;
   liteMode?: boolean;
-  starfield?: boolean;
-  shootingStars?: boolean;
-  raindrops?: boolean;
-  cardFloat?: boolean;
+  wireframe?: boolean;
+  scanline?: boolean;
   musicAutoplay?: boolean;
   playlistType?: 'song' | 'album';
 }

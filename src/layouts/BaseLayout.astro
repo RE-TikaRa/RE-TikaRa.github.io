@@ -103,3 +103,74 @@ const {
     </script>
   </body>
 </html>
+
+<style>
+  .settings-wrapper {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 100;
+  }
+
+  #settings-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.45rem 0.8rem;
+    font-family: var(--font-data);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--color-ink);
+    background: var(--color-surface);
+    border: var(--frame-border-width) solid var(--color-border);
+    box-shadow: var(--frame-shadow);
+    cursor: pointer;
+    transition: transform 0.12s var(--ease-linear), box-shadow 0.12s var(--ease-linear);
+  }
+  #settings-toggle:hover {
+    transform: translate(-1px, -1px);
+    box-shadow: 4px 4px 0 var(--color-border);
+  }
+  #settings-toggle:active {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0 var(--color-border);
+  }
+
+  .site-footer {
+    padding: 2rem 1.5rem 3rem;
+    text-align: center;
+    font-family: var(--font-data);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: var(--color-ink-dim);
+  }
+  .site-footer .is-latin {
+    display: block;
+    margin-top: 0.35rem;
+    font-family: var(--font-latin);
+    font-style: italic;
+    letter-spacing: 0.02em;
+  }
+
+  #back-to-top {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 90;
+    width: 2.6rem;
+    height: 2.6rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-bg);
+    background: var(--color-accent);
+    border: var(--frame-border-width) solid var(--color-border);
+    box-shadow: var(--frame-shadow);
+    cursor: pointer;
+    transition: transform 0.12s var(--ease-linear);
+  }
+  #back-to-top:hover {
+    transform: translate(-1px, -1px);
+  }
+</style>

@@ -1,98 +1,104 @@
 import { initAccessGuard } from './access-guard';
-import { initMotion } from './motion';
-import { initInteractiveEffects, type PageType } from './interactive-effects';
+import { initMotion, motionLevel, registerTicker } from './motion';
+import { gsap, ScrollTrigger } from './motion';
+import { initWireframe } from './wireframe';
 
-const WELCOME_TEXT = '正在唤醒情绪体接口…';
-const WELCOME_TYPE_SPEED = 120;
-const WELCOME_FADE_DELAY = 1000;
-
-function resolvePageType(): PageType {
-  return document.body.classList.contains('status-page') ? 'status' : 'home';
+function readWireframeEnabled(): boolean {
+  try {
+    const raw = localStorage.getItem('visualSettings');
+    if (!raw) return true;
+    const parsed = JSON.parse(raw);
+    return parsed?.wireframe !== false;
+  } catch {
+    return true;
+  }
 }
 
-function setStagger(): void {
-  document.querySelectorAll<HTMLElement>('.card').forEach((card, index) => {
-    card.style.setProperty('--stagger', String(index));
+function readScanlineEnabled(): boolean {
+  try {
+    const raw = localStorage.getItem('visualSettings');
+    if (!raw) return false;
+    return Boolean(JSON.parse(raw)?.scanline);
+  } catch {
+    return false;
+  }
+}
+
+function initScanline(): void {
+  const el = document.getElementById('grid-scanline');
+  if (!el) return;
+  const level = motionLevel();
+  if (!readScanlineEnabled() || level !== 'full') {
+    el.hidden = true;
+    return;
+  }
+  el.hidden = false;
+  let y = 0;
+  const speed = 0.6;
+  registerTicker(() => {
+    y += speed;
+    if (y > window.innerHeight) y = -20;
+    el.style.transform = `translateY(${y}px)`;
   });
 }
 
-function markPageReady(): void {
-  if (document.body.classList.contains('is-ready')) return;
-  document.body.classList.add('is-ready');
-  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    document.body.classList.add('is-main-reveal');
-    window.setTimeout(() => {
-      document.body.classList.remove('is-main-reveal');
-    }, 1300);
-  }
-  window.dispatchEvent(new Event('welcome-ready'));
-}
+function revealFrames(): void {
+  const frames = gsap.utils.toArray<HTMLElement>('.blueprint-frame');
+  if (frames.length === 0) return;
 
-function initWelcome(): void {
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const isMobile = window.matchMedia('(max-width: 960px)').matches;
-  const isLiteMode = document.documentElement.getAttribute('data-lite') === 'true';
-
-  const welcomeScreen = document.getElementById('welcome-screen');
-  const welcomeTextEl = document.getElementById('welcome-text');
-  if (!welcomeScreen || !welcomeTextEl) {
-    markPageReady();
+  const level = motionLevel();
+  if (level === 'reduced') {
+    gsap.set(frames, { clearProps: 'all' });
     return;
   }
 
-  let charIndex = 0;
-  const typeSpeed = isMobile ? Math.min(WELCOME_TYPE_SPEED, 70) : WELCOME_TYPE_SPEED;
-
-  const finish = () => {
-    welcomeScreen.classList.add('is-revealing-main');
-    markPageReady();
-    window.setTimeout(() => {
-      welcomeScreen.style.transition = prefersReducedMotion || isMobile || isLiteMode ? 'none' : '';
-      welcomeScreen.classList.add('hidden');
-    }, prefersReducedMotion || isMobile || isLiteMode ? 0 : 60);
-  };
-
-  const typeChar = () => {
-    if (charIndex < WELCOME_TEXT.length) {
-      welcomeTextEl.textContent += WELCOME_TEXT.charAt(charIndex);
-      charIndex++;
-      window.setTimeout(typeChar, typeSpeed);
-    } else {
-      window.setTimeout(finish, isMobile ? 80 : WELCOME_FADE_DELAY);
+  const drawIn = (targets: HTMLElement[]) => {
+    if (level === 'lite') {
+      gsap.fromTo(
+        targets,
+        { autoAlpha: 0 },
+        { autoAlpha: 1, duration: 0.4, stagger: 0.06, ease: 'none' },
+      );
+      return;
     }
+    const tl = gsap.timeline();
+    tl.fromTo(
+      targets,
+      { autoAlpha: 0, clipPath: 'inset(0 100% 0 0)' },
+      {
+        autoAlpha: 1,
+        clipPath: 'inset(0 0% 0 0)',
+        duration: 0.7,
+        stagger: 0.09,
+        ease: 'power2.inOut',
+      },
+    );
+    tl.fromTo(
+      targets.map((f) => f.querySelector('.panel-body')).filter(Boolean) as HTMLElement[],
+      { autoAlpha: 0, y: 8 },
+      { autoAlpha: 1, y: 0, duration: 0.4, stagger: 0.09, ease: 'power1.out' },
+      '-=0.4',
+    );
   };
 
-  window.setTimeout(typeChar, isMobile ? 120 : 500);
-}
+  // 首屏面板直接入场,其余交给 ScrollTrigger.batch
+  const vh = window.innerHeight;
+  const firstScreen: HTMLElement[] = [];
+  const rest: HTMLElement[] = [];
+  frames.forEach((f) => {
+    (f.getBoundingClientRect().top < vh ? firstScreen : rest).push(f);
+  });
 
-function initScrollReveal(): void {
-  if (window.matchMedia('(max-width: 960px)').matches) return;
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  if (!document.body.classList.contains('is-ready')) {
-    window.addEventListener('welcome-ready', initScrollReveal, { once: true });
-    return;
+  if (firstScreen.length) drawIn(firstScreen);
+
+  if (rest.length) {
+    gsap.set(rest, { autoAlpha: 0 });
+    ScrollTrigger.batch(rest, {
+      start: 'top 85%',
+      once: true,
+      onEnter: (batch) => drawIn(batch as HTMLElement[]),
+    });
   }
-
-  const cards = document.querySelectorAll<HTMLElement>(
-    '.side-panel .card, .hitokoto-panel .card, #latest-articles-card',
-  );
-  if (cards.length === 0) return;
-
-  cards.forEach((card) => card.classList.add('scroll-reveal'));
-
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15, rootMargin: '0px 0px -50px 0px' },
-  );
-
-  cards.forEach((card) => observer.observe(card));
 }
 
 function initViewTransitions(): void {
@@ -134,15 +140,13 @@ export function initPageMotion(): void {
   const guard = initAccessGuard();
   if (guard.blocked) return;
 
-  setStagger();
   initMotion();
-  initWelcome();
 
-  const isErrorPage = document.body.classList.contains('error-page');
-  if (window.matchMedia('(min-width: 961px)').matches && !isErrorPage) {
-    initInteractiveEffects(resolvePageType());
+  if (readWireframeEnabled()) {
+    initWireframe();
   }
+  initScanline();
 
+  revealFrames();
   initViewTransitions();
-  initScrollReveal();
 }

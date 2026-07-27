@@ -17,49 +17,37 @@ const run = async () => {
   };
 
   await page.goto(`${BASE}/`, { waitUntil: 'networkidle' });
+  // client:idle 岛(ThemeToggle/SettingsPanel)需等水合完成再交互
+  await page.waitForTimeout(1200);
 
-  await page
-    .waitForFunction(() => document.body.classList.contains('is-ready'), { timeout: 8000 })
-    .catch(() => {});
-
-  const hasReady = await page.evaluate(() => document.body.classList.contains('is-ready'));
-  assert('body.is-ready 已设置', hasReady);
-
-  // weather-card 数据 fetch 完成才整卡挂载(view 为 null 时 return null),
-  // 晚于 setStagger 一次性执行,故排除;其余卡片首帧即在 DOM
-  const staggerSet = await page.evaluate(() => {
-    const cards = document.querySelectorAll('.card:not(#weather-card)');
-    if (cards.length === 0) return false;
-    return Array.from(cards).every((c) => c.style.getPropertyValue('--stagger') !== '');
+  const wireframeReady = await page.evaluate(() => {
+    const c = document.getElementById('blueprint-wireframe-canvas');
+    return c instanceof HTMLCanvasElement;
   });
-  assert('静态卡片 --stagger 已设置', staggerSet);
+  assert('3D 线框 canvas 就位', wireframeReady);
 
-  const cardsVisible = await page.evaluate(() => {
-    const cards = document.querySelectorAll('.main-panel .card, .side-panel .card');
-    if (cards.length === 0) return { ok: false, detail: '无卡片' };
-    const hidden = Array.from(cards).filter((c) => parseFloat(getComputedStyle(c).opacity) < 0.01);
-    return { ok: hidden.length === 0, detail: `${hidden.length}/${cards.length} 隐藏` };
+  const wireframeDrawn = await page.evaluate(() => {
+    const c = document.getElementById('blueprint-wireframe-canvas');
+    if (!(c instanceof HTMLCanvasElement)) return false;
+    return c.width > 0 && c.height > 0;
   });
-  assert('首屏卡片可见(opacity>0)', cardsVisible.ok, cardsVisible.detail);
+  assert('线框 canvas 已按 DPR 尺寸初始化', wireframeDrawn);
 
-  const canvasReady = await page.evaluate(() => {
-    const ids = ['starfield-layer1', 'starfield-layer2', 'starfield-layer3', 'shooting-star-canvas', 'raindrop-canvas'];
-    return ids.every((id) => document.getElementById(id) instanceof HTMLCanvasElement);
-  });
-  assert('五层粒子 canvas 就位', canvasReady);
+  const themeBefore = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
+  await page.click('#theme-toggle');
+  await page.waitForTimeout(400);
+  const themeAfter = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
+  assert('theme toggle 翻转 data-theme', themeBefore !== themeAfter, `${themeBefore} → ${themeAfter}`);
 
-  const welcomeHidden = await page.evaluate(() => {
-    const w = document.getElementById('welcome-screen');
-    return !w || w.classList.contains('hidden');
-  });
-  assert('welcome 打字机完成后隐藏', welcomeHidden);
+  const hiddenBefore = await page.evaluate(() => document.getElementById('settings-panel')?.hidden);
+  await page.click('#settings-toggle');
+  await page.waitForTimeout(300);
+  const hiddenAfter = await page.evaluate(() => document.getElementById('settings-panel')?.hidden);
+  assert('设置面板可开合', hiddenBefore !== hiddenAfter, `hidden ${hiddenBefore} → ${hiddenAfter}`);
 
   await page.goto(`${BASE}/projects/`, { waitUntil: 'networkidle' });
-  await page
-    .waitForFunction(() => document.body.classList.contains('is-ready'), { timeout: 4000 })
-    .catch(() => {});
-  const projReady = await page.evaluate(() => document.body.classList.contains('is-ready'));
-  assert('项目页(无welcome)也设 is-ready', projReady);
+  const projLoaded = await page.evaluate(() => document.body != null && !document.body.classList.contains('is-access-guard-blocked'));
+  assert('项目页正常加载', projLoaded);
 
   assert('无 console error', errors.length === 0, errors.slice(0, 5).join(' | '));
 
