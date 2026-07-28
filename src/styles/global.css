@@ -719,10 +719,16 @@
     letter-spacing: 0.12em;
     color: var(--color-accent);
   }
-  .weather-body {
+  .weather-card {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+  }
+  .weather-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.65rem;
   }
   .weather-main {
     display: flex;
@@ -791,6 +797,8 @@
   /* --- 音乐卡(innerHTML 注入,契约 class) --- */
   #music-card {
     --music-beat: 0;
+    display: flex;
+    flex-direction: column;
     transition: box-shadow 0.15s var(--ease-linear);
   }
   #music-card.is-playing {
@@ -802,6 +810,10 @@
     color: var(--color-ink-dim);
   }
   .music-player-shell {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     margin-top: 0.4rem;
   }
   .music-error {
