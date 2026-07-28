@@ -43,11 +43,10 @@
 
 ### `[tika@lab ~]$ cat feature-map.md`
 - 双维度主题(昼夜)切换与本地持久化。
-- 控制台仪表盘首页(档案 / 天气 / 日期 / 音乐 / 一言 / 文章 6 模块)。
+- 控制台仪表盘首页(档案 / 天气 / 日期 / 音乐 / 文章 5 模块)。
 - 设置面板(高对比 / 轻量模式 / 背景线框 / 网格扫描线 / 音乐行为)。
 - 天气模块(Open-Meteo)与 `data-weather` 氛围联动。
 - 音乐模块(APlayer + Meting)与播放脉冲。
-- 一言回声(Hitokoto)。
 - 最新文章卡片(`config.json.latest_articles`)。
 - 项目列表页(`config.json.projects`)。
 - 状态页(读取 `status.json`,失败回退目标占位)。

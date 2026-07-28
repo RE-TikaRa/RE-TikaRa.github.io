@@ -7,7 +7,6 @@ import DateCard from '../components/cards/DateCard.astro';
 import ArticlesCard from '../components/cards/ArticlesCard.astro';
 import WeatherCard from '../components/cards/WeatherCard.tsx';
 import MusicCard from '../components/cards/MusicCard.tsx';
-import HitokotoCard from '../components/cards/HitokotoCard.tsx';
 import Cli from '../components/Cli.tsx';
 ---
 
@@ -35,7 +34,6 @@ import Cli from '../components/Cli.tsx';
         <ProfileCard />
       </main>
       <div class="plan-cell plan-weather"><WeatherCard client:idle /></div>
-      <div class="plan-cell plan-hitokoto"><HitokotoCard client:idle /></div>
       <div class="plan-cell plan-clock"><DateCard /></div>
       <div class="plan-cell plan-music"><MusicCard client:idle /></div>
     </div>

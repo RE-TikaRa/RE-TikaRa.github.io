@@ -48,7 +48,6 @@ src/
 │     ├─ DateCard.astro     # 日期时钟(#today)
 │     ├─ ArticlesCard.astro # 文章日志(#article-list)
 │     ├─ WeatherCard.tsx    # 天气探针
-│     ├─ HitokotoCard.tsx   # 一言回声
 │     └─ MusicCard.tsx      # 网易云播放器
 ├─ lib/
 │  ├─ config.ts             # fetchConfigJSON 配置加载

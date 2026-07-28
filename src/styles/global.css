@@ -264,32 +264,17 @@
   padding-right: 0.04em;
 }
 
-/* 中文花体首字:一言正文首字放大(中文古籍体,经典手稿 drop-cap) */
-:root[data-theme='light'] .hitokoto-text {
-  display: inline-block;
-}
-:root[data-theme='light'] .hitokoto-text::first-letter {
-  float: left;
-  font-family: var(--font-display);
-  font-size: 2.9em;
-  line-height: 0.72;
-  font-weight: 600;
-  margin: 0.06em 0.12em 0 0;
-  color: var(--color-accent);
-}
-
 /* 卷轴布局:规整骨架 + 不均列宽留白 + 收敛微倾斜(挂外层 plan-cell,避开图框 transform 通道) */
 :root[data-theme='light'] .board-plan {
   gap: 1.7rem 1.5rem;
   grid-template-columns: 1.15fr 0.95fr 0.95fr 0.95fr;
   grid-template-areas:
-    'profile  profile  weather  clock'
-    'hitokoto hitokoto music    music';
+    'profile profile weather clock'
+    'music   music   music   music';
 }
 :root[data-theme='light'] .plan-profile { transform: rotate(-0.4deg); }
 :root[data-theme='light'] .plan-clock { transform: rotate(0.5deg); }
 :root[data-theme='light'] .plan-weather { transform: rotate(-0.3deg); }
-:root[data-theme='light'] .plan-hitokoto { transform: rotate(0.35deg); }
 :root[data-theme='light'] .plan-articles { transform: rotate(-0.2deg); }
 :root[data-theme='light'] .plan-music { transform: rotate(0.45deg); }
 
@@ -301,7 +286,6 @@
     grid-template-areas:
       'profile profile'
       'clock weather'
-      'hitokoto hitokoto'
       'music music';
   }
   :root[data-theme='light'] .plan-cell { transform: none; }
@@ -314,7 +298,6 @@
       'profile'
       'clock'
       'weather'
-      'hitokoto'
       'music';
   }
 }
@@ -563,12 +546,11 @@
     min-height: calc(100vh - 13rem);
     grid-template-areas:
       'profile profile weather clock'
-      'music music hitokoto hitokoto';
+      'music music music music';
   }
   .plan-cell { min-width: 0; display: grid; }
   .plan-profile { grid-area: profile; }
   .plan-weather { grid-area: weather; }
-  .plan-hitokoto { grid-area: hitokoto; }
   .plan-clock { grid-area: clock; }
   .plan-music { grid-area: music; }
   .plan-articles { margin-top: 2.4rem; }
@@ -580,7 +562,6 @@
       grid-template-areas:
         'profile profile'
         'clock weather'
-        'hitokoto hitokoto'
         'music music';
     }
   }
@@ -595,7 +576,6 @@
         'profile'
         'clock'
         'weather'
-        'hitokoto'
         'music';
     }
   }
@@ -781,45 +761,6 @@
     font-size: 0.72rem;
     letter-spacing: 0.1em;
     color: var(--color-ink-dim);
-  }
-
-  /* --- 一言卡 --- */
-  .hitokoto-card {
-    display: flex;
-    flex-direction: column;
-  }
-  .hitokoto-container {
-    position: relative;
-    margin-block: auto;
-  }
-  .hitokoto-text {
-    display: inline;
-    font-family: var(--font-display);
-    font-size: 1.15rem;
-    line-height: 1.6;
-    color: var(--color-ink);
-    margin: 0;
-  }
-  .hitokoto-container .cursor {
-    display: inline-block;
-    width: 0.5em;
-    height: 1.1em;
-    vertical-align: text-bottom;
-    background: var(--color-accent);
-    animation: cursor-blink 1s steps(2) infinite;
-  }
-  @keyframes cursor-blink {
-    0%, 50% { opacity: 1; }
-    50.01%, 100% { opacity: 0; }
-  }
-  .hitokoto-from {
-    margin: 0.8rem 0 0;
-    text-align: right;
-    font-family: var(--font-data);
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-    color: var(--color-ink-dim);
-    transition: opacity 0.3s var(--ease-linear);
   }
 
   /* --- 音乐卡(innerHTML 注入,契约 class) --- */
