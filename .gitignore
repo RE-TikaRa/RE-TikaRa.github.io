@@ -14,5 +14,8 @@ node_modules/
 dist/
 .astro/
 
+# screenshot output
+.shots/
+
 # omc local state
 .omc/
