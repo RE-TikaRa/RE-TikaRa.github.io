@@ -169,23 +169,15 @@
     radial-gradient(140% 120% at 0% 100%, rgba(120, 92, 52, 0.14) 0%, transparent 46%),
     radial-gradient(circle at 18% 32%, rgba(150, 118, 70, 0.05) 0 2px, transparent 2px),
     radial-gradient(circle at 72% 58%, rgba(150, 118, 70, 0.045) 0 2px, transparent 2px),
-    radial-gradient(circle at 44% 84%, rgba(150, 118, 70, 0.04) 0 1.5px, transparent 1.5px),
-    linear-gradient(var(--color-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--color-grid-major) 0 1px, transparent 1px 3px, var(--color-grid-major) 3px 4px, transparent 4px),
-    linear-gradient(90deg, var(--color-grid-major) 0 1px, transparent 1px 3px, var(--color-grid-major) 3px 4px, transparent 4px);
+    radial-gradient(circle at 44% 84%, rgba(150, 118, 70, 0.04) 0 1.5px, transparent 1.5px);
   background-size:
     100% 100%,
     100% 100%,
     100% 100%,
     180px 180px,
     240px 240px,
-    200px 200px,
-    var(--grid-cell) var(--grid-cell),
-    var(--grid-cell) var(--grid-cell),
-    100% var(--grid-major),
-    var(--grid-major) 100%;
-  background-attachment: fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed;
+    200px 200px;
+  background-attachment: fixed, fixed, fixed, fixed, fixed, fixed;
 }
 :root[data-theme='light'] {
   --color-grid: rgba(90, 68, 38, 0.11);
@@ -266,40 +258,11 @@
 
 /* 卷轴布局:规整骨架 + 不均列宽留白 + 收敛微倾斜(挂外层 plan-cell,避开图框 transform 通道) */
 :root[data-theme='light'] .board-plan {
-  gap: 1.7rem 1.5rem;
-  grid-template-columns: 1.15fr 0.95fr 0.95fr 0.95fr;
+  gap: 1.7rem;
+  grid-template-columns: minmax(0, 1fr);
   grid-template-areas:
-    'profile profile weather clock'
-    'music   music   music   music';
-}
-:root[data-theme='light'] .plan-profile { transform: rotate(-0.4deg); }
-:root[data-theme='light'] .plan-clock { transform: rotate(0.5deg); }
-:root[data-theme='light'] .plan-weather { transform: rotate(-0.3deg); }
-:root[data-theme='light'] .plan-articles { transform: rotate(-0.2deg); }
-:root[data-theme='light'] .plan-music { transform: rotate(0.45deg); }
-
-/* 窄屏:卷轴回落规整 + 取消倾斜(与 dark 断点对齐特异度) */
-@media (max-width: 1040px) {
-  :root[data-theme='light'] .board-plan {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.3rem;
-    grid-template-areas:
-      'profile profile'
-      'clock weather'
-      'music music';
-  }
-  :root[data-theme='light'] .plan-cell { transform: none; }
-}
-@media (max-width: 620px) {
-  :root[data-theme='light'] .board-plan {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1rem;
-    grid-template-areas:
-      'profile'
-      'clock'
-      'weather'
-      'music';
-  }
+    'profile'
+    'music';
 }
 
 /* 轻量模式:关网格动画、去硬阴影偏移 */
@@ -307,10 +270,6 @@
   --frame-shadow: none;
 }
 
-/* 天气契约(WeatherCard 写入) */
-:root[data-weather='rain'] {
-  --weather-rain-opacity: 0.35;
-}
 
 /* ============================================================
    Base
@@ -337,17 +296,6 @@
     min-height: 100vh;
     color: var(--color-ink);
     background-color: var(--color-bg);
-    background-image:
-      linear-gradient(var(--color-grid) 1px, transparent 1px),
-      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px),
-      linear-gradient(var(--color-grid-major) 1.5px, transparent 1.5px),
-      linear-gradient(90deg, var(--color-grid-major) 1.5px, transparent 1.5px);
-    background-size:
-      var(--grid-cell) var(--grid-cell),
-      var(--grid-cell) var(--grid-cell),
-      var(--grid-major) var(--grid-major),
-      var(--grid-major) var(--grid-major);
-    background-attachment: fixed;
     font-family: var(--font-body);
     font-size: 18px;
     line-height: 1.65;
@@ -537,46 +485,26 @@
   .board-coords__col--left { left: 0.6rem; }
   .board-coords__col--right { right: 0.6rem; }
 
-  /* --- 错落图区:首屏两行五卡撑满一屏,文章推到折叠线下 --- */
+  /* --- 错落图区:两行五卡按行高自然排布,文章接在其后 --- */
   .board-plan {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    grid-auto-rows: minmax(0, 1fr);
-    gap: 1.15rem;
-    min-height: calc(100vh - 13rem);
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: 300px 175px;
+    gap: 3.5rem;
     grid-template-areas:
-      'profile profile weather clock'
-      'music music music music';
+      'profile'
+      'music';
   }
   .plan-cell { min-width: 0; display: grid; }
   .plan-profile { grid-area: profile; }
-  .plan-weather { grid-area: weather; }
-  .plan-clock { grid-area: clock; }
   .plan-music { grid-area: music; }
-  .plan-articles { margin-top: 2.4rem; }
+  .plan-articles { margin-top: 3.5rem; }
 
-  @media (max-width: 1040px) {
-    .board-plan {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      min-height: 0;
-      grid-template-areas:
-        'profile profile'
-        'clock weather'
-        'music music';
-    }
-  }
   @media (max-width: 620px) {
     .drafting-board { padding: 1.4rem 1.1rem 2rem; }
     .board-coords { display: none; }
     .board-plan {
-      grid-template-columns: minmax(0, 1fr);
       gap: 0.9rem;
-      min-height: 0;
-      grid-template-areas:
-        'profile'
-        'clock'
-        'weather'
-        'music';
     }
   }
 
@@ -718,49 +646,6 @@
   @keyframes char-in {
     from { opacity: 0; transform: translateY(0.25em); }
     to { opacity: 1; transform: translateY(0); }
-  }
-
-  /* --- 天气卡 --- */
-  .weather-source {
-    margin-left: auto;
-    font-size: 0.66rem;
-    letter-spacing: 0.12em;
-    color: var(--color-accent);
-  }
-  .weather-card {
-    display: flex;
-    flex-direction: column;
-  }
-  .weather-body {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 0.65rem;
-  }
-  .weather-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .weather-temp {
-    font-size: 2.4rem;
-    line-height: 1;
-    color: var(--color-ink);
-  }
-  .weather-icon {
-    font-size: 1.8rem;
-    color: var(--color-accent);
-  }
-  .weather-location {
-    font-size: 0.95rem;
-    color: var(--color-ink);
-  }
-  .weather-description {
-    font-family: var(--font-data);
-    font-size: 0.72rem;
-    letter-spacing: 0.1em;
-    color: var(--color-ink-dim);
   }
 
   /* --- 音乐卡(innerHTML 注入,契约 class) --- */
@@ -1360,9 +1245,27 @@ body.is-welcome-active {
   gap: 1rem;
   padding: 2rem;
 }
+.welcome-mark-stack {
+  position: relative;
+  width: 240px;
+  height: 120px;
+}
 .welcome-mark {
   width: 240px;
   height: 120px;
+}
+.welcome-emblem {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120px;
+  height: 120px;
+  margin: -60px 0 0 -60px;
+  background: url('/c-blk-bg.png') center / contain no-repeat;
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+:root[data-theme='dark'] .welcome-emblem {
+  filter: brightness(0) invert(1);
 }
 .welcome-mark line,
 .welcome-mark rect {
@@ -1409,6 +1312,19 @@ body.is-welcome-active {
   width: 0;
   height: 100%;
   background: var(--color-accent);
+}
+
+/* intro 开场:预藏欢迎屏动画元素,由 GSAP 接管显现,避免首帧闪现 */
+:root.is-intro-pending .welcome-mark__frame {
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+}
+:root.is-intro-pending .welcome-mark__axis,
+:root.is-intro-pending .welcome-mark__node,
+:root.is-intro-pending .welcome-brand,
+:root.is-intro-pending .welcome-line,
+:root.is-intro-pending .welcome-bar {
+  opacity: 0;
 }
 
 /* ============================================================

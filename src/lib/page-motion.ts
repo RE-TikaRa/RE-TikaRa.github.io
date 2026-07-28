@@ -1,5 +1,5 @@
 import { initAccessGuard } from './access-guard';
-import { initMotion, motionLevel, registerTicker } from './motion';
+import { initMotion, motionLevel } from './motion';
 import { gsap, ScrollTrigger } from './motion';
 import { initWireframe } from './wireframe';
 import { playWelcome } from './welcome';
@@ -13,34 +13,6 @@ function readWireframeEnabled(): boolean {
   } catch {
     return true;
   }
-}
-
-function readScanlineEnabled(): boolean {
-  try {
-    const raw = localStorage.getItem('visualSettings');
-    if (!raw) return false;
-    return Boolean(JSON.parse(raw)?.scanline);
-  } catch {
-    return false;
-  }
-}
-
-function initScanline(): void {
-  const el = document.getElementById('grid-scanline');
-  if (!el) return;
-  const level = motionLevel();
-  if (!readScanlineEnabled() || level !== 'full') {
-    el.hidden = true;
-    return;
-  }
-  el.hidden = false;
-  let y = 0;
-  const speed = 0.6;
-  registerTicker(() => {
-    y += speed;
-    if (y > window.innerHeight) y = -20;
-    el.style.transform = `translateY(${y}px)`;
-  });
 }
 
 function revealFrames(): void {
@@ -163,8 +135,6 @@ export async function initPageMotion(): Promise<void> {
   if (readWireframeEnabled()) {
     initWireframe();
   }
-  initScanline();
-
   await playWelcome();
 
   revealFrames();

@@ -2,21 +2,19 @@ import { useEffect, useRef, useState } from 'react';
 import { safeParseObjectJSON } from '../lib/shared';
 import type { VisualSettings } from '../lib/theme';
 
-const LITE_DEPENDENT: (keyof VisualSettings)[] = ['wireframe', 'scanline'];
+const LITE_DEPENDENT: (keyof VisualSettings)[] = ['wireframe'];
 
 function buildDefaults(): VisualSettings {
   const d: VisualSettings = {
     highContrast: false,
     liteMode: false,
     wireframe: true,
-    scanline: false,
     musicAutoplay: true,
     playlistType: 'song',
   };
   const isMobile = window.matchMedia('(max-width: 960px)').matches;
   if (isMobile || document.body.classList.contains('status-page')) {
     d.wireframe = false;
-    d.scanline = false;
   }
   return d;
 }
@@ -26,14 +24,8 @@ function setWireframeVisibility(enabled: boolean): void {
   if (canvas) canvas.style.display = enabled ? '' : 'none';
 }
 
-function setScanlineVisibility(enabled: boolean): void {
-  const el = document.getElementById('grid-scanline') as HTMLElement | null;
-  if (el) el.hidden = !enabled;
-}
-
 function applyEffect(key: keyof VisualSettings, enabled: boolean): void {
   if (key === 'wireframe') setWireframeVisibility(enabled);
-  if (key === 'scanline') setScanlineVisibility(enabled);
 }
 
 export default function SettingsPanel() {
@@ -67,7 +59,7 @@ export default function SettingsPanel() {
     if (merged.liteMode) root.setAttribute('data-lite', 'true');
     else root.removeAttribute('data-lite');
 
-    (['wireframe', 'scanline'] as const).forEach((key) => {
+    (['wireframe'] as const).forEach((key) => {
       const effective = merged.liteMode ? false : Boolean(merged[key]);
       applyEffect(key, effective);
     });
@@ -121,12 +113,12 @@ export default function SettingsPanel() {
       if (key === 'liteMode') {
         if (value) root.setAttribute('data-lite', 'true');
         else root.removeAttribute('data-lite');
-        (['wireframe', 'scanline'] as const).forEach((k) => {
+        (['wireframe'] as const).forEach((k) => {
           const effective = next.liteMode ? false : Boolean(next[k]);
           applyEffect(k, effective);
         });
       }
-      if (key === 'wireframe' || key === 'scanline') {
+      if (key === 'wireframe') {
         const effective = next.liteMode ? false : Boolean(value);
         applyEffect(key, effective);
       }
@@ -166,10 +158,6 @@ export default function SettingsPanel() {
           <div className={`setting-item${locked('wireframe') ? ' is-disabled' : ''}`}>
             <label htmlFor="toggle-wireframe">背景线框</label>
             <input type="checkbox" id="toggle-wireframe" className="toggle-switch" checked={check('wireframe')} disabled={locked('wireframe')} onChange={(e) => apply('wireframe', e.target.checked)} />
-          </div>
-          <div className={`setting-item${locked('scanline') ? ' is-disabled' : ''}`}>
-            <label htmlFor="toggle-scanline">网格扫描线</label>
-            <input type="checkbox" id="toggle-scanline" className="toggle-switch" checked={check('scanline')} disabled={locked('scanline')} onChange={(e) => apply('scanline', e.target.checked)} />
           </div>
           <div className="setting-item">
             <label htmlFor="toggle-autoplay">音乐自动播放</label>

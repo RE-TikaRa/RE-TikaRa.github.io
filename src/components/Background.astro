@@ -2,8 +2,9 @@
 ---
 
 <div class="bg-field" aria-hidden="true">
+  <div class="blueprint-grid"></div>
+  <div class="bg-emblem"></div>
   <canvas id="blueprint-wireframe-canvas"></canvas>
-  <div id="grid-scanline" class="grid-scanline" hidden></div>
 </div>
 
 <style>
@@ -13,6 +14,50 @@
     z-index: -1;
     pointer-events: none;
     overflow: hidden;
+  }
+
+  .blueprint-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--color-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px),
+      linear-gradient(var(--color-grid-major) 1.5px, transparent 1.5px),
+      linear-gradient(90deg, var(--color-grid-major) 1.5px, transparent 1.5px);
+    background-size:
+      var(--grid-cell) var(--grid-cell),
+      var(--grid-cell) var(--grid-cell),
+      var(--grid-major) var(--grid-major),
+      var(--grid-major) var(--grid-major);
+  }
+
+  :global(:root[data-theme='light']) .blueprint-grid {
+    background-image:
+      linear-gradient(var(--color-grid) 1px, transparent 1px),
+      linear-gradient(90deg, var(--color-grid) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--color-grid-major) 0 1px, transparent 1px 3px, var(--color-grid-major) 3px 4px, transparent 4px),
+      linear-gradient(90deg, var(--color-grid-major) 0 1px, transparent 1px 3px, var(--color-grid-major) 3px 4px, transparent 4px);
+    background-size:
+      var(--grid-cell) var(--grid-cell),
+      var(--grid-cell) var(--grid-cell),
+      100% var(--grid-major),
+      var(--grid-major) 100%;
+  }
+
+  .bg-emblem {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    height: 300px;
+    margin: -150px 0 0 -150px;
+    background: url('/c-blk-bg.png') center / contain no-repeat;
+    opacity: 0.5;
+  }
+
+  :global(:root[data-theme='dark']) .bg-emblem {
+    opacity: 0.6;
+    filter: brightness(0) invert(1);
   }
 
   #blueprint-wireframe-canvas {
@@ -28,20 +73,13 @@
     opacity: 0.65;
   }
 
-  .grid-scanline {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    height: 2px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--color-accent) 20%,
-      var(--color-accent) 80%,
-      transparent
-    );
-    opacity: 0.35;
-    will-change: transform;
+  /* intro 开场:预藏后景,由 GSAP 时间线接管显现 */
+  :global(:root.is-intro-pending) .blueprint-grid {
+    clip-path: polygon(0% 100%, 0% 100%, 0% 100%);
   }
+  :global(:root.is-intro-pending) .bg-emblem,
+  :global(:root.is-intro-pending) #blueprint-wireframe-canvas {
+    opacity: 0;
+  }
+
 </style>

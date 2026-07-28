@@ -4,7 +4,6 @@ export interface VisualSettings {
   highContrast?: boolean;
   liteMode?: boolean;
   wireframe?: boolean;
-  scanline?: boolean;
   musicAutoplay?: boolean;
   playlistType?: 'song' | 'album';
 }

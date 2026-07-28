@@ -29,6 +29,14 @@
         <dd class="profile-stat__val data-field">35.9N 104.1E</dd>
       </div>
     </dl>
+    <div class="profile-clock">
+      <p class="clock-time data-field" id="clock-time">--:--:--</p>
+      <p class="clock-date data-field" id="today">——</p>
+      <div class="clock-meta">
+        <span class="clock-weekday data-field" id="clock-weekday">——</span>
+        <span class="clock-tz data-field">UTC+08</span>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -42,14 +50,14 @@
     flex: 1;
     display: flex;
     align-items: center;
-    gap: 1.5rem;
+    gap: 2.4rem;
   }
   .avatar-large {
     flex-shrink: 0;
-    width: 96px;
-    height: 96px;
+    width: 150px;
+    height: 150px;
     border: var(--frame-border-width) solid var(--color-border);
-    padding: 3px;
+    padding: 4px;
     background: var(--color-surface-sunk);
   }
   .profile-text {
@@ -60,7 +68,8 @@
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    justify-content: center;
+    gap: 0.6rem;
     margin: 0;
     padding-left: 1.5rem;
     border-left: 1px dashed var(--color-grid-major);
@@ -72,12 +81,12 @@
     gap: 1.2rem;
   }
   .profile-stat__key {
-    font-size: 0.62rem;
+    font-size: 0.72rem;
     letter-spacing: 0.14em;
     color: var(--color-ink-dim);
   }
   .profile-stat__val {
-    font-size: 0.78rem;
+    font-size: 0.92rem;
     letter-spacing: 0.06em;
     color: var(--color-ink);
   }
@@ -94,8 +103,50 @@
     background: var(--color-accent);
     vertical-align: middle;
   }
+  .profile-clock {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.6rem;
+    padding-left: 1.5rem;
+    border-left: 1px dashed var(--color-grid-major);
+  }
+  .clock-time {
+    font-family: var(--font-data);
+    font-size: 2.6rem;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    color: var(--color-accent);
+    margin: 0;
+  }
+  .clock-date {
+    font-size: 1.15rem;
+    letter-spacing: 0.02em;
+    color: var(--color-ink);
+    margin: 0;
+  }
+  .clock-meta {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1.2rem;
+    margin-top: 0.2rem;
+    padding-top: 0.6rem;
+    border-top: 1px dashed var(--color-grid-major);
+  }
+  .clock-weekday {
+    font-size: 1.02rem;
+    color: var(--color-ink);
+  }
+  .clock-tz {
+    font-family: var(--font-data);
+    font-size: 0.74rem;
+    letter-spacing: 0.14em;
+    color: var(--color-ink-dim);
+  }
   @media (max-width: 780px) {
-    .profile-stats {
+    .profile-clock {
       display: none;
     }
   }
@@ -108,23 +159,23 @@
   }
   .profile-name {
     font-family: var(--font-display);
-    font-size: 2rem;
+    font-size: 2.8rem;
     letter-spacing: 0.01em;
-    margin-bottom: 0.35rem;
+    margin-bottom: 0.5rem;
   }
   .profile-greeting {
     font-family: var(--font-data);
-    font-size: 0.9rem;
+    font-size: 1.05rem;
     letter-spacing: 0.06em;
     color: var(--color-accent);
-    margin: 0 0 0.6rem;
+    margin: 0 0 0.8rem;
     min-height: 1.4em;
   }
   .profile-greeting :global(span) {
     display: inline-block;
   }
   .profile-desc {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     color: var(--color-ink-dim);
     padding-left: 0.7rem;
     border-left: 2px solid var(--color-grid-major);

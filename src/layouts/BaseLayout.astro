@@ -54,6 +54,8 @@ const {
         if (visual.highContrast) root.setAttribute('data-contrast', 'high');
         if (visual.liteMode) root.setAttribute('data-lite', 'true');
         root.classList.add('is-frame-pending');
+        const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!reduced) root.classList.add('is-intro-pending');
       })();
     </script>
 
