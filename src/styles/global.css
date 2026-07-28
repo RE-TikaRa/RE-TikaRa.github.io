@@ -437,6 +437,30 @@
     border-right-width: 1.5px;
   }
 
+  /* 仪表盘卡 hover 微交互:抬升 + 描边转主题色 + CAD 角标延伸 */
+  @media (prefers-reduced-motion: no-preference) {
+    .plan-cell .blueprint-frame {
+      transition:
+        transform 0.18s var(--ease-draw),
+        border-color 0.18s var(--ease-linear);
+    }
+    .plan-cell .blueprint-frame::before,
+    .plan-cell .blueprint-frame::after {
+      transition:
+        width 0.18s var(--ease-draw),
+        height 0.18s var(--ease-draw);
+    }
+    .plan-cell .blueprint-frame:hover {
+      transform: translateY(-3px);
+      border-color: var(--color-accent);
+    }
+    .plan-cell .blueprint-frame:hover::before,
+    .plan-cell .blueprint-frame:hover::after {
+      width: 16px;
+      height: 16px;
+    }
+  }
+
   /* 图框标题:工程标注风 + 尺寸标注线分隔 */
   .frame-label {
     display: flex;
