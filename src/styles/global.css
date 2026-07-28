@@ -171,7 +171,9 @@
     radial-gradient(circle at 72% 58%, rgba(150, 118, 70, 0.045) 0 2px, transparent 2px),
     radial-gradient(circle at 44% 84%, rgba(150, 118, 70, 0.04) 0 1.5px, transparent 1.5px),
     linear-gradient(var(--color-grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px);
+    linear-gradient(90deg, var(--color-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-grid-major) 0 1px, transparent 1px 3px, var(--color-grid-major) 3px 4px, transparent 4px),
+    linear-gradient(90deg, var(--color-grid-major) 0 1px, transparent 1px 3px, var(--color-grid-major) 3px 4px, transparent 4px);
   background-size:
     100% 100%,
     100% 100%,
@@ -180,12 +182,14 @@
     240px 240px,
     200px 200px,
     var(--grid-cell) var(--grid-cell),
-    var(--grid-cell) var(--grid-cell);
-  background-attachment: fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed;
+    var(--grid-cell) var(--grid-cell),
+    100% var(--grid-major),
+    var(--grid-major) 100%;
+  background-attachment: fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed, fixed;
 }
 :root[data-theme='light'] {
-  --color-grid: rgba(90, 68, 38, 0.05);
-  --color-grid-major: rgba(90, 68, 38, 0.16);
+  --color-grid: rgba(90, 68, 38, 0.11);
+  --color-grid-major: rgba(90, 68, 38, 0.24);
 }
 
 /* 图框墨迹化:柔边框 + 纸面微渐变 + 柔阴影 */
