@@ -48,10 +48,10 @@ const run = async () => {
   const themeAfter = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
   assert('theme toggle 翻转 data-theme', themeBefore !== themeAfter, `${themeBefore} → ${themeAfter}`);
 
-  const hiddenBefore = await page.evaluate(() => document.getElementById('settings-panel')?.hidden);
+  const hiddenBefore = await page.evaluate(() => document.getElementById('settings-overlay')?.hidden);
   await page.click('#settings-toggle');
   await page.waitForTimeout(300);
-  const hiddenAfter = await page.evaluate(() => document.getElementById('settings-panel')?.hidden);
+  const hiddenAfter = await page.evaluate(() => document.getElementById('settings-overlay')?.hidden);
   assert('设置面板可开合', hiddenBefore !== hiddenAfter, `hidden ${hiddenBefore} → ${hiddenAfter}`);
 
   await page.goto(`${BASE}/projects/`, { waitUntil: 'networkidle' });

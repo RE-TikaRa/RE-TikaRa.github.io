@@ -33,6 +33,17 @@ const links = [
         <span class={l.latin ? 'is-latin' : undefined} lang={l.latin ? 'en' : undefined}>{l.label}</span>
       </a>
     ))}
+    <button
+      id="settings-toggle"
+      type="button"
+      class="tb-link tb-link--btn"
+      aria-label="打开设置"
+      aria-expanded="false"
+      aria-controls="settings-panel"
+    >
+      <i class="fa-solid fa-gear" aria-hidden="true"></i>
+      <span>设定</span>
+    </button>
   </nav>
   <dl class="tb-cell tb-meta">
     <div class="tb-meta-row"><dt>DWG</dt><dd class="data-field">ALP-01</dd></div>

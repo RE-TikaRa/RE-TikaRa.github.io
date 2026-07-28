@@ -38,8 +38,9 @@ import Cli from '../components/Cli.tsx';
       <div class="plan-cell plan-hitokoto"><HitokotoCard client:idle /></div>
       <div class="plan-cell plan-clock"><DateCard /></div>
       <div class="plan-cell plan-music"><MusicCard client:idle /></div>
-      <div class="plan-cell plan-articles"><ArticlesCard /></div>
     </div>
+
+    <div class="plan-cell plan-articles"><ArticlesCard /></div>
   </div>
 
   <Cli client:idle />
@@ -134,7 +135,6 @@ import Cli from '../components/Cli.tsx';
       title.textContent = text;
       item.appendChild(title);
       list.appendChild(item);
-      container.hidden = false;
     };
 
     try {
@@ -172,7 +172,6 @@ import Cli from '../components/Cli.tsx';
         fragment.appendChild(item);
       });
       list.appendChild(fragment);
-      container.hidden = false;
     } catch (error) {
       console.error('Failed to load articles:', error);
       renderPlaceholder('文章加载失败');

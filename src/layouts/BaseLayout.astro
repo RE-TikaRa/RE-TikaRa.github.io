@@ -67,36 +67,25 @@ const {
   <body class={bodyClass}>
     <a class="skip-link" href="#main-content">跳到主要内容</a>
 
-    <Background />
-
-    <div class="settings-wrapper">
-      <button
-        id="settings-toggle"
-        type="button"
-        aria-label="打开设置"
-        aria-expanded="false"
-        aria-controls="settings-panel"
-      >
-        <i class="fa-solid fa-gear" aria-hidden="true"></i>
-        <span class="icon-text">设定</span>
-      </button>
-    </div>
-
     <SettingsPanel client:idle />
     <ThemeToggle client:idle />
 
-    <slot />
+    <div class="page-shell">
+      <Background />
 
-    <footer class="site-footer">
-      <p>
-        //  实例仍在运行  日志尚未终止  //
-        <span class="is-latin" lang="en">The instance is still running; the logs haven't terminated.</span>
-      </p>
-    </footer>
+      <slot />
 
-    <button id="back-to-top" type="button" aria-label="返回顶部" hidden>
-      <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-    </button>
+      <footer class="site-footer">
+        <p>
+          //  实例仍在运行  日志尚未终止  //
+          <span class="is-latin" lang="en">The instance is still running; the logs haven't terminated.</span>
+        </p>
+      </footer>
+
+      <button id="back-to-top" type="button" aria-label="返回顶部" hidden>
+        <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
+      </button>
+    </div>
 
     <script>
       import { initPageMotion } from '../lib/page-motion';
@@ -106,38 +95,6 @@ const {
 </html>
 
 <style>
-  .settings-wrapper {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    z-index: 100;
-  }
-
-  #settings-toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.45rem 0.8rem;
-    font-family: var(--font-data);
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--color-ink);
-    background: var(--color-surface);
-    border: var(--frame-border-width) solid var(--color-border);
-    box-shadow: var(--frame-shadow);
-    cursor: pointer;
-    transition: transform 0.12s var(--ease-linear), box-shadow 0.12s var(--ease-linear);
-  }
-  #settings-toggle:hover {
-    transform: translate(-1px, -1px);
-    box-shadow: 4px 4px 0 var(--color-border);
-  }
-  #settings-toggle:active {
-    transform: translate(1px, 1px);
-    box-shadow: 1px 1px 0 var(--color-border);
-  }
-
   .site-footer {
     padding: 2rem 1.5rem 3rem;
     text-align: center;

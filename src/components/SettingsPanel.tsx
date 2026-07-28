@@ -100,6 +100,13 @@ export default function SettingsPanel() {
     toggle?.setAttribute('aria-expanded', String(open));
   }, [open]);
 
+  useEffect(() => {
+    const body = document.body;
+    if (open) body.setAttribute('data-settings-open', '');
+    else body.removeAttribute('data-settings-open');
+    return () => body.removeAttribute('data-settings-open');
+  }, [open]);
+
   const apply = <K extends keyof VisualSettings>(key: K, value: VisualSettings[K]) => {
     setSettings((prev) => {
       const next = { ...prev, [key]: value };
@@ -135,44 +142,46 @@ export default function SettingsPanel() {
   const locked = (key: keyof VisualSettings) => liteLocked && LITE_DEPENDENT.includes(key);
 
   return (
-    <div id="settings-panel" ref={panelRef} className="blueprint-frame" hidden={!open}>
-      <div className="settings-header">
-        <h3>显示设置</h3>
-        <button id="settings-close" type="button" aria-label="关闭设置" onClick={() => setOpen(false)}>
-          &times;
-        </button>
-      </div>
-      <div className="settings-content">
-        <div className="setting-item">
-          <label htmlFor="toggle-theme-mode">深色模式</label>
-          <input type="checkbox" id="toggle-theme-mode" className="toggle-switch" checked={isDark} onChange={() => document.getElementById('theme-toggle')?.click()} />
+    <div id="settings-overlay" hidden={!open}>
+      <div id="settings-panel" ref={panelRef} className="blueprint-frame settings-modal">
+        <div className="settings-header">
+          <h3>显示设置</h3>
+          <button id="settings-close" type="button" aria-label="关闭设置" onClick={() => setOpen(false)}>
+            &times;
+          </button>
         </div>
-        <div className="setting-item">
-          <label htmlFor="toggle-high-contrast">高对比模式</label>
-          <input type="checkbox" id="toggle-high-contrast" className="toggle-switch" checked={check('highContrast')} onChange={(e) => apply('highContrast', e.target.checked)} />
-        </div>
-        <div className="setting-item">
-          <label htmlFor="toggle-lite-mode">轻量模式</label>
-          <input type="checkbox" id="toggle-lite-mode" className="toggle-switch" checked={check('liteMode')} onChange={(e) => apply('liteMode', e.target.checked)} />
-        </div>
-        <div className={`setting-item${locked('wireframe') ? ' is-disabled' : ''}`}>
-          <label htmlFor="toggle-wireframe">背景线框</label>
-          <input type="checkbox" id="toggle-wireframe" className="toggle-switch" checked={check('wireframe')} disabled={locked('wireframe')} onChange={(e) => apply('wireframe', e.target.checked)} />
-        </div>
-        <div className={`setting-item${locked('scanline') ? ' is-disabled' : ''}`}>
-          <label htmlFor="toggle-scanline">网格扫描线</label>
-          <input type="checkbox" id="toggle-scanline" className="toggle-switch" checked={check('scanline')} disabled={locked('scanline')} onChange={(e) => apply('scanline', e.target.checked)} />
-        </div>
-        <div className="setting-item">
-          <label htmlFor="toggle-autoplay">音乐自动播放</label>
-          <input type="checkbox" id="toggle-autoplay" className="toggle-switch" checked={check('musicAutoplay')} onChange={(e) => apply('musicAutoplay', e.target.checked)} />
-        </div>
-        <div className="setting-item">
-          <label htmlFor="toggle-playlist-type">播放列表</label>
-          <select id="toggle-playlist-type" className="select-switch" value={settings.playlistType || 'song'} onChange={(e) => apply('playlistType', e.target.value as 'song' | 'album')}>
-            <option value="song">单曲</option>
-            <option value="album">专辑</option>
-          </select>
+        <div className="settings-content">
+          <div className="setting-item">
+            <label htmlFor="toggle-theme-mode">深色模式</label>
+            <input type="checkbox" id="toggle-theme-mode" className="toggle-switch" checked={isDark} onChange={() => document.getElementById('theme-toggle')?.click()} />
+          </div>
+          <div className="setting-item">
+            <label htmlFor="toggle-high-contrast">高对比模式</label>
+            <input type="checkbox" id="toggle-high-contrast" className="toggle-switch" checked={check('highContrast')} onChange={(e) => apply('highContrast', e.target.checked)} />
+          </div>
+          <div className="setting-item">
+            <label htmlFor="toggle-lite-mode">轻量模式</label>
+            <input type="checkbox" id="toggle-lite-mode" className="toggle-switch" checked={check('liteMode')} onChange={(e) => apply('liteMode', e.target.checked)} />
+          </div>
+          <div className={`setting-item${locked('wireframe') ? ' is-disabled' : ''}`}>
+            <label htmlFor="toggle-wireframe">背景线框</label>
+            <input type="checkbox" id="toggle-wireframe" className="toggle-switch" checked={check('wireframe')} disabled={locked('wireframe')} onChange={(e) => apply('wireframe', e.target.checked)} />
+          </div>
+          <div className={`setting-item${locked('scanline') ? ' is-disabled' : ''}`}>
+            <label htmlFor="toggle-scanline">网格扫描线</label>
+            <input type="checkbox" id="toggle-scanline" className="toggle-switch" checked={check('scanline')} disabled={locked('scanline')} onChange={(e) => apply('scanline', e.target.checked)} />
+          </div>
+          <div className="setting-item">
+            <label htmlFor="toggle-autoplay">音乐自动播放</label>
+            <input type="checkbox" id="toggle-autoplay" className="toggle-switch" checked={check('musicAutoplay')} onChange={(e) => apply('musicAutoplay', e.target.checked)} />
+          </div>
+          <div className="setting-item">
+            <label htmlFor="toggle-playlist-type">播放列表</label>
+            <select id="toggle-playlist-type" className="select-switch" value={settings.playlistType || 'song'} onChange={(e) => apply('playlistType', e.target.value as 'song' | 'album')}>
+              <option value="song">单曲</option>
+              <option value="album">专辑</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>
