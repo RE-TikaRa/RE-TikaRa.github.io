@@ -579,6 +579,9 @@
 
   /* --- 工程图签(品牌 + 导航 + 元数据) --- */
   .title-block {
+    position: sticky;
+    top: 0;
+    z-index: 80;
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 2.2fr) minmax(0, 0.9fr);
     max-width: calc(1240px - 4.8rem);
@@ -586,6 +589,15 @@
     border: var(--frame-border-width) solid var(--color-border);
     box-shadow: var(--frame-shadow);
     background: var(--color-surface);
+    transition: max-width 0.3s var(--ease-draw), margin 0.3s var(--ease-draw);
+  }
+  /* 下滑:展开成贴浏览器顶边、左右铺满的全宽通栏 */
+  .title-block.is-docked {
+    max-width: none;
+    margin: 0 0 0.25rem;
+    border-top: none;
+    border-left: none;
+    border-right: none;
   }
   .tb-cell {
     padding: 0.85rem 1rem;

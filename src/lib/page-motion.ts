@@ -111,6 +111,14 @@ function revealFrames(): void {
   }
 }
 
+function initNavDock(): void {
+  const nav = document.querySelector<HTMLElement>('.title-block');
+  if (!nav) return;
+  const sync = () => nav.classList.toggle('is-docked', window.scrollY > 40);
+  sync();
+  window.addEventListener('scroll', sync, { passive: true });
+}
+
 function initViewTransitions(): void {
   if (!document.startViewTransition) return;
   if (window.matchMedia('(max-width: 960px)').matches) return;
@@ -160,5 +168,6 @@ export async function initPageMotion(): Promise<void> {
   await playWelcome();
 
   revealFrames();
+  initNavDock();
   initViewTransitions();
 }
