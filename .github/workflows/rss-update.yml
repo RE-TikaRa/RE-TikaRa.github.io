@@ -31,7 +31,7 @@ jobs:
           
           # Create a temporary directory for the artifact
           mkdir -p /tmp/rss-artifact
-          cp config.json /tmp/rss-artifact/config.json
+          cp public/config.json /tmp/rss-artifact/config.json
           
           # Switch to orphan branch
           git checkout --orphan rss-data

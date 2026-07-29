@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 
-const configUrl = new URL('../config.json', import.meta.url);
+const configUrl = new URL('../public/config.json', import.meta.url);
 const statusUrl = new URL('../status.json', import.meta.url);
 
 const fullConfig = JSON.parse(await fs.readFile(configUrl, 'utf-8'));

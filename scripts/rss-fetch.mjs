@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 
-const configPath = new URL('../config.json', import.meta.url);
+const configPath = new URL('../public/config.json', import.meta.url);
 
 async function fetchRSS() {
     try {
